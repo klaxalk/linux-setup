@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/penn_controller/config_simulation'
+let g:netrw_dirhist_2='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/penn_controller/config_f550'
+let g:netrw_dirhist_3='/home/klaxalk/ros_workspace/.catkin_tools'
+let g:netrw_dirhist_4='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/cross_detect_simulator/config'
+let g:netrw_dirhist_5='/home/klaxalk/.vim'
+let g:netrw_dirhist_6='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/mbzirc_trackers/config'
+let g:netrw_dirhist_7='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/penn_controller/config_simulation'
+let g:netrw_dirhist_8='/home/klaxalk/.tmux'
