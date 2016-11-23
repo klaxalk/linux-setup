@@ -8,7 +8,6 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 
 # define paths
 APPCONFIG_PATH=$MY_PATH/appconfig
-SUBMODULES_PATH=$MY_PATH/submodules
 
 # install packages
 # vim sl ranger git cmake ccmake
@@ -18,13 +17,13 @@ sudo apt-get install vim ranger sl git indicator-multiload figlet toilet gem rub
 mkdir ~/git
 
 # download, compile and install tmux
-source $APPCONFIG_PATH/tmux/install.sh
+bash $APPCONFIG_PATH/tmux/install.sh
 
 # compile and install tmuxinator
-source $APPCONFIG_PATH/tmuxinator/install.sh
+bash $APPCONFIG_PATH/tmuxinator/install.sh
 
 # copy vim settings
-source $APPCONFIG_PATH/vim/install.sh
+bash $APPCONFIG_PATH/vim/install.sh
 
 # add sourcing of dotbashrd to .bashrc
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
