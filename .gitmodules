@@ -4,3 +4,6 @@
 [submodule "submodules/tmux-resurrect"]
 	path = submodules/tmux-resurrect
 	url = git@github.com:klaxalk/tmux-resurrect.git
+[submodule "submodules/tmux"]
+	path = submodules/tmux
+	url = git@github.com:klaxalk/tmux.git
