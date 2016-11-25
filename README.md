@@ -34,7 +34,7 @@ Here I describe the most important keybindings and shortcuts..
 - **F2** go to vim edit mode
 - **__PREFIX__ p** paste yanked text (from vim edit mode)
 
-TMUX-RESURRECT can be used to save a staate of a single sesstion. Use following keys to control it.
+TMUX-RESURRECT can be used to save a state of a single session. Use following keys to control it.
 
 - **__PREFIX__ ctrl+s** save current session using tmux-resurrect
 - **__PREFIX__ ctrl+r** resurrect previously saved session
