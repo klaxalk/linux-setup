@@ -14,6 +14,9 @@ git clone --recursive https://github.com/klaxalk/linux-setup.git
 cd linux-setup
 ./install.sh
 ```
+
+**Calling install.sh repeatedly** will not cause acumulation of gibrish in your .bashrc, so feel free to update your configuration by rerunning it.
+
 # How to work with my setup?
 
 Here I describe the most important keybindings and shortcuts..
