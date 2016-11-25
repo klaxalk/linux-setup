@@ -20,20 +20,20 @@ Here I describe the most important keybindings and shortcuts..
 
 ## TMUX shortcuts
 
-**ctrl+a** tmux prefix
-**prefix w** list windows
-**ctrl t** create new window
-**shift left** switch to previous windows
-**shift right** switch to next windows
-**ctrl s** horizontal split
-**ctrl d** vertical split
-**alt <-** switch to left split pane
-**alt ->** switch to right split pane
-**prefix q** kill current tmux session
-**prefix space** switch panel configuration
-**F2** go to vim edit mode
-**prefix p** paste yanked text (from vim edit mode)
-**prefix ctrl+s** save current session using tmux-resurrect
-**prefix ctrl+r** resurrect previously saved session
-**shift down** gain control of embedded tmux
-**shift up** regain control of thr mother tmux
+- **ctrl+a** tmux prefix
+- **prefix w** list windows
+- **ctrl t** create new window
+- **shift left** switch to previous windows
+- **shift right** switch to next windows
+- **ctrl s** horizontal split
+- **ctrl d** vertical split
+- **alt <-** switch to left split pane
+- **alt ->** switch to right split pane
+- **prefix q** kill current tmux session
+- **prefix space** switch panel configuration
+- **F2** go to vim edit mode
+- **prefix p** paste yanked text (from vim edit mode)
+- **prefix ctrl+s** save current session using tmux-resurrect
+- **prefix ctrl+r** resurrect previously saved session
+- **shift down** gain control of embedded tmux
+- **shift up** regain control of thr mother tmux
