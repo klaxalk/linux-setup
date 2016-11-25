@@ -20,8 +20,8 @@ Here I describe the most important keybindings and shortcuts..
 
 ## TMUX shortcuts
 
-- **ctrl+a** tmux prefix
-- **prefix w** list windows
+- **ctrl+a** tmux **__PREFIX__**
+- **__PREFIX__** w** list windows
 - **ctrl t** create new window
 - **shift left** switch to previous windows
 - **shift right** switch to next windows
@@ -29,11 +29,25 @@ Here I describe the most important keybindings and shortcuts..
 - **ctrl d** vertical split
 - **alt <-** switch to left split pane
 - **alt ->** switch to right split pane
-- **prefix q** kill current tmux session
-- **prefix space** switch panel configuration
+- **__PREFIX__** q** kill current tmux session
+- **__PREFIX__** space** switch panel configuration
 - **F2** go to vim edit mode
-- **prefix p** paste yanked text (from vim edit mode)
-- **prefix ctrl+s** save current session using tmux-resurrect
-- **prefix ctrl+r** resurrect previously saved session
-- **shift down** gain control of embedded tmux
+- **__PREFIX__** p** paste yanked text (from vim edit mode)
+
+TMUX-RESURRECT can be used to save a staate of a single sesstion. Use following keys to control it.
+
+- **__PREFIX__** ctrl+s** save current session using tmux-resurrect
+- **__PREFIX__** ctrl+r** resurrect previously saved session
+
+My tmux setup allows to nest tmux sessions. Key shortcuts are prepared to switch focus between nested and mother sessions.
+
+- **shift down** gain control of nested tmux
 - **shift up** regain control of thr mother tmux
+
+## TMUXINATOR
+
+I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no changes to it. I suggest to read its tutorials.
+
+## VIM
+
+No modifications were made to vim's behaviour.
