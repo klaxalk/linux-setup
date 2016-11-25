@@ -20,7 +20,8 @@ Here I describe the most important keybindings and shortcuts..
 
 ## TMUX shortcuts
 
-- **ctrl+a** tmux prefix
+- **ctrl+a** tmux **__PREFIX__**
+
 - **prefix w** list windows
 - **ctrl t** create new window
 - **shift left** switch to previous windows
