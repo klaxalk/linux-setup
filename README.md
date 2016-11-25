@@ -21,24 +21,23 @@ Here I describe the most important keybindings and shortcuts..
 ## TMUX shortcuts
 
 - **ctrl+a** tmux **__PREFIX__**
-- **__PREFIX__** w** list windows
+- **__PREFIX__ w** list windows
 - **ctrl t** create new window
 - **shift left** switch to previous windows
 - **shift right** switch to next windows
 - **ctrl s** horizontal split
 - **ctrl d** vertical split
-<<<<<<< HEAD
-- **alt <-** switch to left split pane
-- **alt ->** switch to right split pane
-- **__PREFIX__** q** kill current tmux session
-- **__PREFIX__** space** switch panel configuration
+- **alt left** switch to left split pane
+- **alt right** switch to right split pane
+- **__PREFIX__ q** kill current tmux session
+- **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
-- **__PREFIX__** p** paste yanked text (from vim edit mode)
+- **__PREFIX__ p** paste yanked text (from vim edit mode)
 
 TMUX-RESURRECT can be used to save a staate of a single sesstion. Use following keys to control it.
 
-- **__PREFIX__** ctrl+s** save current session using tmux-resurrect
-- **__PREFIX__** ctrl+r** resurrect previously saved session
+- **__PREFIX__ ctrl+s** save current session using tmux-resurrect
+- **__PREFIX__ ctrl+r** resurrect previously saved session
 
 My tmux setup allows to nest tmux sessions. Key shortcuts are prepared to switch focus between nested and mother sessions.
 
