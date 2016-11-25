@@ -1,0 +1,9 @@
+[submodule "submodules/tmux"]
+	path = submodules/tmux
+	url = https://github.com/klaxalk/tmux.git
+[submodule "submodules/tmux-resurrect"]
+	path = submodules/tmux-resurrect
+	url = https://github.com/klaxalk/tmux-resurrect.git
+[submodule "submodules/tmuxinator"]
+	path = submodules/tmuxinator
+	url = https://github.com/klaxalk/tmuxinator.git
