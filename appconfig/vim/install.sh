@@ -13,7 +13,7 @@ if [[ $response =~ ^(yes|y| ) ]]; then
 
   # symlink vim settings
   rm ~/.vimrc
-  rm ~/.vim
+  rm -rf ~/.vim
   ln -s $APP_PATH/dotvimrc ~/.vimrc
   ln -s $APP_PATH/dotvim ~/.vim
 
