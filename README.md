@@ -27,6 +27,7 @@ Here I describe the most important keybindings and shortcuts..
 - **shift right** switch to next windows
 - **ctrl s** horizontal split
 - **ctrl d** vertical split
+<<<<<<< HEAD
 - **alt <-** switch to left split pane
 - **alt ->** switch to right split pane
 - **__PREFIX__** q** kill current tmux session
