@@ -32,8 +32,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-  # sourcing tomas's tmux preparation
-  source $MY_PATH/dotbashrc" >> ~/.bashrc
+# sourcing tomas's tmux preparation
+source $MY_PATH/dotbashrc" >> ~/.bashrc
 
 else
 

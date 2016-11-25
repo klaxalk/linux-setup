@@ -40,4 +40,3 @@ windows:
         - sleep 0; while true; do sl; done
         - sleep 1; while true; do sl; done
         - sleep 2; while true; do sl; done
-        - sleep 3; while true; do sl; done
