@@ -10,6 +10,7 @@ To clone and install everything run following code:
 ```bash
 mkdir -p ~/git
 cd ~/git
+sudo apt-get install git
 git clone --recursive https://github.com/klaxalk/linux-setup.git
 cd linux-setup
 ./install.sh
