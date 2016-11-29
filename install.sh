@@ -13,8 +13,9 @@ APPCONFIG_PATH=$MY_PATH/appconfig
 # vim sl ranger git cmake ccmake
 sudo apt-get install vim ranger sl git indicator-multiload figlet toilet gem ruby build-essential
 
-# make git folder in home
-mkdir ~/git
+# update git submodules
+git submodule init
+git submodule update
 
 # download, compile and install tmux
 bash $APPCONFIG_PATH/tmux/install.sh
