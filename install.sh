@@ -26,6 +26,20 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+# add variable for path to the git repository
+num=`cat ~/.bashrc | grep "GIT_PATH" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+  TEMP=`( cd "$MY_PATH/../" && pwd )`
+
+  echo "Adding GIT_PATH variable to .bashrc"
+  # set bashrc
+  echo "
+# path to the git root
+export GIT_PATH=$TEMP" >> ~/.bashrc
+
+fi
+
 # add sourcing of dotbashrd to .bashrc
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
