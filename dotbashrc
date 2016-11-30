@@ -20,4 +20,4 @@ trap _trap_exit EXIT
 #fi
 
 # source tmuxinator
-source ~/git/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
+source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
