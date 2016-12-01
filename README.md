@@ -33,7 +33,7 @@ Here I describe the most important keybindings and shortcuts..
 - **ctrl d** vertical split
 - **alt left** switch to left split pane
 - **alt right** switch to right split pane
-- **__PREFIX__ q** kill current tmux session
+- **__PREFIX__ k** kill current tmux session
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
 - **__PREFIX__ p** paste yanked text (from vim edit mode)
