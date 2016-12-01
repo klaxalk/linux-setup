@@ -13,11 +13,11 @@ _trap_exit() { tmux kill-session -t $$; }
 trap _trap_exit EXIT                                                                                  
 
 # load tmux automatically                                                                             
-#if command -v tmux>/dev/null; then                                                                    
-#  if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
-#    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmuxn                                                  
-#  fi                                                                                                  
-#fi
+if command -v tmux>/dev/null; then                                                                    
+  if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmuxn                                                  
+  fi                                                                                                  
+fi
 
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
