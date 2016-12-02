@@ -40,6 +40,30 @@ export GIT_PATH=$TEMP" >> ~/.bashrc
 
 fi
 
+num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+  # ask whether to run tmux with new terminal
+  read -r -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' response
+  
+  response=${response,,} # tolower
+  if [[ $response =~ ^(yes|y| ) ]]; then
+  
+    echo "
+# want to run tmux automatically with new terminal?
+export RUN_TMUX=true" >> ~/.bashrc
+  
+    echo "Setting variable RUN_TMUX to true"
+  else
+  
+    echo "
+# want to run tmux automatically with new terminal?
+export RUN_TMUX=false" >> ~/.bashrc
+  
+    echo "Setting variable RUN_TMUX to false"
+  fi
+fi
+
 # add sourcing of dotbashrd to .bashrc
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
