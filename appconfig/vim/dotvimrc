@@ -33,7 +33,7 @@ set scrolloff=8                 " keep n context lines above/below cursor
 set showmatch                   " brief jump to matching paren
 set nowrap                      " dont wrap text
 set autoindent                  " always autoindent on
-set copyindent                  " Copy the previous indent on autoindent
+set smartindent
 set expandtab                   " tab inserts spaces
 set softtabstop=2
 set shiftwidth=2
@@ -62,7 +62,8 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunc
-nnoremap <leader>N :call NumberToggle()<cr>
+
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " Absolute line numbers on insert mode
 " autocmd InsertEnter * :set number
@@ -98,19 +99,15 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'     
 
-" more natural splits
-set splitbelow
-set splitright
+" APROOVED BY TOMAS
+
+" map the leader key
+let mapleader = ","
 
 " should fix colors in tmux
 set term=screen-256color
 
-" disable arrows
-" inoremap  <Up>     <NOP>
-" inoremap  <Down>   <NOP>
-" inoremap  <Left>   <NOP>
-" inoremap  <Right>  <NOP>
-" noremap   <Up>     <NOP>
-" noremap   <Down>   <NOP>
-" noremap   <Left>   <NOP>
-" noremap   <Right>  <NOP>
+" more natural splits
+set splitbelow
+set splitright
+
