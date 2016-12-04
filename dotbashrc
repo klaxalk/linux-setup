@@ -12,6 +12,22 @@ alias tmuxn='tmux new-session -s $$'
 _trap_exit() { tmux kill-session -t $$; }                                                             
 trap _trap_exit EXIT                                                                                  
 
+# allows killing process with all its children
+killp () {
+
+  pes=$1
+  
+	for child in $(ps -o pid,ppid -ax | \
+   awk "{ if ( \$2 == $pes ) { print \$1 }}")
+  do
+    # echo "Killing child process $child because ppid = $pes"
+    killp $child
+  done
+        
+  # echo "killing $1"
+  kill -9 $1 > /dev/null 2> /dev/null
+}
+
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
