@@ -48,6 +48,10 @@ My tmux setup allows to nest tmux sessions. Key shortcuts are prepared to switch
 - **shift down** gain control of nested tmux
 - **shift up** regain control of thr mother tmux
 
+### Custom TMUX config
+
+If you wish to use your own tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.
+
 ## TMUXINATOR
 
 I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no changes to it. I suggest to read its tutorials.
