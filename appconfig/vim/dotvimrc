@@ -1,105 +1,47 @@
-set nocompatible
-set t_Co=256        " 256 colors
+set nocompatible              " be iMproved, required by Vundle
+filetype off                  " required by Vundle
 
-set background=dark
-if &diff
-	syntax off " disable syntax highlighting
-  let g:solarized_termcolors=256
-  colorscheme solarized
-  let g:solarized_diffmode="high"
-  " highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
-  " highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
-  " highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-  " highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
-else
-  syntax on " enable syntax highlighting
-  colorscheme jellybeans
+"""""
+""""" CONFIGURE VUNDLE PLUGIN MANAGER
+"""""
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin("~/.vim/VundlePlugins")
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" A colorful, dark color scheme
+Plugin 'nanotech/jellybeans.vim'
+
+" A Vim plugin which shows a git diff in the 'gutter' (sign column).
+Plugin 'airblade/vim-gitgutter'
+
+" ifugitive.vim: a Git wrapper so awesome, it should be illegal
+Plugin 'tpope/vim-fugitive'
+
+" Lean & mean status/tabline for vim that's light as air.
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+set laststatus=2					" allow running without splitting
+let g:airline_powerline_fonts = 1			" allow airline symbols
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
 endif
+let g:airline_symbols.branch = '⎇ '			" redefine branch symbol
 
-" load pathogen, requires filetype off so we do it first
-filetype off
-execute pathogen#infect()
-"call pathogen#helptags()
+" integration with tmux
+Plugin 'benmills/vimux'
 
-" associate *.launch with xml filetype
-au BufRead,BufNewFile *.launch setfiletype xml
+" All of your Plugins must be added before the following line
+call vundle#end()            " required by Vundle
+filetype plugin indent on    " required by Vundle
 
-set title
-set cursorline
-
-filetype on
-filetype plugin indent on
-set scrolloff=8                 " keep n context lines above/below cursor
-set showmatch                   " brief jump to matching paren
-set nowrap                      " dont wrap text
-set autoindent                  " always autoindent on
-set smartindent
-set expandtab                   " tab inserts spaces
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-set number
-set ls=2
-set cursorcolumn
-" set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"set hlsearch
-"hi Search guibg=LightBlue
-"hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
-"set ruler               " Show some info, even without statuslines.
-
-" let g:solarized_termcolors=256
-" colorscheme solarized
-
-" For word-level diff (depends on diffchar.vim)
-let g:DiffUnit="Word1"
-
-" Switch between relative and absolute line numbers with leader-N
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set number
-    else
-        set relativenumber
-    endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" Absolute line numbers on insert mode
-" autocmd InsertEnter * :set number
-" autocmd InsertLeave * :set relativenumber
-
-" searching and patterns
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-
-" Remove trailing whitespace on <leader>S
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Wildmenu
-if has("wildmenu")
-  set wildignore+=*.a,*.o
-  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-  set wildignore+=.DS_Store,.git,.hg,.svn
-  set wildignore+=*~,*.swp,*.tmp
-  set wildmenu
-  set wildmode=longest,list
-endif
-
-" imap <Tab> <C-P>
-
-nmap <leader>l :!rubber -df %<CR>
-nmap <leader>wc :!detex % \| wc<CR>
-
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
- 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'     
-
-" APROOVED BY TOMAS
+"""""
+""""" / CONFIGURE VUNDLE PLUGIN MANAGER
+"""""
 
 " map the leader key
 let mapleader = ","
@@ -111,3 +53,9 @@ set term=screen-256color
 set splitbelow
 set splitright
 
+" set line numbering
+set number
+
+" Run the current file with rspec
+map <Leader>m :call VimuxRunCommand("catkin build")<CR>
+map <Leader>k :VimuxCloseRunner<CR>
