@@ -10,3 +10,6 @@
 [submodule "submodules/vim-gitgutter"]
 	path = submodules/vim-gitgutter
 	url = https://github.com/klaxalk/vim-gitgutter.git
+[submodule "submodules/Vundle.vim"]
+	path = submodules/Vundle.vim
+	url = https://github.com/klaxalk/Vundle.vim.git
