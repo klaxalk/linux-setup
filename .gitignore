@@ -1,2 +1,4 @@
 *.swp
 *.orig
+
+appconfig/vim/dotvim/VundlePlugins/*
