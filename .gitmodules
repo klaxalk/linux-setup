@@ -10,15 +10,3 @@
 [submodule "submodules/vim-gitgutter"]
 	path = submodules/vim-gitgutter
 	url = https://github.com/klaxalk/vim-gitgutter.git
-[submodule "submodules/vim-clang-format"]
-	path = submodules/vim-clang-format
-	url = https://github.com/klaxalk/vim-clang-format.git
-[submodule "submodules/supertab"]
-	path = submodules/supertab
-	url = https://github.com/klaxalk/supertab.git
-[submodule "submodules/diffchar.vim"]
-	path = submodules/diffchar.vim
-	url = https://github.com/klaxalk/diffchar.vim.git
-[submodule "submodules/vim-airline"]
-	path = submodules/vim-airline
-	url = https://github.com/klaxalk/vim-airline.git
