@@ -40,6 +40,21 @@ Commands
 - m{register} mark current line to a register
 - '{register} go to the register
 
+Saving vim session
+******************
+
+- :mks {file} - saves the current vim session to a file
+- vim -S {file} - run vim while loading a session from the file
+- mks! - rewrites the sessio file
+
+Registers
+*********
+
+- :reg - list all registers
+- "{register} - adressing the register
+- "{register}y - yank selected text into the register
+- "{register}p - paste the register
+
 Command examples
 ----------------
 
