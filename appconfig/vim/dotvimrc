@@ -1,5 +1,8 @@
 set nocompatible              " be iMproved, required by Vundle
 filetype off                  " required by Vundle
+set t_Co=256        " 256 colors
+
+set encoding=utf-8
 
 """""
 """"" CONFIGURE VUNDLE PLUGIN MANAGER
@@ -24,13 +27,6 @@ Plugin 'tpope/vim-fugitive'
 " Lean & mean status/tabline for vim that's light as air.
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-set laststatus=2					" allow running without splitting
-let g:airline_powerline_fonts = 1			" allow airline symbols
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = '⎇ '			" redefine branch symbol
 
 " integration with tmux
 Plugin 'benmills/vimux'
@@ -43,19 +39,53 @@ filetype plugin indent on    " required by Vundle
 """"" / CONFIGURE VUNDLE PLUGIN MANAGER
 """""
 
+" some color stuff
+set background=dark
+set cursorline
+set cursorcolumn
+colorscheme jellybeans
+
+" running airline
+set laststatus=2					" allow running without splitting
+
 " map the leader key
 let mapleader = ","
 
 " should fix colors in tmux
 set term=screen-256color
 
+" Run the current file with rspec
+map <Leader>m :call VimuxRunCommand("cd ~/timepix_workspace; catkin build")<CR>
+map <Leader>k :VimuxCloseRunner<CR>
+
+" general vim settings
 " more natural splits
 set splitbelow
 set splitright
-
+"
 " set line numbering
 set number
+"
+" indention
+set expandtab                   " tab inserts spaces
+set shiftwidth=2
+set softtabstop=2
+set autoindent                  " copy the indention from the last line
+set smartindent                 " sometimes indent extra indention
+set tabstop=2                   " width of the tab character
+"
+"
+set showmatch                   " brief jump to matching paren
+set title
+"
+" searching and patterns
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-" Run the current file with rspec
-map <Leader>m :call VimuxRunCommand("catkin build")<CR>
-map <Leader>k :VimuxCloseRunner<CR>
+hi Search guibg=LightBlue
+hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
+
+" should fix colors in tmux
+set term=screen-256color
