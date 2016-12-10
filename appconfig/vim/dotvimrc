@@ -83,6 +83,7 @@ set tabstop=2                   " width of the tab character
 "
 set showmatch                   " brief jump to matching parent
 set title
+set nowrap                      " dont wrap text
 "
 " searching and patterns
 set ignorecase
@@ -105,3 +106,9 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 " should fix colors in tmux
 set term=screen-256color
+
+" " autoinstall plugins
+" let vundle_readme=expand('~/.vim/VundlePlugins/vim-airline/README.md')
+" if !filereadable(vundle_readme)
+"   :PluginInstall
+" endif
