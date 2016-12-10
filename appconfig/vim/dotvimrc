@@ -34,6 +34,9 @@ Plugin 'benmills/vimux'
 " code completion
 Plugin 'ervandew/supertab'
 
+" sharing registers between vims
+Plugin 'ardagnir/united-front'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
