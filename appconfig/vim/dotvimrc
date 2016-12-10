@@ -110,11 +110,11 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " should fix colors in tmux
 set term=screen-256color
 
-" nerd tree
+" nerd tree toggle binding
 map <C-n> :NERDTreeToggle<CR>
 
-" " autoinstall plugins
-" let vundle_readme=expand('~/.vim/VundlePlugins/vim-airline/README.md')
-" if !filereadable(vundle_readme)
-"   :PluginInstall
-" endif
+" turn on nerd tree if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " open nerdtree if no files is specified
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif " open nerd tree if directory is specified
+let NERDTreeQuitOnOpen=1  " close after opening a file

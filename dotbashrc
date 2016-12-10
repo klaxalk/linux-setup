@@ -31,7 +31,8 @@ killp () {
 # VIM alias
 runvim() {
   if [ -z $TMUX ]; then
-    tmux new-session -s $$ -d "vim $@ --servername dog" \; attach
+    echo "vim --servername dog $@"
+    tmux new-session -s $$ -d 'vim $@ --servername dog' \; attach
     _trap_exit() { tmux kill-session -t $$; }                                                      
     trap _trap_exit EXIT                                                                          
   else
