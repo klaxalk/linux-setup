@@ -17,4 +17,6 @@ if [[ $response =~ ^(yes|y| ) ]]; then
   ln -s $APP_PATH/dotvimrc ~/.vimrc
   ln -s $APP_PATH/dotvim ~/.vim
 
+  vim -E +PluginInstall +qall
+
 fi
