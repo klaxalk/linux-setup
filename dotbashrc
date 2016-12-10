@@ -38,7 +38,7 @@ runvim() {
     vim $@ --servername dog
   fi
 }
-#alias vim=runvim
+alias vim=runvim
 
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
