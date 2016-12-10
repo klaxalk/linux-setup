@@ -93,5 +93,15 @@ set incsearch
 hi Search guibg=LightBlue
 hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
 
+" Switch between relative and absolute line numbers with leader-N
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber=1
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " should fix colors in tmux
 set term=screen-256color
