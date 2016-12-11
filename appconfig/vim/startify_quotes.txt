@@ -1,0 +1,26 @@
+let g:startify_custom_header_quotes = [
+\ ['^E/^Y', 'scroll up/down while leaving the cursor where it is'],
+\ ['gg', 'move to the top of the page'],
+\ ['^F/^B', 'page up/down'],
+\ ['diw', 'delete the word you are in'],
+\ ['ciw', 'change the word you are in (we are in insert after that)'],
+\ ['ci)', 'delete text within brackets we are in and insert'],
+\ ['ca)', 'delete text within brackets (/w brackets) we are in and insert'],
+\ ['dt{character}', 'delete until {character}'],
+\ ['df{character}', 'delete until {character} including'],
+\ ['va)', 'visually select all in brackets'],
+\ ]
+
+let g:ascii = [
+\ '      o',
+\ '        o       _=,_',
+\ '          o  o_/6 /#\',
+\ '             \__ |##/',
+\ '                |--\',
+\ '                /   #--.',
+\ '                \#|_   _#-. /',
+\ '                 |/ \_( # |" ',
+\ '                C/ ,--___/',
+\]
+
+let g:startify_custom_header = startify#fortune#boxed() + g:ascii

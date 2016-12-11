@@ -155,3 +155,5 @@ hi StartifyNumber  ctermfg=215
 hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
+
+source ~/.vim/../startify_quotes.txt

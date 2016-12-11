@@ -1,10 +1,10 @@
 Normal Mode
 ***********
 
-- ^E/^Y         scroll up/down while leaving the cursor where it is
-- ^H/^M/^L      move cursore to the top/middle/bottom of the page
-- gg            move to the top of the page
-- ^F/^B         page up/down
+- ^E/^Y - scroll up/down while leaving the cursor where it is
+- ^H/^M/^L - move cursore to the top/middle/bottom of the page
+- gg - move to the top of the page
+- ^F/^B - page up/down
 
 Objects
 *******
@@ -31,14 +31,14 @@ Commands
 - y - yank
 - v - visually select
 
-- dd/yy delete/yank the current line
-- D/Y delete/yank till end of the current line
-- p/P paster bellow/above current line
-- ^/$ move the beginning/end of the current line
-- I/A as ^/$ but put you into insert mode
+- dd/yy - delete/yank the current line
+- D/Y - delete/yank till end of the current line
+- p/P - paster bellow/above current line
+- ^/$ - move the beginning/end of the current line
+- I/A - as ^/$ but put you into insert mode
 
-- m{register} mark current line to a register
-- '{register} go to the register
+- m{register} - mark current line to a register
+- '{register} - go to the register
 
 Saving vim session
 ******************
