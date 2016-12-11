@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/mrs/git/linux-setup/.git'
-let g:netrw_dirhist_2='/home/mrs/git/linux-setup/appconfig/vim/dotvim/bundle/diffchar.vim'
-let g:netrw_dirhist_3='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/mbzirc_odom/config'
-let g:netrw_dirhist_4='/home/klaxalk/git/mbzirc/src/mbzirc/ros_nodes/template_vision/launch'
-let g:netrw_dirhist_5='/home/klaxalk/git/linux-setup/appconfig/vim/dotvim'
