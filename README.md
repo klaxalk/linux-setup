@@ -58,4 +58,8 @@ I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no chang
 
 ## VIM
 
-No modifications were made to vim's behaviour.
+Several modules were added to VIM using Vundle plugin manager. When using the enclosed **inslall.sh** script, they should be installed automatically.
+To install or update them manually, run following command in vim:
+```bash
+:PluginInstall
+```
