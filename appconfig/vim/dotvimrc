@@ -162,5 +162,24 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
+" playground
+
+" set path for search in
+set path+=~/git/**
+
+" turn on menu which suggests files
+set wildmenu
+
+" remap command for building the tags file
+command! MakeTags !ctags -f ~/tags -R ~/ros_workspace 
+
+" where should it look for the tags?
+set tags+=~/tags 
+
+" remap tags keys
+map <leader>. <c-]>
+map <leader>/ :pop
+map <leader>; :ts
+
 " load quotes for startify
 source ~/.vim/../startify_quotes.txt
