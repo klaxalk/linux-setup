@@ -145,6 +145,7 @@ let g:startify_skiplist = [
 let g:startify_bookmarks = [
             \ { 'b': '~/.bashrc' },
             \ { 'v': '~/.vimrc' },
+            \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
             \ '~/someotherfile',
             \ ]
 

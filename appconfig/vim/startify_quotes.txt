@@ -18,6 +18,8 @@ let g:startify_custom_header_quotes = [
 \ ['Did you know that...', '',  '... cutting and yanking can be issued for the rest of the line by upper case Y and D?'],
 \ ['Did you know that...', '',  '... the last command can be repeated by the "dot" operator? Try pushing . ...'],
 \ ['Did you know that...', '',  '... you can rollback opened file by e.g. 10 minutes by issuing :earlier 10m ?'],
+\ ['u/^R', '', 'Undo / Redo'],
+\ ['Do you want to paste stuff without messing up the indention... ?', '', 'Switch to paste mode (:set paste) before and unswitch (:set nopaste) after that.'],
 \ ]
 
 let g:ascii = [
