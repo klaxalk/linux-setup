@@ -5,6 +5,9 @@ let g:startify_custom_header_quotes = [
 \ ['diw', '', 'Delete the word you are in'],
 \ ['ciw', '', 'Change the word you are in + Insert.'],
 \ ['ci)', '', 'Delete text within brackets + Insert.'],
+\ ['ce', '', 'Change th rest of the current word.'],
+\ ['c$', '', 'Change the rest of the line.'],
+\ ['r{character}', '', 'Replace the character under the cursor with new one.'],
 \ ['ca)', '', 'Delete text within brackets (included) + Insert.'],
 \ ['dt{character}', '', 'Delete until {character} (excluded).'],
 \ ['df{character}', '', 'Delete until {character} (including).'],
@@ -20,6 +23,7 @@ let g:startify_custom_header_quotes = [
 \ ['Did you know that...', '',  '... you can rollback opened file by e.g. 10 minutes by issuing :earlier 10m ?'],
 \ ['u/^R', '', 'Undo / Redo'],
 \ ['Do you want to paste stuff without messing up the indention... ?', '', 'Switch to paste mode (:set paste) before and unswitch (:set nopaste) after that.'],
+\ ['Did you know that...', '', '... typing % while the cursor is on a bracket teleports you to its counterpart?'],
 \ ]
 
 let g:ascii = [
