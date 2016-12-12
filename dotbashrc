@@ -42,6 +42,9 @@ runvim() {
 }
 alias vim=runvim
 
+# exit alias
+alias :q=exit
+
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 

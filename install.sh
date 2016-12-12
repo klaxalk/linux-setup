@@ -11,9 +11,10 @@ APPCONFIG_PATH=$MY_PATH/appconfig
 
 # install packages
 # vim sl ranger git cmake ccmake
-sudo apt-get install vim ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential
+sudo apt-get install vim ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree
 
-# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker# TODO install texlive texlive texlive-lang-czechslovak texmaker
+# TODO install texlive texlive texlive-lang-czechslovak texmaker
+# TODO install exuberant-ctags
 
 # update git submodules
 git submodule init
