@@ -29,6 +29,10 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+#############################################
+# adding GIT_PATH variable to .bashrc 
+#############################################
+
 # add variable for path to the git repository
 num=`cat ~/.bashrc | grep "GIT_PATH" | wc -l`
 if [ "$num" -lt "1" ]; then
@@ -42,6 +46,10 @@ if [ "$num" -lt "1" ]; then
 export GIT_PATH=$TEMP" >> ~/.bashrc
 
 fi
+
+#############################################
+# add tmux sourcing of dotbashrd to .bashrc
+#############################################
 
 num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
 if [ "$num" -lt "1" ]; then
@@ -67,7 +75,16 @@ export RUN_TMUX=false" >> ~/.bashrc
   fi
 fi
 
+#############################################
+# creating .vimpath file 
+#############################################
+
+# path for ctags
+# path for file search
+
+#############################################
 # add sourcing of dotbashrd to .bashrc
+#############################################
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
 
