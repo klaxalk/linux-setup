@@ -172,15 +172,15 @@ set path+=~/git/**
 set wildmenu
 
 " remap command for building the tags file
-command! MakeTags !ctags -f ~/tags -R ~/ros_workspace 
+command! MakeTags !ctags -f ~/tags -R ~/ros_workspace
 
-" where should it look for the tags?
+" where should vim look for the tags?
 set tags+=~/tags 
 
 " remap tags keys
-map <leader>. <c-]>
-map <leader>/ :pop
-map <leader>; :ts
+map <leader>. <c-]>       " dive into the tag
+map <leader>/ :pop      " go back
+map <leader>; :ts       " show list of file in which the tag is
 
 " load quotes for startify
 source ~/.vim/../startify_quotes.txt
