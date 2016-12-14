@@ -59,7 +59,7 @@ if [ "$num" -lt "1" ]; then
   
   response=${response,,} # tolower
   if [[ $response =~ ^(yes|y| ) ]]; then
-  
+
     echo "
 # want to run tmux automatically with new terminal?
 export RUN_TMUX=true" >> ~/.bashrc
@@ -99,6 +99,8 @@ else
   echo "Reference in .bashrc is already there..."
 
 fi
+
+toilet Installation successful
 
 # source .bashrc
 source ~/.bashrc
