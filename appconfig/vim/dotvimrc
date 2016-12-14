@@ -28,19 +28,19 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" integration with tmux
+" integration with tmux (allows running bash commands in tmux splits)
 Plugin 'benmills/vimux'
 
-" code completion
+" code completion using tab besides ^n
 Plugin 'ervandew/supertab'
 
 " sharing registers between vims
 Plugin 'ardagnir/united-front'
 
-" file manager
+" file manager (^n)
 Plugin 'scrooloose/nerdtree'
 
-" home screen
+" home screen (necessary to have a barking dog)
 Plugin 'mhinz/vim-startify'
 
 " All of your Plugins must be added before the following line
@@ -70,6 +70,9 @@ set term=screen-256color
 map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
 map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_odom")<CR>
 map <Leader>k :VimuxCloseRunner<CR>
+
+" remap command for building the tags file
+command! MakeTags ::call VimuxRunCommand("generateTags; :q")<CR>
 
 " general vim settings
 " more natural splits
@@ -170,9 +173,6 @@ set path+=~/git/**
 
 " turn on menu which suggests files
 set wildmenu
-
-" remap command for building the tags file
-command! MakeTags !ctags -f ~/tags -R ~/ros_workspace
 
 " where should vim look for the tags?
 set tags+=~/tags 
