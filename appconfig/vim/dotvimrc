@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required by Vundle
 filetype off                  " required by Vundle
-set t_Co=256        " 256 colors
+set t_Co=256                  " 256 colors
+set clipboard=unnamedplus     " shared clipboard with the system
 
 set encoding=utf-8
 
@@ -89,7 +90,8 @@ set softtabstop=2
 set autoindent                  " copy the indention from the last line
 set smartindent                 " sometimes indent extra indention
 set tabstop=2                   " width of the tab character
-set scrolloff=10
+set scrolloff=10                " ads cursor margin for the edge of the page
+set relativenumber              " turn on relative numbering of lines
 "
 "
 set showmatch                   " brief jump to matching parent
@@ -123,7 +125,8 @@ function! TogglePaste()
     set nopaste
   endif
 endfunc
-nnoremap <leader>p :call TogglePaste()<cr>
+
+nnoremap <leader>p :call ToggelPaste()<cr>
 
 " should fix colors in tmux
 set term=screen-256color
