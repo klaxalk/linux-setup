@@ -38,5 +38,5 @@ windows:
       # synchronize: after
       panes:
         - sleep 0; while true; do sl; done
-        - sleep 1; while true; do sl; done
         - sleep 2; while true; do sl; done
+        - sleep 4; while true; do sl; done
