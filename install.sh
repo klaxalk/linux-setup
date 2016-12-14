@@ -100,7 +100,7 @@ else
 
 fi
 
-toilet Installation successful
+toilet All Done
 
 # source .bashrc
 source ~/.bashrc
