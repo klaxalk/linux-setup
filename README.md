@@ -84,7 +84,11 @@ NERDTree provides a simple file browser within a split. Toggle it by **^N**. The
 
 Vimmux allows to open TMUX splits and run commands in them. I use them mainly for compiling
 my workspace. Commands can be configured in **~/.my.vimrc** file which will stay unchanged
-by git.
+by git. My current setup is following:
+
+- \<leader\>m - compile whole workspace
+- \<leader\>j - compile just some app
+- \<leader\>l - close the vimmux window
 
 ### United-front
 
