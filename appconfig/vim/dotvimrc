@@ -115,6 +115,16 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>n :call NumberToggle()<cr>
 
+" switch :paste mode 
+function! TogglePaste()
+  if(&paste == 0)
+    set paste
+  else
+    set nopaste
+  endif
+endfunc
+nnoremap <leader>p :call TogglePaste()<cr>
+
 " should fix colors in tmux
 set term=screen-256color
 
