@@ -36,7 +36,8 @@ Here I describe the most important keybindings and shortcuts..
 - **__PREFIX__ k** kill current tmux session
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
-- **__PREFIX__ p** paste yanked text (from vim edit mode)
+- **__PREFIX__ p** paste yanked text (from vim edit mode) 
+- **__PREFIX__ z** enlarge focused pane to the whole screen (or back)
 
 TMUX-RESURRECT can be used to save a state of a single session. Use following keys to control it.
 
@@ -61,7 +62,7 @@ I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no chang
 Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor. Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
 To update them manually, call 
 ```bash
-:PluginInstall
+:PluginUpdate
 ```
 in Vim.
 
@@ -69,14 +70,11 @@ Here is a short description of the most important plugins together with example 
 
 ### Startify
 
-Run vim without parameters! Really, try that.
-Startify shows a useful list of recently openned files when running vim without parameters.
-It also allows to **save** and **load** sessions. Save the current session by calling
+Run vim without parameters! Really, try that. Startify shows a useful list of recently openned files when running vim without parameters. It also allows to **save** and **load** sessions. Save the current session by calling
 ```bash
 :SSave
 ```
-you will be prompted to enter the name of the session. You can later see the session on the main Startify screen. Startify also displays random vim tips in a form of a 'barking dog'.
-Feel free to update those and submit them by means of a **pull request**.
+you will be prompted to enter the name of the session. You can later see the session on the main Startify screen. Startify also displays random vim tips in a form of a 'barking dog'. Feel free to update those and submit them by means of a **pull request** on a file appconfig/vim/startify_quotes.txt.
 
 ### NERDTree
 
@@ -105,3 +103,8 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 - <leader>. - dive into the tag
 - <leader>/ - go back one tag
 - <leader>; - show list of files in which the tag is defined
+
+### Other key bindings
+
+- <leader>n - toggels relative/absolute line numbering
+- <leader>p - toggles :paste mode
