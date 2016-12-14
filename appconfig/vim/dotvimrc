@@ -54,6 +54,9 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " For word-level diff (depends on diffchar.vim)
 let g:DiffUnit="Word1"
 
+" map the leader key
+let mapleader = ","
+
 " switch :paste mode
 function! TogglePaste()
   if(&paste == 0)
@@ -110,9 +113,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'     
 
 " APROOVED BY TOMAS
-
-" map the leader key
-let mapleader = ","
 
 " should fix colors in tmux
 set term=screen-256color
