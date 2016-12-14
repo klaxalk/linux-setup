@@ -54,6 +54,16 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " For word-level diff (depends on diffchar.vim)
 let g:DiffUnit="Word1"
 
+" switch :paste mode
+function! TogglePaste()
+  if(&paste == 0)
+    set paste
+  else
+    set nopaste
+  endif
+endfunc
+nnoremap <leader>p :call TogglePaste()<cr>
+
 " Switch between relative and absolute line numbers with leader-N
 function! NumberToggle()
     if(&relativenumber == 1)
