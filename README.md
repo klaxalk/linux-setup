@@ -75,17 +75,12 @@ It also allows to **save** and **load** sessions. Save the current session by ca
 ```bash
 :SSave
 ```
-you will be prompted to enter the name of the session.
-You can later see the session on the main Startify screen.
-Startify also displays random vim tips in a form of a 'barking dog'.
+you will be prompted to enter the name of the session. You can later see the session on the main Startify screen. Startify also displays random vim tips in a form of a 'barking dog'.
 Feel free to update those and submit them by means of a **pull request**.
 
 ### NERDTree
 
-NERDTree provides a simple file browser within a split.
-Toggle it by **^N**.
-The current setup shows NERDTree also when you open vim with a folder in the argument.
-Read its documentation for further information.
+NERDTree provides a simple file browser within a split. Toggle it by **^N**. The current setup shows NERDTree also when you open vim with a folder in the argument. Read its documentation for further information.
 
 ### Vimmux
 
@@ -95,8 +90,7 @@ by git.
 
 ### United-front
 
-This pluggin allows to share registers between different instances of vim.
-Thus allows to copy and paste regardles of splitting in vim od TMUX.
+This pluggin allows to share registers between different instances of vim. Thus allows to copy and paste regardles of splitting in vim od TMUX.
 
 ## Other vim stuff ...
 
@@ -106,7 +100,8 @@ I have remapped the leader to a comma (,)
 
 ### Using CTAGS
 
-Ctags is a useful way to maintain "hyperlink" in your code.
-It later allows you to jump through "tags" (names in the code), e.g. function names.
-Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specify where shoudl ctags look for your code.
-The database is built automatically when running vim, or manually by calling **:MakeTags** in vim.
+Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
+
+- <leader>. - dive into the tag
+- <leader>/ - go back one tag
+- <leader>; - show list of files in which the tag is defined
