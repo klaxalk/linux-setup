@@ -32,8 +32,10 @@ alias sb="source ~/.bashrc"
 
 # use ctags to generate code tags
 generateTags() {
-  
-  ctags -f ~/tags -R ~/ros_workspace -R /opt/ros/indigo/include
+
+  # TODO check for file existence
+  ctagscmd="ctags -f ~/tags $CTAGS_SOURCE_DIR"
+  eval $ctagscmd
 }
 
 # VIM alias

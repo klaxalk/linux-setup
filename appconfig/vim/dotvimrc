@@ -67,14 +67,6 @@ let mapleader = ","
 " should fix colors in tmux
 set term=screen-256color
 
-" Run the current file with rspec
-map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
-map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_odom")<CR>
-map <Leader>l :VimuxCloseRunner<CR>
-
-" remap command for building the tags file
-command! MakeTags ::call VimuxRunCommand("generateTags; :q")<CR>
-
 " general vim settings
 " more natural splits
 set splitbelow
@@ -118,6 +110,7 @@ endfunc
 nnoremap <leader>n :call NumberToggle()<cr>
 
 " switch :paste mode 
+" probably redundant while usingclipboard=unnamedplus
 function! TogglePaste()
   if(&paste == 0)
     set paste
@@ -125,7 +118,6 @@ function! TogglePaste()
     set nopaste
   endif
 endfunc
-
 nnoremap <leader>p :call ToggelPaste()<cr>
 
 " should fix colors in tmux
@@ -180,21 +172,18 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
-" playground
-
-" set path for search in
-set path+=~/git/**
-
 " turn on menu which suggests files
 set wildmenu
 
-" where should vim look for the tags?
-set tags+=~/tags 
-
 " remap tags keys
 map <leader>. <c-]>       " dive into the tag
-map <leader>/ :pop      " go back
-map <leader>; :ts       " show list of file in which the tag is
+map <leader>/ :pop      " go back one tag
+map <leader>; :ts       " show list of files in which the tag is found
 
 " load quotes for startify
 source ~/.vim/../startify_quotes.txt
+
+" if exists, source .my.vimrc
+if !empty(glob("~/.my.vimrc"))
+  source ~/.my.vimrc 
+endif
