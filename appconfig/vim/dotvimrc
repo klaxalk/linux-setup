@@ -69,7 +69,7 @@ set term=screen-256color
 " Run the current file with rspec
 map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
 map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_odom")<CR>
-map <Leader>k :VimuxCloseRunner<CR>
+map <Leader>l :VimuxCloseRunner<CR>
 
 " remap command for building the tags file
 command! MakeTags ::call VimuxRunCommand("generateTags; :q")<CR>
@@ -89,6 +89,7 @@ set softtabstop=2
 set autoindent                  " copy the indention from the last line
 set smartindent                 " sometimes indent extra indention
 set tabstop=2                   " width of the tab character
+set scrolloff=10
 "
 "
 set showmatch                   " brief jump to matching parent
