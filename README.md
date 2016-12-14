@@ -100,11 +100,11 @@ I have remapped the leader to a comma (,)
 
 Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
 
-- <leader>. - dive into the tag
-- <leader>/ - go back one tag
-- <leader>; - show list of files in which the tag is defined
+- \<leader\>. - dive into the tag
+- \<leader\>/ - go back one tag
+- \<leader\>; - show list of files in which the tag is defined
 
 ### Other key bindings
 
-- <leader>n - toggels relative/absolute line numbering
-- <leader>p - toggles :paste mode
+- \<leader\>n - toggels relative/absolute line numbering
+- \<leader\>p - toggles :paste mode
