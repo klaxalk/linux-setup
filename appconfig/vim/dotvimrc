@@ -1,63 +1,113 @@
-set nocompatible
-set t_Co=256        " 256 colors
+set nocompatible              " be iMproved, required by Vundle
+filetype off                  " required by Vundle
+set t_Co=256                  " 256 colors
+set clipboard=unnamedplus     " shared clipboard with the system
 
+set encoding=utf-8
+
+"""""
+""""" CONFIGURE VUNDLE PLUGIN MANAGER
+"""""
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin("~/.vim/VundlePlugins")
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" A colorful, dark color scheme
+Plugin 'nanotech/jellybeans.vim'
+
+" A Vim plugin which shows a git diff in the 'gutter' (sign column).
+Plugin 'airblade/vim-gitgutter'
+
+" ifugitive.vim: a Git wrapper so awesome, it should be illegal
+Plugin 'tpope/vim-fugitive'
+
+" Lean & mean status/tabline for vim that's light as air.
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" integration with tmux (allows running bash commands in tmux splits)
+Plugin 'benmills/vimux'
+
+" code completion using tab besides ^n
+Plugin 'ervandew/supertab'
+
+" sharing registers between vims
+Plugin 'ardagnir/united-front'
+
+" file manager (^n)
+Plugin 'scrooloose/nerdtree'
+
+" home screen (necessary to have a barking dog)
+Plugin 'mhinz/vim-startify'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required by Vundle
+filetype plugin indent on    " required by Vundle
+
+"""""
+""""" / CONFIGURE VUNDLE PLUGIN MANAGER
+"""""
+
+" some color stuff
 set background=dark
-if &diff
-	syntax off " disable syntax highlighting
-  let g:solarized_termcolors=256
-  colorscheme solarized
-  let g:solarized_diffmode="high"
-  " highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
-  " highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
-  " highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-  " highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta
-else
-  syntax on " enable syntax highlighting
-  colorscheme jellybeans
-endif
-
-" load pathogen, requires filetype off so we do it first
-filetype off
-execute pathogen#infect()
-"call pathogen#helptags()
-
-" associate *.launch with xml filetype
-au BufRead,BufNewFile *.launch setfiletype xml
-
-set title
 set cursorline
-
-filetype on
-filetype plugin indent on
-set scrolloff=8                 " keep n context lines above/below cursor
-set showmatch                   " brief jump to matching paren
-set nowrap                      " dont wrap text
-set autoindent                  " always autoindent on
-set smartindent
-set expandtab                   " tab inserts spaces
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-set number
-set ls=2
 set cursorcolumn
-" set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"set hlsearch
-"hi Search guibg=LightBlue
-"hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
-"set ruler               " Show some info, even without statuslines.
+colorscheme jellybeans
 
-" let g:solarized_termcolors=256
-" colorscheme solarized
+" running airline
+set laststatus=2					" allow running without splitting
 
-" For word-level diff (depends on diffchar.vim)
-let g:DiffUnit="Word1"
+" should fix colors in tmux
+set term=screen-256color
 
-" map the leader key
-let mapleader = ","
+" general vim settings
+" more natural splits
+set splitbelow
+set splitright
+"
+" set line numbering
+set number
+"
+" indention
+set expandtab                   " tab inserts spaces
+set shiftwidth=2
+set softtabstop=2
+set autoindent                  " copy the indention from the last line
+set smartindent                 " sometimes indent extra indention
+set tabstop=2                   " width of the tab character
+set scrolloff=10                " ads cursor margin for the edge of the page
+set relativenumber              " turn on relative numbering of lines
+"
+"
+set showmatch                   " brief jump to matching parent
+set title
+set nowrap                      " dont wrap text
+"
+" searching and patterns
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-" switch :paste mode
+hi Search guibg=LightBlue
+hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
+
+" Switch between relative and absolute line numbers with leader-N
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <leader>n :call NumberToggle()<cr>
+
+" switch :paste mode 
+" probably redundant while usingclipboard=unnamedplus
 function! TogglePaste()
   if(&paste == 0)
     set paste
@@ -65,59 +115,72 @@ function! TogglePaste()
     set nopaste
   endif
 endfunc
-nnoremap <leader>p :call TogglePaste()<cr>
-
-" Switch between relative and absolute line numbers with leader-N
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set number
-    else
-        set relativenumber
-    endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" Absolute line numbers on insert mode
-" autocmd InsertEnter * :set number
-" autocmd InsertLeave * :set relativenumber
-
-" searching and patterns
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-
-" Remove trailing whitespace on <leader>S
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Wildmenu
-if has("wildmenu")
-  set wildignore+=*.a,*.o
-  set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-  set wildignore+=.DS_Store,.git,.hg,.svn
-  set wildignore+=*~,*.swp,*.tmp
-  set wildmenu
-  set wildmode=longest,list
-endif
-
-" imap <Tab> <C-P>
-
-nmap <leader>l :!rubber -df %<CR>
-nmap <leader>wc :!detex % \| wc<CR>
-
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
- 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'     
-
-" APROOVED BY TOMAS
+nnoremap <leader>p :call ToggelPaste()<cr>
 
 " should fix colors in tmux
 set term=screen-256color
 
-" more natural splits
-set splitbelow
-set splitright
+" nerd tree toggle binding
+map <C-n> :NERDTreeToggle<CR>
 
+" turn on nerd tree if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd h | endif
+let NERDTreeQuitOnOpen=1  " close after opening a file
+
+" CUSTOM Startify settings... TODO: finetune!
+autocmd User Startified setlocal cursorline
+
+let g:startify_enable_special         = 1
+let g:startify_files_number           = 8
+let g:startify_relative_path          = 1
+let g:startify_change_to_dir          = 1
+let g:startify_update_oldfiles        = 1
+let g:startify_session_autoload       = 1
+let g:startify_session_persistence    = 1
+let g:startify_session_delete_buffers = 1
+
+" should not show up in startify
+let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ 'bundle/.*/doc',
+            \ '/data/repo/neovim/runtime/doc',
+            \ '/Users/mhi/local/vim/share/vim/vim74/doc',
+            \ ]
+
+" bookmarks in startify
+let g:startify_bookmarks = [
+            \ { 'b': '~/.bashrc' },
+            \ { 'v': '~/.vimrc' },
+            \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
+            \ '~/someotherfile',
+            \ ]
+
+" the bottom part of the startify
+let g:startify_custom_footer =
+      \ ['', "   Pes štěká, kočka mňouká.", '']
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+
+" turn on menu which suggests files
+set wildmenu
+
+" remap tags keys
+map <leader>. <c-]>       " dive into the tag
+map <leader>/ :pop      " go back one tag
+map <leader>; :ts       " show list of files in which the tag is found
+
+" load quotes for startify
+source ~/.vim/../startify_quotes.txt
+
+" if exists, source .my.vimrc
+if !empty(glob("~/.my.vimrc"))
+  source ~/.my.vimrc 
+endif

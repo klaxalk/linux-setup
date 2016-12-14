@@ -28,17 +28,33 @@ killp () {
   kill -9 $1 > /dev/null 2> /dev/null
 }
 
+alias sb="source ~/.bashrc"
+
+# use ctags to generate code tags
+generateTags() {
+
+  # TODO check for file existence
+  ctagscmd="ctags -f ~/tags $CTAGS_SOURCE_DIR"
+  eval $ctagscmd
+}
+
 # VIM alias
 runvim() {
   if [ -z $TMUX ]; then
-    tmux new-session -s $$ -d "vim $@ --servername dog" \; attach
+    { generateTags & disown; } 2> /dev/null
+    vimcmd="vim --servername dog ${@}"
+    tmux new-session -s $$ -d $vimcmd \; attach
     _trap_exit() { tmux kill-session -t $$; }                                                      
     trap _trap_exit EXIT                                                                          
   else
+    { generateTags & disown; } 2> /dev/null
     vim $@ --servername dog
   fi
 }
 alias vim=runvim
+
+# exit alias
+alias :q=exit
 
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
