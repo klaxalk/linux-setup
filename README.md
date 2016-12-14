@@ -58,8 +58,55 @@ I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no chang
 
 ## VIM
 
-Several modules were added to VIM using Vundle plugin manager. When using the enclosed **inslall.sh** script, they should be installed automatically.
-To install or update them manually, run following command in vim:
+Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor. Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
+To update them manually, call 
 ```bash
 :PluginInstall
 ```
+in Vim.
+
+Here is a short description of the most important plugins together with example of thier usage:
+
+### Startify
+
+Run vim without parameters! Really, try that.
+Startify shows a useful list of recently openned files when running vim without parameters.
+It also allows to **save** and **load** sessions. Save the current session by calling
+```bash
+:SSave
+```
+you will be prompted to enter the name of the session.
+You can later see the session on the main Startify screen.
+Startify also displays random vim tips in a form of a 'barking dog'.
+Feel free to update those and submit them by means of a **pull request**.
+
+### NERDTree
+
+NERDTree provides a simple file browser within a split.
+Toggle it by **^N**.
+The current setup shows NERDTree also when you open vim with a folder in the argument.
+Read its documentation for further information.
+
+### Vimmux
+
+Vimmux allows to open TMUX splits and run commands in them. I use them mainly for compiling
+my workspace. Commands can be configured in **~/.my.vimrc** file which will stay unchanged
+by git.
+
+### United-front
+
+This pluggin allows to share registers between different instances of vim.
+Thus allows to copy and paste regardles of splitting in vim od TMUX.
+
+## Other vim stuff ...
+
+### The leader key
+
+I have remapped the leader to a comma (,)
+
+### Using CTAGS
+
+Ctags is a useful way to maintain "hyperlink" in your code.
+It later allows you to jump through "tags" (names in the code), e.g. function names.
+Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specify where shoudl ctags look for your code.
+The database is built automatically when running vim, or manually by calling **:MakeTags** in vim.
