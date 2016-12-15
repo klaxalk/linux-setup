@@ -27,6 +27,9 @@ let g:startify_custom_header_quotes = [
 \ ['u/^R', '', 'Undo / Redo'],
 \ ['Do you want to paste stuff without messing up the indention... ?', '', 'Switch to paste mode (:set paste) before and unswitch (:set nopaste) after that.'],
 \ ['Did you know that...', '', '... typing % while the cursor is on a bracket teleports you to its counterpart?'],
+\ ['Looking for a file?', '', ':find {filename} finds it for you (path for search in ~/.my.vimrc).'],
+\ ['File search in vertical split?', '', ':vert sf {filename} will do it. (path for search in ~/.my.vimrc)'],
+\ ['3h, 3j, 3k, 3l', '', 'Jump three lines left, down, up, right.'],
 \ ]
 
 let g:ascii = [
