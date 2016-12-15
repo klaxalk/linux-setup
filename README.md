@@ -82,9 +82,9 @@ Vimmux allows to open TMUX splits and run commands in them. I use them mainly fo
 my workspace. Commands can be configured in **~/.my.vimrc** file which will stay unchanged
 by git. My current setup is following:
 
-- \<leader\>m - compile whole workspace
-- \<leader\>j - compile just some app
-- \<leader\>l - close the vimmux window
+- **\<leader\>m** - compile whole workspace
+- **\<leader\>j** - compile just some app
+- **\<leader\>l** - close the vimmux window
 
 ### United-front
 
@@ -94,17 +94,17 @@ This pluggin allows to share registers between different instances of vim. Thus 
 
 ### The leader key
 
-I have remapped the leader to a comma (,)
+I have remapped the leader to a comma ",".
 
 ### Using CTAGS
 
 Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
 
-- \<leader\>. - dive into the tag
-- \<leader\>/ - go back one tag
-- \<leader\>; - show list of files in which the tag is defined
+- **\<leader\>.** - dive into the tag
+- **\<leader\>/** - go back one tag
+- **\<leader\>;** - show list of files in which the tag is defined
 
 ### Other key bindings
 
-- \<leader\>n - toggels relative/absolute line numbering
-- \<leader\>p - toggles :paste mode
+- **\<leader\>n** - toggels relative/absolute line numbering
+- **\<leader\>p** - toggles :paste mode
