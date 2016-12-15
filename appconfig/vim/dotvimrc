@@ -96,6 +96,9 @@ set incsearch
 hi Search guibg=LightBlue
 hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
 
+" map the leader key
+let mapleader = ","
+
 " Switch between relative and absolute line numbers with leader-N
 function! NumberToggle()
   if(&relativenumber == 1)
