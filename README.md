@@ -60,11 +60,7 @@ I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no chang
 ## VIM
 
 Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor. Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
-To update them manually, call 
-```bash
-:PluginUpdate
-```
-in Vim.
+To update them manually, call **:PluginUpdate**, to install them **:PluginInstall** in Vim. However, they will be installed automatically by **install.sh**.
 
 Here is a short description of the most important plugins together with example of thier usage:
 
