@@ -7,9 +7,6 @@ set path+=~/git/**
 " multiple paths should be separated by comma
 set tags+=~/tags
 
-" map the leader key
-let mapleader = ","
-
 """"""""""""""""""""""""""""""" map the leader key
 let mapleader = ","
 " key bindings for vimmux
