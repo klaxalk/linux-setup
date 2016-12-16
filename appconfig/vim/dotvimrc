@@ -118,7 +118,7 @@ function! TogglePaste()
     set nopaste
   endif
 endfunc
-nnoremap <leader>p :call ToggelPaste()<cr>
+nnoremap <leader>p :call TogglePaste()<cr>
 
 " should fix colors in tmux
 set term=screen-256color
