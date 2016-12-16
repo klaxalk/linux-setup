@@ -21,3 +21,10 @@ map <Leader>l :VimuxCloseRunner<CR>
 command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 "
 """""""""""""""""""""""""""""""
+
+" customize bookmarks in startify
+let g:startify_bookmarks = [
+            \ { 'b': '~/.bashrc' },
+            \ { 'v': '~/.vimrc' },
+            \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
+            \ ]
