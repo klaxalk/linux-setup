@@ -32,7 +32,8 @@ if [[ $response =~ ^(yes|y| ) ]]; then
   sh autogen.sh
   ./configure && make -j4
   sudo make install-binPROGRAMS
-  
+  git clean -fd
+
   # symlink tmux settings
   rm ~/.tmux.conf
   ln -s $APP_PATH/dottmux.conf ~/.tmux.conf
