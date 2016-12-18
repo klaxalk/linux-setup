@@ -49,7 +49,7 @@ generateTags() {
   fi 
 }
 
-# VIM alias
+# VIM alias for running vim in tmux and in servermode
 runvim() {
 
   # if the tmux session does not exist, create new and run vim in it
