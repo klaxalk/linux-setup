@@ -24,9 +24,23 @@ if [[ $response =~ ^(yes|y| ) ]]; then
     echo "Adding CTAGS_SOURCE_DIR variable to .bashrc"
     # set bashrc
     echo '
-# where should ctags look for sourcs to parse?
+# where should ctags look for sources to parse?
 # -R dir1 -R dir2 ...
 export CTAGS_SOURCE_DIR="-R ~/ros_workspace"' >> ~/.bashrc
+ 
+  fi
+
+  # add variable for ctags sources into .bashrc
+  num=`cat ~/.bashrc | grep "CTAGS_ONCE_SOURCE_DIR" | wc -l`
+  if [ "$num" -lt "1" ]; then
+  
+    echo "Adding CTAGS_ONCE_SOURCE_DIR variable to .bashrc"
+    # set bashrc
+    echo '
+# where should ctags look for sources to parse?
+# CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
+# -R dir1 -R dir2 ...
+export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/indigo/include"' >> ~/.bashrc
  
   fi
 

@@ -5,6 +5,9 @@ alias ra='ranger'
 export EDITOR=vim
 export SHELL=/bin/bash
 
+# the location of `once generated ctags file`
+export CTAGS_FILE_ONCE="~/tags-once" 
+
 export TERM="xterm-256color"                                                                          
 
 # allows killing tmux by exiting the window                                                           
@@ -33,20 +36,33 @@ alias sb="source ~/.bashrc"
 # use ctags to generate code tags
 generateTags() {
 
+  # generate project's tags
   # TODO check for file existence
   ctagscmd="ctags -f ~/tags $CTAGS_SOURCE_DIR"
   eval $ctagscmd
+
+  # generate `once generated tags`, e.g. ROS's tags
+  if [ ! -e $(eval echo "$CTAGS_FILE_ONCE") ]; then
+    echo "generating one-time generated tags"
+    ctagscmd="ctags -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
+    eval $ctagscmd
+  fi 
 }
 
 # VIM alias
 runvim() {
+
+  # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
     { generateTags & disown; } 2> /dev/null
     vimcmd="vim --servername dog ${@}"
     tmux new-session -s $$ -d $vimcmd \; attach
+
+    # create trap for exiting the tmux session when the windows is closed
     _trap_exit() { tmux kill-session -t $$; }                                                      
     trap _trap_exit EXIT                                                                          
   else
+    # just run vim if the session exists
     { generateTags & disown; } 2> /dev/null
     vim $@ --servername dog
   fi
