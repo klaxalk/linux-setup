@@ -182,6 +182,9 @@ map <leader>; :ts       " show list of files in which the tag is found
 " load quotes for startify
 source ~/.vim/../startify_quotes.txt
 
+" associate *.launch with xml filetype
+au BufRead,BufNewFile *.launch setfiletype xml
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
