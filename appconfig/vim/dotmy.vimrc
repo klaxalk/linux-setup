@@ -7,10 +7,6 @@ set path+=~/git/**
 " multiple paths should be separated by comma
 set tags+=~/tags,~/tags-once
 
-""""""""""""""""""""""""""""""" map the leader key
-let mapleader = ","
-" key bindings for vimmux
-"
 " build 1
 map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
 " build2
