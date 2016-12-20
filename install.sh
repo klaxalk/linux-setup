@@ -11,7 +11,7 @@ APPCONFIG_PATH=$MY_PATH/appconfig
 
 # install packages
 # vim sl ranger git cmake ccmake
-sudo apt-get install vim vim-gtk ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags
+sudo apt-get install vim vim-gtk ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev
 
 # TODO install texlive texlive texlive-lang-czechslovak texmaker
 
