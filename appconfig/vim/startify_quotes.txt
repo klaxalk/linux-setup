@@ -1,5 +1,5 @@
 let g:startify_custom_header_quotes = [
-\ ['^E/^Y', 'pes steka', 'Scroll up/down while leaving the cursor where it is.'],
+\ ['^E/^Y', '', 'Scroll up/down while leaving the cursor where it is.'],
 \ ['gg', '', 'Move to the top of the page.'],
 \ ['^F/^B', '', 'Page up/down.'],
 \ ['diw', '', 'Delete the word you are in'],
