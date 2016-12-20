@@ -12,7 +12,7 @@ if [[ $response =~ ^(yes|y| ) ]]; then
   toilet Installing tmux
 
   libevent=`ldconfig -p | grep libevent-2.0 | wc -l`
-  if [ "$libevent" -lt "1" ]; then
+  if [ "$libevent" -lt "2" ]; then
 
     echo $'\033[31mLibevent not installed, installing... \033[00m' 
 
