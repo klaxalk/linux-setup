@@ -185,6 +185,12 @@ source ~/.vim/../startify_quotes.txt
 " associate *.launch with xml filetype
 au BufRead,BufNewFile *.launch setfiletype xml
 
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+ 
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'  
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
