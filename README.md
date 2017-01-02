@@ -107,4 +107,5 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 ### Other key bindings
 
 - **\<leader\>n** - toggels relative/absolute line numbering
+- **\<leader\>a** - toggels highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
