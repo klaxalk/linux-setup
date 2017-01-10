@@ -46,5 +46,8 @@ windows:
       panes:
         - htop
         - roslaunch visual_servoing landing_object_estimator.launch
-        - history -s rosservice call /uav1/trackers_manager/mpc_tracker/goTo; history -s rosservice call /uav1/landing_object_estimator/restart; history -s rosservice call /uav1/landing_object_controller/stop; history -s rosservice call /uav1/landing_object_controller/start 
+        - history -s rosservice call /uav1/trackers_manager/mpc_tracker/goTo;
+          history -s rosservice call /uav1/landing_object_estimator/restart;
+          history -s rosservice call /uav1/landing_object_controller/stop;
+          history -s rosservice call /uav1/landing_object_controller/start
         - roslaunch visual_servoing landing_object_controller.launch
