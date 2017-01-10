@@ -18,7 +18,11 @@ trap _trap_exit EXIT
 # allows killing process with all its children
 killp () {
 
-  pes=$1
+  if [ $# -eq 0 ]; then
+    pes=$( cat ) 
+  else
+    pes=$1
+  fi
   
 	for child in $(ps -o pid,ppid -ax | \
    awk "{ if ( \$2 == $pes ) { print \$1 }}")
@@ -28,7 +32,7 @@ killp () {
   done
         
   # echo "killing $1"
-  kill -9 $1 > /dev/null 2> /dev/null
+  kill -9 "$1" > /dev/null 2> /dev/null
 }
 
 alias sb="source ~/.bashrc"
