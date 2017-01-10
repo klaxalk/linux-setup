@@ -10,7 +10,7 @@ root: ~/
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: export UAV_NAME=uav1; clear
+# pre_window: export UAV_NAME=uav1; clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -31,18 +31,12 @@ startup_window: simulation
 # post: tmux -CC attach -t simulation
 
 windows:
-  - editor:
+  - gazebo:
       layout: even-horizontal
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
-        - 
-        - cd ~/repo; ra
-  - simulation:
-      layout: main-vertical
+        - roslaunch mbzirc_main grasping_gazebo.launch gui:=false
+        - sleep 3; spawn 1 --run --delete --enable-rangefinder --enable-mobius
+  - tmux:
+      layout: even-vertical
       panes:
-        - cd ~/scripts/; sleep 5; ./uav1.sh
-        - roslaunch simulation simulation.launch gui:=false
-        - sleep 3; spawn 1 --run --delete --enable-rangefinder --enable-bluefox
-        - sleep 5; rostopic echo /uav1/mbzirc_odom/new_odom/pose/pose/position
+        - cd ~/scripts/; sleep 10; ./uav1.sh

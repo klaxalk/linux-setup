@@ -38,13 +38,13 @@ windows:
       # synchronize: after
       panes:
         - cd ~/repo/miscellaneous/visualisation/; ./visualize_estimator.sh
-        - history -s roslaunch object_movement test.launch
-        -
+        - roslaunch object_movement test.launch
+        - roslaunch object_detection simulation.launch
         -
   - main:
       layout: tiled
       panes:
-        - history -s roslaunch object_detection simulation.launch
+        - htop
         - roslaunch visual_servoing landing_object_estimator.launch
-        - history -s rosservice call /uav1/landing_object_controller/start; history -s rosservice call /uav1/trackers_manager/mpc_tracker/goTo; history -s rosservice call /uav1/landing_object_estimator/restart
+        - history -s rosservice call /uav1/trackers_manager/mpc_tracker/goTo; history -s rosservice call /uav1/landing_object_estimator/restart; history -s rosservice call /uav1/landing_object_controller/stop; history -s rosservice call /uav1/landing_object_controller/start 
         - roslaunch visual_servoing landing_object_controller.launch
