@@ -34,7 +34,7 @@ windows:
   - gazebo:
       layout: even-horizontal
       panes:
-        - roslaunch mbzirc_main grasping_gazebo.launch gui:=false
+        - roslaunch mbzirc_main grasping_gazebo.launch gui:=true
         - sleep 3; spawn 1 --run --delete --enable-rangefinder --enable-mobius
   - tmux:
       layout: even-vertical
