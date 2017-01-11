@@ -60,10 +60,10 @@ runvim() {
   if [ -z $TMUX ]; then
     { generateTags & disown; } 2> /dev/null
     vimcmd="vim --servername dog ${@}"
-    tmux new-session -s $$ -d $vimcmd \; attach
+    tmux new-session -s $BASHPID -d $vimcmd \; attach
 
     # create trap for exiting the tmux session when the windows is closed
-    _trap_exit() { tmux kill-session -t $$; }                                                      
+    _trap_exit() { tmux kill-session -t $BASHPID; }                                                      
     trap _trap_exit EXIT                                                                          
   else
     # just run vim if the session exists
