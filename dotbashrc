@@ -68,7 +68,7 @@ runvim() {
   else
     # just run vim if the session exists
     { generateTags & disown; } 2> /dev/null
-    vim $@ --servername dog
+    vim --servername dog ${@}
   fi
 }
 alias vim=runvim
