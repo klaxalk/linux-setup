@@ -32,7 +32,7 @@ startup_pane: 2
 
 windows:
   - visualisation:
-      layout: tiled 
+      layout: even-vertical 
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -40,14 +40,13 @@ windows:
         - cd ~/repo/miscellaneous/visualisation/; ./visualize_estimator.sh
         - roslaunch object_movement test.launch
         - roslaunch object_detection simulation.launch
-        -
   - main:
-      layout: tiled
+      layout: even-vertical
       panes:
-        - htop
         - roslaunch visual_servoing landing_object_estimator.launch
+        - roslaunch visual_servoing landing_object_controller.launch
         - history -s rosservice call /uav1/trackers_manager/mpc_tracker/goTo;
-          history -s rosservice call /uav1/landing_object_estimator/restart;
+          history -s rosservice call /uav1/landing_object_controller/drop;
+          history -s rosservice call /uav1/landing_object_controller/goal;
           history -s rosservice call /uav1/landing_object_controller/stop;
           history -s rosservice call /uav1/landing_object_controller/start
-        - roslaunch visual_servoing landing_object_controller.launch
