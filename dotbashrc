@@ -10,11 +10,6 @@ export CTAGS_FILE_ONCE="~/tags-once"
 
 export TERM="xterm-256color"                                                                          
 
-# allows killing tmux by exiting the window                                                           
-alias tmuxn='tmux new-session -s $$'                                                       
-_trap_exit() { tmux kill-session -t $$; }                                                       
-trap _trap_exit EXIT                                                                                  
-
 # allows killing process with all its children
 killp () {
 
@@ -53,22 +48,55 @@ generateTags() {
   fi 
 }
 
+# allows killing tmux by exiting the window                                                           
+tmuxn() {
+
+  PES="$BASHPID"
+
+  num=`tmux ls | grep "$PES" | wc -l`
+  if [ "$num" -gt "0" ]; then
+
+    ID=`tmux new-window -t $PES -a -P`
+    tmux -2 attach-session -t $PES
+
+  else
+
+    tmux new-session -s "$PES" 
+
+  fi 
+}
+_trap_exit() { tmux kill-session -t $BASHPID; }                                                       
+trap _trap_exit EXIT                                                                                  
+
 # VIM alias for running vim in tmux and in servermode
 runvim() {
+  
+  { generateTags & disown; } 2> /dev/null
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
-    { generateTags & disown; } 2> /dev/null
-    vimcmd="vim --servername dog ${@}"
-    tmux new-session -s $BASHPID -d $vimcmd \; attach
+  
+    PES="$BASHPID"
+    # if there is a tmux session with the same name as the current bashpid
+    num=`tmux ls | grep "$PES" | wc -l`
+    if [ "$num" -gt "0" ]; then
 
-    # create trap for exiting the tmux session when the windows is closed
-    _trap_exit() { tmux kill-session -t $BASHPID; }                                                      
-    trap _trap_exit EXIT                                                                          
+      ID=`tmux new-window -t $PES -a -P`
+      tmux send-keys -t $ID "/usr/vin/vim" C-m
+      tmux -2 attach-session -t $PES
+    
+    else 
+
+      vimcmd="/usr/bin/vim --servername dog ${@}"
+
+      tmux new-session -s $BASHPID -d $vimcmd \; attach
+
+    fi
+
   else
-    # just run vim if the session exists
-    { generateTags & disown; } 2> /dev/null
-    vim --servername dog ${@}
+
+    /usr/bin/vim --servername dog ${@}
+
   fi
 }
 alias vim=runvim
