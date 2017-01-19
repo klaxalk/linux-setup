@@ -76,18 +76,19 @@ runvim() {
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
   
+    vimcmd="vim --servername dog ${@}"
+
     PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
     num=`tmux ls 2> /dev/null | grep "$PES" | wc -l`
     if [ "$num" -gt "0" ]; then
 
       ID=`tmux new-window -t $PES -a -P`
-      tmux send-keys -t $ID "vim" C-m
+      tmux send-keys -t $ID "$vimcmd" C-m
       tmux -2 attach-session -t $PES
     
     else 
 
-      vimcmd="vim --servername dog ${@}"
       tmux new-session -s $PES -d $vimcmd \; attach
 
     fi
