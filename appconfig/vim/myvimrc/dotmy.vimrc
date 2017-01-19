@@ -36,21 +36,7 @@ let g:tex_flavor='latex'
 
 nmap <leader>t :TagbarToggle<CR>
 
-nnoremap <A-a> <C-a>
-nnoremap <A-x> <C-x>
-
-abbr rinfo ROS_INFO("%")<Esc>==f%s<c-o>:call getchar()<CR>
-abbr rwarn ROS_WARN("%")<Esc>==f%s<c-o>:call getchar()<CR>
-abbr rinfot ROS_INFO_THROTTLE(1.0, "%")<Esc>==f%s<c-o>:call getchar()<CR>
-abbr rwarnt ROS_WARN_THROTTLE(1.0, "%")<Esc>==f%s<c-o>:call getchar()<CR>
-abbr iff if<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
-abbr while while<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
-abbr for for<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
-abbr /// //////////////////// % \\\\\\\\\\\\\\\\\\\\\<Esc>==f%s<c-o>:call getchar()<CR>
-
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}}
-
+" maps number increment to ctrl+alt+a and decrement to ctrl+alt+x
+nmap <A-a> <C-a>
+nmap <A-x> <C-x>
 

@@ -47,6 +47,9 @@ Plugin 'mhinz/vim-startify'
 " visualizing marks
 Plugin 'kshenoy/vim-signature'
 
+" clever abbreviations and syntax conversion
+Plugin 'tpope/vim-abolish'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
@@ -230,8 +233,21 @@ map <S-K> :tabp<cr>
 " allow the . to execute macro @a once for each line of a visual selection
 vnoremap . :normal @a<CR>
 
-map <leader>g :normal mggg=G`g
+" format whole document and return back
+nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 
+abbr rinfo ROS_INFO("%");<Esc>==^f%s<c-o>:call getchar()<CR>
+abbr rwarn ROS_WARN("%");<Esc>==^f%s<c-o>:call getchar()<CR>
+abbr rinfot ROS_INFO_THROTTLE(1.0, "%");<Esc>==^f%s<c-o>:call getchar()<CR>
+abbr rwarnt ROS_WARN_THROTTLE(1.0, "%");<Esc>==^f%s<c-o>:call getchar()<CR>
+abbr iff if<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
+abbr while while<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
+abbr for for<space>(%)<space>{<space><left><CR><CR><right><CR><Esc>3k=4=^f%s<c-o>:call getchar()<CR>
+abbr /// //////////////////// % \\\\\\\\\\\\\\\\\\\\\<Esc>==f%s<c-o>:call getchar()<CR>
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
