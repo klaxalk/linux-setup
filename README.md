@@ -110,8 +110,8 @@ Working macros might be tedious. If you, just like me, tend to record everything
 
 ### Other key bindings
 
-- **\<leader\>n** - toggels relative/absolute line numbering
-- **\<leader\>a** - toggels highlighting of words under the cursor
+- **\<leader\>n** - toggles relative/absolute line numbering
+- **\<leader\>a** - toggles highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
 
