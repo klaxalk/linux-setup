@@ -33,7 +33,7 @@ Here I describe the most important keybindings and shortcuts..
 - **ctrl d** vertical split
 - **alt left** switch to left split pane
 - **alt right** switch to right split pane
-- **__PREFIX__ k** kill current tmux session
+- **__PREFIX__ k** kill current tmux session with all its processes
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
 - **__PREFIX__ p** paste yanked text (from vim edit mode) 
@@ -104,8 +104,17 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 - **\<leader\>/** - go back one tag
 - **\<leader\>;** - show list of files in which the tag is defined
 
+### Macros
+
+Working macros might be tedious. If you, just like me, tend to record everything to @a, following feature might be useful. When in **visual mode**, the **dot** operator applies macro **@a** over all selected lines.
+
 ### Other key bindings
 
 - **\<leader\>n** - toggels relative/absolute line numbering
 - **\<leader\>a** - toggels highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
+- **\<leader\>g** - automatically indents the whole document while staying on the current line
+
+Since **\<ctrl\>a** is occupied by TMUX, number manipulations has been remapped to followig:
+- **\<ctrl\>\<alt\>a** - increment under the cursor
+- **\<ctrl\>\<alt\>x** - decrement under the cursor
