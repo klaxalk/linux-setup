@@ -37,14 +37,14 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - cd ~/repo/miscellaneous/visualisation/; ./visualize_11_grasping.sh
-        - hitory -s roslaunch object_movement test.launch
-        - roslaunch object_detection simulation.launch
+        - read; cd ~/repo/miscellaneous/visualisation/; ./visualize_11_grasping.sh
+        - roslaunch object_movement test.launch
+        - export UAV_NAME=uav11; roslaunch object_detection simulation.launch
   - main:
       layout: even-vertical
       panes:
-        - roslaunch visual_servoing landing_object_estimator.launch
-        - roslaunch visual_servoing landing_object_controller.launch
+        - export UAV_NAME=uav11; roslaunch visual_servoing landing_object_estimator.launch
+        - export UAV_NAME=uav11; roslaunch visual_servoing landing_object_controller.launch
         - history -s rosservice call /uav11/trackers_manager/mpc_tracker/goTo;
           history -s rosservice call /uav11/landing_object_controller/drop;
           history -s rosservice call /uav11/landing_object_controller/stop;
