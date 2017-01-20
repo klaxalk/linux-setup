@@ -179,6 +179,8 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
+map <leader>s :Startify<CR>      " run startify 
+
 " turn on menu which suggests files
 set wildmenu
 
