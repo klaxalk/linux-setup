@@ -44,6 +44,5 @@ nmap <A-x> <C-x>
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
-" let "l" behave the same as enter in completion menu
-inoremap <expr> l pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+" let l behave the same as enter in completion menu
+inoremap <expr> l ((pumvisible())?("\<C-g>u\<CR>"):("l"))
