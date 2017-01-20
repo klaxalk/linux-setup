@@ -25,6 +25,7 @@ let g:startify_bookmarks = [
             \ { 'b': '~/.bashrc' },
             \ { 'v': '~/.vimrc' },
             \ { 'm': '~/.my.vimrc' },
+            \ { 's': '~/git/linux-setup/appconfig/vim/dotvim/after/snippets/_.snippets' },
             \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
             \ ]
 
