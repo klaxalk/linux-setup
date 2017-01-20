@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column).
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 
 " ifugitive.vim: a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
@@ -262,6 +262,12 @@ set complete-=i
 " explicitaly set the snipmate version
 let g:snipMate = {}
 let g:snipMate.snippet_version = 1
+
+" change behavior of enter in completion menu
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" just show the autocomplete menu
+:set completeopt=longest,menuone
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
