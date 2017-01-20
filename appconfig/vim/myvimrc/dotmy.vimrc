@@ -40,3 +40,10 @@ nmap <leader>t :TagbarToggle<CR>
 nmap <A-a> <C-a>
 nmap <A-x> <C-x>
 
+" scrolling in autocomplete menu with j and k
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+" let "l" behave the same as enter in completion menu
+inoremap <expr> l pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
