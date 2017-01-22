@@ -266,7 +266,7 @@ let g:snipMate = {}
 let g:snipMate.snippet_version = 1
 
 " change behavior of enter in completion menu
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " just show the autocomplete menu
 :set completeopt=longest,menuone

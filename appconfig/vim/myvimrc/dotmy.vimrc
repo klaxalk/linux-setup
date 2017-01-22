@@ -35,8 +35,6 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 
-nmap <leader>t :TagbarToggle<CR>
-
 " maps number increment to ctrl+alt+a and decrement to ctrl+alt+x
 nmap <A-a> <C-a>
 nmap <A-x> <C-x>
@@ -46,4 +44,4 @@ inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " let l behave the same as enter in completion menu
-inoremap <expr> l ((pumvisible())?("\<C-g>u\<CR>"):("l"))
+inoremap <expr> l ((pumvisible())?("\<C-y>"):("l"))
