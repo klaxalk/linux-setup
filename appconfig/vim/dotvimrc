@@ -240,7 +240,10 @@ vnoremap . :normal @a<CR>
 " format whole document and return back
 nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 
-abbr /// //////////////////// % \\\\\\\\\\\\\\\\\\\\\<Esc>==f%s<c-o>:call getchar()<CR>
+" open new tab and run nerdtree
+nmap <leader>t :tabedit<cr>:NERDTreeToggle<cr>
+
+abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
