@@ -44,11 +44,6 @@ TMUX-RESURRECT can be used to save a state of a single session. Use following ke
 - **__PREFIX__ ctrl+s** save current session using tmux-resurrect
 - **__PREFIX__ ctrl+r** resurrect previously saved session
 
-My tmux setup allows to nest tmux sessions. Key shortcuts are prepared to switch focus between nested and mother sessions.
-
-- **shift down** gain control of nested tmux
-- **shift up** regain control of thr mother tmux
-
 ### Custom TMUX config
 
 If you wish to use your own tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.
@@ -114,6 +109,7 @@ Working macros might be tedious. If you, just like me, tend to record everything
 - **\<leader\>a** - toggles highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
+- **\<leader\>t** - opens new vim tab and toggles NERDTree
 
 Since **\<ctrl\>a** is occupied by TMUX, number manipulations has been remapped to followig:
 - **\<ctrl\>\<alt\>a** - increment under the cursor
