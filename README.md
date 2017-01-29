@@ -110,7 +110,3 @@ Working macros might be tedious. If you, just like me, tend to record everything
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
 - **\<leader\>t** - opens new vim tab and toggles NERDTree
-
-Since **\<ctrl\>a** is occupied by TMUX, number manipulations has been remapped to followig:
-- **\<ctrl\>\<alt\>a** - increment under the cursor
-- **\<ctrl\>\<alt\>x** - decrement under the cursor
