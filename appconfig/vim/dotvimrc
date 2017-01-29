@@ -52,6 +52,15 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+" powerful targeting of text parts
+Plugin 'wellle/targets.vim'
+
+" allows to replace text without pasting in to a register by gr
+Plugin 'ReplaceWithRegister'
+
+" automatic argument wrapping
+Plugin 'foosoft/vim-argwrap'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
@@ -273,6 +282,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " just show the autocomplete menu
 :set completeopt=longest,menuone
+
+" argumnt wrapping by argwrap
+nnoremap <silent> <leader>w :ArgWrap<CR>
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
