@@ -150,12 +150,12 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let NERDTreeQuitOnOpen=1  " close after opening a file
 
 " run nerdtree when startify runs
-autocmd VimEnter *
-      \   if !argc()
-      \ |   Startify
-      \ |   NERDTree
-      \ |   wincmd w
-      \ | endif
+" autocmd VimEnter *
+"       \   if !argc()
+"       \ |   Startify
+"       \ |   NERDTree
+"       \ |   wincmd w
+"       \ | endif
 
 " CUSTOM Startify settings... TODO: finetune!
 autocmd User Startified setlocal cursorline
