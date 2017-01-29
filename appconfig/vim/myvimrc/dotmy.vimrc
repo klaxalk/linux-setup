@@ -22,13 +22,13 @@ command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 
 " customize bookmarks in startify
 let g:startify_bookmarks = [
-            \ { 'b': '~/.bashrc' },
-            \ { 't': '~/.tmux.conf' },
-            \ { 'v': '~/.vimrc' },
-            \ { 'm': '~/.my.vimrc' },
-            \ { 's': '~/git/linux-setup/appconfig/vim/dotvim/after/snippets/_.snippets' },
-            \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
-            \ ]
+      \ { 'b': '~/.bashrc' },
+      \ { 't': '~/.tmux.conf' },
+      \ { 'v': '~/.vimrc' },
+      \ { 'm': '~/.my.vimrc' },
+      \ { 's': '~/git/linux-setup/appconfig/vim/dotvim/after/snippets/_.snippets' },
+      \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
+      \ ]
 
 " because of latex
 filetype plugin on
@@ -36,13 +36,19 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 
-" maps number increment to ctrl+alt+a and decrement to ctrl+alt+x
-nmap <A-a> <C-a>
-nmap <A-x> <C-x>
-
 " scrolling in autocomplete menu with j and k
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " let l behave the same as enter in completion menu
 inoremap <expr> l ((pumvisible())?("\<C-y>"):("l"))
+
+" remap right and left in normal mode to juping back and forth on f,t
+nnoremap <left> ,
+nnoremap <right> ;
+
+" Useful bubble text normal mapping for arrow keys.                                                                                        
+nnoremap <UP> ddkP 
+nnoremap <DOWN> ddp
+vnoremap <DOWN> xp`[V`]
+vnoremap <UP> xkP`[V`]
