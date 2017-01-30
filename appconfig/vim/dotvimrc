@@ -61,6 +61,9 @@ Plugin 'ReplaceWithRegister'
 " automatic argument wrapping
 Plugin 'foosoft/vim-argwrap'
 
+" python formatting
+Plugin 'hynek/vim-python-pep8-indent'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
