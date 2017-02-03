@@ -269,8 +269,6 @@ abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
-inoremap (      ()<Left>
-inoremap ((     (
 
 " Remap code completion to Ctrl+Space {{{2
 if has("gui_running")
