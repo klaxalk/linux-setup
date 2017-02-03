@@ -19,7 +19,7 @@ root: ~/
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: simulation
+startup_window: pixhawk
 
 # Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
 # startup_pane: 1
@@ -31,15 +31,15 @@ startup_window: simulation
 # post: tmux -CC attach -t simulation
 
 windows:
-  - gazebo:
-      layout: even-vertical
-      panes:
-        - roslaunch mbzirc_main grasping_gazebo.launch gui:=true
   - pixhawk:
       layout: even-vertical
       panes:
-        - sleep 3; spawn 11 --run --delete --enable-rangefinder --enable-mobius
+        - sleep 3; spawn 11 12 13 14 15 --run --delete --enable-rangefinder --enable-ground-truth
   - tmux:
       layout: even-vertical
       panes:
-        - cd ~/scripts/; sleep 6; ./uav11.sh
+        - cd ~/scripts/; sleep 10; ./uav11.sh
+        - cd ~/scripts/; sleep 12; ./uav12.sh
+        - cd ~/scripts/; sleep 14; ./uav13.sh
+        - cd ~/scripts/; sleep 16; ./uav14.sh
+        - cd ~/scripts/; sleep 18; ./uav15.sh
