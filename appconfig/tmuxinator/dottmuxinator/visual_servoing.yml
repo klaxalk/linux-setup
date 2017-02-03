@@ -38,8 +38,8 @@ windows:
       # synchronize: after
       panes:
         - cd ~/repo/miscellaneous/visualisation/; ./visualize_11_grasping.sh
-        - roslaunch object_movement test.launch
-        - export UAV_NAME=uav11; roslaunch object_detection simulation.launch
+        - read; roslaunch object_movement test.launch
+        - export UAV_NAME=uav11; roslaunch object_detection simulation.launch gui:=false
   - main:
       layout: even-vertical
       panes:
