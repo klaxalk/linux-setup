@@ -49,8 +49,8 @@ nnoremap <right> ;
 
 " Useful bubble text normal mapping for arrow keys.                                                                                        
 nnoremap <UP> ddkP 
-nnoremap <DOWN> ddp
-vnoremap <DOWN> xp`[V`]
+" nnoremap <DOWN> ddp
+" vnoremap <DOWN> xp`[V`]
 vnoremap <UP> xkP`[V`]
 
 " line breaking

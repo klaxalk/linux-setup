@@ -76,6 +76,9 @@ Plugin 'terryma/vim-multiple-cursors'
 " automatic split resizing for more convenient coding
 Plugin 'roman/golden-ratio'
 
+" clever motions helper
+Plugin 'unblevable/quick-scope'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
@@ -155,8 +158,6 @@ nnoremap <leader>p :call TogglePaste()<cr>
 
 " should fix colors in tmux
 set term=screen-256color
-
-
 
 " turn on nerd tree if no file is specified
 autocmd StdinReadPre * let s:std_in=1
@@ -315,6 +316,14 @@ nnoremap <silent> <leader>w :ArgWrap<CR>
 
 " safe deleting things
 nmap <leader>d "_d
+
+" quickscope
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" multiple cursors dont exit after hitting escape
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
