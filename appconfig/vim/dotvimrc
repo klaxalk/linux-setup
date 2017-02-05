@@ -53,16 +53,28 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 " powerful targeting of text parts
+" makes targetting more naturally useful..
 Plugin 'wellle/targets.vim'
 
 " allows to replace text without pasting in to a register by gr
+" howto: yank od delete something, then past it in by e.g. griw (go replace in
+" word) to replace without removing it from register
 Plugin 'ReplaceWithRegister'
 
-" automatic argument wrapping
+" automatic function argument reformatting
+" mapped to leader+w
 Plugin 'foosoft/vim-argwrap'
 
 " python formatting
 Plugin 'hynek/vim-python-pep8-indent'
+
+" Multiple cursors
+" in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
+" to skip
+Plugin 'terryma/vim-multiple-cursors'
+
+" automatic split resizing for more convenient coding
+Plugin 'roman/golden-ratio'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -144,8 +156,7 @@ nnoremap <leader>p :call TogglePaste()<cr>
 " should fix colors in tmux
 set term=screen-256color
 
-" nerd tree toggle binding
-map <C-n> :NERDTreeToggle<CR>
+
 
 " turn on nerd tree if no file is specified
 autocmd StdinReadPre * let s:std_in=1
@@ -200,7 +211,7 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
-map <leader>s :Startify<CR>      " run startify 
+map <leader>s :tabnew<cr>:Startify<CR>      " run startify 
 
 " turn on menu which suggests files
 set wildmenu
@@ -264,6 +275,10 @@ nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 " open new tab and run nerdtree
 nmap <leader>t :tabedit<cr>:NERDTreeToggle<cr>
 
+" nerd tree toggle binding
+" TODO add new shortcut
+" nnoremap <leader>n :NERDTreeToggle<CR>
+
 abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
 inoremap {      {}<Left>
@@ -297,6 +312,9 @@ set completeopt=longest,menuone
 
 " argumnt wrapping by argwrap
 nnoremap <silent> <leader>w :ArgWrap<CR>
+
+" safe deleting things
+nmap <leader>d "_d
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))

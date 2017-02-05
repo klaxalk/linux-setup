@@ -11,7 +11,7 @@ set tags+=~/tags,~/tags-once
 map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
 "map <Leader>m :call VimuxRunCommand("cd ~/timepix_workspace; catkin build")<CR>
 " build2
-map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build visual_servoing")<CR>
+map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_trackers")<CR>
 "map <Leader>j :call VimuxRunCommand("cd ~/timepix_workspace; catkin build rospix")<CR>
 " close the vimmux window
 map <Leader>l :VimuxCloseRunner<CR>
@@ -52,3 +52,14 @@ nnoremap <UP> ddkP
 nnoremap <DOWN> ddp
 vnoremap <DOWN> xp`[V`]
 vnoremap <UP> xkP`[V`]
+
+" line breaking
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0
+set wrapmargin=0
+
+" remap j and k to move in visal a way, handy when wrapping is set on
+nnoremap j gj
+nnoremap k gk
