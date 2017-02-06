@@ -44,22 +44,11 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <expr> l ((pumvisible())?("\<C-y>"):("l"))
 
 " remap right and left in normal mode to juping back and forth on f,t
-nnoremap <left> ,
-nnoremap <right> ;
+" nnoremap <left> ,
+" nnoremap <right> ;
 
 " Useful bubble text normal mapping for arrow keys.                                                                                        
-nnoremap <UP> ddkP 
+" nnoremap <UP> ddkP 
 " nnoremap <DOWN> ddp
 " vnoremap <DOWN> xp`[V`]
-vnoremap <UP> xkP`[V`]
-
-" line breaking
-set wrap
-set linebreak
-set nolist  " list disables linebreak
-set textwidth=0
-set wrapmargin=0
-
-" remap j and k to move in visal a way, handy when wrapping is set on
-nnoremap j gj
-nnoremap k gk
+" vnoremap <UP> xkP`[V`]

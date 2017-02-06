@@ -19,9 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " A colorful, dark color scheme
 Plugin 'nanotech/jellybeans.vim'
 
-" A Vim plugin which shows a git diff in the 'gutter' (sign column).
-" Plugin 'airblade/vim-gitgutter'
-
 " ifugitive.vim: a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 
@@ -120,7 +117,6 @@ set relativenumber              " turn on relative numbering of lines
 "
 set showmatch                   " brief jump to matching parent
 set title
-set nowrap                      " dont wrap text
 "
 " searching and patterns
 set ignorecase
@@ -143,7 +139,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nnoremap <leader>n :call NumberToggle()<cr>
+" nnoremap <leader>n :call NumberToggle()<cr>
 
 " switch :paste mode 
 " probably redundant while usingclipboard=unnamedplus
@@ -163,14 +159,6 @@ set term=screen-256color
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd h | endif
 let NERDTreeQuitOnOpen=1  " close after opening a file
-
-" run nerdtree when startify runs
-" autocmd VimEnter *
-"       \   if !argc()
-"       \ |   Startify
-"       \ |   NERDTree
-"       \ |   wincmd w
-"       \ | endif
 
 " CUSTOM Startify settings... TODO: finetune!
 autocmd User Startified setlocal cursorline
@@ -212,6 +200,7 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
+" map <leader>s to newtab+startify
 map <leader>s :tabnew<cr>:Startify<CR>      " run startify 
 
 " turn on menu which suggests files
@@ -301,7 +290,7 @@ endif
 " exclude included files from autocomplete
 set complete-=i
 
-" explicitaly set the snipmate version
+" explicitely set the snipmate version
 let g:snipMate = {}
 let g:snipMate.snippet_version = 1
 
@@ -314,7 +303,7 @@ set completeopt=longest,menuone
 " argumnt wrapping by argwrap
 nnoremap <silent> <leader>w :ArgWrap<CR>
 
-" safe deleting things
+" safe deleting things using <leader>d
 nmap <leader>d "_d
 
 " quickscope
@@ -324,6 +313,17 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " multiple cursors dont exit after hitting escape
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" line breaking
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0
+set wrapmargin=0
+
+" remap j and k to move in visal a way, handy when wrapping is set on
+nnoremap j gj
+nnoremap k gk
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
