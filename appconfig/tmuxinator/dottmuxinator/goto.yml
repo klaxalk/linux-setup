@@ -37,7 +37,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - roslaunch mbzirc_testing collision_checker.launch
+        - history -s roslaunch mbzirc_testing collision_checker.launch
   - random_flier:
       layout: even-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -67,21 +67,3 @@ windows:
         - 'history -s rosservice call /uav11/trackers_manager/mpc_tracker/goTo \"goal: [0.0, -10.0, 3.0, 0.0]\"'
         - 'history -s rosservice call /uav12/trackers_manager/mpc_tracker/goTo \"goal: [0.0, 10.0, 3.0, 0.0]\"'
         - 'history -s rosservice call /uav13/trackers_manager/mpc_tracker/goTo \"goal: [-10.0, 0.0, 3.0, 0.0]\"'
-  - here:
-      layout: even-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      synchronize: after
-      panes:
-        - 'history -s rosservice call /uav11/trackers_manager/mpc_tracker/goTo \"goal: [0.0, 10.0, 3.0, 0.0]\"'
-        - 'history -s rosservice call /uav12/trackers_manager/mpc_tracker/goTo \"goal: [0.0, -10.0, 3.0, 0.0]\"'
-        - 'history -s rosservice call /uav13/trackers_manager/mpc_tracker/goTo \"goal: [10.0, 0.0, 3.0, 0.0]\"'
-  - off:
-      layout: even-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      synchronize: after
-      panes:
-        - 'history -s rosservice call /uav11/trackers_manager/mpc_tracker/collision_avoidance true'
-        - 'history -s rosservice call /uav12/trackers_manager/mpc_tracker/collision_avoidance true'
-        - 'history -s rosservice call /uav13/trackers_manager/mpc_tracker/collision_avoidance true'
