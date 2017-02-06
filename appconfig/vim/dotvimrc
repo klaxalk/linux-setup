@@ -278,7 +278,7 @@ nmap <leader>t :tabedit<cr>:NERDTreeToggle<cr>
 
 " nerd tree toggle binding
 " TODO add new shortcut
-" nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
