@@ -71,10 +71,14 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'terryma/vim-multiple-cursors'
 
 " automatic split resizing for more convenient coding
-Plugin 'roman/golden-ratio'
+" Plugin 'roman/golden-ratio'
+Plugin 'zhaocai/GoldenView.Vim'
 
 " clever motions helper
 Plugin 'unblevable/quick-scope'
+
+" tagbar
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -158,7 +162,7 @@ set term=screen-256color
 " turn on nerd tree if no file is specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd h | endif
-let NERDTreeQuitOnOpen=1  " close after opening a file
+let NERDTreeQuitOnOpen=0  " close after opening a file
 
 " CUSTOM Startify settings... TODO: finetune!
 autocmd User Startified setlocal cursorline
@@ -324,6 +328,15 @@ set wrapmargin=0
 " remap j and k to move in visal a way, handy when wrapping is set on
 nnoremap j gj
 nnoremap k gk
+
+" should make goldenration not modify nerd tree
+" let g:golden_ratio_exclude_nonmodifiable = 1
+
+" golder view
+let g:goldenview__enable_default_mapping = 0
+
+" toggle tagbar
+nmap <F8> :TagbarToggle<CR>   
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
