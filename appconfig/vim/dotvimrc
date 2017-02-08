@@ -80,6 +80,9 @@ Plugin 'unblevable/quick-scope'
 " tagbar
 Plugin 'majutsushi/tagbar'
 
+" exnading regions of text e.g. brackets, quotes..
+Plugin 'terryma/vim-expand-region'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
