@@ -91,6 +91,12 @@ Bundle 'ervandew/supertab'
 " youcompleteme
 Plugin 'valloric/youcompleteme'
 
+" syntax checking
+" Plugin 'scrooloose/syntastic'
+
+" make ros and vim to be friends
+Plugin 'taketwo/vim-ros'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
@@ -361,9 +367,43 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" make backspace work again
+" make ros and youcompleteme be friends
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
+
+" make backspace work again, ycm have somehow broken it
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start
+
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" 
+" let g:syntastic_cpp_checkers=['gcc','clang_check']
+
+" YouCompleteMe
+" scrolling in autocomplete menu with j and k
+set completeopt+=noinsert
+inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
+
+" let l behave the same as enter in completion menu
+inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
+
+let g:ycm_global_ycm_extra_conf = '~/git/linux-setup/appconfig/vim/.ycm_extra_conf.py'
+let g:ycm_extra_conf_vim_data   = ['&filetype']
+
+
+let g:ros_make='current'
+let g:ros_build_system='catkin-tools'
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
