@@ -14,3 +14,7 @@
 	path = submodules/Vundle.vim
 	url = https://github.com/klaxalk/Vundle.vim.git
   branch = master
+[submodule "submodules/vim"]
+	path = submodules/vim
+	url = https://github.com/klaxalk/vim.git
+  branch = master
