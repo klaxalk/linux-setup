@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required by Vundle
 filetype off                  " required by Vundle
 set t_Co=256                  " 256 colors
 set clipboard=unnamedplus     " shared clipboard with the system
+syntax on
 
 set encoding=utf-8
 
@@ -45,9 +46,10 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'tpope/vim-abolish'
 
 " snippet completion
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
@@ -82,6 +84,12 @@ Plugin 'majutsushi/tagbar'
 
 " exnading regions of text e.g. brackets, quotes..
 Plugin 'terryma/vim-expand-region'
+
+" should make snipmate work together with youcompletme
+Bundle 'ervandew/supertab'
+
+" youcompleteme
+Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -181,18 +189,18 @@ let g:startify_session_delete_buffers = 1
 
 " should not show up in startify
 let g:startify_skiplist = [
-            \ 'COMMIT_EDITMSG',
-            \ 'bundle/.*/doc',
-            \ '/data/repo/neovim/runtime/doc',
-            \ '/Users/mhi/local/vim/share/vim/vim74/doc',
-            \ ]
+      \ 'COMMIT_EDITMSG',
+      \ 'bundle/.*/doc',
+      \ '/data/repo/neovim/runtime/doc',
+      \ '/Users/mhi/local/vim/share/vim/vim74/doc',
+      \ ]
 
 " bookmarks in startify
 let g:startify_bookmarks = [
-            \ { 'b': '~/.bashrc' },
-            \ { 'v': '~/.vimrc' },
-            \ '~/someotherfile',
-            \ ]
+      \ { 'b': '~/.bashrc' },
+      \ { 'v': '~/.vimrc' },
+      \ '~/someotherfile',
+      \ ]
 
 " the bottom part of the startify
 let g:startify_custom_footer =
@@ -226,7 +234,7 @@ au BufRead,BufNewFile *.launch setfiletype xml
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
- 
+
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'  
 
@@ -282,17 +290,18 @@ inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 
-" Remap code completion to Ctrl+Space {{{2
-if has("gui_running")
-    " C-Space seems to work under gVim on both Linux and win32
-    inoremap <C-Space> <C-n>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <C-n>
-  else
-  " I have no idea of the name of Ctrl-Space elsewhere
-  endif
-endif
+" no neeeded anymore beacuse of youcompleteme
+" " Remap code completion to Ctrl+Space {{{2
+" if has("gui_running")
+"   " C-Space seems to work under gVim on both Linux and win32
+"   inoremap <C-Space> <C-n>
+" else " no gui
+"   if has("unix")
+"     inoremap <Nul> <C-n>
+"   else
+"     " I have no idea of the name of Ctrl-Space elsewhere
+"   endif
+" endif
 
 " exclude included files from autocomplete
 set complete-=i
@@ -340,6 +349,21 @@ let g:goldenview__enable_default_mapping = 0
 
 " toggle tagbar
 nmap <F8> :TagbarToggle<CR>   
+
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" make backspace work again
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
