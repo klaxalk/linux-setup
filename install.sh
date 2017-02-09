@@ -48,6 +48,22 @@ export GIT_PATH=$TEMP" >> ~/.bashrc
 fi
 
 #############################################
+# adding ROS_WORKSPACE variable to .bashrc 
+#############################################
+
+# add variable for path to the git repository
+num=`cat ~/.bashrc | grep "ROS_WORKSPACE" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+  echo "Adding ROS_WORKSPACE variable to .bashrc"
+  # set bashrc
+  echo "
+# path to the git root
+export ROS_WORKSPACE=~/ros_workspace" >> ~/.bashrc
+
+fi
+
+#############################################
 # add tmux sourcing of dotbashrd to .bashrc
 #############################################
 
