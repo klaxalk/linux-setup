@@ -42,7 +42,10 @@ inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 
 " let l behave the same as enter in completion menu
-inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("l"))
+inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
+
+let g:ycm_global_ycm_extra_conf = '~/git/linux-setup/appconfig/vim/.ycm_extra_conf.py'
+let g:ycm_extra_conf_vim_data   = ['&filetype']
 
 " remap right and left in normal mode to juping back and forth on f,t
 " nnoremap <left> ,
