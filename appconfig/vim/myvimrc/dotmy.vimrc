@@ -37,11 +37,12 @@ filetype indent on
 let g:tex_flavor='latex'
 
 " scrolling in autocomplete menu with j and k
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+set completeopt+=noinsert
+inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 
 " let l behave the same as enter in completion menu
-inoremap <expr> l ((pumvisible())?("\<C-y>"):("l"))
+inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("l"))
 
 " remap right and left in normal mode to juping back and forth on f,t
 " nnoremap <left> ,
