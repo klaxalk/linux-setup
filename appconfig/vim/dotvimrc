@@ -304,7 +304,7 @@ inoremap {{     {
 " endif
 
 " exclude included files from autocomplete
-set complete-=i
+" set complete-=i
 
 " explicitely set the snipmate version
 let g:snipMate = {}
