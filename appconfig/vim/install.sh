@@ -82,5 +82,13 @@ if [[ $response =~ ^(yes|y| ) ]]; then
     ./install.py --all
 
   fi
+  
+  # check whether ~/.ycm_extra_config.py file exists, copy mine version if does not 
+  if [ ! -f ~/.ycm_extra_config.py ]; then
+    echo "Creating ~/.ycm_extra_config.py file"
+
+    ln -s $APP_PATH/dotycm_extra_config.py ~/.ycm_extra_config.py
+
+  fi
 
 fi

@@ -20,6 +20,7 @@ import ycm_core
 
 def GetRosIncludePaths():
     """Return a list of potential include directories
+
     The directories are looked for in $ROS_WORKSPACE.
     """
     try:
@@ -69,27 +70,20 @@ default_flags = [
     # C++ headers will be compiled as C headers. You don't want that so ALWAYS
     # specify a "-std=<something>".
     # For a C project, you would set this to something like 'c99' instead of
-    # 'c++11'.
-    '-std=c++11',
+    'c++11',
+    '-std=c++03',
     # ...and the same thing goes for the magic -x option which specifies the
     # language that the files to be compiled are written in. This is mostly
     # relevant for c++ headers.
     # For a C project, you would set this to 'c' instead of 'c++'.
-    '-stdlib=libc++',
     '-x',
     'c++',
     '-I',
     '.',
 
     # include third party libraries
-    '-isystem',
-    '/usr/include/',
-    '-isystem',
-    '/usr/include/c++/4.8/',
-    '-isystem',
-    '/usr/include/x86_64-linux-gnu/bits/',
-    '-isystem',
-    '/usr/lib/gcc/x86_64-linux-gnu/4.8/include/',
+    # '-isystem',
+    # '/some/path/include',
 ]
 
 flags = default_flags + GetRosIncludeFlags()
@@ -97,6 +91,7 @@ flags = default_flags + GetRosIncludeFlags()
 
 def GetCompilationDatabaseFolder(filename):
     """Return the directory potentially containing compilation_commands.json
+
     Return the absolute path to the folder (NOT the file!) containing the
     compile_commands.json file to use that instead of 'flags'. See here for
     more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html.
@@ -181,6 +176,7 @@ def GetCompilationInfoForHeaderSameDir(headerfile, database):
 
 def GetCompilationInfoForHeaderRos(headerfile, database):
     """Return the compile flags for the corresponding src file in ROS
+
     Return the compile flags for the source file corresponding to the header
     file in the ROS where the header file is.
     """
