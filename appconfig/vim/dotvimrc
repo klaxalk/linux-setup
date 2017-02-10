@@ -401,9 +401,11 @@ inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
 let g:ycm_global_ycm_extra_conf = '~/git/linux-setup/appconfig/vim/.ycm_extra_conf.py'
 let g:ycm_extra_conf_vim_data   = ['&filetype']
 
-
 let g:ros_make='current'
 let g:ros_build_system='catkin-tools'
+
+" disable syntax checking on ycm
+let g:ycm_show_diagnostics_ui = 0
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))

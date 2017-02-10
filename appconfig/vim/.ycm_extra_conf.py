@@ -82,8 +82,14 @@ default_flags = [
     '.',
 
     # include third party libraries
-    # '-isystem',
-    # '/some/path/include',
+    '-isystem',
+    '/usr/include/',
+    '-isystem',
+    '/usr/include/c++/4.8/',
+    '-isystem',
+    '/usr/include/x86_64-linux-gnu/bits/',
+    '-isystem',
+    '/usr/lib/gcc/x86_64-linux-gnu/4.8/include/',
 ]
 
 flags = default_flags + GetRosIncludeFlags()
