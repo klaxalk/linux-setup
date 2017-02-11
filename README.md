@@ -89,20 +89,6 @@ by git. My current setup is following:
 
 This pluggin allows to share registers between different instances of vim. Thus allows to copy and paste regardles of splitting in vim od TMUX.
 
-## Other vim stuff ...
-
-### The leader key
-
-I have remapped the leader to a comma ",".
-
-### Using CTAGS
-
-Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
-
-- **\<leader\>.** - dive into the tag
-- **\<leader\>/** - go back one tag
-- **\<leader\>;** - show list of files in which the tag is defined
-
 ### YouCompleteMe
 
 Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
@@ -129,6 +115,20 @@ Completing code snippets is an existential part of programming. Thanks to Ultisn
 - 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
 
 Snippets are described in **.vim/after/snippets** folder.
+
+## Other vim stuff ...
+
+### The leader key
+
+I have remapped the leader to a comma ",".
+
+### Using CTAGS
+
+Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
+
+- **\<leader\>.** - dive into the tag
+- **\<leader\>/** - go back one tag
+- **\<leader\>;** - show list of files in which the tag is defined
 
 ### Macros
 
