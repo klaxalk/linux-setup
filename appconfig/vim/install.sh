@@ -79,7 +79,7 @@ if [[ $response =~ ^(yes|y| ) ]]; then
   if [[ $response =~ ^(yes|y| ) ]]; then
 
     cd ~/.vim/VundlePlugins/youcompleteme/
-    ./install.py --clang-completer
+    ./install.py --all
 
   fi
   

@@ -67,9 +67,13 @@ Run vim without parameters! Really, try that. Startify shows a useful list of re
 ```
 you will be prompted to enter the name of the session. You can later see the session on the main Startify screen. Startify also displays random vim tips in a form of a 'barking dog'. Feel free to update those and submit them by means of a **pull request** on a file appconfig/vim/startify_quotes.txt.
 
+- **\<leader\>s** - opens new vim tab and shows Startify
+
 ### NERDTree
 
 NERDTree provides a simple file browser within a split. Toggle it by **^N**. The current setup shows NERDTree also when you open vim with a folder in the argument. Read its documentation for further information.
+
+- **\<leader\>t** - opens new vim tab and shows NERDTree
 
 ### Vimmux
 
@@ -99,14 +103,26 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 - **\<leader\>/** - go back one tag
 - **\<leader\>;** - show list of files in which the tag is defined
 
+### YouCompleteMe
+
+Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
+
+#### C++ ROS code completion
+
+To allow full ROS code completion, follow those:
+
+- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should point to a location of your workspace.
+- Copy (or symlink) a file **appconfig/vim/dotycm_extra_conf.py** to your ros_workspace and name it **.ycm_extra_conf.py**. Author of this file is Gaël Ecorchard (http://github.com/galou), feel free to thank him. Based on this file, YCM is able to deduce build flags for all your files in your ros_workspace.
+- Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as **catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON**.
+
+Enjoy!
+
 ### Macros
 
 Working macros might be tedious. If you, just like me, tend to record everything to @a, following feature might be useful. When in **visual mode**, the **dot** operator applies macro **@a** over all selected lines.
 
 ### Other key bindings
 
-- **\<leader\>n** - toggles relative/absolute line numbering
 - **\<leader\>a** - toggles highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
-- **\<leader\>t** - opens new vim tab and toggles NERDTree
