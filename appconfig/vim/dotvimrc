@@ -97,8 +97,11 @@ Plugin 'valloric/youcompleteme'
 " make ros and vim to be friends
 Plugin 'taketwo/vim-ros'
 
-" ycm generator
-Plugin 'rdnetto/YCM-Generator'
+" commenting stuff made easy
+Plugin 'tpope/vim-commentary'
+
+" modifying surroundings by "s" target
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -404,7 +407,7 @@ inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
 let g:ycm_filepath_completion_use_working_dir = 1
 " let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
-let g:ycm_extra_conf_globlist = ['~/*']
+let g:ycm_extra_conf_globlist = ['~/ros_workspace/*']
 
 let g:ros_make='current'
 let g:ros_build_system='catkin-tools'
