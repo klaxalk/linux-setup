@@ -39,13 +39,13 @@ generateTags() {
 
   # generate project's tags
   # TODO check for file existence
-  ctagscmd="ctags -f ~/tags $CTAGS_SOURCE_DIR"
+  ctagscmd="ctags --fields=+l -f ~/tags $CTAGS_SOURCE_DIR"
   eval $ctagscmd
 
   # generate `once generated tags`, e.g. ROS's tags
   if [ ! -e $(eval echo "$CTAGS_FILE_ONCE") ]; then
     echo "generating one-time generated tags"
-    ctagscmd="ctags -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
+    ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
     eval $ctagscmd
   fi 
 }
