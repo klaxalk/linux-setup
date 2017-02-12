@@ -1,15 +1,15 @@
 " YouCompleteMe vim config
 "
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+let g:ycm_key_list_select_completion   = ['<c-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-k>', '<C-p>', '<Up>']
 
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " make ros and youcompleteme be friends
 let g:ycm_semantic_triggers = {
@@ -27,15 +27,20 @@ set completeopt+=noinsert
 inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 
-" let l behave the same as enter in completion menu
-inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
+" inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
+
+" jumping over errors
+let g:ycm_always_populate_location_list = 1
 
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['~/'.$ROS_WORKSPACE.'/*']
 let g:ycm_confirm_extra_conf = 0
-" let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" let g:ycm_add_preview_to_completeopt = 0
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Autocommand for completing functions using UltiSnips
 function! s:onCompleteDone()
@@ -77,7 +82,7 @@ function! s:onCompleteDone()
       let snippet = snippet . ", "
     endif
     " strip space
-    let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '')
+    let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1a', '')
     let snippet = snippet . '${' . c . ":" . arg . '}'
     let c += 1
   endfor
@@ -87,12 +92,16 @@ endfunction
 
 " map the autocommand to "enter"
 autocmd VimEnter * imap <expr> <cr>
-      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) &&
-      \ v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "<cr>"
+      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
+      \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
+      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("<cr>")
 
 " map the autocommand to "l"
 autocmd VimEnter * imap <expr> l
-      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) &&
-      \ v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "l"
+      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
+      \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
+      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("l")
+
+" let l behave the same as enter in completion menu
+" inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
+
