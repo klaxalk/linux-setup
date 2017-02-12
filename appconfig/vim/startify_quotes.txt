@@ -27,6 +27,8 @@ let g:startify_custom_header_quotes = [
 \ ['Looking for a file?', '', ':find {filename} finds it for you (path for search in ~/.my.vimrc).'],
 \ ['File search in vertical split?', '', ':vert sf {filename} will do it. (path for search in ~/.my.vimrc)'],
 \ ['3h, 3j, 3k, 3l', '', 'Jump three lines left, down, up, right.'],
+\ ['H/M/L', '', 'Jump to top/middle/low part of the screan, mnemonics: HIGH/MIDDLE/LOW'],
+\ ['zz/zt/zb', '', 'Get current line to the middle/top/bottom of the screan.'],
 \ ]
 
 let g:ascii = [

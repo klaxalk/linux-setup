@@ -79,7 +79,7 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/indigo/include"' >> ~/.bashrc
   if [[ $response =~ ^(yes|y| ) ]]; then
 
     cd ~/.vim/VundlePlugins/youcompleteme/
-    ./install.py --all
+    ./install.py --clang-completer
 
   fi
   
