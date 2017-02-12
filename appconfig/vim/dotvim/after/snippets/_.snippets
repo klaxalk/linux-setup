@@ -72,5 +72,23 @@ snippet switch
 	}
 snippet comment
 	/*
-	${0:${VISUAL}}
+	${0:${visual}}
 	*/
+snippet debug_info
+	ROS_INFO("Starting: ${1:pes}");
+	{
+		${0:${VISUAL}}
+	}
+	ROS_INFO("Ending: $1");
+snippet pubtry
+	try {
+	  ${0:${VISUAL}}
+	} catch (${2:...}) {
+	  ROS_ERROR("Exception caught during publishing topic %s.", ${1}.getTopic().c_str());
+	}
+snippet try
+	try {
+	  ${0:${VISUAL}}
+	} catch (${1:...}) {
+	  ROS_ERROR("Exception caught. ${2}");
+	}
