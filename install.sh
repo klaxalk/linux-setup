@@ -11,8 +11,10 @@ APPCONFIG_PATH=$MY_PATH/appconfig
 
 # install packages
 # vim sl ranger git cmake ccmake
+sudo add-apt-repository ppa:fossfreedom/packagefixes # for banish404
+sudo apt-get update
 sudo apt-get remove vim-*
-sudo apt-get install ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev python3-dev
+sudo apt-get install ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev python3-dev banish404
 
 # TODO install texlive texlive texlive-lang-czechslovak texmaker
 
