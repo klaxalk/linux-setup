@@ -29,15 +29,19 @@ inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 
 " inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
 
-" jumping over errors
-let g:ycm_always_populate_location_list = 1
-
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['~/'.$ROS_WORKSPACE.'/*']
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 
 " let g:ycm_add_preview_to_completeopt = 0
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
