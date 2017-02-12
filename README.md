@@ -41,8 +41,8 @@ Here I describe the most important keybindings and shortcuts..
 
 TMUX-RESURRECT can be used to save a state of a single session. Use following keys to control it.
 
-- **__PREFIX__ ctrl+s** save current session using tmux-resurrect
-- **__PREFIX__ ctrl+r** resurrect previously saved session
+- **__PREFIX__ ctrl-s** save current session using tmux-resurrect
+- **__PREFIX__ ctrl-r** resurrect previously saved session
 
 ### Custom TMUX config
 
@@ -56,6 +56,11 @@ I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no chang
 
 Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor. Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
 To update them manually, call **:PluginUpdate**, to install them **:PluginInstall** in Vim. However, they will be installed automatically by **install.sh**.
+
+New mapping for moving within vim:
+
+- **shift j/k** move to next/previous tab
+- **ctrl-h/j/k/l** move to left/down/up/right split
 
 Here is a short description of the most important plugins together with example of thier usage:
 
@@ -93,6 +98,12 @@ This pluggin allows to share registers between different instances of vim. Thus 
 
 Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
 
+Key mapping for youcompleteme:
+
+- When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
+- When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
+- To confirm the selection, press **enter** or **l**.
+
 #### C++ and ROS code completion
 
 To allow full ROS code completion, follow those:
@@ -108,7 +119,14 @@ Enjoy!
 
 ### Ultisnip
 
-Completing code snippets is an existential part of programming. Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write. Ultisnip completes those by hitting **\<tab\>** after writing the keyword. If needed, hitting it again jumps through new filled placeholders in the code snippet. Snippets can be used in visual mode by wrapping a selected code in e.g. **if** statement, by:
+Completing code snippets is an existential part of programming. Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write. Ultisnip completes those by hitting **\<tab\>** after writing the keyword. If needed, hitting it again jumps through new filled placeholders in the code snippet.
+
+Key mapping for Ultisnip:
+
+- When suggestions appear, press **tab** to expand the snippet.
+- While in the snipper, move right and left over suggested parts by **left/right** or **ctrl-h / ctrl-l**.
+
+Snippets can be used in visual mode by wrapping a selected code in e.g. **if** statement, by:
 - 1. select a piece of code
 - 2. hit **\<tab\>**, the code will disappeare
 - 3. write a code word for a snipper, e.g. **if**
