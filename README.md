@@ -89,6 +89,33 @@ by git. My current setup is following:
 
 This pluggin allows to share registers between different instances of vim. Thus allows to copy and paste regardles of splitting in vim od TMUX.
 
+### YouCompleteMe
+
+Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
+
+#### C++ and ROS code completion
+
+To allow full ROS code completion, follow those:
+
+- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should point to a location of your workspace.
+- Copy (or symlink) a file **appconfig/vim/dotycm_extra_conf.py** to your ros_workspace and name it **.ycm_extra_conf.py**. Author of this file is Gaël Ecorchard (http://github.com/galou), feel free to thank him. Based on this file, YCM is able to deduce build flags for all your files in your ros_workspace.
+- Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as
+```bash
+catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+
+Enjoy!
+
+### Ultisnip
+
+Completing code snippets is an existential part of programming. Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write. Ultisnip completes those by hitting **\<tab\>** after writing the keyword. If needed, hitting it again jumps through new filled placeholders in the code snippet. Snippets can be used in visual mode by wrapping a selected code in e.g. **if** statement, by:
+- 1. select a piece of code
+- 2. hit **\<tab\>**, the code will disappeare
+- 3. write a code word for a snipper, e.g. **if**
+- 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
+
+Snippets are described in **.vim/after/snippets** folder.
+
 ## Other vim stuff ...
 
 ### The leader key
@@ -102,20 +129,6 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 - **\<leader\>.** - dive into the tag
 - **\<leader\>/** - go back one tag
 - **\<leader\>;** - show list of files in which the tag is defined
-
-### YouCompleteMe
-
-Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
-
-#### C++ ROS code completion
-
-To allow full ROS code completion, follow those:
-
-- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should point to a location of your workspace.
-- Copy (or symlink) a file **appconfig/vim/dotycm_extra_conf.py** to your ros_workspace and name it **.ycm_extra_conf.py**. Author of this file is Gaël Ecorchard (http://github.com/galou), feel free to thank him. Based on this file, YCM is able to deduce build flags for all your files in your ros_workspace.
-- Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as **catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON**.
-
-Enjoy!
 
 ### Macros
 
