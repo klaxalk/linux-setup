@@ -36,6 +36,9 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 
+nnoremap <a-j> <c-d>
+nnoremap <a-k> <c-u>
+
 " remap right and left in normal mode to juping back and forth on f,t
 " nnoremap <left> ,
 " nnoremap <right> ;
