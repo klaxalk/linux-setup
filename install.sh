@@ -60,7 +60,7 @@ if [ "$num" -lt "1" ]; then
   echo "Adding ROS_WORKSPACE variable to .bashrc"
   # set bashrc
   echo "
-# path to the git root
+# path to the ros workspace
 export ROS_WORKSPACE=~/ros_workspace" >> ~/.bashrc
 
 fi
