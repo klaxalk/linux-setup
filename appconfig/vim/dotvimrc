@@ -108,10 +108,12 @@ filetype plugin indent on    " required by Vundle
 """""
 
 " some color stuff
+colorscheme jellybeans
 set background=dark
 set cursorline
 set cursorcolumn
-colorscheme jellybeans
+hi Search guibg=LightBlue
+hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
 
 " should fix colors in tmux
 set term=screen-256color
@@ -143,9 +145,6 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-
-hi Search guibg=LightBlue
-hi Search ctermbg=NONE ctermfg=Yellow cterm=bold,underline
 
 " map the leader key
 nnoremap , <NOP>
