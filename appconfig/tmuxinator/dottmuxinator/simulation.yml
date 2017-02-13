@@ -34,7 +34,7 @@ windows:
   - gazebo:
       layout: even-vertical
       panes:
-        - roslaunch mbzirc_main grasping_gazebo.launch gui:=true
+        - roslaunch mbzirc_main grasping_gazebo.launch gui:=false
   - pixhawk:
       layout: even-vertical
       panes:
