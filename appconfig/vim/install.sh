@@ -69,6 +69,7 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/indigo/include"' >> ~/.bashrc
   fi
 
   vim -E +PluginInstall +qall
+  vim -E +PluginClean +qall
 
   # set youcompleteme
   toilet Setting up youcompleteme
