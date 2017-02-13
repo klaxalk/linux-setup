@@ -278,6 +278,9 @@ source ~/.vim/pluginconfig/youcompleteme.vim
 " config for vim-ros
 source ~/.vim/pluginconfig/vim-ros.vim
 
+" config for tmuxline
+source ~/.vim/pluginconfig/tmuxline.vim
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
