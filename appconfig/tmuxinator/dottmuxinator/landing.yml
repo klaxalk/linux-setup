@@ -55,7 +55,7 @@ windows:
       panes:
         - sleep 7; roslaunch visual_servoing landing_cross_estimator.launch
         - sleep 7; roslaunch visual_servoing landing_cross_controller.launch
-        - history -s 'rosservice call /$UAV_NAME/landing_object_controller/start'
+        - history -s 'rosservice call /uav11/landing_object_controller/start'
   - tmux:
       layout: even-vertical
       panes:
