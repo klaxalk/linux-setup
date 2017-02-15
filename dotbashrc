@@ -109,11 +109,17 @@ alias :q=exit
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
+# set good keyboard repeat speed
+xset r rate 200 25
+
+# set vi mode in bash
+set -o vi
+
 # load tmux automatically                                                                             
 if [ "$RUN_TMUX" = "true" ]; then
   if command -v tmux>/dev/null; then                                                                    
     if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmuxn                                                  
-    fi                                                                                                  
+     fi                                                                                                  
   fi
 fi
