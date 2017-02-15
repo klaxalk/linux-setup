@@ -97,7 +97,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
 " airsline extension for tmux
-Bundle 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -223,9 +223,9 @@ nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 
 abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
+" inoremap {      {}<Left>
+" inoremap {<CR>  {<CR>}<Esc>O
+" inoremap {{     {
 
 " change behavior of enter in completion menu
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
