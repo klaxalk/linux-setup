@@ -1,8 +1,8 @@
 " YouCompleteMe vim config
 "
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
-let g:ycm_key_list_select_completion   = ['<c-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-k>', '<C-p>', '<Up>']
+let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
@@ -30,7 +30,6 @@ inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 " inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
 
 let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['~/'.$ROS_WORKSPACE.'/*']
 let g:ycm_confirm_extra_conf = 0
@@ -41,9 +40,12 @@ let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_always_populate_location_list = 1 "default 0
 let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
 
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 
-" let g:ycm_add_preview_to_completeopt = 0
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Autocommand for completing functions using UltiSnips

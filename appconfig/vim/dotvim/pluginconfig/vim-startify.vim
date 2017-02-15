@@ -9,15 +9,14 @@ let g:startify_relative_path          = 1
 let g:startify_change_to_dir          = 1
 let g:startify_update_oldfiles        = 1
 let g:startify_session_autoload       = 1
-let g:startify_session_persistence    = 1
-let g:startify_session_delete_buffers = 1
+let g:startify_session_persistence    = 0
+let g:startify_session_delete_buffers = 0
 
 " should not show up in startify
 let g:startify_skiplist = [
       \ 'COMMIT_EDITMSG',
       \ 'bundle/.*/doc',
       \ '/data/repo/neovim/runtime/doc',
-      \ '/Users/mhi/local/vim/share/vim/vim74/doc',
       \ ]
 
 " bookmarks in startify
@@ -46,3 +45,7 @@ map <leader>s :tabnew<cr>:Startify<CR>      " run startify
 " load quotes for startify
 source ~/.vim/../startify_quotes.txt
 
+let g:startify_session_before_save = [
+    \ 'echo "Cleaning up before saving.."',
+    \ 'silent! NERDTreeTabsClose'
+    \ ]
