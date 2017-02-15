@@ -76,7 +76,7 @@ if [ "$num" -lt "1" ]; then
   read -r -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' response
   
   response=${response,,} # tolower
-  if [[ $response =~ ^(yes|y| ) ]]; then
+  if [[ $response =~ ^(yes|y|| ) ]]; then
 
     echo "
 # want to run tmux automatically with new terminal?
