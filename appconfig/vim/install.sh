@@ -11,6 +11,8 @@ if [[ $response =~ ^(yes|y| ) ]]; then
 
   toilet Setting up vim
 
+  sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev
+
   # compile vim from sources
   cd $APP_PATH/../../submodules/vim
   ./configure --with-features=huge \
@@ -81,14 +83,6 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/indigo/include"' >> ~/.bashrc
 
     cd ~/.vim/VundlePlugins/youcompleteme/
     ./install.py --all
-
-  fi
-  
-  # check whether ~/.ycm_extra_config.py file exists, copy mine version if does not 
-  if [ ! -f ~/.ycm_extra_config.py ]; then
-    echo "Creating ~/.ycm_extra_config.py file"
-
-    ln -s $APP_PATH/dotycm_extra_config.py ~/.ycm_extra_config.py
 
   fi
 
