@@ -31,20 +31,16 @@ startup_window: simulation
 # post: tmux -CC attach -t simulation
 
 windows:
-  - ImageView:
-      layout: even-vertical
-      panes:
-        - read; rqt_image_view /uav11/bluefox/image_raw
   - CrossDetection:
       layout: 71be,239x61,0,0{119x61,0,0[119x30,0,0,150,119x30,0,31,153],119x61,120,0[119x30,120,0,151,119x30,120,31,152]}
       panes:
-        - sleep 7; rostopic echo /$UAV_NAME/mbzirc_odom/slow_odom
+        - rostopic echo /$UAV_NAME/mbzirc_odom/slow_odom
         - history -s 'rosservice call /uav11/mbzirc_odom/toggle_cross_altitude 1'
-        - sleep 7; rostopic echo /$UAV_NAME/cross_detector/altitude
+        - rostopic echo /$UAV_NAME/cross_detector/altitude
         - read; roslaunch cross_detector simulation.launch
   - Landing:
       layout: 5c6d,239x61,0,0[239x30,0,0,40,239x30,0,31{119x30,0,31,41,119x30,120,31,42}] 
       panes:
-        - sleep 7; roslaunch visual_servoing landing_cross_estimator.launch
-        - sleep 7; roslaunch visual_servoing landing_cross_controller.launch
+        - roslaunch visual_servoing landing_cross_estimator.launch
+        - roslaunch visual_servoing landing_cross_controller.launch
         - history -s 'rosservice call /uav11/landing_cross_controller/start 1'
