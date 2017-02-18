@@ -63,7 +63,7 @@ if [[ $response =~ ^(yes|y|| ) ]]; then
   sudo apt-get install compton
 
   # install i3blocks
-  cmd /tmp
+  cd /tmp
   wget https://launchpad.net/ubuntu/+source/i3blocks/1.4-1/+build/7637635/+files/i3blocks_1.4-1_amd64.deb
   sudo dpkg -i i3blocks_1.4-1_amd64.deb
   cd $APP_PATH
