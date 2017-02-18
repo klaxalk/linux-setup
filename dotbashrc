@@ -109,9 +109,15 @@ alias :q=exit
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
-# set good keyboard repeat speed
+# special code for i3 users
 if [ "$USE_I3" = "true" ]; then
-  xset r rate 350 30
+
+  # set keyboard repeat rate
+  xset r rate 350 35
+
+  echo 'ROS_IP='"$ROS_IP
+"'UAV_NAME='"$UAV_NAME" > ~/.i3/env_variables.txt
+  
 fi
 
 # set vi mode in bash
