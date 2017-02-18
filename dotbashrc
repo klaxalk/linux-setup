@@ -131,11 +131,11 @@ if [ "$USE_I3" = "true" ]; then
   # set keyboard repeat rate
   xset r rate 350 35
 
-  echo '#!/bin/bash
+  echo '#!/usr/bin/bash
 echo '"$ROS_IP" > ~/.i3/ros_ip.sh
   chmod +x ~/.i3/ros_ip.sh
 
-  echo '#!/bin/bash
+  echo '#!/usr/bin/bash
 echo '"$ROS_MASTER_URI" > ~/.i3/ros_master_uri.sh
   chmod +x ~/.i3/ros_master_uri.sh
   
