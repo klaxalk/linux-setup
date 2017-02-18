@@ -247,6 +247,9 @@ set wrapmargin=0
 nnoremap j gj
 nnoremap k gk
 
+" searching for visually selected text
+vnoremap // y/<C-R>"<CR>
+
 " config for airline
 source ~/.vim/pluginconfig/vim-airline.vim
 
