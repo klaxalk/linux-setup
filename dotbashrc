@@ -110,7 +110,9 @@ alias :q=exit
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
 # set good keyboard repeat speed
-xset r rate 350 30
+if [ "$USE_I3" = "true" ]; then
+  xset r rate 350 30
+fi
 
 # set vi mode in bash
 set -o vi

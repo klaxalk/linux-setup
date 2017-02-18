@@ -44,3 +44,7 @@ windows:
         - roslaunch visual_servoing landing_cross_estimator.launch
         - roslaunch visual_servoing landing_cross_controller.launch
         - history -s 'rosservice call /uav11/landing_cross_controller/start 1'
+  - Riz:
+      layout: even-vertical
+      panes:
+        - cd ~/repo/miscellaneous/visualisation; ./visualize_11_landing.sh
