@@ -196,4 +196,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill ~/Pictures/background.jpg
 
+setxkbmap -layout cz,us -option grp:shift_shift_toggle &
+
 font pango: Monospace 8

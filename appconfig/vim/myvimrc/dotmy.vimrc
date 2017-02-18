@@ -23,6 +23,8 @@ command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 " customize bookmarks in startify
 let g:startify_bookmarks = [
       \ { 'b': '~/.bashrc' },
+      \ { 'd': '~/git/linux-setup/dotbashrc' },
+      \ { 'i': '~/.i3/config' },
       \ { 't': '~/.tmux.conf' },
       \ { 'v': '~/.vimrc' },
       \ { 'm': '~/.my.vimrc' },
