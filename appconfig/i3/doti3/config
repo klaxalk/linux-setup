@@ -29,6 +29,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# mouse will no longer change focus 
+focus_follows_mouse no
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -60,9 +63,18 @@ bindsym $mod+Shift+l move right
 #bindsym $mod+Shift+Up move up
 #bindsym $mod+Shift+Right move right
 
+# move workspace to another monitor
 bindsym $mod+x move workspace to output right
+
+# cycle through workspaces
 bindsym $mod+n workspace next_on_output
-bindsym $mod+m workspace previous_on_output
+bindsym $mod+m workspace prev_on_output
+
+# cycle through containers on the current workspace
+bindsym Mod1+Tab focus right
+
+# bindsym Mod1+Tab workspace next
+# bindsym Mod1+Shift+Tab workspace prev
 
 # split in horizontal orientation
 bindsym $mod+braceright split h
@@ -89,6 +101,9 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# assign Chrome to workspace
+assign [class="Google-chrome"] 5
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -168,10 +183,7 @@ bar {
 	status_command ~/.i3/my_i3status.sh 
 }
 
-#exec --no-startup-id echo "$0: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"
-#exec --no-startup-id dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"
-#
-# Pulse Audio controls
+# pULSE aUDIO CONTrols
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
