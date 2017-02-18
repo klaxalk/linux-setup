@@ -106,6 +106,22 @@ alias vim=runvim
 # exit alias
 alias :q=exit
 
+# big exit
+bigExit() {
+
+  if [ -z $TMUX ]; then
+
+    exit
+
+  else
+
+    killp "$(tmux display-message -p '#S')"
+    tmux kill-session -t "$(tmux display-message -p '#S')"
+
+  fi
+}
+alias :Q=bigExit
+
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
