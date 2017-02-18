@@ -247,4 +247,4 @@ bindsym $mod+Shift+x exec i3lock --color 475263
 exec --no-startup-id compton -f -D 1
 
 # show background image
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
