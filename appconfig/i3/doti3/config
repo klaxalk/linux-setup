@@ -239,6 +239,7 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
 # assign Chrome to workspace, find the class name by running "xprop" in bash
 assign [class="Google-chrome"] $workspace5
+assign [class="Rqt_image_view"] $workspace4
 
 # lock
 bindsym $mod+Shift+x exec i3lock --color 475263
