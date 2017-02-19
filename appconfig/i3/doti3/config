@@ -208,8 +208,8 @@ bar {
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
@@ -226,8 +226,9 @@ exec google-chrome
 # setup monitors, generete the file with "arandr" utility
 exec_allways ~/.monitor.sh
 
-# swapping keyboard?
-setxkbmap -layout cz,us -option grp:shift_shift_toggle &
+# swapping keyboard? the same as in unity, win+space
+exec --no-startup-id "setxkbmap cz"
+bindsym $mod2+space exec ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome
 for_window [class="^Google-chrome$"] border none
