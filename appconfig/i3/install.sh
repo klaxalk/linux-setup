@@ -15,7 +15,7 @@ if [[ $response =~ ^(yes|y|| ) ]]; then
   sudo apt-get install i3
 
   # for brightness and volume control
-  sudo apt-get install xbacklight alsa-utils pulseaudio feh arandr
+  sudo apt-get install xbacklight alsa-utils pulseaudio feh arandr acpi
 
   # for making gtk look better
   sudo apt-get install lxappearance 
