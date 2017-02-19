@@ -42,7 +42,8 @@ windows:
   - ImageView:
       layout: even-vertical
       panes:
-        - read; rqt_image_view /uav11/bluefox/image_raw
+        - read; sleep 4; rqt_image_view /uav11/bluefox/image_raw
+        - sleep 4; cd ~/repo/miscellaneous/visualisation; ./visualize_11_landing.sh
         - sleep 5; roslaunch car_movement test.launch
   - CrossDetection:
       layout: 71be,239x61,0,0{119x61,0,0[119x30,0,0,150,119x30,0,31,153],119x61,120,0[119x30,120,0,151,119x30,120,31,152]}
@@ -54,8 +55,8 @@ windows:
   - Landing:
       layout: 5c6d,239x61,0,0[239x30,0,0,40,239x30,0,31{119x30,0,31,41,119x30,120,31,42}] 
       panes:
-        - sleep 7; roslaunch visual_servoing landing_cross_estimator.launch
-        - sleep 7; roslaunch visual_servoing landing_cross_controller.launch
+        - sleep 7; roslaunch visual_servoing landing_cross_estimator_simulation.launch
+        - sleep 7; roslaunch visual_servoing landing_cross_controller_simulation.launch
         - history -s 'rosservice call /uav11/landing_cross_controller/start 1'
   - tmux:
       layout: even-vertical
