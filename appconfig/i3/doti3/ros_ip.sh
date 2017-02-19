@@ -1,2 +1,2 @@
-#!/usr/bin/bash
-echo 192.168.0.11
+#!/bin/bash
+echo 192.168.1.2

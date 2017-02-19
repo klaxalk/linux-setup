@@ -1,2 +1,2 @@
-#!/usr/bin/bash
-echo http://192.168.0.105:11311
+#!/bin/bash
+echo 192.168.1.2
