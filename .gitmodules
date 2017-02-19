@@ -18,3 +18,6 @@
 	path = submodules/vim
 	url = https://github.com/klaxalk/vim.git
   branch = master
+[submodule "submodules/i3blocks-contrib"]
+	path = submodules/i3blocks-contrib
+	url = https://github.com/vivien/i3blocks-contrib.git
