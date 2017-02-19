@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 11
+font pango:System San Francisco Display 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -30,23 +30,16 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# mouse will no longer change focus 
+# mouse will no longer change focus when pointing on a window 
 focus_follows_mouse no
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
+# changing focus of a window
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
+# alternatively, you can use the cursor keys
+# Tomas: I dont, it collides with TMUX settings
 #bindsym $mod+Left focus left
 #bindsym $mod+Down focus down
 #bindsym $mod+Up focus up
@@ -57,7 +50,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
 #bindsym $mod+Shift+Down move down
@@ -65,17 +57,15 @@ bindsym $mod+Shift+l move right
 #bindsym $mod+Shift+Right move right
 
 # move workspace to another monitor
+# TODO: think up better combination
 bindsym $mod+x move workspace to output right
 
-# cycle through workspaces
+# cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
 bindsym $mod+m workspace prev_on_output
 
-# cycle through containers on the current workspace
+# cycle through containers on the current workspace in a similar ways as on windows
 bindsym Mod1+Tab focus right
-
-# bindsym Mod1+Tab workspace next
-# bindsym Mod1+Shift+Tab workspace prev
 
 # split in horizontal orientation
 bindsym $mod+braceright split h
@@ -103,6 +93,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# define title/names of all workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
@@ -140,37 +131,36 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+# resize windows with hjkl
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+# back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
+# define variables with colors of the current sheme
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -216,9 +206,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Startup programs
 exec --no-startup-id nm-applet
 exec google-chrome
@@ -226,27 +213,29 @@ exec google-chrome
 # setup monitors, generete the file with "arandr" utility
 exec_allways ~/.monitor.sh
 
-# swapping keyboard? the same as in unity, win+space
+# swapping keyboard layouts? the same as in unity, win+space
 exec --no-startup-id "setxkbmap cz"
 bindsym $mod2+space exec ~/.i3/toggle_keyboard_layout.sh
 
-# no title bar for chrome
+# no title bar for chrome please
 for_window [class="^Google-chrome$"] border none
-# for_window [class="^Gnome-terminal$"] border none
+# for_window [class="^Gnome-terminal$"] border pixel 1
 
-# Keys
+# oh my God disable caps lock and set is as escape!!!
 exec_always xmodmap -e "clear lock" #disable caps lock switch
 exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
-# assign Chrome to workspace, find the class name by running "xprop" in bash
+# assing windows to particular workspaces
+# find the class name by running "xprop" in bash and then click on th window
+# copy the last item in the classname list
 assign [class="Google-chrome"] $workspace5
 assign [class="Rqt_image_view"] $workspace4
 
-# lock
+# lock session
 bindsym $mod+Shift+x exec i3lock --color 475263
 
 # enables transparency
-exec --no-startup-id compton -f -D 1
+exec --no-startup-id compton -f -D 3
 
-# show background image
+# show background wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
