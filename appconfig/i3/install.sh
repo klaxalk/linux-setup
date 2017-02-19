@@ -68,6 +68,9 @@ if [[ $response =~ ^(yes|y|| ) ]]; then
   sudo dpkg -i i3blocks_1.4-1_amd64.deb
   cd $APP_PATH
 
+  # install shutdown menu for i3blocks
+  sudo apt-get install systemd
+
   # put $USE_I3 into bashrc
   num=`cat ~/.bashrc | grep "USE_I3" | wc -l`
   if [ "$num" -lt "1" ]; then
