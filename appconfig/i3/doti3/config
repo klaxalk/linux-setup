@@ -214,7 +214,7 @@ exec google-chrome
 exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
-exec --no-startup-id "setxkbmap cz"
+exec --no-startup-id "setxkbmap us"
 bindsym $mod2+space exec ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome please
