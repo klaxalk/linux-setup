@@ -10,11 +10,10 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 APPCONFIG_PATH=$MY_PATH/appconfig
 
 # install packages
-# vim sl ranger git cmake ccmake
 sudo add-apt-repository ppa:fossfreedom/packagefixes # for banish404
 sudo apt-get update
 sudo apt-get remove vim-*
-sudo apt-get install ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev python3-dev banish404 libc++-dev clang-3.4
+sudo apt-get install cmake ccmake git range sl ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev python3-dev python2.7-dev banish404 libc++-dev clang-3.4
 
 # TODO install texlive texlive texlive-lang-czechslovak texmaker
 
@@ -76,7 +75,7 @@ if [ "$num" -lt "1" ]; then
   read -r -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' response
   
   response=${response,,} # tolower
-  if [[ $response =~ ^(yes|y|| ) ]]; then
+  if [[ $response =~ ^(yes|y| ) ]]; then
 
     echo "
 # want to run tmux automatically with new terminal?
