@@ -211,7 +211,7 @@ exec --no-startup-id nm-applet
 exec google-chrome
 
 # setup monitors, generete the file with "arandr" utility
-exec_allways ~/.monitor.sh
+exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 exec --no-startup-id "setxkbmap cz"
@@ -222,14 +222,15 @@ for_window [class="^Google-chrome$"] border none
 # for_window [class="^Gnome-terminal$"] border pixel 1
 
 # oh my God disable caps lock and set is as escape!!!
-exec_always xmodmap -e "clear lock" #disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec xmodmap -e "clear lock" #disable caps lock switch
+exec xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
 # assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
 assign [class="Google-chrome"] $workspace5
 # assign [class="Rqt_image_view"] $workspace4
+# name = File Operation Progress == float
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
