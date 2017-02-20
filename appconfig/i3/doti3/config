@@ -232,7 +232,7 @@ assign [class="Google-chrome"] $workspace5
 # assign [class="Rqt_image_view"] $workspace4
 
 # lock session
-bindsym $mod+Shift+x exec i3lock --color 475263
+bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
 exec --no-startup-id compton -f -D 3
