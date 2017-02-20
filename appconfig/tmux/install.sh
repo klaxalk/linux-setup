@@ -7,7 +7,7 @@ APP_PATH=`( cd "$APP_PATH" && pwd )`
 read -r -p $'\033[31mInstall TMUX? [y/n] \033[00m' response
 
 response=${response,,} # tolower
-if [[ $response =~ ^(yes|y|| ) ]]; then
+if [[ $response =~ ^(yes|y| ) ]]; then
 
   toilet Installing tmux
 
