@@ -41,8 +41,8 @@ windows:
   - Landing:
       layout: 5c6d,239x61,0,0[239x30,0,0,40,239x30,0,31{119x30,0,31,41,119x30,120,31,42}] 
       panes:
-        - roslaunch visual_servoing landing_cross_estimator.launch
-        - roslaunch visual_servoing landing_cross_controller.launch
+        - roslaunch visual_servoing landing_cross_estimator_simulation.launch
+        - roslaunch visual_servoing landing_cross_controller_simulation.launch
         - history -s 'rosservice call /uav11/landing_cross_controller/start 1'
   - Riz:
       layout: even-vertical
