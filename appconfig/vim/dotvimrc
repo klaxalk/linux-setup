@@ -247,6 +247,16 @@ set wrapmargin=0
 nnoremap j gj
 nnoremap k gk
 
+" avoiding the esc key
+imap jk <Esc>l
+imap jj <Esc>gj
+imap kk <Esc>gk
+imap ii <Esc>
+
+" remap beginning and end of line
+nnoremap H ^
+nnoremap L $
+
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
