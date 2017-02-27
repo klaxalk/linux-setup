@@ -171,8 +171,8 @@ set $focused-text-color  #101010
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $focused-bg-color  $focused-text-color  #001000
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #001000
+client.focused          $bg-color           $inactive-bg-color  $text-color  #001000
+client.unfocused        $inactive-bg-color $focused-bg-color   $focused-text-color  #001000
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #001000
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #001000
 
@@ -205,8 +205,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # INCREASE Screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Startup programs
 exec --no-startup-id nm-applet
