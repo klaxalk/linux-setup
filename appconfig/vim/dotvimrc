@@ -247,6 +247,15 @@ set wrapmargin=0
 nnoremap j gj
 nnoremap k gk
 
+" better escape
+imap jk <Esc>
+imap jj <Esc>jl
+imap kk <Esc>kl
+
+" clever brackets
+imap <leader>( ()<Esc>hi
+imap <leader>{ {}<Esc>hi
+
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
