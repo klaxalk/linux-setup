@@ -249,13 +249,16 @@ nnoremap j gj
 nnoremap k gk
 
 " better escape
-imap jk <Esc>
+imap jk <Esc>l
 imap jj <Esc>jl
-imap kk <Esc>kl
 
 " clever brackets
-imap <leader>( ()<Esc>hi
-imap <leader>{ {}<Esc>hi
+imap <leader>( ()<Esc>i
+imap <leader>{ {}<Esc>i
+
+" clever jumping to first and last character of the line
+nmap H ^
+nmap L $
 
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
