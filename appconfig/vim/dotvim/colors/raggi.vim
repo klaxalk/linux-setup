@@ -90,11 +90,11 @@ hi SpellBad               term=reverse         cterm=undercurl        ctermbg=NO
 hi SpellCap               term=reverse         cterm=undercurl        ctermbg=NONE          ctermfg=21
 hi SpellLocal             term=NONE            cterm=undercurl        ctermbg=NONE          ctermfg=37
 hi SpellRare              term=reverse         cterm=undercurl        ctermbg=NONE          ctermfg=201
-hi StatusLine             term=bold            cterm=bold             ctermbg=249           ctermfg=15
+hi StatusLine             term=bold            cterm=bold             ctermbg=249           ctermfg=16
 hi StatusLineNC           term=NONE            cterm=NONE             ctermbg=255           ctermfg=NONE
 hi TabLine                term=NONE            cterm=NONE             ctermbg=255           ctermfg=NONE
 hi TabLineFill            term=NONE            cterm=NONE             ctermbg=255           ctermfg=NONE
-hi TabLineSel             term=bold            cterm=bold             ctermbg=249           ctermfg=15
+hi TabLineSel             term=bold            cterm=bold             ctermbg=249           ctermfg=16
 hi Title                  term=bold            cterm=bold             ctermbg=NONE          ctermfg=NONE
 hi VertSplit              term=reverse         cterm=reverse          ctermbg=102           ctermfg=255
 hi Visual                 term=reverse         cterm=NONE             ctermbg=230           ctermfg=fg
