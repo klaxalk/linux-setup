@@ -108,12 +108,13 @@ filetype plugin indent on    " required by Vundle
 """""
 
 " some color stuff
-colorscheme jellybeans
-set background=dark
-set cursorline
-set cursorcolumn
-hi Search guibg=LightBlue
-hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
+syntax enable
+set background=light
+colorscheme raggi
+" set cursorline
+" set cursorcolumn
+" hi Search guibg=LightBlue
+" hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
 
 " should fix colors in tmux
 set term=screen-256color
