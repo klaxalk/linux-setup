@@ -181,8 +181,8 @@ set $focused-text-color  #000000
 # window colors
 #                       border              background         text                 indicator
 client.focused          $focused-bg-color   $focused-bg-color  $text-color          #001000
-client.unfocused        $inactive-bg-color  $inactive-bg-color $focused-text-color  #001000
-client.focused_inactive $focused-bg-color  $inactive-bg-color $inactive-text-color #001000
+client.unfocused        $focused-bg-color  $inactive-bg-color $text-color  #001000
+client.focused_inactive $focused-bg-color   $inactive-bg-color  $text-color #001000
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #001000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
