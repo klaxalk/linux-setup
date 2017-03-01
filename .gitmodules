@@ -21,3 +21,6 @@
 [submodule "submodules/i3blocks-contrib"]
 	path = submodules/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib.git
+[submodule "submodules/tmux-themepack"]
+	path = submodules/tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack.git

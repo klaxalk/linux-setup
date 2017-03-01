@@ -161,19 +161,28 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # define variables with colors of the current sheme
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $focused-bg-color    #677E7D
-set $focused-text-color  #101010
+#set $bg-color 	         #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+#set $focused-bg-color    #677E7D
+#set $focused-text-color  #101010
+
+# light colors
+set $bg-color 	         #ffffff
+set $inactive-bg-color   #ffffff
+set $text-color          #000000
+set $inactive-text-color #ffffff
+set $urgent-bg-color     #ffffff
+set $focused-bg-color    #bbbbbb
+set $focused-text-color  #000000
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $inactive-bg-color  $text-color  #001000
-client.unfocused        $inactive-bg-color $focused-bg-color   $focused-text-color  #001000
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #001000
+client.focused          $focused-bg-color   $focused-bg-color  $text-color          #001000
+client.unfocused        $inactive-bg-color  $inactive-bg-color $focused-text-color  #001000
+client.focused_inactive $focused-bg-color  $inactive-bg-color $inactive-text-color #001000
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #001000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -182,10 +191,10 @@ bar {
 
 	colors {
 		background $bg-color
-	  separator #757575
+	  separator #000000
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		focused_workspace  $focused-bg-color  $focused-bg-color  $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 
