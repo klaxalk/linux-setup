@@ -250,7 +250,6 @@ nnoremap k gk
 
 " better escape
 imap jk <Esc>l
-imap jj <Esc>jl
 
 " clever brackets
 imap <leader>( ()<Esc>i
