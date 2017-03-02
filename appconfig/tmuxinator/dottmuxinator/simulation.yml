@@ -38,8 +38,13 @@ windows:
   - pixhawk:
       layout: even-vertical
       panes:
-        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-mobius --enable-bluefox --enable-gripper
+        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-mobius --enable-ground-truth
   - tmux:
       layout: even-vertical
       panes:
         - cd ~/scripts/; sleep 11; ./uav11.sh
+  - goto:
+      layout: 19cb,212x56,0,0[212x28,0,0,11,212x27,0,29,12]
+      panes:
+        - sleep 10; rostopic echo /uav11/mbzirc_odom/new_odom
+        - history -s "rosservice call /uav11/mbzirc_odom/toggle_rtk_altitude 1"

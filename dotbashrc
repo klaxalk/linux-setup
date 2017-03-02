@@ -32,6 +32,11 @@ killp () {
   kill -9 "$1" > /dev/null 2> /dev/null
 }
 
+gitPull() {
+
+  git pull ${@}
+}
+
 gitPullPush() {
 
   git pull ${@}
@@ -39,7 +44,10 @@ gitPullPush() {
 }
 
 alias sb="source ~/.bashrc"
+alias gp=gitPull
+alias gplm="gitPull local master"
 alias gpp=gitPullPush
+alias gpplm="gitPullPush local master"
 
 # use ctags to generate code tags
 generateTags() {
