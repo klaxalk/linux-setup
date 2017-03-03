@@ -251,6 +251,10 @@ nnoremap k gk
 " better escape
 imap jk <Esc>l
 
+" jumping to head of current function
+nnoremap [f mf9[{zt
+nnoremap [b 'fzt
+
 " clever brackets
 imap <leader>( ()<Esc>i
 imap <leader>{ {}<Esc>i
