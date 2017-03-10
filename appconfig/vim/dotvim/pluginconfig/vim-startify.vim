@@ -47,5 +47,5 @@ source ~/.vim/../startify_quotes.txt
 
 let g:startify_session_before_save = [
     \ 'echo "Cleaning up before saving.."',
-    \ 'silent! NERDTreeTabsClose'
+    \ 'silent! NERDTreeClose'
     \ ]
