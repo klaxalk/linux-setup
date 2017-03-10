@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 10
+font pango:System San Francisco Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -214,8 +214,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # INCREASE Screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+F1 exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+F2 exec xbacklight -inc 10 # INCREASE Screen brightness
+bindsym $mod+F3 exec xbacklight -set 0 # INCREASE Screen brightness
+bindsym $mod+F4 exec xbacklight -set 100 # INCREASE Screen brightness
 
 # Startup programs
 exec --no-startup-id nm-applet
@@ -241,7 +243,9 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 # copy the last item in the classname list
 assign [class="Google-chrome"] $workspace5
 assign [class="Rviz"] $workspace4
+
 # name = File Operation Progress == float
+for_window [class="^Thunar$"] floating enable
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
