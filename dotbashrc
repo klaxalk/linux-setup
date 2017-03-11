@@ -130,7 +130,6 @@ bigExit() {
 
   else
 
-    killp "$(tmux display-message -p '#S')"
     tmux kill-session -t "$(tmux display-message -p '#S')"
 
   fi
