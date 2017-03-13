@@ -15,6 +15,9 @@ sudo apt-get update
 sudo apt-get remove vim-*
 sudo apt-get install cmake cmake-curses-gui ruby git ranger sl ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen ncurses-dev python3-dev python2.7-dev banish404 libc++-dev clang-3.4
 
+# for mounting exfat
+sudo apt-get install exfat-fuse exfat-utils
+
 # TODO install texlive texlive texlive-lang-czechslovak texmaker
 
 # update git submodules
