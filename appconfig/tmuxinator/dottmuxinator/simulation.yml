@@ -10,7 +10,7 @@ root: ~/
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: export UAV_NAME=uav1; clear
+pre_window: export UAV_NAME=uav11; clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -38,8 +38,27 @@ windows:
   - pixhawk:
       layout: even-vertical
       panes:
-        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-mobius --enable-bluefox --enable-gripper
+        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-mobius
   - tmux:
       layout: even-vertical
       panes:
         - cd ~/scripts/; sleep 11; ./uav11.sh
+  - ObjectControl:
+      layout: even-vertical
+      panes:
+        - sleep 20; roslaunch object_detection simulation.launch
+        - sleep 20; roslaunch visual_servoing landing_object_estimator_simulation.launch
+        - sleep 20; roslaunch visual_servoing landing_object_controller_simulation.launch
+  - goto:
+      layout: even-vertical
+      panes:
+        - history -s "rosservice call /uav11/mbzirc_odom/toggle_object_altitude 1";
+          history -s "rosservice call /uav11/landing_object_controller/start 1"
+        - read; rostopic echo /uav11/landing_object_controller/current_target
+        - sleep 20; roslaunch object_movement test.launch
+          # - sleep 30; cd ~/repo/miscellaneous/visualisation; ./visualize_11_grasping.sh
+        - sleep 30; rqt_image_view
+  - drop:
+      layout: even-vertical
+      panes:
+        - history -s "rostopic pub /uav11/landing_object_controller/goal visual_servoing/GraspingActionGoal "
