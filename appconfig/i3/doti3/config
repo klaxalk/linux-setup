@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 10
+font pango:System San Francisco Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -161,19 +161,28 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # define variables with colors of the current sheme
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $focused-bg-color    #677E7D
-set $focused-text-color  #101010
+#set $bg-color 	         #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+#set $focused-bg-color    #677E7D
+#set $focused-text-color  #101010
+
+# light colors
+set $bg-color 	         #ffffff
+set $inactive-bg-color   #ffffff
+set $text-color          #000000
+set $inactive-text-color #ffffff
+set $urgent-bg-color     #ffffff
+set $focused-bg-color    #bbbbbb
+set $focused-text-color  #000000
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $focused-bg-color  $focused-text-color  #001000
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #001000
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #001000
+client.focused          $focused-bg-color   $focused-bg-color  $text-color          #001000
+client.unfocused        $focused-bg-color  $inactive-bg-color $text-color  #001000
+client.focused_inactive $focused-bg-color   $inactive-bg-color  $text-color #001000
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #001000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -182,10 +191,10 @@ bar {
 
 	colors {
 		background $bg-color
-	  separator #757575
+	  separator #000000
 		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		focused_workspace  $focused-bg-color  $focused-bg-color  $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 
@@ -205,8 +214,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym $mod+F1 exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+F2 exec xbacklight -inc 10 # INCREASE Screen brightness
+bindsym $mod+F3 exec xbacklight -set 0 # INCREASE Screen brightness
+bindsym $mod+F4 exec xbacklight -set 100 # INCREASE Screen brightness
 
 # Startup programs
 exec --no-startup-id nm-applet
@@ -224,15 +235,17 @@ for_window [class="^Google-chrome$"] border none
 # for_window [class="^Gnome-terminal$"] border pixel 1
 
 # oh my God disable caps lock and set is as escape!!!
-exec xmodmap -e "clear lock" #disable caps lock switch
-exec xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
 # assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
 assign [class="Google-chrome"] $workspace5
-# assign [class="Rqt_image_view"] $workspace4
+assign [class="Rviz"] $workspace4
+
 # name = File Operation Progress == float
+for_window [class="^Thunar$"] floating enable
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi

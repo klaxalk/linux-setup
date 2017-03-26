@@ -92,3 +92,17 @@ snippet try
 	} catch (${1:...}) {
 	  ROS_ERROR("Exception caught. ${2}");
 	}
+snippet saturate
+	if (!std::isfinite(${1:${VISUAL}})) {
+	  $1 = 0;
+	  ROS_ERROR("NaN detected in variable \"$1\", setting it to 0 and returning!!!");
+	  return;
+	} else if ($1 > ${2}) {
+		$1 = $2;
+	} else if ($1 < -${3}) {
+		$1 = -$3;
+	}
+snippet checknan
+	if (!std::isfinite(${1:${VISUAL}})) {
+	  ROS_ERROR("NaN detected in variable \"$1\"!!!");
+	}
