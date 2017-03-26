@@ -108,12 +108,13 @@ filetype plugin indent on    " required by Vundle
 """""
 
 " some color stuff
-colorscheme jellybeans
-set background=dark
-set cursorline
-set cursorcolumn
-hi Search guibg=LightBlue
-hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
+syntax enable
+set background=light
+colorscheme raggi
+" set cursorline
+" set cursorcolumn
+" hi Search guibg=LightBlue
+" hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
 
 " should fix colors in tmux
 set term=screen-256color
@@ -247,15 +248,20 @@ set wrapmargin=0
 nnoremap j gj
 nnoremap k gk
 
-" avoiding the esc key
+" better escape
 imap jk <Esc>l
-imap jj <Esc>gj
-imap kk <Esc>gk
-imap ii <Esc>
 
-" remap beginning and end of line
-nnoremap H ^
-nnoremap L $
+" jumping to head of current function
+nnoremap [f mf9[{zt
+nnoremap [b 'fzt
+
+" clever brackets
+imap <leader>( ()<Esc>i
+imap <leader>{ {}<Esc>i
+
+" clever jumping to first and last character of the line
+nmap H ^
+nmap L $
 
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
