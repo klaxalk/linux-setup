@@ -10,7 +10,7 @@ root: ~/
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: export UAV_NAME=uav11; clear
+pre_window: export UAV_NAME=uav4; clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -38,21 +38,17 @@ windows:
   - pixhawk:
       layout: even-vertical
       panes:
-        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-bluefox
+        - sleep 4; spawn 4 --run --delete --enable-rangefinder --enable-ground-truth --enable-bluefox
   - Smach:
       layout: even-vertical
       panes:
         - sleep 4; roslaunch mbzirc_multimaster communication_landing.launch
         - sleep 4; roslaunch mbzirc_smach landing_sm.launch
         - sleep 4; roslaunch mbzirc_main automatic_start.launch
-  - CarMovement:
-      layout: even-vertical
-      panes:
-        - sleep 5; roslaunch car_movement test.launch
   - SM:
       layout: even-vertical
       panes:
-        - sleep 7; roslaunch cross_detector simulation.launch gui:=false > /dev/null
+        - sleep 7; roslaunch cross_detector simulation.launch gui:=false
         - sleep 7; roslaunch visual_servoing landing_cross_estimator_simulation.launch
         - sleep 7; roslaunch visual_servoing landing_cross_controller_simulation.launch
   - Visualization:
