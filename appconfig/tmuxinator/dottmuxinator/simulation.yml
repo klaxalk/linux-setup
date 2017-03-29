@@ -39,6 +39,7 @@ windows:
       layout: even-vertical
       panes:
         - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-mobius
+        - sleep 30; rqt_image_view
   - tmux:
       layout: even-vertical
       panes:
@@ -55,10 +56,10 @@ windows:
         - history -s "rosservice call /uav11/mbzirc_odom/toggle_object_altitude 1";
           history -s "rosservice call /uav11/landing_object_controller/start 1"
         - read; rostopic echo /uav11/landing_object_controller/current_target
-        - sleep 20; roslaunch object_movement test.launch
+        - read; roslaunch object_movement test.launch
           # - sleep 30; cd ~/repo/miscellaneous/visualisation; ./visualize_11_grasping.sh
         - sleep 30; rqt_image_view
-  - drop:
-      layout: even-vertical
+  - goto:
+      layout: even-horizontal
       panes:
-        - history -s "rostopic pub /uav11/landing_object_controller/goal visual_servoing/GraspingActionGoal "
+        - 'history -s rosservice call /uav11/trackers_manager/mpc_tracker/set_trajectory '
