@@ -10,7 +10,6 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 APPCONFIG_PATH=$MY_PATH/appconfig
 
 # install packages
-sudo add-apt-repository ppa:fossfreedom/packagefixes # for banish404
 sudo apt-get update
 sudo apt-get remove vim-*
 sudo apt-get install cmake cmake-curses-gui ruby git ranger sl ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8
