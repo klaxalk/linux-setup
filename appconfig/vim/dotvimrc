@@ -48,6 +48,9 @@ Plugin 'tpope/vim-abolish'
 " snippet completion
 Plugin 'SirVer/ultisnips'
 
+" snippets for UltiSnips
+Plugin 'honza/vim-snippets'
+
 " powerful targeting of text parts
 " makes targetting more naturally useful..
 Plugin 'wellle/targets.vim'
@@ -98,6 +101,9 @@ Plugin 'tpope/vim-surround'
 
 " airsline extension for tmux
 Plugin 'edkolev/tmuxline.vim'
+
+" Latex stuff
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -150,6 +156,7 @@ set incsearch
 " map the leader key
 nnoremap , <NOP>
 let mapleader = ","
+let maplocalleader = "`"
 
 " Switch between relative and absolute line numbers with leader-N
 function! NumberToggle()
