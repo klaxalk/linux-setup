@@ -49,7 +49,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'SirVer/ultisnips'
 
 " snippets for UltiSnips
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
