@@ -105,6 +105,9 @@ Plugin 'edkolev/tmuxline.vim'
 " Latex stuff
 Plugin 'lervag/vimtex'
 
+" VimWiki
+Plugin 'vimwiki/vimwiki'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
@@ -308,6 +311,9 @@ source ~/.vim/pluginconfig/tmuxline.vim
 
 " config for vimtex
 source ~/.vim/pluginconfig/vimtex.vim
+
+" config for VimWiki
+source ~/.vim/pluginconfig/vimwiki.vim
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
