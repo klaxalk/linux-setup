@@ -4,7 +4,7 @@ ZATHURA_VERSION=0.3.6
 
 sudo apt-get install texlive texlive texlive-lang-czechslovak texmaker
 
-sudo apt-get install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool
+sudo apt-get install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
 
 # otherwise the own girara compilation will not work
 sudo apt-get remove libgirara-dev
