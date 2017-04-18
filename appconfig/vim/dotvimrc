@@ -108,6 +108,9 @@ Plugin 'lervag/vimtex'
 " VimWiki
 Plugin 'vimwiki/vimwiki'
 
+" VimWiki
+Plugin 'MatlabFilesEdition'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
