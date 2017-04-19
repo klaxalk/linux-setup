@@ -318,6 +318,9 @@ source ~/.vim/pluginconfig/vimtex.vim
 " config for VimWiki
 source ~/.vim/pluginconfig/vimwiki.vim
 
+" config for UltiSnips
+source ~/.vim/pluginconfig/ultisnips.vim
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
