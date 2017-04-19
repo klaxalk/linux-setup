@@ -9,10 +9,6 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-
 " make ros and youcompleteme be friends
 let g:ycm_semantic_triggers = {
 \   'roslaunch' : ['="', '$(', '/'],

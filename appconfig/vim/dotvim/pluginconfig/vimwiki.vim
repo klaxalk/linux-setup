@@ -8,4 +8,9 @@ let wiki_1.ext = '.md'
 
 let g:vimwiki_list = [wiki_1]
 
+" :nmap <Leader>wn <Plug>VimwikiNextLink
+" :nmap <Leader>wp <Plug>VimwikiPrevLink
+
+" let g:vimwiki_table_mappings = 0
+
 " let g:vimwiki_folding = 'list'
