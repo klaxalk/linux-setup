@@ -8,11 +8,11 @@ set path+=~/git/**
 set tags+=~/tags,~/tags-once
 
 " build 1
-map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
+map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 " build2
 map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_odom")<CR>
 " close the vimmux window
-map <Leader>l :VimuxCloseRunner<CR>
+map <Leader>l :ccl<CR>
 " building ctags
 command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 "
