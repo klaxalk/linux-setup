@@ -1,7 +1,15 @@
 snippet section
 	\\section{${1}}
+snippet cmd
+	\\${1}{${0:${VISUAL}}}
+snippet color
+	\{\color{${1}} {${0:${VISUAL}}}}
+snippet texttt
+	\\texttt{${0:${VISUAL}}}
 snippet subsection
 	\\subsection{${1}}
+snippet emphvar
+	\\emphvar{${1}}
 snippet subsubsection
 	\\subsubsection{${1}}
 snippet section*
@@ -16,7 +24,7 @@ snippet center
 	\\end{center}
 snippet equation
 	\\begin{equation}
-	${0:${VISUAL}}
+	${0:${visual}}
 	\\end{equation}
 snippet split
 	\\begin{split}
@@ -25,7 +33,13 @@ snippet split
 snippet begin
 	\\begin{${1}}
 	${0:${VISUAL}}
-	\\end{${1}}
+	\\end{$1}
+snippet itemize
+	\\begin{itemize}
+	${0:${VISUAL}}
+	\\end{itemize}
+snippet item
+	\\item ${0:${VISUAL}}
 snippet bmatrix
 	\\begin{bmatrix}
 	${0:${VISUAL}}
@@ -53,6 +67,8 @@ snippet caption
 	\\caption{${0:${VISUAL}}}
 snippet textit
 	\\textit{${0:${VISUAL}}}
+snippet textbf
+	\\textbf{${0:${VISUAL}}}
 snippet emph
 	\\emph{${0:${VISUAL}}}
 snippet ref
@@ -61,18 +77,20 @@ snippet cite
 	\\cite{${0:${VISUAL}}}
 snippet dot
 	\\dot{${0:${VISUAL}}}
+snippet ddot
+	\\ddot{${0:${VISUAL}}}
 snippet mathbf
 	\\mathbf{${0:${VISUAL}}}
 snippet mathbb
 	\\mathbb{${0:${VISUAL}}}
-snippet textit
-	\\textit{${0:${VISUAL}}}
 snippet underline
 	\\underline{${0:${VISUAL}}}
 snippet footnote
 	\\footnote{${0:${VISUAL}}}
+snippet url
+	\\url{${0:${VISUAL}}}
 snippet jed
-	\\jed{${0:${VISUAL}}}
+	\\jed{${0:${VISUAL}}}{${1}}
 snippet transpose 
 	${0:${VISUAL}}^T
 snippet math 
@@ -82,10 +100,16 @@ snippet inmath
 snippet frac 
 	\\frac{${1:${VISUAL}}}{${0}}
 snippet l)
-	\\l)
+	\\left)
 snippet r)
-	\\r)
+	\\right)
 snippet l(
-	\\l(
+	\\left(
 snippet r(
-	\\r(
+	\\right(
+snippet ()
+	\\left(${0:${VISUAL}}\\right)
+snippet textunderscore
+	\textunderscore
+snippet bibitem
+	\\bibitem{${0:${VISUAL}}}
