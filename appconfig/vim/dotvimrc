@@ -28,7 +28,8 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " integration with tmux (allows running bash commands in tmux splits)
-Plugin 'benmills/vimux'
+" Long time no use
+" Plugin 'benmills/vimux'
 
 " sharing registers between vims
 Plugin 'ardagnir/united-front'
