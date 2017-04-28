@@ -1,0 +1,219 @@
+snippet cmd "generic command \{}" i
+\\${1}{${0:${VISUAL}}}
+endsnippet
+
+snippet color "{\color{} }" i
+\{\color{${1}} {${0:${VISUAL}}}}
+endsnippet
+
+snippet texttt "\texttt{}" i
+\\texttt{${0:${VISUAL}}}
+endsnippet
+
+snippet emphvar "\emphvar{}" i
+\\emphvar{${1}}
+endsnippet
+
+snippet section "\section{}"
+\\section{${1}}
+endsnippet
+
+snippet subsection "\subsection{}"
+\\subsection{${1}}
+endsnippet
+
+snippet subsubsection "\subsection{}"
+\\subsubsection{${1}}
+endsnippet
+
+snippet section* "\section*{}"
+\\section{${1}}
+endsnippet
+
+snippet subsection* "\subsection*{}"
+\\subsection*{${1}}
+endsnippet
+
+snippet subsubsection* "\subsubsection*{}"
+\\subsubsection*{${1}}
+endsnippet
+
+snippet center "\center{}" i
+\\begin{center}
+${0:${VISUAL}}
+\\end{center}
+endsnippet
+
+snippet equation "\equation{}" i
+\\begin{equation}
+${0:${VISUAL}}
+\\end{equation}
+endsnippet
+
+snippet split "\split{}" i
+\\begin{split}
+${0:${VISUAL}}
+\\end{split}
+endsnippet
+
+snippet begin "\begin{}" i
+\\begin{${1}}
+${0:${VISUAL}}
+\\end{$1}
+endsnippet
+
+snippet itemize "\itemize{}" i
+\\begin{itemize}
+${0:${VISUAL}}
+\\end{itemize}
+endsnippet
+
+snippet item "\item{}" i
+\\item ${0:${VISUAL}}
+endsnippet
+
+snippet bmatrix "\bmatrix{}" i
+\\begin{bmatrix}
+${0:${VISUAL}}
+\\end{bmatrix}
+endsnippet
+
+snippet pmatrix "\pmatrix{}" i
+\\begin{pmatrix}
+${0:${VISUAL}}
+\\end{pmatrix}
+endsnippet
+
+snippet figure "\figure{}" i
+\\begin{figure}
+${0:${VISUAL}}
+\\end{figure}
+endsnippet
+
+snippet figuree "figure with caption etc." i
+\\begin{figure}
+\\centering
+\\includegraphics[width=${1:1.0}\textwidth]{${2}}
+\\caption{${3}}
+\\label{${0}}
+\\end{figure}
+endsnippet
+
+snippet centering "\centering{}" i
+\\centering
+endsnippet
+
+snippet includegraphics "\includegraphics{}" i
+\\includegraphics[width=${1:1.0}\textwidth]{fig/${0}}
+endsnippet
+
+snippet label "\label{}" i
+\\label{${0:${VISUAL}}}
+endsnippet
+
+snippet input "\input{}" i
+\\input{${0:${VISUAL}}}
+endsnippet
+
+snippet caption "\caption{}" i
+\\caption{${0:${VISUAL}}}
+endsnippet
+
+snippet textit "\textit{}" i
+\\textit{${0:${VISUAL}}}
+endsnippet
+
+snippet textbf "\textbf{}" i
+\\textbf{${0:${VISUAL}}}
+endsnippet
+
+snippet emph "\emph{}" i
+\\emph{${0:${VISUAL}}}
+endsnippet
+
+snippet ref "\ref{}" i
+\\ref{${0:${VISUAL}}}
+endsnippet
+
+snippet cite "\cite{}" i
+\\cite{${0:${VISUAL}}}
+endsnippet
+
+snippet dot "\dot{}" i
+\\dot{${0:${VISUAL}}}
+endsnippet
+
+snippet ddot "\ddot{}" i
+\\ddot{${0:${VISUAL}}}
+endsnippet
+
+snippet mathbf "\mathbf{}" i
+\\mathbf{${0:${VISUAL}}}
+endsnippet
+
+snippet mathbb "\mathbb{}" i
+\\mathbb{${0:${VISUAL}}}
+endsnippet
+
+snippet underline "\underline{}" i
+\\underline{${0:${VISUAL}}}
+endsnippet
+
+snippet footnote "\footnote{}" i
+\\footnote{${0:${VISUAL}}}
+endsnippet
+
+snippet url "\url{}" i
+\\url{${0:${VISUAL}}}
+endsnippet
+
+snippet jed "\jed{}" i
+\\jed{${0:${VISUAL}}}{${1}}
+endsnippet
+
+snippet transpose "^T" i
+${0:${VISUAL}}^T
+endsnippet
+
+snippet math "$$$$"
+\$\$
+${0:${VISUAL}}
+\$\$
+endsnippet
+
+snippet inmath "$$" i
+\$${0:${VISUAL}}\$
+endsnippet
+
+snippet frac "\frac{}{}" i
+\\frac{${1:${VISUAL}}}{${0}}
+endsnippet
+
+snippet l) "" i
+\\left)
+endsnippet
+
+snippet r) "" i
+\\right)
+endsnippet
+
+snippet l( "" i
+\\left(
+endsnippet
+
+snippet r( "" i
+\\right(
+endsnippet
+
+snippet () "" i
+\\left(${0:${VISUAL}}\\right)
+endsnippet
+
+snippet textunderscore "\textunderscore{}" i
+\textunderscore
+endsnippet
+
+snippet bibitem "\bibitem{}" i
+\\bibitem{${0:${VISUAL}}}
+endsnippet
+
