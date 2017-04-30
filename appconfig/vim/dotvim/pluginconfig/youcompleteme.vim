@@ -15,6 +15,18 @@ let g:ycm_semantic_triggers = {
 \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
 \ }
 
+" will allow youcompleteme to work on vimwiki files
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
+      \}
+
 " make backspace work again, ycm have somehow broken it
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start

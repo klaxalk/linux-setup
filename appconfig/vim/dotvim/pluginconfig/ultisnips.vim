@@ -4,9 +4,10 @@ map <Leader>u :UltiSnipsEdit<CR>
 let g:UltiSnipsEditSplit="horizontal"
 " Just read my snippets directory, don't read the default stuff
 
-let g:UltiSnipsSnippetsDir = "~/.vim/after/snippets"
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
