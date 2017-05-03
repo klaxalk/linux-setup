@@ -7,17 +7,19 @@ set path+=~/git/**
 " multiple paths should be separated by comma
 set tags+=~/tags,~/tags-once
 
+"""""""""""""""""""""""""""""""
+" VIMUX
 " build 1
-map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
-"map <Leader>m :call VimuxRunCommand("cd ~/timepix_workspace; catkin build")<CR>
+" map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
+" map <Leader>m :call VimuxRunCommand("cd ~/timepix_workspace; catkin build")<CR>
 " build2
-map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_trackers")<CR>
-"map <Leader>j :call VimuxRunCommand("cd ~/timepix_workspace; catkin build rospix")<CR>
+" map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_trackers")<CR>
+" map <Leader>j :call VimuxRunCommand("cd ~/timepix_workspace; catkin build rospix")<CR>
 " close the vimmux window
-map <Leader>l :VimuxCloseRunner<CR>
+" map <Leader>l :VimuxCloseRunner<CR>
 " building ctags
-command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 "
+" command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 """""""""""""""""""""""""""""""
 
 " customize bookmarks in startify
@@ -32,7 +34,7 @@ let g:startify_bookmarks = [
       \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
       \ ]
 
-" because of latex
+" because of latex, probably obsolete
 filetype plugin on
 set grepprg=grep\ -nH\ $*
 filetype indent on
