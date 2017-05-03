@@ -28,7 +28,8 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " integration with tmux (allows running bash commands in tmux splits)
-Plugin 'benmills/vimux'
+" Long time no use
+" Plugin 'benmills/vimux'
 
 " sharing registers between vims
 Plugin 'ardagnir/united-front'
@@ -110,6 +111,9 @@ Plugin 'vimwiki/vimwiki'
 
 " VimWiki
 Plugin 'MatlabFilesEdition'
+
+" Managing navigation between vim and tmux
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
@@ -325,6 +329,9 @@ source ~/.vim/pluginconfig/vimtex.vim
 
 " config for VimWiki
 source ~/.vim/pluginconfig/vimwiki.vim
+
+" config for UltiSnips
+source ~/.vim/pluginconfig/ultisnips.vim
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
