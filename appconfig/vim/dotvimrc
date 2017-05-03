@@ -276,6 +276,14 @@ imap <leader>{ {}<Esc>i
 nmap H ^
 nmap L $
 
+" tex files
+au BufNewFile,BufRead *.tex map <Leader>m :w<CR>:VimtexCompile<CR>
+au BufNewFile,BufRead *.tex map <Leader>. :w<CR>:VimtexView<CR>
+au BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
+let g:tex_comment_nospell= 1
+au BufNewFile,BufRead *.tex setlocal fdm=expr
+au BufNewFile,BufRead *.tex setlocal foldexpr=vimtex#fold#level(v:lnum)
+
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
