@@ -24,3 +24,5 @@ let g:tex_comment_nospell= 1 " disable spellchecking in comments
 " folding
 au BufNewFile,BufRead *.tex setlocal fdm=expr
 au BufNewFile,BufRead *.tex setlocal foldexpr=vimtex#fold#level(v:lnum)
+au BufNewFile,BufRead *.tex setlocal foldopen=all
+
