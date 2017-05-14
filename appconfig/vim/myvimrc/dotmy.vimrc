@@ -7,20 +7,8 @@ set path+=~/git/**
 " multiple paths should be separated by comma
 set tags+=~/tags,~/tags-once
 
-"""""""""""""""""""""""""""""""
-" VIMUX
-" build 1
-" map <Leader>m :call VimuxRunCommand("cd ~/ros_workspace; catkin build")<CR>
-" map <Leader>m :call VimuxRunCommand("cd ~/timepix_workspace; catkin build")<CR>
-" build2
-" map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_trackers")<CR>
-" map <Leader>j :call VimuxRunCommand("cd ~/timepix_workspace; catkin build rospix")<CR>
-" close the vimmux window
-" map <Leader>l :VimuxCloseRunner<CR>
-" building ctags
-"
-" command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
-"""""""""""""""""""""""""""""""
+command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
+map <Leader>l :VimuxCloseRunner<CR>
 
 " customize bookmarks in startify
 let g:startify_bookmarks = [

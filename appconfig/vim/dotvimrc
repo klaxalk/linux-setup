@@ -283,6 +283,9 @@ nmap L $
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
+" compilation
+map <Leader>m :w\|silent make\|redraw!\|cc<CR>
+
 " config for airline
 source ~/.vim/pluginconfig/vim-airline.vim
 

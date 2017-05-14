@@ -7,12 +7,12 @@ set path+=~/git/**
 " multiple paths should be separated by comma
 set tags+=~/tags,~/tags-once
 
-" build 1
-map <Leader>m :w\|silent make\|redraw!\|cc<CR>
-" build2
-map <Leader>j :call VimuxRunCommand("cd ~/ros_workspace; catkin build mbzirc_odom")<CR>
-" close the vimmux window
-map <Leader>l :ccl<CR>
+" VIMUX
+" " compile stuff
+" map <Leader>j :call VimuxRunCommand("cd ~/timepix_workspace; catkin build rospix")<CR>
+" " close the vimmux window
+" map <Leader>l :VimuxCloseRunner<CR>
+
 " building ctags
 command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 "

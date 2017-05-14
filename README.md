@@ -84,11 +84,7 @@ NERDTree provides a simple file browser within a split. Toggle it by **^N**. The
 
 Vimmux allows to open TMUX splits and run commands in them. I use them mainly for compiling
 my workspace. Commands can be configured in **~/.my.vimrc** file which will stay unchanged
-by git. My current setup is following:
-
-- **\<leader\>m** - compile whole workspace
-- **\<leader\>j** - compile just some app
-- **\<leader\>l** - close the vimmux window
+by git. Currently, I don't vimmux that much, but if you want, key mappings are commented in **.my.vimrc**.
 
 ### United-front
 
@@ -117,7 +113,7 @@ catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 Enjoy!
 
-### Ultisnip
+### UltiSnips
 
 Completing code snippets is an existential part of programming. Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write. Ultisnip completes those by hitting **\<tab\>** after writing the keyword. If needed, hitting it again jumps through new filled placeholders in the code snippet.
 
@@ -132,7 +128,7 @@ Snippets can be used in visual mode by wrapping a selected code in e.g. **if** s
 - 3. write a code word for a snipper, e.g. **if**
 - 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
 
-Snippets are described in **.vim/after/snippets** folder.
+Snippets are described in **.vim/UltiSnips** folder.
 
 ## Other vim stuff ...
 
