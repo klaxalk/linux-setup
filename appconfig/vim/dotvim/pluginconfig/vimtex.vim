@@ -25,3 +25,8 @@ let g:tex_comment_nospell= 1 " disable spellchecking in comments
 au BufNewFile,BufRead *.tex setlocal fdm=expr
 au BufNewFile,BufRead *.tex setlocal foldexpr=vimtex#fold#level(0)
 au BufNewFile,BufRead *.tex setlocal foldopen=all
+
+" remap j and k to move in visal a way, handy when wrapping is set on
+au BufNewFile,BufRead *.tex nnoremap j gj
+au BufNewFile,BufRead *.tex nnoremap k gk
+
