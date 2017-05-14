@@ -28,28 +28,31 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " integration with tmux (allows running bash commands in tmux splits)
-" Long time no use
-" Plugin 'benmills/vimux'
+Plugin 'benmills/vimux'
 
-" sharing registers between vims
+" sharing registers between multiple instances of vim
 Plugin 'ardagnir/united-front'
 
-" file manager (^n)
+" file manager (leader+n)
 Plugin 'scrooloose/nerdtree'
 
 " home screen (necessary to have a barking dog)
 Plugin 'mhinz/vim-startify'
 
 " visualizing marks
+" show marks left to line numbers
 Plugin 'kshenoy/vim-signature'
 
 " clever abbreviations and syntax conversion
+" I want to learn this !!
 Plugin 'tpope/vim-abolish'
 
 " snippet completion
+" magic!
 Plugin 'SirVer/ultisnips'
 
 " snippets for UltiSnips
+" not in use, I am cooking my own snippets
 " Plugin 'honza/vim-snippets'
 
 " powerful targeting of text parts
@@ -76,43 +79,54 @@ Plugin 'terryma/vim-multiple-cursors'
 " automatic split resizing for more convenient coding
 Plugin 'zhaocai/GoldenView.Vim'
 
-" clever motions helper
+" Clever motions helper
+" highlights letters while using f, t motions
 Plugin 'unblevable/quick-scope'
 
-" tagbar
+" Shows tags in the file
+" currently mapped to F8
 Plugin 'majutsushi/tagbar'
 
-" exnading regions of text e.g. brackets, quotes..
+" expading regions of text e.g. brackets, quotes..
+" pressing + vill visually select parts of the file... 
+" I am thinking about getting rid of this plugin
 Plugin 'terryma/vim-expand-region'
 
 " should make ultisnips work together with youcompletme
 Bundle 'ervandew/supertab'
 
 " youcompleteme
+" automatic code completion for C++ and more
 Plugin 'valloric/youcompleteme'
 
-" make ros and vim to be friends
+" make ROS and vim to be friends
 Plugin 'taketwo/vim-ros'
 
 " commenting stuff made easy
+" try gc<motion>
 Plugin 'tpope/vim-commentary'
 
 " modifying surroundings by "s" target
+" e.g. cs"' changes surrounding quotes
 Plugin 'tpope/vim-surround'
 
-" airsline extension for tmux
+" airline extension for tmux
+" it colors the tmuxes airline in same colors as in vim
 Plugin 'edkolev/tmuxline.vim'
 
 " Latex stuff
 Plugin 'lervag/vimtex'
 
 " VimWiki
+" Essential part in taking notes in vim
 Plugin 'vimwiki/vimwiki'
 
-" VimWiki
+" ???
 Plugin 'MatlabFilesEdition'
 
 " Managing navigation between vim and tmux
+" allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
+" and vim panels... its like magic :-)
 Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
@@ -260,10 +274,6 @@ set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
-
-" remap j and k to move in visal a way, handy when wrapping is set on
-" nnoremap j gj
-" nnoremap k gk
 
 " better escape
 imap jk <Esc>l
