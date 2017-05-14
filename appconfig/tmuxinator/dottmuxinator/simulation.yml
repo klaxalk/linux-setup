@@ -43,6 +43,11 @@ windows:
       layout: even-vertical
       panes:
         - cd ~/scripts/; sleep 11; ./uav11.sh
+  - tmux:
+      layout: even-vertical
+      panes:
+        - 'history -s roslaunch trajectory_handler petr'
+        - 'history -s rosservice call /uav11/trackers_manager/mpc_tracker/fly_'
   - goto:
       layout: even-vertical
       panes:
