@@ -209,15 +209,17 @@ bar {
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Pulse Audio controls
-bindsym $mod+F6 exec --no-startup-id pactl -- set-sink-volume 0 +10% #increase sound volume
-bindsym $mod+F5 exec --no-startup-id pactl -- set-sink-volume 0 -10% #decrease sound volume
-bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +10% #increase sound volume
 
 # Sreen brightness controls
-bindsym $mod+F1 exec xbacklight -dec 10 # decrease screen brightness
-bindsym $mod+F2 exec xbacklight -inc 10 # INCREASE Screen brightness
-bindsym $mod+F3 exec xbacklight -set 0 # INCREASE Screen brightness
-bindsym $mod+F4 exec xbacklight -set 100 # INCREASE Screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # INCREASE Screen brightness
+bindsym $mod+F10 exec xbacklight -set 100 # INCREASE Screen brightness
+
+# toggling touchpad
+bindsym $mod+t exec ~/.i3/toggle_touchpad.sh
 
 # Startup programs
 exec --no-startup-id nm-applet

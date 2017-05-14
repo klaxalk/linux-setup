@@ -262,8 +262,8 @@ set textwidth=0
 set wrapmargin=0
 
 " remap j and k to move in visal a way, handy when wrapping is set on
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " better escape
 imap jk <Esc>l
