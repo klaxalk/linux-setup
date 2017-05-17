@@ -249,6 +249,7 @@ assign [class="Rviz"] $workspace4
 # name = File Operation Progress == float
 for_window [class="^Thunar$"] floating enable
 for_window [class="^Tk$"] floating enable
+for_window [class="^Octave-gui$"] floating enable
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
