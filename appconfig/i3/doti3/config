@@ -220,17 +220,17 @@ bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
 # Bind screen brightness control to DELLs special keys
-bindsym XF86MonBrightnessDown exec ~/.i3/brightness.sh - # decrease screen brightness
-bindsym XF86MonBrightnessUp exec ~/.i3/brightness.sh + # INCREASE Screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # Bind screen brightness control to general alt+F...
-bindsym $mod+F1 exec ~/.i3/brightness.sh - # decrease screen brightness
-bindsym $mod+F2 exec ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec ~/.i3/brightness.sh 10 # INCREASE Screen brightness
-bindsym $mod+F4 exec ~/.i3/brightness.sh 100 # INCREASE Screen brightness
+bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
+bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 10 # INCREASE Screen brightness
+bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
 
 # toggling touchpad
-bindsym $mod+t exec ~/.i3/toggle_touchpad.sh
+bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
 
 # Startup programs
 exec --no-startup-id nm-applet
@@ -241,7 +241,7 @@ exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 exec --no-startup-id "setxkbmap us"
-bindsym $mod2+space exec ~/.i3/toggle_keyboard_layout.sh
+bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome please
 for_window [class="^Google-chrome$"] border none
