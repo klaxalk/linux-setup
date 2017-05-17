@@ -58,7 +58,7 @@ export CTAGS_SOURCE_DIR="-R ~/ros_workspace"' >> ~/.bashrc
 # where should ctags look for sources to parse?
 # CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
 # -R dir1 -R dir2 ...
-export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/indigo/include"' >> ~/.bashrc
+export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
 
   fi
 

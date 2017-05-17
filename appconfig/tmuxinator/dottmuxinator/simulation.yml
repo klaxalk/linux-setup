@@ -34,11 +34,11 @@ windows:
   - gazebo:
       layout: even-vertical
       panes:
-        - roslaunch mbzirc_main grasping_gazebo.launch gui:=true
+        - roslaunch mbzirc_main grasping_gazebo.launch gui:=false
   - pixhawk:
       layout: even-vertical
       panes:
-        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth 
+        - sleep 4; spawn 11 --run --delete --enable-rangefinder --enable-ground-truth --enable-mobius
   - tmux:
       layout: even-vertical
       panes:
