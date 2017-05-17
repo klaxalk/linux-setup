@@ -16,7 +16,10 @@ function! AutoGitCommit()
   let message = input('Message? ', 'Auto-commit: saved ' . expand('%'))
   call system('git add ' . expand('%:p'))
   call system('git commit -m ' . shellescape(message, 1))
+  call system('git push')
 endfun
+
+autocmd BufWritePost *.md call AutoGitCommit()
 
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink
