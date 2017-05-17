@@ -1,9 +1,19 @@
 #!/bin/bash
-if xinput list-props 13 | grep "Device Enabled (137):.1" >/dev/null
+
+# run "xinput" to get this id, e.g. from the line:
+# ↳ DLL075B:01 06CB:76AF Touchpad             id=13   [slave  pointer  (2)]
+DEVICE_ID="06CB:76AF"
+
+# find the id of my the touchpad
+DEVICE_NUMBER=`xinput | grep "$DEVICE_ID" | sed -r 's/.*id=([0-9]*).*/\1/g'`
+
+echo $DEVICE_NUMBER
+
+if xinput list-props "$DEVICE_NUMBER" | grep "Device Enabled (137):.1" >/dev/null
 then
-  xinput disable 13
-  notify-send -u low -i mouse "Trackpad disabled"
+  xinput disable "$DEVICE_NUMBER"
+  notify-send -u low -i mouse "Touchpad disabled"
 else
-  xinput enable 13
-  notify-send -u low -i mouse "Trackpad enabled"
+  xinput enable "$DEVICE_NUMBER"
+  notify-send -u low -i mouse "Touchpad enabled"
 fi
