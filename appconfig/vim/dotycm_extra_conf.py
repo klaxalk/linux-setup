@@ -29,7 +29,12 @@ def GetRosIncludePaths():
         return []
     rospack = RosPack()
     includes = []
-    includes.append(os.path.expandvars('$ROS_WORKSPACE') + '/devel/include')
+
+    paths =  os.path.expandvars('$ROS_WORKSPACE')
+    words = paths.split()
+    for word in words:
+        includes.append(os.path.expanduser(word) + '/devel/include')
+
     for p in rospack.list():
         if os.path.exists(rospack.get_path(p) + '/include'):
             includes.append(rospack.get_path(p) + '/include')
@@ -112,14 +117,26 @@ def GetCompilationDatabaseFolder(filename):
     pkg_name = rospkg.get_package_name(filename)
     if not pkg_name:
         return ''
-    dir = (os.path.expandvars('$ROS_WORKSPACE') +
-           os.path.sep +
-           'build' +
-           os.path.sep +
-           pkg_name)
 
-    return dir
+    paths =  os.path.expandvars('$ROS_WORKSPACE')
+    workspaces = paths.split()
+    for single_workspace in workspaces:
 
+        # get the global path to the workspace
+        workspace_path = os.path.expanduser(single_workspace)
+
+        # test whether the file (node) is in the workspace
+        if filename.startswith(workspace_path):
+
+            print(pkg_name + " is in " + workspace_path)
+
+            dir = (os.path.expandvars('$ROS_WORKSPACE') +
+                   os.path.sep +
+                   'build' +
+                   os.path.sep +
+                   pkg_name)
+
+            return dir
 
 def GetDatabase(compilation_database_folder):
     if os.path.exists(compilation_database_folder):
