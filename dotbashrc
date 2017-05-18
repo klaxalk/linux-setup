@@ -1,8 +1,6 @@
 # create alisases
 alias ra='ranger'
 
-export ROS_WORKSPACE=~/ros_workspace
-
 # set editor and shell
 export EDITOR=vim
 export SHELL=/bin/bash

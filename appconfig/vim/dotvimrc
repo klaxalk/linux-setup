@@ -129,6 +129,10 @@ Plugin 'MatlabFilesEdition'
 " and vim panels... its like magic :-)
 Plugin 'christoomey/vim-tmux-navigator'
 
+" exchangin of two parts of a file...
+" cx{motion} and later cx{motion} swaps the two places
+Plugin 'tommcdo/vim-exchange'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
