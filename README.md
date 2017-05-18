@@ -105,7 +105,6 @@ Key mapping for youcompleteme:
 To allow full ROS code completion, follow those:
 
 - Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should point to a location of your workspace(s).
-- Copy (or symlink) a file **appconfig/vim/dotycm_extra_conf.py** to your ros_workspace and name it **.ycm_extra_conf.py**. Author of this file is Gaël Ecorchard (http://github.com/galou), feel free to thank him. Based on this file, YCM is able to deduce build flags for all your files in your ros_workspace.
 - Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as
 ```bash
 catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
