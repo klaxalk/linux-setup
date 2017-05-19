@@ -4,10 +4,11 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-read -r -p $'\033[31mInstall i3? [y/n] \033[00m' response
-
-response=${response,,} # tolower
-if [[ $response =~ ^(yes|y| ) ]]; then
+resp=y
+[[ -t 0 ]] && {
+read -t 10 -n 1 -p $'\033[31mInstall i3? [y/n] \033[00m' resp || resp=n ; }
+if [[ $resp =~ ^(y|Y|)$ ]]
+then
 
   toilet installing i3
 
