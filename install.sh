@@ -32,6 +32,12 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+# install i3
+bash $APPCONFIG_PATH/i3/install.sh
+
+# setup latex
+bash $APPCONFIG_PATH/vimtex/install.sh
+
 #############################################
 # adding GIT_PATH variable to .bashrc 
 #############################################

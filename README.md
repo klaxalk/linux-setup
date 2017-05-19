@@ -15,7 +15,6 @@ git clone --recursive https://github.com/klaxalk/linux-setup.git
 cd linux-setup
 ./install.sh
 ```
-
 **Calling install.sh repeatedly** will not cause acumulation of gibrish in your .bashrc, so feel free to update your configuration by rerunning it.
 
 # How to work with my setup?
@@ -24,15 +23,20 @@ Here I describe the most important keybindings and shortcuts..
 
 ## TMUX shortcuts
 
-- **ctrl+a** tmux **__PREFIX__**
+- **ctrl a** tmux **__PREFIX__**
 - **__PREFIX__ w** list windows
+- **__PREFIX__ s** list all tmux sessions and theirs windows
 - **ctrl t** create new window
-- **shift left** switch to previous windows
-- **shift right** switch to next windows
+- **shift left** switch to previous window
+- **shift right** switch to next window
 - **ctrl s** horizontal split
 - **ctrl d** vertical split
 - **alt left** switch to left split pane
 - **alt right** switch to right split pane
+- **ctrl h** focus left pane
+- **ctrl j** focus down pane
+- **ctrl k** focus up pane
+- **ctrl l** focus right pane
 - **__PREFIX__ k** kill current tmux session with all its processes
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
@@ -50,7 +54,7 @@ If you wish to use your own tmux config besides mine, create a file **~/.my.tmux
 
 ## TMUXINATOR
 
-I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator) and made no changes to it. I suggest to read its tutorials.
+I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions. I suggest to read its tutorials.
 
 ## VIM
 
@@ -76,7 +80,7 @@ you will be prompted to enter the name of the session. You can later see the ses
 
 ### NERDTree
 
-NERDTree provides a simple file browser within a split. Toggle it by **^N**. The current setup shows NERDTree also when you open vim with a folder in the argument. Read its documentation for further information.
+NERDTree provides a simple file browser within a split. Toggle it by **\<leader\>N**. The current setup shows NERDTree also when you open vim with a folder in the argument. Read its documentation for further information.
 
 - **\<leader\>t** - opens new vim tab and shows NERDTree
 
@@ -99,6 +103,7 @@ Key mapping for youcompleteme:
 - When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
 - When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
 - To confirm the selection, press **enter** or **l**.
+- If the suggestions spawns a code snippet, move by **ctrl-h/l** between its parts.
 
 #### C++ and ROS code completion
 
@@ -127,7 +132,7 @@ Snippets can be used in visual mode by wrapping a selected code in e.g. **if** s
 - 3. write a code word for a snipper, e.g. **if**
 - 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
 
-Snippets are described in **.vim/UltiSnips** folder.
+Snippets are described in **.vim/UltiSnips** folder. A snippet file for the currently openned document can be openned by **\<leader\>u**.
 
 ## Other vim stuff ...
 
