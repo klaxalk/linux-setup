@@ -76,7 +76,7 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
 
   resp=y
   [[ -t 0 ]] && {
-  read -t 10 -n 1 -p $'\033[31mCompile YouCompleteMe? [y/n] \033[00m' resp || resp=y ; }
+  read -t 20 -n 1 -p $'\033[31mCompile YouCompleteMe? [y/n] \033[00m' resp || resp=y ; }
   if [[ $resp =~ ^(y|Y|)$ ]]
   then
 
@@ -85,6 +85,9 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
 
     cd ~/.vim/VundlePlugins/youcompleteme/
     ./install.py --all
+
+    # link .ycm_extra_conf.py
+    ln -s $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
 
   fi
 
