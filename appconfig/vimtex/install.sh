@@ -4,7 +4,7 @@ ZATHURA_VERSION=0.3.6
 
 resp=y
 [[ -t 0 ]] && {
-read -t 10 -n 1 -p $'\e[1;32mSet up Latex? (Y/n)\e[0m\n' resp || resp=y ; }
+read -t 20 -n 1 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp=y ; }
 if [[ $resp =~ ^(y|Y|)$ ]]
 then
 
