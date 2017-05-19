@@ -4,10 +4,11 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-read -r -p $'\033[31mApply VIM settings? [y/n] \033[00m' response
-
-response=${response,,} # tolower
-if [[ $response =~ ^(yes|y| ) ]]; then
+resp=y
+[[ -t 0 ]] && {
+read -t 10 -n 1 -p $'\033[31mApply VIM settings? [y/n] \033[00m' resp || resp=y ; }
+if [[ $resp =~ ^(y|Y|)$ ]]
+then
 
   toilet Setting up vim
 
@@ -44,7 +45,7 @@ if [[ $response =~ ^(yes|y| ) ]]; then
 echo '
 # where should ctags look for sources to parse?
 # -R dir1 -R dir2 ...
-export CTAGS_SOURCE_DIR="-R ~/ros_workspace"' >> ~/.bashrc
+export CTAGS_SOURCE_DIR="-R ~/mrs_workspace"' >> ~/.bashrc
 
   fi
 
@@ -73,13 +74,14 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
   vim -E +PluginInstall +qall
   vim -E +PluginClean +qall
 
-  # set youcompleteme
-  toilet Setting up youcompleteme
+  resp=y
+  [[ -t 0 ]] && {
+  read -t 10 -n 1 -p $'\033[31mCompile YouCompleteMe? [y/n] \033[00m' resp || resp=y ; }
+  if [[ $resp =~ ^(y|Y|)$ ]]
+  then
 
-  read -r -p $'\033[31mCompile YouCompleteMe? [y/n] \033[00m' response
-
-  response=${response,,} # tolower
-  if [[ $response =~ ^(yes|y| ) ]]; then
+    # set youcompleteme
+    toilet Setting up youcompleteme
 
     cd ~/.vim/VundlePlugins/youcompleteme/
     ./install.py --all

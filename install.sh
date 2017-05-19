@@ -74,10 +74,11 @@ num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
 if [ "$num" -lt "1" ]; then
 
   # ask whether to run tmux with new terminal
-  read -r -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' response
-  
-  response=${response,,} # tolower
-  if [[ $response =~ ^(yes|y| ) ]]; then
+  resp=y
+  [[ -t 0 ]] && {
+  read -t 10 -n 1 -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' resp || resp=y ; }
+  if [[ $resp =~ ^(y|Y|)$ ]]
+  then
 
     echo "
 # want to run tmux automatically with new terminal?
