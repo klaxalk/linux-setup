@@ -19,7 +19,7 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
-autocmd BufWritePost *.md call AutoGitCommit()
+" autocmd BufWritePost *.md call AutoGitCommit()
 
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink
