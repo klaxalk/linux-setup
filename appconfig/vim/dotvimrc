@@ -133,6 +133,10 @@ Plugin 'christoomey/vim-tmux-navigator'
 " cx{motion} and later cx{motion} swaps the two places
 Plugin 'tommcdo/vim-exchange'
 
+" easier manipulation with quickfix window
+" [q and ]q to move through the quickfix list
+Plugin 'tpope/vim-unimpaired'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required by Vundle
 filetype plugin indent on    " required by Vundle
