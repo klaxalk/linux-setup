@@ -32,8 +32,8 @@ def GetWorkspacePath(filename):
     paths =  os.path.expandvars('$ROS_WORKSPACE')
     workspaces = paths.split()
 
-    with open("/home/klaxalk/output.txt", "a") as file:
-        file.write("package_name: " + pkg_name + "\n") 
+    # with open("/home/klaxalk/output.txt", "a") as file:
+    #     file.write("package_name: " + pkg_name + "\n") 
 
     # iterate over all workspaces mentioned in $ROS_WORKSPACE
     for single_workspace in workspaces:
@@ -41,8 +41,8 @@ def GetWorkspacePath(filename):
         # get the full path to the workspace
         workspace_path = os.path.expanduser(single_workspace)
 
-        with open("/home/klaxalk/output.txt", "a") as file:
-            file.write("testing workspace path: " + workspace_path + " against filename: " + filename + "\n") 
+        # with open("/home/klaxalk/output.txt", "a") as file:
+        #     file.write("testing workspace path: " + workspace_path + " against filename: " + filename + "\n") 
 
         # get all ros packages built in workspace's build directory
         paths = glob(workspace_path + "/build/*")
@@ -52,8 +52,8 @@ def GetWorkspacePath(filename):
             # test whether the file (node) is in the workspace
             if node_path.endswith(pkg_name):
 
-                with open("/home/klaxalk/output.txt", "a") as file:
-                    file.write("workspace path: " + workspace_path + " matched file: " + filename + "\n") 
+                # with open("/home/klaxalk/output.txt", "a") as file:
+                #     file.write("workspace path: " + workspace_path + " matched file: " + filename + "\n") 
 
                 return workspace_path
 
