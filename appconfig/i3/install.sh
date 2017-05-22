@@ -36,7 +36,7 @@ then
   ln -s $APP_PATH/gtk/settings.ini ~/.config/gtk-3.0/
 
   # install thunar
-  sudo apt-get install thunar gnome-icon-theme rofi compton i3blocks systemd
+  sudo apt-get install thunar rofi compton i3blocks systemd
 
   # put $USE_I3 into bashrc
   num=`cat ~/.bashrc | grep "USE_I3" | wc -l`
