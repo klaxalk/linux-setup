@@ -2,25 +2,33 @@
 GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
 
-resp=y
-[[ -t 0 ]] && {
-read -t 20 -n 1 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp=y ; }
-if [[ $resp =~ ^(y|Y|)$ ]]
-then
+while true; do
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp="y" ; }
+  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
-  sudo apt-get install texlive texlive texlive-lang-czechslovak texmaker
+  if [[ $response =~ ^(y|Y)=$ ]]
+  then
 
-  sudo apt-get install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
+    sudo apt-get install texlive texlive texlive-lang-czechslovak texmaker
 
-  # otherwise the own girara compilation will not work
-  sudo apt-get remove libgirara-dev
+    sudo apt-get install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
 
-  # need for zathura compilation
-  sudo apt-get install libmagic-dev
+    # otherwise the own girara compilation will not work
+    sudo apt-get remove libgirara-dev
 
-  rm -rf /tmp/girara /tmp/zathura
+    # need for zathura compilation
+    sudo apt-get install libmagic-dev
 
-  cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
-  cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
+    rm -rf /tmp/girara /tmp/zathura
 
-fi
+    cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
+    cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
+
+    break
+  elif [[ $response =~ ^(n|N)=$ ]]
+  then
+    break
+  else
+    echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+  fi
+done
