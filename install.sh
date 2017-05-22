@@ -17,8 +17,6 @@ sudo apt-get install cmake cmake-curses-gui ruby git ranger sl ranger sl htop gi
 # for mounting exfat
 sudo apt-get install exfat-fuse exfat-utils
 
-# TODO install texlive texlive texlive-lang-czechslovak texmaker
-
 # update git submodules
 git submodule init
 git submodule update
@@ -129,4 +127,4 @@ fi
 toilet All Done
 
 # source .bashrc
-source ~/.bashrc
+bash ~/.bashrc
