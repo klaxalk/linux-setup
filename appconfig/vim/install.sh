@@ -46,7 +46,7 @@ while true; do
       echo '
 # where should ctags look for sources to parse?
 # -R dir1 -R dir2 ...
-export CTAGS_SOURCE_DIR="-R ~/mrs_workspace"' >> ~/.bashrc
+export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
 
     fi
 
@@ -58,9 +58,25 @@ export CTAGS_SOURCE_DIR="-R ~/mrs_workspace"' >> ~/.bashrc
       # set bashrc
       echo '
 # where should ctags look for sources to parse?
-# CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
+# CTAGS FROM THOSE FOLDERS WILL BE CREATED ONLY ONCE
 # -R dir1 -R dir2 ...
 export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
+
+    fi
+
+    #############################################
+    # adding ROS_WORKSPACE variable to .bashrc 
+    #############################################
+
+    # add variable for path to the git repository
+    num=`cat ~/.bashrc | grep "ROS_WORKSPACE" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      echo "Adding ROS_WORKSPACE variable to .bashrc"
+      # set bashrc
+      echo "
+# path to the ros workspace
+export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
