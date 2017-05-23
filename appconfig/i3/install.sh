@@ -47,13 +47,14 @@ while true; do
       # do you use i3?
       export USE_I3=true" >> ~/.bashrc
 
-      break
-    elif [[ $response =~ ^(n|N)=$ ]]
-    then
-      break
-    else
-      echo " What? \"$resp\" is not a correct answer. Try y+Enter."
     fi
-  done
 
-fi
+    break
+  elif [[ $response =~ ^(n|N)=$ ]]
+  then
+    break
+  else
+    echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+  fi
+
+done
