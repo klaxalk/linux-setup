@@ -14,13 +14,13 @@ while true; do
     toilet installing i3
 
     # install i3
-    sudo apt-get install i3
+    sudo apt-get -y install i3
 
     # for brightness and volume control
-    sudo apt-get install xbacklight alsa-utils pulseaudio feh arandr acpi
+    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr acpi
 
     # for making gtk look better
-    sudo apt-get install lxappearance 
+    sudo apt-get -y install lxappearance 
 
     # symlink i3 settings
     rm ~/.i3
@@ -37,7 +37,7 @@ while true; do
     ln -s $APP_PATH/gtk/settings.ini ~/.config/gtk-3.0/
 
     # install thunar
-    sudo apt-get install thunar rofi compton i3blocks systemd
+    sudo apt-get -y install thunar rofi compton i3blocks systemd
 
     # put $USE_I3 into bashrc
     num=`cat ~/.bashrc | grep "USE_I3" | wc -l`
