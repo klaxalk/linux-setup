@@ -9,15 +9,15 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get install texlive texlive texlive-lang-czechslovak texmaker
+    sudo apt-get -y install texlive texlive texlive-lang-czechslovak texmaker
 
-    sudo apt-get install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
+    sudo apt-get -y install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
 
     # otherwise the own girara compilation will not work
-    sudo apt-get remove libgirara-dev
+    sudo apt-get -y remove libgirara-dev
 
     # need for zathura compilation
-    sudo apt-get install libmagic-dev
+    sudo apt-get -y install libmagic-dev
 
     rm -rf /tmp/girara /tmp/zathura
 
