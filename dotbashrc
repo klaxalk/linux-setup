@@ -1,6 +1,3 @@
-# create alisases
-alias ra='ranger'
-
 # set editor and shell
 export EDITOR=vim
 export SHELL=/bin/bash
@@ -43,9 +40,12 @@ gitPullPush() {
  fi
 }
 
+# create alisases
+alias ra='ranger'
 alias sb="source ~/.bashrc"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
+alias :q=exit
 
 # use ctags to generate code tags
 generateTags() {
@@ -115,9 +115,6 @@ runvim() {
   fi
 }
 alias vim=runvim
-
-# exit alias
-alias :q=exit
 
 # big exit
 bigExit() {
