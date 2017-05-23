@@ -44,9 +44,9 @@ while true; do
       echo "Adding CTAGS_SOURCE_DIR variable to .bashrc"
       # set bashrc
       echo '
-      # where should ctags look for sources to parse?
-      # -R dir1 -R dir2 ...
-      export CTAGS_SOURCE_DIR="-R ~/mrs_workspace"' >> ~/.bashrc
+# where should ctags look for sources to parse?
+# -R dir1 -R dir2 ...
+export CTAGS_SOURCE_DIR="-R ~/mrs_workspace"' >> ~/.bashrc
 
     fi
 
@@ -57,10 +57,10 @@ while true; do
       echo "Adding CTAGS_ONCE_SOURCE_DIR variable to .bashrc"
       # set bashrc
       echo '
-      # where should ctags look for sources to parse?
-      # CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
-      # -R dir1 -R dir2 ...
-      export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
+# where should ctags look for sources to parse?
+# CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
+# -R dir1 -R dir2 ...
+export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
 
     fi
 
