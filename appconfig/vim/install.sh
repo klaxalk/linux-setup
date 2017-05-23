@@ -5,7 +5,7 @@ APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\033[31mInstall vim? [y/n] \033[00m' resp || resp="y" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n]\e[0m\n' resp || resp="y" ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
@@ -76,7 +76,7 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
     vim -E +PluginClean +qall
 
     while true; do
-      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\033[31mCompile YouCompleteMe? [y/n] \033[00m' resp || resp="y" ; }
+      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="y" ; }
       response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
       if [[ $response =~ ^(y|Y)=$ ]]
