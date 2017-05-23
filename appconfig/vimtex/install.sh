@@ -3,7 +3,7 @@ GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
 
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp="y" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp="n" ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
