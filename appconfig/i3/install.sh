@@ -5,7 +5,7 @@ APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\033[31mInstall i3? [y/n] \033[00m' resp || resp="y" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n]\e[0m\n' resp || resp="y" ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
