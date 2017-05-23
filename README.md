@@ -13,7 +13,7 @@ echo "mkdir -p ~/git
 cd ~/git
 sudo apt-get install git
 git clone --recursive https://github.com/klaxalk/linux-setup.git
-cd linux-setup" > install.sh && ./install.sh
+cd linux-setup" > install.sh && bash ./install.sh
 ```
 **Calling install.sh repeatedly** will not cause acumulation of gibrish in your .bashrc, so feel free to update your configuration by rerunning it.
 
