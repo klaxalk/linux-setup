@@ -61,26 +61,34 @@ fi
 num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
 if [ "$num" -lt "1" ]; then
 
-  # ask whether to run tmux with new terminal
-  resp=y
-  [[ -t 0 ]] && {
-  read -t 10 -n 1 -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' resp || resp=y ; }
-  if [[ $resp =~ ^(y|Y|)$ ]]
-  then
+  while true; do
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' resp || resp="y" ; }
+    response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+
+    if [[ $response =~ ^(y|Y)=$ ]]
+    then
 
     echo "
 # want to run tmux automatically with new terminal?
 export RUN_TMUX=true" >> ~/.bashrc
   
     echo "Setting variable RUN_TMUX to true"
-  else
-  
+
+      break
+    elif [[ $response =~ ^(n|N)=$ ]]
+    then
+
     echo "
 # want to run tmux automatically with new terminal?
 export RUN_TMUX=false" >> ~/.bashrc
   
     echo "Setting variable RUN_TMUX to false"
-  fi
+
+      break
+    else
+      echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+    fi
+  done
 fi
 
 #############################################
