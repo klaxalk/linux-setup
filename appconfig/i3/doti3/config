@@ -268,5 +268,8 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # enables transparency
 exec --no-startup-id compton -f -D 3
 
+# sound-card control
+exec --no-startup-id indicator-sound-switcher 
+
 # show background wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
