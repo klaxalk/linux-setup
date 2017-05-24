@@ -8,7 +8,9 @@ set path+=~/git/**
 set tags+=~/tags,~/tags-once
 
 command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
+command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 map <Leader>l :VimuxCloseRunner<CR>
+map <Leader>wc :call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit")<CR>
 
 " customize bookmarks in startify
 let g:startify_bookmarks = [
