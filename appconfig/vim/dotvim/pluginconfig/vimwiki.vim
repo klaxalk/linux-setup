@@ -13,13 +13,13 @@ function! AutoGitCommit()
   if v:shell_error
     return
   endif
-  let message = input('Message? ', 'Auto-commit: saved ' . expand('%'))
   call system('git add ' . expand('%:p'))
-  call system('git commit -m ' . shellescape(message, 1))
+  call system('git commit -m ' . shellescape('Auto-commit: saved ' . expand('%'), 1))
+  call system('git pull')
   call system('git push')
 endfun
 
-" autocmd BufWritePost *.md call AutoGitCommit()
+autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; git add -A; git commit -m \"autocommit\"; gppo; :q")
 
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink
