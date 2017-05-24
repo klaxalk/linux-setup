@@ -19,7 +19,7 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
-autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; git add -A; git commit -m \"autocommit\"; gppo; :q")
+autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; ./save_and_update.sh")
 
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink
