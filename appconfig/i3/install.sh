@@ -22,6 +22,17 @@ while true; do
     # for making gtk look better
     sudo apt-get -y install lxappearance 
 
+    sudo expect -c "
+    spawn apt-add-repository ppa:yktooo/ppa
+    expect { 
+      \"adding it\" {
+        send "\\n"
+        interact
+      }
+    }
+    "
+    sudo apt update && sudo apt install indicator-sound-switcher
+
     # symlink i3 settings
     rm ~/.i3
     ln -s $APP_PATH/doti3 ~/.i3
