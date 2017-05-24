@@ -21,6 +21,8 @@ endfun
 
 autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; ./save_and_update.sh")
 
+" autocmd BufRead */notes/* inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
+
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink
 
