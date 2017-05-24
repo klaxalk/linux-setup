@@ -35,7 +35,9 @@ set backspace=indent,eol,start
 " should work only when the menu has been entered either by tab or arrows
 set completeopt+=noinsert
 inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
+inoremap <expr> <C-k> ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("\<C-k>"))
 
 " inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
 
