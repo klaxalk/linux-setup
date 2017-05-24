@@ -284,7 +284,7 @@ set textwidth=0
 set wrapmargin=0
 
 " better escape
-imap jk <Esc>l
+imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " jumping to head of current function
 nnoremap [f mf9[{zt

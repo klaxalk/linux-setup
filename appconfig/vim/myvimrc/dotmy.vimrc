@@ -30,6 +30,8 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 
+colorscheme jellybeans
+
 " nnoremap <a-j> <c-d>
 " nnoremap <a-k> <c-u>
 
