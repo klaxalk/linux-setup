@@ -55,8 +55,8 @@ while true; do
     if [ "$num" -lt "1" ]; then
 
       echo "
-      # do you use i3?
-      export USE_I3=true" >> ~/.bashrc
+# do you use i3?
+export USE_I3=false" >> ~/.bashrc
 
     fi
 
