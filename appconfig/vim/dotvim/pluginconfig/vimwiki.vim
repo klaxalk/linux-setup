@@ -19,7 +19,7 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
-autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; ./save_and_update.sh")
+autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit")
 
 " autocmd BufRead */notes/* inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 
