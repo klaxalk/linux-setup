@@ -6,7 +6,15 @@ let wiki_1.index = 'index'
 let wiki_1.syntax = 'markdown'
 let wiki_1.ext = '.md'
 
-let g:vimwiki_list = [wiki_1]
+let wiki_2 = {}
+let wiki_2.path = '~/git/uav_core.wiki'
+let wiki_2.html_template = '~/git/notes/template/template.html'
+let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+let wiki_2.index = 'home'
+let wiki_2.syntax = 'markdown'
+let wiki_2.ext = '.md'
+
+let g:vimwiki_list = [wiki_1, wiki_2]
 
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
