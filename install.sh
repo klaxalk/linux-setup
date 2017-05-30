@@ -9,6 +9,9 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 # define paths
 APPCONFIG_PATH=$MY_PATH/appconfig
 
+cd $MY_PATH
+git submodule update --init --recursive
+
 # install packages
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
