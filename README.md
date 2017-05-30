@@ -38,6 +38,10 @@ Here I describe the most important keybindings and shortcuts..
 - **ctrl j** focus down pane
 - **ctrl k** focus up pane
 - **ctrl l** focus right pane
+- **__PREFIX__ ctrl h** resize current pane to the left
+- **__PREFIX__ ctrl j** resize current pane down
+- **__PREFIX__ ctrl k** resize current pane to the right 
+- **__PREFIX__ ctrl l** resize current pane up
 - **__PREFIX__ k** kill current tmux session with all its processes
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
