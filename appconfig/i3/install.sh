@@ -31,7 +31,8 @@ while true; do
       }
     }
     "
-    sudo apt update && sudo apt install indicator-sound-switcher
+    sudo apt-get update
+    sudo apt-get -y install indicator-sound-switcher
 
     # symlink i3 settings
     rm ~/.i3
