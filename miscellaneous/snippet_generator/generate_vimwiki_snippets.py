@@ -1,3 +1,4 @@
+#!/usr/bin/python
 table_cols = 9
 table_rows = 9
 
@@ -37,9 +38,25 @@ with open("vimwiki.snippets", "w") as file:
         for k in range(0, i):
 
             if k == i-1:
-                file.write("* ${{{}}}".format(0))
+                file.write("  * ${{{}}}".format(0))
             else:
-                file.write("* ${{{}}}".format(k+1))
+                file.write("  * ${{{}}}".format(k+1))
+
+            file.write("\n")
+
+        file.write("endsnippet\n\n")
+
+    # generate numbered lists
+    for i in range(1, list_size+1):
+
+        file.write("snippet numlist{} \"numlist{}\" A\n".format(i, i))
+
+        for k in range(0, i):
+
+            if k == i-1:
+                file.write("  {}. ${{{}}}".format(k+1, 0))
+            else:
+                file.write("  {}. ${{{}}}".format(k+1, k+1))
 
             file.write("\n")
 
@@ -53,9 +70,9 @@ with open("vimwiki.snippets", "w") as file:
         for k in range(0, i):
 
             if k == i-1:
-                file.write("* [ ] ${{{}}}".format(0))
+                file.write("  * [ ] ${{{}}}".format(0))
             else:
-                file.write("* [ ] ${{{}}}".format(k+1))
+                file.write("  * [ ] ${{{}}}".format(k+1))
 
             file.write("\n")
 
