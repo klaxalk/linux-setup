@@ -29,33 +29,30 @@ def GetWorkspacePath(filename):
     if not pkg_name:
         return ''
 
+    # get the content of $ROS_WORKSPACE variable
+    # and create an array out of it
     paths =  os.path.expandvars('$ROS_WORKSPACE')
     workspaces = paths.split()
 
-    # with open("/home/klaxalk/output.txt", "a") as file:
-    #     file.write("package_name: " + pkg_name + "\n") 
-
-    # iterate over all workspaces mentioned in $ROS_WORKSPACE
+    # iterate over all workspaces
     for single_workspace in workspaces:
 
         # get the full path to the workspace
         workspace_path = os.path.expanduser(single_workspace)
 
-        # with open("/home/klaxalk/output.txt", "a") as file:
-        #     file.write("testing workspace path: " + workspace_path + " against filename: " + filename + "\n") 
-
         # get all ros packages built in workspace's build directory
         paths = glob(workspace_path + "/build/*")
 
-        for node_path in paths:
+        # iterate over all the packages built in the workspace
+        for package_path in paths:
 
-            # test whether the file (node) is in the workspace
-            if node_path.endswith(pkg_name):
+            # test whether the package, to which "filename" belongs to, is in the workspace
+            if package_path.endswith(pkg_name):
 
-                # with open("/home/klaxalk/output.txt", "a") as file:
-                #     file.write("workspace path: " + workspace_path + " matched file: " + filename + "\n") 
-
+                # if it is, return path to its workspace
                 return workspace_path
+
+    return 0
 
 def GetRosIncludePaths():
     """Return a list of potential include directories
@@ -157,7 +154,12 @@ def GetCompilationDatabaseFolder(filename):
     if not pkg_name:
         return ''
 
-    dir = (GetWorkspacePath(filename) +
+    workspace_path = GetWorkspacePath(filename)
+
+    if not workspace_path:
+        return ''
+
+    dir = (workspace_path +
            os.path.sep +
            'build' +
            os.path.sep +
