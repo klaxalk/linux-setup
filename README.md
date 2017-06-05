@@ -22,14 +22,29 @@ cd linux-setup
 
 Here I describe the most important keybindings and shortcuts..
 
+## TMUX+Vim commons
+
+Running Vim inside TMUX has some serious advantages.
+First, TMUX allows to copy any text in the terminal using its own vi-mode (see TMUX shortcuts bellow).
+With a simple hack, the coppied text is inserted into the system clipboard.
+The same can be done with Vim, so basically, we have a clipboard shared between the system, Vim and TMUX, which is accessible and fillable without using a **mouse**.
+
+Another notable feature is enabled by the plugin [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator].
+It allows to seemlessly navigate throug TMUX and Vim splits (panes) with a single set of key bindings.
+In my setup, those are **crtl h/j/k/l** for left/down/right/up movement.
+
 ## TMUX shortcuts
+
+Following key bindings encapsulate 99% of all what I use in TMUX.
+Most importantly, note that I remapped the standard **prefix** from ctrl+b to ctrl+a.
+There are several reason for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet do it like that.
 
 - **ctrl a** tmux **__PREFIX__**
 - **__PREFIX__ w** list windows
 - **__PREFIX__ s** list all tmux sessions and theirs windows
 - **ctrl t** create new window
-- **shift left** switch to previous window
-- **shift right** switch to next window
+- **shift left** switch to previous window (also **alt u**, handy for i3wm users)
+- **shift right** switch to next window (also **alt i**, handy for i3wm users)
 - **ctrl s** horizontal split
 - **ctrl d** vertical split
 - **alt left** switch to left split pane
@@ -48,9 +63,10 @@ Here I describe the most important keybindings and shortcuts..
 - **__PREFIX__ p** paste yanked text (from vim edit mode) 
 - **__PREFIX__ z** enlarge focused pane to the whole screen (or back)
 
-TMUX-RESURRECT can be used to save a state of a single session. Use following keys to control it.
+TMUX-RESURRECT can be used to save a state of a single session.
+Use following keys to control it.
 
-- **__PREFIX__ ctrl-s** save current session using tmux-resurrect
+- **__PREFIX__ ctrl-s** save the current session using tmux-resurrect
 - **__PREFIX__ ctrl-r** resurrect previously saved session
 
 ### Custom TMUX config
@@ -59,19 +75,65 @@ If you wish to use your own tmux config besides mine, create a file **~/.my.tmux
 
 ## TMUXINATOR
 
-I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions. I suggest to read its tutorials.
+I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions.
+I suggest to read its tutorials.
 
 ## VIM
 
-Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor. Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
+Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor.
+Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
 To update them manually, call **:PluginUpdate**, to install them **:PluginInstall** in Vim. However, they will be installed automatically by **install.sh**.
 
-New mapping for moving within vim:
+### List of plugins
+
+I divide plugins to following two groups:
+
+Plugins with new features, you are supposed to read their tutorials about
+
+  * **vim-fugitive** - git integration
+  * **vimux** - tmux integration
+  * **nerdtree** - simple integrated file explorer
+  * **vim-abolish** - automatic substitutions
+  * **ultisnips** - code snippets
+  * **ReplaceWithRegister** - adds "gr" action to replace text 
+  * **vim-argwrap** - clever function argumment wrapping
+  * **vim-multiple-cursors** - adding mupltiple cursors feature
+  * **tagbar** - windows with tag list of the current file
+  * **vim-expand-region** - clever visual selection for dummies
+  * **vim-ros** - ROS integration
+  * **vim-commentary** - clever code commenting
+  * **vim-surround** - allows to manipulate with surrounding pairs of characters
+  * **vimtex** - latex integration
+  * **vimwiki** - notetaking and wikipedia edittingvim-exchange
+  * **vim-exchange** - allows exchaning two target locations
+  * **vim-unimpaired** - clever new keybindings for e.g. quickfix and buffers
+
+#### Plugins you don't need to know about (they are "passive" and their features integrate "seemlessly")
+
+  * **Vundle** - vim plugin manager
+  * **jellybeans.vim** - color scheme
+  * **vim-airline** - status line
+  * **united-front** - sharing register between vim instances
+  * **vim-startify** - new home screen for vim
+  * **vim-signature** - shows marks left to line numbers
+  * **targets.vim** - additional target descriptions, that feel natural
+  * **vim-python-pep8-indent** - python integration
+  * **GoldenView.Vim** - split resizing in golden ratio
+  * **quick-scope** - f/t motion helper
+  * **supertab** - allows youcompleteme to work with ultisnips
+  * **youcompleteme** - automatic code-aware code completion
+  * **tmuxline.vim** - tmux and vim statusline integration
+  * **MatlabFilesEdition** - should add matlab syntax highlighting
+  * **vim-tmux-navigator** - makes tmux and vim split navigation possible
+
+### New mappings?
+
+My new mapping for moving within vim:
 
 - **shift j/k** move to next/previous tab
 - **ctrl-h/j/k/l** move to left/down/up/right split
 
-Here is a short description of the most important plugins together with example of thier usage:
+Here is a short description of the most important plugins together with example of their usage:
 
 ### Startify
 
@@ -79,29 +141,40 @@ Run vim without parameters! Really, try that. Startify shows a useful list of re
 ```bash
 :SSave
 ```
-you will be prompted to enter the name of the session. You can later see the session on the main Startify screen. Startify also displays random vim tips in a form of a 'barking dog'. Feel free to update those and submit them by means of a **pull request** on a file appconfig/vim/startify_quotes.txt.
+you will be prompted to enter the name of the session.
+You can later see the session on the main Startify screen.
+Startify also displays random vim tips in a form of a 'barking dog'.
+Feel free to update those and submit them by means of a **pull request** on a file appconfig/vim/startify_quotes.txt.
 
 - **\<leader\>s** - opens new vim tab and shows Startify
 
 ### NERDTree
 
-NERDTree provides a simple file browser within a split. Toggle it by **\<leader\>N**. The current setup shows NERDTree also when you open vim with a folder in the argument. Read its documentation for further information.
+NERDTree provides a simple file browser within a split.
+Toggle it by **\<leader\>N**.
+The current setup shows NERDTree also when you open vim with a folder in the argument.
+Read its documentation for further information.
 
 - **\<leader\>t** - opens new vim tab and shows NERDTree
 
 ### Vimmux
 
-Vimmux allows to open TMUX splits and run commands in them. I use them mainly for compiling
-my workspace. Commands can be configured in **~/.my.vimrc** file which will stay unchanged
-by git. Currently, I don't vimmux that much, but if you want, key mappings are commented in **.my.vimrc**.
+Vimmux allows to open TMUX splits and run commands in them.
+I use them mainly for compiling my workspace.
+Commands can be configured in **~/.my.vimrc** file which will stay unchanged by git.
+Currently, I don't vimmux that much, but if you want, key mappings are commented in **.my.vimrc**.
 
 ### United-front
 
-This pluggin allows to share registers between different instances of vim. Thus allows to copy and paste regardles of splitting in vim od TMUX.
+This pluggin allows to share registers between different instances of vim.
+Thus allows to copy and paste regardles of splitting in vim od TMUX.
 
 ### YouCompleteMe
 
-Want to work like a pro in an IDE? Vim can do that. YouCompleteMe provides state-of-the art code completion functions. YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code. Clang needs to know compile flags for your particular piece of code.
+Want to work like a pro in an IDE? Vim can do that.
+YouCompleteMe provides state-of-the art code completion functions.
+YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code.
+Clang needs to know compile flags for your particular piece of code.
 
 Key mapping for youcompleteme:
 
@@ -114,7 +187,7 @@ Key mapping for youcompleteme:
 
 To allow full ROS code completion, follow those:
 
-- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should point to a location of your workspace(s).
+- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should contain a list of locations of your ORS workspace(s), separated by spaces.
 - Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as
 ```bash
 catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -124,7 +197,10 @@ Enjoy!
 
 ### UltiSnips
 
-Completing code snippets is an existential part of programming. Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write. Ultisnip completes those by hitting **\<tab\>** after writing the keyword. If needed, hitting it again jumps through new filled placeholders in the code snippet.
+Completing code snippets is an existential part of programming.
+Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write.
+Ultisnip completes those by hitting **\<tab\>** after writing the keyword.
+If needed, hitting it again jumps through new filled placeholders in the code snippet.
 
 Key mapping for Ultisnip:
 
@@ -137,7 +213,8 @@ Snippets can be used in visual mode by wrapping a selected code in e.g. **if** s
 - 3. write a code word for a snipper, e.g. **if**
 - 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
 
-Snippets are described in **.vim/UltiSnips** folder. A snippet file for the currently openned document can be openned by **\<leader\>u**.
+Snippets are described in **.vim/UltiSnips** folder.
+A snippet file for the currently openned document can be openned by **\<leader\>u**.
 
 ## Other vim stuff ...
 
@@ -147,7 +224,11 @@ I have remapped the leader to a comma ",".
 
 ### Using CTAGS
 
-Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you to jump through "tags" (names in the code), e.g. function names. Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code. The database is built automatically when running vim, or manually by calling **:MakeTags** in vim. Further shortcuts can be used to navigate through your code:
+Ctags is a useful way to maintain "hyperlinks" in your code.
+It later allows you to jump through "tags" (names in the code), e.g. function names.
+Variable **CTAGS_SOURCES_DIR** in your **.bashrc** specifies where should ctags look for your code.
+The database is built automatically when running vim, or manually by calling **:MakeTags** in vim.
+Further shortcuts can be used to navigate through your code:
 
 - **\<leader\>.** - dive into the tag
 - **\<leader\>/** - go back one tag
@@ -155,7 +236,9 @@ Ctags is a useful way to maintain "hyperlinks" in your code. It later allows you
 
 ### Macros
 
-Working macros might be tedious. If you, just like me, tend to record everything to @a, following feature might be useful. When in **visual mode**, the **dot** operator applies macro **@a** over all selected lines.
+Working macros might be tedious.
+If you, just like me, tend to record everything to @a, following feature might be useful.
+When in **visual mode**, the **dot** operator applies macro **@a** over all selected lines.
 
 ### Other key bindings
 
