@@ -3,13 +3,17 @@
 ##########################################################################
 # YouCompleteMe configuration for ROS                                    #
 # Author: Gaël Ecorchard (2015)                                          #
+# CoAuthor: Tomas Baca (2017)                                            #
 #                                                                        #
 # The file requires the definition of the $ROS_WORKSPACE variable in     #
-# your shell.                                                            #
-# Name this file .ycm_extra_conf.py and place it in $ROS_WORKSPACE to    #
-# use it.                                                                #
+# your shell. The variable should be a string with paths to all your     #
+# workspaces separated by a space.                                       #
 #                                                                        #
-# Tested with Ubuntu 14.04 and Indigo.                                   #
+# e.g. export ROS_WORKPSACE="~/ros_workspace ~/test_workspace"           #
+#                                                                        #
+# Name this file .ycm_extra_conf.py and place it in your home            #
+#                                                                        #
+# Tested with Ubuntu 16.04 and Kinetic.                                  #
 #                                                                        #
 # License: CC0                                                           #
 ##########################################################################
