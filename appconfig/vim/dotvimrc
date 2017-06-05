@@ -245,6 +245,8 @@ function! AutoHighlightToggle()
 endfunction    
 nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
+au BufNewFile,BufRead *.cl setlocal ft=c
+
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -350,3 +352,4 @@ source ~/.vim/pluginconfig/ultisnips.vim
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
 endif
+
