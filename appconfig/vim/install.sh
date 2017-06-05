@@ -31,6 +31,9 @@ while true; do
     make VIMRUNTIMEDIR=/usr/share/vim/vim80
     sudo make install
 
+    # set vim as a default git mergetool
+    git config --global merge.tool vimdiff
+
     # symlink vim settings
     rm ~/.vimrc
     rm -rf ~/.vim
