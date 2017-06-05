@@ -86,9 +86,9 @@ To update them manually, call **:PluginUpdate**, to install them **:PluginInstal
 
 ### List of plugins
 
-I divide plugins to following two groups:
-
-Plugins with new features, you are supposed to read their tutorials about
+Here is a list of plugin I use.
+I divide plugins into two groups according to how they integrate to my workflow.
+Plugins with new features, you are supposed to read their tutorials to know how to use them (but you don't have to if it does not suite you):
 
   * **vim-fugitive** - git integration
   * **vimux** - tmux integration
@@ -108,7 +108,7 @@ Plugins with new features, you are supposed to read their tutorials about
   * **vim-exchange** - allows exchaning two target locations
   * **vim-unimpaired** - clever new keybindings for e.g. quickfix and buffers
 
-#### Plugins you don't need to know about (they are "passive" and their features integrate "seemlessly")
+Plugins you don't need to know about (their features integrate "seemlessly"):
 
   * **Vundle** - vim plugin manager
   * **jellybeans.vim** - color scheme
