@@ -1,7 +1,7 @@
 # Linux Environment Preparation
 
-This repo contains scripts for setting up my linux working environment, mainly by
-installing two vital applications: TMUX and VIM and setting up their behaviour.
+This repo contains scripts for setting up my Linux working environment, mainly by
+installing two vital applications: TMUX and VIM and setting up their behavior.
 
 **BEWARE**, running this will **DELETE** your previous tmux and vim setup (.vim, .tmux.conf, .vimrc)!!
 
@@ -20,24 +20,24 @@ cd linux-setup
 
 # How to work with my setup?
 
-Here I describe the most important keybindings and shortcuts..
+Here I describe the most important keybindings and shortcuts.
 
 ## TMUX+Vim commons
 
 Running Vim inside TMUX has some serious advantages.
-First, TMUX allows to copy any text in the terminal using its own vi-mode (see TMUX shortcuts bellow).
-With a simple hack, the coppied text is inserted into the system clipboard.
-The same can be done with Vim, so basically, we have a clipboard shared between the system, Vim and TMUX, which is accessible and fillable without using a **mouse**.
+First, TMUX allows copying any text in the terminal using its vi-mode (see TMUX shortcuts bellow).
+With a simple hack, the copied text is inserted into the system clipboard.
+The same can be done with Vim, so basically, we have a clipboard shared between the system, Vim, and TMUX, which is accessible and fillable without using a **mouse**.
 
 Another notable feature is enabled by the plugin [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator].
-It allows to seemlessly navigate throug TMUX and Vim splits (panes) with a single set of key bindings.
+It allows to seamlessly navigate through TMUX and Vim splits (panes) with a single set of key bindings.
 In my setup, those are **crtl h/j/k/l** for left/down/right/up movement.
 
 ## TMUX shortcuts
 
 Following key bindings encapsulate 99% of all what I use in TMUX.
 Most importantly, note that I remapped the standard **prefix** from ctrl+b to ctrl+a.
-There are several reason for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet do it like that.
+There are several reasons for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet do it like that.
 
 - **ctrl a** tmux **__PREFIX__**
 - **__PREFIX__ w** list windows
@@ -71,12 +71,12 @@ Use following keys to control it.
 
 ### Custom TMUX config
 
-If you wish to use your own tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.
+If you wish to use your tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.
 
 ## TMUXINATOR
 
 I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions.
-I suggest to read its tutorials.
+I suggest reading its tutorials.
 
 ## VIM
 
@@ -86,8 +86,8 @@ To update them manually, call **:PluginUpdate**, to install them **:PluginInstal
 
 ### List of plugins
 
-Here is a list of plugin I use.
-I divide plugins into two groups according to how they integrate to my workflow.
+Here is a list of plugins I use.
+I divide plugins into two groups according to how they integrate into my workflow.
 Plugins with new features, you are supposed to read their tutorials to know how to use them (but you don't have to if it does not suite you):
 
   * **vim-fugitive** - git integration
@@ -133,18 +133,18 @@ My new mapping for moving within vim:
 - **shift j/k** move to next/previous tab
 - **ctrl-h/j/k/l** move to left/down/up/right split
 
-Here is a short description of the most important plugins together with example of their usage:
+Here is a short description of the most important plugins together with an example of their usage:
 
 ### Startify
 
-Run vim without parameters! Really, try that. Startify shows a useful list of recently openned files when running vim without parameters. It also allows to **save** and **load** sessions. Save the current session by calling
+Run vim without parameters! Really, try that. Startify shows a useful list of recently opened files when running vim without parameters. It also allows to **save** and **load** sessions. Save the current session by calling
 ```bash
 :SSave
 ```
 you will be prompted to enter the name of the session.
 You can later see the session on the main Startify screen.
-Startify also displays random vim tips in a form of a 'barking dog'.
-Feel free to update those and submit them by means of a **pull request** on a file appconfig/vim/startify_quotes.txt.
+Startify also displays random vim tips in the form of a 'barking dog'.
+Feel free to update those and submit them using a **pull request** on a file appconfig/vim/startify_quotes.txt.
 
 - **\<leader\>s** - opens new vim tab and shows Startify
 
@@ -161,18 +161,18 @@ Read its documentation for further information.
 
 Vimmux allows to open TMUX splits and run commands in them.
 I use them mainly for compiling my workspace.
-Commands can be configured in **~/.my.vimrc** file which will stay unchanged by git.
+Commands can be configured in the **~/.my.vimrc** file which will stay unchanged by git.
 Currently, I don't vimmux that much, but if you want, key mappings are commented in **.my.vimrc**.
 
 ### United-front
 
-This pluggin allows to share registers between different instances of vim.
-Thus allows to copy and paste regardles of splitting in vim od TMUX.
+This plugin allows sharing registers between different instances of vim.
+Thus allows to copy and paste regardless of splitting in vim od TMUX.
 
 ### YouCompleteMe
 
 Want to work like a pro in an IDE? Vim can do that.
-YouCompleteMe provides state-of-the art code completion functions.
+YouCompleteMe provides state-of-the-art code completion functions.
 YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code.
 Clang needs to know compile flags for your particular piece of code.
 
@@ -181,7 +181,7 @@ Key mapping for youcompleteme:
 - When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
 - When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
 - To confirm the selection, press **enter** or **l**.
-- If the suggestions spawns a code snippet, move by **ctrl-h/l** between its parts.
+- If the suggestions spawn a code snippet, move by **ctrl-h/l** between its parts.
 
 #### C++ and ROS code completion
 
@@ -200,21 +200,21 @@ Enjoy!
 Completing code snippets is an existential part of programming.
 Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write.
 Ultisnip completes those by hitting **\<tab\>** after writing the keyword.
-If needed, hitting it again jumps through new filled placeholders in the code snippet.
+If needed, hitting it again jumps through newly filled placeholders in the code snippet.
 
 Key mapping for Ultisnip:
 
 - When suggestions appear, press **tab** to expand the snippet.
-- While in the snipper, move right and left over suggested parts by **left/right** or **ctrl-h / ctrl-l**.
+- While in the snippet, move right and left over suggested parts by **left/right** or **ctrl-h / ctrl-l**.
 
 Snippets can be used in visual mode by wrapping a selected code in e.g. **if** statement, by:
 - 1. select a piece of code
-- 2. hit **\<tab\>**, the code will disappeare
+- 2. hit **\<tab\>**, the code will disappear
 - 3. write a code word for a snipper, e.g. **if**
-- 4. hit **\<tab\>** again, the code will appeear wrapped in new if statement.
+- 4. hit **\<tab\>** again, the code will appear wrapped in new if statement.
 
 Snippets are described in **.vim/UltiSnips** folder.
-A snippet file for the currently openned document can be openned by **\<leader\>u**.
+A snippet file for the currently opened document can be opened by **\<leader\>u**.
 
 ## Other vim stuff ...
 
