@@ -1,7 +1,7 @@
 # Linux Environment Preparation
 
 This repo contains scripts for setting up my Linux working environment, mainly by
-installing two vital applications: TMUX and VIM and setting up their behavior.
+installing three vital applications: TMUX, VIM, i3wm and setting up their behavior.
 
 **BEWARE**, running this will **DELETE** your previous tmux and vim setup (.vim, .tmux.conf, .vimrc)!!
 
