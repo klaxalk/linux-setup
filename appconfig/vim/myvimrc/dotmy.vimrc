@@ -8,7 +8,6 @@ set path+=~/git/**
 set tags+=~/tags,~/tags-once
 
 command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
-command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
 map <Leader>l :VimuxCloseRunner<CR>
 map <Leader>wc :call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit")<CR>
 
@@ -20,7 +19,6 @@ let g:startify_bookmarks = [
       \ { 't': '~/.tmux.conf' },
       \ { 'v': '~/.vimrc' },
       \ { 'm': '~/.my.vimrc' },
-      \ { 's': '~/git/linux-setup/appconfig/vim/dotvim/after/snippets/_.snippets' },
       \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
       \ ]
 
