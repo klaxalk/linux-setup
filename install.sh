@@ -15,7 +15,7 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
-sudo apt-get -y install cmake cmake-curses-gui ruby git ranger sl ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 openssh-server pandoc
+sudo apt-get -y install cmake cmake-curses-gui ruby git ranger sl ranger sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 openssh-server pandoc xclip xsel
 
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
