@@ -39,6 +39,9 @@ bash $APPCONFIG_PATH/i3/install.sh
 # setup latex
 bash $APPCONFIG_PATH/vimtex/install.sh
 
+# setup ranger
+bash $APPCONFIG_PATH/ranger/install.sh
+
 #############################################
 # adding GIT_PATH variable to .bashrc 
 #############################################
