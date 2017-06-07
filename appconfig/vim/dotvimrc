@@ -303,6 +303,10 @@ nmap L $
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
+" folding by marker when editting MATLAB files
+au BufRead *.m set foldmethod=marker
+au BufRead *.m set foldmarker=%%{,%%}
+
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 
