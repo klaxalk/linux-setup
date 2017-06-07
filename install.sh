@@ -20,10 +20,6 @@ sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-mu
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
 
-# update git submodules
-git submodule init
-git submodule update
-
 # download, compile and install tmux
 bash $APPCONFIG_PATH/tmux/install.sh
 
