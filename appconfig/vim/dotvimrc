@@ -95,7 +95,7 @@ Plug 'ervandew/supertab'
 
 " youcompleteme
 " automatic code completion for C++ and more
-Plug 'valloric/youcompleteme', { 'commit': '40a12d758b506852d568949c7b20d2962f2dd761' }
+Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
 
 " make ROS and vim to be friends
 Plug 'taketwo/vim-ros'
