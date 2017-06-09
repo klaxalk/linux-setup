@@ -91,8 +91,8 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
-    vim -E +PluginInstall +qall
-    vim -E +PluginClean +qall
+    vim -E +PlugInstall +qall
+    vim -E +PlugClean +qall
 
     while true; do
       [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="y" ; }
@@ -104,7 +104,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
         # set youcompleteme
         toilet Setting up youcompleteme
 
-        cd ~/.vim/VundlePlugins/youcompleteme/
+        cd ~/.vim/plugged/youcompleteme/
         ./install.py --all
 
         # link .ycm_extra_conf.py

@@ -10,46 +10,44 @@ set encoding=utf-8
 """"" CONFIGURE VUNDLE PLUGIN MANAGER
 """""
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin("~/.vim/VundlePlugins")
+call plug#begin("~/.vim/plugged")
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " A colorful, dark color scheme
-Plugin 'nanotech/jellybeans.vim'
+Plug 'nanotech/jellybeans.vim'
 
 " ifugitive.vim: a Git wrapper so awesome, it should be illegal
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Lean & mean status/tabline for vim that's light as air.
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " integration with tmux (allows running bash commands in tmux splits)
-Plugin 'benmills/vimux'
+Plug 'benmills/vimux'
 
 " sharing registers between multiple instances of vim
-Plugin 'ardagnir/united-front'
+Plug 'ardagnir/united-front'
 
 " file manager (leader+n)
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " home screen (necessary to have a barking dog)
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " visualizing marks
 " show marks left to line numbers
-Plugin 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 
 " clever abbreviations and syntax conversion
 " I want to learn this !!
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 " snippet completion
 " magic!
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " snippets for UltiSnips
 " not in use, I am cooking my own snippets
@@ -57,89 +55,87 @@ Plugin 'SirVer/ultisnips'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
-Plugin 'wellle/targets.vim'
+Plug 'wellle/targets.vim'
 
 " allows to replace text without pasting in to a register by gr
 " howto: yank od delete something, then past it in by e.g. griw (go replace in
 " word) to replace without removing it from register
-Plugin 'ReplaceWithRegister'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " automatic function argument reformatting
 " mapped to leader+w
-Plugin 'foosoft/vim-argwrap'
+Plug 'foosoft/vim-argwrap'
 
 " python formatting
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 
 " Multiple cursors
 " in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
 " to skip
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " automatic split resizing for more convenient coding
-Plugin 'zhaocai/GoldenView.Vim'
+Plug 'zhaocai/GoldenView.Vim'
 
 " Clever motions helper
 " highlights letters while using f, t motions
-Plugin 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope'
 
 " Shows tags in the file
 " currently mapped to F8
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " expading regions of text e.g. brackets, quotes..
 " pressing + vill visually select parts of the file... 
 " I am thinking about getting rid of this plugin
-Plugin 'terryma/vim-expand-region'
+Plug 'terryma/vim-expand-region'
 
 " should make ultisnips work together with youcompletme
-Bundle 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " youcompleteme
 " automatic code completion for C++ and more
-Plugin 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'commit': '40a12d758b506852d568949c7b20d2962f2dd761' }
 
 " make ROS and vim to be friends
-Plugin 'taketwo/vim-ros'
+Plug 'taketwo/vim-ros'
 
 " commenting stuff made easy
 " try gc<motion>
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 " modifying surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " airline extension for tmux
 " it colors the tmuxes airline in same colors as in vim
-Plugin 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Latex stuff
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 " VimWiki
 " Essential part in taking notes in vim
-Plugin 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
 " ???
-Plugin 'MatlabFilesEdition'
+Plug 'vim-scripts/MatlabFilesEdition'
 
 " Managing navigation between vim and tmux
 " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
 " and vim panels... its like magic :-)
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " exchangin of two parts of a file...
 " cx{motion} and later cx{motion} swaps the two places
-Plugin 'tommcdo/vim-exchange'
+Plug 'tommcdo/vim-exchange'
 
 " easier manipulation with quickfix window
 " [q and ]q to move through the quickfix list
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required by Vundle
-filetype plugin indent on    " required by Vundle
+call plug#end()
 
 """""
 """"" / CONFIGURE VUNDLE PLUGIN MANAGER

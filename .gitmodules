@@ -10,10 +10,6 @@
 	path = submodules/tmuxinator
 	url = https://github.com/klaxalk/tmuxinator.git
   branch = master
-[submodule "submodules/Vundle.vim"]
-	path = submodules/Vundle.vim
-	url = https://github.com/klaxalk/Vundle.vim.git
-  branch = master
 [submodule "submodules/vim"]
 	path = submodules/vim
 	url = https://github.com/klaxalk/vim.git
@@ -24,3 +20,6 @@
 [submodule "submodules/tmux-themepack"]
 	path = submodules/tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack.git
+[submodule "submodules/vim-plug"]
+	path = submodules/vim-plug
+	url = https://github.com/junegunn/vim-plug.git
