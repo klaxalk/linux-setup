@@ -81,11 +81,6 @@ Plug 'unblevable/quick-scope'
 " currently mapped to F8
 Plug 'majutsushi/tagbar'
 
-" expading regions of text e.g. brackets, quotes..
-" pressing + vill visually select parts of the file... 
-" I am thinking about getting rid of this plugin
-Plug 'terryma/vim-expand-region'
-
 " should make ultisnips work together with youcompletme
 Plug 'ervandew/supertab'
 
