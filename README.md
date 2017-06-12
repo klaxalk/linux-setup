@@ -81,8 +81,8 @@ I suggest reading its tutorials.
 ## VIM
 
 Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor.
-Plugins are maintained by a plugin manager called **Vundle**, which should download them from their repositories automatically.
-To update them manually, call **:PluginUpdate**, to install them **:PluginInstall** in Vim. However, they will be installed automatically by **install.sh**.
+Plugins are maintained by a plugin manager called **vim-plug**, which should download them from their repositories automatically.
+To update them manually, call **:PlugUpdate**, to install them **:PlugInstall** in Vim. However, they will be installed automatically by **install.sh**.
 
 ### List of plugins
 
@@ -109,7 +109,7 @@ Plugins with new features, you are supposed to read their tutorials to know how 
 
 Plugins you don't need to know about (their features integrate "seemlessly"):
 
-  * **Vundle** - vim plugin manager
+  * **vim-plug** - vim plugin manager
   * **jellybeans.vim** - color scheme
   * **vim-airline** - status line
   * **united-front** - sharing register between vim instances
