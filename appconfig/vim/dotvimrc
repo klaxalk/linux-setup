@@ -299,6 +299,10 @@ vnoremap // y/<C-R>"<CR>
 au BufRead *.m set foldmethod=marker
 au BufRead *.m set foldmarker=%%{,%%}
 
+" folding by marker when editting yaml files
+au BufRead *.yml set foldmethod=marker
+au BufRead *.yml set foldmarker=#{,#}
+
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 
