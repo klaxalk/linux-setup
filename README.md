@@ -99,7 +99,6 @@ Plugins with new features, you are supposed to read their tutorials to know how 
   * **vim-argwrap** - clever function argumment wrapping
   * **vim-multiple-cursors** - adding mupltiple cursors feature
   * **tagbar** - windows with tag list of the current file
-  * **vim-expand-region** - clever visual selection for dummies
   * **vim-ros** - ROS integration
   * **vim-commentary** - clever code commenting
   * **vim-surround** - allows to manipulate with surrounding pairs of characters
