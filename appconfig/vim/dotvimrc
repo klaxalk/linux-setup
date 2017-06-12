@@ -262,7 +262,8 @@ vnoremap . :normal @a<CR>
 " format whole document and return back
 nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 
-abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
+" example of complex abbreviation
+" abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
 " just show the autocomplete menu
 set completeopt=longest,menuone
