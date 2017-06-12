@@ -31,13 +31,16 @@ let g:ycm_filetype_blacklist = {
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start
 
-" scrolling in autocomplete menu with j and k
+" scrolling in autocomplete menu with j and k, or c-j and c-k
 " should work only when the menu has been entered either by tab or arrows
 set completeopt+=noinsert
 inoremap <expr> j ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("j"))
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 inoremap <expr> <C-k> ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("\<C-k>"))
+
+" change behavior of enter in completion menu
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
 

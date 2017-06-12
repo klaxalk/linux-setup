@@ -6,10 +6,6 @@ syntax on
 
 set encoding=utf-8
 
-"""""
-""""" CONFIGURE VUNDLE PLUGIN MANAGER
-"""""
-
 call plug#begin("~/.vim/plugged")
 
 " let Vundle manage Vundle, required
@@ -137,18 +133,10 @@ Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
-"""""
-""""" / CONFIGURE VUNDLE PLUGIN MANAGER
-"""""
-
 " some color stuff
 syntax enable
 set background=light
 colorscheme raggi
-" set cursorline
-" set cursorcolumn
-" hi Search guibg=LightBlue
-" hi Search ctermbg=Black ctermfg=Yellow cterm=bold,underline
 
 " should fix colors in tmux
 set term=screen-256color
@@ -181,10 +169,17 @@ set smartcase
 set hlsearch
 set incsearch
 
+" syntax highlighting for only first ** characters of each line
+set synmaxcol=200
+
 " map the leader key
 nnoremap , <NOP>
 let mapleader = ","
 let maplocalleader = "`"
+
+" wildmenu for file name suggestion while opening
+set wildmenu
+set wildmode=full
 
 " Switch between relative and absolute line numbers with leader-N
 function! NumberToggle()
@@ -194,7 +189,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-" nnoremap <leader>n :call NumberToggle()<cr>
+nnoremap <leader>r :call NumberToggle()<cr>
 
 " switch :paste mode 
 " probably redundant while usingclipboard=unnamedplus
@@ -207,11 +202,24 @@ function! TogglePaste()
 endfunc
 nnoremap <leader>p :call TogglePaste()<cr>
 
+" toggle cursorlines
+function! ToggleCursorLines()
+  if(&cursorline == 0)
+    set cursorline
+    set cursorcolumn
+  else
+    set nocursorline
+    set nocursorcolumn
+  endif
+endfunc
+nnoremap <leader>c :call ToggleCursorLines()<cr>
+
+" default values for cursorlin and cursorcolumn
+set nocursorline
+set nocursorcolumn
+
 " should fix colors in tmux
 set term=screen-256color
-
-" turn on menu which suggests files
-set wildmenu
 
 " remap tags keys
 map <leader>. <c-]>       " dive into the tag
@@ -261,13 +269,6 @@ nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
 
 abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>
 
-" inoremap {      {}<Left>
-" inoremap {<CR>  {<CR>}<Esc>O
-" inoremap {{     {
-
-" change behavior of enter in completion menu
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " just show the autocomplete menu
 set completeopt=longest,menuone
 
@@ -286,7 +287,6 @@ imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>"
 
 " jumping to head of current function
 nnoremap [f mf9[{zt
-" nnoremap [b 'fzt
 
 " clever brackets
 imap <leader>( ()<Esc>i
@@ -352,4 +352,3 @@ source ~/.vim/pluginconfig/ultisnips.vim
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc 
 endif
-

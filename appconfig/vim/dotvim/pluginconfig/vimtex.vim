@@ -2,11 +2,12 @@
 
 let g:vimtex_view_method = 'zathura'
 
+" sets the main file for the latex project
 autocmd FileType tex let b:vimtex_main = 'main.tex'
 
 autocmd FileType tex set cursorline
-" autocmd FileType tex highlight cursorline cterm=NONE ctermbg=grey ctermfg=white guibg=darkred guifg=white
 
+" dont bother us with warnings
 let g:vimtex_quickfix_open_on_warning = 0
 
 " delete surrounding command
