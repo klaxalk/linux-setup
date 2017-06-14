@@ -46,6 +46,7 @@ alias sb="source ~/.bashrc"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
 alias :q=exit
+alias octave="octave --no-gui $@"
 
 # use ctags to generate code tags
 generateTags() {
