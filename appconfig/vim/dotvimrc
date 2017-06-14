@@ -1,9 +1,5 @@
 set nocompatible              " be iMproved, required by Vundle
-filetype off                  " required by Vundle
 set t_Co=256                  " 256 colors
-set clipboard=unnamedplus     " shared clipboard with the system
-syntax on
-
 set encoding=utf-8
 
 call plug#begin("~/.vim/plugged")
@@ -44,10 +40,6 @@ Plug 'tpope/vim-abolish'
 " snippet completion
 " magic!
 Plug 'SirVer/ultisnips'
-
-" snippets for UltiSnips
-" not in use, I am cooking my own snippets
-" Plugin 'honza/vim-snippets'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
@@ -127,6 +119,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+
+set clipboard=unnamedplus     " shared clipboard with the system
 
 " some color stuff
 syntax enable
@@ -260,7 +254,7 @@ map <S-K> :tabp<cr>
 vnoremap . :normal @a<CR>
 
 " format whole document and return back
-nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>
+nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>zz
 
 " example of complex abbreviation
 " abbr /// //////////////////// % ////////////////////<Esc>==f%s<c-o>:call getchar()<CR>

@@ -23,3 +23,6 @@
 [submodule "submodules/vim-plug"]
 	path = submodules/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "submodules/athame"]
+	path = submodules/athame
+	url = http://github.com/ardagnir/athame
