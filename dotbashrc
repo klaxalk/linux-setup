@@ -64,20 +64,20 @@ generateTags() {
   fi 
 }
 
-# allows killing tmux by exiting the window                                                           
+# running new tmux (or attaching) with session name derived from parent bash pid
 tmuxn() {
 
   PES="$BASHPID"
 
-  num=`tmux ls 2> /dev/null | grep "$PES" | wc -l` 
+  num=`tmux ls 2> /dev/null | grep "T$PES" | wc -l` 
   if [ "$num" -gt "0" ]; then
 
-    ID=`tmux new-window -t $PES -a -P`
-    tmux -2 attach-session -t $PES
+    # ID=`tmux new-window -t "T$PES" -a -P`
+    tmux -2 attach-session -t "T$PES"
 
   else
 
-    tmux new-session -s "$PES" 
+    tmux new-session -s "T$PES"
 
   fi 
 }
@@ -96,16 +96,16 @@ runvim() {
 
     PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
-    num=`tmux ls 2> /dev/null | grep "$PES" | wc -l`
+    num=`tmux ls 2> /dev/null | grep "T$PES" | wc -l`
     if [ "$num" -gt "0" ]; then
 
-      ID=`tmux new-window -t $PES -a -P`
+      ID=`tmux new-window -t "T$PES" -a -P`
       tmux send-keys -t $ID "$vimcmd" C-m
-      tmux -2 attach-session -t $PES
+      tmux -2 attach-session -t "T$PES"
     
     else 
 
-      tmux new-session -s $PES -d $vimcmd \; attach
+      tmux new-session -s "T$PES" -d $vimcmd \; attach
 
     fi
 
@@ -157,11 +157,30 @@ fi
 # set vi mode in bash
 set -o vi
 
+# by default, athame should be off
+export ATHAME_ENABLED=0
+
+# but if we are in tmux launched by the user/terminal (not tmuxinator)
+# and if user want to use athame, use it
+if [ -n "$TMUX" ]; then
+
+  if [ "$USE_ATHAME" = "true" ]; then
+
+    SESSION_NAME=`tmux display-message -p '#S'`
+
+    if [[ $SESSION_NAME =~ ^T[0-9]+$ ]]; then
+
+      export ATHAME_ENABLED=1
+
+    fi
+  fi
+fi
+
 # load tmux automatically                                                                             
 if [ "$RUN_TMUX" = "true" ]; then
   if command -v tmux>/dev/null; then                                                                    
     if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmuxn                                                  
-     fi                                                                                                  
+    fi                                                                                                  
   fi
 fi
