@@ -11,14 +11,51 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet installing athame
-
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
 
     ./readline_athame_setup.sh
     ./readline_athame_setup.sh --libdir=/lib/x86_64-linux-gnu
     ./bash_readline_setup.sh
+
+    while true; do
+      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mUse athame by default? [y/n]\e[0m\n' resp || resp="n" ; }
+      response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+
+      if [[ $response =~ ^(y|Y)=$ ]]
+      then
+
+        # put $USE_ATHAME into bashrc
+        num=`cat ~/.bashrc | grep "USE_ATHAME" | wc -l`
+        if [ "$num" -lt "1" ]; then
+
+            echo "
+# want to use athame?
+export USE_ATHAME=true" >> ~/.bashrc
+
+        fi
+
+        break
+
+      elif [[ $response =~ ^(n|N)=$ ]]
+      then
+
+        # put $USE_ATHAME into bashrc
+        num=`cat ~/.bashrc | grep "USE_ATHAME" | wc -l`
+        if [ "$num" -lt "1" ]; then
+
+          echo "
+# want to use athame?
+export USE_ATHAME=false" >> ~/.bashrc
+
+        fi
+        break
+
+      else
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+      fi
+
+    done
 
     # put $ATHAME_SHOW_MODE into bashrc
     num=`cat ~/.bashrc | grep "ATHAME_SHOW_MODE" | wc -l`
