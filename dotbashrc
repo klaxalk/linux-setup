@@ -1,5 +1,5 @@
 # set editor and shell
-export EDITOR=vim
+export EDITOR="vim --servername dog --cmd 'let g:normal_mode=1'"
 export SHELL=/bin/bash
 
 # the location of `once generated ctags file`
@@ -81,7 +81,7 @@ tmuxn() {
 
   fi 
 }
-_trap_exit() { tmux kill-session -t $BASHPID; }                                                       
+_trap_exit() { tmux kill-session -t "T$BASHPID"; }                                                       
 trap _trap_exit EXIT                                                                                  
 
 # VIM alias for running vim in tmux and in servermode
@@ -92,26 +92,24 @@ runvim() {
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
   
-    vimcmd="/usr/bin/vim --servername dog ${@} --cmd \"let g:normal_mode=1\""
-
     PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
     num=`tmux ls 2> /dev/null | grep "T$PES" | wc -l`
     if [ "$num" -gt "0" ]; then
 
       ID=`tmux new-window -t "T$PES" -a -P`
-      tmux send-keys -t $ID "$vimcmd" C-m
+      tmux send-keys -t $ID "$EDITOR -- ${@}" C-m
       tmux -2 attach-session -t "T$PES"
     
     else 
 
-      tmux new-session -s "T$PES" -d "$vimcmd" \; attach
+      tmux new-session -s "T$PES" -d "$EDITOR -- ${@}" \; attach
 
     fi
 
   else
 
-    /usr/bin/vim --servername dog ${@} --cmd "let g:normal_mode=1"
+    bash -c "$EDITOR -- ${@}"
 
   fi
 }
