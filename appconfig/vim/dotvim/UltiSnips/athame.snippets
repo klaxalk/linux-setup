@@ -6,6 +6,22 @@ snippet reboot "" Aib
 sudo reboot
 endsnippet
 
+snippet sb "" Aib
+source ~/.bashrc
+endsnippet
+
+snippet ra "" Aib
+ranger
+endsnippet
+
+snippet :q "" Aib
+exit
+endsnippet
+
+snippet octave "" Aib
+octave --no-gui 
+endsnippet
+
 snippet "git submodule init" "" Aib
 git submodule init && git submodule update
 endsnippet
@@ -18,8 +34,12 @@ snippet gorel "" Ai
 goToRelative "goal: [${1:0}, ${2:0}, ${3:0}, ${4:0}]"
 endsnippet
 
-snippet gppo "gppo" Ab
+snippet gppo "" Ab
 git pull ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
+endsnippet
+
+snippet gppl "" Ab
+git pull ${1:local} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
 endsnippet
 
 snippet "git pull" "" Ab
