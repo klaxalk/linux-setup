@@ -91,8 +91,8 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
-    vim -E +PlugInstall +qall
-    vim -E +PlugClean +qall
+    # updated new plugins and clean old plugins
+    /usr/bin/vim -E -c "let g:normal_mode=1" -c "so ~/.vimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
 
     while true; do
       [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="y" ; }
