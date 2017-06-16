@@ -2,27 +2,39 @@ snippet fdisk "" Ab
 sudo fdisk -${1:l}
 endsnippet
 
-snippet reboot "" Aib
+snippet mount "" Ab
+sudo mount
+endsnippet
+
+snippet reboot "" Ab
 sudo reboot
 endsnippet
 
-snippet sb "" Aib
+snippet sb "" Ab
 source ~/.bashrc
 endsnippet
 
-snippet ra "" Aib
+snippet ra "" Ab
 ranger
 endsnippet
 
-snippet :q "" Aib
+snippet ll "" Ab
+ls -la
+endsnippet
+
+snippet :q "" Ab
 exit
 endsnippet
 
-snippet octave "" Aib
+snippet octave "" Ab
 octave --no-gui 
 endsnippet
 
-snippet "git submodule init" "" Aib
+snippet mux "" Ab
+tmuxinator
+endsnippet
+
+snippet "git submodule init" "" Ab
 git submodule init && git submodule update
 endsnippet
 
