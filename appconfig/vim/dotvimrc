@@ -1,15 +1,18 @@
 set nocompatible              " be iMproved, required by Vundle
 set t_Co=256                  " 256 colors
 set encoding=utf-8
+
+" detects how was vim started... 1=manually, 0=other (athame)
 let g:normal_mode = get(g:, 'normal_mode', "0")
 
+" set athame filetype
 if g:normal_mode == "0"
   set filetype=athame
 endif
 
 call plug#begin("~/.vim/plugged")
 
-" which plugins should not be loaded outside of normal session
+" which plugins should not be loaded outside of normal session (not in athame)
 if g:normal_mode == "1"
 
   " A colorful, dark color scheme
@@ -92,6 +95,13 @@ if g:normal_mode == "1"
   " and vim panels... its like magic :-)
   Plug 'christoomey/vim-tmux-navigator'
 
+  " should make ultisnips work together with youcompletme
+  Plug 'ervandew/supertab'
+
+  " easier manipulation with quickfix window
+  " [q and ]q to move through the quickfix list
+  Plug 'tpope/vim-unimpaired'
+
 endif
 
 " sharing registers between multiple instances of vim
@@ -110,9 +120,6 @@ Plug 'wellle/targets.vim'
 " word) to replace without removing it from register
 Plug 'vim-scripts/ReplaceWithRegister'
 
-" should make ultisnips work together with youcompletme
-Plug 'ervandew/supertab'
-
 " modifying surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
 Plug 'tpope/vim-surround'
@@ -120,10 +127,6 @@ Plug 'tpope/vim-surround'
 " exchangin of two parts of a file...
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
-
-" easier manipulation with quickfix window
-" [q and ]q to move through the quickfix list
-Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
