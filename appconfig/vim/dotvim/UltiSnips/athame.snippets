@@ -10,10 +10,26 @@ snippet "git submodule init" "" Aib
 git submodule init && git submodule update
 endsnippet
 
-snippet goto "goto" Ai
+snippet goTo "" Ai
 goTo "goal: [${1:0 0 3 0}]"
+endsnippet
+
+snippet gorel "" Ai
+goToRelative "goal: [${1:0 0 0 0}]"
 endsnippet
 
 snippet gppo "gppo" Ab
 git pull origin ${1:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push origin $1
+endsnippet
+
+snippet "git pull" "" Ab
+git pull origin ${1:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}
+endsnippet
+
+snippet "git push" "" Ab
+git push origin ${1:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}
+endsnippet
+
+snippet "git commit" "" Ab
+git commit -am "${1:${VISUAL}}"
 endsnippet
