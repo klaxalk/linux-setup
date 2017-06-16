@@ -49,11 +49,6 @@ if g:normal_mode == "1"
   " python formatting
   Plug 'hynek/vim-python-pep8-indent'
 
-  " Multiple cursors
-  " in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
-  " to skip
-  Plug 'terryma/vim-multiple-cursors'
-
   " automatic split resizing for more convenient coding
   Plug 'zhaocai/GoldenView.Vim'
 
@@ -103,6 +98,11 @@ if g:normal_mode == "1"
   Plug 'tpope/vim-unimpaired'
 
 endif
+
+" Multiple cursors
+" in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
+" to skip
+Plug 'terryma/vim-multiple-cursors'
 
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
@@ -321,9 +321,6 @@ if g:normal_mode == "1"
   " config for vim-argwrap
   source ~/.vim/pluginconfig/vim-argwrap.vim
   
-  " config for vim-multiple-cursors
-  source ~/.vim/pluginconfig/vim-multiple-cursors.vim
-  
   " config for quick-scope
   source ~/.vim/pluginconfig/quick-scope.vim
   
@@ -349,6 +346,9 @@ if g:normal_mode == "1"
   source ~/.vim/pluginconfig/vimwiki.vim
   
 endif
+
+" config for vim-multiple-cursors
+source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
 source ~/.vim/pluginconfig/ultisnips.vim
