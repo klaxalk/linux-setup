@@ -92,7 +92,7 @@ runvim() {
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
   
-    vimcmd="vim --servername dog ${@}"
+    vimcmd="/usr/bin/vim --servername dog ${@} --cmd \"let g:normal_mode=1\""
 
     PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
@@ -105,13 +105,13 @@ runvim() {
     
     else 
 
-      tmux new-session -s "T$PES" -d $vimcmd \; attach
+      tmux new-session -s "T$PES" -d "$vimcmd" \; attach
 
     fi
 
   else
 
-    /usr/bin/vim --servername dog ${@}
+    /usr/bin/vim --servername dog ${@} --cmd "let g:normal_mode=1"
 
   fi
 }
