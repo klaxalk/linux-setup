@@ -22,6 +22,12 @@ try {
 }
 endsnippet
 
+snippet catch
+catch (${1:...}) {
+  ROS_ERROR("Exception caught. ${2}");
+}
+endsnippet
+
 snippet saturate
 if (!std::isfinite(${1:${VISUAL}})) {
   $1 = 0;
