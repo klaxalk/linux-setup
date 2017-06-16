@@ -180,7 +180,7 @@ Key mapping for youcompleteme:
 - When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
 - When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
 - To confirm the selection, press **enter** or **l**.
-- If the suggestions spawn a code snippet, move by **ctrl-h/l** between its parts.
+- If the suggestions spawn a code snippet, move by **shift-h/l** between its parts.
 
 #### C++ and ROS code completion
 
