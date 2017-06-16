@@ -13,6 +13,7 @@ map <Leader>wc :call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh
 
 " customize bookmarks in startify
 let g:startify_bookmarks = [
+      \ { 'a': '~/.vim/UltiSnips/athame.snippets' },
       \ { 'b': '~/.bashrc' },
       \ { 'd': '~/git/linux-setup/dotbashrc' },
       \ { 'i': '~/.i3/config' },
