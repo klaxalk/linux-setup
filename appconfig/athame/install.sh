@@ -20,7 +20,7 @@ while true; do
     sudo apt-get -y install libreadline7* libreadline-dev
 
     # remove the yakkety source from the sources.list
-    sudo /usr/bin/vim /etc/apt/sources.list -E -s -c ":%g/yakkety/norm I# " -c "wqa"
+    sudo /usr/bin/vim /etc/apt/sources.list -E -s -c ":%g/yakkety/norm dd" -c "wqa"
     sudo apt-get update
 
     # rebuild and patch readline7 with athame
