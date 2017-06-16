@@ -14,8 +14,16 @@ while true; do
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
 
+    # Ubuntu 16.04 does not have libreadline7 by default
+    sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu yakkety main universe restricted multiverse"
+    sudo apt-get update
+    sudo apt-get -y install libreadline7* libreadline-dev
+
+    # rebuild and patch readline7 with athame
     ./readline_athame_setup.sh
-    ./readline_athame_setup.sh --libdir=/lib/x86_64-linux-gnu
+    sudo ldconfig
+
+    # build new bash with readline7 patched with athame
     ./bash_readline_setup.sh
 
     while true; do
@@ -56,16 +64,6 @@ export USE_ATHAME=false" >> ~/.bashrc
       fi
 
     done
-
-    # put $ATHAME_SHOW_MODE into bashrc
-    num=`cat ~/.bashrc | grep "ATHAME_SHOW_MODE" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "
-# should athame show vim mode sign?
-export ATHAME_SHOW_MODE=0" >> ~/.bashrc
-
-    fi
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
