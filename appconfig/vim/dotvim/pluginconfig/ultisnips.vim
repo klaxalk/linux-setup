@@ -6,10 +6,19 @@ let g:UltiSnipsEditSplit="horizontal"
 
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+" key bindings for normal use
+if g:normal_mode == "1"
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsListSnippets="<c-l>"
+  let g:UltiSnipsJumpForwardTrigger="<c-l>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+endif
+
+" key bindings for athame
+if g:normal_mode == "0"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+endif
 
 " show tabs
 au BufNewFile,BufRead *.snippets set list
