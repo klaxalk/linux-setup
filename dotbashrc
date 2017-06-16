@@ -43,6 +43,7 @@ gitPullPush() {
 # create alisases
 alias ra='ranger'
 alias sb="source ~/.bashrc"
+alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
 alias :q=exit
