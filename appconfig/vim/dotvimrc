@@ -1,41 +1,101 @@
 set nocompatible              " be iMproved, required by Vundle
 set t_Co=256                  " 256 colors
 set encoding=utf-8
+let g:normal_mode = get(g:, 'normal_mode', "0")
+
+if g:normal_mode == "0"
+  set filetype=athame
+endif
 
 call plug#begin("~/.vim/plugged")
 
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
+" which plugins should not be loaded outside of normal session
+if g:normal_mode == "1"
 
-" A colorful, dark color scheme
-Plug 'nanotech/jellybeans.vim'
+  " A colorful, dark color scheme
+  Plug 'nanotech/jellybeans.vim'
+  
+  " ifugitive.vim: a Git wrapper so awesome, it should be illegal
+  Plug 'tpope/vim-fugitive'
+  
+  " Lean & mean status/tabline for vim that's light as air.
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  
+  " integration with tmux (allows running bash commands in tmux splits)
+  Plug 'benmills/vimux'
 
-" ifugitive.vim: a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
+  " file manager (leader+n)
+  Plug 'scrooloose/nerdtree'
 
-" Lean & mean status/tabline for vim that's light as air.
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  " home screen (necessary to have a barking dog)
+  Plug 'mhinz/vim-startify'
 
-" integration with tmux (allows running bash commands in tmux splits)
-Plug 'benmills/vimux'
+  " visualizing marks
+  " show marks left to line numbers
+  Plug 'kshenoy/vim-signature'
+
+  " clever abbreviations and syntax conversion
+  " I want to learn this !!
+  Plug 'tpope/vim-abolish'
+
+  " automatic function argument reformatting
+  " mapped to leader+w
+  Plug 'foosoft/vim-argwrap'
+
+  " python formatting
+  Plug 'hynek/vim-python-pep8-indent'
+
+  " Multiple cursors
+  " in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
+  " to skip
+  Plug 'terryma/vim-multiple-cursors'
+
+  " automatic split resizing for more convenient coding
+  Plug 'zhaocai/GoldenView.Vim'
+
+  " Clever motions helper
+  " highlights letters while using f, t motions
+  Plug 'unblevable/quick-scope'
+
+  " Shows tags in the file
+  " currently mapped to F8
+  Plug 'majutsushi/tagbar'
+
+  " youcompleteme
+  " automatic code completion for C++ and more
+  Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+
+  " make ROS and vim to be friends
+  Plug 'taketwo/vim-ros'
+
+  " commenting stuff made easy
+  " try gc<motion>
+  Plug 'tpope/vim-commentary'
+
+  " airline extension for tmux
+  " it colors the tmuxes airline in same colors as in vim
+  Plug 'edkolev/tmuxline.vim'
+
+  " Latex stuff
+  Plug 'lervag/vimtex'
+
+  " VimWiki
+  " Essential part in taking notes in vim
+  Plug 'vimwiki/vimwiki'
+
+  " ???
+  Plug 'vim-scripts/MatlabFilesEdition'
+
+  " Managing navigation between vim and tmux
+  " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
+  " and vim panels... its like magic :-)
+  Plug 'christoomey/vim-tmux-navigator'
+
+endif
 
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
-
-" file manager (leader+n)
-Plug 'scrooloose/nerdtree'
-
-" home screen (necessary to have a barking dog)
-Plug 'mhinz/vim-startify'
-
-" visualizing marks
-" show marks left to line numbers
-Plug 'kshenoy/vim-signature'
-
-" clever abbreviations and syntax conversion
-" I want to learn this !!
-Plug 'tpope/vim-abolish'
 
 " snippet completion
 " magic!
@@ -50,65 +110,12 @@ Plug 'wellle/targets.vim'
 " word) to replace without removing it from register
 Plug 'vim-scripts/ReplaceWithRegister'
 
-" automatic function argument reformatting
-" mapped to leader+w
-Plug 'foosoft/vim-argwrap'
-
-" python formatting
-Plug 'hynek/vim-python-pep8-indent'
-
-" Multiple cursors
-" in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
-" to skip
-Plug 'terryma/vim-multiple-cursors'
-
-" automatic split resizing for more convenient coding
-Plug 'zhaocai/GoldenView.Vim'
-
-" Clever motions helper
-" highlights letters while using f, t motions
-Plug 'unblevable/quick-scope'
-
-" Shows tags in the file
-" currently mapped to F8
-Plug 'majutsushi/tagbar'
-
 " should make ultisnips work together with youcompletme
 Plug 'ervandew/supertab'
-
-" youcompleteme
-" automatic code completion for C++ and more
-Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
-
-" make ROS and vim to be friends
-Plug 'taketwo/vim-ros'
-
-" commenting stuff made easy
-" try gc<motion>
-Plug 'tpope/vim-commentary'
 
 " modifying surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
 Plug 'tpope/vim-surround'
-
-" airline extension for tmux
-" it colors the tmuxes airline in same colors as in vim
-Plug 'edkolev/tmuxline.vim'
-
-" Latex stuff
-Plug 'lervag/vimtex'
-
-" VimWiki
-" Essential part in taking notes in vim
-Plug 'vimwiki/vimwiki'
-
-" ???
-Plug 'vim-scripts/MatlabFilesEdition'
-
-" Managing navigation between vim and tmux
-" allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
-" and vim panels... its like magic :-)
-Plug 'christoomey/vim-tmux-navigator'
 
 " exchangin of two parts of a file...
 " cx{motion} and later cx{motion} swaps the two places
@@ -300,49 +307,58 @@ au BufRead *.yml set foldmarker=#{,#}
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 
-" config for airline
-source ~/.vim/pluginconfig/vim-airline.vim
+if g:normal_mode == "1"
 
-" config for startify
-source ~/.vim/pluginconfig/vim-startify.vim
-
-" config for nerdtree
-source ~/.vim/pluginconfig/nerdtree.vim
-
-" config for vim-argwrap
-source ~/.vim/pluginconfig/vim-argwrap.vim
-
-" config for vim-multiple-cursors
-source ~/.vim/pluginconfig/vim-multiple-cursors.vim
-
-" config for quick-scope
-source ~/.vim/pluginconfig/quick-scope.vim
-
-" config for tagbar
-source ~/.vim/pluginconfig/tagbar.vim
-
-" config for GoldenView
-source ~/.vim/pluginconfig/GoldenView.vim
-
-" config for youcompleteme
-source ~/.vim/pluginconfig/youcompleteme.vim
-
-" config for vim-ros
-source ~/.vim/pluginconfig/vim-ros.vim
-
-" config for tmuxline
-source ~/.vim/pluginconfig/tmuxline.vim
-
-" config for vimtex
-source ~/.vim/pluginconfig/vimtex.vim
-
-" config for VimWiki
-source ~/.vim/pluginconfig/vimwiki.vim
+  " config for airline
+  source ~/.vim/pluginconfig/vim-airline.vim
+  
+  " config for startify
+  source ~/.vim/pluginconfig/vim-startify.vim
+  
+  " config for nerdtree
+  source ~/.vim/pluginconfig/nerdtree.vim
+  
+  " config for vim-argwrap
+  source ~/.vim/pluginconfig/vim-argwrap.vim
+  
+  " config for vim-multiple-cursors
+  source ~/.vim/pluginconfig/vim-multiple-cursors.vim
+  
+  " config for quick-scope
+  source ~/.vim/pluginconfig/quick-scope.vim
+  
+  " config for tagbar
+  source ~/.vim/pluginconfig/tagbar.vim
+  
+  " config for GoldenView
+  source ~/.vim/pluginconfig/GoldenView.vim
+  
+  " config for youcompleteme
+  source ~/.vim/pluginconfig/youcompleteme.vim
+  
+  " config for vim-ros
+  source ~/.vim/pluginconfig/vim-ros.vim
+  
+  " config for tmuxline
+  source ~/.vim/pluginconfig/tmuxline.vim
+  
+  " config for vimtex
+  source ~/.vim/pluginconfig/vimtex.vim
+  
+  " config for VimWiki
+  source ~/.vim/pluginconfig/vimwiki.vim
+  
+endif
 
 " config for UltiSnips
 source ~/.vim/pluginconfig/ultisnips.vim
 
+if g:normal_mode == "1"
+  set cursorline
+  set cursorcolumn
+endif
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
-  source ~/.my.vimrc 
+source ~/.my.vimrc 
 endif
