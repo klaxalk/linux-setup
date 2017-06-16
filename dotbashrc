@@ -159,7 +159,7 @@ set -o vi
 # by default, athame should be off
 export ATHAME_ENABLED=0
 export ATHAME_SHOW_MODE=1
-export ATHAME_VIM_PERSIST=1
+export ATHAME_VIM_PERSIST=0
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it
