@@ -201,6 +201,10 @@ function! TogglePaste()
 endfunc
 nnoremap <leader>p :call TogglePaste()<cr>
 
+" default values for cursorlin and cursorcolumn
+set nocursorline
+set nocursorcolumn
+
 " toggle cursorlines
 function! ToggleCursorLines()
   if(&cursorline == 0)
@@ -212,10 +216,6 @@ function! ToggleCursorLines()
   endif
 endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
-
-" default values for cursorlin and cursorcolumn
-set nocursorline
-set nocursorcolumn
 
 " should fix colors in tmux
 set term=screen-256color
@@ -284,9 +284,6 @@ set wrapmargin=0
 
 " better escape
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
-
-" jumping to head of current function
-nnoremap [f mf9[{zt
 
 " clever brackets
 imap <leader>( ()<Esc>i
