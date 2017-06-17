@@ -354,6 +354,13 @@ source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 " config for UltiSnips
 source ~/.vim/pluginconfig/ultisnips.vim
 
+" settings only for athame
+if g:normal_mode == "0"
+
+  nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
+
+endif
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
 source ~/.my.vimrc 

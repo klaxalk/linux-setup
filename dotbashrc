@@ -118,21 +118,6 @@ runVim() {
 }
 alias vim=runVim
 
-# big exit
-bigExit() {
-
-  if [ -z $TMUX ]; then
-
-    exit
-
-  else
-
-    $TMUX_BIN kill-session -t "$($TMUX_BIN display-message -p '#S')"
-
-  fi
-}
-alias :Q=bigExit
-
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
