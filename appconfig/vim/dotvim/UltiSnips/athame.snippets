@@ -27,7 +27,7 @@ exit
 endsnippet
 
 snippet octave "" Ab
-octave --no-gui 
+octave ${1:--no-gui}
 endsnippet
 
 snippet mux "" Ab
@@ -40,6 +40,10 @@ endsnippet
 
 snippet gs "" Ab
 git status
+endsnippet
+
+snippet "git reset" "" Ab
+git reset ${1:--hard}
 endsnippet
 
 snippet gd "" Ab
@@ -79,5 +83,5 @@ git push ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}
 endsnippet
 
 snippet "git commit" "" Ab
-git commit -am "${1:${VISUAL}}"
+git commit -m "${1:${VISUAL}}" ${2:-a}
 endsnippet
