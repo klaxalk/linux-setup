@@ -17,6 +17,7 @@ endif
 
 " key bindings for athame
 if g:normal_mode == "0"
+  let g:UltiSnipsExpandTrigger="<s-tab>"
   let g:UltiSnipsJumpForwardTrigger="<s-l>"
   let g:UltiSnipsJumpBackwardTrigger="<s-h>"
 endif
