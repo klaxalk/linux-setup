@@ -1,6 +1,7 @@
 # set editor and shell
-export EDITOR="vim --servername dog --cmd 'let g:normal_mode=1'"
+export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:normal_mode=1'"
 export SHELL=/bin/bash
+export TMUX_BIN=/usr/local/bin/tmux
 
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
@@ -66,27 +67,28 @@ generateTags() {
 }
 
 # running new tmux (or attaching) with session name derived from parent bash pid
-tmuxn() {
+runTmux() {
 
   PES="$BASHPID"
-
-  num=`tmux ls 2> /dev/null | grep "T$PES" | wc -l` 
+  
+  num=`$TMUX_BIN ls 2> /dev/null | grep "T$PES" | wc -l` 
   if [ "$num" -gt "0" ]; then
-
-    # ID=`tmux new-window -t "T$PES" -a -P`
-    tmux -2 attach-session -t "T$PES"
-
+  
+    # ID=`$TMUX_BIN new-window -t "T$PES" -a -P`
+    $TMUX_BIN -2 attach-session -t "T$PES"
+  
   else
-
-    tmux new-session -s "T$PES"
-
+  
+    $TMUX_BIN new-session -s "T$PES"
+  
   fi 
+
 }
-_trap_exit() { tmux kill-session -t "T$BASHPID"; }                                                       
+_trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
 trap _trap_exit EXIT                                                                                  
 
 # VIM alias for running vim in tmux and in servermode
-runvim() {
+runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
@@ -95,16 +97,16 @@ runvim() {
   
     PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
-    num=`tmux ls 2> /dev/null | grep "T$PES" | wc -l`
+    num=`$TMUX_BIN ls 2> /dev/null | grep "T$PES" | wc -l`
     if [ "$num" -gt "0" ]; then
 
-      ID=`tmux new-window -t "T$PES" -a -P`
-      tmux send-keys -t $ID "$EDITOR -- ${@}" C-m
-      tmux -2 attach-session -t "T$PES"
+      ID=`$TMUX_BIN new-window -t "T$PES" -a -P`
+      $TMUX_BIN send-keys -t $ID "$EDITOR -- ${@}" C-m
+      $TMUX_BIN -2 attach-session -t "T$PES"
     
     else 
 
-      tmux new-session -s "T$PES" -d "$EDITOR -- ${@}" \; attach
+      $TMUX_BIN new-session -s "T$PES" -d "$EDITOR -- ${@}" \; attach
 
     fi
 
@@ -114,7 +116,7 @@ runvim() {
 
   fi
 }
-alias vim=runvim
+alias vim=runVim
 
 # big exit
 bigExit() {
@@ -125,7 +127,7 @@ bigExit() {
 
   else
 
-    tmux kill-session -t "$(tmux display-message -p '#S')"
+    $TMUX_BIN kill-session -t "$($TMUX_BIN display-message -p '#S')"
 
   fi
 }
@@ -167,7 +169,7 @@ if [ -n "$TMUX" ]; then
 
   if [ "$USE_ATHAME" = "true" ]; then
 
-    SESSION_NAME=`tmux display-message -p '#S'`
+    SESSION_NAME=`$TMUX_BIN display-message -p '#S'`
 
     if [[ $SESSION_NAME =~ ^T[0-9]+$ ]]; then
 
@@ -179,9 +181,9 @@ fi
 
 # load tmux automatically                                                                             
 if [ "$RUN_TMUX" = "true" ]; then
-  if command -v tmux>/dev/null; then                                                                    
+  if command -v $TMUX_BIN>/dev/null; then                                                                    
     if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
-      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmuxn                                                  
+      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux                                                  
     fi                                                                                                  
   fi
 fi
