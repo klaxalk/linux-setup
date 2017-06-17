@@ -191,7 +191,7 @@ endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
 " switch :paste mode 
-" probably redundant while usingclipboard=unnamedplus
+" probably redundant since our clipboards all shared all over
 function! TogglePaste()
   if(&paste == 0)
     set paste
@@ -282,7 +282,8 @@ set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
-" better escape
+" better escape: when naviating through suggestion menu, j and k will behave
+" normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " clever brackets
@@ -352,11 +353,6 @@ source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
 source ~/.vim/pluginconfig/ultisnips.vim
-
-if g:normal_mode == "1"
-  set cursorline
-  set cursorcolumn
-endif
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
