@@ -90,6 +90,24 @@ snippet "for " "" Ai
 for ${1}; do ${2:${VISUAL}}; done
 endsnippet
 
+snippet "git commit " "" Air
+git commit -m "${1:${VISUAL}}" ${2:-a}
+endsnippet
+
+snippet if
+if ${1}; then ${2:${VISUAL}}; fi
+endsnippet
+
+snippet ife
+if ${1}; then ${2:${VISUAL}}; else fi
+endsnippet
+
+snippet ifelif
+if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
+endsnippet
+
+# this part contains python snippets which rely on global complete function
+
 global !p
 def complete(t, opts):
 	if t:
@@ -117,24 +135,13 @@ else:
 }
 endsnippet
 
+snippet "rostopic $" "" Air
+rostopic $1`!p
+snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
+endsnippet
+
 snippet "catkin $" "" Air
 catkin $1`!p
-snip.rv=complete(t[1], ["build", "clean"])
-`
+snip.rv=complete(t[1], ["build", "clean", "init"])`
 endsnippet
 
-snippet "git commit " "" Air
-git commit -m "${1:${VISUAL}}" ${2:-a}
-endsnippet
-
-snippet if
-if ${1}; then ${2:${VISUAL}}; fi
-endsnippet
-
-snippet ife
-if ${1}; then ${2:${VISUAL}}; else fi
-endsnippet
-
-snippet ifelif
-if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
-endsnippet

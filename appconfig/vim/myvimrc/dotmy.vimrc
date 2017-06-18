@@ -30,8 +30,11 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 
-" colorscheme jellybeans
-colorscheme raggi
+" set colorscheme (only in normal vim)
+if g:normal_mode == "1"
+  " colorscheme jellybeans
+  colorscheme raggi
+endif
 
 " nnoremap <a-j> <c-d>
 " nnoremap <a-k> <c-u>
