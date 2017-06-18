@@ -124,7 +124,7 @@ snippet "git checkout $" "" Abr
 git checkout ${1}${2:`!p
 from git import Repo
 try:
-	r = Repo(path)
+	r = Repo(path, search_parent_directories=True)
 except:
 	snip.rv=" # not a git repo"
 else:
