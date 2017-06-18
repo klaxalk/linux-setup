@@ -11,7 +11,12 @@
 #                                                                        #
 # e.g. export ROS_WORKPSACE="~/ros_workspace ~/test_workspace"           #
 #                                                                        #
-# Name this file .ycm_extra_conf.py and place it in your home            #
+# Name this file .ycm_extra_conf.py and place it to a folder in which    #
+# you keep your ROS workspaces (or rather your source codes since vim    #
+# searches back from editted source file thgrough the file structure and #
+# looks for this file. My usecase is: I keep all my sources in ~/git/    #
+# and link them to their respective ROS workspaces in my home. So I      #
+# placed it to my home folder.                                           #
 #                                                                        #
 # Tested with Ubuntu 16.04 and Kinetic.                                  #
 #                                                                        #
