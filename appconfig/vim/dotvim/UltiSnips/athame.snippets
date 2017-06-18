@@ -58,7 +58,7 @@ snippet sl "" Ab
 ls
 endsnippet
 
-snippet grep "" Ab
+snippet grep "" Aib
 grep ${2:-nr -e} "${1}"
 endsnippet
 
@@ -86,23 +86,23 @@ snippet "git push " "" Abr
 git push ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}
 endsnippet
 
+snippet "git commit( )+" "" Abr
+git commit -m "${1:${VISUAL}}" ${2:-a}
+endsnippet
+
 snippet "for( )*" "" ir
 for ${1}; do ${2:${VISUAL}}; done
 endsnippet
 
-snippet "git commit( )+" "" Air
-git commit -m "${1:${VISUAL}}" ${2:-a}
-endsnippet
-
-snippet if
+snippet "if( )*" "" ir
 if ${1}; then ${2:${VISUAL}}; fi
 endsnippet
 
-snippet ife
+snippet "ife( )*" "" ir
 if ${1}; then ${2:${VISUAL}}; else fi
 endsnippet
 
-snippet ifelif
+snippet "ifei( )*" "" ir
 if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
 endsnippet
 
@@ -120,7 +120,7 @@ def complete(t, opts):
 		return "(" + '|'.join(opts) + ')'
 endglobal
 
-snippet "git checkout $" "" Air
+snippet "git checkout $" "" Abr
 git checkout ${1}${2:`!p
 from git import Repo
 try:
@@ -135,13 +135,12 @@ else:
 }
 endsnippet
 
-snippet "rostopic $" "" Air
+snippet "rostopic $" "" Abr
 rostopic $1`!p
 snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
 endsnippet
 
-snippet "catkin $" "" Air
+snippet "catkin $" "" Abr
 catkin $1`!p
 snip.rv=complete(t[1], ["build", "clean", "init"])`
 endsnippet
-
