@@ -16,7 +16,9 @@ while true; do
     # install tmuxinator
     cd $APP_PATH/../../submodules/tmuxinator
     git pull
-    sudo gem install tmuxinator
+
+    gem build tmuxinator.gemspec 
+    sudo gem install tmuxinator-0.9.0.gem 
 
     # symlink tmuxinator settings
     rm ~/.tmuxinator
