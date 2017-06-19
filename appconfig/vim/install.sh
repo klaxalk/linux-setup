@@ -95,7 +95,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
     /usr/bin/vim -E -c "let g:normal_mode=1" -c "so ~/.vimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
 
     while true; do
-      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="n" ; }
+      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="y" ; }
       response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
       if [[ $response =~ ^(y|Y)=$ ]]
