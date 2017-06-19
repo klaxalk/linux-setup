@@ -31,6 +31,10 @@ while true; do
     ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu
     sudo ldconfig
 
+    # fix wrong link of the library
+    sudo rm /lib/x86_64-linux-gnu/libreadline.so.7
+    sudo ln -sf /lib/x86_64-linux-gnu/libreadline.so.7.0 /lib/x86_64-linux-gnu/libreadline.so.7
+
     # build new bash with readline7 patched with athame
     ./bash_readline_setup.sh
 
