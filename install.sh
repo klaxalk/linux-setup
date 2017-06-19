@@ -111,7 +111,7 @@ if [ "$num" -lt "1" ]; then
   # set bashrc
   echo "
 # sourcing tomas's tmux preparation
-source $MY_PATH/dotbashrc" >> ~/.bashrc
+source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 else
 
