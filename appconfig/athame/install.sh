@@ -11,9 +11,6 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # compile athame from sources
-    cd $APP_PATH/../../submodules/athame
-
     # Ubuntu 16.04 does not have libreadline7 by default
     sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu yakkety main universe restricted multiverse"
     sudo apt-get update
@@ -23,8 +20,13 @@ while true; do
     sudo /usr/bin/vim /etc/apt/sources.list -E -s -c ":%g/yakkety/norm dd" -c "wqa"
     sudo apt-get update
 
+    sudo apt-get -y install curl
+
+    # compile athame from sources
+    cd $APP_PATH/../../submodules/athame
+
     # rebuild and patch readline7 with athame
-    ./readline_athame_setup.sh
+    ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu
     sudo ldconfig
 
     # build new bash with readline7 patched with athame
