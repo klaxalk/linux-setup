@@ -124,6 +124,7 @@ Plugins you don't need to know about (their features integrate "seemlessly"):
   * **tmuxline.vim** - tmux and vim statusline integration
   * **MatlabFilesEdition** - should add matlab syntax highlighting
   * **vim-tmux-navigator** - makes tmux and vim split navigation possible
+  * **repeat.vim** - makes "." work with some plugins (e.g. vim-surround)
 
 ### New mappings?
 
