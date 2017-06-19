@@ -13,6 +13,8 @@ rm ~/.config/ranger/commands.py
 rm ~/.config/ranger/rc.conf
 rm ~/.config/ranger/scope.sh
 
+mkdir ~/.config/ranger
+
 ln -s $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
 ln -s $APP_PATH/commands.py ~/.config/ranger/commands.py
 ln -s $APP_PATH/rc.conf ~/.config/ranger/rc.conf
