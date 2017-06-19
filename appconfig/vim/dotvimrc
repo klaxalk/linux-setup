@@ -99,6 +99,9 @@ if g:normal_mode == "1"
 
 endif
 
+" Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'tpope/vim-repeat'
+
 " Multiple cursors
 " in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
 " to skip
@@ -351,6 +354,9 @@ if g:normal_mode == "1"
   
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
+
+  " config for vim-commentary
+  source ~/.vim/pluginconfig/vim-commentary.vim
   
 endif
 
