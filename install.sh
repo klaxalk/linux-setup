@@ -30,14 +30,14 @@ bash $APPCONFIG_PATH/vim/install.sh
 # install i3
 bash $APPCONFIG_PATH/i3/install.sh
 
-# install athame
-bash $APPCONFIG_PATH/athame/install.sh
-
 # setup latex
 bash $APPCONFIG_PATH/vimtex/install.sh
 
 # setup ranger
 bash $APPCONFIG_PATH/ranger/install.sh
+
+# install athame
+bash $APPCONFIG_PATH/athame/install.sh
 
 #############################################
 # adding GIT_PATH variable to .bashrc 
