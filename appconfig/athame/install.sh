@@ -22,11 +22,8 @@ while true; do
 
     sudo apt-get -y install curl
 
-<<<<<<< HEAD
     source ~/.bashrc
 
-=======
->>>>>>> 09097e74b2ede00e3d723b485760209a02b8f20a
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
 
