@@ -204,7 +204,7 @@ If needed, hitting it again jumps through newly filled placeholders in the code 
 Key mapping for Ultisnip:
 
 - When suggestions appear, press **tab** to expand the snippet.
-- While in the snippet, move right and left over suggested parts by **left/right** or **ctrl-h / ctrl-l**.
+- While in the snippet, move right and left over suggested parts by **left/right** or **shift-h / shift-l**.
 
 Snippets can be used in visual mode by wrapping a selected code in e.g. **if** statement, by:
 - 1. select a piece of code
