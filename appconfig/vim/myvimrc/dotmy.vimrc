@@ -16,7 +16,7 @@ map <Leader>wc :call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh
 let g:startify_bookmarks = [
       \ { 'a': '~/.vim/UltiSnips/athame.snippets' },
       \ { 'b': '~/.bashrc' },
-      \ { 'd': '~/git/linux-setup/dotbashrc' },
+      \ { 'd': '~/git/linux-setup/appconfig/bash/dotbashrc' },
       \ { 'i': '~/.i3/config' },
       \ { 't': '~/.tmux.conf' },
       \ { 'v': '~/.vimrc' },
