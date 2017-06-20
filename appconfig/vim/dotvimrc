@@ -138,12 +138,6 @@ set clipboard=unnamedplus     " shared clipboard with the system
 " some color stuff
 syntax enable
 set background=light
-"
-" set colorscheme (only in normal vim)
-if g:normal_mode == "1"
-  " colorscheme jellybeans
-  colorscheme raggi
-endif
 
 " should fix colors in tmux
 set term=screen-256color
@@ -370,6 +364,12 @@ if g:normal_mode == "0"
 
   nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
 
+endif
+
+" set colorscheme (only in normal vim)
+if g:normal_mode == "1"
+  " colorscheme jellybeans
+  colorscheme raggi
 endif
 
 " if exists, source .my.vimrc
