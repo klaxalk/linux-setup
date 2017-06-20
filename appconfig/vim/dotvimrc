@@ -145,7 +145,6 @@ if g:normal_mode == "1"
   colorscheme raggi
 endif
 
-
 " should fix colors in tmux
 set term=screen-256color
 
