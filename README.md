@@ -81,7 +81,7 @@ There is a minor modification in my fork with regards to how it run **$EDITOR**.
 
 ## VIM
 
-Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor.
+Vim has been heavily pluginized in this setup, which makes it more like IDE than a simple terminal editor.
 Plugins are maintained by a plugin manager called **vim-plug**, which should download them from their repositories automatically.
 To update them manually, call **:PlugUpdate**, to install them **:PlugInstall** in Vim. However, they will be installed automatically by **install.sh**.
 
@@ -247,3 +247,18 @@ When in **visual mode**, the **dot** operator applies macro **@a** over all sele
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
 - **\<leader\>c** - enables cursorline and cursorcolumnt
+
+# Athame - Full Vim in Bash support
+
+If you choose to compile and install Athame, beware, it is quite dangerous.
+Athame recompiles **readline** to use vim, and then **bash** to use the new readline.
+As a result, you will have Vim in Bash.
+If something goes wrong, you will not have Bash anymore.
+I have tested it on Ubuntu 16.04.
+
+Notable points:
+
+- Normally, Vim is started using an alias from my additions to **.basNrc**, where it is told (by g:normal_mode variable) that we want all plugins and settings.
+- When Athame uses vim, it does not set the g:normal_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
+- UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
+- Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
