@@ -4,8 +4,9 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
+default=y
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n]\e[0m\n' resp || resp="y" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
@@ -93,9 +94,10 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:normal_mode=1" -c "so ~/.vimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
-
+    
+    default=y
     while true; do
-      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n]\e[0m\n' resp || resp="y" ; }
+      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
       response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
       if [[ $response =~ ^(y|Y)=$ ]]
