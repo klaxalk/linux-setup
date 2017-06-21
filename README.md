@@ -77,6 +77,7 @@ If you wish to use your tmux config besides mine, create a file **~/.my.tmux.con
 
 I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions.
 I suggest reading its tutorials.
+There is a minor modification in my fork with regards to how it run **$EDITOR**.
 
 ## VIM
 
@@ -151,7 +152,7 @@ Feel free to update those and submit them using a **pull request** on a file app
 ### NERDTree
 
 NERDTree provides a simple file browser within a split.
-Toggle it by **\<leader\>N**.
+Toggle it by **\<leader\>n**.
 The current setup shows NERDTree also when you open vim with a folder in the argument.
 Read its documentation for further information.
 
@@ -176,7 +177,7 @@ YouCompleteMe provides state-of-the-art code completion functions.
 YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code.
 Clang needs to know compile flags for your particular piece of code.
 
-Key mapping for youcompleteme:
+Key mappings for youcompleteme:
 
 - When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
 - When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
@@ -187,7 +188,7 @@ Key mapping for youcompleteme:
 
 To allow full ROS code completion, follow those:
 
-- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should contain a list of locations of your ORS workspace(s), separated by spaces.
+- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should contain a list of locations of your ROS workspace(s), separated by spaces.
 - Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as
 ```bash
 catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -245,3 +246,4 @@ When in **visual mode**, the **dot** operator applies macro **@a** over all sele
 - **\<leader\>a** - toggles highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
+- **\<leader\>c** - enables cursorline and cursorcolumnt
