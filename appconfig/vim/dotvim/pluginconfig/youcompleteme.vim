@@ -103,7 +103,7 @@ function! s:onCompleteDone()
       let snippet = snippet . ", "
     endif
     " strip space
-    let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1a', '')
+    let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '')
     let snippet = snippet . '${' . c . ":" . arg . '}'
     let c += 1
   endfor
