@@ -64,8 +64,9 @@ fi
 num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
 if [ "$num" -lt "1" ]; then
 
+  default=y
   while true; do
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\033[31mDo you want to run TMUX automatically with every terminal? [y/n] \033[00m' resp || resp="y" ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mDo you want to run TMUX automatically with every terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
     response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
     if [[ $response =~ ^(y|Y)=$ ]]
