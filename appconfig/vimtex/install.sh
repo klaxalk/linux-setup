@@ -2,8 +2,9 @@
 GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
 
+default=n
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? (Y/n)\e[0m\n' resp || resp="n" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]

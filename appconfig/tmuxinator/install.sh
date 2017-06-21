@@ -4,8 +4,9 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
+default=y
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall TMUXINATOR? [y/n]\e[0m\n' resp || resp="y" ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall TMUXINATOR? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
