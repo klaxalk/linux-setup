@@ -56,10 +56,6 @@ snippet gd "" Ab
 git diff
 endsnippet
 
-snippet sl "" Ab
-ls
-endsnippet
-
 snippet "grep ( )*" "" Abr
 grep ${2:-nr -e} "${1}"
 endsnippet
@@ -163,7 +159,7 @@ rostopic $1`!p
 snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
 endsnippet
 
-snippet "catkin $" "" Abr
-catkin $1`!p
-snip.rv=complete(t[1], ["build", "clean", "init"])`
-endsnippet
+# snippet "catkin $" "" Abr
+# catkin $1`!p
+# snip.rv=complete(t[1], ["build", "clean", "init"])`
+# endsnippet
