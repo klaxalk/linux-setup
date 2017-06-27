@@ -137,7 +137,6 @@ set clipboard=unnamedplus     " shared clipboard with the system
 
 " some color stuff
 syntax enable
-set background=light
 
 " should fix colors in tmux
 set term=screen-256color
