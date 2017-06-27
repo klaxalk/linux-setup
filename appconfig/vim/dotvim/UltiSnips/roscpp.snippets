@@ -54,8 +54,13 @@ snippet ros_info
 ROS_INFO("${1}");
 endsnippet
 
-snippet rinfo
-ROS_INFO("${1}");
+snippet "rinfo$" "" r
+ROS_INFO("${1}"`!p
+if "%" in t[1]:
+	snip.rv=", "
+else:
+	snip.rv=""
+`${2});
 endsnippet
 
 snippet ROS_INFO_THROTTLE
