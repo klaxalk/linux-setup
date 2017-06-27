@@ -2,10 +2,15 @@
 
 This repo contains scripts for setting up my Linux working environment, mainly by
 installing three vital applications: TMUX, VIM, i3wm and setting up their behavior.
+Everything is intended for and tested on **Ubuntu 16.04**.
 
-**BEWARE**, running this will **DELETE** your previous tmux and vim setup (.vim, .tmux.conf, .vimrc)!!
+Despite most of my key bindings might seem a bit arbitrary, they evolved in a time to match my needs and habits (no arrow keys, no mouse).
+Although it was not easy to find a way to navigate using **h/j/k/l/** in all scenarios, it is possible most of the time.
+Just imagine you can navigate and swap windows in **i3wm** (alt + h/j/k/l, alt-shift + h/j/k/l), then navigate over panes in **tmux** (ctrl + h/j/k/l), then splits in **vim** (also ctrl + h/j/k/l), then move over suggestions from YouCompleteMe (ctrl + j/k, l), and lastly navigating through placeholders in newly inserted snippet (shift h/l).
+And I almost forgot, you navigate using h/j/k/l in **vim**! 
+Yes, I am weird, but it works :-).. continue reading if you are interested.
 
-To clone and install everything run following code:
+To clone and install everything run following code. **BEWARE**, running this will **DELETE** your previous tmux and vim setup (.vim, .tmux.conf, .vimrc)!!:
 
 ```bash
 cd /tmp
@@ -47,16 +52,9 @@ There are several reasons for it, e.g. 1) it can be pressed easily by one hand a
 - **shift right** switch to next window (also **alt i**, handy for i3wm users)
 - **ctrl s** horizontal split
 - **ctrl d** vertical split
-- **alt left** switch to left split pane
-- **alt right** switch to right split pane
-- **ctrl h** focus left pane
-- **ctrl j** focus down pane
-- **ctrl k** focus up pane
-- **ctrl l** focus right pane
-- **__PREFIX__ ctrl h** resize current pane to the left
-- **__PREFIX__ ctrl j** resize current pane down
-- **__PREFIX__ ctrl k** resize current pane to the right 
-- **__PREFIX__ ctrl l** resize current pane up
+- **alt left/down/right/up** move over tmux panes (for dummies, arrow keys ;-))
+- **ctrl h/j/k/l** move over tmux panes (and vim splits too)
+- **__PREFIX__ ctrl h/j/k/l** resize panes
 - **__PREFIX__ k** kill current tmux session with all its processes
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
@@ -77,10 +75,11 @@ If you wish to use your tmux config besides mine, create a file **~/.my.tmux.con
 
 I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions.
 I suggest reading its tutorials.
+There is a minor modification in my fork with regards to how it run **$EDITOR**.
 
 ## VIM
 
-Vim has been heavily pluginized in this setup, which makes it more like IDE then a simple terminal editor.
+Vim has been heavily pluginized in this setup, which makes it more like IDE than a simple terminal editor.
 Plugins are maintained by a plugin manager called **vim-plug**, which should download them from their repositories automatically.
 To update them manually, call **:PlugUpdate**, to install them **:PlugInstall** in Vim. However, they will be installed automatically by **install.sh**.
 
@@ -103,7 +102,7 @@ Plugins with new features, you are supposed to read their tutorials to know how 
   * **vim-commentary** - clever code commenting
   * **vim-surround** - allows to manipulate with surrounding pairs of characters
   * **vimtex** - latex integration
-  * **vimwiki** - notetaking and wikipedia edittingvim-exchange
+  * **vimwiki** - notetaking and wikipedia editting
   * **vim-exchange** - allows exchaning two target locations
   * **vim-unimpaired** - clever new keybindings for e.g. quickfix and buffers
 
@@ -151,7 +150,7 @@ Feel free to update those and submit them using a **pull request** on a file app
 ### NERDTree
 
 NERDTree provides a simple file browser within a split.
-Toggle it by **\<leader\>N**.
+Toggle it by **\<leader\>n**.
 The current setup shows NERDTree also when you open vim with a folder in the argument.
 Read its documentation for further information.
 
@@ -161,8 +160,7 @@ Read its documentation for further information.
 
 Vimmux allows to open TMUX splits and run commands in them.
 I use them mainly for compiling my workspace.
-Commands can be configured in the **~/.my.vimrc** file which will stay unchanged by git.
-Currently, I don't vimmux that much, but if you want, key mappings are commented in **.my.vimrc**.
+Commands can be configured in the **~/.my.vimrc** file which will stay unchanged by git during updates.
 
 ### United-front
 
@@ -176,7 +174,7 @@ YouCompleteMe provides state-of-the-art code completion functions.
 YCM uses Clang compiler to make up suggestions and detect syntax and semantic errors in your code.
 Clang needs to know compile flags for your particular piece of code.
 
-Key mapping for youcompleteme:
+Key mappings for youcompleteme:
 
 - When suggestions appear, press either **tab**, **up/down**, **ctrl-j/k** to move within the menu.
 - When you are in the menu, move within it using **tab**, **up/down**, **ctrl-j/k** or **j/k**.
@@ -187,7 +185,7 @@ Key mapping for youcompleteme:
 
 To allow full ROS code completion, follow those:
 
-- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should contain a list of locations of your ORS workspace(s), separated by spaces.
+- Make sure a bash variable **$ROS_WORKSPACE** is set in your .bashrc. It should contain a list of locations of your ROS workspace(s), separated by spaces.
 - Since now, build your workspace with **-DCMAKE_EXPORT_COMPILE_COMMANDS=ON** flag. You can do it e.g. by modifying the default build profile as
 ```bash
 catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -200,7 +198,7 @@ Enjoy!
 Completing code snippets is an existential part of programming.
 Thanks to Ultisnip, pieces of code like **if**, **while** and more can be much simpler to write.
 Ultisnip completes those by hitting **\<tab\>** after writing the keyword.
-If needed, hitting it again jumps through newly filled placeholders in the code snippet.
+Then you can jump through placeholders in the code snippet.
 
 Key mapping for Ultisnip:
 
@@ -238,10 +236,26 @@ Further shortcuts can be used to navigate through your code:
 
 Working macros might be tedious.
 If you, just like me, tend to record everything to @a, following feature might be useful.
-When in **visual mode**, the **dot** operator applies macro **@a** over all selected lines.
+When in **visual line mode**, the **dot** operator applies macro **@a** over all selected lines.
 
 ### Other key bindings
 
 - **\<leader\>a** - toggles highlighting of words under the cursor
 - **\<leader\>p** - toggles :paste mode
 - **\<leader\>g** - automatically indents the whole document while staying on the current line
+- **\<leader\>c** - enables cursorline and cursorcolumnt
+
+# Athame - Full Vim in Bash support
+
+If you choose to compile and install Athame, beware, it is quite dangerous.
+Athame recompiles **readline** to use vim, and then **bash** to use the new readline.
+As a result, you will have Vim in Bash.
+If something goes wrong, you will not have Bash anymore.
+I have tested it on Ubuntu 16.04.
+
+Notable points:
+
+- Normally, Vim is started using an alias from my additions to **.bashrc**, where it is told (by g:normal_mode variable) that we want all plugins and settings
+- When Athame uses vim, it does not set the g:normal_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
+- UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
+- Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
