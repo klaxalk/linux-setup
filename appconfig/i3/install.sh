@@ -36,7 +36,6 @@ while true; do
     sudo apt-get -y install indicator-sound-switcher
 
     # symlink i3 settings
-    rm ~/.i3
     ln -s $APP_PATH/doti3 ~/.i3
 
     # copy fonts
