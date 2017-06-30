@@ -216,10 +216,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 10%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 10%+
 
 # bind audio to generic alt+f keys
-bindsym $mod+F5 exec --no-startup-id amixer -c 1 set 'PCM' 10%-
-bindsym $mod+F6 exec --no-startup-id amixer -c 1 set 'PCM' 10%+
+bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
+bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
+
+# desktop
+# bindsym $mod+F5 exec --no-startup-id amixer -c 1 set 'PCM' 10%-
+# bindsym $mod+F6 exec --no-startup-id amixer -c 1 set 'PCM' 10%+
 
 # Bind screen brightness control to DELLs special keys
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -228,7 +232,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREAS
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 10 # INCREASE Screen brightness
+bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # INCREASE Screen brightness
 bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
 
 # toggling touchpad
