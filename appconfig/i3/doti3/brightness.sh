@@ -2,7 +2,7 @@
 # author: Tomas Baca
 
 INCREMENT=10
-MINIMAL=10
+MINIMAL=2
 
 # find the id of my the touchpad
 CURRENT_BRIGHTNESS=`xbacklight | sed -r "s/^(.*)\..*/\1/g"`
@@ -40,13 +40,12 @@ else
 fi
 
 CURRENT_BRIGHTNESS=`xbacklight | sed -r "s/^(.*)\..*/\1/g"`
-if [ $CURRENT_BRIGHTNESS -eq 100 ]; then
+if [ $CURRENT_BRIGHTNESS -le 100 ]; then
 
   notify-send -u low -i mouse "Brightness on MAX"
 
-elif [ $CURRENT_BRIGHTNESS -eq $MINIMAL ]; then
+elif [ $CURRENT_BRIGHTNESS -le $MINIMAL ]; then
 
   notify-send -u low -i mouse "Brightness on MIN"
 
 fi
-
