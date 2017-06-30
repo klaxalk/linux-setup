@@ -306,6 +306,10 @@ au BufRead *.m set foldmarker=%%{,%%}
 au BufRead *.yml set foldmethod=marker
 au BufRead *.yml set foldmarker=#{,#}
 
+" folding by marker when editting c++ files
+au BufRead *.cpp set foldmethod=marker
+au BufRead *.cpp set foldmarker=//{,//}
+
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 
