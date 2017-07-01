@@ -289,8 +289,11 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 # qutebroser
 bindsym $mod2+q exec --no-startup-id qutebrowser
 
-set $default_gaps_inner 10
+smart_gaps on
+
+set $default_gaps_inner 15
 set $default_gaps_outer 0
+
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
