@@ -12,20 +12,6 @@
 set $mod Mod1
 set $mod2 Mod4
 
-set_from_resource $darkred     color1  #000000
-set_from_resource $red         color9  #000000
-set_from_resource $darkgreen   color2  #000000
-set_from_resource $green       color10 #000000
-set_from_resource $darkyellow  color3  #000000
-set_from_resource $yellow      color11 #000000
-set_from_resource $darkblue    color4  #000000
-set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
-set_from_resource $magenta     color13 #000000
-set_from_resource $darkcyan    color6  #000000
-set_from_resource $cyan        color14 #000000
-set_from_resource $darkwhite   color7  #000000
-set_from_resource $white       color15 #000000
 # Use custom colors for black
 set $black       #282828
 set $darkblack   #1d2021
@@ -182,19 +168,19 @@ bindsym $mod+r mode "resize"
 # light colors
 set $bg-color 	         #ffffff
 set $inactive-bg-color   #cccccc
-set $text-color          #000000
+set $text-color          $black
 set $inactive-text-color #ffffff
 set $urgent-bg-color     #ffffff
 set $focused-bg-color    #bbbbbb
-set $focused-text-color  #000000
-set $indicator-color     #001000
+set $focused-text-color  $black
+set $indicator-color     $black
 
 # window colors
-#                         border                background              text             indicator
-client.focused            $focused-bg-color     $888888                 $text-color      $indicator-color
-client.unfocused          $focused-bg-color     $inactive-bg-color      $text-color      $indicator-color
-client.focused_inactive   $focused-bg-color     $inactive-bg-color      $text-color      $indicator-color
-client.urgent             $urgent-bg-color      $urgent-bg-color        $text-color      $indicator-color
+#                       border             background         text         indicator
+client.focused          $focused-bg-color  $darkblack         $text-color  $indicator-color
+client.unfocused        $focused-bg-color  $inactive-bg-color $text-color  $indicator-color
+client.focused_inactive $focused-bg-color  $inactive-bg-color $text-color  $indicator-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color  $indicator-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -205,18 +191,20 @@ bar {
   i3bar_command i3bar -t
   
 	colors {
+
     statusline $white
 		background $transparent
 	  separator  $black
 		#                  border             background         text
-		focused_workspace  $focused-bg-color  $focused-bg-color  $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+		focused_workspace  $darkblack         $focused-bg-color  $darkblack
+		active_workspace   $transparent       $transparent       $darkblack
+		inactive_workspace $transparent       $transparent       $darkblack
+		binding_mode       $transparent       $transparent       $darkblack
+		urgent_workspace   $transparent       $transparent       $darkblack
 	}
 
 	# i3bar position
 	position top
-
 }
 
 # rofi launcher
@@ -263,7 +251,7 @@ bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome please
 for_window [class="^.*"] border pixel 2
-for_window [class="^Google-chrome$"] border none
+# for_window [class="^Google-chrome$"] border none
 # for_window [class="^Gnome-terminal$"] border pixel 1
 
 # oh my God disable caps lock and set is as escape!!!
@@ -297,13 +285,16 @@ exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpa
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
 # gimp
-bindsym $mod2+g exec gimp
+bindsym $mod2+g exec --no-startup-id gimp
 for_window [title="GIMP Startup"] move workspace $workspace9
 for_window [class="^Gimp$"] move workspace $workspace9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
-set $default_gaps_inner 5
+# qutebroser
+bindsym $mod2+q exec --no-startup-id qutebrowser
+
+set $default_gaps_inner 10
 set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer

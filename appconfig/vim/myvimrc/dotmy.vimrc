@@ -22,6 +22,7 @@ let g:startify_bookmarks = [
       \ { 'v': '~/.vimrc' },
       \ { 'm': '~/.my.vimrc' },
       \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
+      \ { 'r': '~/git/linux-setup/appconfig/ranger/rc.conf' },
       \ ]
 
 " because of latex, probably obsolete
@@ -35,16 +36,3 @@ if g:normal_mode == "1"
   " colorscheme jellybeans
   colorscheme raggi
 endif
-
-" nnoremap <a-j> <c-d>
-" nnoremap <a-k> <c-u>
-
-" remap right and left in normal mode to juping back and forth on f,t
-" nnoremap <left> ,
-" nnoremap <right> ;
-
-" Useful bubble text normal mapping for arrow keys.                                                                                        
-" nnoremap <UP> ddkP 
-" nnoremap <DOWN> ddp
-" vnoremap <DOWN> xp`[V`]
-" vnoremap <UP> xkP`[V`]
