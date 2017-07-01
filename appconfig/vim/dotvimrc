@@ -17,14 +17,14 @@ if g:normal_mode == "1"
 
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
-  
+
   " ifugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
-  
+
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  
+
   " integration with tmux (allows running bash commands in tmux splits)
   Plug 'benmills/vimux'
 
@@ -96,6 +96,9 @@ if g:normal_mode == "1"
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
   Plug 'tpope/vim-unimpaired'
+
+  " managing sessions
+  Plug 'tpope/vim-obsession'
 
 endif
 
@@ -191,7 +194,7 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
-" switch :paste mode 
+" switch :paste mode
 " probably redundant since our clipboards all shared all over
 function! TogglePaste()
   if(&paste == 0)
@@ -246,7 +249,7 @@ function! AutoHighlightToggle()
     echo 'Highlight current word: ON'
     return 1
   endif
-endfunction    
+endfunction
 nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
@@ -317,43 +320,43 @@ if g:normal_mode == "1"
 
   " config for airline
   source ~/.vim/pluginconfig/vim-airline.vim
-  
+
   " config for startify
   source ~/.vim/pluginconfig/vim-startify.vim
-  
+
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
-  
+
   " config for vim-argwrap
   source ~/.vim/pluginconfig/vim-argwrap.vim
-  
+
   " config for quick-scope
   source ~/.vim/pluginconfig/quick-scope.vim
-  
+
   " config for tagbar
   source ~/.vim/pluginconfig/tagbar.vim
-  
+
   " config for GoldenView
   source ~/.vim/pluginconfig/GoldenView.vim
-  
+
   " config for youcompleteme
   source ~/.vim/pluginconfig/youcompleteme.vim
-  
+
   " config for vim-ros
   source ~/.vim/pluginconfig/vim-ros.vim
-  
+
   " config for tmuxline
   source ~/.vim/pluginconfig/tmuxline.vim
-  
+
   " config for vimtex
   source ~/.vim/pluginconfig/vimtex.vim
-  
+
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
 
   " config for vim-commentary
   source ~/.vim/pluginconfig/vim-commentary.vim
-  
+
 endif
 
 " config for vim-multiple-cursors
@@ -377,5 +380,5 @@ endif
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
-source ~/.my.vimrc 
+source ~/.my.vimrc
 endif
