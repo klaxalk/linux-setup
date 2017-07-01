@@ -165,7 +165,7 @@ set $black       #282828
 set $darkblack   #1d2021
 set $superblack  #000000
 set $transparent #00000000
-set $dark-grey   #888888
+set $dark-grey   #aaaaaa
 set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
