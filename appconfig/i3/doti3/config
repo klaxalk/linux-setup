@@ -12,6 +12,25 @@
 set $mod Mod1
 set $mod2 Mod4
 
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -162,7 +181,7 @@ bindsym $mod+r mode "resize"
 
 # light colors
 set $bg-color 	         #ffffff
-set $inactive-bg-color   #ffffff
+set $inactive-bg-color   #cccccc
 set $text-color          #000000
 set $inactive-text-color #ffffff
 set $urgent-bg-color     #ffffff
@@ -170,19 +189,9 @@ set $focused-bg-color    #bbbbbb
 set $focused-text-color  #000000
 set $indicator-color     #001000
 
-# dark colors
-# set $bg-color 	         #000000
-# set $inactive-bg-color   #000000
-# set $text-color          #ffffff
-# set $inactive-text-color #000000
-# set $urgent-bg-color     #000000
-# set $focused-bg-color    #222222
-# set $focused-text-color  #ffffff
-# set $indicator-color     #ff3fff
-
 # window colors
 #                         border                background              text             indicator
-client.focused            $focused-bg-color     $focused-bg-color       $text-color      $indicator-color
+client.focused            $focused-bg-color     $888888                 $text-color      $indicator-color
 client.unfocused          $focused-bg-color     $inactive-bg-color      $text-color      $indicator-color
 client.focused_inactive   $focused-bg-color     $inactive-bg-color      $text-color      $indicator-color
 client.urgent             $urgent-bg-color      $urgent-bg-color        $text-color      $indicator-color
@@ -191,9 +200,14 @@ client.urgent             $urgent-bg-color      $urgent-bg-color        $text-co
 # finds out, if available)
 bar {
 
+	status_command i3blocks -c ~/.i3/i3blocks.conf
+
+  i3bar_command i3bar -t
+  
 	colors {
-		background $bg-color
-	  separator  $text-color
+    statusline $white
+		background $transparent
+	  separator  $black
 		#                  border             background         text
 		focused_workspace  $focused-bg-color  $focused-bg-color  $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
@@ -203,8 +217,6 @@ bar {
 	# i3bar position
 	position top
 
-	# Using custom i3status.conf
-	status_command i3blocks -c ~/.i3/i3blocks.conf
 }
 
 # rofi launcher
@@ -240,7 +252,7 @@ bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
 
 # Startup programs
 exec --no-startup-id nm-applet
-exec google-chrome
+# exec google-chrome
 
 # setup monitors, generete the file with "arandr" utility
 exec ~/.monitor.sh
@@ -250,6 +262,7 @@ exec --no-startup-id "setxkbmap us"
 bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome please
+for_window [class="^.*"] border pixel 2
 for_window [class="^Google-chrome$"] border none
 # for_window [class="^Gnome-terminal$"] border pixel 1
 
@@ -278,4 +291,69 @@ exec --no-startup-id compton -f -D 3
 exec --no-startup-id indicator-sound-switcher 
 
 # show background wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+
+# rebind F1 to not activate help of any program
+bindsym F1 exec --no-startup-id echo "help" > /dev/null
+
+# gimp
+bindsym $mod2+g exec gimp
+for_window [title="GIMP Startup"] move workspace $workspace9
+for_window [class="^Gimp$"] move workspace $workspace9
+for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+set $default_gaps_inner 5
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+set $mode_gaps gaps
+set $mode_gaps_outer outer gaps
+set $mode_gaps_inner inner gaps
+
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
+    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     mode "default", gaps inner current set 0
+    bindsym d     mode "default", gaps inner current set $default_gaps_inner
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     mode "default", gaps inner all set 0
+    bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     mode "default", gaps outer current set 0
+    bindsym d     mode "default", gaps outer current set $default_gaps_outer
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     mode "default", gaps outer all set 0
+    bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
