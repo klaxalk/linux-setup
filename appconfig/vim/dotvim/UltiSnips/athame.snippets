@@ -10,12 +10,6 @@ snippet reboot "" Ab
 sudo reboot
 endsnippet
 
-# sometimes disturbing
-#
-# snippet ~ "" Ai
-# `echo $HOME`
-# endsnippet
-
 snippet sb "" Ab
 source ~/.bashrc
 endsnippet
@@ -158,8 +152,3 @@ snippet "rostopic $" "" Abr
 rostopic $1`!p
 snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
 endsnippet
-
-# snippet "catkin $" "" Abr
-# catkin $1`!p
-# snip.rv=complete(t[1], ["build", "clean", "init"])`
-# endsnippet
