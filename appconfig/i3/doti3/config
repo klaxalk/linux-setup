@@ -25,7 +25,8 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -160,7 +161,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Use custom colors for black
+# colors for the light theme
 set $black       #282828
 set $darkblack   #1d2021
 set $superblack  #000000
@@ -169,12 +170,36 @@ set $dark-grey   #aaaaaa
 set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
+# colors for the dark theme
+set $white       #ffffff
+set $mildwhite   #eeeeee
+set $superwhite  #ffffff
+set $transparent #00000000
+set $dark-grey   #aaaaaa
+set $mid-grey    #cccccc
+set $light-grey  #eeeeee
+
+# # LIGHT_THEME
+# set $text_color $superblack
+# set $inactive_background $light-grey
+# set $active-border $dark-grey
+# set $active-background $mid-grey
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+
+# DARK_THEME
+set $inactive_text_color      #eeeeee
+set $active_text_color        #000000
+set $inactive_background      #666666
+set $active-border            #999999
+set $active-background        #aaaaaa
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/black.jpg
+
 # window colors
-#                       border       background   text         indicator
-client.focused          $dark-grey   $mid-grey    $superblack  $black
-client.unfocused        $light-grey  $light-grey  $superblack  $black
-client.focused_inactive $light-grey  $light-grey  $superblack  $black
-client.urgent           $transparent $transparent $superblack  $black
+#                       border                    background            text                  indicator
+client.focused          $active-border            $active-background    $active_text_color    $inactive_text_color
+client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
+client.focused_inactive $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
+client.urgent           $transparent              $transparent          $inactive_text_color  $inactive_text_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -186,16 +211,16 @@ bar {
   
 	colors {
 
-    statusline $white
+    statusline $text_color
 		background $transparent
-	  separator  $black
+	  separator  $inactive_text_color
 
 		#                  border             background         text
-		focused_workspace  $dark-grey         $mid-grey          $darkblack
-		active_workspace   $transparent       $transparent       $darkblack
-		inactive_workspace $transparent       $transparent       $darkblack
-		binding_mode       $transparent       $transparent       $darkblack
-		urgent_workspace   $transparent       $transparent       $darkblack
+		focused_workspace  $active-border     $active-background $active_text_color
+		active_workspace   $transparent       $transparent       $inactive_text_color
+		inactive_workspace $transparent       $transparent       $inactive_text_color
+		binding_mode       $transparent       $transparent       $inactive_text_color
+		urgent_workspace   $transparent       $transparent       $inactive_text_color
 	}
 
 	# i3bar position
@@ -272,9 +297,6 @@ exec --no-startup-id compton -f -D 3
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher 
-
-# show background wallpaper
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
 # rebind F1 to not activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
