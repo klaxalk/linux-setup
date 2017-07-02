@@ -13,10 +13,10 @@ while true; do
   then
 
     # install urvxt
-    sudo apt-get -y install rxvt-unicode rxvt-unicode-256color
+    sudo apt-get -y install rxvt-unicode-256color
 
     # link the configuration
-    ln -s ./dotXresoures ~/.Xresources
+    ln -s $APP_PATH/dotXresoures ~/.Xresources
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
