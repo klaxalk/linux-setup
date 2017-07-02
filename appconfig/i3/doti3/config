@@ -133,7 +133,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-bindsym $mod2+c exec --no-startup-id ~/.i3/toggleColorscheme.sh
+bindsym $mod2+l exec urxvt -e ~/.i3/setColorScheme.sh LIGHT
+bindsym $mod2+d exec urxvt -e ~/.i3/setColorScheme.sh JELLYBEANS
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -181,25 +182,30 @@ set $dark-grey   #aaaaaa
 set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
-# # LIGHT_THEME
-# set $inactive_text_color      #1d2021
-# set $active_text_color        #1d2021
-# set $inactive_background      #eeeeee
-# set $active-border            #aaaaaa
-# set $active-background        #cccccc
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# LIGHT COLOR_SCHEME ACTIVE {
+set $inactive_text_color      #1d2021
+set $active_text_color        #1d2021
+set $inactive_background      #eeeeee
+set $active_border            #aaaaaa
+set $active_background        #cccccc
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# }
 
-# DARK_THEME
-set $inactive_text_color      #eeeeee
-set $active_text_color        #000000
-set $inactive_background      #666666
-set $active-border            #999999
-set $active-background        #aaaaaa
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/black.jpg
+# JELLYBEANS COLOR_SCHEME {
+# set $inactive_text_color      #eeeeee
+# set $active_text_color        #000000
+# set $inactive_background      #333333
+# set $active_border            #999999
+# set $active_background        #888888
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+# # }
+
+for_window [class="^.*"] border pixel 2
+hide_edge_borders both
 
 # window colors
 #                       border                    background            text                  indicator
-client.focused          $active-border            $active-background    $active_text_color    $inactive_text_color
+client.focused          $active_border            $active_background    $active_text_color    $inactive_text_color
 client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
 client.focused_inactive $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
 client.urgent           $transparent              $transparent          $inactive_text_color  $inactive_text_color
@@ -218,12 +224,12 @@ bar {
 		background $transparent
 	  separator  $inactive_text_color
 
-		#                  border             background         text
-		focused_workspace  $active-border     $active-background $active_text_color
-		active_workspace   $transparent       $transparent       $inactive_text_color
-		inactive_workspace $transparent       $transparent       $inactive_text_color
-		binding_mode       $transparent       $transparent       $inactive_text_color
-		urgent_workspace   $transparent       $transparent       $inactive_text_color
+		#                  border             background          text
+		focused_workspace  $active_border     $active_background  $inactive_text_color
+		active_workspace   $transparent       $transparent        $inactive_text_color
+		inactive_workspace $transparent       $transparent        $inactive_text_color
+		binding_mode       $transparent       $transparent        $inactive_text_color
+		urgent_workspace   $transparent       $transparent        $inactive_text_color
 	}
 
 	# i3bar position
@@ -273,7 +279,6 @@ exec --no-startup-id "setxkbmap us"
 bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
 
 # no title bar for chrome please
-for_window [class="^.*"] border pixel 2
 for_window [class="^Google-chrome$"] border none
 # for_window [class="^Gnome-terminal$"] border pixel 1
 

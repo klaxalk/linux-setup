@@ -67,10 +67,6 @@ if g:normal_mode == "1"
   " make ROS and vim to be friends
   Plug 'taketwo/vim-ros'
 
-  " commenting stuff made easy
-  " try gc<motion>
-  Plug 'tpope/vim-commentary'
-
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
@@ -104,6 +100,10 @@ endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
+
+" commenting stuff made easy
+" try gc<motion>
+Plug 'tpope/vim-commentary'
 
 " Multiple cursors
 " in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
@@ -313,6 +313,9 @@ au BufRead *.yml set foldmarker=#{,#}
 au BufRead *.cpp set foldmethod=marker
 au BufRead *.cpp set foldmarker=//{,//}
 
+" folding by marker when editting sh files
+au BufRead *.sh set foldmethod=marker
+au BufRead *.sh set foldmarker=#{,#}
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 
@@ -354,9 +357,6 @@ if g:normal_mode == "1"
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
 
-  " config for vim-commentary
-  source ~/.vim/pluginconfig/vim-commentary.vim
-
 endif
 
 " config for vim-multiple-cursors
@@ -364,6 +364,9 @@ source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
 source ~/.vim/pluginconfig/ultisnips.vim
+
+" config for vim-commentary
+source ~/.vim/pluginconfig/vim-commentary.vim
 
 " settings only for athame
 if g:normal_mode == "0"
@@ -374,8 +377,8 @@ endif
 
 " set colorscheme (only in normal vim)
 if g:normal_mode == "1"
-  " colorscheme jellybeans
-  colorscheme raggi
+  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
+  " colorscheme raggi " LIGHT COLOR_SCHEME
 endif
 
 " if exists, source .my.vimrc
