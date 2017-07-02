@@ -46,32 +46,42 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! }
 
 ! LIGHT COLOR_SCHEME {
-! URxvt*background: #ffffff
-! URxvt*foreground: #000000
+
+! ! PaperColour Theme
+! URxvt.foreground: #4D4D4C
+! URxvt.background: #FFFFFF
+
 ! ! black
-! URxvt.color0  : #000000
-! URxvt.color8  : #555555
+! URxvt.color0: #EDEDED
+! URxvt.color8: #969694
+
 ! ! red
-! URxvt.color1  : #AA0000
-! URxvt.color9  : #FF5555
+! URxvt.color1: #D7005F
+! URxvt.color9: #D7005F
+
 ! ! green
-! URxvt.color2  : #00AA00
-! URxvt.color10 : #55FF55
-! ! yellow
-! URxvt.color3  : #AA5500
-! URxvt.color11 : #FFFF55
+! URxvt.color2: #718C00
+! URxvt.color10: #718C00
+
+! ! yellow / orange
+! URxvt.color3: #D75F00
+! URxvt.color11: #D75F00
+
 ! ! blue
-! URxvt.color4  : #0000AA
-! URxvt.color12 : #5555FF
+! URxvt.color4: #4271AE
+! URxvt.color12: #4271AE
+
 ! ! magenta
-! URxvt.color5  : #AA00AA
-! URxvt.color13 : #FF55FF
+! URxvt.color5: #8959A8
+! URxvt.color13: #8959A8
+
 ! ! cyan
-! URxvt.color6  : #00AAAA
-! URxvt.color14 : #55FFFF
+! URxvt.color6: #3E999F
+! URxvt.color14: #3E999F
+
 ! ! white
-! URxvt.color7  : #AAAAAA
-! URxvt.color15 : #FFFFFF
+! URxvt.color7: #4D4D4C
+! URxvt.color15: #F5F5F5
 
 ! !! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
@@ -89,5 +99,3 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! ! Separator style (none, dash, solid)
 ! rofi.separator-style:                solid
 ! ! }
-
-
