@@ -13,10 +13,9 @@ while true; do
   then
 
     # install i3
-    # sudo apt-get -y install i3
+    sudo apt-get -y install i3
 
-    # install dependencies
-
+    # install dependencies for compilation of i3gaps
     sudo expect -c "
     spawn sudo add-apt-repository ppa:aguignard/ppa
     expect { 
