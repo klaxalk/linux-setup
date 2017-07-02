@@ -33,6 +33,13 @@ let g:tex_flavor='latex'
 
 " set colorscheme (only in normal vim)
 if g:normal_mode == "1"
-  colorscheme jellybeans
-  " colorscheme raggi
+  " JELLYBEANS COLOR_SCHEME {
+  " colorscheme jellybeans 
+  " let g:airline_theme='jellybeans'
+  " " }
+  
+  " LIGHT COLOR_SCHEME ACTIVE {
+  let g:airline_theme='papercolor'
+  colorscheme raggi
+  " }
 endif
