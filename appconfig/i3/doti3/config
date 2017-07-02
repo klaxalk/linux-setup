@@ -183,20 +183,22 @@ set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
 # LIGHT COLOR_SCHEME {
-# set $inactive_text_color      #1d2021
-# set $active_text_color        #1d2021
-# set $inactive_background      #eeeeee
-# set $active_border            #aaaaaa
-# set $active_background        #cccccc
+# set $inactive_text_color         #1d2021
+# set $active_text_color           #1d2021
+# set $inactive_background         #eeeeee
+# set $active_border               #aaaaaa
+# set $active_background           #cccccc
+# set focused_workspace_text_color #1d2021
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # # }
 
 # JELLYBEANS COLOR_SCHEME ACTIVE {
-set $inactive_text_color      #eeeeee
-set $active_text_color        #000000
-set $inactive_background      #333333
-set $active_border            #999999
-set $active_background        #888888
+set $inactive_text_color         #eeeeee
+set $active_text_color           #000000
+set $inactive_background         #333333
+set $active_border               #999999
+set $active_background           #888888
+set focused_workspace_text_color #000000
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 # }
 
@@ -225,7 +227,7 @@ bar {
 	  separator  $inactive_text_color
 
 		#                  border             background          text
-		focused_workspace  $active_border     $active_background  $inactive_text_color
+		focused_workspace  $active_border     $active_background  $focused_workspace_text_color
 		active_workspace   $transparent       $transparent        $inactive_text_color
 		inactive_workspace $transparent       $transparent        $inactive_text_color
 		binding_mode       $transparent       $transparent        $inactive_text_color
