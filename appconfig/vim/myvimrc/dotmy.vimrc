@@ -33,6 +33,6 @@ let g:tex_flavor='latex'
 
 " set colorscheme (only in normal vim)
 if g:normal_mode == "1"
-  " colorscheme jellybeans
-  colorscheme raggi
+  colorscheme jellybeans
+  " colorscheme raggi
 endif

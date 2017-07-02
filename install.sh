@@ -27,6 +27,9 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+# install urxvt
+bash $APPCONFIG_PATH/urxvt/install.sh
+
 # install i3
 bash $APPCONFIG_PATH/i3/install.sh
 
