@@ -169,10 +169,10 @@ set $transparent #00000000
 # LIGHT COLOR_SCHEME {
 # set $inactive_text_color         #1d2021
 # set $active_text_color           #1d2021
-# set $inactive_background         #eeeeee
 # set $active_border               #aaaaaa
-# set $active_background           #cccccc
-# set $focused_ws_bg               #cccccc
+# set $inactive_background         #dddddd
+# set $active_background           #aaaaaa
+# set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # for_window [class="^.*"] border pixel 2
@@ -197,8 +197,8 @@ hide_edge_borders both
 #                       border                    background            text                  indicator
 client.focused          $active_border            $active_background    $active_text_color    $inactive_text_color
 client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
-client.focused_inactive $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
-client.urgent           $transparent              $transparent          $inactive_text_color  $inactive_text_color
+client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $inactive_text_color
+client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
