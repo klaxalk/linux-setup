@@ -182,23 +182,23 @@ set $dark-grey   #aaaaaa
 set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
-# LIGHT COLOR_SCHEME ACTIVE {
-set $inactive_text_color      #1d2021
-set $active_text_color        #1d2021
-set $inactive_background      #eeeeee
-set $active_border            #aaaaaa
-set $active_background        #cccccc
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# }
-
-# JELLYBEANS COLOR_SCHEME {
-# set $inactive_text_color      #eeeeee
-# set $active_text_color        #000000
-# set $inactive_background      #333333
-# set $active_border            #999999
-# set $active_background        #888888
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+# LIGHT COLOR_SCHEME {
+# set $inactive_text_color      #1d2021
+# set $active_text_color        #1d2021
+# set $inactive_background      #eeeeee
+# set $active_border            #aaaaaa
+# set $active_background        #cccccc
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # # }
+
+# JELLYBEANS COLOR_SCHEME ACTIVE {
+set $inactive_text_color      #eeeeee
+set $active_text_color        #000000
+set $inactive_background      #333333
+set $active_border            #999999
+set $active_background        #888888
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+# }
 
 for_window [class="^.*"] border pixel 2
 hide_edge_borders both
