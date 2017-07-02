@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 11
+font pango:System San Francisco Display 10.5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -215,11 +215,11 @@ bar {
 	  separator  $inactive_text_color
 
 		#                  border             background           text
-		focused_workspace  $focused_ws_bg     $focused_ws_bg       $inactive_text_color
-		active_workspace   $transparent       $transparent         $inactive_text_color
-		inactive_workspace $transparent       $transparent         $inactive_text_color
-		binding_mode       $transparent       $transparent         $inactive_text_color
-		urgent_workspace   $transparent       $transparent         $inactive_text_color
+		focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
+		active_workspace   $transparent       $transparent         $active_text_color
+		inactive_workspace $transparent       $transparent         $active_text_color
+		binding_mode       $transparent       $transparent         $active_text_color
+		urgent_workspace   $transparent       $transparent         $active_text_color
 	}
 
 	# i3bar position
