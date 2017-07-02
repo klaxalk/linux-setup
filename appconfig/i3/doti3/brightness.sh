@@ -40,7 +40,7 @@ else
 fi
 
 CURRENT_BRIGHTNESS=`xbacklight | sed -r "s/^(.*)\..*/\1/g"`
-if [ $CURRENT_BRIGHTNESS -le 100 ]; then
+if [ $CURRENT_BRIGHTNESS -ge 100 ]; then
 
   notify-send -u low -i mouse "Brightness on MAX"
 
