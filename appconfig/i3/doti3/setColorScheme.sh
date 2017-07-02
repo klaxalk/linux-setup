@@ -16,23 +16,22 @@ setColorScheme() {
 
   # uncomment lines with specific color scheme (multi line)
   /usr/bin/vim $1 -c "%g/^.*$2 COLOR_SCHEME\s\+{\s*$/norm f{iACTIVE jk^f{gci{" -c "wqa"
+
+  echo "Switched to $2 in $1"
 }
 #}
 
 setColorScheme ~/.i3/config $COLOR_SCHEME
-echo "20%"
 setColorScheme ~/.i3/i3blocks.conf $COLOR_SCHEME
-echo "40%"
 setColorScheme ~/.my.vimrc $COLOR_SCHEME
-echo "60%"
 setColorScheme ~/.Xresources $COLOR_SCHEME
-echo "80%"
+setColorScheme ~/.tmux.conf $COLOR_SCHEME
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
 
 i3-msg restart
 
-echo "100%"
+echo "Done"
 
 sleep 1
