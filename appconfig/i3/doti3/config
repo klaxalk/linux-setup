@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 10
+font pango:System San Francisco Display 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -164,23 +164,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# colors for the light theme
-set $black       #282828
-set $darkblack   #1d2021
-set $superblack  #000000
 set $transparent #00000000
-set $dark-grey   #aaaaaa
-set $mid-grey    #cccccc
-set $light-grey  #eeeeee
-
-# colors for the dark theme
-set $white       #ffffff
-set $mildwhite   #eeeeee
-set $superwhite  #ffffff
-set $transparent #00000000
-set $dark-grey   #aaaaaa
-set $mid-grey    #cccccc
-set $light-grey  #eeeeee
 
 # LIGHT COLOR_SCHEME {
 # set $inactive_text_color         #1d2021
@@ -188,21 +172,25 @@ set $light-grey  #eeeeee
 # set $inactive_background         #eeeeee
 # set $active_border               #aaaaaa
 # set $active_background           #cccccc
-# set focused_workspace_text_color #1d2021
+# set $focused_ws_bg               #cccccc
+# set $background_color            #ffffff
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# for_window [class="^.*"] border pixel 2
 # # }
 
 # JELLYBEANS COLOR_SCHEME ACTIVE {
-set $inactive_text_color         #eeeeee
-set $active_text_color           #000000
-set $inactive_background         #333333
-set $active_border               #999999
-set $active_background           #888888
-set focused_workspace_text_color #000000
+
+set $focused_ws_bg            #005faf
+set $active_text_color        #ffffff
+set $inactive_text_color      #eeeeee
+set $inactive_background      #333333
+set $active_border            #005faf
+set $active_background        #005faf
+set $background_color         #151515
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+for_window [class="^.*"] border pixel 1
 # }
 
-for_window [class="^.*"] border pixel 2
 hide_edge_borders both
 
 # window colors
@@ -226,12 +214,12 @@ bar {
 		background $transparent
 	  separator  $inactive_text_color
 
-		#                  border             background          text
-		focused_workspace  $active_border     $active_background  $focused_workspace_text_color
-		active_workspace   $transparent       $transparent        $inactive_text_color
-		inactive_workspace $transparent       $transparent        $inactive_text_color
-		binding_mode       $transparent       $transparent        $inactive_text_color
-		urgent_workspace   $transparent       $transparent        $inactive_text_color
+		#                  border             background           text
+		focused_workspace  $focused_ws_bg     $focused_ws_bg       $inactive_text_color
+		active_workspace   $transparent       $transparent         $inactive_text_color
+		inactive_workspace $transparent       $transparent         $inactive_text_color
+		binding_mode       $transparent       $transparent         $inactive_text_color
+		urgent_workspace   $transparent       $transparent         $inactive_text_color
 	}
 
 	# i3bar position
@@ -239,7 +227,7 @@ bar {
 }
 
 # rofi launcher
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d  exec rofi -show run -opacity "85" -width 100 -padding 450 -font "Monospace 18" -lines 5 -eh 2
 
 # bind audio to DELL's special keys
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound

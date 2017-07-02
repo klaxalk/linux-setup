@@ -6,8 +6,6 @@ export TMUX_BIN=/usr/local/bin/tmux
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
 
-export TERM="xterm-256color"                                                                          
-
 # reload configuration for urxvt
 xrdb ~/.Xresources
 
