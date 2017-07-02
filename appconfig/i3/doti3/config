@@ -133,6 +133,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+bindsym $mod2+c exec --no-startup-id ~/.i3/toggleColorscheme.sh
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
@@ -180,10 +182,11 @@ set $mid-grey    #cccccc
 set $light-grey  #eeeeee
 
 # # LIGHT_THEME
-# set $text_color $superblack
-# set $inactive_background $light-grey
-# set $active-border $dark-grey
-# set $active-background $mid-grey
+# set $inactive_text_color      #1d2021
+# set $active_text_color        #1d2021
+# set $inactive_background      #eeeeee
+# set $active-border            #aaaaaa
+# set $active-background        #cccccc
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
 # DARK_THEME
