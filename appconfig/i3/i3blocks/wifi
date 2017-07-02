@@ -47,14 +47,14 @@ elif [[ $QUALITY -lt 40 ]]; then
 fi
 # }
 
-# JELLYBEANS COLOR_SCHEME ACTIVE {
-if [[ $QUALITY -ge 80 ]]; then
-    echo "#005500"
-elif [[ $QUALITY -lt 80 ]]; then
-    echo "#555600"
-elif [[ $QUALITY -lt 60 ]]; then
-    echo "#553E00"
-elif [[ $QUALITY -lt 40 ]]; then
-    echo "#550000"
-fi
-# }
+# LIGHT COLOR_SCHEME {
+# if [[ $QUALITY -ge 80 ]]; then
+#     echo "#005500"
+# elif [[ $QUALITY -lt 80 ]]; then
+#     echo "#555600"
+# elif [[ $QUALITY -lt 60 ]]; then
+#     echo "#553E00"
+# elif [[ $QUALITY -lt 40 ]]; then
+#     echo "#550000"
+# fi
+# # }

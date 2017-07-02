@@ -27,6 +27,7 @@ setColorScheme ~/.my.vimrc $COLOR_SCHEME
 setColorScheme ~/.Xresources $COLOR_SCHEME
 setColorScheme ~/.tmux.conf $COLOR_SCHEME
 setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/wifi $COLOR_SCHEME
+setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/battery $COLOR_SCHEME
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
