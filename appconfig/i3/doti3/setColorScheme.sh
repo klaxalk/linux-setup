@@ -26,6 +26,7 @@ setColorScheme ~/.i3/i3blocks.conf $COLOR_SCHEME
 setColorScheme ~/.my.vimrc $COLOR_SCHEME
 setColorScheme ~/.Xresources $COLOR_SCHEME
 setColorScheme ~/.tmux.conf $COLOR_SCHEME
+setColorScheme ~/git/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-airline.vim $COLOR_SCHEME
 setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/wifi $COLOR_SCHEME
 setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/battery $COLOR_SCHEME
 
