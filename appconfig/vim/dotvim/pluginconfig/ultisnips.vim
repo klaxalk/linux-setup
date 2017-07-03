@@ -7,7 +7,7 @@ let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " key bindings for normal use
-if g:normal_mode == "1"
+if g:user_mode == "1"
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsListSnippets="<c-l>"
   let g:UltiSnipsJumpForwardTrigger="<s-l>"
@@ -16,7 +16,7 @@ if g:normal_mode == "1"
 endif
 
 " key bindings for athame
-if g:normal_mode == "0"
+if g:user_mode == "0"
   let g:UltiSnipsExpandTrigger="<s-tab>"
   let g:UltiSnipsJumpForwardTrigger="<s-l>"
   let g:UltiSnipsJumpBackwardTrigger="<s-h>"
