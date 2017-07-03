@@ -6,6 +6,7 @@ files=(
   "~/.my.vimrc"
   "~/.Xresources"
   "~/.tmux.conf"
+  "~/.vimrc"
   "~/git/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-airline.vim"
   "~/git/linux-setup/appconfig/i3/i3blocks/wifi"
   "~/git/linux-setup/appconfig/i3/i3blocks/battery"
