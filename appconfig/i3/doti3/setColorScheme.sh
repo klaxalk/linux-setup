@@ -1,6 +1,15 @@
 #!/bin/bash
 
-COLOR_SCHEME="$1"
+files=(
+  "~/.i3/config"
+  "~/.i3/i3blocks.conf"
+  "~/.my.vimrc"
+  "~/.Xresources"
+  "~/.tmux.conf"
+  "~/git/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-airline.vim"
+  "~/git/linux-setup/appconfig/i3/i3blocks/wifi"
+  "~/git/linux-setup/appconfig/i3/i3blocks/battery"
+)
 
 #{ setColorScheme()
 setColorScheme() {
@@ -17,18 +26,17 @@ setColorScheme() {
   # uncomment lines with specific color scheme (multi line)
   /usr/bin/vim $1 -c "%g/^.*$2 COLOR_SCHEME\s\+{\s*$/norm f{iACTIVE jk^f{gci{" -c "wqa"
 
-  echo "Switched to $2 in $1"
+  echo "Switched to $2 in the file: $1"
 }
 #}
 
-setColorScheme ~/.i3/config $COLOR_SCHEME
-setColorScheme ~/.i3/i3blocks.conf $COLOR_SCHEME
-setColorScheme ~/.my.vimrc $COLOR_SCHEME
-setColorScheme ~/.Xresources $COLOR_SCHEME
-setColorScheme ~/.tmux.conf $COLOR_SCHEME
-setColorScheme ~/git/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-airline.vim $COLOR_SCHEME
-setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/wifi $COLOR_SCHEME
-setColorScheme ~/git/linux-setup/appconfig/i3/i3blocks/battery $COLOR_SCHEME
+COLOR_SCHEME="$1"
+
+for ((i=0; i < ${#files[*]}; i++));
+do
+  eval path=${files[$i]}
+  setColorScheme $path "$COLOR_SCHEME"
+done
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
