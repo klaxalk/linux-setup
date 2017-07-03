@@ -19,7 +19,6 @@ cd ~/git
 sudo apt-get -y install git
 git clone https://github.com/klaxalk/linux-setup.git
 cd linux-setup
-git checkout i3update
 ./install.sh" > run.sh && source run.sh
 ```
 **Calling install.sh repeatedly** will not cause acumulation of gibrish in your .bashrc, so feel free to update your configuration by rerunning it.
