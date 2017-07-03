@@ -4,8 +4,8 @@ set path+=~/git/**
 
 " set colorscheme, but ifaoif we are in normal mode
 if g:normal_mode == "1"
-  colorscheme jellybeans
-  " colorscheme raggi
+  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
+  " colorscheme raggi " LIGHT COLOR_SCHEME
 endif
 
 " where should vim look for the tags?
