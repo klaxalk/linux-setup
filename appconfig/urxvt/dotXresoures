@@ -1,4 +1,4 @@
-URxvt.font: xft:monospace:size=12
+URxvt.font: xft:monospace:size=13
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
@@ -9,7 +9,7 @@ URxvt.saveLine: 10000
 ! JELLYBEANS COLOR_SCHEME ACTIVE {
 !! Jellybeans Terminal Colours
 urxvt.background: #151515
-urxvt.foreground: #ffffff
+urxvt.foreground: #eeeeee
 ! black
 urxvt.color0: #888888
 urxvt.color8: #525252

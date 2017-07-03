@@ -23,6 +23,19 @@ cd linux-setup
 ```
 **Calling install.sh repeatedly** will not cause acumulation of gibrish in your .bashrc, so feel free to update your configuration by rerunning it.
 
+# Credits
+
+I thank following sources for inspiring me:
+
+  * All guys behind [thoughtbot](https://www.youtube.com/user/ThoughtbotVideo) and namely following presenters:
+    * Mike Coutermarsh, https://www.youtube.com/watch?v=_NUO4JEtkDw
+    * Chris Toomey, https://www.youtube.com/watch?v=wlR5gYd6um0
+    * Aaron Bieber, https://www.youtube.com/watch?v=JWD1Fpdd4Pc
+  * Nick Nisi, https://www.youtube.com/channel/UCbNhLf99gKKXdXm0aFfQFKw
+  * Luke Smith, https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA
+  * Alex Booker, https://www.youtube.com/watch?v=_kjbj-Ez1vU
+  * Gaël Ecorchard, https://github.com/galou
+
 # How to work with my setup?
 
 Here I describe the most important keybindings and shortcuts.
@@ -218,7 +231,7 @@ A snippet file for the currently opened document can be opened by **\<leader\>u*
 
 ### The leader key
 
-I have remapped the leader to a comma ",".
+I have remapped the **leader** to a comma ",".
 
 ### Using CTAGS
 
