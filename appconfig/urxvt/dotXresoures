@@ -56,23 +56,23 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! *color8: #000000
 
 ! !! red dark/light
-! *color1: #660000
+! *color1: #550000
 ! *color9: #660000
 
 ! !! green dark/light
-! *color2: #006600
+! *color2: #005500
 ! *color10: #006600
 
 ! !! yellow dark/light
-! *color3: #666600
+! *color3: #555500
 ! *color11: #666600
 
 ! !! blue dark/light
-! *color4: #000066
+! *color4: #000055
 ! *color12: #000066
 
 ! !! magenta dark/light
-! *color5: #660066
+! *color5: #550055
 ! *color13: #660066
 
 ! !! cyan dark/light
