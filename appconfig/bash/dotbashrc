@@ -6,9 +6,6 @@ export TMUX_BIN=/usr/local/bin/tmux
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
 
-# reload configuration for urxvt
-xrdb ~/.Xresources
-
 # allows killing process with all its children
 killp () {
 
@@ -124,6 +121,9 @@ source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
 # special code for i3 users
 if [ "$USE_I3" = "true" ]; then
+
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
 
   # set keyboard repeat rate
   xset r rate 350 55
