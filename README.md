@@ -268,7 +268,7 @@ I have tested it on Ubuntu 16.04.
 
 Notable points:
 
-- Normally, Vim is started using an alias from my additions to **.bashrc**, where it is told (by g:normal_mode variable) that we want all plugins and settings
-- When Athame uses vim, it does not set the g:normal_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
+- Normally, Vim is started using an alias from my additions to **.bashrc**, where it is told (by g:user_mode variable) that we want all plugins and settings
+- When Athame uses vim, it does not set the g:user_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.

@@ -1,5 +1,5 @@
 # set editor and shell
-export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:normal_mode=1'"
+export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export SHELL=/bin/bash
 export TMUX_BIN=/usr/local/bin/tmux
 
