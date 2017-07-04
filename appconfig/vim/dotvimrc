@@ -3,17 +3,17 @@ set t_Co=256                  " 256 colors
 set encoding=utf-8
 
 " detects how was vim started... 1=manually, 0=other (athame)
-let g:normal_mode = get(g:, 'normal_mode', "0")
+let g:user_mode = get(g:, 'user_mode', "0")
 
 " set athame filetype
-if g:normal_mode == "0"
+if g:user_mode == "0"
   set filetype=athame
 endif
 
 call plug#begin("~/.vim/plugged")
 
 " which plugins should not be loaded outside of normal session (not in athame)
-if g:normal_mode == "1"
+if g:user_mode == "1"
 
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
@@ -325,7 +325,7 @@ map <Leader>frl :s///g<left><left>
 map <Leader>fa :%s//&/g<left><left>
 map <Leader>fal :s//&/g<left><left>
 
-if g:normal_mode == "1"
+if g:user_mode == "1"
 
   " config for airline
   source ~/.vim/pluginconfig/vim-airline.vim
@@ -375,14 +375,14 @@ source ~/.vim/pluginconfig/ultisnips.vim
 source ~/.vim/pluginconfig/vim-commentary.vim
 
 " settings only for athame
-if g:normal_mode == "0"
+if g:user_mode == "0"
 
   nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
 
 endif
 
 " set colorscheme (only in normal vim)
-if g:normal_mode == "1"
+if g:user_mode == "1"
   colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE 
   " colorscheme raggi " LIGHT COLOR_SCHEME 
 endif
