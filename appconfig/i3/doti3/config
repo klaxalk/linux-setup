@@ -245,8 +245,8 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set 'PCM' 10%+
 
 # Keyboard backlight shortcuts
-bindsym XF86KbdBrightnessUp exec ~/.i3/kb-light.py + 
-bindsym XF86KbdBrightnessDown exec ~/.i3/kb-light.py - 
+bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.i3/kb_light.sh - 
+bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.i3/kb_light.sh + 
 
 # Bind screen brightness control to DELLs special keys
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -255,8 +255,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREAS
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # INCREASE Screen brightness
-bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
+# bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # INCREASE Screen brightness
+# bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
 
 # toggling touchpad
 bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh

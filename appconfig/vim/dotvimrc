@@ -383,8 +383,8 @@ endif
 
 " set colorscheme (only in normal vim)
 if g:normal_mode == "1"
-  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
-  " colorscheme raggi " LIGHT COLOR_SCHEME
+  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE 
+  " colorscheme raggi " LIGHT COLOR_SCHEME 
 endif
 
 " if exists, source .my.vimrc
