@@ -1,4 +1,4 @@
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+URxvt.font: xft:Ubuntu Mono derivative Powerline:size=13
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
@@ -60,8 +60,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! *color9: #660000
 
 ! !! green dark/light
-! *color2: #005500
-! *color10: #006600
+! *color2: #008800
+! *color10: #008800
 
 ! !! yellow dark/light
 ! *color3: #555500
@@ -76,7 +76,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! *color13: #660066
 
 ! !! cyan dark/light
-! *color6: #006666
+! *color6: #00a9a9
 ! *color14: #006666
 
 ! !! white dark/light
