@@ -32,3 +32,6 @@
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "submodules/vimiv"]
+	path = submodules/vimiv
+	url = https://github.com/karlch/vimiv

@@ -13,7 +13,6 @@ let g:tmuxline_separators = {
 " custom preset with left-justified window list
 let g:tmuxline_preset = {
     \'a'       : '#S',
-    \'b'       : '#W',
     \'win'     : '#I #W',
     \'cwin'    : '#I #W',
     \'x'       : '#(echo $ROS_MASTER_URI)',
