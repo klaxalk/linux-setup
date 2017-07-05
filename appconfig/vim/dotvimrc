@@ -94,7 +94,7 @@ if g:user_mode == "1"
   Plug 'tpope/vim-unimpaired'
 
   " managing sessions
-  Plug 'tpope/vim-obsession'
+  " Plug 'tpope/vim-obsession'
 
 endif
 
