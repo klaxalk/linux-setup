@@ -9,7 +9,7 @@ URxvt.saveLine: 10000
 ! JELLYBEANS COLOR_SCHEME ACTIVE {
 ! vim: ft=xdefaults
 *background: #151515
-*foreground: #eeeeee
+*foreground: #dddddd
 ! black
 *color0: #1C1C1C
 *color8: #404040
