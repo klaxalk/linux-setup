@@ -91,12 +91,38 @@ ${1:${VISUAL}}
 endsnippet
 
 snippet figuree "figure with caption etc." i
-\\begin{figure}
-\\centering
-\\includegraphics[width=${1:1.0}\textwidth]{${2}}
-\\caption{${3}}
-\\label{${4}}
+\\begin{figure} [h]
+	\\centering
+	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
+	\\caption{${3}}
+	\\label{fig:${4}}
 \\end{figure}
+endsnippet
+
+snippet figuree2 "figure with caption etc." i
+\\begin{figure} [h]
+	\\centering
+	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
+	\\hspace{.2in}
+	\\includegraphics[height=2.0in, width=${3:1.0}\textwidth]{figures/${4}}
+	\\caption{${5}}
+	\\label{fig:${6}}
+\\end{figure}
+endsnippet
+
+snippet table "table"
+\\begin{table}[t]
+\\caption{${1}} \label{${2:sample-table}}
+\\begin{center}
+\\begin{tabular}{${3:|c|c|c|}}
+	\\hline
+	${4:& title1 & title2} \\\\
+	\\hline\hline
+	${5:line1 & foo & bar} \\\\ \\hline
+	\\hline
+\\end{tabular}
+\end{center}
+\\end{table}
 endsnippet
 
 snippet centering "\centering{}" i
