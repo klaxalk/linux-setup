@@ -41,6 +41,10 @@ while true; do
     ln -s $APP_PATH/dotvimrc ~/.vimrc
     ln -s $APP_PATH/dotvim ~/.vim
 
+    # install patched fonts with powerline characters
+    cd $APP_PATH/../../submodules/fonts
+    ./install.sh
+
     # add variable for ctags sources into .bashrc
     num=`cat ~/.bashrc | grep "CTAGS_SOURCE_DIR" | wc -l`
     if [ "$num" -lt "1" ]; then
