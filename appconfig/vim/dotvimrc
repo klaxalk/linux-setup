@@ -303,15 +303,13 @@ vmap L $
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
-" folding by marker when editting MATLAB files
+" folding by marker for various file types
 au FileType m set foldmethod=marker
 au FileType m set foldmarker=%%{,%%}
 
-" folding by marker when editting yaml files
 au FileType yml,yaml,sh,conf set foldmethod=marker
 au FileType yml,yaml,sh,conf set foldmarker=#{,#}
 
-" folding by marker when editting c++ files
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
 
