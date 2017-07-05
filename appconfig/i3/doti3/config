@@ -68,10 +68,8 @@ bindsym $mod+m workspace prev_on_output
 # cycle through containers on the current workspace in a similar ways as on windows
 bindsym Mod1+Tab focus right
 
-# split in horizontal orientation
+# splitting directions
 bindsym $mod+braceright split h
-
-# split in vertical orientation
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
@@ -313,7 +311,7 @@ bindsym $mod2+q exec --no-startup-id qutebrowser
 
 smart_gaps on
 
-set $default_gaps_inner 15
+set $default_gaps_inner 12
 set $default_gaps_outer 0
 
 gaps inner $default_gaps_inner
