@@ -304,20 +304,17 @@ vmap L $
 vnoremap // y/<C-R>"<CR>
 
 " folding by marker when editting MATLAB files
-au BufRead *.m set foldmethod=marker
-au BufRead *.m set foldmarker=%%{,%%}
+au FileType m set foldmethod=marker
+au FileType m set foldmarker=%%{,%%}
 
 " folding by marker when editting yaml files
-au BufRead *.yml set foldmethod=marker
-au BufRead *.yml set foldmarker=#{,#}
+au FileType yml,yaml,sh,conf set foldmethod=marker
+au FileType yml,yaml,sh,conf set foldmarker=#{,#}
 
 " folding by marker when editting c++ files
-au BufRead *.cpp set foldmethod=marker
-au BufRead *.cpp set foldmarker=//{,//}
+au FileType cpp set foldmethod=marker
+au FileType cpp set foldmarker=//{,//}
 
-" folding by marker when editting sh files
-au BufRead *.sh set foldmethod=marker
-au BufRead *.sh set foldmarker=#{,#}
 " compilation
 map <Leader>m :w\|silent make\|redraw!\|cc<CR>
 map <Leader>fr :%s///g<left><left>
