@@ -44,6 +44,10 @@ endfun
 
 autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit")
 
+" indention in insert mode
+autocmd BufRead */notes/* inoremap > <esc>lma>>`alli
+autocmd BufRead */notes/* inoremap < <esc>lma<<`ahhi
+
 nmap <Leader>wah :VimwikiAll2HTML<CR>
 
 " autocmd BufRead */notes/* inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
