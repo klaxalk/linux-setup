@@ -174,6 +174,7 @@ set $transparent #00000000
 # set $active_background           #aaaaaa
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
+# set $split_indicator             #aaaaaa
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # for_window [class="^.*"] border pixel 2
 # # }
@@ -184,21 +185,22 @@ set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
 set $inactive_background      #333333
-set $active_border            #005faf
 set $active_background        #005faf
 set $background_color         #151515
+set $active_border            #005faf
+set $split_indicator          #B85335
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 # }
 
 hide_edge_borders both
 
 # window colors
 #                       border                    background            text                  indicator
-client.focused          $active_border            $active_background    $active_text_color    $inactive_text_color
-client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
-client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $inactive_text_color
-client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
+client.focused          $active_border            $active_background    $active_text_color    $split_indicator
+client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
+client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $split_indicator
+client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
