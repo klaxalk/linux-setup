@@ -7,33 +7,39 @@ URxvt.saveLine: 10000
 ! foreground/background
 
 ! JELLYBEANS COLOR_SCHEME ACTIVE {
-!! Jellybeans Terminal Colours
-urxvt.background: #151515
-urxvt.foreground: #eeeeee
+! vim: ft=xdefaults
+*background: #151515
+*foreground: #eeeeee
 ! black
-urxvt.color0: #888888
-urxvt.color8: #525252
+*color0: #1C1C1C
+*color8: #404040
 ! red
-urxvt.color1: #cf6a4c
-urxvt.color9: #ff9d80
+*color1: #B85335
+*color9: #CF6A4C
 ! green
-urxvt.color2: #99ad6a
-urxvt.color10: #c3e6ad
+*color2: #799D6A
+*color10: #99AD6A
 ! yellow
-urxvt.color3: #fad07a
-urxvt.color11: #ffefbf
+*color3: #FFB964
+*color11: #FAD07A
 ! blue
-urxvt.color4: #8197bf
-urxvt.color12: #accaff
+*color4: #667899
+*color12: #8197BF
 ! magenta
-urxvt.color5: #8787af
-urxvt.color13: #c4c4ff
+*color5: #8787AF
+*color13: #C6B6EE
 ! cyan
-urxvt.color6: #8fbfdc
-urxvt.color14: #80bfaf
+*color6: #668799
+*color14: #8FBFDC
 ! white
-urxvt.color7: #888888
-urxvt.color15: #e8e8d3
+*color7: #888888
+*color15: #E8E8D3
+
+!! URxvt COLORS --------------------------------------------------------
+URxvt*depth                   : 32
+URxvt.fading                  : 25
+URxvt.fadeColor               : #121212
+URxvt*visualBell              : false
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
