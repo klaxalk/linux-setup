@@ -38,7 +38,7 @@ URxvt.saveLine: 10000
 !! URxvt COLORS --------------------------------------------------------
 URxvt*depth                   : 32
 URxvt.fading                  : 25
-URxvt.fadeColor               : #121212
+URxvt.fadeColor               : #101010
 URxvt*visualBell              : false
 
 ! ------------------------------------------------------------------------------
