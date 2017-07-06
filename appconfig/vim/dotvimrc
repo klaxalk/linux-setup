@@ -96,6 +96,9 @@ if g:user_mode == "1"
   " managing sessions
   " Plug 'tpope/vim-obsession'
 
+  " fuzzy finder
+  Plug 'ctrlpvim/ctrlp.vim'
+
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -358,6 +361,9 @@ if g:user_mode == "1"
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
 
+  " config for ctrl+P
+  source ~/.vim/pluginconfig/ctrlp.vim
+
 endif
 
 " config for vim-multiple-cursors
@@ -384,5 +390,5 @@ endif
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
-source ~/.my.vimrc
+  source ~/.my.vimrc
 endif
