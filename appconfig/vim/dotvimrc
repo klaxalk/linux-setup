@@ -5,6 +5,11 @@ set encoding=utf-8
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
 
+" if in diff, set user mode to 1
+if &diff
+  let g:user_mode = 1
+endif
+
 " set athame filetype
 if g:user_mode == "0"
   set filetype=athame
