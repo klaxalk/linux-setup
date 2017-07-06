@@ -66,21 +66,34 @@ generateTags() {
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
+  
+  # try to find session with the correct session id (based on the bashs PID)
+  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "T$BASHPID" | wc -l` 
 
-  PES="$BASHPID"
+  if [ "$EXISTING_SESSION" -gt "0" ]; then
   
-  num=`$TMUX_BIN ls 2> /dev/null | grep "T$PES" | wc -l` 
-  if [ "$num" -gt "0" ]; then
-  
-    # ID=`$TMUX_BIN new-window -t "T$PES" -a -P`
-    $TMUX_BIN -2 attach-session -t "T$PES"
+    # if such session exists, attach to it
+    $TMUX_BIN -2 attach-session -t "T$BASHPID"
   
   else
   
-    $TMUX_BIN new-session -s "T$PES"
+    # if such session does not exist, create it
+    $TMUX_BIN new-session -s "T$BASHPID"
   
   fi 
 
+  # when the session exists, find a file in /tmp with the name of the session
+  # and extract a path from it. Then cd to it.
+  FILENAME="/tmp/tmux_restore_path.txt"
+  if [ -f $FILENAME ]; then
+
+    MY_PATH=$(tail -n 1 $FILENAME)
+
+    rm /tmp/tmux_restore_path.txt
+
+    cd $MY_PATH
+
+  fi
 }
 _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
 trap _trap_exit EXIT                                                                                  
