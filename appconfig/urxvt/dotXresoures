@@ -30,8 +30,8 @@ URxvt.perl-ext-common: default,clipboard
 *color1: #B85335
 *color9: #CF6A4C
 ! green
-*color2: #799D6A
-*color10: #99AD6A
+*color2: #79AD6A
+*color10: #99DD6A
 ! yellow
 *color3: #FFB964
 *color11: #FAD07A
