@@ -66,22 +66,25 @@ generateTags() {
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
+
+  SESSION_NAME="T$BASHPID"
   
   # try to find session with the correct session id (based on the bashs PID)
-  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "T$BASHPID" | wc -l` 
+  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
 
   if [ "$EXISTING_SESSION" -gt "0" ]; then
   
     # if such session exists, attach to it
-    $TMUX_BIN -2 attach-session -t "T$BASHPID"
+    $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
   
   else
   
     # if such session does not exist, create it
-    $TMUX_BIN new-session -s "T$BASHPID"
+    $TMUX_BIN new-session -s "$SESSION_NAME"
   
   fi 
 
+  # hook after exitting the session
   # when the session exists, find a file in /tmp with the name of the session
   # and extract a path from it. Then cd to it.
   FILENAME="/tmp/tmux_restore_path.txt"
@@ -105,19 +108,20 @@ runVim() {
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
+
+    SESSION_NAME="T$BASHPID"
   
-    PES="$BASHPID"
     # if there is a tmux session with the same name as the current bashpid
-    num=`$TMUX_BIN ls 2> /dev/null | grep "T$PES" | wc -l`
+    num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
     if [ "$num" -gt "0" ]; then
 
-      ID=`$TMUX_BIN new-window -t "T$PES" -a -P`
+      ID=`$TMUX_BIN new-window -t "$SESSION_NAME" -a -P`
       $TMUX_BIN send-keys -t $ID "$EDITOR -- ${@}" C-m
-      $TMUX_BIN -2 attach-session -t "T$PES"
+      $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
     
     else 
 
-      $TMUX_BIN new-session -s "T$PES" -d "$EDITOR -- ${@}" \; attach
+      $TMUX_BIN new-session -s "$SESSION_NAME" -d "$EDITOR -- ${@}" \; attach
 
     fi
 
