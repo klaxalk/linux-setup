@@ -1,7 +1,20 @@
+! EXTENSIONS are stored at /usr/lib/urxvt/perl
+
 URxvt.font: xft:Ubuntu Mono derivative Powerline:size=13
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
+
+! font resizing
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! shared clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
 
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background

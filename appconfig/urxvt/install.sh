@@ -18,6 +18,12 @@ while true; do
     # link the configuration
     ln -s $APP_PATH/dotXresoures ~/.Xresources
 
+    # link extensions
+    for file in `ls $APP_PATH/extensions/`
+do
+    sudo ln -s $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
+done
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
