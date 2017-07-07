@@ -106,6 +106,8 @@ runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
+  VIM_CMD=$(echo "$EDITOR -- ${@}")
+
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
 
@@ -116,18 +118,18 @@ runVim() {
     if [ "$num" -gt "0" ]; then
 
       ID=`$TMUX_BIN new-window -t "$SESSION_NAME" -a -P`
-      $TMUX_BIN send-keys -t $ID "$EDITOR -- ${@}" C-m
+      $TMUX_BIN send-keys -t $ID "$VIM_CMD" C-m
       $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
     
     else 
 
-      $TMUX_BIN new-session -s "$SESSION_NAME" -d "$EDITOR -- ${@}" \; attach
+      $TMUX_BIN new-session -s "$SESSION_NAME" -d "$VIM_CMD" \; attach
 
     fi
 
   else
 
-    bash -c "$EDITOR -- ${@}"
+    bash -c "$VIM_CMD"
 
   fi
 }
