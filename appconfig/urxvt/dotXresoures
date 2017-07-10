@@ -21,32 +21,32 @@ URxvt.perl-ext-common: default,clipboard
 
 ! JELLYBEANS COLOR_SCHEME ACTIVE {
 ! vim: ft=xdefaults
-*background: #151515
-*foreground: #dddddd
+URxvt.background: #151515
+URxvt.foreground: #dddddd
 ! black
-*color0: #1C1C1C
-*color8: #404040
+URxvt.color0: #1C1C1C
+URxvt.color8: #404040
 ! red
-*color1: #B85335
-*color9: #CF6A4C
+URxvt.color1: #B85335
+URxvt.color9: #CF6A4C
 ! green
-*color2: #79AD6A
-*color10: #99DD6A
+URxvt.color2: #79AD6A
+URxvt.color10: #99DD6A
 ! yellow
-*color3: #FFB964
-*color11: #FAD07A
+URxvt.color3: #FFB964
+URxvt.color11: #FAD07A
 ! blue
-*color4: #667899
-*color12: #8197BF
+URxvt.color4: #667899
+URxvt.color12: #8197BF
 ! magenta
-*color5: #8787AF
-*color13: #C6B6EE
+URxvt.color5: #8787AF
+URxvt.color13: #C6B6EE
 ! cyan
-*color6: #668799
-*color14: #8FBFDC
+URxvt.color6: #668799
+URxvt.color14: #8FBFDC
 ! white
-*color7: #888888
-*color15: #E8E8D3
+URxvt.color7: #888888
+URxvt.color15: #E8E8D3
 
 !! URxvt COLORS --------------------------------------------------------
 URxvt*depth                   : 32
