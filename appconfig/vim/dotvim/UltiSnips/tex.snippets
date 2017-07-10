@@ -84,13 +84,13 @@ ${1:${VISUAL}}
 \\end{pmatrix}
 endsnippet
 
-snippet figure "\figure{}" i
+snippet figure "\figure{}"
 \\begin{figure}
 ${1:${VISUAL}}
 \\end{figure}
 endsnippet
 
-snippet figuree "figure with caption etc." i
+snippet figuree "figure with caption etc."
 \\begin{figure} [h]
 	\\centering
 	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
@@ -99,7 +99,7 @@ snippet figuree "figure with caption etc." i
 \\end{figure}
 endsnippet
 
-snippet figuree2 "figure with caption etc." i
+snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\begin{figure} [h]
 	\\centering
 	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
@@ -110,7 +110,7 @@ snippet figuree2 "figure with caption etc." i
 \\end{figure}
 endsnippet
 
-snippet table "table"
+snippet jfrtable "table as defined in the JFR template"
 \\begin{table}[t]
 \\caption{${1}} \label{${2:sample-table}}
 \\begin{center}

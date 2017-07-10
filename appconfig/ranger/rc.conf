@@ -59,7 +59,7 @@ set vcs_backend_hg disabled
 set vcs_backend_bzr disabled
 
 # Use one of the supported image preview protocols
-set preview_images true
+set preview_images false
 
 # Set the preview image method. Supported methods:
 #
