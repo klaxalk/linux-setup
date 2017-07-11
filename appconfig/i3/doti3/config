@@ -169,12 +169,12 @@ set $transparent #00000000
 # set $active_text_color           #1d2021
 # set $active_border               #aaaaaa
 # set $inactive_background         #dddddd
-# set $active_background           #aaaaaa
+# set $active_background           #888888
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# for_window [class="^.*"] border pixel 2
+# for_window [class="^.*"] border pixel 3
 # # }
 
 # JELLYBEANS COLOR_SCHEME ACTIVE {
