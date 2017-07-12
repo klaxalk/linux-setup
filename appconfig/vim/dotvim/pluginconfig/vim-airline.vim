@@ -10,5 +10,5 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " set theme
-let g:airline_theme='jellybeans' " JELLYBEANS COLOR_SCHEME ACTIVE
-" let g:airline_theme='papercolor' " LIGHT COLOR_SCHEME
+let g:airline_theme='jellybeans' " JELLYBEANS COLOR_SCHEME ACTIVE 
+" let g:airline_theme='papercolor' " LIGHT COLOR_SCHEME 
