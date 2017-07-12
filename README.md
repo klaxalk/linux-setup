@@ -288,7 +288,7 @@ ln -s ~/git/linux-setup/appconfig/i3/doti3/git_check.sh
 sudo crontab -e
 ```
 
-Add following line in the end of file, where <user> has to be your username.
+Add following line to the end of file, where <user> has to be your username.
 
 ```bash
 */10 * * * * /home/<user>/git/git_check.sh
