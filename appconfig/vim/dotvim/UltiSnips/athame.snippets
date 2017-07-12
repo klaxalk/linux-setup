@@ -78,6 +78,10 @@ snippet "for( )*" "" ir
 for ${1}; do ${2:${VISUAL}}; done
 endsnippet
 
+snippet "while( )*" "" ir
+while ${1}; do ${2:${VISUAL}}; done
+endsnippet
+
 snippet "if( )*" "" ir
 if ${1}; then ${2:${VISUAL}}; fi
 endsnippet
@@ -157,3 +161,18 @@ snippet "vim /etc/network/i.*" "" Abr
 sudo vim /etc/network/i
 endsnippet
 
+snippet cdsim "" Ab
+cd ~/git/simulation/start_simulation/
+endsnippet
+
+snippet cdcore "" Ab
+cd ~/mrs_workspace/src/uav_core/ros_nodes
+endsnippet
+
+snippet cdmodules "" Ab
+cd ~/mrs_workspace/src/uav_modules/ros_nodes/
+endsnippet
+
+snippet glog "" Ab
+git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+endsnippet

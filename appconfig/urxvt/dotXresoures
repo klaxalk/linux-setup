@@ -1,39 +1,58 @@
-URxvt.font: xft:monospace:size=13
+! EXTENSIONS are stored at /usr/lib/urxvt/perl
+
+URxvt.font: xft:Ubuntu Mono derivative Powerline:size=13
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
+
+! font resizing
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! shared clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
 
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
 ! JELLYBEANS COLOR_SCHEME ACTIVE {
-!! Jellybeans Terminal Colours
-urxvt.background: #151515
-urxvt.foreground: #eeeeee
+! vim: ft=xdefaults
+URxvt.background: #151515
+URxvt.foreground: #dddddd
 ! black
-urxvt.color0: #888888
-urxvt.color8: #525252
+URxvt.color0: #1C1C1C
+URxvt.color8: #404040
 ! red
-urxvt.color1: #cf6a4c
-urxvt.color9: #ff9d80
+URxvt.color1: #B85335
+URxvt.color9: #CF6A4C
 ! green
-urxvt.color2: #99ad6a
-urxvt.color10: #c3e6ad
+URxvt.color2: #79AD6A
+URxvt.color10: #99DD6A
 ! yellow
-urxvt.color3: #fad07a
-urxvt.color11: #ffefbf
+URxvt.color3: #FFB964
+URxvt.color11: #FAD07A
 ! blue
-urxvt.color4: #8197bf
-urxvt.color12: #accaff
+URxvt.color4: #667899
+URxvt.color12: #8197BF
 ! magenta
-urxvt.color5: #8787af
-urxvt.color13: #c4c4ff
+URxvt.color5: #8787AF
+URxvt.color13: #C6B6EE
 ! cyan
-urxvt.color6: #8fbfdc
-urxvt.color14: #80bfaf
+URxvt.color6: #668799
+URxvt.color14: #8FBFDC
 ! white
-urxvt.color7: #888888
-urxvt.color15: #e8e8d3
+URxvt.color7: #888888
+URxvt.color15: #E8E8D3
+
+!! URxvt COLORS --------------------------------------------------------
+URxvt*depth                   : 32
+! URxvt.fading                  : 25
+! URxvt.fadeColor               : #101010
+URxvt*visualBell              : false
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
@@ -60,8 +79,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! *color9: #660000
 
 ! !! green dark/light
-! *color2: #005500
-! *color10: #006600
+! *color2: #008800
+! *color10: #008800
 
 ! !! yellow dark/light
 ! *color3: #555500
@@ -76,7 +95,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! *color13: #660066
 
 ! !! cyan dark/light
-! *color6: #006666
+! *color6: #00a9a9
 ! *color14: #006666
 
 ! !! white dark/light

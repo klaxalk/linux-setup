@@ -68,11 +68,6 @@ while true; do
     mkdir ~/.fonts
     cp $APP_PATH/fonts/* ~/.fonts/
 
-    # symlink gtk settings
-    ln -s $APP_PATH/gtk/dotgtkrc-2.0 ~/.gtkrc-2.0
-    rm ~/.config/gtk-3.0/settings.ini
-    ln -s $APP_PATH/gtk/settings.ini ~/.config/gtk-3.0/
-
     # install thunar
     sudo apt-get -y install thunar rofi compton i3blocks systemd
 

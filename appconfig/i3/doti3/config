@@ -19,7 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco Display 10.5
+font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -31,7 +31,7 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# mouse will no longer change focus when pointing on a window 
+# mouse will no longer change focus when pointing on a window
 focus_follows_mouse no
 
 # changing focus of a window
@@ -68,10 +68,8 @@ bindsym $mod+m workspace prev_on_output
 # cycle through containers on the current workspace in a similar ways as on windows
 bindsym Mod1+Tab focus right
 
-# split in horizontal orientation
+# splitting directions
 bindsym $mod+braceright split h
-
-# split in vertical orientation
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
@@ -144,21 +142,21 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-# resize windows with hjkl
+  # resize windows with hjkl
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
+  # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
+  # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -171,59 +169,60 @@ set $transparent #00000000
 # set $active_text_color           #1d2021
 # set $active_border               #aaaaaa
 # set $inactive_background         #dddddd
-# set $active_background           #aaaaaa
+# set $active_background           #888888
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
+# set $split_indicator             #aaaaaa
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# for_window [class="^.*"] border pixel 2
+# for_window [class="^.*"] border pixel 3
 # # }
 
 # JELLYBEANS COLOR_SCHEME ACTIVE {
-
 set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
 set $inactive_background      #333333
-set $active_border            #005faf
 set $active_background        #005faf
 set $background_color         #151515
+set $active_border            #005faf
+set $split_indicator          #B85335
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 # }
 
 hide_edge_borders both
 
 # window colors
 #                       border                    background            text                  indicator
-client.focused          $active_border            $active_background    $active_text_color    $inactive_text_color
-client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
-client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $inactive_text_color
-client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $inactive_text_color
+client.focused          $active_border            $active_background    $active_text_color    $split_indicator
+client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
+client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $split_indicator
+client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 
-	status_command i3blocks -c ~/.i3/i3blocks.conf
+  status_command i3blocks -c ~/.i3/i3blocks.conf
 
   i3bar_command i3bar -t
-  
-	colors {
+
+  colors {
 
     statusline $text_color
-		background $transparent
-	  separator  $inactive_text_color
+    background $transparent
+    separator  $inactive_text_color
 
-		#                  border             background           text
-		focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
-		active_workspace   $transparent       $transparent         $active_text_color
-		inactive_workspace $transparent       $transparent         $active_text_color
-		binding_mode       $transparent       $transparent         $active_text_color
-		urgent_workspace   $transparent       $transparent         $active_text_color
-	}
+    #                  border             background           text
+    focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
+    active_workspace   $transparent       $transparent         $active_text_color
+    inactive_workspace $transparent       $transparent         $active_text_color
+    binding_mode       $transparent       $transparent         $active_text_color
+    urgent_workspace   $transparent       $transparent         $active_text_color
+  }
 
-	# i3bar position
-	position top
+  # i3bar position
+  position top
 }
 
 # rofi launcher
@@ -240,9 +239,9 @@ bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
-# desktop
-# bindsym $mod+F5 exec --no-startup-id amixer -c 1 set 'PCM' 10%-
-# bindsym $mod+F6 exec --no-startup-id amixer -c 1 set 'PCM' 10%+
+# Tomas's desktop PC is somewhat different with volume control
+# bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
+# bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
 
 # Keyboard backlight shortcuts
 bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.i3/kb_light.sh - 
@@ -265,16 +264,12 @@ bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
 exec --no-startup-id nm-applet
 # exec google-chrome
 
-# setup monitors, generete the file with "arandr" utility
+# setup for multiple monitors, generete the required file with "arandr" utility
 exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 exec --no-startup-id "setxkbmap us"
 bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
-
-# no title bar for chrome please
-for_window [class="^Google-chrome$"] border none
-# for_window [class="^Gnome-terminal$"] border pixel 1
 
 # oh my God disable caps lock and set is as escape!!!
 exec_always xmodmap -e "clear lock" # disable caps lock switch
@@ -287,7 +282,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Rviz"] $workspace4
 
 # name = File Operation Progress == float
-for_window [class="^Thunar$"] floating enable
+for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 
@@ -298,24 +293,20 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 exec --no-startup-id compton -f -D 3
 
 # sound-card control
-exec --no-startup-id indicator-sound-switcher 
+exec --no-startup-id indicator-sound-switcher
 
 # rebind F1 to not activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
-# gimp
-bindsym $mod2+g exec --no-startup-id gimp
 for_window [title="GIMP Startup"] move workspace $workspace9
 for_window [class="^Gimp$"] move workspace $workspace9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
-# qutebroser
-bindsym $mod2+q exec --no-startup-id qutebrowser
-
+#{ Gaps settings
 smart_gaps on
 
-set $default_gaps_inner 15
+set $default_gaps_inner 12
 set $default_gaps_outer 0
 
 gaps inner $default_gaps_inner
@@ -329,12 +320,33 @@ bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
 
-    bindsym plus  gaps inner all plus 5
-    bindsym minus gaps inner all minus 5
+  bindsym plus  gaps inner all plus 5
+  bindsym minus gaps inner all minus 5
 
-    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner all set 0" && i3-msg "gaps outer all set 0"
-    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner all set $default_gaps_inner" && i3-msg "gaps outer all set $default_gaps_outer"
+  bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner all set 0" && i3-msg "gaps outer all set 0"
+  bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner all set $default_gaps_inner" && i3-msg "gaps outer all set $default_gaps_outer"
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
+#}
+
+#{ Bindings for external programs
+
+# Gimp
+bindsym $mod2+g exec --no-startup-id gimp
+
+# Qutebroser
+bindsym $mod2+q exec --no-startup-id qutebrowser
+
+# Bindings for Gazebo simulator
+bindsym $mod2+1 exec --no-startup-id gz camera -c gzclient_camera -f uav1
+bindsym $mod2+2 exec --no-startup-id gz camera -c gzclient_camera -f uav2
+bindsym $mod2+3 exec --no-startup-id gz camera -c gzclient_camera -f uav3
+bindsym $mod2+4 exec --no-startup-id gz camera -c gzclient_camera -f uav4
+bindsym $mod2+5 exec --no-startup-id gz camera -c gzclient_camera -f uav5
+bindsym $mod2+p exec --no-startup-id gz world -p 1
+bindsym $mod2+u exec --no-startup-id gz world -p 0
+bindsym $mod2+i exec --no-startup-id gz world -m 100
+
+#}
