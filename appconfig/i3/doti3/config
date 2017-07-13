@@ -93,11 +93,11 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define title/names of all workspaces
-set $workspace1 "1: "
+set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace5 "5: "
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
@@ -243,6 +243,10 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
 # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
 
+# Keyboard backlight shortcuts
+bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.i3/kb_light.sh - 
+bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.i3/kb_light.sh + 
+
 # Bind screen brightness control to DELLs special keys
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
@@ -250,8 +254,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREAS
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # INCREASE Screen brightness
-bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
+# bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # INCREASE Screen brightness
+# bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # INCREASE Screen brightness
 
 # toggling touchpad
 bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
@@ -274,7 +278,7 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" # set caps_lock as escape
 # assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
-assign [class="Google-chrome"] $workspace5
+assign [class="Google-chrome"] $workspace1
 assign [class="Rviz"] $workspace4
 
 # name = File Operation Progress == float

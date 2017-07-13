@@ -272,3 +272,35 @@ Notable points:
 - When Athame uses vim, it does not set the g:user_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
+
+# Automatic GIT repositories checkout for i3 (Windows Manager) - I3blocks
+
+### Creating symbolic link for the script
+
+```bash
+cd ~/git
+ln -s ~/git/linux-setup/appconfig/i3/doti3/git_check.sh
+```
+
+### Calling execution every 10 minutes by CRON
+
+```bash
+sudo crontab -e
+```
+
+Add following line to the end of file, where <user> has to be your username.
+
+```bash
+*/10 * * * * /home/<user>/git/git_check.sh
+```
+### Setting checking of the repository to different remote than 'origin'
+
+The environment variable GIT_ROMOTES has to be created in ~/.bashrc.
+
+- Example:
+  
+```bash
+# list of special remote which should be check for individual repositories
+export GIT_REMOTES='linux-setup:upstream, uav_core:local'
+```
+
