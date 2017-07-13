@@ -107,6 +107,8 @@ if g:user_mode == "1"
   " vim talking to tmux.. seems better then vimux, so far in testing
   Plug 'christoomey/vim-tmux-runner'
 
+  Plug 'https://github.com/rhysd/vim-clang-format'
+
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -368,6 +370,9 @@ if g:user_mode == "1"
 
   " config for vim-tmux-runner
   source ~/.vim/pluginconfig/vim-tmux-runner.vim
+
+  " config for vim-clang-format
+  source ~/.vim/pluginconfig/vim-clang-format.vim
 
 endif
 
