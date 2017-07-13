@@ -1,20 +1,30 @@
 #!/bin/bash
 
-STATUS_FILE=".git_status"
-REPOSITORY="git"
+source ~/.bashrc
 
+STATUS_FILE=".git_status"
 text_line=""
 
-cd ~/${REPOSITORY}
+cd ~/${GIT_PATH}
+
+# check if STATUS_FILE exists 
 if [ -f "${STATUS_FILE}" ]; then
+  
+  # read each line in the file
   while read line; do
-    A="$(cut -d':' -f1 <<<"$line")"
-    B="$(cut -d':' -f2 <<<"$line")"
-    if [ "${B:1:21}" == "Your branch is behind" ]; then
+    
+    #split the line using delimiter ':' 
+    repo_name="$(cut -d':' -f1 <<<"$line")"
+    repo_status="$(cut -d':' -f2 <<<"$line")"
+
+    # if repo_status start with text "Your branch is behind"
+    if [ "${repo_status:1:21}" == "Your branch is behind" ]; then
+      
+      # if text_line is empty
       if [ -z "${text_line// }"];then
-        text_line="$A" 
+        text_line="$repo_name" 
       else
-        text_line="$text_line, $A" 
+        text_line="$text_line, $repo_name" 
       fi
     fi
   done < ${STATUS_FILE}

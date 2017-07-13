@@ -273,7 +273,7 @@ Notable points:
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
 
-# GIT repositories checkout for i3 (Windows Manager) - I3blocks
+# Automatic GIT repositories checkout for i3 (Windows Manager) - I3blocks
 
 ### Creating symbolic link for the script
 
@@ -292,5 +292,15 @@ Add following line to the end of file, where <user> has to be your username.
 
 ```bash
 */10 * * * * /home/<user>/git/git_check.sh
+```
+### Setting checking of the repository to different remote than 'origin'
+
+The environment variable GIT_ROMOTES has to be created in ~/.bashrc.
+
+- Example:
+  
+```bash
+# list of special remote which should be check for individual repositories
+export GIT_REMOTES='linux-setup:upstream, uav_core:local'
 ```
 
