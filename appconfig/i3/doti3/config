@@ -281,6 +281,7 @@ assign [class="Rviz"] $workspace4
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
+for_window [class="^Google-chrome$"] floating disabled
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
