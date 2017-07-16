@@ -7,7 +7,7 @@ Everything is intended for and tested on **Ubuntu 16.04**.
 Despite most of my key bindings might seem a bit arbitrary, they evolved in a time to match my needs and habits (no arrow keys, no mouse).
 Although it was not easy to find a way to navigate using **h/j/k/l/** in all scenarios, it is possible most of the time.
 Just imagine you can navigate and swap windows in **i3wm** (alt + h/j/k/l, alt-shift + h/j/k/l), then navigate over panes in **tmux** (ctrl + h/j/k/l), then splits in **vim** (also ctrl + h/j/k/l), then move over suggestions from YouCompleteMe (ctrl + j/k, l), and lastly navigating through placeholders in newly inserted snippet (shift h/l).
-And I almost forgot, you navigate using h/j/k/l in **vim**! 
+And I almost forgot, you navigate using h/j/k/l in **vim**!
 Yes, I am weird, but it works :-).. continue reading if you are interested.
 
 To clone and install everything run following code. **BEWARE**, running this will **DELETE** your previous tmux and vim setup (.vim, .tmux.conf, .vimrc)!!:
@@ -34,6 +34,7 @@ I thank following sources for inspiring me:
   * Nick Nisi, https://www.youtube.com/channel/UCbNhLf99gKKXdXm0aFfQFKw
   * Luke Smith, https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA
   * Alex Booker, https://www.youtube.com/watch?v=_kjbj-Ez1vU
+  * Chris Hunt, https://www.youtube.com/watch?v=9jzWDr24UHQ
   * Gaël Ecorchard, https://github.com/galou
 
 # How to work with my setup?
@@ -55,7 +56,7 @@ In my setup, those are **crtl h/j/k/l** for left/down/right/up movement.
 
 Following key bindings encapsulate 99% of all what I use in TMUX.
 Most importantly, note that I remapped the standard **prefix** from ctrl+b to ctrl+a.
-There are several reasons for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet do it like that.
+There are several reasons for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet often do it like that.
 
 - **ctrl a** tmux **__PREFIX__**
 - **__PREFIX__ w** list windows
@@ -71,7 +72,7 @@ There are several reasons for it, e.g. 1) it can be pressed easily by one hand a
 - **__PREFIX__ k** kill current tmux session with all its processes
 - **__PREFIX__ space** switch panel configuration
 - **F2** go to vim edit mode
-- **__PREFIX__ p** paste yanked text (from vim edit mode) 
+- **__PREFIX__ p** paste yanked text (from vim edit mode)
 - **__PREFIX__ z** enlarge focused pane to the whole screen (or back)
 
 TMUX-RESURRECT can be used to save a state of a single session.
@@ -104,10 +105,11 @@ Plugins with new features, you are supposed to read their tutorials to know how 
 
   * **vim-fugitive** - git integration
   * **vimux** - tmux integration
+  * **vim-tmux-runner** - another tmux integration, slightly different than vimux
   * **nerdtree** - simple integrated file explorer
   * **vim-abolish** - automatic substitutions
   * **ultisnips** - code snippets
-  * **ReplaceWithRegister** - adds "gr" action to replace text 
+  * **ReplaceWithRegister** - adds "gr" action to replace text
   * **vim-argwrap** - clever function argumment wrapping
   * **vim-multiple-cursors** - adding mupltiple cursors feature
   * **tagbar** - windows with tag list of the current file
@@ -118,6 +120,8 @@ Plugins with new features, you are supposed to read their tutorials to know how 
   * **vimwiki** - notetaking and wikipedia editting
   * **vim-exchange** - allows exchaning two target locations
   * **vim-unimpaired** - clever new keybindings for e.g. quickfix and buffers
+  * **vim-clang-format** - integration of clang-format -- c++ auto formatter
+  * **ctrl-p** - great fuzzy finder
 
 Plugins you don't need to know about (their features integrate "seemlessly"):
 

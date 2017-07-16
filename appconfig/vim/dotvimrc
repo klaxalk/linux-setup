@@ -107,6 +107,7 @@ if g:user_mode == "1"
   " vim talking to tmux.. seems better then vimux, so far in testing
   Plug 'christoomey/vim-tmux-runner'
 
+  " autoformatting c++ code
   Plug 'https://github.com/rhysd/vim-clang-format'
 
 endif
