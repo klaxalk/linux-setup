@@ -22,4 +22,4 @@ let g:VtrClearBeforeSend = 0
 
 " in python we want to use this as a compilation in c
 au FileType python nnoremap <leader>m :VtrSendFile!<cr>
-" au FileType python nnoremap <leader>. :VtrKillRunner<cr>
+au FileType python nnoremap <leader>l :VtrSendFile!<cr>
