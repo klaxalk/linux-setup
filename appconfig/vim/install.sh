@@ -54,7 +54,7 @@ while true; do
       echo '
 # where should ctags look for sources to parse?
 # -R dir1 -R dir2 ...
-export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace -R ~/git"' >> ~/.bashrc
+export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
 
     fi
 
