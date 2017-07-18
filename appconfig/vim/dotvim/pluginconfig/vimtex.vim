@@ -32,4 +32,4 @@ au BufNewFile,BufRead *.tex nnoremap j gj
 au BufNewFile,BufRead *.tex nnoremap k gk
 
 " grepiing
-au FileType tex map <Leader>lv :lv //g ./**/*.tex<c-f>^f/a
+au FileType tex nmap <Leader>lv :lv //g ./**/*.tex<c-f>^f/a
