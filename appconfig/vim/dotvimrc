@@ -337,8 +337,8 @@ map <Leader>frl :s///g<left><left>
 map <Leader>fa :%s//&/g<left><left>
 map <Leader>fal :s//&/g<left><left>
 
-" grepiing
-map <Leader>lv :lv // ./**<c-f>^f/a
+" vimgrepping in all subfolders
+map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
 if g:user_mode == "1"
 
