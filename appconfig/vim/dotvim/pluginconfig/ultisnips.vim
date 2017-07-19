@@ -12,7 +12,6 @@ if g:user_mode == "1"
   let g:UltiSnipsListSnippets="<c-l>"
   let g:UltiSnipsJumpForwardTrigger="<s-l>"
   let g:UltiSnipsJumpBackwardTrigger="<s-h>"
-
 endif
 
 " key bindings for athame
