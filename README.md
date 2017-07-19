@@ -38,7 +38,7 @@ I thank following sources for inspiring me:
 
 # Toubleshooting
 
-It is possible and probable that after you update using ```bash git pull```, something might not work anymore.
+It is possible and probable that after you update using ```git pull```, something might not work anymore.
 This usually happens due to new programs, plugins and dependencies that might not be satisfied anymore.
 I strongly suggest to re-run **install.sh**, after each update.
 
