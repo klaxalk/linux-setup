@@ -1,7 +1,6 @@
 # Linux Environment Preparation
 
-This repo contains scripts for setting up my Linux working environment, mainly by
-installing three vital applications: TMUX, VIM, i3wm and setting up their behavior.
+This repo contains scripts for setting up my Linux working environment, mainly by installing three vital applications: TMUX, VIM, i3wm and setting up their behavior.
 Everything is intended for and tested on **Ubuntu 16.04**.
 
 Despite most of my key bindings might seem a bit arbitrary, they evolved in a time to match my needs and habits (no arrow keys, no mouse).
@@ -36,6 +35,17 @@ I thank following sources for inspiring me:
   * Alex Booker, https://www.youtube.com/watch?v=_kjbj-Ez1vU
   * Chris Hunt, https://www.youtube.com/watch?v=9jzWDr24UHQ
   * Gaël Ecorchard, https://github.com/galou
+
+# Toubleshooting
+
+It is possible and probable that after you update using ```bash git pull```, something might not work anymore.
+This usually happens due to new programs, plugins and dependencies that might not be satisfied anymore.
+I strongly suggest to re-run **install.sh**, after each update.
+
+# Disclaimer
+
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
 # How to work with my setup?
 
