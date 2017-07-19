@@ -122,6 +122,7 @@ Plugins with new features, you are supposed to read their tutorials to know how 
   * **vim-unimpaired** - clever new keybindings for e.g. quickfix and buffers
   * **vim-clang-format** - integration of clang-format -- c++ auto formatter
   * **ctrl-p** - great fuzzy finder
+  * **vim-easy-align** - autoaligning text
 
 Plugins you don't need to know about (their features integrate "seemlessly"):
 
