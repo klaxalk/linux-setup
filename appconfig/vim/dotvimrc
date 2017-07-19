@@ -340,12 +340,6 @@ map <Leader>frl :s///g<left><left>
 map <Leader>fa :%s//&/g<left><left>
 map <Leader>fal :s//&/g<left><left>
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
@@ -395,6 +389,9 @@ if g:user_mode == "1"
 
   " config for vim-clang-format
   source ~/.vim/pluginconfig/vim-clang-format.vim
+
+  " config for vim-easy-align
+  source ~/.vim/pluginconfig/vim-easy-align.vim
 
 endif
 
