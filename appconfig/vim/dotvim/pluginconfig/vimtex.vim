@@ -31,3 +31,5 @@ au BufNewFile,BufRead *.tex setlocal foldopen=all
 au BufNewFile,BufRead *.tex nnoremap j gj
 au BufNewFile,BufRead *.tex nnoremap k gk
 
+" grepiing
+au FileType tex nmap <Leader>lv :lv //g ./**/*.tex<c-f>^f/a
