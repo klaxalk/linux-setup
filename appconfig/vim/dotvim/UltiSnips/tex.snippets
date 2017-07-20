@@ -3,7 +3,13 @@ snippet cmd "generic command \{}" i
 endsnippet
 
 snippet color "{\color{} }" i
-\{\color{${1}} {${2:${VISUAL}}}}
+\{\color{${1}}
+${2:${VISUAL}}
+}
+endsnippet
+
+snippet "(TODO)|(todo)" "" ir
+\{\color{red} TODO: ${2:${VISUAL}}}
 endsnippet
 
 snippet texttt "\texttt{}" i
