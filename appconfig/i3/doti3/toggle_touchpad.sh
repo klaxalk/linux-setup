@@ -10,7 +10,7 @@ DEVICE_NUMBER=`xinput | grep "$DEVICE_ID" | sed -r 's/.*id=([0-9]*).*/\1/g'`
 
 echo $DEVICE_NUMBER
 
-if xinput list-props "$DEVICE_NUMBER" | grep "Device Enabled (137):.1" >/dev/null
+if xinput list-props "$DEVICE_NUMBER" | grep "Device Enabled (...):.1" >/dev/null
 then
 
   xinput disable "$DEVICE_NUMBER"
