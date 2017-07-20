@@ -10,7 +10,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install texlive texlive texlive-lang-czechslovak texmaker
+    sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texmaker
 
     sudo apt-get -y install zathura-pdf-poppler libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
 
