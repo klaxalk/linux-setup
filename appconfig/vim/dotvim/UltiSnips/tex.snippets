@@ -179,11 +179,11 @@ snippet ddot "\ddot{}" i
 \\ddot{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbf "\mathbf{}" i
+snippet mathbf "\mathbf{}" Ai
 \\mathbf{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbb "\mathbb{}" i
+snippet mathbb "\mathbb{}" Ai
 \\mathbb{${1:${VISUAL}}}
 endsnippet
 
@@ -199,8 +199,8 @@ snippet url "\url{}" i
 \\url{${1:${VISUAL}}}
 endsnippet
 
-snippet jed "\jed{}" i
-\\jed{${1:${VISUAL}}}{${2}}
+snippet "(jed)|(unit)" "\unit{}" ir
+\\unit{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet transpose "^T" i
@@ -213,7 +213,7 @@ ${1:${VISUAL}}
 \$\$
 endsnippet
 
-snippet inmath "$$" iA
+snippet "inmath" "inline math $ .. $" riA
 \$${1:${VISUAL}}\$
 endsnippet
 
@@ -263,4 +263,8 @@ endsnippet
 
 snippet usepackage "\usepackage{}" b
 \\usepackage{${1:${VISUAL}}}
+endsnippet
+
+snippet forall "\forall" Ai
+\\forall ${1}
 endsnippet

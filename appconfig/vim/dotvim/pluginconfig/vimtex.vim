@@ -33,7 +33,9 @@ let g:vimtex_fold_enabled = 1
 " au BufNewFile,BufRead *.tex nnoremap k gk
 
 " grepiing
-au filetype tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
+au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
+
+au FileType tex set synmaxcol=400
 
 " add dictionary for mbzirc-treasure-hunt paper
 autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'
