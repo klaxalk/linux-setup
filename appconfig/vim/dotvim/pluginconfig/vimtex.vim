@@ -24,6 +24,12 @@ let g:tex_comment_nospell= 1 " disable spellchecking in comments
 
 " folding
 let g:vimtex_fold_enabled = 1
+au FileType tex set foldmethod=marker
+au FileType tex set foldmarker=%%{,%%}
+
+" might solve some 
+let g:vimtex_indent_enabled = 0
+
 " au FileType tex setlocal fdm=expr
 " au FileType tex setlocal foldexpr=vimtex#fold#level(2)
 " au FileType tex setlocal foldopen=all
