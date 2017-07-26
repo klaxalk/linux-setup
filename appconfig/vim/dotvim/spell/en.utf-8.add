@@ -37,3 +37,6 @@ FOV
 polytope
 documentclass
 MAV
+waypoints
+holonomy
+parameterized

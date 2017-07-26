@@ -226,7 +226,7 @@ bar {
 }
 
 # rofi launcher
-bindsym $mod+d exec rofi -show run -opacity "85" -width 100 -padding 450 -font "Monospace 18" -lines 5 -eh 1
+bindsym $mod+d exec rofi -show run -opacity "85" -width 100 -padding 200 -font "Monospace 18" -lines 5 -eh 1
 
 # bind audio to DELL's special keys
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
