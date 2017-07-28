@@ -1,9 +1,32 @@
+snippet "fold" "" r
+%%\{ ${1}
+
+${2:${VISUAL}}
+
+%%\}
+
+endsnippet
+
+snippet tikzeval "" Ai
+(\$ ${1:${VISUAL}} \$)
+endsnippet
+
+snippet "eq" "" ri
+(\\ref{eq:${1:${VISUAL}}})
+endsnippet
+
 snippet cmd "generic command \{}" i
 \\${1}{${2:${VISUAL}}}
 endsnippet
 
 snippet color "{\color{} }" i
-\{\color{${1}} {${2:${VISUAL}}}}
+\{\color{${1}}
+${2:${VISUAL}}
+}
+endsnippet
+
+snippet "(TODO)|(todo)" "" ir
+\{\color{red} TODO: ${2:${VISUAL}}}
 endsnippet
 
 snippet texttt "\texttt{}" i
@@ -102,9 +125,9 @@ endsnippet
 snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\begin{figure} [h]
 	\\centering
-	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
+	\\includegraphics[width=${1:1.0}\textwidth]{figures/${2}}
 	\\hspace{.2in}
-	\\includegraphics[height=2.0in, width=${3:1.0}\textwidth]{figures/${4}}
+	\\includegraphics[width=${3:1.0}\textwidth]{figures/${4}}
 	\\caption{${5}}
 	\\label{fig:${6}}
 \\end{figure}
@@ -173,11 +196,15 @@ snippet ddot "\ddot{}" i
 \\ddot{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbf "\mathbf{}" i
+snippet mathbf "\mathbf{}" Ai
 \\mathbf{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbb "\mathbb{}" i
+snippet mathrm "\mathrm{}" Ai
+\\mathrm{${1:${VISUAL}}}
+endsnippet
+
+snippet mathbb "\mathbb{}" Ai
 \\mathbb{${1:${VISUAL}}}
 endsnippet
 
@@ -193,8 +220,8 @@ snippet url "\url{}" i
 \\url{${1:${VISUAL}}}
 endsnippet
 
-snippet jed "\jed{}" i
-\\jed{${1:${VISUAL}}}{${2}}
+snippet "(jed)|(unit)" "\unit{}" ir
+\\unit{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet transpose "^T" i
@@ -207,7 +234,7 @@ ${1:${VISUAL}}
 \$\$
 endsnippet
 
-snippet inmath "$$" iA
+snippet "inmath" "inline math $ .. $" riA
 \$${1:${VISUAL}}\$
 endsnippet
 
@@ -257,4 +284,8 @@ endsnippet
 
 snippet usepackage "\usepackage{}" b
 \\usepackage{${1:${VISUAL}}}
+endsnippet
+
+snippet forall "\forall" Ai
+\\forall ${1}
 endsnippet

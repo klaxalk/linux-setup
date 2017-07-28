@@ -81,6 +81,9 @@ export USE_I3=false" >> ~/.bashrc
 
     fi
 
+    # disable nautilus
+    gsettings set org.gnome.desktop.background show-desktop-icons false
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
