@@ -42,7 +42,7 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
-autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit")
+autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit  ")
 
 " indention in insert mode
 autocmd BufRead */notes/* inoremap > <esc>ma>>`amalla
