@@ -23,13 +23,25 @@ au BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
 let g:tex_comment_nospell= 1 " disable spellchecking in comments
 
 " folding
-au BufNewFile,BufRead *.tex setlocal fdm=expr
-au BufNewFile,BufRead *.tex setlocal foldexpr=vimtex#fold#level(0)
-au BufNewFile,BufRead *.tex setlocal foldopen=all
+let g:vimtex_fold_enabled = 0
+au FileType tex set foldmethod=marker
+au FileType tex set foldmarker=%%{,%%}
+
+" might solve some 
+" let g:vimtex_indent_enabled = 0
+
+" au FileType tex setlocal fdm=expr
+" au FileType tex setlocal foldexpr=vimtex#fold#level(2)
+" au FileType tex setlocal foldopen=all
 
 " remap j and k to move in visal a way, handy when wrapping is set on
-au BufNewFile,BufRead *.tex nnoremap j gj
-au BufNewFile,BufRead *.tex nnoremap k gk
+" au BufNewFile,BufRead *.tex nnoremap j gj
+" au BufNewFile,BufRead *.tex nnoremap k gk
 
 " grepiing
-au FileType tex nmap <Leader>lv :lv //g ./**/*.tex<c-f>^f/a
+au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
+
+au FileType tex set synmaxcol=400
+
+" add dictionary for mbzirc-treasure-hunt paper
+autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'
