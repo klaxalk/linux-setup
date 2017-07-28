@@ -340,6 +340,9 @@ map <Leader>frl :s///g<left><left>
 map <Leader>fa :%s//&/g<left><left>
 map <Leader>fal :s//&/g<left><left>
 
+" remap "gf" to "gf in new tab"
+nnoremap gf <C-W>gf
+
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
