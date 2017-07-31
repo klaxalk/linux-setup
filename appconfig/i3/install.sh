@@ -61,7 +61,7 @@ while true; do
     sudo apt-get -y install indicator-sound-switcher
 
     # symlink i3 settings
-    ln -s $APP_PATH/doti3 ~/.i3
+    ln -sf $APP_PATH/doti3 ~/.i3
 
     # copy fonts
     # fontawesome 4.7 
