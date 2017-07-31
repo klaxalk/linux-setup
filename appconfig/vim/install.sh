@@ -38,8 +38,8 @@ while true; do
     # symlink vim settings
     rm ~/.vimrc
     rm -rf ~/.vim
-    ln -s $APP_PATH/dotvimrc ~/.vimrc
-    ln -s $APP_PATH/dotvim ~/.vim
+    ln -fs $APP_PATH/dotvimrc ~/.vimrc
+    ln -fs $APP_PATH/dotvim ~/.vim
 
     # install patched fonts with powerline characters
     cd $APP_PATH/../../submodules/fonts
@@ -114,7 +114,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
         ./install.py --all
 
         # link .ycm_extra_conf.py
-        ln -s $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
+        ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
 
         break
       elif [[ $response =~ ^(n|N)=$ ]]
