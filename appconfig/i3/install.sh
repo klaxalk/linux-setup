@@ -84,6 +84,9 @@ export USE_I3=false" >> ~/.bashrc
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
+    # install i3
+    bash $APP_PATH/../xkblayout-state/install.sh
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
