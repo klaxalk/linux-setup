@@ -265,6 +265,7 @@ exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 exec --no-startup-id "setxkbmap us"
+# TODO teplace with Viktor's script
 bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
 
 # oh my God disable caps lock and set is as escape!!!
@@ -344,6 +345,6 @@ bindsym $mod2+4 exec --no-startup-id gz camera -c gzclient_camera -f uav4
 bindsym $mod2+5 exec --no-startup-id gz camera -c gzclient_camera -f uav5
 bindsym $mod2+p exec --no-startup-id gz world -p 1
 bindsym $mod2+u exec --no-startup-id gz world -p 0
-bindsym $mod2+i exec --no-startup-id gz world -m 100
+bindsym $mod2+i exec --no-startup-id gz world -m 1
 
 #}

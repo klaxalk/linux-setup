@@ -40,3 +40,15 @@ MAV
 waypoints
 holonomy
 parameterized
+covariance
+orthogonally
+precomputed
+Repeatability
+nonholonomic
+undistorted
+thresholding
+Guo
+detections
+Undistorting
+undistort
+OpenCV
