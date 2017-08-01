@@ -266,9 +266,9 @@ exec ~/.monitor.sh
 # swapping keyboard layouts? the same as in unity, win+space
 exec_always "setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rwin_toggle\""
 
-# oh my God disable caps lock and set is as escape!!!
-exec_always xmodmap -e "clear lock" # disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" # set caps_lock as escape
+# disable caps lock and make it behave like escape
+exec_always --no-startup-id "setxkbmap -option \"caps:escape\""
+exec_always --no-startup-id "xmodmap -e \"keycode 105 = Menu NoSymbol Control_R\""
 
 # assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
@@ -347,7 +347,8 @@ bindsym $mod2+[ exec --no-startup-id gz world -m 100
 
 #}
 
-##control the mouse with keyboard
+#{ Control the mouse with keyboard
+
 bindsym $mod2+h exec --no-startup-id xdotool mousemove_relative --sync -- -10 0
 bindsym $mod2+l exec --no-startup-id xdotool mousemove_relative --sync -- 10 0
 bindsym $mod2+j exec --no-startup-id xdotool mousemove_relative --sync -- 0 10
@@ -362,3 +363,5 @@ bindsym $mod2+i exec --no-startup-id xdotool click 3
 
 #Banish the mouse pointer to the corner of the current window - removes the distracting cursor or summons it closer for specific tasks
 bindsym $mod2+b exec --no-startup-id ~/.i3/banishMouse.sh
+
+#}
