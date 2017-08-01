@@ -1,0 +1,23 @@
+snippet "for( )*" "" ir
+for ${1};
+do
+	${2:${VISUAL}};
+done
+endsnippet
+
+snippet "while( )*" "" ir
+while ${1}; do ${2:${VISUAL}}; done
+endsnippet
+
+snippet "if( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; fi
+endsnippet
+
+snippet "ife( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; else fi
+endsnippet
+
+snippet "ifei( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
+endsnippet
+
