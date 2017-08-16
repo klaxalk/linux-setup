@@ -58,11 +58,11 @@ if ($status eq 'Discharging') {
 
 # LIGHT COLOR_SCHEME {
 	# if ($percent < 20) {
-	# 	print "#FF0000\n";
+	# 	print "#A8BB00\n";
 	# } elsif ($percent < 40) {
-	# 	print "#FFAE00\n";
+	# 	print "#A89900\n";
 	# } elsif ($percent < 60) {
-	# 	print "#FFF600\n";
+	# 	print "#A86600\n";
 	# } elsif ($percent < 85) {
 	# 	print "#A83300\n";
 	# }

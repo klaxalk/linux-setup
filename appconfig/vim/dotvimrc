@@ -115,6 +115,9 @@ if g:user_mode == "1"
   " aligning stuff
   Plug 'junegunn/vim-easy-align'
 
+  " AsyncRun
+  Plug 'skywind3000/asyncrun.vim'
+
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
