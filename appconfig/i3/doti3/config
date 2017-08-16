@@ -186,6 +186,7 @@ set $active_background        #005faf
 set $background_color         #151515
 set $active_border            #005faf
 set $split_indicator          #B85335
+set $urgent                   #ff0000
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 for_window [class="^.*"] border pixel 2
 # }
@@ -218,7 +219,7 @@ bar {
     active_workspace   $transparent       $transparent         $active_text_color
     inactive_workspace $transparent       $transparent         $active_text_color
     binding_mode       $transparent       $transparent         $active_text_color
-    urgent_workspace   $transparent       $transparent         $active_text_color
+    urgent_workspace   $transparent       $transparent         $urgent
   }
 
   # i3bar position
@@ -265,7 +266,7 @@ exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 # man xkeyboard-config will tell you options for keyboard shortcuts
-exec_always "setxkbmap -model pc101 -layout us,cs -variant ,qwerty -option \"grp:toggle\""
+exec_always "setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\""
 
 # disable caps lock and make it behave like escape
 exec_always --no-startup-id "setxkbmap -option \"caps:escape\""
@@ -358,7 +359,7 @@ bindsym $mod2+shift+h exec --no-startup-id xdotool mousemove_relative --sync -- 
 bindsym $mod2+shift+l exec --no-startup-id xdotool mousemove_relative --sync -- 25 0
 bindsym $mod2+shift+j exec --no-startup-id xdotool mousemove_relative --sync -- 0 25
 bindsym $mod2+shift+k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -25
-bindsym $mod2+space exec --no-startup-id xdotool click 1
+# bindsym $mod2+space exec --no-startup-id xdotool click 1
 bindsym $mod2+u exec --no-startup-id xdotool click 1
 bindsym $mod2+i exec --no-startup-id xdotool click 3
 

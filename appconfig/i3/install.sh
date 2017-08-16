@@ -69,8 +69,8 @@ while true; do
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
-    mkdir ~/.config/fonts
-    ln -s $APP_PATH/fonts.conf ~/.config/fonts/fonts.conf         
+    mkdir ~/.config/fontconfig
+    ln -s $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
 
     # install thunar
     sudo apt-get -y install thunar rofi compton i3blocks systemd
