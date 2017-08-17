@@ -4,6 +4,8 @@
 MY_PATH=`dirname "$0"`
 MY_PATH=`( cd "$MY_PATH" && pwd )`
 
+ROTATE=1
+
 INPUT_DIR="input"
 OUTPUT_DIR="output"
 TEMP1_DIR="temp1"
@@ -26,6 +28,22 @@ cd $MY_PATH/$INPUT_DIR
 for filename in `ls *.pdf`
 do 
 
+  introduction_page=1
+
+  # find the page where is the introduction
+  for i in $(seq 1 3);
+  do
+    pdftk A=$filename cat A$i output temp.pdf
+    pdftotext temp.pdf
+    rm temp.pdf
+    num=`cat temp.txt | grep -i -E 'i[[:space:]]?ntroduction' | wc -l`
+    rm temp.txt
+    if [ "$num" -ge "1" ]; then
+      introduction_page=$i
+      break 
+    fi
+  done
+
   conclusion_page=1
 
   # find the page where References start
@@ -34,9 +52,8 @@ do
     pdftk A=$filename cat Ar$i output temp.pdf
     pdftotext temp.pdf
     rm temp.pdf
-    num=`cat temp.txt | grep -i -E '^r[[:space:]]?eference(s)?' | wc -l`
+    num=`cat temp.txt | grep -i -E '^[[:space:]]*r[[:space:]]?eference(s)?' | wc -l`
     rm temp.txt
-    echo $num
     if [ "$num" -ge "1" ]; then
       conclusion_page=$i
       break 
@@ -46,7 +63,8 @@ do
   conclusion_page2=$(expr $conclusion_page + 1)
 
   # take two pages which end on references
-  pdftk A=$filename cat A1 Ar$conclusion_page2 Ar$conclusion_page output $MY_PATH/$TEMP1_DIR/$filename
+  echo "extracting pages from $filename"
+  pdftk A=$filename cat A$introduction_page Ar$conclusion_page2 Ar$conclusion_page output $MY_PATH/$TEMP1_DIR/$filename
 done
 
 # append the page with a text
@@ -57,7 +75,12 @@ do
   echo "$filename" > text.txt
   cupsfilter text.txt > $MY_PATH/text.pdf
   # convert $MY_PATH/text.pdf -page A4 $MY_PATH/text.pdf 
-  pdftk A=$filename B=$MY_PATH/text.pdf cat B1south A1south A2-3 output $MY_PATH/$TEMP2_DIR/$filename
+  if [ "$ROTATE" -eq "1" ]; then
+    echo "rotating..."
+    pdftk A=$filename B=$MY_PATH/text.pdf cat B1south A1south A2-3 output $MY_PATH/$TEMP2_DIR/$filename
+  else
+    pdftk A=$filename B=$MY_PATH/text.pdf cat B1 A1 A2-3 output $MY_PATH/$TEMP2_DIR/$filename
+  fi
 done
 
 # convert them to double layout
