@@ -13,10 +13,10 @@ TEMP2_DIR="temp2"
 TEMP3_DIR="temp3"
 OUTFILE="output.pdf"
 
-mkdir $OUTPUT_DIR
-mkdir $TEMP1_DIR
-mkdir $TEMP2_DIR
-mkdir $TEMP3_DIR
+mkdir $OUTPUT_DIR 2> /dev/null
+mkdir $TEMP1_DIR 2> /dev/null
+mkdir $TEMP2_DIR 2> /dev/null
+mkdir $TEMP3_DIR 2> /dev/null
 
 rm $TEMP1_DIR/*
 rm $TEMP2_DIR/*
@@ -36,7 +36,8 @@ do
     pdftk A=$filename cat A$i output temp.pdf
     pdftotext temp.pdf
     rm temp.pdf
-    num=`cat temp.txt | grep -i -E 'i[[:space:]]?ntroduction' | wc -l`
+    num=`cat temp.txt | grep -i -E 'i[[:space:]]?ntroduction|a[[:space:]]?bstract' | wc -l`
+    # cat temp.txt | grep -i -E 'i[[:space:]]?ntroduction|a[[:space:]]?bstract'
     rm temp.txt
     if [ "$num" -ge "1" ]; then
       introduction_page=$i
