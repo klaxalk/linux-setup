@@ -2,6 +2,10 @@
 GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
 
+# get the path to this script
+APP_PATH=`dirname "$0"`
+APP_PATH=`( cd "$APP_PATH" && pwd )`
+
 default=n
 while true; do
   [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
@@ -20,6 +24,9 @@ while true; do
     # need for zathura compilation
     sudo apt-get -y install libmagic-dev
 
+    # link zathuras config
+    ln -s $APP_PATH/../zathura/zathurarc ~/.config/zathura/zathurarc
+k
     rm -rf /tmp/girara /tmp/zathura
 
     cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
