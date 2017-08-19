@@ -81,7 +81,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $Mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -131,8 +131,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-bindsym $mod2+l exec urxvt -e ~/.i3/setColorScheme.sh LIGHT
-bindsym $mod2+d exec urxvt -e ~/.i3/setColorScheme.sh JELLYBEANS
+bindsym $mod2+F1 exec urxvt -e ~/.i3/setColorScheme.sh LIGHT
+bindsym $mod2+F2 exec urxvt -e ~/.i3/setColorScheme.sh JELLYBEANS
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -186,6 +186,7 @@ set $active_background        #005faf
 set $background_color         #151515
 set $active_border            #005faf
 set $split_indicator          #B85335
+set $urgent                   #ff0000
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 for_window [class="^.*"] border pixel 2
 # }
@@ -218,7 +219,7 @@ bar {
     active_workspace   $transparent       $transparent         $active_text_color
     inactive_workspace $transparent       $transparent         $active_text_color
     binding_mode       $transparent       $transparent         $active_text_color
-    urgent_workspace   $transparent       $transparent         $active_text_color
+    urgent_workspace   $transparent       $transparent         $urgent
   }
 
   # i3bar position
@@ -226,7 +227,7 @@ bar {
 }
 
 # rofi launcher
-bindsym $mod+d exec rofi -show run -opacity "85" -width 100 -padding 200 -font "Monospace 18" -lines 5 -eh 1
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 
 # bind audio to DELL's special keys
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
@@ -264,12 +265,12 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
-exec --no-startup-id "setxkbmap us"
-bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
+# man xkeyboard-config will tell you options for keyboard shortcuts
+exec_always "setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\""
 
-# oh my God disable caps lock and set is as escape!!!
-exec_always xmodmap -e "clear lock" # disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" # set caps_lock as escape
+# disable caps lock and make it behave like escape
+exec_always --no-startup-id "setxkbmap -option \"caps:escape\""
+exec_always --no-startup-id "xmodmap -e \"keycode 105 = Menu NoSymbol Control_R\""
 
 # assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
@@ -283,7 +284,7 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disabled
 
-# lock session
+# jock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
@@ -343,7 +344,26 @@ bindsym $mod2+3 exec --no-startup-id gz camera -c gzclient_camera -f uav3
 bindsym $mod2+4 exec --no-startup-id gz camera -c gzclient_camera -f uav4
 bindsym $mod2+5 exec --no-startup-id gz camera -c gzclient_camera -f uav5
 bindsym $mod2+p exec --no-startup-id gz world -p 1
-bindsym $mod2+u exec --no-startup-id gz world -p 0
-bindsym $mod2+i exec --no-startup-id gz world -m 100
+bindsym $mod2+o exec --no-startup-id gz world -p 0
+bindsym $mod2+[ exec --no-startup-id gz world -m 100
+
+#}
+
+#{ Control the mouse with keyboard
+
+bindsym $mod2+h exec --no-startup-id xdotool mousemove_relative --sync -- -10 0
+bindsym $mod2+l exec --no-startup-id xdotool mousemove_relative --sync -- 10 0
+bindsym $mod2+j exec --no-startup-id xdotool mousemove_relative --sync -- 0 10
+bindsym $mod2+k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -10
+bindsym $mod2+shift+h exec --no-startup-id xdotool mousemove_relative --sync -- -25 0
+bindsym $mod2+shift+l exec --no-startup-id xdotool mousemove_relative --sync -- 25 0
+bindsym $mod2+shift+j exec --no-startup-id xdotool mousemove_relative --sync -- 0 25
+bindsym $mod2+shift+k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -25
+# bindsym $mod2+space exec --no-startup-id xdotool click 1
+bindsym $mod2+u exec --no-startup-id xdotool click 1
+bindsym $mod2+i exec --no-startup-id xdotool click 3
+
+#Banish the mouse pointer to the corner of the current window - removes the distracting cursor or summons it closer for specific tasks
+bindsym $mod2+b exec --no-startup-id ~/.i3/banishMouse.sh
 
 #}

@@ -6,8 +6,8 @@
 
 # echo $CURRENT_LAYOUT | sed 's/.*/\U&/'
 
-CURRENT_LAYOUT=$(xkblayout-state print "%s") 
+OUTPUT=$(~/git/linux-setup/appconfig/i3/i3blocks/volume 5 pulse) 
 
-echo $CURRENT_LAYOUT
+echo $OUTPUT
 
-if [ "$CURRENT_LAYOUT" != "us" ]; then exit 33; fi
+if [ "$OUTPUT" != "MUTE" ]; then exit 33; fi

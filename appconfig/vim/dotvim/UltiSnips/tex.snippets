@@ -7,12 +7,20 @@ ${2:${VISUAL}}
 
 endsnippet
 
+snippet shift
+shift = \{(${1:0.0}, ${2:0.0})\}
+endsnippet
+
 snippet tikzeval "" Ai
 (\$ ${1:${VISUAL}} \$)
 endsnippet
 
 snippet "eq" "" ri
 (\\ref{eq:${1:${VISUAL}}})
+endsnippet
+
+snippet "sec" "" ri
+(section~\\ref{sec:${1:${VISUAL}}})
 endsnippet
 
 snippet cmd "generic command \{}" i
