@@ -12,6 +12,10 @@ snippet print
 print("${1}")
 endsnippet
 
+snippet printf
+print("$1: \{\}".format(${1:${VISUAL}}))
+endsnippet
+
 snippet format "" i
 format(${1})
 endsnippet
