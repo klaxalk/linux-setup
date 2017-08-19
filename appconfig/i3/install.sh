@@ -91,6 +91,11 @@ export USE_I3=false" >> ~/.bashrc
     # install i3
     bash $APP_PATH/../xkblayout-state/install.sh
 
+    # install xkblayout state
+    cd $APP_PATH/../../submodules/xkblayout-state/
+    make
+    sudo ln -sf `pwd`/xkblayout-state /usr/bin
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
