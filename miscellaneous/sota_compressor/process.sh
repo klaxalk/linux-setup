@@ -105,3 +105,9 @@ do
   fi
   echo "merging file $filename"
 done
+
+cd $MY_PATH
+rm $TEMP1_DIR/*
+rm $TEMP2_DIR/*
+rm $TEMP3_DIR/*
+rm text.pdf
