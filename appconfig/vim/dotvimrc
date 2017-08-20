@@ -351,6 +351,9 @@ nnoremap gf <C-W>gf
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
+" set it to some high number to prevent syntax highlite problems
+set synmaxcol=1000
+
 if g:user_mode == "1"
 
   " config for airline
