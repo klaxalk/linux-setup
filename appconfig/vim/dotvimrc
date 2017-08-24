@@ -351,6 +351,61 @@ nnoremap gf <C-W>gf
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
+nnoremap <leader>so :so ~/.vimrc<cr>
+
+function! ClogReformat()
+
+  " delete first left bracket
+  execute ':%s/^\[//g'
+
+  " delete last bracket
+  execute ':%s/\] $//g'
+
+  " replace middle brackets with new line
+  execute ':%s/\] \[//g'
+
+  " put newline before every Frame
+  execute ':%g/Frame/norm O'
+
+  function! MoveToNewFile()
+
+    normal j
+
+    " the line below is empty
+    if match(getline('.'), '^\s*$') != 0
+
+      " yank the id of the image
+      normal k^W"nyiw
+
+      " yank the coordinates
+      normal j^y}
+
+      " open a buffer for the image
+      execute 'new ' . @n . '.txt'
+
+      " paste the text
+      normal pggdd
+
+      " save and quit the file
+      execute ':w'
+
+      " unload the buffer
+      execute ':bdelete'
+
+    end
+
+  endfunc
+
+  " yank the id of the image
+  execute ":%g/Frame/call MoveToNewFile()"
+
+endfunc
+nnoremap <leader>lll :call ClogReformat()<cr>
+
+let @o='k^yy2jgrrWwwciw="+3k^yy2jgrrWwwciw="+3'
+let @p='yyPWEr0Lciwhkd'
+let @l='yypWwwciw="+2LciwhkdyypWwwciw="+1Lciwpwr 0'
+
 " set it to some high number to prevent syntax highlite problems
 set synmaxcol=1000
 
