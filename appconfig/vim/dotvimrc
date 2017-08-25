@@ -409,6 +409,12 @@ let @l='yypWwwciw="+2LciwhkdyypWwwciw="+1Lciwpwr 0'
 " set it to some high number to prevent syntax highlite problems
 set synmaxcol=1000
 
+" remap upper case saving and quitting to lower case
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 if g:user_mode == "1"
 
   " config for airline
