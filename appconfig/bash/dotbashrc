@@ -40,7 +40,8 @@ gitPullPush() {
 }
 
 # create alisases
-alias ra='ranger'
+alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias sb="source ~/.bashrc"
 alias gs="git status"
 alias gppl="gitPullPush local"
