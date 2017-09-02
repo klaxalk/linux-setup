@@ -35,7 +35,10 @@ bash $APPCONFIG_PATH/urxvt/install.sh
 bash $APPCONFIG_PATH/i3/install.sh
 
 # setup latex
-bash $APPCONFIG_PATH/vimtex/install.sh
+bash $APPCONFIG_PATH/latex/install.sh
+
+# setup zathura
+bash $APPCONFIG_PATH/zathura/install.sh
 
 # setup ranger
 bash $APPCONFIG_PATH/ranger/install.sh
