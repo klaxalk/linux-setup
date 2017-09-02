@@ -4,5 +4,5 @@ map w adjust_window width
 
 map r set recolor true
 
-set recolor true # JELLYBEANS COLOR_SCHEME ACTIVE 
+set recolor false # JELLYBEANS COLOR_SCHEME ACTIVE 
 # set recolor false # LIGHT COLOR_SCHEME 
