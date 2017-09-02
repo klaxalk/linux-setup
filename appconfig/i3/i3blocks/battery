@@ -37,6 +37,8 @@ $status = $1;
 $percent = $2;
 $full_text = "$percent%";
 
+# $timeleft=`upower -i $(upower -e | grep -i 'bat') | grep "time to empty" | vims -s "df:^dtW"`
+
 if ($status eq 'Discharging') {
 	$full_text .= ' DIS';
 } elsif ($status eq 'Charging') {
