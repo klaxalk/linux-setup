@@ -2,7 +2,7 @@ map s toggle_statusbar
 map a adjust_window best-fit
 map w adjust_window width
 
-map r set recolor true
+map c set recolor true
 
-set recolor true # JELLYBEANS COLOR_SCHEME ACTIVE 
-# set recolor false # LIGHT COLOR_SCHEME 
+# set recolor true
+# set recolor false
