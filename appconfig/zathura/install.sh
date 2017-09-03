@@ -22,13 +22,14 @@ while true; do
     # need for zathura compilation
     sudo apt-get -y install libmagic-dev
 
-    # link zathuras config
-    ln -s $APP_PATH/zathurarc ~/.config/zathura/zathurarc
-k
     rm -rf /tmp/girara /tmp/zathura
 
     cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
     cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
+
+    # link zathuras config
+    mkdir ~/.config/zathura
+    ln -s $APP_PATH/zathurarc ~/.config/zathura/zathurarc
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
