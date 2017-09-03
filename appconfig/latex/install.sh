@@ -6,7 +6,7 @@ APP_PATH=`( cd "$APP_PATH" && pwd )`
 
 default=n
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex support? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up for Latex development? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
