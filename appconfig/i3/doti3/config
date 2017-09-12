@@ -282,7 +282,7 @@ for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disabled
-for_window [Title="^Figure"] floating disabled
+for_window [title="^Figure"] floating disabled
 
 # jock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
@@ -301,7 +301,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-for_window [class="^Zathura$"] focus; resize shrink width 11 px or 11 ppt
+for_window [class="^Zathura$"] focus; resize shrink width 8 px or 8 ppt
 
 #{ Gaps settings
 smart_gaps on
