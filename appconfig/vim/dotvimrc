@@ -25,8 +25,15 @@ if g:user_mode == "1"
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
 
-  " ifugitive.vim: a Git wrapper so awesome, it should be illegal
+  " fugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
+
+  " resolving conflicts in git the better way
+  Plug 'christoomey/vim-conflicted'
+
+  " Use `gl` and `gu` rather than the default conflicted diffget mappings
+  let g:diffget_local_map = 'gl'
+  let g:diffget_upstream_map = 'gu'
 
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
@@ -489,8 +496,8 @@ endif
 
 " set colorscheme (only in normal vim)
 if g:user_mode == "1"
-  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE 
-  " colorscheme raggi " LIGHT COLOR_SCHEME 
+  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
+  " colorscheme raggi " LIGHT COLOR_SCHEME
 endif
 
 " if exists, source .my.vimrc
