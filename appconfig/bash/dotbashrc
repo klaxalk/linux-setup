@@ -39,6 +39,24 @@ gitPullPush() {
  fi
 }
 
+getVideoFrame () {
+
+  if [ $# -eq 0 ]; then
+    echo "did not get input"
+    exit 1
+  elif [ $# -eq 1 ]; then
+    echo "gettin the first frame"
+    file="$1"
+    frame=0
+  elif [ $# -eq 2 ]; then
+    file="$1"
+    frame="$2"
+  fi
+
+  output="${file%.*}_$frame.jpg"
+  ffmpeg -i "$file" -vf "select=eq(n\,$frame)" -vframes 1 "$output"
+}
+
 # create alisases
 alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
