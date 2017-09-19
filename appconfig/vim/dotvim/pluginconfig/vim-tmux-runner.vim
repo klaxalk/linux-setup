@@ -15,6 +15,7 @@ nnoremap <localleader>tsf :VtrSendFile!<cr>
 " when using :VtrSendFile, how should be various filetypes executed?
 let g:vtr_filetype_runner_overrides = {
       \ 'sh': 'bash {file}',
+      \ 'py': 'python {file}',
       \ }
 
 " when enabled, breaks the sendfile feature
