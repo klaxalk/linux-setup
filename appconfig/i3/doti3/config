@@ -360,6 +360,8 @@ mode "longpress" {
   bindsym l exec --no-startup-id xdotool mousemove_relative --sync -- 10 0
 
   bindsym r exec --no-startup-id xdotool mouseup 1; mode "mouse"
+
+  bindsym Escape exec --no-startup-id xdotool mouseup 1; mode "default"
 }
 
 # resize window (you can also use the mouse for that)
@@ -398,7 +400,7 @@ mode "mouse" {
   bindsym r exec --no-startup-id xdotool mousedown 1; mode "longpress"
 
   # Banish the mouse pointer to the corner of the current window - removes the distracting cursor or summons it closer for specific tasks
-  bindsym $mod2+b exec --no-startup-id ~/.i3/banishMouse.sh
+  bindsym b exec --no-startup-id ~/.i3/banishMouse.sh
 }
 bindsym $mod+c mode "mouse"
 
