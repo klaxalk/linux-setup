@@ -39,7 +39,7 @@ gitPullPush() {
  fi
 }
 
-getVideoFrame () {
+getVideoThumbnail () {
 
   if [ $# -eq 0 ]; then
     echo "did not get input"
@@ -53,7 +53,7 @@ getVideoFrame () {
     frame="$2"
   fi
 
-  output="${file%.*}_$frame.jpg"
+  output="${file%.*}_thumbnail.jpg"
   ffmpeg -i "$file" -vf "select=eq(n\,$frame)" -vframes 1 "$output"
 }
 
