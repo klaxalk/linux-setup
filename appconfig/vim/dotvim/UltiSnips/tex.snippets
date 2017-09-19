@@ -342,11 +342,11 @@ snippet table
 \begin{table}
 \begin{tabular}{l l l}
 \toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\\\
 \midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
+Treatment 1 & 0.0003262 & 0.562 \\\\
+Treatment 2 & 0.0015681 & 0.910 \\\\
+Treatment 3 & 0.0009271 & 0.296 \\\\
 \bottomrule
 \end{tabular}
 \caption{Table caption}
@@ -366,4 +366,19 @@ snippet example
 ${2:Some code...}
 \end{verbatim}
 \end{example}
+endsnippet
+
+snippet hfill
+\\hfill%
+endsnippet
+
+snippet videoblock
+\begin{block}{Video title}
+	\begin{center}
+		\movie[externalviewer]{
+			\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+		}{video/${2:filename}.${3:mp4}}\\\\
+		Video: \url{${4:link}}
+	\end{center}
+\end{block}
 endsnippet
