@@ -363,13 +363,28 @@ snippet example
 % \begin{frame}[fragile] needs to be used when verbatim is in the slide
 \begin{example}[${1:Example title}]
 \begin{verbatim}
-${2:Some code...}
+${2:${VISUAL}}
 \end{verbatim}
 \end{example}
 endsnippet
 
 snippet hfill
 \\hfill%
+endsnippet
+
+snippet videoblock_split
+\begin{block}{Video title}
+	\begin{center}
+		\begin{columns}[c]
+			\column{0.48\textwidth} % Left column and width
+				\movie[externalviewer]{
+					\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+				}{video/${2:filename}.${3:mp4}}\\\\
+			\column{0.48\textwidth} % Left column and width
+				\url{${4:link}}
+		\end{columns}
+	\end{center}
+\end{block}
 endsnippet
 
 snippet videoblock

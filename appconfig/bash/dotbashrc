@@ -47,14 +47,14 @@ getVideoThumbnail () {
   elif [ $# -eq 1 ]; then
     echo "gettin the first frame"
     file="$1"
-    frame=0
+    frame="00:00:01"
   elif [ $# -eq 2 ]; then
     file="$1"
     frame="$2"
   fi
 
   output="${file%.*}_thumbnail.jpg"
-  ffmpeg -i "$file" -vf "select=eq(n\,$frame)" -vframes 1 "$output"
+  ffmpeg -i "$file" -ss "$frame" -vframes 1 "$output"
 }
 
 # create alisases
