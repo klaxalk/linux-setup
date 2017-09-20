@@ -67,6 +67,7 @@ alias gppo="gitPullPush origin"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias sl="cvlc --play-and-exit ~/git/linux-setup/miscellaneous/sounds/pregananant.mp3 > /dev/null 2>&1 & sl"
 
 # use ctags to generate code tags
 generateTags() {
