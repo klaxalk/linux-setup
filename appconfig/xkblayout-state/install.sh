@@ -15,7 +15,7 @@ while true; do
     # link the configuration
     cd $APP_PATH/../../submodules/xkblayout-state/
     make
-    sudo ln -s $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+    sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
