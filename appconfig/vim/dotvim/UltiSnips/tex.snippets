@@ -1,3 +1,19 @@
+snippet isotope "" i
+\isotope[${1}]{${2}}
+endsnippet
+
+snippet only
+\only<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet onslide
+\onslide<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet alert
+\alert<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
 snippet "fold" "" r
 %%\{ ${1}
 
@@ -11,7 +27,11 @@ snippet scriptsize
 endsnippet
 
 snippet small
-\small
+\small 
+endsnippet
+
+snippet tiny
+\tiny 
 endsnippet
 
 snippet shift
@@ -340,8 +360,10 @@ snippet columns
 \begin{columns}[${1:c}]
 
 \column{${2:0.48}\textwidth} % Left column and width
+${4}
 
 \column{${3:0.48}\textwidth} % Right column and width
+${5}
 
 \end{columns}
 endsnippet
@@ -404,4 +426,11 @@ snippet videoblock
 		Video: \url{${4:link}}
 	\end{center}
 \end{block}
+endsnippet
+
+snippet overview
+\begin{frame}
+	\frametitle{{${1:Overview}}
+	\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
+\end{frame}
 endsnippet
