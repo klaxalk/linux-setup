@@ -74,7 +74,7 @@ snippet gppl "" Ab
 git pull ${1:local} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
 endsnippet
 
-snippet "git commit( )+" "" Abr
+snippet "(git commit( )+)|(commit )" "" Abr
 git commit -m "${1:${VISUAL}}" ${2:-a}
 endsnippet
 
@@ -183,4 +183,16 @@ endsnippet
 
 snippet "cd\.\." "" Ar
 cd ..
+endsnippet
+
+snippet "untar $" "" Abr
+tar -xvf 
+endsnippet
+
+snippet "(open )" "" Abr
+gnome-open 
+endsnippet
+
+snippet "(gcgppo)|(cggpo)" "" Abr
+git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $3 $4
 endsnippet

@@ -41,7 +41,10 @@ au FileType tex set foldmarker=%%{,%%}
 " grepiing
 au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
 
-au FileType tex set synmaxcol=400
+" set it to some high number to prevent syntax highlite problems
+au FileType tex set synmaxcol=10000
+
+" let g:vimtex_complete_recursive_bib = 1
 
 " add dictionary for mbzirc-treasure-hunt paper
 autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'
