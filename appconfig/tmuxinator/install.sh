@@ -23,7 +23,7 @@ while true; do
 
     # symlink tmuxinator settings
     rm ~/.tmuxinator
-    ln -s $APP_PATH/dottmuxinator ~/.tmuxinator
+    ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
