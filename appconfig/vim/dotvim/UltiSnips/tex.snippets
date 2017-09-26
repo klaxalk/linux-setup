@@ -1,10 +1,41 @@
+snippet isotope "" i
+\isotope[${1}]{${2}}
+endsnippet
+
+snippet only
+\only<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet onslide
+\onslide<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet alert
+\alert<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
 snippet "fold" "" r
 %%\{ ${1}
 
 ${2:${VISUAL}}
 
 %%\}
+endsnippet
 
+snippet scriptsize
+\scriptsize
+endsnippet
+
+snippet small
+\small 
+endsnippet
+
+snippet tiny
+\tiny 
+endsnippet
+
+snippet shift
+shift = \{(${1:0.0}, ${2:0.0})\}
 endsnippet
 
 snippet tikzeval "" Ai
@@ -13,6 +44,10 @@ endsnippet
 
 snippet "eq" "" ri
 (\\ref{eq:${1:${VISUAL}}})
+endsnippet
+
+snippet "sec" "" ri
+(section~\\ref{sec:${1:${VISUAL}}})
 endsnippet
 
 snippet cmd "generic command \{}" i
@@ -89,6 +124,12 @@ snippet itemize "\itemize{}" i
 \\begin{itemize}
 ${1:${VISUAL}}
 \\end{itemize}
+endsnippet
+
+snippet enumerate "\enumerate{}" i
+\\begin{enumerate}
+${1:${VISUAL}}
+\\end{enumerate}
 endsnippet
 
 snippet item "\item{}" i
@@ -174,6 +215,10 @@ endsnippet
 
 snippet textbf "\textbf{}" iA
 \\textbf{${1:${VISUAL}}}
+endsnippet
+
+snippet vspace "\vspace{}" iA
+\\vspace{${1:${VISUAL}}}
 endsnippet
 
 snippet emph "\emph{}" i
@@ -288,4 +333,104 @@ endsnippet
 
 snippet forall "\forall" Ai
 \\forall ${1}
+endsnippet
+
+snippet subfloat "" Ai
+\subfloat[${1:Image caption}] {
+	${2:${VISUAL}}
+}
+endsnippet
+
+snippet frame
+\begin{frame}
+\frametitle{${1:Frame title}}
+
+${2:${VISUAL}}
+
+\end{frame}
+endsnippet
+
+snippet block
+\begin{block}{${1:Block title}}
+${2:${VISUAL}}
+\end{block}
+endsnippet
+
+snippet columns
+\begin{columns}[${1:c}]
+
+\column{${2:0.48}\textwidth} % Left column and width
+${4}
+
+\column{${3:0.48}\textwidth} % Right column and width
+${5}
+
+\end{columns}
+endsnippet
+
+snippet table
+\begin{table}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\\\
+Treatment 2 & 0.0015681 & 0.910 \\\\
+Treatment 3 & 0.0009271 & 0.296 \\\\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+endsnippet
+
+snippet theorem
+\begin{theorem}[${1:Title}]
+\$${1:1 + 1 = 2}\$
+\end{theorem}
+endsnippet
+
+snippet example
+% \begin{frame}[fragile] needs to be used when verbatim is in the slide
+\begin{example}[${1:Example title}]
+\begin{verbatim}
+${2:${VISUAL}}
+\end{verbatim}
+\end{example}
+endsnippet
+
+snippet hfill
+\\hfill%
+endsnippet
+
+snippet videoblock_split
+\begin{block}{${1:Video title}}
+	\begin{center}
+		\begin{columns}[c]
+			\column{0.48\textwidth} % Left column and width
+				\movie[externalviewer]{
+					\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+				}{video/${2:filename}.${3:mp4}}\\\\
+			\column{0.48\textwidth} % Left column and width
+				\url{${4:link}}
+		\end{columns}
+	\end{center}
+\end{block}
+endsnippet
+
+snippet videoblock
+\begin{block}{${1:Video title}}
+	\begin{center}
+		\movie[externalviewer]{
+			\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+		}{video/${2:filename}.${3:mp4}}\\\\
+		Video: \url{${4:link}}
+	\end{center}
+\end{block}
+endsnippet
+
+snippet overview
+\begin{frame}
+	\frametitle{{${1:Overview}}
+	\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
+\end{frame}
 endsnippet

@@ -80,6 +80,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+bindsym $mod+b bar mode toggle
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -145,16 +147,16 @@ mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
 
   # resize windows with hjkl
-  bindsym h resize shrink width 10 px or 10 ppt
-  bindsym j resize grow height 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 1 px or 1 ppt
+  bindsym j resize grow height 1 px or 1 ppt
+  bindsym k resize shrink height 1 px or 1 ppt
+  bindsym l resize grow width 1 px or 1 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 1 px or 1 ppt
+  bindsym Down resize grow height 1 px or 1 ppt
+  bindsym Up resize shrink height 1 px or 1 ppt
+  bindsym Right resize grow width 1 px or 1 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -186,6 +188,7 @@ set $active_background        #005faf
 set $background_color         #151515
 set $active_border            #005faf
 set $split_indicator          #B85335
+set $urgent                   #ff0000
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 for_window [class="^.*"] border pixel 2
 # }
@@ -218,7 +221,7 @@ bar {
     active_workspace   $transparent       $transparent         $active_text_color
     inactive_workspace $transparent       $transparent         $active_text_color
     binding_mode       $transparent       $transparent         $active_text_color
-    urgent_workspace   $transparent       $transparent         $active_text_color
+    urgent_workspace   $transparent       $transparent         $urgent
   }
 
   # i3bar position
@@ -226,7 +229,7 @@ bar {
 }
 
 # rofi launcher
-bindsym $mod+d exec rofi -show run -opacity "85" -width 100 -padding 200 -font "Monospace 18" -lines 5 -eh 1
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 
 # bind audio to DELL's special keys
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
@@ -264,14 +267,12 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
-exec --no-startup-id "setxkbmap us"
-bindsym $mod2+space exec --no-startup-id ~/.i3/toggle_keyboard_layout.sh
+# man xkeyboard-config will tell you options for keyboard shortcuts
+exec_always --no-startup-id "sleep 4; notify-send -u low -i mouse \"keybard\"; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
+# disable caps lock and make it behave like escape
+exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
-# oh my God disable caps lock and set is as escape!!!
-exec_always xmodmap -e "clear lock" # disable caps lock switch
-exec_always xmodmap -e "keysym Caps_Lock = Escape" # set caps_lock as escape
 
-# assing windows to particular workspaces
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
 # assign [class="Google-chrome"] $workspace5
@@ -282,6 +283,7 @@ for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disabled
+for_window [title="^Figure"] floating disabled
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
@@ -298,6 +300,7 @@ bindsym F1 exec --no-startup-id echo "help" > /dev/null
 for_window [title="GIMP Startup"] move workspace $workspace9
 for_window [class="^Gimp$"] move workspace $workspace9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
 #{ Gaps settings
@@ -345,5 +348,62 @@ bindsym $mod2+5 exec --no-startup-id gz camera -c gzclient_camera -f uav5
 bindsym $mod2+p exec --no-startup-id gz world -p 1
 bindsym $mod2+u exec --no-startup-id gz world -p 0
 bindsym $mod2+i exec --no-startup-id gz world -m 100
+
+#}
+
+#{ Control the mouse with keyboard
+
+mode "longpress" {
+
+  # resize windows with hjkl
+  bindsym h exec --no-startup-id xdotool mousemove_relative --sync -- -10 0
+  bindsym j exec --no-startup-id xdotool mousemove_relative --sync -- 0 10
+  bindsym k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -10
+  bindsym l exec --no-startup-id xdotool mousemove_relative --sync -- 10 0
+
+  bindsym r exec --no-startup-id xdotool mouseup 1; mode "mouse"
+
+  bindsym Escape exec --no-startup-id xdotool mouseup 1; mode "default"
+}
+
+# resize window (you can also use the mouse for that)
+
+mode "mouse" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # resize windows with hjkl
+  bindsym h exec --no-startup-id xdotool mousemove_relative --sync -- -10 0
+  bindsym j exec --no-startup-id xdotool mousemove_relative --sync -- 0 10
+  bindsym k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -10
+  bindsym l exec --no-startup-id xdotool mousemove_relative --sync -- 10 0
+
+  # resize windows with hjkl
+  bindsym shift+h exec --no-startup-id xdotool mousemove_relative --sync -- -25 0
+  bindsym shift+j exec --no-startup-id xdotool mousemove_relative --sync -- 0 25
+  bindsym shift+k exec --no-startup-id xdotool mousemove_relative --sync -- 0 -25
+  bindsym shift+l exec --no-startup-id xdotool mousemove_relative --sync -- 25 0
+
+  bindsym $mod+h focus left
+  bindsym $mod+j focus down
+  bindsym $mod+k focus up
+  bindsym $mod+l focus right
+
+  # bindsym $mod2+space exec --no-startup-id xdotool click 1
+  bindsym f exec --no-startup-id xdotool click 1
+  bindsym d exec --no-startup-id xdotool click 3
+  bindsym u exec --no-startup-id xdotool click 1
+  bindsym i exec --no-startup-id xdotool click 3
+
+  bindsym $mod+n workspace next_on_output
+  bindsym $mod+m workspace prev_on_output
+
+  # back to normal: Enter or Escape
+  bindsym Escape mode "default"
+  bindsym r exec --no-startup-id xdotool mousedown 1; mode "longpress"
+
+  # Banish the mouse pointer to the corner of the current window - removes the distracting cursor or summons it closer for specific tasks
+  bindsym b exec --no-startup-id ~/.i3/banishMouse.sh
+}
+bindsym $mod+c mode "mouse"
 
 #}

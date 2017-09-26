@@ -80,6 +80,10 @@ while true; do
     mkdir ~/.fonts
     cp $APP_PATH/fonts/* ~/.fonts/
 
+    # link fonts.conf file
+    mkdir ~/.config/fontconfig
+    ln -s $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
+
     # install thunar
     sudo apt-get -y install thunar rofi compton i3blocks systemd
 
@@ -95,6 +99,9 @@ export USE_I3=false" >> ~/.bashrc
 
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
+
+    # install xkblayout state
+    bash $APP_PATH/../xkblayout-state/install.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
