@@ -14,6 +14,7 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
+
 sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools
 
 # for mounting exfat

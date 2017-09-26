@@ -16,12 +16,12 @@ while true; do
     sudo apt-get -y install rxvt-unicode-256color
 
     # link the configuration
-    ln -s $APP_PATH/dotXresoures ~/.Xresources
+    ln -fs $APP_PATH/dotXresoures ~/.Xresources
 
     # link extensions
     for file in `ls $APP_PATH/extensions/`
 do
-    sudo ln -s $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
+    sudo ln -fs $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
 done
 
     break
