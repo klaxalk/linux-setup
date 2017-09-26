@@ -1,7 +1,7 @@
 # set editor and shell
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
-# export SHELL=/bin/bash
+# export SHELL=/usr/bin/zsh
 
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
@@ -60,7 +60,7 @@ getVideoThumbnail () {
 # create alisases
 alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias sb="source ~/.bashrc"
+alias sb="source ~/.zshrc"
 alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
@@ -85,12 +85,12 @@ generateTags() {
   fi 
 }
 
-# running new tmux (or attaching) with session name derived from parent bash pid
+# running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
 
-  SESSION_NAME="T$BASHPID"
+  SESSION_NAME="T$PPID"
   
-  # try to find session with the correct session id (based on the bashs PID)
+  # try to find session with the correct session id (based on the zsh PID)
   EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
 
   if [ "$EXISTING_SESSION" -gt "0" ]; then
@@ -119,7 +119,7 @@ runTmux() {
 
   fi
 }
-_trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
+_trap_exit() { $TMUX_BIN kill-session -t "T$PPID"; }                                                       
 trap _trap_exit EXIT                                                                                  
 
 # VIM alias for running vim in tmux and in servermode
@@ -132,7 +132,7 @@ runVim() {
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
 
-    SESSION_NAME="T$BASHPID"
+    SESSION_NAME="T$PPID"
   
     # if there is a tmux session with the same name as the current bashpid
     num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
@@ -151,14 +151,14 @@ runVim() {
 
   else
 
-    bash -c "$VIM_CMD"
+    zsh -c "$VIM_CMD"
 
   fi
 }
 alias vim=runVim
 
 # source tmuxinator
-source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
+source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
 
 # special code for i3 users
 if [ "$USE_I3" = "true" ]; then
