@@ -14,7 +14,8 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
-sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config
+
+sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools
 
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
@@ -35,7 +36,10 @@ bash $APPCONFIG_PATH/urxvt/install.sh
 bash $APPCONFIG_PATH/i3/install.sh
 
 # setup latex
-bash $APPCONFIG_PATH/vimtex/install.sh
+bash $APPCONFIG_PATH/latex/install.sh
+
+# setup zathura
+bash $APPCONFIG_PATH/zathura/install.sh
 
 # setup ranger
 bash $APPCONFIG_PATH/ranger/install.sh
