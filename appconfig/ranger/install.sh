@@ -15,7 +15,7 @@ rm ~/.config/ranger/scope.sh
 
 mkdir ~/.config/ranger
 
-ln -s $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
-ln -s $APP_PATH/commands.py ~/.config/ranger/commands.py
-ln -s $APP_PATH/rc.conf ~/.config/ranger/rc.conf
-ln -s $APP_PATH/scope.sh ~/.config/ranger/scope.sh
+ln -fs $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
+ln -fs $APP_PATH/commands.py ~/.config/ranger/commands.py
+ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
+ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
