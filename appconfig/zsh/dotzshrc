@@ -119,8 +119,23 @@ runTmux() {
 
   fi
 }
-_trap_exit() { $TMUX_BIN kill-session -t "T$PPID"; }                                                       
-trap _trap_exit EXIT                                                                                  
+
+zshexit() {
+   
+   echo "T$PPID"
+   
+   pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
+
+   echo $pids
+
+   for pid in "$pids"
+   do
+     killp "$pid"
+     echo "killing $pid"
+   done
+
+   $TMUX_BIN kill-session -t "T$PPID"
+}                                                       
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
