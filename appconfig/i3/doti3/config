@@ -118,6 +118,10 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -284,6 +288,7 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disabled
 for_window [title="^Figure"] floating disabled
+for_window [instance="scratchpadurxvt"] move scratchpad
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
@@ -350,6 +355,8 @@ bindsym $mod2+u exec --no-startup-id gz world -p 0
 bindsym $mod2+i exec --no-startup-id gz world -m 100
 
 #}
+
+bindsym $mod+i sticky toggle
 
 #{ Control the mouse with keyboard
 
