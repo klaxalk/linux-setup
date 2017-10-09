@@ -1,5 +1,5 @@
 # set editor and shell
-export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+export VIM_ARGS="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 # export SHELL=/usr/bin/zsh
 
@@ -148,7 +148,7 @@ runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
-  VIM_CMD=$(echo "$EDITOR -- ${@}")
+  VIM_CMD=$(echo "$VIM_ARGS -- ${@}")
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
@@ -177,6 +177,7 @@ runVim() {
   fi
 }
 alias vim=runVim
+export EDITOR=runVim
 
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
