@@ -295,7 +295,7 @@ for_window [instance="scratchpadurxvt"] move scratchpad
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
