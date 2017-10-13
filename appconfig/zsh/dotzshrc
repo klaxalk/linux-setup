@@ -141,6 +141,9 @@ zshexit() {
    done
 
    $TMUX_BIN kill-session -t "T$PPID"
+
+   # kill rogue zshells
+   for i in `ps aux | grep "\-[z]sh" | cut -d " " -f 3`; do killp "$i"; done
 }                                                       
 
 # VIM alias for running vim in tmux and in servermode
