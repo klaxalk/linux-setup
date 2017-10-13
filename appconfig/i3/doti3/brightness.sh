@@ -7,6 +7,9 @@ MINIMAL=2
 # find the id of my the touchpad
 CURRENT_BRIGHTNESS=`xbacklight | sed -r "s/^(.*)\..*/\1/g"`
 
+notify-send -u low -i mouse "$CURRENT_BRIGHTNESS"
+
+
 if [ $# -eq 0 ]; then
 
   echo "Current brightness is: $CURRENT_BRIGHTNESS"
