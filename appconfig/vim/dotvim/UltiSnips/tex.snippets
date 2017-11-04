@@ -213,15 +213,15 @@ snippet caption "\caption{}" i
 \\caption{${1:${VISUAL}}}
 endsnippet
 
-snippet textit "\textit{}" iA
+snippet textit "\textit{}" i
 \\textit{${1:${VISUAL}}}
 endsnippet
 
-snippet textbf "\textbf{}" iA
+snippet textbf "\textbf{}" i
 \\textbf{${1:${VISUAL}}}
 endsnippet
 
-snippet vspace "\vspace{}" iA
+snippet vspace "\vspace{}" i
 \\vspace{${1:${VISUAL}}}
 endsnippet
 
@@ -354,12 +354,14 @@ snippet subfloat "" Ai
 endsnippet
 
 snippet frame
+%%{ $1
 \begin{frame}
 \frametitle{${1:Frame title}}
 
 ${2:${VISUAL}}
 
 \end{frame}
+%%}
 endsnippet
 
 snippet block
