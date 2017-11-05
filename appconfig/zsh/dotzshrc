@@ -141,10 +141,6 @@ zshexit() {
    done
 
    $TMUX_BIN kill-session -t "T$PPID"
-
-   for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do   
-    killp "$i"
-   done
 }                                                       
 
 # VIM alias for running vim in tmux and in servermode
@@ -181,6 +177,12 @@ runVim() {
   fi
 }
 alias vim=runVim
+
+kzsh() {
+  for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do   
+    killp "$i"
+  done
+}
 
 # source tmuxinator
 source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
