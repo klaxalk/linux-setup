@@ -357,7 +357,7 @@ bindsym $mod2+i exec --no-startup-id gz world -m 100
 
 #}
 
-bindsym $mod+i sticky toggle
+# bindsym $mod+i sticky toggle
 
 #{ Control the mouse with keyboard
 
