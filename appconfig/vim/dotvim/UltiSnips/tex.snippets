@@ -6,15 +6,15 @@ snippet isotope "" i
 \isotope[${1}]{${2}}
 endsnippet
 
-snippet only
+snippet only "" i
 \only<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
-snippet onslide
+snippet onslide "" i
 \onslide<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
-snippet alert
+snippet alert "" i
 \alert<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
@@ -58,10 +58,8 @@ snippet cmd "generic command \{}" i
 \\${1}{${2:${VISUAL}}}
 endsnippet
 
-snippet color "{\color{} }" i
-\{\color{${1}}
-${2:${VISUAL}}
-}
+snippet color "\color{} " i
+\color{${1}} 
 endsnippet
 
 snippet "(TODO)|(todo)" "" ir
