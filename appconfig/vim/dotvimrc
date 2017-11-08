@@ -334,8 +334,8 @@ vmap L $
 vnoremap // y/<C-R>"<CR>
 
 " folding by marker for various file types
-au FileType m set foldmethod=marker
-au FileType m set foldmarker=%%{,%%}
+au FileType m,matlab set foldmethod=marker
+au FileType m,matlab set foldmarker=%%{,%%}
 
 au FileType yml,yaml,sh,conf,python set foldmethod=marker
 au FileType yml,yaml,sh,conf,python set foldmarker=#{,#}
