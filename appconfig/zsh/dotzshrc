@@ -2,6 +2,9 @@
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 # export SHELL=/usr/bin/zsh
+#
+## Vi mode
+bindkey -v
 
 # use the vi navigation keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char
@@ -89,6 +92,15 @@ generateTags() {
     ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
     eval $ctagscmd
   fi 
+}
+
+# running new tmux (or attaching) with session name derived from parent zsh pid
+waitForRos() {
+
+  until rostopic list > /dev/null 2>&1; do
+    echo "waiting for ros"
+    sleep 1;
+  done
 }
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
