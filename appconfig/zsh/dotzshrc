@@ -148,7 +148,7 @@ runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
-  VIM_CMD=$(echo "$EDITOR -- ${@}")
+  VIM_CMD=$(echo "$EDITOR ${@}")
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
