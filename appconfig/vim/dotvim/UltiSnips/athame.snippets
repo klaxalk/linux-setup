@@ -34,6 +34,10 @@ snippet octave "" Ab
 octave ${1:--no-gui}
 endsnippet
 
+snippet matlab "" Ab
+matlab ${1:-nodesktop}
+endsnippet
+
 snippet mux "" Ab
 tmuxinator
 endsnippet
@@ -156,10 +160,10 @@ else:
 }
 endsnippet
 
-snippet "rostopic $" "" Abr
-rostopic $1`!p
-snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
-endsnippet
+# snippet "rostopic $" "" Abr
+# rostopic $1`!p
+# snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
+# endsnippet
 
 snippet cdsim "" Ab
 cd ~/git/simulation/start_simulation/
@@ -196,3 +200,4 @@ endsnippet
 snippet "(gcgppo)|(cggpo)" "" Abr
 git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $3 $4
 endsnippet
+

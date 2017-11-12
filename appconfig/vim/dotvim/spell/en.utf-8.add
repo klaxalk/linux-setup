@@ -82,3 +82,7 @@ alertblock
 UAV
 exampleblock
 alertblock
+SCP
+RSYNC
+scp
+rsync
