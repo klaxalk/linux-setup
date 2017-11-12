@@ -160,7 +160,7 @@ runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
-  VIM_CMD=$(echo "$EDITOR -- ${@}")
+  VIM_CMD=$(echo "$EDITOR ${@}")
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
@@ -189,6 +189,8 @@ runVim() {
   fi
 }
 alias vim=runVim
+
+alias vimdiff="vim -d"
 
 kzsh() {
   for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do   

@@ -1,6 +1,6 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=13
+URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
