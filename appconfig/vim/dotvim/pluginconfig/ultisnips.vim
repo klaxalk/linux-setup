@@ -10,8 +10,8 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 if g:user_mode == "1"
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsListSnippets="<c-l>"
-  let g:UltiSnipsJumpForwardTrigger="<s-l>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-h>"
+  let g:UltiSnipsJumpForwardTrigger="<c-l>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 endif
 
 " key bindings for athame
