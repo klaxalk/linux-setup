@@ -305,6 +305,7 @@ exec --no-startup-id indicator-sound-switcher
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
 for_window [title="GIMP Startup"] move workspace $workspace9
+for_window [title="market"] move workspace $workspace8
 for_window [class="^Gimp$"] move workspace $workspace9
 for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
