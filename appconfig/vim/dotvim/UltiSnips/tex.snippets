@@ -223,6 +223,10 @@ snippet vspace "\vspace{}" i
 \\vspace{${1:${VISUAL}}}
 endsnippet
 
+snippet hspace "\hspace{}" i
+\\hspace{${1:${VISUAL}}}
+endsnippet
+
 snippet emph "\emph{}" i
 \\emph{${1:${VISUAL}}}
 endsnippet
@@ -372,7 +376,7 @@ snippet columns
 \begin{columns}[${1:c}]
 
 \column{${2:0.48}\textwidth} % Left column and width
-${4}
+${4:${VISUAL}}
 
 \column{${3:0.48}\textwidth} % Right column and width
 ${5}
@@ -445,4 +449,28 @@ snippet overview
 	\frametitle{{${1:Overview}}
 	\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
 \end{frame}
+endsnippet
+
+snippet inst "" i
+\\inst{${1:${VISUAL}}}
+endsnippet
+
+snippet sout "" i
+\\sout{${1:${VISUAL}}}
+endsnippet
+
+snippet minipage
+\\minipage[c][0.85\textheight][s]{\columnwidth}
+
+${1:${VISUAL}}
+
+\\endminipage
+endsnippet
+
+snippet superfill "" i
+\\superfill
+endsnippet
+
+snippet vfill "" i
+\\vfill
 endsnippet
