@@ -180,6 +180,15 @@ snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\end{figure}
 endsnippet
 
+snippet ieeefigure "figure, as defined in the IEEE tamplate"
+\\begin{figure}[thpb]
+	\\centering
+	\\includegraphics[width=${1:1.0}\textwidth]{figures/${2}}
+	\\caption{${3}}
+	\\label{fig:${4}}
+\\end{figure}
+endsnippet
+
 snippet jfrtable "table as defined in the JFR template"
 \\begin{table}[t]
 \\caption{${1}} \label{${2:sample-table}}
@@ -251,15 +260,15 @@ snippet ddot "\ddot{}" i
 \\ddot{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbf "\mathbf{}" Ai
+snippet mathbf "\mathbf{}" i
 \\mathbf{${1:${VISUAL}}}
 endsnippet
 
-snippet mathrm "\mathrm{}" Ai
+snippet mathrm "\mathrm{}" i
 \\mathrm{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbb "\mathbb{}" Ai
+snippet mathbb "\mathbb{}" i
 \\mathbb{${1:${VISUAL}}}
 endsnippet
 
@@ -477,4 +486,12 @@ endsnippet
 
 snippet vfill "" i
 \\vfill
+endsnippet
+
+snippet approx "" i
+\\approx
+endsnippet
+
+snippet path
+\\path[-] (\$(${1:from_point})\$) edge [${2:->}] (\$(${3:to_point})\$);
 endsnippet
