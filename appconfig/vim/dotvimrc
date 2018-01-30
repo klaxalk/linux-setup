@@ -76,7 +76,7 @@ if g:user_mode == "1"
 
   " youcompleteme
   " automatic code completion for C++ and more
-  Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
 
   " make ROS and vim to be friends
   Plug 'taketwo/vim-ros'
@@ -477,6 +477,11 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-easy-align.vim
 
 endif
+
+" %:p:h path
+" %:t file name
+autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
+" au BufRead *.sk let &l:makeprg="bash -c '%:p:h/compile_sketch.sh %:t'"
 
 " config for vim-multiple-cursors
 source ~/.vim/pluginconfig/vim-multiple-cursors.vim
