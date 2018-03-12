@@ -169,6 +169,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "throughput" {
+
+  bindsym $mod+shift+t mode "default"
+}
+bindsym $mod+shift+t mode "throughput"
+
 set $transparent #00000000
 
 # LIGHT COLOR_SCHEME {
@@ -304,8 +310,9 @@ exec --no-startup-id indicator-sound-switcher
 # rebind F1 to not activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
-for_window [title="GIMP Startup"] move workspace $workspace9
+for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="market"] move workspace $workspace8
+for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
 for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt

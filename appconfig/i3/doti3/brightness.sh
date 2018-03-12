@@ -58,7 +58,7 @@ else
   # set the new brightness value
   chmod 666 $handler"brightness"
   echo $new_brightness > $handler"brightness"
-  notify-send -u low -i mouse "Brightness $current_brightness_perc%"
+  notify-send -u low "Brightness $current_brightness_perc%" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic
 
 fi
 
@@ -70,10 +70,10 @@ current_brightness_perc=$(( 100 * $current_brightness_abs / $max_brightness ))
 
 if [ $current_brightness_perc -ge 100 ]; then
 
-  notify-send -u low -i mouse "Brightness on MAX"
+  notify-send -u low -t 100 "Brightness on MAX" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic
 
 elif [ $current_brightness_perc -le $MINIMAL ]; then
 
-  notify-send -u low -i mouse "Brightness on MIN"
+  notify-send -u low -t 100 "Brightness on MIN" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic
 
 fi

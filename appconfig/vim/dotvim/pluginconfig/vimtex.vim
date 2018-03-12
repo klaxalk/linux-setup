@@ -38,7 +38,7 @@ au FileType tex set foldmarker=%%{,%%}
 " au BufNewFile,BufRead *.tex nnoremap j gj
 " au BufNewFile,BufRead *.tex nnoremap k gk
 
-" grepiing
+" grepping
 au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
 
 " set it to some high number to prevent syntax highlite problems

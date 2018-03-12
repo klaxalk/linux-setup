@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required by Vundle
 set t_Co=256                  " 256 colors
 set encoding=utf-8
+set lazyredraw
 
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
@@ -76,7 +77,7 @@ if g:user_mode == "1"
 
   " youcompleteme
   " automatic code completion for C++ and more
-  Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
 
   " make ROS and vim to be friends
   Plug 'taketwo/vim-ros'
