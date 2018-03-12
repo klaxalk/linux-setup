@@ -47,7 +47,7 @@ snippet tikzeval "" Ai
 endsnippet
 
 snippet "eq" "" r
-Eq.~(\\ref{eq:${1:${VISUAL}}})
+(\\ref{eq:${1:${VISUAL}}})
 endsnippet
 
 snippet "leq" "" ri
@@ -63,7 +63,7 @@ snippet cmd "generic command \{}" i
 endsnippet
 
 snippet color "\color{} " i
-\color{${1}} 
+{\color{${1}} ${2:${VISUAL}}}
 endsnippet
 
 snippet "(TODO)|(todo)" "" ir
@@ -346,6 +346,10 @@ snippet () "" i
 \\left(${1:${VISUAL}}\\right)
 endsnippet
 
+snippet [] "" i
+\\left[${1:${VISUAL}}\\right]
+endsnippet
+
 snippet <> "" i
 \\langle${1:${VISUAL}}\\rangle
 endsnippet
@@ -498,4 +502,12 @@ endsnippet
 
 snippet path
 \\path[-] (\$(${1:from_point})\$) edge [${2:->}] (\$(${3:to_point})\$);
+endsnippet
+
+snippet in
+\\in
+endsnippet
+
+snippet hat "" i
+\\hat{${1:${VISUAL}}}
 endsnippet
