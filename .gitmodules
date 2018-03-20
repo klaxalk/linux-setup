@@ -28,3 +28,12 @@
 [submodule "submodules/pa-applet"]
 	path = submodules/pa-applet
 	url = https://github.com/fernandotcl/pa-applet
+[submodule "submodules/vim"]
+	path = submodules/vim
+	url = https://github.com/vim/vim.git
+[submodule "submodules/tmux"]
+	path = submodules/tmux
+	url = https://github.com/tmux/tmux.git
+[submodule "submodules/tmuxinator"]
+	path = submodules/tmuxinator
+	url = https://github.com/tmuxinator/tmuxinator.git
