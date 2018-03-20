@@ -19,7 +19,7 @@ while true; do
     git pull
 
     gem build tmuxinator.gemspec 
-    sudo gem install tmuxinator-0.9.0.gem 
+    sudo gem install tmuxinator
 
     # symlink tmuxinator settings
     rm ~/.tmuxinator
