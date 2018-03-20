@@ -6,10 +6,6 @@
 	path = submodules/tmux-resurrect
 	url = https://github.com/klaxalk/tmux-resurrect.git
   branch = master
-[submodule "submodules/tmuxinator"]
-	path = submodules/tmuxinator
-	url = https://github.com/klaxalk/tmuxinator.git
-  branch = master
 [submodule "submodules/i3blocks-contrib"]
 	path = submodules/i3blocks-contrib
 	url = https://github.com/klaxalk/i3blocks-contrib.git
