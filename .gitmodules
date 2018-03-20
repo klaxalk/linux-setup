@@ -34,3 +34,6 @@
 [submodule "submodules/tmuxinator"]
 	path = submodules/tmuxinator
 	url = https://github.com/tmuxinator/tmuxinator.git
+[submodule "submodules/vim"]
+	path = submodules/vim
+	url = https://github.com/vim/vim
