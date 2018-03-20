@@ -40,3 +40,6 @@
 [submodule "submodules/pa-applet"]
 	path = submodules/pa-applet
 	url = https://github.com/fernandotcl/pa-applet
+[submodule "submodules/vim"]
+	path = submodules/vim
+	url = https://github.com/vim/vim
