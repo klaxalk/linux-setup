@@ -10,10 +10,6 @@
 	path = submodules/tmuxinator
 	url = https://github.com/klaxalk/tmuxinator.git
   branch = master
-[submodule "submodules/vim"]
-	path = submodules/vim
-	url = https://github.com/klaxalk/vim.git
-  branch = master
 [submodule "submodules/i3blocks-contrib"]
 	path = submodules/i3blocks-contrib
 	url = https://github.com/klaxalk/i3blocks-contrib.git
