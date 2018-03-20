@@ -21,15 +21,17 @@ while true; do
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-rubyinterp=yes \
-      --enable-pythoninterp=yes \
-      --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+      --enable-python3interp=yes \
+      --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-gui=gtk2 --enable-cscope --prefix=/usr
 
+      ## add for python2
       # --enable-pythoninterp=yes \
       # --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
 
+      ## add for python3
       # --enable-python3interp=yes \
       # --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
 
@@ -118,7 +120,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
         toilet Setting up youcompleteme
 
         cd ~/.vim/plugged/youcompleteme/
-        ./install.py --all
+        python3 ./install.py --all
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py

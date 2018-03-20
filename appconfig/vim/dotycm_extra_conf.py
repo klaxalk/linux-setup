@@ -22,10 +22,16 @@
 # Tested with Ubuntu 16.04 and Kinetic.                                  #
 #                                                                        #
 # License: CC0                                                           #
+#                                                                        #
+# TODO: make default flags have a lower priority than flags from cmake   #
+#                                                                        #
 ##########################################################################
 
 import os
-import ycm_core
+try:
+    import ycm_core
+except:
+    pass
 from glob import glob
 
 def GetWorkspacePath(filename):
