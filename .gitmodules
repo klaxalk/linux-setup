@@ -2,10 +2,6 @@
 	path = submodules/tmux
 	url = https://github.com/klaxalk/tmux.git
   branch = master
-[submodule "submodules/tmux-resurrect"]
-	path = submodules/tmux-resurrect
-	url = https://github.com/klaxalk/tmux-resurrect.git
-  branch = master
 [submodule "submodules/i3blocks-contrib"]
 	path = submodules/i3blocks-contrib
 	url = https://github.com/klaxalk/i3blocks-contrib.git
