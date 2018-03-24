@@ -87,19 +87,19 @@ git() {
       if [[ "$?" == "0" ]]; then
 
         # if we are in the 'linux-setup' repo, use the git profiler
-        if [[ "$ROOT_DIR" == "$GIT_PATH/epigen-tester" ]]; then
+        if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
           echo "running profiler"
 
-          PROFILER="$GIT_PATH/epigen-tester/submodules/dotfiles-profiler/profiler.sh"
+          PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
 
-          bash -c "$PROFILER backup $GIT_PATH/epigen-tester/profiler_files.txt"
+          bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
           command git "$@"
 
           if [[ "$?" == "0" ]]; then
 
-            bash -c "$PROFILER deploy $GIT_PATH/epigen-tester/profiler_files.txt"
+            bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
           fi
 

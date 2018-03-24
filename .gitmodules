@@ -37,3 +37,6 @@
 [submodule "submodules/git-sync"]
 	path = submodules/git-sync
 	url = https://github.com/klaxalk/git-sync
+[submodule "submodules/dotprofiler"]
+	path = submodules/dotprofiler
+	url = https://github.com/klaxalk/dotprofiler
