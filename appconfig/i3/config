@@ -278,9 +278,6 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
 
-# # restarting network manager
-# # bindsym $mod2+n exec ~/.i3/network.sh
-
 # # EPIGEN_BLOCK_GPD }
 
 # EPIGEN_BLOCK_TOMAS }

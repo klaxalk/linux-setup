@@ -1,6 +1,11 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
 URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+
+! EPIGEN_BLOCK_GPD {
+! Xft.dpi: 180
+! EPIGEN_BLOCK_GPD }
+
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
