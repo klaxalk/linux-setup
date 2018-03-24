@@ -78,12 +78,11 @@ git() {
 
     pull*)
 
-      IFS=' ' read -r ORIGINAL_ARGS <<< "$@"
-
+      # IFS=' ' read -r ORIGINAL_ARGS <<< "$@"
       # shift 1;
 
-      # # give me the path to root of the repo we are in
-      # ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+      # give me the path to root of the repo we are in
+      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
       if [[ "$?" == "0" ]]; then
 
@@ -105,10 +104,12 @@ git() {
           fi
 
         else
+          shift 1;
           command git "$@"
         fi
 
       else
+        shift 1;
         command git "$@"
       fi
 
