@@ -34,3 +34,6 @@
 [submodule "submodules/vim"]
 	path = submodules/vim
 	url = https://github.com/vim/vim
+[submodule "submodules/git-sync"]
+	path = submodules/git-sync
+	url = https://github.com/klaxalk/git-sync
