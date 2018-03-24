@@ -1,11 +1,13 @@
 # set editor and shell
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
-# export SHELL=/usr/bin/zsh
-#
-## Vi mode
+
+# export SHELL=/usr/bin/zsh # somehow is set automatically
+
+# Vi mode in ZSH
 bindkey -v
 
+# I dont like shared history between terminals, does not play well with tmux
 unsetopt share_history
 
 # use the vi navigation keys in menu completion
@@ -66,6 +68,57 @@ getVideoThumbnail () {
 
   output="${file%.*}_thumbnail.jpg"
   ffmpeg -i "$file" -ss "$frame" -vframes 1 "$output"
+}
+
+# upgrades the "git pull" to allow dotfiles profiling on linux-setup
+# Other "git" features should not be changed
+git() {
+
+  case $* in
+
+    pull*)
+
+      IFS=' ' read -r ORIGINAL_ARGS <<< "$@"
+
+      # shift 1;
+
+      # # give me the path to root of the repo we are in
+      # ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+
+      if [[ "$?" == "0" ]]; then
+
+        # if we are in the 'linux-setup' repo, use the git profiler
+        if [[ "$ROOT_DIR" == "$GIT_PATH/epigen-tester" ]]; then
+
+          echo "running profiler"
+
+          PROFILER="$GIT_PATH/epigen-tester/submodules/dotfiles-profiler/profiler.sh"
+
+          bash -c "$PROFILER backup $GIT_PATH/epigen-tester/profiler_files.txt"
+
+          command git "$@"
+
+          if [[ "$?" == "0" ]]; then
+
+            bash -c "$PROFILER deploy $GIT_PATH/epigen-tester/profiler_files.txt"
+
+          fi
+
+        else
+          command git "$@"
+        fi
+
+      else
+        command git "$@"
+      fi
+
+      ;;
+    *)
+      command git "$@"
+      ;;
+
+  esac
+
 }
 
 # create alisases
