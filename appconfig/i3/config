@@ -253,13 +253,21 @@ bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
-# Tomas's desktop PC is somewhat different with volume control
-# bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
-# bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+# EPIGEN_BLOCK_TOMAS {
 
-# Bind screen brightness control to DELLs special keys
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # EPIGEN_BLOCK_DESKTOP {
+# # # Tomas's desktop PC is somewhat different with volume control
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+# # EPIGEN_BLOCK_DESKTOP }
+
+# # EPIGEN_BLOCK_DELL {
+# # # Bind screen brightness control to DELLs special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # EPIGEN_BLOCK_DELL }
+
+# EPIGEN_BLOCK_TOMAS }
 
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
