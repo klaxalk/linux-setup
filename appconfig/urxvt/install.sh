@@ -16,7 +16,7 @@ while true; do
     sudo apt-get -y install rxvt-unicode-256color
 
     # link the configuration
-    cp $APP_PATH/dotXresoures ~/.Xresources
+    cp $APP_PATH/dotXresources ~/.Xresources
 
     # link extensions
     for file in `ls $APP_PATH/extensions/`

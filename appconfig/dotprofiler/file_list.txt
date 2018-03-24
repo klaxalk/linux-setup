@@ -1,2 +1,2 @@
 $GIT_PATH/linux-setup/appconfig/i3/config, ~/.i3/config
-$GIT_PATH/linux-setup/appconfig/urxvt/dotXresoures, ~/.Xresources
+$GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources
