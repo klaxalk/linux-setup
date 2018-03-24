@@ -272,7 +272,7 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
 # # workspace_layout tabbed
 
-# # reconfigure the speed of track point
+# # # reconfigure the speed of track point
 # # exec_always xinput --set-prop 10 272 1.00
 # # exec_always xinput --set-prop 10 273 1.00
 
