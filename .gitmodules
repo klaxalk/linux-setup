@@ -22,9 +22,6 @@
 [submodule "submodules/xkblayout-state"]
 	path = submodules/xkblayout-state
 	url = https://github.com/nonpop/xkblayout-state.git
-[submodule "submodules/git-sync"]
-	path = submodules/git-sync
-	url = git@github.com:klaxalk/git-sync
 [submodule "submodules/pa-applet"]
 	path = submodules/pa-applet
 	url = https://github.com/fernandotcl/pa-applet
