@@ -19,6 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
+
 font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -267,6 +268,21 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 # # EPIGEN_BLOCK_DELL }
 
+# # EPIGEN_BLOCK_GPD {
+
+# # workspace_layout tabbed
+
+# # reconfigure the speed of track point
+# # exec_always xinput --set-prop 10 272 1.00
+# # exec_always xinput --set-prop 10 273 1.00
+
+# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+
+# # restarting network manager
+# # bindsym $mod2+n exec ~/.i3/network.sh
+
+# # EPIGEN_BLOCK_GPD }
+
 # EPIGEN_BLOCK_TOMAS }
 
 # Bind screen brightness control to general alt+F...
@@ -310,7 +326,7 @@ for_window [instance="scratchpadurxvt"] move scratchpad
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_COMPTON_RICH
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
@@ -374,8 +390,6 @@ bindsym $mod2+u exec --no-startup-id gz world -p 0
 bindsym $mod2+i exec --no-startup-id gz world -m 100
 
 #}
-
-# bindsym $mod+i sticky toggle
 
 #{ Control the mouse with keyboard
 
