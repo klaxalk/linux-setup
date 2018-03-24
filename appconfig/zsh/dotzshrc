@@ -104,12 +104,10 @@ git() {
           fi
 
         else
-          shift 1;
           command git "$@"
         fi
 
       else
-        shift 1;
         command git "$@"
       fi
 
