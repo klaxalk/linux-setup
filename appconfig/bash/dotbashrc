@@ -183,7 +183,7 @@ echo '"$UAV_NAME" > ~/.i3/uav_name.sh
 fi
 
 # set vi mode in bash
-# set -o vi
+set -o vi # EPIGEN_ADD_LINE_TOMAS ACTIVE
 
 # by default, athame should be off
 export ATHAME_ENABLED=0

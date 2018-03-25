@@ -119,6 +119,8 @@ fi
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
 
+  cp $APPCONFIG_PATH/bash/dotbashrc_git $APPCONFIG_PATH/bash/dotbashrc
+
   echo "Adding source to .bashrc"
   # set bashrc
   echo "

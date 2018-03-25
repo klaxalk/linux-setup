@@ -1,18 +1,7 @@
 # set editor and shell
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
-
-# Vi mode in ZSH
-bindkey -v # EPIGEN_ADD_LINE_TOMAS ACTIVE
-
-# I dont like shared history between terminals, does not play well with tmux
-unsetopt share_history
-
-# use the vi navigation keys in menu completion
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
+# export SHELL=/bin/bash
 
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
@@ -68,60 +57,10 @@ getVideoThumbnail () {
   ffmpeg -i "$file" -ss "$frame" -vframes 1 "$output"
 }
 
-# upgrades the "git pull" to allow dotfiles profiling on linux-setup
-# Other "git" features should not be changed
-git() {
-
-  case $* in
-
-    pull*)
-
-      # IFS=' ' read -r ORIGINAL_ARGS <<< "$@"
-      # shift 1;
-
-      # give me the path to root of the repo we are in
-      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
-
-      if [[ "$?" == "0" ]]; then
-
-        # if we are in the 'linux-setup' repo, use the git profiler
-        if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
-
-          echo "running profiler"
-
-          PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
-
-          bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
-
-          command git "$@"
-
-          if [[ "$?" == "0" ]]; then
-
-            bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
-
-          fi
-
-        else
-          command git "$@"
-        fi
-
-      else
-        command git "$@"
-      fi
-
-      ;;
-    *)
-      command git "$@"
-      ;;
-
-  esac
-
-}
-
 # create alisases
 alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias sb="source ~/.zshrc"
+alias sb="source ~/.bashrc"
 alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
@@ -146,20 +85,18 @@ generateTags() {
   fi 
 }
 
-# running new tmux (or attaching) with session name derived from parent zsh pid
+# running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
 
-  SESSION_NAME="T$PPID"
+  SESSION_NAME="T$BASHPID"
   
-  # try to find session with the correct session id (based on the zsh PID)
+  # try to find session with the correct session id (based on the bashs PID)
   EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
-
-  echo $EXISTING_SESSION
 
   if [ "$EXISTING_SESSION" -gt "0" ]; then
   
     # if such session exists, attach to it
-    # $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
+    $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
   
   else
   
@@ -182,35 +119,20 @@ runTmux() {
 
   fi
 }
-
-zshexit() {
-   
-   echo "T$PPID"
-   
-   pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
-
-   echo $pids
-
-   for pid in "$pids"
-   do
-     killp "$pid"
-     echo "killing $pid"
-   done
-
-   $TMUX_BIN kill-session -t "T$PPID"
-}                                                       
+_trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
+trap _trap_exit EXIT                                                                                  
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
   
   { generateTags & disown; } 2> /dev/null
 
-  VIM_CMD=$(echo "$EDITOR ${@}")
+  VIM_CMD=$(echo "$EDITOR -- ${@}")
 
   # if the tmux session does not exist, create new and run vim in it
   if [ -z $TMUX ]; then
 
-    SESSION_NAME="T$PPID"
+    SESSION_NAME="T$BASHPID"
   
     # if there is a tmux session with the same name as the current bashpid
     num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
@@ -229,22 +151,14 @@ runVim() {
 
   else
 
-    zsh -c "$VIM_CMD"
+    bash -c "$VIM_CMD"
 
   fi
 }
 alias vim=runVim
 
-alias vimdiff="vim -d"
-
-kzsh() {
-  for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do   
-    killp "$i"
-  done
-}
-
 # source tmuxinator
-source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
+source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
 # special code for i3 users
 if [ "$USE_I3" = "true" ]; then
@@ -269,11 +183,11 @@ echo '"$UAV_NAME" > ~/.i3/uav_name.sh
 fi
 
 # set vi mode in bash
-# set -o vi
+# set -o vi # EPIGEN_ADD_LINE_TOMAS
 
 # by default, athame should be off
 export ATHAME_ENABLED=0
-export ATHAME_SHOW_MODE=0
+export ATHAME_SHOW_MODE=1
 export ATHAME_VIM_PERSIST=0
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)

@@ -3,7 +3,7 @@ export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 
 # Vi mode in ZSH
-bindkey -v # EPIGEN_ADD_LINE_TOMAS ACTIVE
+# bindkey -v # EPIGEN_ADD_LINE_TOMAS
 
 # I dont like shared history between terminals, does not play well with tmux
 unsetopt share_history
