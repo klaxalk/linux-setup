@@ -1,12 +1,12 @@
-# EPIGEN_ADD_BLOCK_TOMAS ACTIVE {
+# EPIGEN_ADD_BLOCK_TOMAS {
 
-map s toggle_statusbar
-map a adjust_window best-fit
-map w adjust_window width
+# map s toggle_statusbar
+# map a adjust_window best-fit
+# map w adjust_window width
 
-map c set recolor true
+# map c set recolor true
 
-map n navigate next
-map m navigate previous
+# map n navigate next
+# map m navigate previous
 
 # EPIGEN_ADD_BLOCK_TOMAS }
