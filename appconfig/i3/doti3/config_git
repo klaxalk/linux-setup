@@ -243,6 +243,18 @@ bar {
 # rofi launcher
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 
+# EPIGEN_DEL_BLOCK_B EPIGEN_DEL_BLOCK_C {
+bindsym $mod+{ exec echo "A is default"
+# EPIGEN_DEL_BLOCK_B EPIGEN_DEL_BLOCK_C }
+
+# EPIGEN_ADD_BLOCK_B {
+# bindsym $mod+{ exec echo "B is not default"
+# EPIGEN_ADD_BLOCK_B }
+
+# EPIGEN_ADD_BLOCK_C {
+# bindsym $mod+{ exec echo "C is not default"
+# EPIGEN_ADD_BLOCK_C }
+
 # EPIGEN_DEL_BLOCK_DEFAULT {
 # bind audio to generic alt+f keys
 bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
@@ -307,7 +319,6 @@ exec ~/.monitor.sh
 exec_always --no-startup-id "sleep 4; notify-send -u low -i mouse \"keybard\"; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
 # disable caps lock and make it behave like escape
 exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
-
 
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
