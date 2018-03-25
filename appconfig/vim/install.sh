@@ -47,7 +47,7 @@ while true; do
     # symlink vim settings
     rm ~/.vimrc
     rm -rf ~/.vim
-    ln -fs $APP_PATH/dotvimrc ~/.vimrc
+    cp $APP_PATH/dotvimrc ~/.vimrc
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # install patched fonts with powerline characters
