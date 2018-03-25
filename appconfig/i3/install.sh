@@ -76,7 +76,7 @@ while true; do
     ln -sf $APP_PATH/doti3 ~/.i3
 
     # copy i3 config file
-    cp $APP_PATH/config ~/.i3/config
+    cp $APP_PATH/doti3/config_git ~/.i3/config
 
     # copy fonts
     # fontawesome 4.7 
