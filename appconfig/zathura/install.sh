@@ -30,7 +30,7 @@ while true; do
     cd /tmp && git clone https://git@github.com:pwmt/zathura-pdf-poppler.git && cd zatura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
     # link zathuras config
     mkdir ~/.config/zathura
-    ln -s $APP_PATH/zathurarc ~/.config/zathura/zathurarc
+    cp $APP_PATH/zathurarc ~/.config/zathura/zathurarc
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
