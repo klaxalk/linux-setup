@@ -57,6 +57,50 @@ getVideoThumbnail () {
   ffmpeg -i "$file" -ss "$frame" -vframes 1 "$output"
 }
 
+# upgrades the "git pull" to allow dotfiles profiling on linux-setup
+# Other "git" features should not be changed
+git() {
+
+  case $* in
+
+    pull*)
+
+      # give me the path to root of the repo we are in
+      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+
+      if [[ "$?" == "0" ]]; then
+
+        # if we are in the 'linux-setup' repo, use the git profiler
+        if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
+
+          PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
+
+          bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+
+          command git "$@"
+
+          if [[ "$?" == "0" ]]; then
+
+            bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+
+          fi
+
+        else
+          command git "$@"
+        fi
+
+      else
+        command git "$@"
+      fi
+
+      ;;
+    *)
+      command git "$@"
+      ;;
+
+  esac
+}
+
 # create alisases
 alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'

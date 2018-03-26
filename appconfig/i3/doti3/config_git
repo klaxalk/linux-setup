@@ -255,13 +255,11 @@ bindsym $mod+{ exec echo "A is default"
 # bindsym $mod+{ exec echo "C is not default"
 # EPIGEN_ADD_BLOCK_C }
 
-# EPIGEN_DEL_BLOCK_DEFAULT {
 # bind audio to generic alt+f keys
 bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
 bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
-# EPIGEN_DEL_BLOCK_DEFAULT }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 

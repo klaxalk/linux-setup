@@ -76,9 +76,6 @@ git() {
 
     pull*)
 
-      # IFS=' ' read -r ORIGINAL_ARGS <<< "$@"
-      # shift 1;
-
       # give me the path to root of the repo we are in
       ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
@@ -113,7 +110,6 @@ git() {
       ;;
 
   esac
-
 }
 
 # create alisases
