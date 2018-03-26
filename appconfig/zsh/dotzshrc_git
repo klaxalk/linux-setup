@@ -87,8 +87,6 @@ git() {
         # if we are in the 'linux-setup' repo, use the git profiler
         if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-          echo "running profiler"
-
           PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
 
           bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
