@@ -139,8 +139,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-bindsym $mod2+l exec "echo $GIT_PATH > /tmp/test"
-# bindsym $mod2+d exec urxvt -e setColorScheme DARK
+bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
+bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
