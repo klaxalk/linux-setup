@@ -2,3 +2,5 @@ ros_master_uri.sh
 ros_ip.sh
 uav_name.sh
 config
+i3blocks.conf
+env_variables.txt
