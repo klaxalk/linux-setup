@@ -34,8 +34,9 @@ QUALITY=$(grep $INTERFACE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }
 echo $QUALITY% # full text
 echo $QUALITY% # short text
 
-# color
-# JELLYBEANS COLOR_SCHEME ACTIVE {
+# default dark colors
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+
 if [[ $QUALITY -ge 80 ]]; then
     echo "#ffffff"
 elif [[ $QUALITY -lt 80 ]]; then
@@ -45,9 +46,11 @@ elif [[ $QUALITY -lt 60 ]]; then
 elif [[ $QUALITY -lt 40 ]]; then
     echo "#ffffff"
 fi
-# }
 
-# LIGHT COLOR_SCHEME {
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+
 # if [[ $QUALITY -ge 80 ]]; then
 #     echo "#005500"
 # elif [[ $QUALITY -lt 80 ]]; then
@@ -57,4 +60,5 @@ fi
 # elif [[ $QUALITY -lt 40 ]]; then
 #     echo "#550000"
 # fi
-# # }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }

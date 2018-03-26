@@ -129,6 +129,29 @@ generateTags() {
   fi 
 }
 
+setColorScheme() {
+
+  export COLOR_SCHEME="$1"
+
+  # change the variable in bashrc
+  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- ~/.bashrc
+
+  source ~/.bashrc
+
+  OLD_PATH=`pwd`
+
+  cd "$GIT_PATH/linux-setup"
+  ./backup_and_deploy.sh
+
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
+
+  # restart i3
+  i3-msg restart
+
+  cd "$OLD_PATH"
+}
+
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
 

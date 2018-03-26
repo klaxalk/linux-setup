@@ -197,3 +197,10 @@ snippet "(gcgppo)|(cggpo)" "" Abr
 git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $3 $4
 endsnippet
 
+snippet clight "" Ab
+setColorScheme LIGHT
+endsnippet
+
+snippet cdark "" Ab
+setColorScheme DARK
+endsnippet

@@ -508,8 +508,15 @@ endif
 
 " set colorscheme (only in normal vim)
 if g:user_mode == "1"
-  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE 
-  " colorscheme raggi " LIGHT COLOR_SCHEME 
+
+  " set vim colorscheme
+  colorscheme jellybeans " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  " colorscheme raggi " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
+  " set airline theme
+  let g:airline_theme='jellybeans' " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
 endif
 
 " if exists, source .my.vimrc

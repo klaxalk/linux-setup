@@ -34,16 +34,3 @@ let g:startify_bookmarks = [
 " set grepprg=grep\ -nH\ $*
 " filetype indent on
 " let g:tex_flavor='latex'
-
-" set colorscheme (only in normal vim)
-if g:user_mode == "1"
-  " JELLYBEANS COLOR_SCHEME ACTIVE {
-  colorscheme jellybeans 
-  let g:airline_theme='jellybeans'
-  " }
-  
-  " LIGHT COLOR_SCHEME {
-  " let g:airline_theme='papercolor'
-  " colorscheme raggi
-  " " }
-endif

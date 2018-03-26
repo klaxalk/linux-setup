@@ -2,6 +2,9 @@
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 
+ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
 # Vi mode in ZSH
 # bindkey -v # EPIGEN_ADD_LINE_TOMAS
 
@@ -138,6 +141,29 @@ generateTags() {
     ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
     eval $ctagscmd
   fi 
+}
+
+setColorScheme() {
+
+  export COLOR_SCHEME="$1"
+
+  # change the variable in bashrc
+  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- ~/.zshrc
+
+  source ~/.zshrc
+
+  OLD_PATH=`pwd`
+
+  cd "$GIT_PATH/linux-setup"
+  ./backup_and_deploy.sh
+
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
+
+  # restart i3
+  i3-msg restart
+
+  cd "$OLD_PATH"
 }
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
