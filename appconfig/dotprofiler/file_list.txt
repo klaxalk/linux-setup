@@ -1,4 +1,7 @@
 $GIT_PATH/linux-setup/appconfig/i3/doti3/config_git, ~/.i3/config
+$GIT_PATH/linux-setup/appconfig/i3/doti3/i3blocks.conf_git, ~/.i3/i3blocks.conf
+$GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi,
+$GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery,
 $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources
 $GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc
 $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf

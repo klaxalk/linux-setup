@@ -8,3 +8,6 @@ appconfig/i3/doti3/env_variables.txt
 appconfig/i3/doti3/config
 appconfig/bash/dotbashrc
 appconfig/zsh/dotzshrc
+appconfig/i3/doti3/i3blocks.conf
+appconfig/i3/i3blocks/wifi
+appconfig/i3/i3blocks/battery
