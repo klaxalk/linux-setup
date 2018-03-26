@@ -107,6 +107,20 @@ export RUN_TMUX=false" >> ~/.bashrc
 fi
 
 #############################################
+# add PROFILER variables
+#############################################
+
+num=`cat ~/.bashrc | grep "PROFILER_ADDITIONS" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+# what should be activated/deactivated by epigen?
+export PROFILER_ADDITIONS=""
+export PROFILER_DELETIONS=""
+export PROFILER_BOTH="COLORSCHEME_DARK"
+
+fi
+
+#############################################
 # creating .vimpath file 
 #############################################
 
@@ -136,4 +150,14 @@ fi
 toilet All Done
 
 # source .bashrc
-bash ~/.bashrc
+case "$SHELL" in 
+  *bash*)
+    source "$HOME/.bashrc"
+    ;;
+  *zsh*)
+    source "$HOME/.zshrc"
+    ;;
+esac
+
+cd "$APPCONFIG_PATH/.."
+git pull
