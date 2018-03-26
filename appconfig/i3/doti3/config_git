@@ -11,7 +11,6 @@
 
 set $mod Mod1
 set $mod2 Mod4
-set $SHELL /usr/bin/zsh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -249,11 +248,13 @@ bar {
 # rofi launcher
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 
-# bind audio to generic alt+f keys
+# default key bindings for audio
+# EPIGEN_DEL_BLOCK_TOMAS {
 bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
 bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
+# EPIGEN_DEL_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
