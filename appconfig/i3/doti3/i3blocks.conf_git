@@ -108,7 +108,7 @@ command=$HOME/.i3/ros_master_uri.sh
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
 
 [uav_name]
-#label=UAV_NAME
+# label=UAV_NAME
 interval=20
 command=$HOME/.i3/uav_name.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
