@@ -410,10 +410,6 @@ function! ClogReformat()
 endfunc
 nnoremap <leader>lll :call ClogReformat()<cr>
 
-let @o='k^yy2jgrrWwwciw="+3k^yy2jgrrWwwciw="+3'
-let @p='yyPWEr0Lciwhkd'
-let @l='yypWwwciw="+2LciwhkdyypWwwciw="+1Lciwpwr 0'
-
 " set it to some high number to prevent syntax highlite problems
 set synmaxcol=1000
 
