@@ -91,6 +91,8 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+# EPIGEN_DEL_BLOCK_GPD {
+
 [rosip]
 label=ROS_IP
 interval=20
@@ -111,6 +113,8 @@ interval=20
 command=$HOME/.i3/uav_name.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+
+# EPIGEN_DEL_BLOCK_GPD }
 
 [load]
 interval=5
