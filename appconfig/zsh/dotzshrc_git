@@ -30,12 +30,10 @@ runTmux() {
   # try to find session with the correct session id (based on the zsh PID)
   EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
 
-  echo $EXISTING_SESSION
-
   if [ "$EXISTING_SESSION" -gt "0" ]; then
   
     # if such session exists, attach to it
-    # $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
+    $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
   
   else
   
