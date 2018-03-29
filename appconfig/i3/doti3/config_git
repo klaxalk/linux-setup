@@ -179,6 +179,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+# changing color schemes
 bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
 bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
@@ -210,6 +211,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# is usefull for controlling i3 and tmux throught teamviewer
 mode "throughput" {
 
   bindsym $mod+shift+t mode "default"
@@ -375,11 +377,7 @@ exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
-assign [class="Rviz"] $workspace4
-
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
-
-# name = File Operation Progress == float
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
@@ -392,7 +390,7 @@ for_window [instance="scratchpadurxvt"] move scratchpad
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_COMPTON_RICH
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
@@ -401,10 +399,8 @@ exec --no-startup-id indicator-sound-switcher
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
 for_window [title="GIMP Startup"] move workspace $workspace8
-for_window [title="market"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
-for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
@@ -442,7 +438,7 @@ mode "$mode_gaps" {
 # Gimp
 bindsym $mod2+g exec --no-startup-id gimp
 
-# Qutebroser
+# qutebroser
 bindsym $mod2+q exec --no-startup-id qutebrowser
 
 # Bindings for Gazebo simulator
