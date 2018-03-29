@@ -39,7 +39,7 @@ while true; do
 
     # symlink tmux settings
     rm ~/.tmux.conf
-    ln -fs $APP_PATH/dottmux.conf ~/.tmux.conf
+    cp $APP_PATH/dottmux.conf ~/.tmux.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

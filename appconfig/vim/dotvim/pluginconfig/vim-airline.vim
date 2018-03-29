@@ -11,7 +11,3 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " used patched fonts with special characters
 let g:airline_powerline_fonts = 1
-
-" set theme
-let g:airline_theme='jellybeans' " JELLYBEANS COLOR_SCHEME ACTIVE 
-" let g:airline_theme='papercolor' " LIGHT COLOR_SCHEME 

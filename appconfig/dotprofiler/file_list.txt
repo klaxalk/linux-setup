@@ -1,0 +1,10 @@
+$GIT_PATH/linux-setup/appconfig/i3/doti3/config_git, ~/.i3/config
+$GIT_PATH/linux-setup/appconfig/i3/doti3/i3blocks.conf_git, ~/.i3/i3blocks.conf
+$GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi,
+$GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery,
+$GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources
+$GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc
+$GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf
+$GIT_PATH/linux-setup/appconfig/bash/dotbashrc_git, $GIT_PATH/linux-setup/appconfig/bash/dotbashrc
+$GIT_PATH/linux-setup/appconfig/zsh/dotzshrc_git, $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc
+$GIT_PATH/linux-setup/appconfig/zathura/zathurarc, ~/.config/zathura/zathurarc

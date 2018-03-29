@@ -58,19 +58,9 @@ print "$short_text\n";
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
 
-# LIGHT COLOR_SCHEME {
-	# if ($percent < 20) {
-	# 	print "#A8BB00\n";
-	# } elsif ($percent < 40) {
-	# 	print "#A89900\n";
-	# } elsif ($percent < 60) {
-	# 	print "#A86600\n";
-	# } elsif ($percent < 85) {
-	# 	print "#A83300\n";
-	# }
-# # }
+# default dark colors
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
-# JELLYBEANS COLOR_SCHEME ACTIVE {
 	if ($percent < 20) {
 		print "#ff6666\n";
 	} elsif ($percent < 40) {
@@ -80,7 +70,22 @@ if ($status eq 'Discharging') {
 	} elsif ($percent < 85) {
 		print "#ff9999\n";
 	}
-# }
+
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+
+# 	if ($percent < 20) {
+# 		print "#A8BB00\n";
+# 	} elsif ($percent < 40) {
+# 		print "#A89900\n";
+# 	} elsif ($percent < 60) {
+# 		print "#A86600\n";
+# 	} elsif ($percent < 85) {
+# 		print "#A83300\n";
+# 	}
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 	if ($percent < 5) {
 		exit(33);

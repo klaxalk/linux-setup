@@ -19,6 +19,7 @@ set $mod2 Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
+
 font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -95,11 +96,13 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define title/names of all workspaces
-set $workspace1 "1: "
+# set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
+set $workspace1 "1: " # EPIGEN_DEL_LINE_VOJTA
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5: "
+# set $workspace5 "5: " # EPIGEN_ADD_LINE_TOMAS
+set $workspace5 "5" # EPIGEN_DEL_LINE_TOMAS
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
@@ -118,6 +121,11 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+# exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
+exec urxvt -name scratchpadurxvt
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -133,8 +141,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-bindsym $mod2+l exec urxvt -e ~/.i3/setColorScheme.sh LIGHT
-bindsym $mod2+d exec urxvt -e ~/.i3/setColorScheme.sh JELLYBEANS
+bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
+bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -164,22 +172,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "throughput" {
+
+  bindsym $mod+shift+t mode "default"
+}
+bindsym $mod+shift+t mode "throughput"
+
 set $transparent #00000000
 
-# LIGHT COLOR_SCHEME {
-# set $inactive_text_color         #1d2021
-# set $active_text_color           #1d2021
-# set $active_border               #aaaaaa
-# set $inactive_background         #dddddd
-# set $active_background           #888888
-# set $focused_ws_bg               #aaaaaa
-# set $background_color            #ffffff
-# set $split_indicator             #aaaaaa
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# for_window [class="^.*"] border pixel 3
-# # }
+# default dark colors
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
-# JELLYBEANS COLOR_SCHEME ACTIVE {
 set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
@@ -191,7 +194,23 @@ set $split_indicator          #B85335
 set $urgent                   #ff0000
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 for_window [class="^.*"] border pixel 2
-# }
+
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+
+# set $inactive_text_color         #1d2021
+# set $active_text_color           #1d2021
+# set $active_border               #aaaaaa
+# set $inactive_background         #dddddd
+# set $active_background           #888888
+# set $focused_ws_bg               #aaaaaa
+# set $background_color            #ffffff
+# set $split_indicator             #aaaaaa
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# for_window [class="^.*"] border pixel 3
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 hide_edge_borders both
 
@@ -231,24 +250,56 @@ bar {
 # rofi launcher
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 
-# bind audio to DELL's special keys
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 10%-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 10%+
-
-# bind audio to generic alt+f keys
+# default key bindings for audio
+# EPIGEN_DEL_BLOCK_TOMAS {
 bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
 bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
+# EPIGEN_DEL_BLOCK_TOMAS }
 
-# Tomas's desktop PC is somewhat different with volume control
-# bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
-# bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+# EPIGEN_ADD_BLOCK_TOMAS {
 
-# Bind screen brightness control to DELLs special keys
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # # Tomas's desktop PC is somewhat different with volume control
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 10%+
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# # EPIGEN_ADD_BLOCK_GPD {
+
+# # workspace_layout tabbed
+
+# # # reconfigure the speed of track point
+# # exec_always xinput --set-prop 10 272 1.00
+# # exec_always xinput --set-prop 10 273 1.00
+
+# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+
+# # EPIGEN_ADD_BLOCK_GPD }
+
+# EPIGEN_ADD_BLOCK_TOMAS }
+
+# EPIGEN_ADD_BLOCK_VOJTA {
+
+# # Bind screen brightness control
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# EPIGEN_ADD_BLOCK_VOJTA }
 
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -272,24 +323,26 @@ exec_always --no-startup-id "sleep 4; notify-send -u low -i mouse \"keybard\"; s
 # disable caps lock and make it behave like escape
 exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
-
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
-# assign [class="Google-chrome"] $workspace5
 assign [class="Rviz"] $workspace4
+
+# assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
 # name = File Operation Progress == float
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
-for_window [class="^Google-chrome$"] floating disabled
-for_window [title="^Figure"] floating disabled
+for_window [class="^Google-chrome$"] floating disable
+for_window [title="^Figure"] floating disable
+for_window [title="market"] floating disable
+for_window [instance="scratchpadurxvt"] move scratchpad
 
 # lock session
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_COMPTON_RICH
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
@@ -297,8 +350,11 @@ exec --no-startup-id indicator-sound-switcher
 # rebind F1 to not activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
-for_window [title="GIMP Startup"] move workspace $workspace9
+for_window [title="GIMP Startup"] move workspace $workspace8
+for_window [title="market"] move workspace $workspace8
+for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
+for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt

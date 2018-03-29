@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required by Vundle
 set t_Co=256                  " 256 colors
 set encoding=utf-8
+set lazyredraw
 
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
@@ -76,10 +77,10 @@ if g:user_mode == "1"
 
   " youcompleteme
   " automatic code completion for C++ and more
-  Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
 
-  " make ROS and vim to be friends
-  Plug 'taketwo/vim-ros'
+  " make vim and ROS friends
+  Plug 'klaxalk/vim-ros'
 
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
@@ -334,8 +335,8 @@ vmap L $
 vnoremap // y/<C-R>"<CR>
 
 " folding by marker for various file types
-au FileType m set foldmethod=marker
-au FileType m set foldmarker=%%{,%%}
+au FileType m,matlab set foldmethod=marker
+au FileType m,matlab set foldmarker=%%{,%%}
 
 au FileType yml,yaml,sh,conf,python set foldmethod=marker
 au FileType yml,yaml,sh,conf,python set foldmarker=#{,#}
@@ -409,10 +410,6 @@ function! ClogReformat()
 endfunc
 nnoremap <leader>lll :call ClogReformat()<cr>
 
-let @o='k^yy2jgrrWwwciw="+3k^yy2jgrrWwwciw="+3'
-let @p='yyPWEr0Lciwhkd'
-let @l='yypWwwciw="+2LciwhkdyypWwwciw="+1Lciwpwr 0'
-
 " set it to some high number to prevent syntax highlite problems
 set synmaxcol=1000
 
@@ -478,6 +475,11 @@ if g:user_mode == "1"
 
 endif
 
+" %:p:h path
+" %:t file name
+autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
+" au BufRead *.sk let &l:makeprg="bash -c '%:p:h/compile_sketch.sh %:t'"
+
 " config for vim-multiple-cursors
 source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
@@ -491,13 +493,26 @@ source ~/.vim/pluginconfig/vim-commentary.vim
 if g:user_mode == "0"
 
   nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
+  nnoremap <leader>ww Ivim ~/git/notes/index.md
+
+  nnoremap OA i<up>
+  nnoremap OB i<down>
+  nnoremap OC li<right>
+  nnoremap OD i
 
 endif
 
 " set colorscheme (only in normal vim)
 if g:user_mode == "1"
-  colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
-  " colorscheme raggi " LIGHT COLOR_SCHEME
+
+  " set vim colorscheme
+  colorscheme jellybeans " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  " colorscheme raggi " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
+  " set airline theme
+  let g:airline_theme='jellybeans' " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
 endif
 
 " if exists, source .my.vimrc
