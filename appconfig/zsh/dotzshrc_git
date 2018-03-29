@@ -22,7 +22,16 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
 
+# source the common additions for all shells
 source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
+
+# alias the "bash's" command history to "zshell's" command read
+# handy for common tmuxinator scripts
+historyRead() {
+  
+  read "$*"
+}
+alias history='historyRead'
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
