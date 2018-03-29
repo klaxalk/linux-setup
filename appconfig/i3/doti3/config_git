@@ -59,7 +59,6 @@ bindsym $mod+Shift+l move right
 #bindsym $mod+Shift+Right move right
 
 # move workspace to another monitor
-# TODO: think up better combination
 bindsym $mod+x move workspace to output right
 
 # cycle through workspaces on current monitor
@@ -93,7 +92,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# this key binding collides with omni-launcher
+# bindsym $mod+d focus child
 
 # define title/names of all workspaces
 

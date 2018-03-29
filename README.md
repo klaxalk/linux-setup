@@ -4,7 +4,7 @@ This repo contains scripts for setting up my Linux working environment, mainly b
 Everything is intended for and tested on **Ubuntu 16.04**.
 
 Despite most of my key bindings might seem a bit arbitrary, they evolved in a time to match my needs and habits (no arrow keys, no mouse).
-Although it was not easy to find a way to navigate using **h/j/k/l/** in all scenarios, it is possible most of the time.
+Although it was not easy to find a way to navigate using **h/j/k/l** in all scenarios, it is possible most of the time.
 Just imagine you can navigate and swap windows in **i3wm** (alt + h/j/k/l, alt-shift + h/j/k/l), then navigate over panes in **tmux** (ctrl + h/j/k/l), then splits in **vim** (also ctrl + h/j/k/l), then move over suggestions from YouCompleteMe (ctrl + j/k, l), and lastly navigating through placeholders in newly inserted snippet (shift h/l).
 And I almost forgot, you navigate using h/j/k/l in **vim**!
 Yes, I am weird, but it works :-).. continue reading if you are interested.
@@ -281,3 +281,7 @@ Notable points:
 - When Athame uses vim, it does not set the g:user_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
+
+# Dotfiles profiling
+
+TODO
