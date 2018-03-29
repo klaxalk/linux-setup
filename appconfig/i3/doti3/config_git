@@ -97,7 +97,7 @@ bindsym $mod+a focus parent
 
 # define title/names of all workspaces
 # set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
-set $workspace2 "1: " # EPIGEN_DEL_LINE_VOJTA
+set $workspace1 "1: " # EPIGEN_DEL_LINE_VOJTA
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
@@ -333,9 +333,9 @@ assign [class="Rviz"] $workspace4
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
-for_window [class="^Google-chrome$"] floating disabled
-for_window [title="^Figure"] floating disabled
-for_window [title="market"] floating disabled
+for_window [class="^Google-chrome$"] floating disable
+for_window [title="^Figure"] floating disable
+for_window [title="market"] floating disable
 for_window [instance="scratchpadurxvt"] move scratchpad
 
 # lock session
