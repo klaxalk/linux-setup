@@ -319,7 +319,7 @@ exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 # man xkeyboard-config will tell you options for keyboard shortcuts
-exec_always --no-startup-id "sleep 4; notify-send -u low -i mouse \"keybard\"; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
+exec_always --no-startup-id "sleep 4; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
 # disable caps lock and make it behave like escape
 exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
