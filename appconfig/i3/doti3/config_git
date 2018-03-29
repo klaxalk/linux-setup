@@ -96,12 +96,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define title/names of all workspaces
-# set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
+# set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
 set $workspace1 "1: " # EPIGEN_DEL_LINE_VOJTA
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-# set $workspace5 "5: " # EPIGEN_ADD_LINE_TOMAS
+# set $workspace5 "5: " # EPIGEN_ADD_LINE_TOMAS
 set $workspace5 "5" # EPIGEN_DEL_LINE_TOMAS
 set $workspace6 "6"
 set $workspace7 "7"
