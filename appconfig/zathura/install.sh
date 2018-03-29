@@ -27,7 +27,7 @@ while true; do
 
     cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
     cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
-    cd /tmp && git clone https://git@github.com:pwmt/zathura-pdf-poppler.git && cd zatura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
+    cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
     # link zathuras config
     mkdir ~/.config/zathura
     cp $APP_PATH/zathurarc ~/.config/zathura/zathurarc
