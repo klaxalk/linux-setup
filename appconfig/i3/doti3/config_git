@@ -134,6 +134,19 @@ set $workspace10 "10"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_TOMAS }
 
+# EPIGEN_ADD_BLOCK_MATOUS {
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "Chrome:"
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8"
+# set $workspace9 "9"
+# set $workspace10 "10"
+# EPIGEN_ADD_BLOCK_MATOUS }
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -325,6 +338,18 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # EPIGEN_ADD_BLOCK_VOJTA }
+
+# EPIGEN_ADD_BLOCK_MATOUS {
+
+# # EPIGEN_ADD_BLOCK_TOSHIBA {
+
+# # # # Bind screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # EPIGEN_ADD_BLOCK_TOSHIBA }
+
+# EPIGEN_ADD_BLOCK_MATOUS }
 
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
