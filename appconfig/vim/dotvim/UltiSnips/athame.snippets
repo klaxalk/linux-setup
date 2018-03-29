@@ -15,11 +15,7 @@ sudo reboot
 endsnippet
 
 snippet sb "" Ab
-source ~/.bashrc
-endsnippet
-
-snippet sz "" Ab
-source ~/.zshrc
+`case "$SHELL" in *zsh*) echo source ~/.zshrc;; *) echo source ~/.bashrc;; esac`
 endsnippet
 
 snippet ra "" Ab
