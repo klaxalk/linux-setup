@@ -85,12 +85,6 @@ There are several reasons for it, e.g. 1) it can be pressed easily by one hand a
 - **__PREFIX__ p** paste yanked text (from vim edit mode)
 - **__PREFIX__ z** enlarge focused pane to the whole screen (or back)
 
-TMUX-RESURRECT can be used to save a state of a single session.
-Use following keys to control it.
-
-- **__PREFIX__ ctrl-s** save the current session using tmux-resurrect
-- **__PREFIX__ ctrl-r** resurrect previously saved session
-
 ### Custom TMUX config
 
 If you wish to use your tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.

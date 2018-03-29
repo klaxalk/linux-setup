@@ -16,6 +16,7 @@ nnoremap <localleader>tsf :VtrSendFile!<cr>
 let g:vtr_filetype_runner_overrides = {
       \ 'sh': 'bash {file}',
       \ 'py': 'python {file}',
+      \ 'matlab': 'run {file}',
       \ }
 
 " when enabled, breaks the sendfile feature

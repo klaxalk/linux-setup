@@ -1,6 +1,14 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=13
+! EPIGEN_DEL_BLOCK_GPD {
+URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! EPIGEN_DEL_BLOCK_GPD }
+
+! EPIGEN_ADD_BLOCK_GPD {
+! Xft.dpi: 180
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+! EPIGEN_ADD_BLOCK_GPD }
+
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
@@ -19,7 +27,8 @@ URxvt.perl-ext-common: default,clipboard
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
-! JELLYBEANS COLOR_SCHEME ACTIVE {
+! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+
 ! vim: ft=xdefaults
 URxvt.background: #151515
 URxvt.foreground: #dddddd
@@ -62,9 +71,10 @@ rofi.color-window: #273238, #273238, #1e2529
 rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
 rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
 rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-! }
 
-! LIGHT COLOR_SCHEME {
+! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
 ! ! PaperColour Theme
 ! URxvt.foreground: #000000
@@ -117,4 +127,5 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! rofi.color-window:                   #ffffff,#f5f5f5
 ! ! Separator style (none, dash, solid)
 ! rofi.separator-style:                solid
-! ! }
+
+! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }

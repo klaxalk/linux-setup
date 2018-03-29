@@ -1,16 +1,20 @@
+snippet times "" i
+\times
+endsnippet
+
 snippet isotope "" i
 \isotope[${1}]{${2}}
 endsnippet
 
-snippet only
+snippet only "" i
 \only<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
-snippet onslide
+snippet onslide "" i
 \onslide<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
-snippet alert
+snippet alert "" i
 \alert<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
@@ -42,8 +46,12 @@ snippet tikzeval "" Ai
 (\$ ${1:${VISUAL}} \$)
 endsnippet
 
-snippet "eq" "" ri
+snippet "eq" "" r
 (\\ref{eq:${1:${VISUAL}}})
+endsnippet
+
+snippet "leq" "" ri
+\leq
 endsnippet
 
 snippet "sec" "" ri
@@ -54,10 +62,8 @@ snippet cmd "generic command \{}" i
 \\${1}{${2:${VISUAL}}}
 endsnippet
 
-snippet color "{\color{} }" i
-\{\color{${1}}
-${2:${VISUAL}}
-}
+snippet color "\color{} " i
+{\color{${1}} ${2:${VISUAL}}}
 endsnippet
 
 snippet "(TODO)|(todo)" "" ir
@@ -120,6 +126,10 @@ ${2:${VISUAL}}
 \\end{$1}
 endsnippet
 
+snippet end "\end{}" i
+\\end{$1}
+endsnippet
+
 snippet itemize "\itemize{}" i
 \\begin{itemize}
 ${1:${VISUAL}}
@@ -174,6 +184,15 @@ snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\end{figure}
 endsnippet
 
+snippet ieeefigure "figure, as defined in the IEEE tamplate"
+\\begin{figure}[thpb]
+	\\centering
+	\\includegraphics[width=${1:1.0}\textwidth]{figures/${2}}
+	\\caption{${3}}
+	\\label{fig:${4}}
+\\end{figure}
+endsnippet
+
 snippet jfrtable "table as defined in the JFR template"
 \\begin{table}[t]
 \\caption{${1}} \label{${2:sample-table}}
@@ -209,16 +228,20 @@ snippet caption "\caption{}" i
 \\caption{${1:${VISUAL}}}
 endsnippet
 
-snippet textit "\textit{}" iA
+snippet textit "\textit{}" i
 \\textit{${1:${VISUAL}}}
 endsnippet
 
-snippet textbf "\textbf{}" iA
+snippet textbf "\textbf{}" i
 \\textbf{${1:${VISUAL}}}
 endsnippet
 
-snippet vspace "\vspace{}" iA
+snippet vspace "\vspace{}" i
 \\vspace{${1:${VISUAL}}}
+endsnippet
+
+snippet hspace "\hspace{}" i
+\\hspace{${1:${VISUAL}}}
 endsnippet
 
 snippet emph "\emph{}" i
@@ -241,15 +264,15 @@ snippet ddot "\ddot{}" i
 \\ddot{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbf "\mathbf{}" Ai
+snippet mathbf "\mathbf{}" i
 \\mathbf{${1:${VISUAL}}}
 endsnippet
 
-snippet mathrm "\mathrm{}" Ai
+snippet mathrm "\mathrm{}" i
 \\mathrm{${1:${VISUAL}}}
 endsnippet
 
-snippet mathbb "\mathbb{}" Ai
+snippet mathbb "\mathbb{}" i
 \\mathbb{${1:${VISUAL}}}
 endsnippet
 
@@ -291,6 +314,14 @@ snippet l) "" i
 \\left)
 endsnippet
 
+snippet l[ "" i
+\\left[
+endsnippet
+
+snippet r] "" i
+\\right]
+endsnippet
+
 snippet r) "" i
 \\right)
 endsnippet
@@ -313,6 +344,10 @@ endsnippet
 
 snippet () "" i
 \\left(${1:${VISUAL}}\\right)
+endsnippet
+
+snippet [] "" i
+\\left[${1:${VISUAL}}\\right]
 endsnippet
 
 snippet <> "" i
@@ -342,12 +377,14 @@ snippet subfloat "" Ai
 endsnippet
 
 snippet frame
+%%{ $1
 \begin{frame}
 \frametitle{${1:Frame title}}
 
 ${2:${VISUAL}}
 
 \end{frame}
+%%}
 endsnippet
 
 snippet block
@@ -360,7 +397,7 @@ snippet columns
 \begin{columns}[${1:c}]
 
 \column{${2:0.48}\textwidth} % Left column and width
-${4}
+${4:${VISUAL}}
 
 \column{${3:0.48}\textwidth} % Right column and width
 ${5}
@@ -433,4 +470,44 @@ snippet overview
 	\frametitle{{${1:Overview}}
 	\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
 \end{frame}
+endsnippet
+
+snippet inst "" i
+\\inst{${1:${VISUAL}}}
+endsnippet
+
+snippet sout "" i
+\\sout{${1:${VISUAL}}}
+endsnippet
+
+snippet minipage
+\\minipage[c][0.85\textheight][s]{\columnwidth}
+
+${1:${VISUAL}}
+
+\\endminipage
+endsnippet
+
+snippet superfill "" i
+\\superfill
+endsnippet
+
+snippet vfill "" i
+\\vfill
+endsnippet
+
+snippet approx "" i
+\\approx
+endsnippet
+
+snippet path
+\\path[-] (\$(${1:from_point})\$) edge [${2:->}] (\$(${3:to_point})\$);
+endsnippet
+
+snippet in
+\\in
+endsnippet
+
+snippet hat "" i
+\\hat{${1:${VISUAL}}}
 endsnippet

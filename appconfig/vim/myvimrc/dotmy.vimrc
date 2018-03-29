@@ -19,7 +19,8 @@ map <Leader>wc :call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh
 let g:startify_bookmarks = [
       \ { 'a': '~/.vim/UltiSnips/athame.snippets' },
       \ { 'b': '~/.bashrc' },
-      \ { 'd': '~/git/linux-setup/appconfig/bash/dotbashrc' },
+      \ { 'z': '~/.zshrc' },
+      \ { 'd': '~/git/linux-setup/appconfig/zsh/dotzshrc' },
       \ { 'i': '~/.i3/config' },
       \ { 't': '~/.tmux.conf' },
       \ { 'v': '~/.vimrc' },
@@ -27,22 +28,3 @@ let g:startify_bookmarks = [
       \ { 'p': '~/git/linux-setup/appconfig/vim/startify_quotes.txt' },
       \ { 'r': '~/git/linux-setup/appconfig/ranger/rc.conf' },
       \ ]
-
-" " because of latex, probably obsolete
-" filetype plugin on
-" set grepprg=grep\ -nH\ $*
-" filetype indent on
-" let g:tex_flavor='latex'
-
-" set colorscheme (only in normal vim)
-if g:user_mode == "1"
-  " JELLYBEANS COLOR_SCHEME ACTIVE {
-  colorscheme jellybeans 
-  let g:airline_theme='jellybeans'
-  " }
-  
-  " LIGHT COLOR_SCHEME {
-  " let g:airline_theme='papercolor'
-  " colorscheme raggi
-  " " }
-endif

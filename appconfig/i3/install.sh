@@ -72,8 +72,14 @@ while true; do
     sudo apt-get update
     sudo apt-get -y install indicator-sound-switcher
 
-    # symlink i3 settings
+    # symlink settings folder
     ln -sf $APP_PATH/doti3 ~/.i3
+
+    # copy i3 config file
+    cp $APP_PATH/doti3/config_git ~/.i3/config
+    cp $APP_PATH/doti3/i3blocks.conf_git ~/.i3/i3blocks.conf
+    cp $APP_PATH/i3blocks/wifi_git $APP_PATH/i3blocks/wifi
+    cp $APP_PATH/i3blocks/battery_git $APP_PATH/i3blocks/battery
 
     # copy fonts
     # fontawesome 4.7 

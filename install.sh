@@ -15,7 +15,7 @@ git submodule update --init --recursive
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
 
-sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools
+sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch
 
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
@@ -107,6 +107,20 @@ export RUN_TMUX=false" >> ~/.bashrc
 fi
 
 #############################################
+# add PROFILER variables
+#############################################
+
+num=`cat ~/.bashrc | grep "PROFILER_ADDITIONS" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+# what should be activated/deactivated by epigen?
+export PROFILER_ADDITIONS=""
+export PROFILER_DELETIONS=""
+export PROFILER_BOTH="COLORSCHEME_DARK"
+
+fi
+
+#############################################
 # creating .vimpath file 
 #############################################
 
@@ -118,6 +132,8 @@ fi
 #############################################
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
+
+  cp $APPCONFIG_PATH/bash/dotbashrc_git $APPCONFIG_PATH/bash/dotbashrc
 
   echo "Adding source to .bashrc"
   # set bashrc
@@ -134,4 +150,14 @@ fi
 toilet All Done
 
 # source .bashrc
-bash ~/.bashrc
+case "$SHELL" in 
+  *bash*)
+    source "$HOME/.bashrc"
+    ;;
+  *zsh*)
+    source "$HOME/.zshrc"
+    ;;
+esac
+
+cd "$APPCONFIG_PATH/.."
+git pull
