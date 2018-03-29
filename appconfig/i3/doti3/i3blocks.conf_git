@@ -28,6 +28,14 @@ command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+# EPIGEN_ADD_BLOCK_VOJTA {
+# [git]
+# label=
+# interval=10
+# command=$HOME/.i3/git.sh
+# color=#FF0000
+# EPIGEN_ADD_BLOCK_VOJTA }
+
 [101]
 command=ping -c 1 192.168.0.101 >> /dev/null && echo '101' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 

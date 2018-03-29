@@ -96,11 +96,13 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define title/names of all workspaces
-set $workspace1 "1: "
+# set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
+set $workspace2 "1: " # EPIGEN_DEL_LINE_VOJTA
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5: "
+# set $workspace5 "5: " # EPIGEN_ADD_LINE_TOMAS
+set $workspace5 "5" # EPIGEN_DEL_LINE_TOMAS
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
@@ -291,6 +293,14 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 
+# EPIGEN_ADD_BLOCK_VOJTA {
+
+# # Bind screen brightness control
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# EPIGEN_ADD_BLOCK_VOJTA }
+
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
@@ -315,8 +325,9 @@ exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
-# assign [class="Google-chrome"] $workspace5
 assign [class="Rviz"] $workspace4
+
+# assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
 # name = File Operation Progress == float
 for_window [class="^Thunar$"] floating disable
