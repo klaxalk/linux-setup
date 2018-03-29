@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# source /home/vojta/.bashrc
-
 REMOTE="origin"
 STATUS_FILE=".git_status"
 
-GIT_REMOTES="linux-setup:upstream"
+if [ -z $GIT_REMOTES ]; then
+  GIT_REMOTES=""
+fi
 
 cd ${GIT_PATH}
 echo "path: ${GIT_PATH}"
