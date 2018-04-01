@@ -292,18 +292,24 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 
 # default key bindings for audio
 # EPIGEN_DEL_BLOCK_TOMAS {
-bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
-bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
-bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
+bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
+bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
+bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # EPIGEN_DEL_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
-# # # Tomas's desktop PC is somewhat different with volume control
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
+
 # # EPIGEN_ADD_BLOCK_DESKTOP }
 
 # # EPIGEN_ADD_BLOCK_DELL {
