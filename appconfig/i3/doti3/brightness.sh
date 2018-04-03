@@ -78,10 +78,6 @@ else
 
     notify-send -u low -t 100 "Brightness on MIN" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic
 
-  else
-
-  notify-send -u low "Brightness $current_brightness_perc%" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic # EPIGEN_DEL_LINE_MATOUS_NOT
-
   fi
 
 fi
