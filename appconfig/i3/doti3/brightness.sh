@@ -4,6 +4,7 @@
 
 if [ "$(id -u)" != "0" ]; then
   exec sudo "$0" "$@"
+  exit 0
 fi
 
 INCREMENT=10
@@ -14,7 +15,7 @@ basedir="/sys/class/backlight/"
 # get the backlight handler
 handler=$basedir$(ls $basedir)"/"
 
-# find the id of my the touchpad
+# find the current absolute brightness
 current_brightness_abs=$(cat $handler"brightness")
 
 # get max brightness
@@ -79,7 +80,7 @@ else
 
   else
 
-  notify-send -u low "Brightness $current_brightness_perc%" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic
+  notify-send -u low "Brightness $current_brightness_perc%" -h string:x-canonical-private-synchronous:anything -i display-brightness-low-symbolic # EPIGEN_DEL_LINE_MATOUS_NOT
 
   fi
 
