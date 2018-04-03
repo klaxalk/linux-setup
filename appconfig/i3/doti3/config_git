@@ -179,6 +179,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
+# changing color schemes
 bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
 bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
@@ -210,6 +211,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# is usefull for controlling i3 and tmux throught teamviewer
 mode "throughput" {
 
   bindsym $mod+shift+t mode "default"
@@ -290,18 +292,24 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 
 # default key bindings for audio
 # EPIGEN_DEL_BLOCK_TOMAS {
-bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
-bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
-bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
+bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
+bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
+bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # EPIGEN_DEL_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
-# # # Tomas's desktop PC is somewhat different with volume control
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
+
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
+
 # # EPIGEN_ADD_BLOCK_DESKTOP }
 
 # # EPIGEN_ADD_BLOCK_DELL {
@@ -319,13 +327,26 @@ bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 
 # # EPIGEN_ADD_BLOCK_GPD {
 
+# # # gpd has small screen, tabs should be the default option
 # # workspace_layout tabbed
 
-# # # reconfigure the speed of track point
-# # exec_always xinput --set-prop 10 272 1.00
-# # exec_always xinput --set-prop 10 273 1.00
+# # # speed of the track point
+# # exec_always xinput --set-prop 10 272 0.50
+# # exec_always xinput --set-prop 10 273 0.40
 
+# # # compton without fancy graphics
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+
+# # # brightness
+# # # The following line needs to be in /etc/sudoers
+# # # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 
 # # EPIGEN_ADD_BLOCK_GPD }
 
@@ -389,11 +410,7 @@ exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
-assign [class="Rviz"] $workspace4
-
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
-
-# name = File Operation Progress == float
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
@@ -406,7 +423,7 @@ for_window [instance="scratchpadurxvt"] move scratchpad
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_COMPTON_RICH
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
@@ -415,10 +432,8 @@ exec --no-startup-id indicator-sound-switcher
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
 for_window [title="GIMP Startup"] move workspace $workspace8
-for_window [title="market"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
-for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
@@ -456,7 +471,7 @@ mode "$mode_gaps" {
 # Gimp
 bindsym $mod2+g exec --no-startup-id gimp
 
-# Qutebroser
+# qutebroser
 bindsym $mod2+q exec --no-startup-id qutebrowser
 
 # Bindings for Gazebo simulator

@@ -1,7 +1,7 @@
 #!/bin/bash
 GIRARA_VERSION=0.2.7
 ZATHURA_VERSION=0.3.7
-ZATHURA_PDF_POPPLER_VERSION=0.3.7
+ZATHURA_PDF_POPPLER_VERSION=0.2.7
 
 # get the path to this script
 APP_PATH=`dirname "$0"`
@@ -15,7 +15,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk
+    sudo apt-get -y remove zathura-pdf-poppler
+    sudo apt-get -y install libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
 
     # otherwise the own girara compilation will not work
     sudo apt-get -y remove libgirara-dev
@@ -28,9 +29,17 @@ while true; do
     cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
     cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
     cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
-    # link zathuras config
-    mkdir ~/.config/zathura
-    cp $APP_PATH/zathurarc ~/.config/zathura/zathurarc
+
+    # cd /tmp/girara
+    # sudo make uninstall
+
+    # cd /tmp/zathura
+    # sudo make uninstall
+
+    # cd /tmp/zathura-pdf-poppler
+    # sudo make uninstall
+
+    rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
