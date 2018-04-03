@@ -319,9 +319,13 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 10%+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+
+# # bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
+# # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
 # # EPIGEN_ADD_BLOCK_DELL }
 
