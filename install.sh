@@ -113,10 +113,12 @@ fi
 num=`cat ~/.bashrc | grep "PROFILER_ADDITIONS" | wc -l`
 if [ "$num" -lt "1" ]; then
 
-# what should be activated/deactivated by epigen?
+echo "Adding epigen rules to .bashrc"
+echo '
+# profiling options for EPIGEN
 export PROFILER_ADDITIONS=""
 export PROFILER_DELETIONS=""
-export PROFILER_BOTH="COLORSCHEME_DARK"
+export PROFILER_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
 
