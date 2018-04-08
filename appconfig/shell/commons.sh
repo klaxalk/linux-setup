@@ -82,7 +82,7 @@ git() {
 
   case $* in
 
-    pull*)
+    pull*|checkout*)
 
       # give me the path to root of the repo we are in
       ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
@@ -168,5 +168,7 @@ echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.
   echo '#!/bin/bash
 echo '"$UAV_NAME" > ~/.i3/uav_name.sh
   chmod +x ~/.i3/uav_name.sh
-fi
 
+  export TERM=rxvt-unicode-256color
+
+fi
