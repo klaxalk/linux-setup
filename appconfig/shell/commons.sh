@@ -25,7 +25,7 @@ generateTags() {
 }
 
 # allows killing process with all its children
-killp () {
+killp() {
 
   if [ $# -eq 0 ]; then
     pes=$( cat ) 
@@ -44,6 +44,20 @@ killp () {
   kill -9 "$1" > /dev/null 2> /dev/null
 }
 
+killSession() {
+  echo "killing session"
+  pids=`tmux list-panes -s -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk {'print $1'}`
+
+  for pid in $pids; do
+    killp "$pid" &
+    # echo $pid
+  done
+
+  SESSION_NAME=`tmux display-message -p '#S'`
+  tmux kill-session -t "$SESSION_NAME"
+}
+alias :qa="killSession"
+
 gitPullPush() {
 
  branch=`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`
@@ -57,7 +71,6 @@ gitPullPush() {
  fi
 }
 
-alias sb="source ~/.zshrc"
 getVideoThumbnail () {
 
   if [ $# -eq 0 ]; then
@@ -119,6 +132,21 @@ git() {
 
   esac
 }
+
+sourceShellDotfile() {
+
+  case "$SHELL" in 
+    *bash*)
+      RCFILE="$HOME/.bashrc"
+      ;;
+    *zsh*)
+      RCFILE="$HOME/.zshrc"
+      ;;
+  esac
+
+  source "$RCFILE"
+}
+alias sb="sourceShellDotfile"
 
 setColorScheme() {
 
