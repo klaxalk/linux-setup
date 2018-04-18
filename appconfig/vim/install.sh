@@ -120,6 +120,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
         toilet Setting up youcompleteme
 
         cd ~/.vim/plugged/youcompleteme/
+        git submodule update --init --recursive
         python3 ./install.py --all
 
         # link .ycm_extra_conf.py
