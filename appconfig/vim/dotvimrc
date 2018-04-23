@@ -339,7 +339,8 @@ au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%%{,%%}
 
 au FileType yml,yaml,sh,conf,python set foldmethod=marker
-au FileType yml,yaml,sh,conf,python set foldmarker=#{,#}
+au FileType yml,yaml,conf,python set foldmarker=#{,#}
+au FileType sh set foldmarker=##{,##}
 
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
