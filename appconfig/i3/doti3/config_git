@@ -387,6 +387,18 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # EPIGEN_ADD_BLOCK_MATOUS }
 
+# EPIGEN_ADD_BLOCK_MATEJ {
+
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # sem pis veci
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+
+# # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
+
+# EPIGEN_ADD_BLOCK_MATEJ }
+
 # scrot (for printscreens)
 bindsym Print exec ~/.i3/detacher.sh "scrot -e 'mv \$f ~/Pictures/shots/'"
 
