@@ -32,43 +32,51 @@ killp() {
   else
     pes=$1
   fi
-  
-	for child in $(ps -o pid,ppid -ax | \
-   awk "{ if ( \$2 == $pes ) { print \$1 }}")
-  do
-    # echo "Killing child process $child because ppid = $pes"
-    killp $child
-  done
-        
-  # echo "killing $1"
-  kill -9 "$1" > /dev/null 2> /dev/null
+
+  for child in $(ps -o pid,ppid -ax | \
+    awk "{ if ( \$2 == $pes ) { print \$1 }}")
+do
+  # echo "Killing child process $child because ppid = $pes"
+  killp $child
+done
+
+# echo "killing $1"
+kill -9 "$1" > /dev/null 2> /dev/null
 }
 
 killSession() {
-  echo "killing session"
-  pids=`tmux list-panes -s -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk {'print $1'}`
 
-  for pid in $pids; do
-    killp "$pid" &
-    # echo $pid
-  done
+  if [ ! -z "$TMUX" ]; then
 
-  SESSION_NAME=`tmux display-message -p '#S'`
-  tmux kill-session -t "$SESSION_NAME"
+    echo "killing session"
+    pids=`tmux list-panes -s -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk {'print $1'}`
+
+    for pid in $pids; do
+      killp "$pid" &
+    done
+
+    SESSION_NAME=`tmux display-message -p '#S'`
+    tmux kill-session -t "$SESSION_NAME"
+
+  else
+
+    exit
+
+  fi
 }
 alias :qa="killSession"
 
 gitPullPush() {
 
- branch=`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`
+  branch=`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`
 
- if [ $# -eq 0 ]; then
-  git pull origin "$branch"
-  git push origin "$branch"
- else
-  git pull "$1" "$branch"
-  git push "$1" "$branch"
- fi
+  if [ $# -eq 0 ]; then
+    git pull origin "$branch"
+    git push origin "$branch"
+  else
+    git pull "$1" "$branch"
+    git push "$1" "$branch"
+  fi
 }
 
 getVideoThumbnail () {
@@ -130,73 +138,73 @@ git() {
       command git "$@"
       ;;
 
-  esac
-}
+    esac
+  }
 
-sourceShellDotfile() {
+  sourceShellDotfile() {
 
-  case "$SHELL" in 
-    *bash*)
-      RCFILE="$HOME/.bashrc"
-      ;;
-    *zsh*)
-      RCFILE="$HOME/.zshrc"
-      ;;
-  esac
+    case "$SHELL" in 
+      *bash*)
+        RCFILE="$HOME/.bashrc"
+        ;;
+      *zsh*)
+        RCFILE="$HOME/.zshrc"
+        ;;
+    esac
 
-  source "$RCFILE"
-}
-alias sb="sourceShellDotfile"
+    source "$RCFILE"
+  }
+  alias sb="sourceShellDotfile"
 
-setColorScheme() {
+  setColorScheme() {
 
-  case "$SHELL" in 
-    *bash*)
-      RCFILE="$HOME/.bashrc"
-      ;;
-    *zsh*)
-      RCFILE="$HOME/.zshrc"
-      ;;
-  esac
+    case "$SHELL" in 
+      *bash*)
+        RCFILE="$HOME/.bashrc"
+        ;;
+      *zsh*)
+        RCFILE="$HOME/.zshrc"
+        ;;
+    esac
 
-  export COLOR_SCHEME="$1"
+    export COLOR_SCHEME="$1"
 
-  # change the variable in bashrc
-  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
+    # change the variable in bashrc
+    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
 
-  source "$RCFILE"
+    source "$RCFILE"
 
-  cd "$GIT_PATH/linux-setup"
-  ./backup_and_deploy.sh
+    cd "$GIT_PATH/linux-setup"
+    ./backup_and_deploy.sh
 
-  # reload configuration for urxvt
-  xrdb ~/.Xresources
+    # reload configuration for urxvt
+    xrdb ~/.Xresources
 
-  # restart i3
-  i3-msg restart
-}
+    # restart i3
+    i3-msg restart
+  }
 
-# special code for i3 users
-if [ "$USE_I3" = "true" ]; then
+  # special code for i3 users
+  if [ "$USE_I3" = "true" ]; then
 
-  # reload configuration for urxvt
-  xrdb ~/.Xresources
+    # reload configuration for urxvt
+    xrdb ~/.Xresources
 
-  # set keyboard repeat rate
-  xset r rate 350 55
+    # set keyboard repeat rate
+    xset r rate 350 55
 
-  echo '#!/bin/bash
-echo '"$ROS_IP" > ~/.i3/ros_ip.sh
-  chmod +x ~/.i3/ros_ip.sh
+    echo '#!/bin/bash
+    echo '"$ROS_IP" > ~/.i3/ros_ip.sh
+    chmod +x ~/.i3/ros_ip.sh
 
-  echo '#!/bin/bash
-echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.sh
-  chmod +x ~/.i3/ros_master_uri.sh
-  
-  echo '#!/bin/bash
-echo '"$UAV_NAME" > ~/.i3/uav_name.sh
-  chmod +x ~/.i3/uav_name.sh
+    echo '#!/bin/bash
+    echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.sh
+    chmod +x ~/.i3/ros_master_uri.sh
 
-  export TERM=rxvt-unicode-256color
+    echo '#!/bin/bash
+    echo '"$UAV_NAME" > ~/.i3/uav_name.sh
+    chmod +x ~/.i3/uav_name.sh
 
-fi
+    export TERM=rxvt-unicode-256color
+
+  fi
