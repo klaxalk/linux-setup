@@ -159,10 +159,10 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+minus scratchpad show
+# bindsym $mod+Shift+minus move scratchpad
 # exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
-exec urxvt -name scratchpadurxvt
+# exec urxvt -name scratchpadurxvt
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1

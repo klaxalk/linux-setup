@@ -149,6 +149,9 @@ else
 
 fi
 
+cd "$MY_PATH"
+./deploy_configs.sh
+
 toilet All Done
 
 # source .bashrc
@@ -160,6 +163,3 @@ case "$SHELL" in
     source "$HOME/.zshrc"
     ;;
 esac
-
-cd "$APPCONFIG_PATH/.."
-git pull
