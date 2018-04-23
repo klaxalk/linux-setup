@@ -29,7 +29,7 @@ source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
 # handy for common tmuxinator scripts
 historyRead() {
 
-  read "$*"
+  eval "print $*"
 }
 alias history='historyRead'
 
