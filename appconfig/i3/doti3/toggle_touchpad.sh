@@ -8,10 +8,9 @@
 # DEVICE_ID="06CB:76AF"
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# EPIGEN_ADD_BLOCK_MATOUS ACTIVE {
-DEVICE_ID="AlpsPS/2 ALPS DualPoint TouchPad"
+# EPIGEN_ADD_BLOCK_MATOUS {
+# DEVICE_ID="AlpsPS/2 ALPS DualPoint TouchPad"
 # EPIGEN_ADD_BLOCK_MATOUS }
-
 
 # find the id of my the touchpad
 DEVICE_NUMBER=`xinput | grep "$DEVICE_ID" | sed -r 's/.*id=([0-9]*).*/\1/g'`
