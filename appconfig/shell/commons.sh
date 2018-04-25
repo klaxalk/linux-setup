@@ -103,7 +103,7 @@ git() {
 
   case $* in
 
-    pull*|checkout*)
+    pull*|checkout*|reset --hard)
 
       # give me the path to root of the repo we are in
       ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
