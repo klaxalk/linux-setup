@@ -5,7 +5,15 @@ URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_DEL_BLOCK_GPD }
 
 ! EPIGEN_ADD_BLOCK_GPD {
+
+! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL {
 ! Xft.dpi: 180
+! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL }
+
+! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL {
+! ! Xft.dpi: 100
+! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
+
 ! Rxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
 ! EPIGEN_ADD_BLOCK_GPD }
 

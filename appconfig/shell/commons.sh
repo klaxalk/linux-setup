@@ -101,110 +101,147 @@ getVideoThumbnail () {
 # Other "git" features should not be changed
 git() {
 
-  case $* in
+  case $* in pull*|checkout*|"reset --hard")
 
-    pull*|checkout*|"reset --hard")
+    # give me the path to root of the repo we are in
+    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
-      # give me the path to root of the repo we are in
-      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+    if [[ "$?" == "0" ]]; then
 
-      if [[ "$?" == "0" ]]; then
+      # if we are in the 'linux-setup' repo, use the git profiler
+      if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-        # if we are in the 'linux-setup' repo, use the git profiler
-        if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
+        PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
 
-          PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
+        bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
-          bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+        command git "$@"
 
-          command git "$@"
+        if [[ "$?" == "0" ]]; then
 
-          if [[ "$?" == "0" ]]; then
+          bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
-            bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
-
-          fi
-
-        else
-          command git "$@"
         fi
 
       else
         command git "$@"
       fi
 
-      ;;
-    *)
+    else
       command git "$@"
+    fi
+
+    ;;
+  *)
+    command git "$@"
+    ;;
+
+  esac
+}
+
+sourceShellDotfile() {
+
+  case "$SHELL" in 
+    *bash*)
+      RCFILE="$HOME/.bashrc"
       ;;
+    *zsh*)
+      RCFILE="$HOME/.zshrc"
+      ;;
+  esac
 
-    esac
-  }
+  source "$RCFILE"
+}
+alias sb="sourceShellDotfile"
 
-  sourceShellDotfile() {
+setColorScheme() {
 
-    case "$SHELL" in 
-      *bash*)
-        RCFILE="$HOME/.bashrc"
-        ;;
-      *zsh*)
-        RCFILE="$HOME/.zshrc"
-        ;;
-    esac
+  case "$SHELL" in 
+    *bash*)
+      RCFILE="$HOME/.bashrc"
+      ;;
+    *zsh*)
+      RCFILE="$HOME/.zshrc"
+      ;;
+  esac
 
-    source "$RCFILE"
-  }
-  alias sb="sourceShellDotfile"
+  export COLOR_SCHEME="$1"
 
-  setColorScheme() {
+  # change the variable in bashrc
+  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
 
-    case "$SHELL" in 
-      *bash*)
-        RCFILE="$HOME/.bashrc"
-        ;;
-      *zsh*)
-        RCFILE="$HOME/.zshrc"
-        ;;
-    esac
+  source "$RCFILE"
 
-    export COLOR_SCHEME="$1"
+  cd "$GIT_PATH/linux-setup"
+  ./backup_and_deploy.sh
 
-    # change the variable in bashrc
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
 
-    source "$RCFILE"
+  # restart i3
+  i3-msg restart
+}
 
-    cd "$GIT_PATH/linux-setup"
-    ./backup_and_deploy.sh
+gpdSetMonitor() {
 
-    # reload configuration for urxvt
-    xrdb ~/.Xresources
+  MONITOR=$( echo "STANDALONE\nEXTERNAL" | rofi -dmenu -p "Select monitor:")
 
-    # restart i3
-    i3-msg restart
-  }
-
-  # special code for i3 users
-  if [ "$USE_I3" = "true" ]; then
-
-    # reload configuration for urxvt
-    xrdb ~/.Xresources
-
-    # set keyboard repeat rate
-    xset r rate 350 55
-
-    echo '#!/bin/bash
-    echo '"$ROS_IP" > ~/.i3/ros_ip.sh
-    chmod +x ~/.i3/ros_ip.sh
-
-    echo '#!/bin/bash
-    echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.sh
-    chmod +x ~/.i3/ros_master_uri.sh
-
-    echo '#!/bin/bash
-    echo '"$UAV_NAME" > ~/.i3/uav_name.sh
-    chmod +x ~/.i3/uav_name.sh
-
-    export TERM=rxvt-unicode-256color
-
+  if [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "EXTERNAL" ]]; then
+    notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
+    return 1
   fi
+
+  notify-send -u low -t 100 "Switching monitor to $MONITOR" -h string:x-canonical-private-synchronous:anything
+
+  xrandr --auto
+
+  case "$SHELL" in 
+    *bash*)
+      RCFILE="$HOME/.bashrc"
+      ;;
+    *zsh*)
+      RCFILE="$HOME/.zshrc"
+      ;;
+  esac
+
+  # change the variable in bashrc
+  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
+
+  source "$RCFILE"
+
+  cd "$GIT_PATH/linux-setup"
+  ./backup_and_deploy.sh
+
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
+
+  # restart i3
+  i3-msg restart
+
+  notify-send -u low -t 100 "Monitor switched" -h string:x-canonical-private-synchronous:anything
+}
+
+# special code for i3 users
+if [ "$USE_I3" = "true" ]; then
+
+  # reload configuration for urxvt
+  xrdb ~/.Xresources
+
+  # set keyboard repeat rate
+  xset r rate 350 55
+
+  echo '#!/bin/bash
+  echo '"$ROS_IP" > ~/.i3/ros_ip.sh
+  chmod +x ~/.i3/ros_ip.sh
+
+  echo '#!/bin/bash
+  echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.sh
+  chmod +x ~/.i3/ros_master_uri.sh
+
+  echo '#!/bin/bash
+  echo '"$UAV_NAME" > ~/.i3/uav_name.sh
+  chmod +x ~/.i3/uav_name.sh
+
+  export TERM=rxvt-unicode-256color
+
+fi
