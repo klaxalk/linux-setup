@@ -183,7 +183,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
 bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
-bindsym $mod2+m exec "~/.i3/detacher.sh 'gpdSetMonitor'"
+bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
