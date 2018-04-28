@@ -180,10 +180,15 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 bindsym $mod+Shift+c reload
 
 # changing color schemes
-bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
-bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
+bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh'"
+# remove those keybindings when people get used to the general one
+bindsym $mod2+l exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh LIGHT'"
+bindsym $mod2+d exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh DARK'"
 
-bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
+# monitors switching
+# EPIGEN_ADD_BLOCK_GPD {
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
+# EPIGEN_ADD_BLOCK_GPD }
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
