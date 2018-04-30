@@ -402,7 +402,7 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
 
 # # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/git/linux-setup/scripts/toggle_touchpad.sh
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
