@@ -393,12 +393,16 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/git/linux-setup/scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/git/linux-setup/scripts/kb-light.py -
+
 # # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
 
 # # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.i3/toggle_touchpad.sh
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/git/linux-setup/scripts/toggle_touchpad.sh
 
 # # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
