@@ -1,18 +1,13 @@
 PNAME=$( ps -p "$$" -o comm= )
 SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
 if [ "$PNAME" != "$SNAME" ]; then
-  command "$SNAME" "$0" "$@"
+  exec "$SHELL" "$0" "$@"
   exit "$?"
+else
+  source ~/."$SNAME"rc
 fi
 
-case "$SHELL" in 
-  *bash*)
-    RCFILE="$HOME/.bashrc"
-    ;;
-  *zsh*)
-    RCFILE="$HOME/.zshrc"
-    ;;
-esac
+RCFILE=~/."$SNAME"rc
 
 COLOR_SCHEME=$( echo "DARK
 LIGHT" | rofi -dmenu -p "Select colorscheme:")
