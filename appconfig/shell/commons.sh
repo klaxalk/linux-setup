@@ -152,7 +152,7 @@ git() {
   esac
 }
 
-sourceShellDotfile() {
+getRcFile() {
 
   case "$SHELL" in 
     *bash*)
@@ -162,6 +162,13 @@ sourceShellDotfile() {
       RCFILE="$HOME/.zshrc"
       ;;
   esac
+
+  echo "$RCFILE"
+}
+
+sourceShellDotfile() {
+
+  RCFILE=$( getRcFile )
 
   source "$RCFILE"
 }

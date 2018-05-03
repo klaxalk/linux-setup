@@ -1,6 +1,11 @@
-#!/bin/bash
+PNAME=$( ps -p "$$" -o comm= )
+SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
+if [ "$PNAME" != "$SNAME" ]; then
+  command "$SNAME" "$0" "$@"
+  exit "$?"
+fi
 
-MONITOR=$( echo "STANDALON
+MONITOR=$( echo "STANDALONE
 EXTERNAL" | rofi -dmenu -p "Select monitor:")
 
 if [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "EXTERNAL" ]]; then
@@ -10,6 +15,7 @@ fi
 
 notify-send -u low -t 100 "Switching monitor to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
+# refresh the output devices
 xrandr --auto
 
 case "$SHELL" in 

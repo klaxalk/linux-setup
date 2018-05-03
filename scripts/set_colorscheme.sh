@@ -1,3 +1,10 @@
+PNAME=$( ps -p "$$" -o comm= )
+SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
+if [ "$PNAME" != "$SNAME" ]; then
+  command "$SNAME" "$0" "$@"
+  exit "$?"
+fi
+
 case "$SHELL" in 
   *bash*)
     RCFILE="$HOME/.bashrc"
