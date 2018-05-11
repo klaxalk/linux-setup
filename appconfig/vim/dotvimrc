@@ -516,6 +516,10 @@ if g:user_mode == "1"
 
 endif
 
+" updated and corrected tags for latex proofreading
+map <silent> <leader>cc moI\corrected {A}`omo
+map <silent> <leader>uu moI\updated {A}`omo
+
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
   source ~/.my.vimrc
