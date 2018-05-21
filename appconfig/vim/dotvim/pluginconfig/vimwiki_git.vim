@@ -9,29 +9,29 @@
 "   return 0
 " endfun
 
-" EPIGEN_ADD_BLOCK_TOMAS ACTIVE {
+" EPIGEN_ADD_BLOCK_TOMAS {
 
-let wiki_1 = {}
-let wiki_1.path = '~/git/notes'
-let wiki_1.html_template = '~/git/notes/template/template.html'
-let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-let wiki_1.index = 'index'
-let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.md'
-let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
-let wiki_1.path_html = '~/git/notes/html'
+" let wiki_1 = {}
+" let wiki_1.path = '~/git/notes'
+" let wiki_1.html_template = '~/git/notes/template/template.html'
+" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_1.index = 'index'
+" let wiki_1.syntax = 'markdown'
+" let wiki_1.ext = '.md'
+" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_1.path_html = '~/git/notes/html'
 
-let wiki_2 = {}
-let wiki_2.path = '~/git/uav_core.wiki'
-let wiki_2.html_template = '~/git/notes/template/template.html'
-let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-let wiki_2.index = 'home'
-let wiki_2.syntax = 'markdown'
-let wiki_2.ext = '.md'
-let wiki_2.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
-let wiki_2.path_html = '~/git/uav_core.wiki/html/'
+" let wiki_2 = {}
+" let wiki_2.path = '~/git/uav_core.wiki'
+" let wiki_2.html_template = '~/git/notes/template/template.html'
+" let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_2.index = 'home'
+" let wiki_2.syntax = 'markdown'
+" let wiki_2.ext = '.md'
+" let wiki_2.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
+" let wiki_2.path_html = '~/git/uav_core.wiki/html/'
 
-let g:vimwiki_list = [wiki_1, wiki_2]
+" let g:vimwiki_list = [wiki_1, wiki_2]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 
