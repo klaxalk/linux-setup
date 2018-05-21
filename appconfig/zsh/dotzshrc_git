@@ -70,19 +70,19 @@ runTmux() {
 
 zshexit() {
 
-   echo "T$PPID"
+  # if there is a tmux session with the same name as the current bashpid
+  num=`$TMUX_BIN ls 2> /dev/null | grep "T$PPID" | wc -l`
+  if [ "$num" -gt "0" ]; then
 
-   pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
+    pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
 
-   echo $pids
+    for pid in "$pids"; do
+       killp "$pid"
+    done
 
-   for pid in "$pids"
-   do
-     killp "$pid"
-     echo "killing $pid"
-   done
+    $TMUX_BIN kill-session -t "T$PPID"
 
-   $TMUX_BIN kill-session -t "T$PPID"
+  fi
 }
 
 # VIM alias for running vim in tmux and in servermode

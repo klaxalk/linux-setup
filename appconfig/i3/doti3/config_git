@@ -365,9 +365,25 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 
-# # Bind screen brightness control
-# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Toggling ASUS touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
 
 # EPIGEN_ADD_BLOCK_VOJTA }
 
@@ -474,6 +490,10 @@ for_window [class="^Gimp$"] move workspace $workspace9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# for_window [title="rqt_market"] move workspace $workspace9
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 #{ Gaps settings
 smart_gaps on

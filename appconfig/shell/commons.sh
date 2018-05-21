@@ -117,6 +117,11 @@ git() {
 
         command git "$@"
 
+        case $* in pull*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
+
         if [[ "$?" == "0" ]]; then
 
           bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
@@ -125,10 +130,18 @@ git() {
 
       else
         command git "$@"
+        case $* in pull*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
       fi
 
     else
       command git "$@"
+      case $* in pull*)
+        echo "Updating git submodules"
+        command git submodule update --init --recursive
+      esac
     fi
 
     ;;
@@ -139,7 +152,7 @@ git() {
   esac
 }
 
-sourceShellDotfile() {
+getRcFile() {
 
   case "$SHELL" in 
     *bash*)
@@ -149,6 +162,13 @@ sourceShellDotfile() {
       RCFILE="$HOME/.zshrc"
       ;;
   esac
+
+  echo "$RCFILE"
+}
+
+sourceShellDotfile() {
+
+  RCFILE=$( getRcFile )
 
   source "$RCFILE"
 }
