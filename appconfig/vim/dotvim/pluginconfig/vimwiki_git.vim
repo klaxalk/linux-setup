@@ -38,7 +38,7 @@
 " EPIGEN_ADD_BLOCK_NICOLAS {
 
 " let wiki_1 = {}
-" let wiki_1.path = '~/git/notes'
+" let wiki_1.path = '~/Repositories/pdoc2018-ctu/coop_LAAS_outdoor_tilthex/Notes'
 " let wiki_1.html_template = '~/git/notes/template/template.html'
 " let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
 " let wiki_1.index = 'index'
@@ -46,6 +46,8 @@
 " let wiki_1.ext = '.md'
 " let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
 " let wiki_1.path_html = '~/git/notes/html'
+
+" let g:vimwiki_list = [wiki_1]
 
 " EPIGEN_ADD_BLOCK_NICOLAS }
 
