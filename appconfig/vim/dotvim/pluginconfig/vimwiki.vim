@@ -9,6 +9,8 @@
 "   return 0
 " endfun
 
+" EPIGEN_ADD_BLOCK_TOMAS ACTIVE {
+
 let wiki_1 = {}
 let wiki_1.path = '~/git/notes'
 let wiki_1.html_template = '~/git/notes/template/template.html'
@@ -30,6 +32,22 @@ let wiki_2.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
 let wiki_2.path_html = '~/git/uav_core.wiki/html/'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
+
+" EPIGEN_ADD_BLOCK_TOMAS }
+
+" EPIGEN_ADD_BLOCK_NICOLAS {
+
+" let wiki_1 = {}
+" let wiki_1.path = '~/git/notes'
+" let wiki_1.html_template = '~/git/notes/template/template.html'
+" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_1.index = 'index'
+" let wiki_1.syntax = 'markdown'
+" let wiki_1.ext = '.md'
+" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_1.path_html = '~/git/notes/html'
+
+" EPIGEN_ADD_BLOCK_NICOLAS }
 
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
