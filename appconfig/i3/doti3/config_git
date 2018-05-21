@@ -492,6 +492,10 @@ for_window [window_role="gimp-dock"] floating disable; move left; resize shrink 
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 
+# EPIGEN_ADD_BLOCK_TOMAS {
+# for_window [title="rqt_market"] move workspace $workspace9
+# EPIGEN_ADD_BLOCK_TOMAS }
+
 #{ Gaps settings
 smart_gaps on
 
