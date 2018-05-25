@@ -32,14 +32,14 @@
 " let wiki_2.path_html = '~/git/uav_core.wiki/html/'
 
 " let epigen = {}
-" let epigen.path = '~/git/epigen'
+" let epigen.path = '~/git/dotprofiler'
 " let epigen.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
 " let epigen.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
 " let epigen.index = 'README'
 " let epigen.syntax = 'markdown'
 " let epigen.ext = '.md'
 " let epigen.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let epigen.path_html = '~/git/epigen/html/'
+" let epigen.path_html = '~/git/dotprofiler/html/'
 
 " let g:vimwiki_list = [wiki_1, wiki_2, epigen]
 
