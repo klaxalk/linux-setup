@@ -282,6 +282,6 @@ Notable points:
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
 
-# Dotfiles profiling
+# Dotfiles profiles
 
-TODO
+TODO, in the meantime, see my submodules [Dotprofiler](https://github.com/klaxalk/dotprofiler) and [Epigen](https://github.com/klaxalk/epigen).
