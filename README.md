@@ -284,4 +284,4 @@ Notable points:
 
 # Dotfiles profiles
 
-TODO, in the meantime, see my submodules [Dotprofiler](https://github.com/klaxalk/dotprofiler) and [Epigen](https://github.com/klaxalk/epigen).
+TODO, in the meantime, see description of my submodules [dotprofiler](https://github.com/klaxalk/dotprofiler) and [epigen](https://github.com/klaxalk/epigen).
