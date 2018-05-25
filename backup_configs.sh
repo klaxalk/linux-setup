@@ -7,4 +7,4 @@ else
   source ~/."$SNAME"rc
 fi
 
-./submodules/dotprofiler/profiler.sh backup ./appconfig/dotprofiler/file_list.txt
+./submodules/dotprofiler/dotprofiler.sh backup ./appconfig/dotprofiler/file_list.txt
