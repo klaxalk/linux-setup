@@ -154,4 +154,11 @@ else
 
 fi
 
+# deploy all dotprofiler config files
 ./deploy_configs.sh
+
+# finally source the correct rc file
+toilet All Done
+
+# source .bashrc
+source "$HOME/.$SHELLrc"
