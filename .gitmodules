@@ -40,3 +40,6 @@
 [submodule "submodules/dotprofiler"]
 	path = submodules/dotprofiler
 	url = https://github.com/klaxalk/dotprofiler
+[submodule "wiki"]
+	path = wiki
+	url = https://github.com/klaxalk/linux-setup.wiki
