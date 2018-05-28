@@ -65,7 +65,6 @@ if [ "$num" -lt "1" ]; then
   echo "
 # path to the git root
 export GIT_PATH=$TEMP" >> ~/.bashrc
-
 fi
 
 #############################################
@@ -150,16 +149,5 @@ else
 fi
 
 cd "$MY_PATH"
+export GIT_PATH="$MY_PATH"
 ./deploy_configs.sh
-
-toilet All Done
-
-# source .bashrc
-case "$SHELL" in 
-  *bash*)
-    source "$HOME/.bashrc"
-    ;;
-  *zsh*)
-    source "$HOME/.zshrc"
-    ;;
-esac
