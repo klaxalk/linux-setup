@@ -160,5 +160,5 @@ fi
 # finally source the correct rc file
 toilet All Done
 
-# source .bashrc
-source "$HOME/.$SHELLrc"
+# say some tips to the new user
+echo Huray, the should be ready, try opening new terminal...
