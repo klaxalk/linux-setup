@@ -148,6 +148,8 @@ else
 
 fi
 
-cd "$MY_PATH"
-export GIT_PATH="$MY_PATH"
+# Since we are not sourced yet
+TEMP=`( cd "$MY_PATH/../" && pwd )`
+export GIT_PATH="$TEMP"
+
 ./deploy_configs.sh
