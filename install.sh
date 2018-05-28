@@ -51,6 +51,12 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 bash $APPCONFIG_PATH/athame/install.sh
 
 #############################################
+# remove the interactivity check from bashrc
+#############################################
+
+/usr/bin/vim -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
+
+#############################################
 # adding GIT_PATH variable to .bashrc 
 #############################################
 
@@ -147,9 +153,5 @@ else
   echo "Reference in .bashrc is already there..."
 
 fi
-
-# Since we are not sourced yet
-TEMP=`( cd "$MY_PATH/../" && pwd )`
-export GIT_PATH="$TEMP"
 
 ./deploy_configs.sh

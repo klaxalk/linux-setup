@@ -33,6 +33,11 @@ historyRead() {
 }
 alias history='historyRead'
 
+# is the shell running interactively
+case "$-" in
+  *i*) INTERACTIVE_SHELL=1
+esac
+
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
 
@@ -153,10 +158,10 @@ if [ -n "$TMUX" ]; then
 fi
 
 # load tmux automatically
-if [ "$RUN_TMUX" = "true" ]; then
-  if command -v $TMUX_BIN>/dev/null; then
-    if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux
-      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
+if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
+  if [ "$RUN_TMUX" = "true" ]; then
+    if command -v $TMUX_BIN>/dev/null; then
+        [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
     fi
   fi
 fi
