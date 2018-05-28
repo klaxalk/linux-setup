@@ -45,7 +45,7 @@
 " let linux_setup_wiki.path = '~/git/linux-setup.wiki'
 " let linux_setup_wiki.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
 " let linux_setup_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let linux_setup_wiki.index = 'home'
+" let linux_setup_wiki.index = 'Home'
 " let linux_setup_wiki.syntax = 'markdown'
 " let linux_setup_wiki.ext = '.md'
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
