@@ -7,6 +7,4 @@ else
   source ~/."$SNAME"rc
 fi
 
-echo $SHELL
-
 ./submodules/dotprofiler/dotprofiler.sh deploy ./appconfig/dotprofiler/file_list.txt
