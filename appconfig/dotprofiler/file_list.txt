@@ -8,3 +8,4 @@ $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotbashrc_git, $GIT_PATH/linux-setup/appconfig/bash/dotbashrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc_git, $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/zathura/zathurarc, ~/.config/zathura/zathurarc, \#\ %s
+$GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vimwiki_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vimwiki.vim, \"\ %s

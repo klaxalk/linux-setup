@@ -108,12 +108,12 @@ git() {
 
     if [[ "$?" == "0" ]]; then
 
-      # if we are in the 'linux-setup' repo, use the git profiler
+      # if we are in the 'linux-setup' repo, use the dotprofiler
       if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-        PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
+        DOTPROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/dotprofiler.sh"
 
-        bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+        bash -c "$DOTPROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
         command git "$@"
 
@@ -124,7 +124,7 @@ git() {
 
         if [[ "$?" == "0" ]]; then
 
-          bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+          bash -c "$DOTPROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
         fi
 
