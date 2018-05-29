@@ -73,7 +73,9 @@ while true; do
     sudo apt-get -y install indicator-sound-switcher
 
     # symlink settings folder
-    ln -sf $APP_PATH/doti3 ~/.i3
+    if [ ! -e ~/.i3 ]; then
+      ln -sf $APP_PATH/doti3 ~/.i3
+    fi
 
     # copy i3 config file
     cp $APP_PATH/doti3/config_git ~/.i3/config
