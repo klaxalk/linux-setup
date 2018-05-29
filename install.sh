@@ -51,6 +51,12 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 bash $APPCONFIG_PATH/athame/install.sh
 
 #############################################
+# remove the interactivity check from bashrc
+#############################################
+
+/usr/bin/vim -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
+
+#############################################
 # adding GIT_PATH variable to .bashrc 
 #############################################
 
@@ -65,7 +71,6 @@ if [ "$num" -lt "1" ]; then
   echo "
 # path to the git root
 export GIT_PATH=$TEMP" >> ~/.bashrc
-
 fi
 
 #############################################
@@ -149,17 +154,11 @@ else
 
 fi
 
-cd "$MY_PATH"
+# deploy all dotprofiler config files
 ./deploy_configs.sh
 
+# finally source the correct rc file
 toilet All Done
 
-# source .bashrc
-case "$SHELL" in 
-  *bash*)
-    source "$HOME/.bashrc"
-    ;;
-  *zsh*)
-    source "$HOME/.zshrc"
-    ;;
-esac
+# say some tips to the new user
+echo Huray, the should be ready, try opening new terminal...

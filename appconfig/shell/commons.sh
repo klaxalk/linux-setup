@@ -108,27 +108,40 @@ git() {
 
     if [[ "$?" == "0" ]]; then
 
-      # if we are in the 'linux-setup' repo, use the git profiler
+      # if we are in the 'linux-setup' repo, use the dotprofiler
       if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-        PROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/profiler.sh"
+        DOTPROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/dotprofiler.sh"
 
-        bash -c "$PROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+        bash -c "$DOTPROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
         command git "$@"
 
+        case $* in pull*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
+
         if [[ "$?" == "0" ]]; then
 
-          bash -c "$PROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+          bash -c "$DOTPROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
 
         fi
 
       else
         command git "$@"
+        case $* in pull*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
       fi
 
     else
       command git "$@"
+      case $* in pull*)
+        echo "Updating git submodules"
+        command git submodule update --init --recursive
+      esac
     fi
 
     ;;
@@ -139,7 +152,7 @@ git() {
   esac
 }
 
-sourceShellDotfile() {
+getRcFile() {
 
   case "$SHELL" in 
     *bash*)
@@ -149,38 +162,17 @@ sourceShellDotfile() {
       RCFILE="$HOME/.zshrc"
       ;;
   esac
+
+  echo "$RCFILE"
+}
+
+sourceShellDotfile() {
+
+  RCFILE=$( getRcFile )
 
   source "$RCFILE"
 }
 alias sb="sourceShellDotfile"
-
-setColorScheme() {
-
-  case "$SHELL" in 
-    *bash*)
-      RCFILE="$HOME/.bashrc"
-      ;;
-    *zsh*)
-      RCFILE="$HOME/.zshrc"
-      ;;
-  esac
-
-  export COLOR_SCHEME="$1"
-
-  # change the variable in bashrc
-  /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
-
-  source "$RCFILE"
-
-  cd "$GIT_PATH/linux-setup"
-  ./backup_and_deploy.sh
-
-  # reload configuration for urxvt
-  xrdb ~/.Xresources
-
-  # restart i3
-  i3-msg restart
-}
 
 # special code for i3 users
 if [ "$USE_I3" = "true" ]; then

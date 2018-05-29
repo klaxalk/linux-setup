@@ -9,7 +9,7 @@
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATOUS {
-# DEVICE_ID="AlpsPS/2 ALPS DualPoint TouchPad"
+DEVICE_ID="AlpsPS/2 ALPS DualPoint TouchPad"
 # EPIGEN_ADD_BLOCK_MATOUS }
 
 # find the id of my the touchpad

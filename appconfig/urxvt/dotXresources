@@ -14,23 +14,23 @@ URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! ! Xft.dpi: 100
 ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
-! Rxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
 ! EPIGEN_ADD_BLOCK_GPD }
 
-Rxvt.scrollBar: false
+URxvt.scrollBar: false
 
-Rxvt.saveLine: 10000
+URxvt.saveLine: 10000
 
 ! font resizing
-Rxvt.keysym.C-minus:     resize-font:smaller
-Rxvt.keysym.C-plus:      resize-font:bigger
-Rxvt.keysym.C-equal:     resize-font:reset
-Rxvt.keysym.C-question:  resize-font:show
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
 
 ! shared clipboard
-Rxvt.keysym.Shift-Control-V: perl:clipboard:paste
-Rxvt.iso14755: False
-Rxvt.perl-ext-common: default,clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
 
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
@@ -38,38 +38,38 @@ Rxvt.perl-ext-common: default,clipboard
 ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
 ! vim: ft=xdefaults
-Rxvt.background: #151515
-Rxvt.foreground: #dddddd
+URxvt.background: #151515
+URxvt.foreground: #dddddd
 ! black
-Rxvt.color0: #1C1C1C
-Rxvt.color8: #404040
+URxvt.color0: #1C1C1C
+URxvt.color8: #404040
 ! red
-Rxvt.color1: #B85335
-Rxvt.color9: #CF6A4C
+URxvt.color1: #B85335
+URxvt.color9: #CF6A4C
 ! green
-Rxvt.color2: #79AD6A
-Rxvt.color10: #99DD6A
+URxvt.color2: #79AD6A
+URxvt.color10: #99DD6A
 ! yellow
-Rxvt.color3: #FFB964
-Rxvt.color11: #FAD07A
+URxvt.color3: #FFB964
+URxvt.color11: #FAD07A
 ! blue
-Rxvt.color4: #667899
-Rxvt.color12: #8197BF
+URxvt.color4: #667899
+URxvt.color12: #8197BF
 ! magenta
-Rxvt.color5: #8787AF
-Rxvt.color13: #C6B6EE
+URxvt.color5: #8787AF
+URxvt.color13: #C6B6EE
 ! cyan
-Rxvt.color6: #668799
-Rxvt.color14: #8FBFDC
+URxvt.color6: #668799
+URxvt.color14: #8FBFDC
 ! white
-Rxvt.color7: #888888
-Rxvt.color15: #E8E8D3
+URxvt.color7: #888888
+URxvt.color15: #E8E8D3
 
 !! URxvt COLORS --------------------------------------------------------
-Rxvt*depth                   : 32
+URxvt*depth                   : 32
 ! URxvt.fading                  : 25
 ! URxvt.fadeColor               : #101010
-Rxvt*visualBell              : false
+URxvt*visualBell              : false
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
@@ -89,36 +89,36 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.background: #FFFFFF
 
 ! !! black dark/light
-! *color0: #000000
-! *color8: #000000
+! URxvt.color0: #000000
+! URxvt.color8: #000000
 
 ! !! red dark/light
-! *color1: #550000
-! *color9: #660000
+! URxvt.color1: #550000
+! URxvt.color9: #660000
 
 ! !! green dark/light
-! *color2: #008800
-! *color10: #008800
+! URxvt.color2: #008800
+! URxvt.color10: #008800
 
 ! !! yellow dark/light
-! *color3: #555500
-! *color11: #666600
+! URxvt.color3: #555500
+! URxvt.color11: #666600
 
 ! !! blue dark/light
-! *color4: #000055
-! *color12: #000066
+! URxvt.color4: #000055
+! URxvt.color12: #000066
 
 ! !! magenta dark/light
-! *color5: #550055
-! *color13: #660066
+! URxvt.color5: #550055
+! URxvt.color13: #660066
 
 ! !! cyan dark/light
-! *color6: #00a9a9
-! *color14: #006666
+! URxvt.color6: #00a9a9
+! URxvt.color14: #006666
 
 ! !! white dark/light
-! *color7: #ffffff
-! *color15: #ffffff
+! URxvt.color7: #ffffff
+! URxvt.color15: #ffffff
 
 ! !! ------------------------------------------------------------------------------
 ! ! ROFI Color theme

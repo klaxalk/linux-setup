@@ -291,7 +291,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" remap tab navigations to alt + hl
+" remap tab navigations to shift + JK
 map <S-J> :tabn<cr>
 map <S-K> :tabp<cr>
 
@@ -515,6 +515,10 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
 endif
+
+" updated and corrected tags for latex proofreading
+map <silent> <leader>cc moI\corrected {A}`omo
+map <silent> <leader>uu moI\updated {A}`omo
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))

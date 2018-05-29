@@ -58,7 +58,7 @@ First, TMUX allows copying any text in the terminal using its vi-mode (see TMUX 
 With a simple hack, the copied text is inserted into the system clipboard.
 The same can be done with Vim, so basically, we have a clipboard shared between the system, Vim, and TMUX, which is accessible and fillable without using a **mouse**.
 
-Another notable feature is enabled by the plugin [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator].
+Another notable feature is enabled by the plugin [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
 It allows to seamlessly navigate through TMUX and Vim splits (panes) with a single set of key bindings.
 In my setup, those are **crtl h/j/k/l** for left/down/right/up movement.
 
@@ -256,7 +256,6 @@ Further shortcuts can be used to navigate through your code:
 
 ### Macros
 
-Working macros might be tedious.
 If you, just like me, tend to record everything to @a, following feature might be useful.
 When in **visual line mode**, the **dot** operator applies macro **@a** over all selected lines.
 
@@ -277,11 +276,11 @@ I have tested it on Ubuntu 16.04.
 
 Notable points:
 
-- Normally, Vim is started using an alias from my additions to **.bashrc**, where it is told (by g:user_mode variable) that we want all plugins and settings
-- When Athame uses vim, it does not set the g:user_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles).
+- Normally, Vim is started using an alias from my additions to **.bashrc**, where it is told (by setting g:user_mode variable) that all plugins should be loaded as usual
+- When Athame uses vim, it does not set the g:user_mode variable and most of the plugins are excluded together with their settings (YouCompleteMe cased lot of troubles), see *.vimrc* for more info.
 - UltiSnips is very handy in Bash. Have a look in **athame.snippets** file in **.vim/UltiSnips.**
 - Athame is only enabled in the normal tmux session, which is started automatically in bash, explore my .bashrc additions for more information.
 
-# Dotfiles profiling
+# Dotfiles profiles
 
-TODO
+TODO, in the meantime, see description of my submodules [dotprofiler](https://github.com/klaxalk/dotprofiler) and [epigen](https://github.com/klaxalk/epigen).
