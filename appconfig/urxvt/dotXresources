@@ -1,7 +1,7 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
 ! EPIGEN_DEL_BLOCK_GPD {
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+URxvt.font: xft:terminess powerline:size=11
 ! EPIGEN_DEL_BLOCK_GPD }
 
 ! EPIGEN_ADD_BLOCK_GPD {
@@ -14,7 +14,7 @@ URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! ! Xft.dpi: 100
 ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
-! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
+! URxvt.font: xft:terminess powerline:size=14
 ! EPIGEN_ADD_BLOCK_GPD }
 
 URxvt.scrollBar: false

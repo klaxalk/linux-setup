@@ -54,6 +54,11 @@ while true; do
     cd $APP_PATH/../../submodules/fonts
     ./install.sh
 
+    # make Terminus work
+    mkdir ~/.config/fontconfig/conf.d
+    cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
+    fc-cache -vf
+
     # add variable for ctags sources into .bashrc
     num=`cat ~/.bashrc | grep "CTAGS_SOURCE_DIR" | wc -l`
     if [ "$num" -lt "1" ]; then
