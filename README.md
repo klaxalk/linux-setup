@@ -1,6 +1,7 @@
-# Linux Environment Preparation
+# klaxalk's Linux environment
 
-This repo contains scripts for setting up my Linux working environment, mainly by installing three vital applications: TMUX, VIM, i3wm and setting up their behavior.
+This repo contains settings of my Linux working environment: i3, tmux, vim
+
 Everything is intended for and tested on **Ubuntu 16.04**.
 
 Despite most of my key bindings might seem a bit arbitrary, they evolved in a time to match my needs and habits (no arrow keys, no mouse).
@@ -62,38 +63,9 @@ Another notable feature is enabled by the plugin [christoomey/vim-tmux-navigator
 It allows to seamlessly navigate through TMUX and Vim splits (panes) with a single set of key bindings.
 In my setup, those are **crtl h/j/k/l** for left/down/right/up movement.
 
-## TMUX shortcuts
+## TMUX - the Terminual multiplexer
 
-Following key bindings encapsulate 99% of all what I use in TMUX.
-Most importantly, note that I remapped the standard **prefix** from ctrl+b to ctrl+a.
-There are several reasons for it, e.g. 1) it can be pressed easily by one hand and 2) most people on the internet often do it like that.
-
-- **ctrl a** tmux **__PREFIX__**
-- **__PREFIX__ w** list windows
-- **__PREFIX__ s** list all tmux sessions and theirs windows
-- **ctrl t** create new window
-- **shift left** switch to previous window (also **alt u**, handy for i3wm users)
-- **shift right** switch to next window (also **alt i**, handy for i3wm users)
-- **ctrl s** horizontal split
-- **ctrl d** vertical split
-- **alt left/down/right/up** move over tmux panes (for dummies, arrow keys ;-))
-- **ctrl h/j/k/l** move over tmux panes (and vim splits too)
-- **__PREFIX__ ctrl h/j/k/l** resize panes
-- **__PREFIX__ k** kill current tmux session with all its processes
-- **__PREFIX__ space** switch panel configuration
-- **F2** go to vim edit mode
-- **__PREFIX__ p** paste yanked text (from vim edit mode)
-- **__PREFIX__ z** enlarge focused pane to the whole screen (or back)
-
-### Custom TMUX config
-
-If you wish to use your tmux config besides mine, create a file **~/.my.tmux.conf**, it will be sourced automatically if it exists.
-
-## TMUXINATOR
-
-I forked TMUXINATOR (https://github.com/tmuxinator/tmuxinator), a handy tool for automating tmux sessions.
-I suggest reading its tutorials.
-There is a minor modification in my fork with regards to how it run **$EDITOR**.
+Refer to the [wiki](wiki/tmux)
 
 ## VIM
 
