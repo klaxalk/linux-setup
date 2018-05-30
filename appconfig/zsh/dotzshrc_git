@@ -5,8 +5,6 @@ export TMUX_BIN=/usr/local/bin/tmux
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
-source $ZSH/oh-my-zsh.sh
-
 # Vi mode in ZSH
 # bindkey -v # EPIGEN_ADD_LINE_TOMAS
 
@@ -20,43 +18,29 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # the location of `once generated ctags file`
-export CTAGS_FILE_ONCE="~/tags-once"
+export CTAGS_FILE_ONCE="~/tags-once" 
 
-# source the common additions for all shells
 source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
-
-# alias the "bash's" command history to "zshell's" command read
-# handy for common tmuxinator scripts
-historyRead() {
-
-  eval "print $*"
-}
-alias history='historyRead'
-
-# is the shell running interactively
-case "$-" in
-  *i*) INTERACTIVE_SHELL=1
-esac
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
 
   SESSION_NAME="T$PPID"
-
+  
   # try to find session with the correct session id (based on the zsh PID)
-  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
+  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
 
   if [ "$EXISTING_SESSION" -gt "0" ]; then
-
+  
     # if such session exists, attach to it
     $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
-
+  
   else
-
+  
     # if such session does not exist, create it
     $TMUX_BIN new-session -s "$SESSION_NAME"
-
-  fi
+  
+  fi 
 
   # hook after exitting the session
   # when the session exists, find a file in /tmp with the name of the session
@@ -74,25 +58,25 @@ runTmux() {
 }
 
 zshexit() {
+   
+   echo "T$PPID"
+   
+   pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
 
-  # if there is a tmux session with the same name as the current bashpid
-  num=`$TMUX_BIN ls 2> /dev/null | grep "T$PPID" | wc -l`
-  if [ "$num" -gt "0" ]; then
+   echo $pids
 
-    pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
+   for pid in "$pids"
+   do
+     killp "$pid"
+     echo "killing $pid"
+   done
 
-    for pid in "$pids"; do
-       killp "$pid"
-    done
-
-    $TMUX_BIN kill-session -t "T$PPID"
-
-  fi
-}
+   $TMUX_BIN kill-session -t "T$PPID"
+}                                                       
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
-
+  
   { generateTags & disown; } 2> /dev/null
 
   VIM_CMD=$(echo "$EDITOR ${@}")
@@ -101,7 +85,7 @@ runVim() {
   if [ -z $TMUX ]; then
 
     SESSION_NAME="T$PPID"
-
+  
     # if there is a tmux session with the same name as the current bashpid
     num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
     if [ "$num" -gt "0" ]; then
@@ -110,8 +94,8 @@ runVim() {
       sleep 1.0
       $TMUX_BIN send-keys -t $ID "$VIM_CMD" C-m
       $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
-
-    else
+    
+    else 
 
       $TMUX_BIN new-session -s "$SESSION_NAME" -d "$VIM_CMD" \; attach
 
@@ -128,7 +112,7 @@ alias vim=runVim
 alias vimdiff="vim -d"
 
 kzsh() {
-  for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do
+  for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do   
     killp "$i"
   done
 }
@@ -157,11 +141,11 @@ if [ -n "$TMUX" ]; then
   fi
 fi
 
-# load tmux automatically
-if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
-  if [ "$RUN_TMUX" = "true" ]; then
-    if command -v $TMUX_BIN>/dev/null; then
-        [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
-    fi
+# load tmux automatically                                                                             
+if [ "$RUN_TMUX" = "true" ]; then
+  if command -v $TMUX_BIN>/dev/null; then                                                                    
+    if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
+      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux                                                  
+    fi                                                                                                  
   fi
 fi

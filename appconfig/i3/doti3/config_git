@@ -96,56 +96,18 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define title/names of all workspaces
-
-set $workspace1 "1: "
+# set $workspace1 "1: " # EPIGEN_ADD_LINE_VOJTA
+set $workspace1 "1: " # EPIGEN_DEL_LINE_VOJTA
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5"
+# set $workspace5 "5: " # EPIGEN_ADD_LINE_TOMAS
+set $workspace5 "5" # EPIGEN_DEL_LINE_TOMAS
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
-
-# EPIGEN_ADD_BLOCK_VOJTA {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5: "
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
-# EPIGEN_ADD_BLOCK_VOJTA }
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5"
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
-# EPIGEN_ADD_BLOCK_TOMAS }
-
-# EPIGEN_ADD_BLOCK_MATOUS {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5   "
-# set $workspace6 "6   "
-# set $workspace7 "7   "
-# set $workspace8 "8   "
-# set $workspace9 "9   "
-# set $workspace10 "10  "
-# EPIGEN_ADD_BLOCK_MATOUS }
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -159,10 +121,10 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-# bindsym $mod+minus scratchpad show
-# bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
 # exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
-# exec urxvt -name scratchpadurxvt
+exec urxvt -name scratchpadurxvt
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -179,16 +141,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-# changing color schemes
-bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh'"
-# remove those keybindings when people get used to the general one
-bindsym $mod2+l exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh LIGHT'"
-bindsym $mod2+d exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh DARK'"
-
-# monitors switching
-# EPIGEN_ADD_BLOCK_GPD {
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
-# EPIGEN_ADD_BLOCK_GPD }
+bindsym $mod2+l exec "~/.i3/detacher.sh 'setColorScheme LIGHT'"
+bindsym $mod2+d exec "~/.i3/detacher.sh 'setColorScheme DARK'"
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -218,7 +172,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# is usefull for controlling i3 and tmux throught teamviewer
 mode "throughput" {
 
   bindsym $mod+shift+t mode "default"
@@ -299,24 +252,18 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 
 # default key bindings for audio
 # EPIGEN_DEL_BLOCK_TOMAS {
-bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
-bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
+bindsym $mod+F5 exec --no-startup-id amixer set 'Master' 10%-
+bindsym $mod+F6 exec --no-startup-id amixer set 'Master' 10%+
+bindsym $mod+F7 exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym $mod+F8 exec --no-startup-id amixer set 'Master' 100%
 # EPIGEN_DEL_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
-
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
-
+# # # Tomas's desktop PC is somewhat different with volume control
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set 'PCM' 10%-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set 'PCM' 10%+
 # # EPIGEN_ADD_BLOCK_DESKTOP }
 
 # # EPIGEN_ADD_BLOCK_DELL {
@@ -326,38 +273,21 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-
-# # bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-# # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 10%+
 
 # # EPIGEN_ADD_BLOCK_DELL }
 
 # # EPIGEN_ADD_BLOCK_GPD {
 
-# # # gpd has small screen, tabs should be the default option
 # # workspace_layout tabbed
 
-# # # speed of the track point
-# # exec_always xinput --set-prop 10 272 0.50
-# # exec_always xinput --set-prop 10 273 0.40
+# # # reconfigure the speed of track point
+# # exec_always xinput --set-prop 10 272 1.00
+# # exec_always xinput --set-prop 10 273 1.00
 
-# # # compton without fancy graphics
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
-
-# # # brightness
-# # # The following line needs to be in /etc/sudoers
-# # # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 
 # # EPIGEN_ADD_BLOCK_GPD }
 
@@ -365,80 +295,11 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
+# # Bind screen brightness control
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # EPIGEN_ADD_BLOCK_VOJTA }
-
-# EPIGEN_ADD_BLOCK_MATOUS {
-
-# # EPIGEN_ADD_BLOCK_TOSHIBA {
-
-# # # Bind Toshiba audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # # Bind Toshiba keyboard backlight control
-# # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
-
-# # # Bind Toshiba screen brightness control
-# # bindsym XF86MonBrightnessDown --release exec --no-startup-id sudo ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp --release exec --no-startup-id sudo ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # EPIGEN_ADD_BLOCK_TOSHIBA }
-
-# # dropbox icon in tray
-# exec --no-startup-id dropbox start
-# exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
-
-# EPIGEN_ADD_BLOCK_MATOUS }
-
-# EPIGEN_ADD_BLOCK_MATEJ {
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
-# # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
-
-# EPIGEN_ADD_BLOCK_MATEJ }
-
-# scrot (for printscreens)
-bindsym Print exec ~/.i3/detacher.sh "scrot -e 'mv \$f ~/Pictures/shots/'"
 
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -458,13 +319,17 @@ exec ~/.monitor.sh
 
 # swapping keyboard layouts? the same as in unity, win+space
 # man xkeyboard-config will tell you options for keyboard shortcuts
-exec_always --no-startup-id "sleep 4; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
+exec_always --no-startup-id "sleep 4; notify-send -u low -i mouse \"keybard\"; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
 # disable caps lock and make it behave like escape
 exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
 
 # find the class name by running "xprop" in bash and then click on th window
 # copy the last item in the classname list
+assign [class="Rviz"] $workspace4
+
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
+
+# name = File Operation Progress == float
 for_window [class="^Thunar$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
@@ -477,7 +342,7 @@ for_window [instance="scratchpadurxvt"] move scratchpad
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_COMPTON_RICH
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
@@ -486,15 +351,13 @@ exec --no-startup-id indicator-sound-switcher
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
 for_window [title="GIMP Startup"] move workspace $workspace8
+for_window [title="market"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
+for_window [title="market"] move workspace $workspace8
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# for_window [title="rqt_market"] move workspace $workspace9
-# EPIGEN_ADD_BLOCK_TOMAS }
 
 #{ Gaps settings
 smart_gaps on
@@ -529,7 +392,7 @@ mode "$mode_gaps" {
 # Gimp
 bindsym $mod2+g exec --no-startup-id gimp
 
-# qutebroser
+# Qutebroser
 bindsym $mod2+q exec --no-startup-id qutebrowser
 
 # Bindings for Gazebo simulator

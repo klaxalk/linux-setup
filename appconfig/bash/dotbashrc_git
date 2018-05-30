@@ -1,7 +1,7 @@
 # set editor and shell
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
-export SHELL=/bin/bash
+# export SHELL=/bin/bash
 
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once" 
@@ -13,11 +13,6 @@ export CTAGS_FILE_ONCE="~/tags-once"
 alias sb="source ~/.bashrc"
 
 source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
-
-# is the shell running interactively
-case "$-" in
-  *i*) INTERACTIVE_SHELL=1
-esac
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
@@ -53,10 +48,8 @@ runTmux() {
 
   fi
 }
-if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively
-  _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
-  trap _trap_exit EXIT                                                                                  
-fi
+_trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
+trap _trap_exit EXIT                                                                                  
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
@@ -98,7 +91,7 @@ source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 
 # by default, athame should be off
 export ATHAME_ENABLED=0
-export ATHAME_SHOW_MODE=0
+export ATHAME_SHOW_MODE=1
 export ATHAME_VIM_PERSIST=0
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
@@ -118,9 +111,9 @@ if [ -n "$TMUX" ]; then
 fi
 
 # load tmux automatically                                                                             
-if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
+if [ "$RUN_TMUX" = "true" ]; then
   if command -v $TMUX_BIN>/dev/null; then                                                                    
-    if [ "$RUN_TMUX" = "true" ]; then
+    if [ ! -z "$PS1" ]; then # unless shell not loaded interactively, run tmux                          
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux                                                  
     fi                                                                                                  
   fi

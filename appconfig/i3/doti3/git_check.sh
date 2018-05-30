@@ -17,7 +17,7 @@ echo "path: ${GIT_PATH}"
 
 text_line=""
 repo_counter=0
-MAX_REPO_COUNTER=3
+MAX_REPO_COUNTER=4
 
 # create a list from GIT_REMOTES using delimiter 'white space'
 GIT_REMOTES_LIST=${GIT_REMOTES//,/$'\n'}  # change the ',' to white space
@@ -54,19 +54,20 @@ for D in *; do
       # echo -e "${D}"": ""$state" >> "/tmp/$STATUS_FILE"
 
       # if repo_status start with text "Your branch is behind"
-      if [ "${repo_status:1:21}" == "Your branch is behind" ]; then
+      if [ "${repo_status:0:21}" == "Your branch is behind" ]; then
         # check how long is the list already
         repo_counter=$((repo_counter + 1))
         if [ "$repo_counter" -ge "$MAX_REPO_COUNTER" ]; then
           text_line="$text_line, ... " 
+          cd ${GIT_PATH}
           break;
         fi
 
         # if text_line is empty
-        if [ -z "${text_line// }"];then
+        if [ -z "${text_line// }" ];then
           text_line="${D}" 
         else
-          text_line="$text_line, ${D}" 
+          text_line="${text_line}, ${D}" 
         fi
       fi
     fi
@@ -74,5 +75,5 @@ for D in *; do
   fi
 done
 # fi
-
+# echo $text_line
 echo "$text_line" > "$STATUS_FILE"

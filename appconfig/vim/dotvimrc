@@ -291,7 +291,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" remap tab navigations to shift + JK
+" remap tab navigations to alt + hl
 map <S-J> :tabn<cr>
 map <S-K> :tabp<cr>
 
@@ -339,8 +339,7 @@ au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%%{,%%}
 
 au FileType yml,yaml,sh,conf,python set foldmethod=marker
-au FileType yml,yaml,conf,python set foldmarker=#{,#}
-au FileType sh set foldmarker=##{,##}
+au FileType yml,yaml,sh,conf,python set foldmarker=#{,#}
 
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
@@ -515,10 +514,6 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
 endif
-
-" updated and corrected tags for latex proofreading
-map <silent> <leader>cc moI\corrected {A}`omo
-map <silent> <leader>uu moI\updated {A}`omo
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))

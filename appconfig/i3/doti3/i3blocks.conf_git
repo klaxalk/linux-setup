@@ -38,7 +38,7 @@ markup=none
 # [git]
 # label=
 # interval=10
-# command=$HOME/.i3/git.sh
+# command=cat $HOME/git/.git_status
 # color=#FF0000
 # EPIGEN_ADD_BLOCK_VOJTA }
 
