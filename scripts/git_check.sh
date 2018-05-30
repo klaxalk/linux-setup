@@ -53,20 +53,22 @@ for D in *; do
       repo_status=`git status | head -2 | tail -1`
       # echo -e "${D}"": ""$state" >> "/tmp/$STATUS_FILE"
 
-      # if repo_status start with text "Your branch is behind"
-      if [ "${repo_status:1:21}" == "Your branch is behind" ]; then
+        # if repo_status start with text "Your branch is behind"
+      if [ "${repo_status:0:21}" == "Your branch is behind" ]; then
+
         # check how long is the list already
-        repo_counter=$((repo_counter + 1))
         if [ "$repo_counter" -ge "$MAX_REPO_COUNTER" ]; then
-          text_line="$text_line, ... " 
+          text_line="$text_line, ..." 
+          cd ${GIT_PATH}
           break;
         fi
+        repo_counter=$((repo_counter + 1))
 
         # if text_line is empty
-        if [ -z "${text_line// }"];then
+        if [ -z "${text_line// }" ];then
           text_line="${D}" 
         else
-          text_line="$text_line, ${D}" 
+          text_line="${text_line}, ${D}" 
         fi
       fi
     fi
@@ -74,5 +76,5 @@ for D in *; do
   fi
 done
 # fi
-
-echo "$text_line" > "$STATUS_FILE"
+# echo $text_line
+ech "$text_line" > "$STATUS_FILE"

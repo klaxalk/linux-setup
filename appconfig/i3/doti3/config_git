@@ -20,7 +20,7 @@ set $mod2 Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 
-font pango:Monospace 10
+font pango:Terminus 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -275,6 +275,8 @@ bar {
   status_command i3blocks -c ~/.i3/i3blocks.conf
 
   i3bar_command i3bar -t
+
+  font pango: Terminus, FontAwesome 10
 
   colors {
 
