@@ -139,12 +139,12 @@ set $workspace10 "10"
 # set $workspace2 "2: "
 # set $workspace3 "3: "
 # set $workspace4 "4: "
-# set $workspace5 "Chrome:"
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
+# set $workspace5 "5   "
+# set $workspace6 "6   "
+# set $workspace7 "7   "
+# set $workspace8 "8   "
+# set $workspace9 "9   "
+# set $workspace10 "10  "
 # EPIGEN_ADD_BLOCK_MATOUS }
 
 # switch to workspace
@@ -407,6 +407,7 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # # dropbox icon in tray
 # exec --no-startup-id dropbox start
+# exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # EPIGEN_ADD_BLOCK_MATOUS }
 
@@ -427,8 +428,8 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
