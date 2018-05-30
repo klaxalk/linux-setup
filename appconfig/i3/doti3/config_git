@@ -276,6 +276,8 @@ bar {
 
   i3bar_command i3bar -t
 
+  font pango: Monospace, FontAwesome 8
+
   colors {
 
     statusline $text_color
