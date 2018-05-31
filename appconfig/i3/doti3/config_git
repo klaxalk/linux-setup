@@ -20,7 +20,7 @@ set $mod2 Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 
-font pango:Monospace 10
+font pango:Terminus 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -276,6 +276,8 @@ bar {
 
   i3bar_command i3bar -t
 
+  font pango: Terminus, FontAwesome 10
+
   colors {
 
     statusline $text_color
@@ -428,8 +430,8 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
