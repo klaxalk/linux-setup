@@ -77,4 +77,4 @@ for D in *; do
 done
 # fi
 # echo $text_line
-ech "$text_line" > "$STATUS_FILE"
+echo "$text_line" > "$STATUS_FILE"

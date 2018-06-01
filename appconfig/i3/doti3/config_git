@@ -440,8 +440,7 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 # EPIGEN_ADD_BLOCK_MATEJ }
 
 # scrot (for printscreens)
-bindsym Print exec ~/.i3/detacher.sh "scrot -e 'mv \$f ~/Pictures/shots/'"
-
+bindsym Print exec shutter --select
 # Bind screen brightness control to general alt+F...
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness

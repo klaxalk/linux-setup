@@ -28,19 +28,19 @@ command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
-# [git_check]
-# # label=
-# interval=600
-# command=$HOME/.i3/detacher.sh "$HOME/.scripts/git_check.sh"
-# color=#FF0000
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
+# # # # # [git_check]
+# # # # # # label=
+# # # # # interval=600
+# # # # # command=$HOME/.i3/detacher.sh "$HOME/.scripts/git_check.sh"
+# # # # # color=#FF0000
 
-# [git]
-# label=
-# interval=10
-# command=cat $HOME/git/.git_status
-# color=#FF0000
-# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
+# # # # # [git]
+# # # # # label=
+# # # # # interval=10
+# # # # # command=cat $HOME/git/.git_status
+# # # # # color=#FF0000
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
 
 [101]
 command=ping -c 1 192.168.0.101 >> /dev/null && echo '101' || echo ""
