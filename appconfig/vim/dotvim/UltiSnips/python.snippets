@@ -52,14 +52,44 @@ snippet isinstance
 isinstance(${1:instance}, ${2:class})
 endsnippet
 
-snippet rinfo
-rospy.loginfo('${1}'${2})
+snippet "rinfo" "" Abr
+rospy.loginfo('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
 endsnippet
 
-snippet rwarn
-rospy.logwarn('${1}'${2})
+snippet "rwarn" "" Abr
+rospy.logwarn('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
 endsnippet
 
-snippet rerr
-rospy.logerr('${1}'${2})
+snippet "rerr" "" Abr
+rospy.logerr('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
 endsnippet
