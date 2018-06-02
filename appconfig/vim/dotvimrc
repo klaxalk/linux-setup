@@ -126,18 +126,18 @@ if g:user_mode == "1"
   " AsyncRun
   Plug 'skywind3000/asyncrun.vim'
 
+  " commenting stuff made easy
+  " try gc<motion>
+  Plug 'tpope/vim-commentary'
+
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
 
-" commenting stuff made easy
-" try gc<motion>
-Plug 'tpope/vim-commentary'
-
 " Multiple cursors
-" in visual pres ctrl+n to select next occurance, ctrl+p to go back and ctrl+x
-" to skip
+" in visual pres ctrl+n to select next occurance
+" ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 
 " sharing registers between multiple instances of vim
@@ -178,10 +178,10 @@ set term=screen-256color
 " more natural splits
 set splitbelow
 set splitright
-"
+
 " set line numbering
 set number
-"
+
 " indention
 set expandtab                   " tab inserts spaces
 set shiftwidth=2
@@ -191,11 +191,10 @@ set smartindent                 " sometimes indent extra indention
 set tabstop=2                   " width of the tab character
 set scrolloff=10                " ads cursor margin for the edge of the page
 set relativenumber              " turn on relative numbering of lines
-"
-"
+
 set showmatch                   " brief jump to matching parent
 set title
-"
+
 " searching and patterns
 set ignorecase
 set smartcase
@@ -411,9 +410,6 @@ function! ClogReformat()
 endfunc
 nnoremap <leader>lll :call ClogReformat()<cr>
 
-" set it to some high number to prevent syntax highlite problems
-set synmaxcol=1000
-
 " remap upper case saving and quitting to lower case
 command! WQ wq
 command! Wq wq
@@ -515,10 +511,6 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
 endif
-
-" updated and corrected tags for latex proofreading
-map <silent> <leader>cc moI\corrected {A}`omo
-map <silent> <leader>uu moI\updated {A}`omo
 
 " if exists, source .my.vimrc
 if !empty(glob("~/.my.vimrc"))
