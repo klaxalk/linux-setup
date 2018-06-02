@@ -52,7 +52,7 @@ snippet isinstance
 isinstance(${1:instance}, ${2:class})
 endsnippet
 
-snippet "rinfo" "" Abr
+snippet "rinfo" "" br
 rospy.loginfo('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
@@ -66,7 +66,7 @@ else:
 `)
 endsnippet
 
-snippet "rwarn" "" Abr
+snippet "rwarn" "" br
 rospy.logwarn('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
@@ -80,7 +80,7 @@ else:
 `)
 endsnippet
 
-snippet "rerr" "" Abr
+snippet "rerr" "" br
 rospy.logerr('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
@@ -88,6 +88,48 @@ else:
 	snip.rv=""
 `${2}`!p
 if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
+endsnippet
+
+snippet "rinfot" "" br
+rospy.loginfo_throttle(${1:1.0}, '${2}'`!p
+if "{}" in t[2]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${3}`!p
+if "{}" in t[2]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
+endsnippet
+
+snippet "rwarnt" "" br
+rospy.logwarn_throttle(${1:1.0}, '${2}'`!p
+if "{}" in t[2]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${3}`!p
+if "{}" in t[2]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`)
+endsnippet
+
+snippet "rerrt" "" br
+rospy.logerr_throttle(${1:1.0}, '${2}'`!p
+if "{}" in t[2]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${3}`!p
+if "{}" in t[2]:
 	snip.rv=")"
 else:
 	snip.rv=""
