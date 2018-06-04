@@ -2,15 +2,18 @@
 
 ! the default font, will be commented out for
 ! specific user settings
-! EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATOUS {
-xvt.font: xft:terminess powerline:size=13
-! EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATOUS }
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS {
+URxvt.font: xft:terminess powerline:size=12
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! EPIGEN_ADD_BLOCK_TOMAS {
+
+! URxvt.font: xft:terminess powerline:size=12
+
 ! ! EPIGEN_ADD_BLOCK_GPD {
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL {
@@ -23,6 +26,7 @@ xvt.font: xft:terminess powerline:size=13
 
 ! ! URxvt.font: xft:terminess powerline:size=14
 ! ! EPIGEN_ADD_BLOCK_GPD }
+
 ! EPIGEN_ADD_BLOCK_TOMAS }
 
 URxvt.scrollBar: false
