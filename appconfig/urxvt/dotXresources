@@ -4,9 +4,9 @@
 xvt.font: xft:terminess powerline:size=13
 ! EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATOUS }
 
-! EPIGEN_BLOCK_MATOUS {
-URxvt.font: xft:terminess powerline:size=12
-! EPIGEN_BLOCK_MATOUS }
+! EPIGEN_ADD_BLOCK_MATOUS {
+! URxvt.font: xft:terminess powerline:size=12
+! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! EPIGEN_ADD_BLOCK_TOMAS {
 ! ! EPIGEN_ADD_BLOCK_GPD {
