@@ -10,6 +10,10 @@ autocmd FileType tex set cursorline
 " dont bother us with warnings
 let g:vimtex_quickfix_open_on_warning = 0
 
+" updated and corrected tags for latex proofreading
+map <silent> <leader>cc moI\corrected {A}`omo
+map <silent> <leader>uu moI\updated {A}`omo
+
 " delete surrounding command
 nmap <leader>dsc :delmarks s l e<cr> :normal F\mlf{lmsh%me`sd`lms`ex`s<cr>:delmarks s l e<cr>
 
