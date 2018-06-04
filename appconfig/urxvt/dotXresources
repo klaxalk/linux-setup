@@ -1,5 +1,7 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
+! the default font, will be commented out for
+! specific user settings
 ! EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATOUS {
 xvt.font: xft:terminess powerline:size=13
 ! EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATOUS }
