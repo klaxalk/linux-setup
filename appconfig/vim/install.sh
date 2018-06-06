@@ -45,9 +45,7 @@ while true; do
     git config --global merge.tool vimdiff
 
     # symlink vim settings
-    rm ~/.vimrc
     rm -rf ~/.vim
-    cp $APP_PATH/dotvimrc ~/.vimrc
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # install patched fonts with powerline characters

@@ -11,8 +11,6 @@ set wildignore+=*/git/mbzirc/**,*/Downloads/**,*/Desktop/**,*/build/**
 " multiple paths should be separated by comma
 set tags+=~/tags,~/tags-once
 
-command! MakeTags :call VimuxRunCommand("generateTags; :q")<CR>
-
 " customize bookmarks in startify
 let g:startify_bookmarks = [
       \ { 'a': '~/.vim/UltiSnips/athame.snippets' },
