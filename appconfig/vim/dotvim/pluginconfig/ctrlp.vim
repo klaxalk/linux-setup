@@ -8,6 +8,13 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_regexp = 1
 
+let g:ctrlp_reuse_window = 'netrw'
+
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
 
