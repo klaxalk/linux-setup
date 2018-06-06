@@ -1,12 +1,18 @@
 # create alisases
-alias ra='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
+runRanger () {
+  ranger --choosedir="$HOME/rangerdir";
+  LASTDIR=`cat "$HOME/rangerdir"`;
+  cd "$LASTDIR"
+}
+alias ranger=runRanger
+alias ra=runRanger
 
 # use ctags to generate code tags
 generateTags() {

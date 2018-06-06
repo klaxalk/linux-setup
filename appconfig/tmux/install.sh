@@ -37,10 +37,6 @@ while true; do
     sudo make install-binPROGRAMS
     git clean -fd
 
-    # symlink tmux settings
-    rm ~/.tmux.conf
-    cp $APP_PATH/dottmux.conf ~/.tmux.conf
-
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
