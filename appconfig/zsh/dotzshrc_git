@@ -93,7 +93,7 @@ zshexit() {
 # VIM alias for running vim in tmux and in servermode
 runVim() {
 
-  { generateTags & disown; } 2> /dev/null
+  ( generateTags & disown; ) 2> /dev/null
 
   VIM_CMD=$(echo "$EDITOR ${@}")
 
@@ -138,7 +138,7 @@ source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
 
 # by default, athame should be off
 export ATHAME_ENABLED=0
-export ATHAME_SHOW_MODE=0
+export ATHAME_SHOW_MODE=1
 export ATHAME_VIM_PERSIST=0
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
