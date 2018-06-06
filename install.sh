@@ -15,7 +15,7 @@ git submodule update --init --recursive
 sudo apt-get -y update
 sudo apt-get -y remove vim-*
 
-sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter
+sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop git indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python3-dev python2.7-dev libc++-dev clang-3.8 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag
 
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
@@ -49,6 +49,9 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 
 # install athame
 bash $APPCONFIG_PATH/athame/install.sh
+
+# install the silver searcher
+bash $APPCONFIG_PATH/silver_searcher/install.sh
 
 #############################################
 # remove the interactivity check from bashrc

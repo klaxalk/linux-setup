@@ -43,3 +43,6 @@
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/klaxalk/linux-setup.wiki
+[submodule "submodules/the_silver_searcher"]
+	path = submodules/the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher.git

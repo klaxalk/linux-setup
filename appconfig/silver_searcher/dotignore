@@ -1,0 +1,22 @@
+# general defaults
+*.png
+*.jpg
+*.pdf
+/tmp/
+youcompleteme/
+build/
+/*workspace/devel/
+/*workspace/logs/
+/*/install/
+simulation/Firmware
+submodules/
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+
+# Downloads/
+# Dropbox/
+# git/mbzirc/
+# orbital_data/
+# tle/
+
+# EPIGEN_ADD_BLOCK_TOMAS }
