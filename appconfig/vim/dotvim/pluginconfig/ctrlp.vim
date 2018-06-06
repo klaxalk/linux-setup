@@ -5,7 +5,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_max_files = 0
-let g:ctrlp_regexp = 1
+let g:ctrlp_regexp = 0
 
 let g:ctrlp_reuse_window = 'netrw'
 
