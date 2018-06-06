@@ -15,7 +15,6 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
 
   " Use ag over grep
