@@ -8,7 +8,7 @@ build/
 /*workspace/devel/
 /*workspace/logs/
 /*/install/
-simulation/Firmware
+simulation/Firmware/
 submodules/
 
 # EPIGEN_ADD_BLOCK_TOMAS {
