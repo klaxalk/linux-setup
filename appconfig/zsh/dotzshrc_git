@@ -93,11 +93,7 @@ zshexit() {
 # VIM alias for running vim in tmux and in servermode
 runVim() {
 
-<<<<<<< HEAD
   ( generateTags & disown; ) 2> /dev/null
-=======
-  ~/.i3/detacher.sh "generateTags"
->>>>>>> f9dea3bdd554252f8006572e77d993b61953b28d
 
   VIM_CMD=$(echo "$EDITOR ${@}")
 
