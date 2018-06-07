@@ -6,7 +6,7 @@ It could be summarized as follows:
 * **Ubuntu 16.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
 * **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
-* **tmux** terminal emulator is running all the time
+* **tmux** terminal multiplexer is running all the time
   * **tmuxinator** for automation of tmux session
   * *motion* shortcuts for panes compatible with vim
 * **vim** is everywhere
@@ -67,4 +67,3 @@ I suggest to re-run **install.sh**, after each update.
 
 This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
-
