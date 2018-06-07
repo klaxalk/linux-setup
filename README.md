@@ -3,18 +3,26 @@
 This repo contains settings of my Linux work environment.
 It could be summarized as follows:
 
-* *i3* (i3gaps) tiling window manager with i3bar and vim-like controls
-* *urxvt* terminal emulator with ability tu show images (when using the *ranger* file manager)
-* *tmux* terminal emulator is running all the time
-  * *tmuxinator* for automation of tmux session
-  * motion shortcuts for panes compatible with vim
-* *vim* is everywhere
+* **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
+* **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
+* **tmux** terminal emulator is running all the time
+  * **tmuxinator** for automation of tmux session
+  * *motion* shortcuts for panes compatible with vim
+* **vim** is everywhere
   * pluginized for smooth c++ and ROS development
   * youcompleteme
-* *athame* gives you vim in the terminal (bash/zsh)
-* *zsh* better shell for everyday use
-* *ranger* terminal file manager
-* *epigen* for witching between machine-specific configurations (profiles withing dotfiles)
+  * shared clipboards
+  * ctrl+p
+  * smooth latex development
+  * Tim Pope is the king 
+* **athame** gives you vim in the terminal (bash/zsh)
+* **zsh** better shell for everyday use
+* **ranger** terminal file manager
+* **epigen** for switching between machine-specific configurations (profiles withing dotfiles)
+  * all in one dotfiles
+  * sharing configs between multiple users
+  * sharing configs between different machines
+  * seemless switching of colorschemes
 
 Everything is intended for and tested on **Ubuntu 16.04**.
 To clone and install everything run following code. **BEWARE**, running this will **DELETE** your current .i3, tmux and vim dotfiles.
