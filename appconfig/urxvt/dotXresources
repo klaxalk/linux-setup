@@ -12,7 +12,9 @@ URxvt.font: xft:terminess powerline:size=12
 
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
+! ! EPIGEN_DEL_BLOCK_GPD {
 ! URxvt.font: xft:terminess powerline:size=12
+! ! EPIGEN_DEL_BLOCK_GPD }
 
 ! ! EPIGEN_ADD_BLOCK_GPD {
 
