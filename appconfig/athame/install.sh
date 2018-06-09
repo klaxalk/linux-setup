@@ -35,10 +35,10 @@ while true; do
     sudo ln -sf /lib/x86_64-linux-gnu/libreadline.so.7.0 /lib/x86_64-linux-gnu/libreadline.so.7
 
     # build new bash with readline patched with athame
-    ./bash_readline_setup.sh
+    ./bash_readline_setup.sh --notest
 
     # build new zsh with readline patched with athame
-    # ./zsh_athame_setup.sh
+    ./zsh_athame_setup.sh --notest
 
     default=y
     while true; do

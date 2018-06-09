@@ -10,6 +10,8 @@ build/
 /*/install/
 simulation/Firmware/
 submodules/
+/PlayOnLinux*/
+/VirtualBox*/
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
