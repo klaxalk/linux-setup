@@ -53,7 +53,7 @@ while true; do
     ./install.sh
 
     # make Terminus work
-    mkdir ~/.config/fontconfig/conf.d
+    mkdir -p ~/.config/fontconfig/conf.d
     cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
     fc-cache -vf
 
