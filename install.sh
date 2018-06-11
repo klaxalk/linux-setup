@@ -157,7 +157,7 @@ else
 
 fi
 
-# deploy all dotprofiler config files
+# deploy configs by Profile manager
 ./deploy_configs.sh
 
 # finally source the correct rc file
