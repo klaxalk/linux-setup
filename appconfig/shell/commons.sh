@@ -27,14 +27,14 @@ generateTags() {
     echo "generating one-time generated tags"
     ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
     eval $ctagscmd
-  fi 
+  fi
 }
 
 # allows killing process with all its children
 killp() {
 
   if [ $# -eq 0 ]; then
-    pes=$( cat ) 
+    pes=$( cat )
   else
     pes=$1
   fi
@@ -160,7 +160,7 @@ git() {
 
 getRcFile() {
 
-  case "$SHELL" in 
+  case "$SHELL" in
     *bash*)
       RCFILE="$HOME/.bashrc"
       ;;
