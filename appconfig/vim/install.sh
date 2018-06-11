@@ -53,7 +53,7 @@ while true; do
     ./install.sh
 
     # make Terminus work
-    mkdir ~/.config/fontconfig/conf.d
+    mkdir -p ~/.config/fontconfig/conf.d
     cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
     fc-cache -vf
 
@@ -100,16 +100,8 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
-    # check whether ~/.my.vimrc file exists, copy mine version if does not 
-    if [ ! -f ~/.my.vimrc ]; then
-      echo "Creating ~/.my.vimrc file"
-
-      cp $APP_PATH/dotmy.vimrc ~/.my.vimrc
-
-    fi
-
     # updated new plugins and clean old plugins
-    /usr/bin/vim -E -c "let g:user_mode=1" -c "so ~/.vimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
+    /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
     
     default=y
     while true; do

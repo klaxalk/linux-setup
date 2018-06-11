@@ -16,13 +16,13 @@ It could be summarized as follows:
   * shared clipboards between vim, tmux and OS
   * ctrl+p
   * smooth latex development
-  * Tim Pope is the king 
+  * Tim Pope is the king
 * **athame** gives you vim in the terminal (bash/zsh)
   * handfull of plugins in terminal: ultisnips, vim-surround, targets.vim, vim-exchange, etc.
 * **zsh** better shell for everyday use
 * **ranger** terminal file manager
-* **epigen** for switching between machine-specific configurations (profiles within dotfiles)
-  * all-in-one configuration, no git branching, no more cherrypicking 
+* **profile_manager** and **epigen** for switching between machine-specific configurations (profiles within dotfiles)
+  * all-in-one configuration, no git branching, no more cherrypicking
   * sharing configs between multiple users
   * sharing configs between different machines
   * seemless switching of colorschemes
