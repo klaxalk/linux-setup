@@ -190,6 +190,10 @@ bindsym $mod2+d exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
 # EPIGEN_ADD_BLOCK_GPD }
 
+# EPIGEN_ADD_BLOCK_VOJTA {
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
+# EPIGEN_ADD_BLOCK_VOJTA }
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 

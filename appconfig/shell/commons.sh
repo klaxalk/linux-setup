@@ -27,14 +27,14 @@ generateTags() {
     echo "generating one-time generated tags"
     ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
     eval $ctagscmd
-  fi 
+  fi
 }
 
 # allows killing process with all its children
 killp() {
 
   if [ $# -eq 0 ]; then
-    pes=$( cat ) 
+    pes=$( cat )
   else
     pes=$1
   fi
@@ -114,12 +114,12 @@ git() {
 
     if [[ "$?" == "0" ]]; then
 
-      # if we are in the 'linux-setup' repo, use the dotprofiler
+      # if we are in the 'linux-setup' repo, use the Profile manager
       if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-        DOTPROFILER="$GIT_PATH/linux-setup/submodules/dotprofiler/dotprofiler.sh"
+        PROFILE_MANAGER="$GIT_PATH/linux-setup/submodules/profile_manager/profile_manager.sh"
 
-        bash -c "$DOTPROFILER backup $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+        bash -c "$PROFILE_MANAGER backup $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
 
         command git "$@"
 
@@ -130,7 +130,7 @@ git() {
 
         if [[ "$?" == "0" ]]; then
 
-          bash -c "$DOTPROFILER deploy $GIT_PATH/linux-setup/appconfig/dotprofiler/file_list.txt"
+          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
 
         fi
 
@@ -160,7 +160,7 @@ git() {
 
 getRcFile() {
 
-  case "$SHELL" in 
+  case "$SHELL" in
     *bash*)
       RCFILE="$HOME/.bashrc"
       ;;

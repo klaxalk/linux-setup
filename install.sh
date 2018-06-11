@@ -118,15 +118,15 @@ fi
 # add PROFILER variables
 #############################################
 
-num=`cat ~/.bashrc | grep "PROFILER_ADDITIONS" | wc -l`
+num=`cat ~/.bashrc | grep "PROFILES_ADDITIONS" | wc -l`
 if [ "$num" -lt "1" ]; then
 
 echo "Adding epigen rules to .bashrc"
 echo '
 # profiling options for EPIGEN
-export PROFILER_ADDITIONS=""
-export PROFILER_DELETIONS=""
-export PROFILER_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
+export PROFILES_ADDITIONS=""
+export PROFILES_DELETIONS=""
+export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
 

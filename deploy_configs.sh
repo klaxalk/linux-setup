@@ -10,4 +10,4 @@ else
   source ~/."$SNAME"rc
 fi
 
-./submodules/dotprofiler/dotprofiler.sh deploy ./appconfig/dotprofiler/file_list.txt
+./submodules/profile_manager/profile_manager.sh deploy ./appconfig/profile_manager/file_list.txt
