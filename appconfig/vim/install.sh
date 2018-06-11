@@ -100,14 +100,6 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
-    # check whether ~/.my.vimrc file exists, copy mine version if does not 
-    if [ ! -f ~/.my.vimrc ]; then
-      echo "Creating ~/.my.vimrc file"
-
-      cp $APP_PATH/dotmy.vimrc ~/.my.vimrc
-
-    fi
-
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so ~/.vimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
     
