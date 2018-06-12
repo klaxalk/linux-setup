@@ -534,4 +534,5 @@ let g:startify_bookmarks = [
       \ { 'v': '~/.vimrc' },
       \ ]
 
+" load the custom Epigen syntax highlighting
 au BufNewFile,BufRead * so ~/.vim/after/syntax/epigen.vim
