@@ -533,3 +533,5 @@ let g:startify_bookmarks = [
       \ { 't': '~/.tmux.conf' },
       \ { 'v': '~/.vimrc' },
       \ ]
+
+au BufNewFile,BufRead * so ~/.vim/after/syntax/epigen.vim
