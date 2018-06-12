@@ -96,7 +96,6 @@ bindsym $mod+a focus parent
 bindsym $mod+q focus child
 
 # define title/names of all workspaces
-
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
@@ -240,6 +239,7 @@ bindsym $mod+shift+t mode "throughput"
 set $transparent #00000000
 
 # default dark colors
+# they are disabled, when the light color scheme is active
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
 set $focused_ws_bg            #005faf
@@ -256,6 +256,7 @@ for_window [class="^.*"] border pixel 2
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
+# the alternative, light color scheme
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
 # set $inactive_text_color         #1d2021
