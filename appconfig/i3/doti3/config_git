@@ -186,9 +186,17 @@ bindsym $mod2+l exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 bindsym $mod2+d exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh DARK'"
 
 # monitors switching
-# EPIGEN_ADD_BLOCK_GPD {
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
-# EPIGEN_ADD_BLOCK_GPD }
+# EPIGEN_ADD_BLOCK_TOMAS {
+
+# # EPIGEN_ADD_BLOCK_GPD {
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./gpd_set_monitor.sh'"
+# # EPIGEN_ADD_BLOCK_GPD }
+
+# # EPIGEN_ADD_BLOCK_DELL {
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
