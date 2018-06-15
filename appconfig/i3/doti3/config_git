@@ -452,6 +452,18 @@ bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
 
 # EPIGEN_ADD_BLOCK_MATEJ }
 
+# EPIGEN_ADD_BLOCK_NICOLAS {
+
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+
+# EPIGEN_ADD_BLOCK_NICOLAS }
+
 # scrot (for printscreens)
 bindsym Print exec shutter --select
 
