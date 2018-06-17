@@ -40,7 +40,7 @@ inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 inoremap <expr> <C-k> ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("\<C-k>"))
 
 " change behavior of enter in completion menu
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
 
@@ -113,15 +113,34 @@ endfunction
 
 " map the autocommand to "enter"
 autocmd VimEnter * imap <expr> <cr>
-      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
-      \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("<cr>")
+      \ pumvisible() ?
+        \ (exists('v:completed_item') ?
+          \ (!empty(v:completed_item) ?
+          \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
+            \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
+            \ : "\<C-y>")
+          \ : ("\<C-y>\<cr>"))
+        \ : ("\<C-y>\<cr>"))
+      \ : ("\<cr>")
 
-" map the autocommand to "l"
-autocmd VimEnter * imap <expr> l
-      \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
-      \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-      \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("l")
+" " map the autocommand to "enter"
+" autocmd VimEnter * imap <expr> <cr>
+"       \ pumvisible() ?
+"         \ (exists('v:completed_item') ?
+"           \ (!empty(v:completed_item) ?
+"           \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
+"             \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
+"             \ : "\<C-y>")
+"           \ : ("\<C-y>\<cr>"))
+"         \ : ("\<C-y>\<cr>"))
+"       \ :  ("\<cr>")
+
+
+" " map the autocommand to "l"
+" autocmd VimEnter * imap <expr> l
+"       \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
+"       \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
+"       \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("l")
 
 " let l behave the same as enter in completion menu
 " inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))

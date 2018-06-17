@@ -6,14 +6,6 @@ alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
-runRanger () {
-  ranger --choosedir="$HOME/rangerdir";
-  LASTDIR=`cat "$HOME/rangerdir"`;
-  cd "$LASTDIR"
-}
-alias ranger=runRanger
-alias ra=runRanger
-
 # use ctags to generate code tags
 generateTags() {
 
@@ -204,3 +196,107 @@ if [ "$USE_I3" = "true" ]; then
   export TERM=rxvt-unicode-256color
 
 fi
+
+symbolicCd() {
+
+  # if ag is missing, run normal "cd"
+  if [ ! -x "$(command -v ag)" ]; then
+
+    builtin cd "$@"
+
+  # if we have ag, do the magic
+  else
+
+    file_path="/tmp/symlink_list.txt"
+
+    if [ ! -e "$file_path" ]
+    then
+      echo "Generating symlink database"
+
+      rm "$file_path" 2&>1 /dev/null
+
+      files=`ag -f ~/ --nocolor -g ""`
+      dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
+
+      for dir in `echo $dirs`
+      do
+        original=$(readlink "$dir")
+        if [[ ! -z "$original" ]];
+        then
+
+          if [[ "$original" == "."* ]]
+          then
+            temp="${dir%/*}/$original"
+            original=`( builtin cd "$temp" && pwd )`
+          fi
+
+          # echo "$dir -> $original"
+          echo "$dir, $original" >> "$file_path"
+        fi
+      done
+    fi
+
+    # parse the csv file and extract file paths
+    i="1"
+    while IFS=, read -r path1 path2; do
+
+      paths1[$i]=`eval echo "$path1"`
+      paths2[$i]=`eval echo "$path2"`
+
+      # echo "${paths1[$i]} -> ${paths1[$i]}"
+
+      i=$(expr $i + 1)
+    done < "$file_path"
+
+    builtin cd "$@"
+    new_path=`pwd`
+
+    # test original paths for prefix
+    # echo ""
+    j="1"
+    for ((i=1; i < ${#paths1[*]}+1; i++));
+    do
+      if [[ "$new_path" == *${paths2[$i]}* ]]
+      then
+        # echo "found prefix: ${paths1[$i]} -> ${paths2[$i]} for $new_path"
+        # echo substracted: ${new_path#*${paths2[$i]}}
+        repath[$j]="${paths1[$i]}${new_path#*${paths2[$i]}}"
+        # echo new_path: ${repath[$j]}
+        j=$(expr $j + 1)
+        # echo ""
+      fi
+    done
+
+    if [ "$j" -ge "2" ]
+    then
+      if [ -e "${repath[1]}" ]
+      then
+
+        if [ "$j" -eq "2" ]
+        then
+          builtin cd "${repath[1]}"
+        # elif [ "$j" -gt "2" ]
+        # then
+        #   builtin cd "${repath[1]}"
+        #   echo "FYI There is more than 1 symlink to this directory:"
+        #   for ((i=1; i < ${#repath[*]}+1; i++));
+        #   do
+        #     echo "	${repath[$i]} -> $new_path"
+        #   done
+        fi
+      fi
+    fi
+  fi
+}
+alias cd="symbolicCd"
+
+runRanger () {
+  ranger --choosedir="/tmp/lastrangerdir"
+  LASTDIR=`cat "/tmp/lastrangerdir"`
+  symbolicCd "$LASTDIR"
+}
+alias ranger=runRanger
+alias ra=runRanger
+
+CURRENT_PATH=`pwd`
+cd "$CURRENT_PATH"
