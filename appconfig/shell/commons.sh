@@ -236,6 +236,11 @@ symbolicCd() {
       done
     fi
 
+    # delete duplicite lines in the file
+    mv "$file_path" "$file_path".old
+    cat "$file_path".old | uniq > "$file_path"
+    rm "$file_path".old
+
     # parse the csv file and extract file paths
     i="1"
     while IFS=, read -r path1 path2; do
