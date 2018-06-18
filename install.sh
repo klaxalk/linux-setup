@@ -115,7 +115,13 @@ export RUN_TMUX=false" >> ~/.bashrc
 fi
 
 #############################################
-# add PROFILER variables
+# link the scripts folder
+#############################################
+
+ln -sf $MY_PATH/scripts ~/.scripts
+
+#############################################
+# add PROFILES variables
 #############################################
 
 num=`cat ~/.bashrc | grep "PROFILES_ADDITIONS" | wc -l`
