@@ -12,10 +12,10 @@ It could be summarized as follows:
 * **vim** is everywhere
   * pluginized for smooth c++ and ROS development
   * youcompleteme
-  * ultisnips
+  * UltiSnips
   * shared clipboards between vim, tmux and OS
-  * ctrl+p
-  * smooth latex development
+  * Ctrl+P
+  * smooth latex development with vimtex and zathura
   * Tim Pope is the king
 * **athame** gives you vim in the terminal (bash/zsh)
   * handfull of plugins in terminal: ultisnips, vim-surround, targets.vim, vim-exchange, etc.
@@ -25,7 +25,7 @@ It could be summarized as follows:
   * all-in-one configuration, no git branching, no more cherrypicking
   * sharing configs between multiple users
   * sharing configs between different machines
-  * seemless switching of colorschemes
+  * seamless switching of colorschemes
 
 To clone and install everything run following code. **BEWARE**, running this will **DELETE** your current .i3, tmux, vim, etc. dotfiles.
 ```bash
