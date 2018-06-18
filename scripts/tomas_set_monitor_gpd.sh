@@ -28,7 +28,7 @@ case "$SHELL" in
 esac
 
 # change the variable in bashrc
-/usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/dotprofiler/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILER.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
+/usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
 
 source "$RCFILE"
 

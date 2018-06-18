@@ -4,7 +4,7 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-default=n
+default=y
 while true; do
   [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall athame? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
