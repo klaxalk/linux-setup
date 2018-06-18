@@ -213,7 +213,7 @@ symbolicCd() {
     then
       echo "Generating symlink database"
 
-      rm "$file_path" 2>&1 /dev/null
+      rm "$file_path" > /dev/null 2>&1 
 
       files=`ag -f ~/ --nocolor -g ""`
       dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
