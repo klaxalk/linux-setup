@@ -15,7 +15,7 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
-##{ override the default $workspace names and icos by custom settings
+# #{ override the default $workspace names and icos by custom settings
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 # set $workspace1 "1: "
@@ -56,7 +56,7 @@ set $workspace10 "10"
 # set $workspace10 "10  "
 # EPIGEN_ADD_BLOCK_MATOUS }
 
-##}
+# #}
 
 # set font
 font pango:Terminus 10
@@ -205,7 +205,7 @@ bindsym $mod+c mode "mouse_mode"
 # exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
 # exec urxvt -name scratchpadurxvt
 
-##{ appearance, colors and color-schemes
+# #{ appearance, colors and color-schemes
 
 set $transparent #00000000
 
@@ -280,7 +280,7 @@ bar {
   position top
 }
 
-##{ i3-gaps settings
+# #{ i3-gaps settings
 smart_gaps on
 
 set $default_gaps_inner 12
@@ -293,85 +293,85 @@ set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
 
-##}
+# #}
 
-##}
+# #}
 
-##{ TOMAS's customization
+# #{ TOMAS's customization
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
-###{ DESKTOP
+# # #{ DESKTOP
 
-## EPIGEN_ADD_BLOCK_DESKTOP {
+# # EPIGEN_ADD_BLOCK_DESKTOP {
 
-### sound
-##bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
-##bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
-##bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-##bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
-##bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
-##bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
 
-## EPIGEN_ADD_BLOCK_DESKTOP }
+# # EPIGEN_ADD_BLOCK_DESKTOP }
 
-###}
+# # #}
 
-###{ DELL
+# # #{ DELL
 
-## EPIGEN_ADD_BLOCK_DELL {
+# # EPIGEN_ADD_BLOCK_DELL {
 
-## # Bind screen brightness control to DELL's special keys
-## bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-## bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-## # bind audio to DELL's special keys
-## bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-## bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-## bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
 
-## bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-## bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-## bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
+# # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
-## EPIGEN_ADD_BLOCK_DELL }
+# # EPIGEN_ADD_BLOCK_DELL }
 
-###}
+# # #}
 
-###{ GPD
+# # #{ GPD
 
-## EPIGEN_ADD_BLOCK_GPD {
+# # EPIGEN_ADD_BLOCK_GPD {
 
-## # gpd has small screen, tabs should be the default option
-## workspace_layout tabbed
+# # # gpd has small screen, tabs should be the default option
+# # workspace_layout tabbed
 
-## # speed of the track point
-## exec_always xinput --set-prop 10 272 0.50
-## exec_always xinput --set-prop 10 273 0.40
+# # # speed of the track point
+# # exec_always xinput --set-prop 10 272 0.50
+# # exec_always xinput --set-prop 10 273 0.40
 
-## # compton without fancy graphics
-## exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+# # # compton without fancy graphics
+# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
 
-## # brightness
-## # The following line needs to be in /etc/sudoers
-## # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
-## bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-## bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # # brightness
+# # # The following line needs to be in /etc/sudoers
+# # # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-## # sound
-## bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-## bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-## bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 
-## EPIGEN_ADD_BLOCK_GPD }
+# # EPIGEN_ADD_BLOCK_GPD }
 
-###}
+# # #}
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-##}
+# #}
 
-##{ VOJTA's customization
+# #{ VOJTA's customization
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 
@@ -397,9 +397,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_VOJTA }
 
-##}
+# #}
 
-##{ MATOUS's customization
+# #{ MATOUS's customization
 
 # EPIGEN_ADD_BLOCK_MATOUS {
 
@@ -425,9 +425,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_MATOUS }
 
-##}
+# #}
 
-##{ MATEJ's customization
+# #{ MATEJ's customization
 
 # EPIGEN_ADD_BLOCK_MATEJ {
 
@@ -455,9 +455,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_MATEJ }
 
-##}
+# #}
 
-##{ NICOLAS's customization
+# #{ NICOLAS's customization
 
 # EPIGEN_ADD_BLOCK_NICOLAS {
 
@@ -471,9 +471,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_NICOLAS }
 
-##}
+# #}
 
-##{ auto commands after login
+# #{ auto commands after login
 
 # network monitor
 exec --no-startup-id nm-applet
@@ -497,9 +497,9 @@ exec --no-startup-id indicator-sound-switcher
 # generate the symlink list
 exec_always --no-startup-id "~/.i3/detacher.sh 'cd ~'"
 
-##}
+# #}
 
-##{ window-specific settings
+# #{ window-specific settings
 
 # find the window parameters by running "xprop"
 for_window [class="^Thunar$"] floating disable
@@ -520,9 +520,9 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_TOMAS }
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
-##}
+# #}
 
-##{ bindings for external programs
+# #{ bindings for external programs
 
 # Bindings for Gazebo simulator
 bindsym $mod2+1 exec --no-startup-id gz camera -c gzclient_camera -f uav1
@@ -534,11 +534,11 @@ bindsym $mod2+p exec --no-startup-id gz world -p 1
 bindsym $mod2+u exec --no-startup-id gz world -p 0
 bindsym $mod2+i exec --no-startup-id gz world -m 100
 
-##}
+# #}
 
-##{ i3 MODES
+# #{ i3 MODES
 
-##{ keybord-controlled mouse mode
+# #{ keybord-controlled mouse mode
 
 mode "longpress_mode" {
 
@@ -592,9 +592,9 @@ mode "mouse_mode" {
   bindsym b exec --no-startup-id ~/.i3/banishMouse.sh
 }
 
-##}
+# #}
 
-##{ gaps resize mode
+# #{ gaps resize mode
 
 mode "gaps_mode" {
 
@@ -608,9 +608,9 @@ mode "gaps_mode" {
   bindsym Escape mode "default"
 }
 
-##}
+# #}
 
-##{ throughput mode
+# #{ throughput mode
 
 # is usefull for controlling i3 and tmux throught teamviewer
 mode "throughput_mode" {
@@ -618,9 +618,9 @@ mode "throughput_mode" {
   bindsym $mod+shift+t mode "default"
 }
 
-##}
+# #}
 
-##{ window resize mode
+# #{ window resize mode
 
 mode "resize_mode" {
 
@@ -642,6 +642,6 @@ mode "resize_mode" {
   bindsym Escape mode "default"
 }
 
-##}
+# #}
 
-##}
+# #}
