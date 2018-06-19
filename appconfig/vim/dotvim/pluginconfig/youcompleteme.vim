@@ -111,18 +111,6 @@ function! s:onCompleteDone()
   return UltiSnips#Anon(snippet)
 endfunction
 
-" map the autocommand to "enter"
-autocmd VimEnter * imap <expr> <cr>
-      \ pumvisible() ?
-        \ (exists('v:completed_item') ?
-          \ (!empty(v:completed_item) ?
-          \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-            \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
-            \ : "\<C-y>")
-          \ : ("\<C-y>\<cr>"))
-        \ : ("\<C-y>\<cr>"))
-      \ : ("\<cr>")
-
 " " map the autocommand to "enter"
 " autocmd VimEnter * imap <expr> <cr>
 "       \ pumvisible() ?
@@ -133,8 +121,53 @@ autocmd VimEnter * imap <expr> <cr>
 "             \ : "\<C-y>")
 "           \ : ("\<C-y>\<cr>"))
 "         \ : ("\<C-y>\<cr>"))
-"       \ :  ("\<cr>")
+"       \ : ("\<cr>")
+"
+" inoremap <CR> --- {{{2
+" 1. when pumvisible & entry selected, which is a snippet, <CR> triggers snippet expansion,
+" 2. when pumvisible & entry selected, which is not a snippet, <CR> only closes pum
+" 3. when pumvisible & no entry selected, <CR> closes pum and inserts newline
+" 4. when pum not visible, <CR> inserts only a newline
+function! s:expandCr()
+    if pumvisible()
+        if !empty(v:completed_item)
+            let snippet = UltiSnips#ExpandSnippet()
+            if g:ulti_expand_res > 0
+                return snippet
+            else
+                return "\<C-y>"
+            endif
+        else
+            return "\<C-y>\<cr>"
+        endif
+    else
+        return "\<cr>"
+    endif
+endfunction
+inoremap <silent> <cr> <C-r>=<SID>expandCr()<CR>
 
+" inoremap <CR> --- {{{2
+" 1. when pumvisible & entry selected, which is a snippet, <CR> triggers snippet expansion,
+" 2. when pumvisible & entry selected, which is not a snippet, <CR> only closes pum
+" 3. when pumvisible & no entry selected, <CR> closes pum and inserts newline
+" 4. when pum not visible, <CR> inserts only a newline
+function! s:expandl()
+    if pumvisible()
+        if !empty(v:completed_item)
+            let snippet = UltiSnips#ExpandSnippet()
+            if g:ulti_expand_res > 0
+                return snippet
+            else
+                return "\<C-y>"
+            endif
+        else
+            return "\<C-y>l"
+        endif
+    else
+        return "l"
+    endif
+endfunction
+inoremap <silent> l <C-r>=<SID>expandl()<CR>
 
 " " map the autocommand to "l"
 " autocmd VimEnter * imap <expr> l
