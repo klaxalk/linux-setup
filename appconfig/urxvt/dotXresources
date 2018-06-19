@@ -2,13 +2,17 @@
 
 ! the default font, will be commented out for
 ! specific user settings
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS {
-URxvt.font: xft:terminess powerline:size=12
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS }
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ {
+! URxvt.font: xft:terminess powerline:size=12
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
+
+! EPIGEN_ADD_BLOCK_MATEJ {
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! EPIGEN_ADD_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
