@@ -2,13 +2,17 @@
 
 ! the default font, will be commented out for
 ! specific user settings
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS {
-URxvt.font: xft:terminess powerline:size=12
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS }
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ {
+! URxvt.font: xft:terminess powerline:size=12
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
+
+! EPIGEN_ADD_BLOCK_MATEJ {
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! EPIGEN_ADD_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
@@ -17,12 +21,18 @@ URxvt.font: xft:terminess powerline:size=12
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
+
+! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE {
 ! ! URxvt.font: xft:terminess powerline:size=12
+! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE }
+
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+! ! ! URxvt.font: xft:terminess powerline:size=15
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+
 ! ! EPIGEN_ADD_BLOCK_DELL }
 
 ! ! EPIGEN_ADD_BLOCK_GPD {
-
-! ! URxvt.font: xft:terminess powerline:size=12
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL {
 ! ! Xft.dpi: 180
@@ -33,6 +43,7 @@ URxvt.font: xft:terminess powerline:size=12
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
 ! ! URxvt.font: xft:terminess powerline:size=14
+
 ! ! EPIGEN_ADD_BLOCK_GPD }
 
 ! EPIGEN_ADD_BLOCK_TOMAS }
