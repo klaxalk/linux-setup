@@ -39,11 +39,6 @@ inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 inoremap <expr> <C-k> ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("\<C-k>"))
 
-" change behavior of enter in completion menu
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
-
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['~/'.$ROS_WORKSPACE.'/*']
@@ -111,70 +106,38 @@ function! s:onCompleteDone()
   return UltiSnips#Anon(snippet)
 endfunction
 
-" " map the autocommand to "enter"
-" autocmd VimEnter * imap <expr> <cr>
-"       \ pumvisible() ?
-"         \ (exists('v:completed_item') ?
-"           \ (!empty(v:completed_item) ?
-"           \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-"             \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
-"             \ : "\<C-y>")
-"           \ : ("\<C-y>\<cr>"))
-"         \ : ("\<C-y>\<cr>"))
-"       \ : ("\<cr>")
-"
-" inoremap <CR> --- {{{2
-" 1. when pumvisible & entry selected, which is a snippet, <CR> triggers snippet expansion,
-" 2. when pumvisible & entry selected, which is not a snippet, <CR> only closes pum
-" 3. when pumvisible & no entry selected, <CR> closes pum and inserts newline
-" 4. when pum not visible, <CR> inserts only a newline
-function! s:expandCr()
-    if pumvisible()
-        if !empty(v:completed_item)
-            let snippet = UltiSnips#ExpandSnippet()
-            if g:ulti_expand_res > 0
-                return snippet
-            else
-                return "\<C-y>"
-            endif
+function! PressL()
+    if exists('v:completed_item') && !empty(v:completed_item)
+      let snippet = UltiSnips#ExpandSnippetOrJump()
+      if g:ulti_expand_or_jump_res > 0
+          return snippet
+      else
+        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
+          return s:onCompleteDone()
         else
-            return "\<C-y>\<cr>"
-        endif
+          return "\<C-y>l"
+        end
+      endif
     else
-        return "\<cr>"
+      return "\<C-y>l"
     endif
 endfunction
-inoremap <silent> <cr> <C-r>=<SID>expandCr()<CR>
+inoremap <expr> l pumvisible() ? "<C-R>=PressL()<cr>" : "l"
 
-" inoremap <CR> --- {{{2
-" 1. when pumvisible & entry selected, which is a snippet, <CR> triggers snippet expansion,
-" 2. when pumvisible & entry selected, which is not a snippet, <CR> only closes pum
-" 3. when pumvisible & no entry selected, <CR> closes pum and inserts newline
-" 4. when pum not visible, <CR> inserts only a newline
-function! s:expandl()
-    if pumvisible()
-        if !empty(v:completed_item)
-            let snippet = UltiSnips#ExpandSnippet()
-            if g:ulti_expand_res > 0
-                return snippet
-            else
-                return "\<C-y>"
-            endif
+function! PressCr()
+    if exists('v:completed_item') && !empty(v:completed_item)
+      let snippet = UltiSnips#ExpandSnippetOrJump()
+      if g:ulti_expand_or_jump_res > 0
+          return snippet
+      else
+        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
+          return s:onCompleteDone()
         else
-            return "\<C-y>l"
-        endif
+          return "\<C-y>\<cr>"
+        end
+      endif
     else
-        return "l"
+      return "\<C-y>\<cr>"
     endif
 endfunction
-inoremap <silent> l <C-r>=<SID>expandl()<CR>
-
-" " map the autocommand to "l"
-" autocmd VimEnter * imap <expr> l
-"       \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
-"       \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-"       \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("l")
-
-" let l behave the same as enter in completion menu
-" inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
-
+inoremap <expr> <cr> pumvisible() ? "<C-R>=PressCr()<cr>" : "\<cr>"
