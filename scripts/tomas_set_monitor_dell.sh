@@ -8,34 +8,45 @@ else
 fi
 
 MONITOR=$(echo "LAB
-PRESENTATION" | rofi -dmenu -p "Select setup:")
+PRESENTATION
+STANDALONE" | rofi -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
 
 notify-send -u low -t 100 "Switching setup to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
+case "$SHELL" in 
+  *bash*)
+    RCFILE="$HOME/.bashrc"
+    ;;
+  *zsh*)
+    RCFILE="$HOME/.zshrc"
+    ;;
+esac
+
 case "$MONITOR" in 
   LAB)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_lab.sh ~/.monitor.sh
+    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
     ;;
   PRESENTATION)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_presentation.sh ~/.monitor.sh
-
-    # # uncomment for changing the colorscheme
-    # /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_LIGHT" -c "wqa" -- "$RCFILE"
-
+    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
+    ;;
+  STANDALONE)
+    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
     ;;
 esac
 
 source ~/.monitor.sh
 
-# # uncomment for changing the colorscheme
-# source ~/."$SNAME"rc
-# cd "$GIT_PATH/linux-setup"
-# ./backup_and_deploy.sh
+# uncomment for changing the colorscheme
+source ~/."$SNAME"rc
+cd "$GIT_PATH/linux-setup"
+./backup_and_deploy.sh
 
 # reload configuration for urxvt
 xrdb ~/.Xresources

@@ -21,12 +21,18 @@
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
+
+! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE {
 ! ! URxvt.font: xft:terminess powerline:size=12
+! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE }
+
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+! ! ! URxvt.font: xft:terminess powerline:size=15
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+
 ! ! EPIGEN_ADD_BLOCK_DELL }
 
 ! ! EPIGEN_ADD_BLOCK_GPD {
-
-! ! URxvt.font: xft:terminess powerline:size=12
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL {
 ! ! Xft.dpi: 180
@@ -37,6 +43,7 @@
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
 ! ! URxvt.font: xft:terminess powerline:size=14
+
 ! ! EPIGEN_ADD_BLOCK_GPD }
 
 ! EPIGEN_ADD_BLOCK_TOMAS }
