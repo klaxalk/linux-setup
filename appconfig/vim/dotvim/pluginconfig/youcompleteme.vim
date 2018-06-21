@@ -39,11 +39,6 @@ inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> k ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("k"))
 inoremap <expr> <C-k> ((pumvisible() && !empty(v:completed_item))?("\<C-p>"):("\<C-k>"))
 
-" change behavior of enter in completion menu
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" inoremap <expr> <tab> ((pumvisible() && !empty(v:completed_item))?("\<C-n>"):("<tab>"))
-
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist = ['~/'.$ROS_WORKSPACE.'/*']
@@ -111,37 +106,38 @@ function! s:onCompleteDone()
   return UltiSnips#Anon(snippet)
 endfunction
 
-" map the autocommand to "enter"
-autocmd VimEnter * imap <expr> <cr>
-      \ pumvisible() ?
-        \ (exists('v:completed_item') ?
-          \ (!empty(v:completed_item) ?
-          \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-            \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
-            \ : "\<C-y>")
-          \ : ("\<C-y>\<cr>"))
-        \ : ("\<C-y>\<cr>"))
-      \ : ("\<cr>")
+function! PressL()
+    if exists('v:completed_item') && !empty(v:completed_item)
+      let snippet = UltiSnips#ExpandSnippetOrJump()
+      if g:ulti_expand_or_jump_res > 0
+          return snippet
+      else
+        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
+          return s:onCompleteDone()
+        else
+          return "\<C-y>l"
+        end
+      endif
+    else
+      return "\<C-y>l"
+    endif
+endfunction
+inoremap <expr> l pumvisible() ? "<C-R>=PressL()<cr>" : "l"
 
-" " map the autocommand to "enter"
-" autocmd VimEnter * imap <expr> <cr>
-"       \ pumvisible() ?
-"         \ (exists('v:completed_item') ?
-"           \ (!empty(v:completed_item) ?
-"           \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-"             \ "\<C-R>=\<SID>onCompleteDone()\<CR>"
-"             \ : "\<C-y>")
-"           \ : ("\<C-y>\<cr>"))
-"         \ : ("\<C-y>\<cr>"))
-"       \ :  ("\<cr>")
-
-
-" " map the autocommand to "l"
-" autocmd VimEnter * imap <expr> l
-"       \ pumvisible() && exists('v:completed_item') && !empty(v:completed_item) ?
-"       \ (v:completed_item.word != '' && v:completed_item.kind == 'f' ?
-"       \ "\<C-R>=\<SID>onCompleteDone()\<CR>" : "\<C-y>") : ("l")
-
-" let l behave the same as enter in completion menu
-" inoremap <expr> l ((pumvisible() && !empty(v:completed_item))?("\<C-y>"):("l"))
-
+function! PressCr()
+    if exists('v:completed_item') && !empty(v:completed_item)
+      let snippet = UltiSnips#ExpandSnippetOrJump()
+      if g:ulti_expand_or_jump_res > 0
+          return snippet
+      else
+        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
+          return s:onCompleteDone()
+        else
+          return "\<C-y>\<cr>"
+        end
+      endif
+    else
+      return "\<C-y>\<cr>"
+    endif
+endfunction
+inoremap <expr> <cr> pumvisible() ? "<C-R>=PressCr()<cr>" : "\<cr>"

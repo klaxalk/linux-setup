@@ -71,6 +71,52 @@
 
 " EPIGEN_ADD_BLOCK_NICOLAS }
 
+" EPIGEN_ADD_BLOCK_MATEJ {
+
+" let wiki_notes = {}
+" let wiki_notes.path = '~/git/notes'
+" let wiki_notes.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let wiki_notes.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_notes.index = 'readme'
+" let wiki_notes.syntax = 'markdown'
+" let wiki_notes.ext = '.md'
+" let wiki_notes.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let wiki_notes.path_html = '~/git/notes/html'
+
+" let wiki_exam = {}
+" let wiki_exam.path = '~/git/state_exam'
+" let wiki_exam.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let wiki_exam.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_exam.index = 'home'
+" let wiki_exam.syntax = 'markdown'
+" let wiki_exam.ext = '.md'
+" let wiki_exam.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let wiki_exam.path_html = '~/git/.wiki/html/'
+
+" let naki = {}
+" let naki.path = '~/git/pr2018-naki_platform'
+" let naki.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let naki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let naki.index = 'README'
+" let naki.syntax = 'markdown'
+" let naki.ext = '.md'
+" let naki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let naki.path_html = '~/git/pr2018-naki_platform/html/'
+
+" let linux_setup_wiki = {}
+" let linux_setup_wiki.path = '~/git/linux-setup.wiki'
+" let linux_setup_wiki.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let linux_setup_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let linux_setup_wiki.index = 'Home'
+" let linux_setup_wiki.syntax = 'markdown'
+" let linux_setup_wiki.ext = '.md'
+" let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
+
+" let g:vimwiki_list = [wiki_notes, wiki_exam, naki]
+
+" EPIGEN_ADD_BLOCK_MATEJ }
+"
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
   if v:shell_error
