@@ -31,11 +31,11 @@ snippet scriptsize
 endsnippet
 
 snippet small
-\small 
+\small
 endsnippet
 
 snippet tiny
-\tiny 
+\tiny
 endsnippet
 
 snippet shift
@@ -164,10 +164,16 @@ ${1:${VISUAL}}
 \\end{figure}
 endsnippet
 
+snippet subfigure "\subfigure{}"
+\\begin{subfigure}{${2:0.49}\textwidth}
+${1:${VISUAL}}
+\\end{subfigure}
+endsnippet
+
 snippet figuree "figure with caption etc."
 \\begin{figure} [h]
 	\\centering
-	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{figures/${2}}
+	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{./fig/${2}}
 	\\caption{${3}}
 	\\label{fig:${4}}
 \\end{figure}
@@ -176,9 +182,9 @@ endsnippet
 snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\begin{figure} [h]
 	\\centering
-	\\includegraphics[width=${1:1.0}\textwidth]{figures/${2}}
+	\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
 	\\hspace{.2in}
-	\\includegraphics[width=${3:1.0}\textwidth]{figures/${4}}
+	\\includegraphics[width=${3:1.0}\textwidth]{./fig/${4}}
 	\\caption{${5}}
 	\\label{fig:${6}}
 \\end{figure}
@@ -187,7 +193,7 @@ endsnippet
 snippet ieeefigure "figure, as defined in the IEEE tamplate"
 \\begin{figure}[thpb]
 	\\centering
-	\\includegraphics[width=${1:1.0}\textwidth]{figures/${2}}
+	\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
 	\\caption{${3}}
 	\\label{fig:${4}}
 \\end{figure}
@@ -213,7 +219,7 @@ snippet centering "\centering{}" i
 endsnippet
 
 snippet includegraphics "\includegraphics{}" i
-\\includegraphics[width=${1:1.0}\textwidth]{fig/${2}}
+\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
 endsnippet
 
 snippet label "\label{}" i
@@ -445,7 +451,7 @@ snippet videoblock_split
 		\begin{columns}[c]
 			\column{0.48\textwidth} % Left column and width
 				\movie[externalviewer]{
-					\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+					\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
 				}{video/${2:filename}.${3:mp4}}\\\\
 			\column{0.48\textwidth} % Left column and width
 				\url{${4:link}}
@@ -458,7 +464,7 @@ snippet videoblock
 \begin{block}{${1:Video title}}
 	\begin{center}
 		\movie[externalviewer]{
-			\includegraphics[width=0.8\textwidth]{fig/$2_thumbnail.jpg}
+			\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
 		}{video/${2:filename}.${3:mp4}}\\\\
 		Video: \url{${4:link}}
 	\end{center}
@@ -526,4 +532,8 @@ endsnippet
 
 snippet frametitle
 \\frametitle{${1:${VISUAL}}}
+endsnippet
+
+snippet huge
+\\huge
 endsnippet
