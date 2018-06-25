@@ -273,18 +273,22 @@ bar {
 
   font pango: Terminus, FontAwesome 10
 
+  set $i3bar_bg $transparent
+# EPIGEN_ADD_BLOCK_MATOUS {
+  # set $i3bar_bg #000000FF
+# EPIGEN_ADD_BLOCK_MATOUS }
   colors {
 
     statusline $text_color
-    background $transparent
+    background $i3bar_bg
     separator  $inactive_text_color
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
-    active_workspace   $transparent       $transparent         $active_text_color
-    inactive_workspace $transparent       $transparent         $active_text_color
-    binding_mode       $transparent       $transparent         $active_text_color
-    urgent_workspace   $transparent       $transparent         $urgent
+    active_workspace   $i3bar_bg          $i3bar_bg            $active_text_color
+    inactive_workspace $i3bar_bg          $i3bar_bg            $active_text_color
+    binding_mode       $i3bar_bg          $i3bar_bg            $active_text_color
+    urgent_workspace   $i3bar_bg          $i3bar_bg            $urgent
   }
 
   # i3bar position
