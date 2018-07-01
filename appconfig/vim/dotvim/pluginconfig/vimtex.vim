@@ -2,6 +2,22 @@
 
 let g:vimtex_view_method = 'zathura'
 
+let g:vimtex_compiler_latexmk = {
+      \ 'backend' : 'process',
+      \ 'background' : 1,
+      \ 'build_dir' : 'build',
+      \ 'callback' : 1,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'options' : [
+      \   '-pdf',
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ],
+      \}
+
 " sets the main file for the latex project
 autocmd FileType tex let b:vimtex_main = 'main.tex'
 
@@ -31,7 +47,7 @@ let g:vimtex_fold_enabled = 0
 au FileType tex set foldmethod=marker
 au FileType tex set foldmarker=%%{,%%}
 
-" might solve some 
+" might solve some
 " let g:vimtex_indent_enabled = 0
 
 " au FileType tex setlocal fdm=expr

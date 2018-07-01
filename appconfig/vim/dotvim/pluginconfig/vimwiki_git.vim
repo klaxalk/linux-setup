@@ -32,14 +32,24 @@
 " let wiki_2.path_html = '~/git/uav_core.wiki/html/'
 
 " let epigen = {}
-" let epigen.path = '~/git/profile_manager'
+" let epigen.path = '~/git/epigen'
 " let epigen.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
 " let epigen.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
 " let epigen.index = 'README'
 " let epigen.syntax = 'markdown'
 " let epigen.ext = '.md'
 " let epigen.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let epigen.path_html = '~/git/profile_manager/html/'
+" let epigen.path_html = '~/git/epigen/html/'
+
+" let profile_manager = {}
+" let profile_manager.path = '~/git/profile_manager'
+" let profile_manager.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let profile_manager.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let profile_manager.index = 'README'
+" let profile_manager.syntax = 'markdown'
+" let profile_manager.ext = '.md'
+" let profile_manager.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let profile_manager.path_html = '~/git/profile_manager/html/'
 
 " let rospix = {}
 " let rospix.path = '~/git/rospix/rospix'
@@ -71,7 +81,7 @@
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let g:vimwiki_list = [wiki_1, wiki_2, epigen, linux_setup_wiki, rospix, rospix_utils]
+" let g:vimwiki_list = [wiki_1, wiki_2, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 
