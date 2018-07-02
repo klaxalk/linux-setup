@@ -28,116 +28,107 @@ command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_TOMAS {
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
 
 # [git_check]
-# label=
-# interval=600
-# command=$HOME/.i3/detacher.sh "$HOME/.scripts/git_check.sh"
-# color=#FF0000
-
-# [git]
 # label=
-# interval=10
-# command=cat $HOME/git/.git_status
+# interval=600
+# command=$HOME/.i3/detacher.sh 1 'cd ~/.scripts/; ./git_check.sh'
 # color=#FF0000
 
-# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
 
 [101]
 command=ping -c 1 192.168.0.101 >> /dev/null && echo '101' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [102]
 command=ping -c 1 192.168.0.102 >> /dev/null && echo '102' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [103]
 command=ping -c 1 192.168.0.103 >> /dev/null && echo '103' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [104]
 command=ping -c 1 192.168.0.104 >> /dev/null && echo '104' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [105]
 command=ping -c 1 192.168.0.105 >> /dev/null && echo '105' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [106]
 command=ping -c 1 192.168.0.106 >> /dev/null && echo '106' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [107]
 command=ping -c 1 192.168.0.107 >> /dev/null && echo '107' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
 [108]
 command=ping -c 1 192.168.0.108 >> /dev/null && echo '108' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[notes]
-command=~/git/notes/save_and_update.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
-interval=10
-separator=true
+# EPIGEN_ADD_BLOCK_TOMAS {
+
+# [notes]
+# command=~/git/notes/save_and_update.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=10
+# separator=true
+
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_DEL_BLOCK_GPD {
 
 [rosip]
 label=ROS_IP
 interval=20
-command=$HOME/.i3/ros_ip.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+command=$HOME/.i3/detacher.sh 1 'echo $ROS_IP'
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [rosmasteruri]
 label=ROS_MASTER
 interval=20
-command=$HOME/.i3/ros_master_uri.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
-
-[uav_name]
-# label=UAV_NAME
-interval=20
-command=$HOME/.i3/uav_name.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+command=$HOME/.i3/detacher.sh 1 'echo $ROS_MASTER_URI'
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_GPD }
 
 [load]
 interval=5
-label= 
+label=
 command=cat /proc/loadavg | cut -d' ' -f1-3
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Network interface monitoring
 #
@@ -145,16 +136,16 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 instance=eth0
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label=
 separator=true
 
 [iface]
 instance=wlan0
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label=
 separator=true
@@ -177,8 +168,8 @@ instance=Master
 interval=1
 signal=10
 command=~/.i3/show_volume.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Memory usage
 #
@@ -203,16 +194,16 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 label=SSD
 #instance=/mnt/data
 interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [wifi]
 instance=wlan0
 label=
 interval=10
 separator=true
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 #[bandwidth]
 ##instance=eth0
@@ -237,15 +228,15 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 label=⚡
 instance=0
 interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [keyboard]
 label=
 interval=2
 command=~/.i3/show_keyboard_layout.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Date Time
 #
@@ -253,15 +244,15 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 command=date '+%d/%m/%Y %H:%M:%S'
 interval=1
 separator=true
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [clickme]
 full_text=
 command=~/.i3/shutdown_menu -p rofi
 separator=true
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT 
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Generic media player support
 #
