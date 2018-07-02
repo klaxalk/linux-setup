@@ -247,9 +247,9 @@ for_window [class="^.*"] border pixel 2
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
-# EPIGEN_DEL_BLOCK_TOSHIBA {
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# EPIGEN_DEL_BLOCK_TOSHIBA }
+# # EPIGEN_DEL_BLOCK_TOSHIBA {
+# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_DEL_BLOCK_TOSHIBA }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
