@@ -269,6 +269,10 @@ bar {
 
   font pango: Terminus, FontAwesome 10
 
+# EPIGEN_ADD_BLOCK_MATEJ {
+  # font pango: Terminus, FontAwesome 12
+# EPIGEN_ADD_BLOCK_MATEJ }
+
   colors {
 
     statusline $text_color
