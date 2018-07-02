@@ -36,7 +36,7 @@
 	url = https://github.com/vim/vim
 [submodule "submodules/git-sync"]
 	path = submodules/git-sync
-	url = https://github.com/klaxalk/git-sync
+	url = https://github.com/simonthum/git-sync
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/klaxalk/linux-setup.wiki
