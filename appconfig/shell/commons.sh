@@ -181,18 +181,6 @@ if [ "$USE_I3" = "true" ]; then
   # set keyboard repeat rate
   xset r rate 350 55
 
-  echo '#!/bin/bash
-  echo '"$ROS_IP" > ~/.i3/ros_ip.sh
-  chmod +x ~/.i3/ros_ip.sh
-
-  echo '#!/bin/bash
-  echo '"$ROS_MASTER_URI" | sed 's/http:\/\/\(.*\):.*/\1/' > ~/.i3/ros_master_uri.sh
-  chmod +x ~/.i3/ros_master_uri.sh
-
-  echo '#!/bin/bash
-  echo '"$UAV_NAME" > ~/.i3/uav_name.sh
-  chmod +x ~/.i3/uav_name.sh
-
   export TERM=rxvt-unicode-256color
 
 fi
