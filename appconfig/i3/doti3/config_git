@@ -214,8 +214,6 @@ bindsym $mod+c mode "mouse_mode"
 
 # #{ appearance, colors and color-schemes
 
-set $transparent #00000000
-
 # default dark colors
 # they are disabled, when the light color scheme is active
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
@@ -230,7 +228,7 @@ set $active_border            #005faf
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 # EPIGEN_DEL_BLOCK_TOSHIBA {
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
 # EPIGEN_DEL_BLOCK_TOSHIBA }
 for_window [class="^.*"] border pixel 2
 
@@ -248,7 +246,7 @@ for_window [class="^.*"] border pixel 2
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
 # # EPIGEN_DEL_BLOCK_TOSHIBA {
-# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_DEL_BLOCK_TOSHIBA }
 # for_window [class="^.*"] border pixel 3
 
@@ -277,7 +275,9 @@ bar {
   # font pango: Terminus, FontAwesome 12
 # EPIGEN_ADD_BLOCK_MATEJ }
 
-  set $i3bar_bg $transparent
+  # transparent=#00000000
+  set $i3bar_bg #00000000
+
 # EPIGEN_ADD_BLOCK_MATOUS {
   # set $i3bar_bg #000000FF
 # EPIGEN_ADD_BLOCK_MATOUS }
