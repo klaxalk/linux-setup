@@ -8,7 +8,7 @@ ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 source $ZSH/oh-my-zsh.sh
 
 # Vi mode in ZSH
-# bindkey -v # EPIGEN_ADD_LINE_TOMAS
+bindkey -v
 
 # I dont like shared history between terminals, does not play well with tmux
 unsetopt share_history
@@ -22,7 +22,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once"
 
-# source the common additions for all shells
+# source the mutual additions for all shells
 source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
 
 # alias the "bash's" command history to "zshell's" command read

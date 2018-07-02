@@ -192,7 +192,7 @@ bindsym $mod+f4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # toggling touchpad
-bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
+bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
