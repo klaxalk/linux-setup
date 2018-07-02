@@ -60,7 +60,7 @@ bash $APPCONFIG_PATH/silver_searcher/install.sh
 /usr/bin/vim -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
 
 #############################################
-# adding GIT_PATH variable to .bashrc 
+# adding GIT_PATH variable to .bashrc
 #############################################
 
 # add variable for path to the git repository
@@ -94,7 +94,7 @@ if [ "$num" -lt "1" ]; then
     echo "
 # want to run tmux automatically with new terminal?
 export RUN_TMUX=true" >> ~/.bashrc
-  
+
     echo "Setting variable RUN_TMUX to true"
 
       break
@@ -104,7 +104,7 @@ export RUN_TMUX=true" >> ~/.bashrc
     echo "
 # want to run tmux automatically with new terminal?
 export RUN_TMUX=false" >> ~/.bashrc
-  
+
     echo "Setting variable RUN_TMUX to false"
 
       break
@@ -137,7 +137,7 @@ export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 fi
 
 #############################################
-# creating .vimpath file 
+# creating .vimpath file
 #############################################
 
 # path for ctags

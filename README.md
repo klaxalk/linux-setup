@@ -8,7 +8,7 @@ It could be summarized as follows:
 * **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
 * **tmux** terminal multiplexer is running all the time
   * **tmuxinator** for automation of tmux session
-  * *motion* shortcuts for panes compatible with vim
+  * vim-compatible key bindings for split switching
 * **vim** is everywhere
   * pluginized for smooth c++ and ROS development
   * youcompleteme

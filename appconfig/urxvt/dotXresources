@@ -11,7 +11,7 @@ URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! EPIGEN_ADD_BLOCK_MATEJ {
-! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=15
 ! EPIGEN_ADD_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_TOMAS {

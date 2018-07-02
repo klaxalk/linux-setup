@@ -192,7 +192,7 @@ bindsym $mod+f4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # toggling touchpad
-bindsym $mod+t exec --no-startup-id ~/.i3/toggle_touchpad.sh
+bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
@@ -272,6 +272,10 @@ bar {
   i3bar_command i3bar -t
 
   font pango: Terminus, FontAwesome 10
+
+# EPIGEN_ADD_BLOCK_MATEJ {
+  # font pango: Terminus, FontAwesome 12
+# EPIGEN_ADD_BLOCK_MATEJ }
 
   set $i3bar_bg $transparent
 # EPIGEN_ADD_BLOCK_MATOUS {
