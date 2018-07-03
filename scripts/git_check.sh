@@ -8,7 +8,7 @@ if [ -z $GIT_REMOTES ]; then
 fi
 
 WORK_PATH=${GIT_PATH}
-cd "$WORK_PATH"
+cd "$WORK_PATH" &> /dev/null
 # echo "path: ${WORK_PATH}"
 
 # if [ -f "/tmp/${STATUS_FILE}" ]; then
@@ -32,7 +32,7 @@ for D in *; do
 
   # if is folder
   if [ -d "${D}" ]; then
-    cd ${WORK_PATH}/${D}
+    cd ${WORK_PATH}/${D} &> /dev/null
 
     # check if folder is git repository
     if [ -d ".git" ]; then
@@ -60,7 +60,7 @@ for D in *; do
         # check how long is the list already
         if [ "$repo_counter" -ge "$MAX_REPO_COUNTER" ]; then
           text_line="$text_line, ..."
-          cd ${WORK_PATH}
+          cd ${WORK_PATH} &> /dev/null
           break;
         fi
         repo_counter=$((repo_counter + 1))
@@ -73,7 +73,7 @@ for D in *; do
         fi
       fi
     fi
-    cd ${WORK_PATH}
+    cd ${WORK_PATH} &> /dev/null
   fi
 done
 # fi
