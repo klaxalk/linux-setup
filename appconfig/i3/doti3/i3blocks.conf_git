@@ -30,11 +30,11 @@ markup=none
 
 # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
 
-# [git_check]
-# label=
-# interval=600
-# command=$HOME/.i3/detacher.sh 1 'cd ~/.scripts/; ./git_check.sh'
-# color=#FF0000
+# # [git_check]
+# # label=
+# # interval=600
+# # command=$HOME/.i3/detacher.sh 1 'cd ~/.scripts/; ./git_check.sh'
+# # color=#FF0000
 
 # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
 
