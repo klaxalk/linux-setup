@@ -115,7 +115,7 @@ function! PressL()
         if (v:completed_item.word != '' && v:completed_item.kind == 'f')
           return s:onCompleteDone()
         else
-          return "\<C-y>l"
+          return "\<C-y>"
         end
       endif
     else
@@ -133,7 +133,7 @@ function! PressCr()
         if (v:completed_item.word != '' && v:completed_item.kind == 'f')
           return s:onCompleteDone()
         else
-          return "\<C-y>\<cr>"
+          return "\<C-y>"
         end
       endif
     else

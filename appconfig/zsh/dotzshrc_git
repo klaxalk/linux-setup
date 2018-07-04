@@ -5,6 +5,8 @@ export TMUX_BIN=/usr/local/bin/tmux
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Vi mode in ZSH

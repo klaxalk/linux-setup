@@ -2,7 +2,7 @@
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'w'
 
 let g:ctrlp_max_files = 0
 let g:ctrlp_regexp = 0
@@ -13,6 +13,9 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
+
+" bind ctrl-shift-p -> ctrl-F12 -> CtrlP from home
+nnoremap [24;5~ :CtrlP ~/<cr>
 
 if executable('ag')
 

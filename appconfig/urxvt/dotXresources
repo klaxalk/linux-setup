@@ -63,6 +63,9 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
 
+! fix CTRL+SHIFT+P
+URxvt.keysym.Shift-Control-P: \033[24;5~
+
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
