@@ -54,10 +54,6 @@ ${0:${VISUAL}}
 */
 endsnippet
 
-snippet /// "" Ai
-// ############### ${1} ###############
-endsnippet
-
 snippet include
 #include <${1}>
 endsnippet
@@ -187,3 +183,17 @@ snippet ROS_ERROR_THROTTLE
 ROS_ERROR_THROTTLE(${2:1.0}, "${1}");
 endsnippet
 
+snippet "///" "" r
+// --------------------------------------------------------------
+// | `!p import math; snip.rv=' '*(30-(math.floor(len(t[1])/2.0))-2)` ${1} `!p import math; snip.rv=' '*(30-(math.ceil(len(t[1])/2.0))-2)` |
+// --------------------------------------------------------------
+${2}
+endsnippet
+
+snippet "fold" "" r
+//{ ${1}
+
+${2:${VISUAL}}
+
+//}
+endsnippet
