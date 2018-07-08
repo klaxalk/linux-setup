@@ -532,6 +532,8 @@ for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [class="^Gimp$"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_TOMAS {
+# for_window [class="^rqt_reconfigure$"] move workspace $workspace9
+# for_window [title="Gazebo"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt

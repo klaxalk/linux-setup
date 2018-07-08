@@ -187,7 +187,6 @@ snippet "///" "" r
 // --------------------------------------------------------------
 // | `!p import math; snip.rv=' '*(30-(math.floor(len(t[1])/2.0))-2)` ${1} `!p import math; snip.rv=' '*(30-(math.ceil(len(t[1])/2.0))-2)` |
 // --------------------------------------------------------------
-${2}
 endsnippet
 
 snippet "fold" "" r
@@ -196,4 +195,70 @@ snippet "fold" "" r
 ${2:${VISUAL}}
 
 //}
+endsnippet
+
+snippet class
+class ${1} {
+
+public:
+
+	$1();
+
+private:
+
+};
+
+// constructor
+$1::$1() {
+
+}
+endsnippet
+
+snippet main
+int main(int argc, char **argv) {
+
+${1}
+
+	return 0;
+};
+endsnippet
+
+snippet subscriber
+ros::Subscriber ${1}
+endsnippet
+
+snippet publisher
+ros::Publisher ${1}
+endsnippet
+
+snippet serviceserver
+ros::ServiceServer ${1}
+endsnippet
+
+snippet serviceclient
+ros::ServiceClient ${1}
+endsnippet
+
+snippet rosinit
+ros::init(argc, argv, "${1:node_name}");
+endsnippet
+
+snippet "rosok" "" ri
+ros::ok()
+endsnippet
+
+snippet "ros" "" ri
+ros::
+endsnippet
+
+snippet "spin" "" ri
+spin()
+endsnippet
+
+snippet "spinonce" "" ri
+spinOnce()
+endsnippet
+
+snippet "nodehandle" "" ri
+ros::NodeHandle("~")
 endsnippet

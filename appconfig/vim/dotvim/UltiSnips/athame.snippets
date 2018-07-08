@@ -63,11 +63,11 @@ grep ${2:-nr -e} "${1}"
 endsnippet
 
 snippet goto "" Ab
-rosservice call /uav${1:1}/trackers_manager/mpc_tracker/goTo "goal: [${2:0}, ${3:0}, ${4:3}, ${5:0}]"
+rosservice call /uav${1:1}/control_manager/linear_tracker/goTo "goal: [${2:0}, ${3:0}, ${4:3}, ${5:0}]"
 endsnippet
 
 snippet gorel "" Ab
-rosservice call /uav${1:1}/trackers_manager/mpc_tracker/goToRelative "goal: [${2:0}, ${3:0}, ${4:0}, ${5:0}]"
+rosservice call /uav${1:1}/control_manager/linear_tracker/goToRelative "goal: [${2:0}, ${3:0}, ${4:0}, ${5:0}]"
 endsnippet
 
 snippet gppo "" Ab
