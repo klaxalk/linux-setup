@@ -118,20 +118,12 @@ git() {
         case $* in pull*|checkout*)
           echo "Updating git submodules"
           command git submodule update --init --recursive
-        esac
+      esac
 
-        if [[ "$?" == "0" ]]; then
+      if [[ "$?" == "0" ]]; then
 
-          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
 
-        fi
-
-      else
-        command git "$@"
-        case $* in pull*|checkout*)
-          echo "Updating git submodules"
-          command git submodule update --init --recursive
-        esac
       fi
 
     else
@@ -139,7 +131,15 @@ git() {
       case $* in pull*|checkout*)
         echo "Updating git submodules"
         command git submodule update --init --recursive
-      esac
+    esac
+  fi
+
+else
+  command git "$@"
+  case $* in pull*|checkout*)
+    echo "Updating git submodules"
+    command git submodule update --init --recursive
+esac
     fi
 
     ;;
@@ -192,7 +192,7 @@ symbolicCd() {
 
     builtin cd "$@"
 
-  # if we have ag, do the magic
+    # if we have ag, do the magic
   else
 
     file_path="/tmp/symlink_list.txt"
@@ -269,14 +269,14 @@ symbolicCd() {
         if [ "$j" -eq "2" ]
         then
           builtin cd "${repath[1]}"
-        # elif [ "$j" -gt "2" ]
-        # then
-        #   builtin cd "${repath[1]}"
-        #   echo "FYI There is more than 1 symlink to this directory:"
-        #   for ((i=1; i < ${#repath[*]}+1; i++));
-        #   do
-        #     echo "	${repath[$i]} -> $new_path"
-        #   done
+          # elif [ "$j" -gt "2" ]
+          # then
+          #   builtin cd "${repath[1]}"
+          #   echo "FYI There is more than 1 symlink to this directory:"
+          #   for ((i=1; i < ${#repath[*]}+1; i++));
+          #   do
+          #     echo "	${repath[$i]} -> $new_path"
+          #   done
         fi
       fi
     fi
@@ -293,12 +293,11 @@ alias ranger=runRanger
 alias ra=runRanger
 
 waitForRos() {
-  until rostopic list > /dev/null 2>&1; do                                                                                 
-    echo "waiting for ros"                                                                                                 
-    sleep 1;                                                                                                               
+  until rostopic list > /dev/null 2>&1; do
+    echo "waiting for ros"
+    sleep 1;
   done  
 }
-alias waitForRos="waitForRos"
 
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"
