@@ -1,3 +1,38 @@
+global !p
+
+def file_is_plugin():
+	import re
+	fh = open(path)
+	for line in fh:
+		plugin_pattern = re.compile("^PLUGINLIB_EXPORT_CLASS.*$")
+		nodelet_pattern = re.compile("^.*nodelet.*$")
+		if plugin_pattern.match(line) and not nodelet_pattern.match(line):
+			return True
+	return False
+
+def get_class_name():
+	import re
+	fh = open(path)
+	for line in fh:
+		class_pattern = re.compile("^class ")
+		if class_pattern.match(line):
+			return line.split()[1]
+	return ""
+
+def ros_info():
+	text=""
+	if match.group(1) == "rinfo":
+		text="ROS_INFO"
+	elif match.group(1) == "rwarn":
+		text="ROS_WARN"
+	elif match.group(1) == "rerr":
+		text="ROS_ERROR"
+	if match.group(2) == "t":
+		text+="_THROTTLE"
+	return text
+
+endglobal
+
 snippet for
 for (int ${1:i} = ${2:0}; $1 < ${3}; $1++) {
 	${0:${VISUAL}}
@@ -106,81 +141,24 @@ if (!std::isfinite(${1:${VISUAL}})) {
 }
 endsnippet
 
-snippet ROS_INFO
-ROS_INFO("${1}");
-endsnippet
-
-snippet ros_info
-ROS_INFO("${1}");
-endsnippet
-
-snippet "rinfo$" "" r
-ROS_INFO("${1}"`!p
+snippet "(rinfo|rwarn|rerr)(t)?" "" re
+`!p
+snip.rv=ros_info()+"("
+``!p
+if match.group(2) == "t":
+	snip.rv="1.0, "
+`"`!p
+if file_is_plugin():
+	snip.rv='['+get_class_name()+']'
+else:
+	snip.rv="[%s]"`: ${1}"`!p
+if not file_is_plugin():
+	snip.rv=", ros::this_node::getName().c_str()"``!p
 if "%" in t[1]:
 	snip.rv=", "
 else:
 	snip.rv=""
-`${2});
-endsnippet
-
-snippet ROS_INFO_THROTTLE
-ROS_INFO_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet ros_info_throttle
-ROS_INFO_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet rinfot
-ROS_INFO_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet ROS_WARN
-ROS_WARN("${1}");
-endsnippet
-
-snippet ros_warn
-ROS_WARN("${1}");
-endsnippet
-
-snippet rwarn
-ROS_WARN("${1}");
-endsnippet
-
-snippet ROS_WARN_THROTTLE
-ROS_WARN_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet ros_warn_throttle
-ROS_WARN_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet rwarnt
-ROS_WARN_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet rerr
-ROS_ERROR("${1}");
-endsnippet
-
-snippet ros_error
-ROS_ERROR("${1}");
-endsnippet
-
-snippet ROS_ERROR
-ROS_ERROR("${1}");
-endsnippet
-
-snippet rerrt
-ROS_ERROR_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet ros_error_throttle
-ROS_ERROR_THROTTLE(${2:1.0}, "${1}");
-endsnippet
-
-snippet ROS_ERROR_THROTTLE
-ROS_ERROR_THROTTLE(${2:1.0}, "${1}");
+`${3});
 endsnippet
 
 snippet "///" "" r
@@ -261,4 +239,15 @@ endsnippet
 
 snippet "nodehandle" "" ri
 ros::NodeHandle("~")
+endsnippet
+
+snippet test
+`!p 
+import re
+fh = open(path)
+for line in fh:
+	pattern = re.compile("^class ")
+	if pattern.match(line):
+		snip.rv = line.split()[1]
+`
 endsnippet
