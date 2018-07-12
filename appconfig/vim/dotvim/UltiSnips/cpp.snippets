@@ -251,3 +251,12 @@ for line in fh:
 		snip.rv = line.split()[1]
 `
 endsnippet
+
+snippet header
+#ifndef ${1:`!p snip.rv = snip.basename.upper()`}_H
+#define $1_H
+
+${2:${VISUAL}}
+
+#endif
+endsnippet
