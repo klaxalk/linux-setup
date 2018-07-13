@@ -15,7 +15,11 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 " bind ctrl-shift-p -> ctrl-F12 -> CtrlP from home
-nnoremap [24;5~ :CtrlP ~/<cr>
+if has("nvim")
+  nnoremap <C-f12> :CtrlP ~/<cr>
+else
+  nnoremap [24;5~ :CtrlP ~/<cr>
+endif
 
 if executable('ag')
 

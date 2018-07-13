@@ -75,11 +75,19 @@ grep ${2:-nr -e} "${1}"
 endsnippet
 
 snippet goto "" Ab
-rosservice call /uav${1:1}/control_manager/$2`!p snip.rv=complete(t[2], ["mpc_tracker", "linear_tracker"])`/goTo "goal: [${3:0}, ${4:0}, ${5:3}, ${6:0}]"
+rosservice call /uav${1:1}/control_manager/goto "goal: [${3:0}, ${4:0}, ${5:3}, ${6:0}]"
 endsnippet
 
 snippet gorel "" Ab
-rosservice call /uav${1:1}/control_manager/$2`!p snip.rv=complete(t[2], ["mpc_tracker", "linear_tracker"])`/goToRelative "goal: [${3:0}, ${4:0}, ${5:3}, ${6:0}]"
+rosservice call /uav${1:1}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
+endsnippet
+
+snippet mpctracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/MpcTracker'"
+endsnippet
+
+snippet linetracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LineTracker'"
 endsnippet
 
 snippet gppo "" Ab

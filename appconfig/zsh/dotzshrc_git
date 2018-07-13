@@ -1,5 +1,6 @@
 # set editor and shell
-export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
@@ -143,7 +144,11 @@ if [ -n "$TMUX" ]; then
 
     if [[ $SESSION_NAME =~ ^T[0-9]+$ ]]; then
 
-      export ATHAME_ENABLED=1
+      if [ -z "${VIM+x}" ]; then
+
+        export ATHAME_ENABLED=1
+
+      fi
 
     fi
   fi
