@@ -7,6 +7,9 @@ else
   source ~/."$SNAME"rc
 fi
 
+# refresh the output devices
+xrandr --auto
+
 MONITOR=$(echo "LAB
 PRESENTATION
 STANDALONE" | rofi -dmenu -p "Select setup:")

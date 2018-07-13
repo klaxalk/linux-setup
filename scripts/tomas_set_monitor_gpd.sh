@@ -5,6 +5,9 @@ if [ "$PNAME" != "$SNAME" ]; then
   exit "$?"
 fi
 
+# refresh the output devices
+xrandr --auto
+
 MONITOR=$( echo "STANDALONE
 EXTERNAL" | rofi -dmenu -p "Select monitor:")
 
