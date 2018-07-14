@@ -5,7 +5,7 @@ let g:ros_build_system='catkin-tools'
 
 au BufNewFile,BufRead *.launch set filetype=roslaunch.xml
 
-function PrepRos()
+function! PrepRos()
   python3 << EOS
 try:
     import rospkg
@@ -53,12 +53,13 @@ if pkgname:
     workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
     r = rospkg.RosPack()
     vim.command("let is_ros='true'")
-    vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+"'")
+    vim.command("let &makeprg='cd "+workspace_path+"; sed -e /width/d < <(catkin build "+pkgname+")'")
 else:
     vim.command("let is_ros='false'")
 EOS
-    if is_ros == "true"
-      set efm=%f:%l:%c:\ error:%m
-    endif
-  endfunction
-  au BufNewFile,BufRead,BufEnter *.cpp,*h,*hpp,*.launch,*.yaml call PrepRos()
+  if is_ros == "true"
+    set efm=%f:%l:%c:\ error:%m
+  endif
+endfunction
+
+au BufNewFile,BufRead,BufEnter *.cpp,*h,*hpp,*.launch,*.yaml call PrepRos()

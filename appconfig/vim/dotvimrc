@@ -257,9 +257,9 @@ else
 endif
 
 " remap tags keys
-map <leader>. <c-]>       " dive into the tag
-map <leader>/ :pop      " go back one tag
-map <leader>; :ts       " show list of files in which the tag is found
+nmap <leader>. <c-]>zt     " dive into the tag
+nmap <leader>/ :pop      " go back one tag
+nmap <leader>; :ts       " show list of files in which the tag is found
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.

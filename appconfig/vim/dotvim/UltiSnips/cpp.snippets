@@ -5,8 +5,7 @@ def file_is_plugin():
 	fh = open(path)
 	for line in fh:
 		plugin_pattern = re.compile("^PLUGINLIB_EXPORT_CLASS.*$")
-		nodelet_pattern = re.compile("^.*nodelet.*$")
-		if plugin_pattern.match(line) and not nodelet_pattern.match(line):
+		if plugin_pattern.match(line):
 			return True
 	return False
 
