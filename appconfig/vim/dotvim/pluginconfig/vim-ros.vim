@@ -53,7 +53,7 @@ if pkgname:
     workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
     r = rospkg.RosPack()
     vim.command("let is_ros='true'")
-    vim.command("let &makeprg='cd "+workspace_path+"; sed -e /width/d < <(catkin build "+pkgname+")'")
+    vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+" 2>&1\| sed -e /width/d'")
 else:
     vim.command("let is_ros='false'")
 EOS
