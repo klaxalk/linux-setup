@@ -12,10 +12,12 @@ def file_is_plugin():
 def get_class_name():
 	import re
 	fh = open(path)
+	class_name = ""
 	for line in fh:
 		class_pattern = re.compile("^class ")
 		if class_pattern.match(line):
-			return line.split()[1]
+			class_name = line.split()[1]
+	return class_name
 	return ""
 
 def ros_info():
