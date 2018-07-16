@@ -32,6 +32,18 @@ def ros_info():
 		text+="_THROTTLE"
 	return text
 
+def nodelet_info():
+	text=""
+	if match.group(1) == "ninfo":
+		text="NODELET_INFO"
+	elif match.group(1) == "nwarn":
+		text="NODELET_WARN"
+	elif match.group(1) == "nerr":
+		text="NODELET_ERROR"
+	if match.group(2) == "t":
+		text+="_THROTTLE"
+	return text
+
 endglobal
 
 snippet for
@@ -145,6 +157,26 @@ endsnippet
 snippet "(rinfo|rwarn|rerr)(t)?" "" re
 `!p
 snip.rv=ros_info()+"("
+``!p
+if match.group(2) == "t":
+	snip.rv="1.0, "
+`"`!p
+if file_is_plugin():
+	snip.rv='['+get_class_name()+']'
+else:
+	snip.rv="[%s]"`: ${1}"`!p
+if not file_is_plugin():
+	snip.rv=", ros::this_node::getName().c_str()"``!p
+if "%" in t[1]:
+	snip.rv=", "
+else:
+	snip.rv=""
+`${3});
+endsnippet
+
+snippet "(ninfo|nwarn|nerr)(t)?" "" re
+`!p
+snip.rv=nodelet_info()+"("
 ``!p
 if match.group(2) == "t":
 	snip.rv="1.0, "

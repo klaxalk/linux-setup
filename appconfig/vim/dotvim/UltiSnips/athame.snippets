@@ -86,6 +86,14 @@ snippet mpctracker "" Ab
 rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/MpcTracker'"
 endsnippet
 
+snippet hover "" Ab
+rosservice call /uav${1:1}/control_manager/hover
+endsnippet
+
+snippet motors "" Ab
+rosservice call /uav${1:1}/control_manager/motors ${2:1}
+endsnippet
+
 snippet pid "" Ab
 rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/PidController'"
 endsnippet
