@@ -259,7 +259,7 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
     with open("/tmp/ycm_debug.txt", "a") as file:
         filename_no_ext = os.path.splitext(headerfile)[0]
         hdr_basename_no_ext = os.path.basename(filename_no_ext)
-        file.write("header: {}\n".format(hdr_basename_no_ext))
+        file.write("Header: {}\n".format(hdr_basename_no_ext))
         pattern = re.compile("^#include .*"+hdr_basename_no_ext+".*$")
         for path, dirs, files in os.walk(pkg_path):
             for src_filename in files:
@@ -271,7 +271,7 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         file.write("{}".format(full_src_filename));
                         for line in fh:
                             if pattern.match(line):
-                                file.write(" YES")
+                                file.write(" YES\n\n")
                                 compilation_info = database.GetCompilationInfoForFile(
                                     path + os.path.sep + src_filename)
                                 if compilation_info.compiler_flags_:
