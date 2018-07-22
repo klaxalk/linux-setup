@@ -94,6 +94,14 @@ snippet motors "" Ab
 rosservice call /uav${1:1}/control_manager/motors ${2:1}
 endsnippet
 
+snippet land "" Ab
+rosservice call /uav${1:1}/mav_manager/land
+endsnippet
+
+snippet takeoff "" Ab
+rosservice call /uav${1:1}/mav_manager/takeoff
+endsnippet
+
 snippet pid "" Ab
 rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/PidController'"
 endsnippet
@@ -104,6 +112,10 @@ endsnippet
 
 snippet linetracker "" Ab
 rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LineTracker'"
+endsnippet
+
+snippet lofftracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LandoffTracker'"
 endsnippet
 
 snippet gppo "" Ab
