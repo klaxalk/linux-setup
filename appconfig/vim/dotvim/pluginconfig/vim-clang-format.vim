@@ -35,7 +35,7 @@ let g:clang_format#style_options = {
       \   },
       \ 'AlignConsecutiveDeclarations' : 'true' }
 
-autocmd FileType c,cpp,objc nnoremap <silent> <leader>g A //<reformat_checkpoint><esc>:ClangFormat<cr>gg/reformat_checkpoint<cr>daW:%s/\s\+$//g<cr>/asd<cr>zt
+autocmd FileType c,cpp,objc nnoremap <silent> <leader>g A //<reformat_checkpoint><esc>:ClangFormat<cr>gg/reformat_checkpoint<cr>daW:%s/\s\+$//g<cr>
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 

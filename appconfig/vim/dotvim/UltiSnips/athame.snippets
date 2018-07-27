@@ -82,6 +82,10 @@ snippet gorel "" Ab
 rosservice call /uav${1:1}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
 endsnippet
 
+snippet goal "" Ab
+rosservice call /uav${1:1}/control_manager/goto_altitude ${2:3.0}
+endsnippet
+
 snippet mpctracker "" Ab
 rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/MpcTracker'"
 endsnippet
@@ -95,7 +99,7 @@ rosservice call /uav${1:1}/control_manager/motors ${2:1}
 endsnippet
 
 snippet land "" Ab
-rosservice call /uav${1:1}/mav_manager/land
+rosservice call /uav${1:1}/mav_manager/land_home
 endsnippet
 
 snippet takeoff "" Ab
@@ -108,6 +112,10 @@ endsnippet
 
 snippet lsf "" Ab
 rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/LsfController'"
+endsnippet
+
+snippet failsafe_controller "" Ab
+rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/FailsafeController'"
 endsnippet
 
 snippet linetracker "" Ab
