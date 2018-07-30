@@ -61,6 +61,14 @@ set $workspace10 "10"
 # set font
 font pango:Terminus 10
 
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_ADD_BLOCK_DELL {
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # # font pango: LiberationMono 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_DELL }
+# EPIGEN_ADD_BLOCK_TOMAS }
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -207,10 +215,10 @@ bindsym $mod+Shift+g mode "gaps_mode"
 bindsym $mod+c mode "mouse_mode"
 
 # scratchpad
-# bindsym $mod+minus scratchpad show
-# bindsym $mod+Shift+minus move scratchpad
-# exec_always urxvt -name scratchpadurxvt -e ~/git/notes/edit.sh
-# exec urxvt -name scratchpadurxvt
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+exec_always urxvt -name scratchpadurxvt
+exec urxvt -name scratchpadurxvt
 
 # #{ appearance, colors and color-schemes
 
@@ -270,6 +278,14 @@ bar {
   i3bar_command i3bar -t
 
   font pango: Terminus, FontAwesome 10
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_ADD_BLOCK_DELL {
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # #   font pango: LiberationMono, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_DELL }
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {
   # font pango: Terminus, FontAwesome 12

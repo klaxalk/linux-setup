@@ -28,7 +28,15 @@ URxvt.font: xft:terminess powerline:size=12
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE }
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+
+! ! ! ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 ! ! ! URxvt.font: xft:terminess powerline:size=15
+! ! ! ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+! ! ! ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+! ! ! ! URxvt.font: xft:Liberation Mono for Powerline:size=13
+! ! ! ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 
 ! ! EPIGEN_ADD_BLOCK_DELL }

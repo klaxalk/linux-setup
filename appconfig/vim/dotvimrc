@@ -300,7 +300,7 @@ map <S-K> :tabp<cr>
 vnoremap . :normal @a<CR>
 
 " format whole document and return back
-nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>zt
+nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>zt:%s/\s\+$//g<cr>
 
 " safe deleting things using <leader>d
 nmap <leader>d "_d
