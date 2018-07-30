@@ -1,7 +1,22 @@
-# set editor and shell
-# export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-export TMUX_BIN=/usr/local/bin/tmux
+# detect the OS version
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+if [ "$var2" = "$var1" ]; then
+  export BEAVER=1
+fi
+
+# if nvim is present, use it!
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+else
+  export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+fi
+
+if [ -n "$BEAVER" ]; then
+  export TMUX_BIN=/usr/bin/tmux
+else
+  export TMUX_BIN=/usr/local/bin/tmux
+fi
 
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT

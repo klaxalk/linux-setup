@@ -316,7 +316,7 @@ waitForRos() {
 }
 
 waitForSimulation() {
-  until timeout 1s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
+  until timeout 2s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for simulation"
     sleep 1;
   done  

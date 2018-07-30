@@ -27,7 +27,7 @@ while true; do
     cd $APP_PATH/../../submodules/athame
 
     # rebuild and patch readline7 with athame
-    ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu
+    sudo ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu
     sudo ldconfig
 
     # fix wrong link of the library
@@ -35,10 +35,10 @@ while true; do
     sudo ln -sf /lib/x86_64-linux-gnu/libreadline.so.7.0 /lib/x86_64-linux-gnu/libreadline.so.7
 
     # build new bash with readline patched with athame
-    ./bash_readline_setup.sh --notest
+    sudo ./bash_readline_setup.sh --notest
 
     # build new zsh with readline patched with athame
-    ./zsh_athame_setup.sh --notest
+    sudo ./zsh_athame_setup.sh --notest
 
     default=y
     while true; do
