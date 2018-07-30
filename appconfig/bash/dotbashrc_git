@@ -1,6 +1,6 @@
 # set editor and shell
 export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-export TMUX_BIN=/usr/local/bin/tmux
+export TMUX_BIN=/usr/bin/tmux
 export SHELL=/bin/bash
 
 # the location of `once generated ctags file`
