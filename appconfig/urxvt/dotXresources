@@ -170,7 +170,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! URxvt.color7: #cccccc
 ! ! URxvt.color15: #cccccc
-! ! EPIGEN_ADD_BLOCK_MATOUS ACTIVE }
+! ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! !! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
