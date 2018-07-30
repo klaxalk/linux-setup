@@ -7,7 +7,8 @@ URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
-! URxvt.font: xft:terminess powerline:size=12
+! ! URxvt.font: xft:terminess powerline:size=12
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! EPIGEN_ADD_BLOCK_MATEJ {
@@ -72,7 +73,12 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
 ! vim: ft=xdefaults
+! EPIGEN_DEL_BLOCK_MATOUS {
 URxvt.background: #151515
+! EPIGEN_DEL_BLOCK_MATOUS }
+! EPIGEN_ADD_BLOCK_MATOUS {
+! URxvt.background: rgba:0000/0000/0000/B000
+! EPIGEN_ADD_BLOCK_MATOUS }
 URxvt.foreground: #dddddd
 ! black
 URxvt.color0: #1C1C1C
@@ -118,9 +124,15 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
+! URxvt*depth: 32
 ! ! PaperColour Theme
 ! URxvt.foreground: #000000
+! ! EPIGEN_DEL_BLOCK_MATOUS {
 ! URxvt.background: #FFFFFF
+! ! EPIGEN_DEL_BLOCK_MATOUS }
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! URxvt.background: rgba:FFFF/FFFF/FFFF/FFF0
+! ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! !! black dark/light
 ! URxvt.color0: #000000
@@ -151,8 +163,14 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.color14: #006666
 
 ! !! white dark/light
+! ! EPIGEN_DEL_BLOCK_MATOUS {
 ! URxvt.color7: #ffffff
 ! URxvt.color15: #ffffff
+! ! EPIGEN_DEL_BLOCK_MATOUS }
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! URxvt.color7: #cccccc
+! ! URxvt.color15: #cccccc
+! ! EPIGEN_ADD_BLOCK_MATOUS ACTIVE }
 
 ! !! ------------------------------------------------------------------------------
 ! ! ROFI Color theme

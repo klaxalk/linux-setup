@@ -3,8 +3,13 @@
 export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
 export TMUX_BIN=/usr/local/bin/tmux
 
+# EPIGEN_DEL_BLOCK_MATOUS { 
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# EPIGEN_DEL_BLOCK_MATOUS }
+# EPIGEN_ADD_BLOCK_MATOUS { 
+# ZSH_THEME="mortalscumbag"
+# EPIGEN_ADD_BLOCK_MATOUS } 
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh

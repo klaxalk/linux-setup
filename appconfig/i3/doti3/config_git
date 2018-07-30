@@ -227,9 +227,9 @@ set $background_color         #151515
 set $active_border            #005faf
 set $split_indicator          #B85335
 set $urgent                   #ff0000
-# EPIGEN_DEL_BLOCK_TOSHIBA {
+# EPIGEN_DEL_BLOCK_MATOUS {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
-# EPIGEN_DEL_BLOCK_TOSHIBA }
+# EPIGEN_DEL_BLOCK_MATOUS }
 for_window [class="^.*"] border pixel 2
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
@@ -245,9 +245,9 @@ for_window [class="^.*"] border pixel 2
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
-# # EPIGEN_DEL_BLOCK_TOSHIBA {
+# # EPIGEN_DEL_BLOCK_MATOUS {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# # EPIGEN_DEL_BLOCK_TOSHIBA }
+# # EPIGEN_DEL_BLOCK_MATOUS }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -279,7 +279,12 @@ bar {
   set $i3bar_bg #00000000
 
 # EPIGEN_ADD_BLOCK_MATOUS {
-  # set $i3bar_bg #000000FF
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   set $i3bar_bg #FFFFFFFF
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+# #   set $i3bar_bg #000000FF
+# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 # EPIGEN_ADD_BLOCK_MATOUS }
   colors {
 
