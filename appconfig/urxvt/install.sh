@@ -21,7 +21,12 @@ while true; do
     # link extensions
     for file in `ls $APP_PATH/extensions/`
 do
+    # for 16.04
+    sudo ln -fs $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
+
+    # for 18.04
     sudo ln -fs $APP_PATH/extensions/$file /usr/lib/x86_64-linux-gnu/urxvt/perl/$file
+
 done
 
     break
