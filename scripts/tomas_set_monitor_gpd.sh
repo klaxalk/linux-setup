@@ -30,8 +30,16 @@ case "$SHELL" in
     ;;
 esac
 
+if [ -x "$(command -v nvim)" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(command -v vim)" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
 # change the variable in bashrc
-/usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
+$VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
 
 source "$RCFILE"
 
