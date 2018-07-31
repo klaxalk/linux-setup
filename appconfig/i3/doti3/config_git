@@ -382,7 +382,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_GPD {
 
 # # # gpd has small screen, tabs should be the default option
-# # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_EXTERNAL
+# # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_STANDALONE
 
 # # # speed of the track point
 # # exec_always xinput --set-prop 10 272 0.50
