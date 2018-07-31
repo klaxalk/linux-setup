@@ -534,7 +534,7 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 exec --no-startup-id indicator-sound-switcher
 
 # generate the symlink list
-exec_always --no-startup-id "~/.i3/detacher.sh 'cd ~'"
+exec_always --no-startup-id "~/.i3/detacher.sh 'createSymlinkDatabase'"
 
 # #}
 
