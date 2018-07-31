@@ -118,6 +118,7 @@ source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
 export ATHAME_ENABLED=0
 export ATHAME_SHOW_MODE=0
 export ATHAME_VIM_PERSIST=0
+export ATHAME_SHOW_ERROR=0
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it
