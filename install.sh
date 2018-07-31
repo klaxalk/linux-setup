@@ -21,7 +21,7 @@ sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop indicator-multil
 sudo apt-get -y install exfat-fuse exfat-utils
 
 # download, compile and install tmux
-# bash $APPCONFIG_PATH/tmux/install.sh
+bash $APPCONFIG_PATH/tmux/install.sh
 
 # compile and install tmuxinator
 bash $APPCONFIG_PATH/tmuxinator/install.sh
@@ -57,7 +57,15 @@ bash $APPCONFIG_PATH/silver_searcher/install.sh
 # remove the interactivity check from bashrc
 #############################################
 
-/usr/bin/vim -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
+if [ -x "$(command -v nvim)" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(command -v vim)" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
+$VIM_BIN $HEADLESS -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
 
 #############################################
 # adding GIT_PATH variable to .bashrc
@@ -72,8 +80,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding GIT_PATH variable to .bashrc"
   # set bashrc
   echo "
-# path to the git root
-export GIT_PATH=$TEMP" >> ~/.bashrc
+  # path to the git root
+  export GIT_PATH=$TEMP" >> ~/.bashrc
 fi
 
 #############################################
@@ -91,21 +99,21 @@ if [ "$num" -lt "1" ]; then
     if [[ $response =~ ^(y|Y)=$ ]]
     then
 
-    echo "
-# want to run tmux automatically with new terminal?
-export RUN_TMUX=true" >> ~/.bashrc
+      echo "
+      # want to run tmux automatically with new terminal?
+      export RUN_TMUX=true" >> ~/.bashrc
 
-    echo "Setting variable RUN_TMUX to true"
+      echo "Setting variable RUN_TMUX to true"
 
       break
     elif [[ $response =~ ^(n|N)=$ ]]
     then
 
-    echo "
-# want to run tmux automatically with new terminal?
-export RUN_TMUX=false" >> ~/.bashrc
+      echo "
+      # want to run tmux automatically with new terminal?
+      export RUN_TMUX=false" >> ~/.bashrc
 
-    echo "Setting variable RUN_TMUX to false"
+      echo "Setting variable RUN_TMUX to false"
 
       break
     else
@@ -127,12 +135,12 @@ ln -sf $MY_PATH/scripts ~/.scripts
 num=`cat ~/.bashrc | grep "PROFILES_ADDITIONS" | wc -l`
 if [ "$num" -lt "1" ]; then
 
-echo "Adding epigen rules to .bashrc"
-echo '
-# profiling options for EPIGEN
-export PROFILES_ADDITIONS=""
-export PROFILES_DELETIONS=""
-export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
+  echo "Adding epigen rules to .bashrc"
+  echo '
+  # profiling options for EPIGEN
+  export PROFILES_ADDITIONS=""
+  export PROFILES_DELETIONS=""
+  export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
 
@@ -154,8 +162,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-# sourcing tomas's tmux preparation
-source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
+  # sourcing tomas's tmux preparation
+  source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 else
 

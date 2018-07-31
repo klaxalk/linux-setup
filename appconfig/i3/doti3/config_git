@@ -217,7 +217,6 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
-exec_always urxvt -name scratchpadurxvt
 exec urxvt -name scratchpadurxvt
 
 # #{ appearance, colors and color-schemes
@@ -383,7 +382,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_GPD {
 
 # # # gpd has small screen, tabs should be the default option
-# # workspace_layout tabbed
+# # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_EXTERNAL
 
 # # # speed of the track point
 # # exec_always xinput --set-prop 10 272 0.50
@@ -535,7 +534,7 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 exec --no-startup-id indicator-sound-switcher
 
 # generate the symlink list
-exec_always --no-startup-id "~/.i3/detacher.sh 'cd ~'"
+exec_always --no-startup-id "~/.i3/detacher.sh 'createSymlinkDatabase'"
 
 # #}
 

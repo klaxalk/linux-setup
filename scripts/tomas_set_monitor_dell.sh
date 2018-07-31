@@ -30,17 +30,25 @@ case "$SHELL" in
     ;;
 esac
 
+if [ -x "$(command -v nvim)" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(command -v vim)" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
 case "$MONITOR" in 
   LAB)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_lab.sh ~/.monitor.sh
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
     ;;
   PRESENTATION)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_presentation.sh ~/.monitor.sh
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
     ;;
   STANDALONE)
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
     ;;
 esac
 

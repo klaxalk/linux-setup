@@ -15,7 +15,7 @@ fi
 
 notify-send -u low -t 100 "Switching monitor to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
-case "$SHELL" in 
+case "$SHELL" in
   *bash*)
     RCFILE="$HOME/.bashrc"
     ;;
@@ -24,14 +24,22 @@ case "$SHELL" in
     ;;
 esac
 
-case "$MONITOR" in 
+if [ -x "$(command -v nvim)" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(command -v vim)" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
+case "$MONITOR" in
   *CLASSIC*)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/vojta/classic.sh ~/.monitor.sh
     ;;
   *FHD_EXTERNAL*)
     ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/vojta/fhd_external.sh ~/.monitor.sh
     # change the variable in bashrc
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_LIGHT" -c "wqa" -- "$RCFILE"
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_LIGHT" -c "wqa" -- "$RCFILE"
     ;;
 esac
 

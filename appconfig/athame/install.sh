@@ -17,8 +17,16 @@ while true; do
     sudo apt-get update
     sudo apt-get -y install libreadline7* libreadline-dev
 
+    if [ -x "$(command -v nvim)" ]; then
+      VIM_BIN="$(whereis nvim | awk '{print $2}')"
+      HEADLESS="--headless"
+    elif [ -x "$(command -v vim)" ]; then
+      VIM_BIN="$(whereis vim | awk '{print $2}')"
+      HEADLESS=""
+    fi
+
     # remove the yakkety source from the sources.list
-    sudo /usr/bin/vim /etc/apt/sources.list -E -s -c ":%g/yakkety/norm dd" -c "wqa"
+    sudo $VIM_BIN $HEADLESS /etc/apt/sources.list -E -s -c ":%g/yakkety/norm dd" -c "wqa"
     sudo apt-get update
 
     sudo apt-get -y install curl
@@ -26,8 +34,14 @@ while true; do
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
 
+    if [ -x "$(command -v nvim)" ]; then
+      NEOVIM="--vimbin=$(which nvim)"
+    elif [ -x "$(command -v vim)" ]; then
+      NEOVIM=""
+    fi
+
     # rebuild and patch readline7 with athame
-    ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu
+    sudo ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu --use_sudo $NEOVIM
     sudo ldconfig
 
     # fix wrong link of the library
@@ -35,10 +49,10 @@ while true; do
     sudo ln -sf /lib/x86_64-linux-gnu/libreadline.so.7.0 /lib/x86_64-linux-gnu/libreadline.so.7
 
     # build new bash with readline patched with athame
-    ./bash_readline_setup.sh --notest
+    sudo ./bash_readline_setup.sh --use_sudo --notest $NEOVIM
 
     # build new zsh with readline patched with athame
-    ./zsh_athame_setup.sh --notest
+    sudo ./zsh_athame_setup.sh --use_sudo --notest $NEOVIM
 
     default=y
     while true; do
@@ -52,9 +66,9 @@ while true; do
         num=`cat ~/.bashrc | grep "USE_ATHAME" | wc -l`
         if [ "$num" -lt "1" ]; then
 
-            echo "
-# want to use athame?
-export USE_ATHAME=true" >> ~/.bashrc
+          echo "
+          # want to use athame?
+          export USE_ATHAME=true" >> ~/.bashrc
 
         fi
 
@@ -68,8 +82,8 @@ export USE_ATHAME=true" >> ~/.bashrc
         if [ "$num" -lt "1" ]; then
 
           echo "
-# want to use athame?
-export USE_ATHAME=false" >> ~/.bashrc
+          # want to use athame?
+          export USE_ATHAME=false" >> ~/.bashrc
 
         fi
         break
