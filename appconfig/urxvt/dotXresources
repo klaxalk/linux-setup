@@ -104,7 +104,7 @@ URxvt.color11: #FAD07A
 URxvt.color4: #667899
 URxvt.color12: #8197BF
 ! magenta
-URxvt.color5: #8787AF
+URxvt.color5: #A7A7FF
 URxvt.color13: #C6B6EE
 ! cyan
 URxvt.color6: #668799
