@@ -21,7 +21,7 @@ sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop indicator-multil
 sudo apt-get -y install exfat-fuse exfat-utils
 
 # download, compile and install tmux
-# bash $APPCONFIG_PATH/tmux/install.sh
+bash $APPCONFIG_PATH/tmux/install.sh
 
 # compile and install tmuxinator
 bash $APPCONFIG_PATH/tmuxinator/install.sh

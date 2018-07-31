@@ -41,7 +41,7 @@ while true; do
     fi
 
     # rebuild and patch readline7 with athame
-    ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu --use-sudo $NEOVIM
+    sudo ./readline_athame_setup.sh --notest --libdir=/lib/x86_64-linux-gnu --use_sudo $NEOVIM
     sudo ldconfig
 
     # fix wrong link of the library
@@ -49,10 +49,10 @@ while true; do
     sudo ln -sf /lib/x86_64-linux-gnu/libreadline.so.7.0 /lib/x86_64-linux-gnu/libreadline.so.7
 
     # build new bash with readline patched with athame
-    ./bash_readline_setup.sh --use-sudo --notest $NEOVIM
+    sudo ./bash_readline_setup.sh --use_sudo --notest $NEOVIM
 
     # build new zsh with readline patched with athame
-    ./zsh_athame_setup.sh --use-sudo --notest $NEOVIM
+    sudo ./zsh_athame_setup.sh --use_sudo --notest $NEOVIM
 
     default=y
     while true; do

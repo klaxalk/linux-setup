@@ -2,7 +2,7 @@
 # detect the OS version
 var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" != "$var1" ]; then
+if [ "$var2" = "$var1" ]; then
   export BEAVER=1
 fi
 
