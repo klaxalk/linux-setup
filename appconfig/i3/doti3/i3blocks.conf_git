@@ -38,6 +38,8 @@ markup=none
 
 # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
 
+# EPIGEN_DEL_BLOCK_GPD {
+
 [101]
 command=ping -c 1 192.168.0.101 >> /dev/null && echo '101' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -93,6 +95,8 @@ command=ping -c 1 192.168.0.108 >> /dev/null && echo '108' || echo ""
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
+
+# EPIGEN_DEL_BLOCK_GPD }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 

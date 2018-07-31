@@ -51,7 +51,7 @@ URxvt.font: xft:terminess powerline:size=12
 ! ! ! Xft.dpi: 100
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
-! ! URxvt.font: xft:terminess powerline:size=14
+! ! URxvt.font: xft:terminess powerline:size=12
 
 ! ! EPIGEN_ADD_BLOCK_GPD }
 
