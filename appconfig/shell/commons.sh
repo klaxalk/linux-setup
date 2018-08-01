@@ -248,6 +248,7 @@ symbolicCd() {
     file_path="/tmp/symlink_list.txt"
 
     if [ ! -e "$file_path" ]; then
+      builtin cd "$@"
       return
     fi
 
