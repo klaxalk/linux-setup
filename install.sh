@@ -12,10 +12,16 @@ git pull
 git submodule update --init --recursive
 
 # install packages
-sudo apt-get -y update
+# sudo apt-get -y update
 sudo apt-get -y remove vim-*
 
-sudo apt-get -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev clang-4.0 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag
+dependencies=( cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev clang-4.0 clang-format openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag )
+
+for ((i=0; i < ${#dependencies[*]}; i++));
+do
+	sudo apt -y install "${dependencies[$i]}"
+  if [ "$?" != "0" ]; then exit; fi
+done
 
 # for mounting exfat
 sudo apt-get -y install exfat-fuse exfat-utils
