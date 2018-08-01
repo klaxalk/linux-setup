@@ -14,8 +14,6 @@ else
   source ~/."$SNAME"rc
 fi
 
-echo "$SNAME $PNAME"
-
 RCFILE=~/."$SNAME"rc
 
 COLOR_SCHEME=$( echo "DARK

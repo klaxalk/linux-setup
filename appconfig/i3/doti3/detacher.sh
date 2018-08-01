@@ -4,7 +4,7 @@ TMUX_PATH="$(whereis tmux | awk '{print $2}')"
 
 SESSION_NAME="D$RANDOM"
 
-TMUX= /usr/local/bin/tmux new-session -s $SESSION_NAME -d
+TMUX= $TMUX_PATH new-session -s $SESSION_NAME -d
 
 if [[ "$1" == "1" ]]; then
 
