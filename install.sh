@@ -14,9 +14,19 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config pdftk python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils
-
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils
 if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+if [ "$var2" = "$var1" ]; then
+  export BEAVER=1
+fi
+
+if [ ! -n "$BEAVER" ]; then
+  sudo apt -y install pdftk 
+  if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+fi
 
 # download, compile and install tmux
 bash $APPCONFIG_PATH/tmux/install.sh
