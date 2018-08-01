@@ -24,10 +24,10 @@ case "$SHELL" in
     ;;
 esac
 
-if [ -x "$(command -v nvim)" ]; then
+if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
   VIM_BIN="$(whereis nvim | awk '{print $2}')"
   HEADLESS="--headless"
-elif [ -x "$(command -v vim)" ]; then
+elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   VIM_BIN="$(whereis vim | awk '{print $2}')"
   HEADLESS=""
 fi

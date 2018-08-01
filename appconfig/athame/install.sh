@@ -18,10 +18,10 @@ while true; do
     sudo apt -y install libreadline7* libreadline-dev
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    if [ -x "$(command -v nvim)" ]; then
+    if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
       VIM_BIN="$(whereis nvim | awk '{print $2}')"
       HEADLESS="--headless"
-    elif [ -x "$(command -v vim)" ]; then
+    elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
       VIM_BIN="$(whereis vim | awk '{print $2}')"
       HEADLESS=""
     fi
