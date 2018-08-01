@@ -15,14 +15,16 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y remove zathura-pdf-poppler
-    sudo apt-get -y install libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
+    sudo apt -y remove zathura-pdf-poppler
+    sudo apt -y install libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # otherwise the own girara compilation will not work
-    sudo apt-get -y remove libgirara-dev
+    sudo apt -y remove libgirara-dev
 
     # need for zathura compilation
-    sudo apt-get -y install libmagic-dev
+    sudo apt -y install libmagic-dev
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 

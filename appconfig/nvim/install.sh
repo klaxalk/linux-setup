@@ -15,6 +15,7 @@ while true; do
     toilet Installing neovim
 
     sudo apt -y install neovim
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
     mkdir -p ~/.config/nvim/
 
     sudo pip3 install neovim

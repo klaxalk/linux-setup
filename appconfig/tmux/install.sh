@@ -23,6 +23,7 @@ while true; do
     if [ -n "$BEAVER" ]; then
 
       sudo apt -y install tmux
+      if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     else
 

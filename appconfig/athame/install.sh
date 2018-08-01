@@ -15,7 +15,8 @@ while true; do
     # Ubuntu 16.04 does not have libreadline7 by default
     sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu yakkety main universe restricted multiverse"
     sudo apt-get update
-    sudo apt-get -y install libreadline7* libreadline-dev
+    sudo apt -y install libreadline7* libreadline-dev
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     if [ -x "$(command -v nvim)" ]; then
       VIM_BIN="$(whereis nvim | awk '{print $2}')"
@@ -29,7 +30,8 @@ while true; do
     sudo $VIM_BIN $HEADLESS /etc/apt/sources.list -E -s -c ":%g/yakkety/norm dd" -c "wqa"
     sudo apt-get update
 
-    sudo apt-get -y install curl
+    sudo apt -y install curl
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame

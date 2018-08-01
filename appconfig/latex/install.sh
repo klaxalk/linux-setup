@@ -12,7 +12,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker
+    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

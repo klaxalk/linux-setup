@@ -14,7 +14,10 @@ while true; do
 
     toilet Setting up vim
 
-    sudo apt-get -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev
+    sudo apt -y remove vim-*
+
+    sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-4.0 clang-format
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
@@ -50,7 +53,7 @@ while true; do
 
     # install patched fonts with powerline characters
     cd $APP_PATH/../../submodules/fonts
-    ./install.sh
+    sudo ./install.sh
 
     # make Terminus work
     mkdir -p ~/.config/fontconfig/conf.d

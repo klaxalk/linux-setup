@@ -13,7 +13,8 @@ while true; do
   then
 
     # install urvxt
-    sudo apt-get -y install rxvt-unicode-256color
+    sudo apt -y install rxvt-unicode-256color
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # link the configuration
     cp $APP_PATH/dotXresources ~/.Xresources
