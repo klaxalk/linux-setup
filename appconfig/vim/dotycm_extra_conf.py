@@ -244,19 +244,26 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
     file in the ROS where the header file is.
     TODO: Does not work, when the workspace is not sourced
     """
-    try:
-        import rospkg
-    except ImportError:
-        return None
-    pkg_name = rospkg.get_package_name(headerfile)
-    if not pkg_name:
-        return None
-    try:
-        pkg_path = rospkg.RosPack().get_path(pkg_name)
-    except rospkg.ResourceNotFound:
-        return None
-    import re
     with open("/tmp/ycm_debug.txt", "a") as file:
+        try:
+            import rospkg
+        except ImportError:
+            file.write("Missing rospkg")
+            return None
+        pkg_name = rospkg.get_package_name(headerfile)
+        if not pkg_name:
+            return None
+            file.write("Could not retrieve the package name")
+        try:
+            pkg_path = rospkg.RosPack().get_path(pkg_name)
+        except rospkg.ResourceNotFound:
+            return None
+            file.write("Could not retrive the package path")
+        try:
+            import re
+        except:
+            file.write("Missing re")
+            pass
         filename_no_ext = os.path.splitext(headerfile)[0]
         hdr_basename_no_ext = os.path.basename(filename_no_ext)
         file.write("Header: {}\n".format(hdr_basename_no_ext))
