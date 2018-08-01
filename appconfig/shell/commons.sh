@@ -247,6 +247,10 @@ symbolicCd() {
 
     file_path="/tmp/symlink_list.txt"
 
+    if [ ! -e "$file_path" ]; then
+      return
+    fi
+
     # parse the csv file and extract file paths
     i="1"
     while IFS=, read -r path1 path2; do

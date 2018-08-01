@@ -16,9 +16,14 @@ while true; do
 
     sudo apt -y install neovim
     mkdir -p ~/.config/nvim/
-    ln -sf $APP_PATH/../vim/dotvimrc ~/.config/nvim/init.vim
-    ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+
     sudo pip3 install neovim
+
+    if [ ! -e ~/.config/nvim/init.vim ]; then
+      ln -sf $APP_PATH/../vim/dotvimrc ~/.config/nvim/init.vim
+    fi
+
+    ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

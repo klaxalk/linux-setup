@@ -126,7 +126,9 @@ fi
 # link the scripts folder
 #############################################
 
-ln -sf $MY_PATH/scripts ~/.scripts
+if [ ! -e ~/.scripts ]; then
+  ln -sf $MY_PATH/scripts ~/.scripts
+fi
 
 #############################################
 # add PROFILES variables
