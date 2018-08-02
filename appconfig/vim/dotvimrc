@@ -435,7 +435,7 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-tmux-runner.vim
 
   " config for vim-clang-format
-  source ~/.vim/pluginconfig/vim-clang-format.vim
+ source ~/.vim/pluginconfig/vim-clang-format.vim
 
   " config for vim-easy-align
   source ~/.vim/pluginconfig/vim-easy-align.vim
