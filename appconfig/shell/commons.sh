@@ -322,14 +322,14 @@ waitForRos() {
 }
 
 waitForSimulation() {
-  until timeout 2s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
+  until timeout 3s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for simulation"
     sleep 1;
   done
 }
 
 waitForOdometry() {
-  until timeout 1s rostopic echo /$UAV_NAME/mavros/local_position/odom -n 1 --noarr > /dev/null 2>&1; do
+  until timeout 3s rostopic echo /$UAV_NAME/mavros/local_position/odom -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for odometry"
     sleep 1;
   done
