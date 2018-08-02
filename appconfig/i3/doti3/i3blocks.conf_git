@@ -127,6 +127,13 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_GPD }
 
+[cputemperature]
+interval=1
+label=
+command=cat /sys/class/thermal/thermal_zone0/temp | cut -d' ' -f1-3
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
 [load]
 interval=5
 label=

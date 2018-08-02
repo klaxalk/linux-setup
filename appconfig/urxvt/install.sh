@@ -19,11 +19,22 @@ while true; do
     # link the configuration
     cp $APP_PATH/dotXresources ~/.Xresources
 
+    var1="18.04"
+    var2=`lsb_release -r | awk '{ print $2 }'`
+    if [ "$var2" = "$var1" ]; then
+      export BEAVER=1
+    fi
+
+    EXTENSION_PATH="/usr/lib/urxvt/perl/"
+
+    if [ -n "$BEAVER" ]; then
+      EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl/"
+    fi
+
     # link extensions
-    for file in `ls $APP_PATH/extensions/`
-do
-    sudo ln -fs $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
-done
+    for file in `ls $APP_PATH/extensions/`; do
+      sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
+    done
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

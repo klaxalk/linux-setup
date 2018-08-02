@@ -488,6 +488,8 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_asus.sh'"
+
 # # EPIGEN_ADD_BLOCK_ASUS }
 
 # # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
