@@ -19,6 +19,8 @@ while true; do
     sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-4.0 clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
+    sudo pip3 install rospkg
+
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
