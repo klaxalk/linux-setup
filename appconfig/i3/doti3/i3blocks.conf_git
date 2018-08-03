@@ -127,12 +127,16 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_GPD }
 
-[cputemperature]
+# EPIGEN_ADD_BLOCK_DAN {
+
+[cputemp]
 interval=1
-label=
-command=cat /sys/class/thermal/thermal_zone0/temp | cut -d' ' -f1-3
+label=CPU
+command=~/.i3/show_temp.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# EPIGEN_ADD_BLOCK_DAN }
 
 [load]
 interval=5
