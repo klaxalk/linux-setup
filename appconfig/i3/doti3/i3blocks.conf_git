@@ -128,14 +128,12 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_GPD }
 
 # EPIGEN_ADD_BLOCK_DAN {
-
-[cputemp]
-interval=1
-label=CPU
-command=~/.i3/show_temp.sh
+# [cputemp]
+# terval=1
+# bel=CPU
+# mmand=~/.i3/show_temp.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_DAN }
 
 [load]
