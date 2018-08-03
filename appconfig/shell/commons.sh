@@ -335,5 +335,12 @@ waitForOdometry() {
   done
 }
 
+waitForControl() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control"
+    sleep 1;
+  done
+}
+
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"
