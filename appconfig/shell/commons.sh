@@ -42,6 +42,22 @@ done
 kill -9 "$1" > /dev/null 2> /dev/null
 }
 
+forceKillTmuxSession() {
+
+  num=`$TMUX_BIN ls 2> /dev/null | grep "$1" | wc -l`
+  if [ "$num" -gt "0" ]; then
+
+    pids=`tmux list-panes -s -t "$1" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
+
+    for pid in "$pids"; do
+      killp "$pid"
+    done
+
+    $TMUX_BIN kill-session -t "$1"
+
+  fi
+}
+
 killSession() {
 
   if [ ! -z "$TMUX" ]; then
@@ -118,20 +134,12 @@ git() {
         case $* in pull*|checkout*)
           echo "Updating git submodules"
           command git submodule update --init --recursive
-        esac
+      esac
 
-        if [[ "$?" == "0" ]]; then
+      if [[ "$?" == "0" ]]; then
 
-          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
 
-        fi
-
-      else
-        command git "$@"
-        case $* in pull*|checkout*)
-          echo "Updating git submodules"
-          command git submodule update --init --recursive
-        esac
       fi
 
     else
@@ -139,7 +147,15 @@ git() {
       case $* in pull*|checkout*)
         echo "Updating git submodules"
         command git submodule update --init --recursive
-      esac
+    esac
+  fi
+
+else
+  command git "$@"
+  case $* in pull*|checkout*)
+    echo "Updating git submodules"
+    command git submodule update --init --recursive
+esac
     fi
 
     ;;
@@ -185,6 +201,40 @@ if [ "$USE_I3" = "true" ]; then
 
 fi
 
+createSymlinkDatabase() {
+
+  echo "Generating symlink database"
+
+  file_path="/tmp/symlink_list.txt"
+
+  rm "$file_path" > /dev/null 2>&1
+
+  files=`ag -f ~/ --nocolor -g ""`
+  dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
+
+  for dir in `echo $dirs`
+  do
+    original=$(readlink "$dir")
+    if [[ ! -z "$original" ]];
+    then
+
+      if [[ "$original" == "."* ]]
+      then
+        temp="${dir%/*}/$original"
+        original=`( builtin cd "$temp" && pwd )`
+      fi
+
+      # echo "$dir -> $original"
+      echo "$dir, $original" >> "$file_path"
+    fi
+  done
+
+  # delete duplicite lines in the file
+  mv "$file_path" "$file_path".old
+  cat "$file_path".old | uniq > "$file_path"
+  rm "$file_path".old
+}
+
 symbolicCd() {
 
   # if ag is missing, run normal "cd"
@@ -192,42 +242,14 @@ symbolicCd() {
 
     builtin cd "$@"
 
-  # if we have ag, do the magic
+    # if we have ag, do the magic
   else
 
     file_path="/tmp/symlink_list.txt"
 
-    if [ ! -e "$file_path" ]
-    then
-      echo "Generating symlink database"
-
-      rm "$file_path" > /dev/null 2>&1 
-
-      files=`ag -f ~/ --nocolor -g ""`
-      dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
-
-      for dir in `echo $dirs`
-      do
-        original=$(readlink "$dir")
-        if [[ ! -z "$original" ]];
-        then
-
-          if [[ "$original" == "."* ]]
-          then
-            temp="${dir%/*}/$original"
-            original=`( builtin cd "$temp" && pwd )`
-          fi
-
-          # echo "$dir -> $original"
-          echo "$dir, $original" >> "$file_path"
-        fi
-      done
-
-      # delete duplicite lines in the file
-      mv "$file_path" "$file_path".old
-      cat "$file_path".old | uniq > "$file_path"
-      rm "$file_path".old
-
+    if [ ! -e "$file_path" ]; then
+      builtin cd "$@"
+      return
     fi
 
     # parse the csv file and extract file paths
@@ -269,14 +291,14 @@ symbolicCd() {
         if [ "$j" -eq "2" ]
         then
           builtin cd "${repath[1]}"
-        # elif [ "$j" -gt "2" ]
-        # then
-        #   builtin cd "${repath[1]}"
-        #   echo "FYI There is more than 1 symlink to this directory:"
-        #   for ((i=1; i < ${#repath[*]}+1; i++));
-        #   do
-        #     echo "	${repath[$i]} -> $new_path"
-        #   done
+          # elif [ "$j" -gt "2" ]
+          # then
+          #   builtin cd "${repath[1]}"
+          #   echo "FYI There is more than 1 symlink to this directory:"
+          #   for ((i=1; i < ${#repath[*]}+1; i++));
+          #   do
+          #     echo "	${repath[$i]} -> $new_path"
+          #   done
         fi
       fi
     fi
@@ -291,6 +313,34 @@ runRanger () {
 }
 alias ranger=runRanger
 alias ra=runRanger
+
+waitForRos() {
+  until rostopic list > /dev/null 2>&1; do
+    echo "waiting for ros"
+    sleep 1;
+  done
+}
+
+waitForSimulation() {
+  until timeout 3s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for simulation"
+    sleep 1;
+  done
+}
+
+waitForOdometry() {
+  until timeout 3s rostopic echo /$UAV_NAME/mavros/local_position/odom -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for odometry"
+    sleep 1;
+  done
+}
+
+waitForControl() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control"
+    sleep 1;
+  done
+}
 
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"

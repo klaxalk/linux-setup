@@ -1,9 +1,30 @@
-# set editor and shell
-export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-export TMUX_BIN=/usr/local/bin/tmux
+# detect the OS version
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+if [ "$var2" = "$var1" ]; then
+  export BEAVER=1
+fi
 
+# if nvim is present, use it!
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+else
+  export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+fi
+
+if [ -n "$BEAVER" ]; then
+  export TMUX_BIN=/usr/bin/tmux
+else
+  export TMUX_BIN=/usr/local/bin/tmux
+fi
+
+# EPIGEN_DEL_BLOCK_MATOUS {
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# EPIGEN_DEL_BLOCK_MATOUS }
+# EPIGEN_ADD_BLOCK_MATOUS {
+# ZSH_THEME="mortalscumbag"
+# EPIGEN_ADD_BLOCK_MATOUS }
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -77,19 +98,9 @@ runTmux() {
 
 zshexit() {
 
-  # if there is a tmux session with the same name as the current bashpid
-  num=`$TMUX_BIN ls 2> /dev/null | grep "T$PPID" | wc -l`
-  if [ "$num" -gt "0" ]; then
+  pwd >> /tmp/tmux_restore_path.txt
 
-    pids=`tmux list-panes -s -t "T$PPID" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
-
-    for pid in "$pids"; do
-       killp "$pid"
-    done
-
-    $TMUX_BIN kill-session -t "T$PPID"
-
-  fi
+  forceKillTmuxSession "T$PPID"
 }
 
 # VIM alias for running vim in tmux and in servermode
@@ -142,6 +153,8 @@ source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.zsh
 export ATHAME_ENABLED=0
 export ATHAME_SHOW_MODE=0
 export ATHAME_VIM_PERSIST=0
+export ATHAME_SHOW_ERROR=0
+export ATHAME_USE_JOBS=1
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it
@@ -153,7 +166,11 @@ if [ -n "$TMUX" ]; then
 
     if [[ $SESSION_NAME =~ ^T[0-9]+$ ]]; then
 
-      export ATHAME_ENABLED=1
+      if [ -z "${VIM+x}" ]; then
+
+        export ATHAME_ENABLED=1
+
+      fi
 
     fi
   fi

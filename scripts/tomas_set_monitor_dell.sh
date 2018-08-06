@@ -7,6 +7,9 @@ else
   source ~/."$SNAME"rc
 fi
 
+# refresh the output devices
+xrandr --auto
+
 MONITOR=$(echo "LAB
 PRESENTATION
 STANDALONE" | rofi -dmenu -p "Select setup:")
@@ -18,6 +21,9 @@ fi
 
 notify-send -u low -t 100 "Switching setup to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
+# refresh the output devices
+xrandr --auto
+
 case "$SHELL" in 
   *bash*)
     RCFILE="$HOME/.bashrc"
@@ -27,19 +33,20 @@ case "$SHELL" in
     ;;
 esac
 
-case "$MONITOR" in 
-  LAB)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_lab.sh ~/.monitor.sh
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
-    ;;
-  PRESENTATION)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_presentation.sh ~/.monitor.sh
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
-    ;;
-  STANDALONE)
-    /usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
-    ;;
-esac
+if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
+# link the arandr file
+MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+
+# change the variable in bashrc
+$VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
 
 source ~/.monitor.sh
 

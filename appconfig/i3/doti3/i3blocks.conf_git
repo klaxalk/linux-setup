@@ -38,6 +38,8 @@ markup=none
 
 # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
 
+# EPIGEN_DEL_BLOCK_GPD {
+
 [101]
 command=ping -c 1 192.168.0.101 >> /dev/null && echo '101' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -94,6 +96,8 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+# EPIGEN_DEL_BLOCK_GPD }
+
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # [notes]
@@ -122,6 +126,15 @@ command=$HOME/.i3/detacher.sh 1 'echo $ROS_MASTER_URI'
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_GPD }
+
+# EPIGEN_ADD_BLOCK_DAN {
+# [cputemp]
+# terval=1
+# bel=CPU
+# mmand=~/.i3/show_temp.sh
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_DAN }
 
 [load]
 interval=5

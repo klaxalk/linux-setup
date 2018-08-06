@@ -1,3 +1,15 @@
+global !p
+def complete(t, opts):
+	if t:
+		opts = [ m[ len(t): ] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	if len(opts) == 0:
+		return ""
+	else:
+		return "(" + '|'.join(opts) + ')'
+endglobal
+
 snippet fdisk "" Ab
 sudo fdisk -${1:l}
 endsnippet
@@ -63,11 +75,55 @@ grep ${2:-nr -e} "${1}"
 endsnippet
 
 snippet goto "" Ab
-rosservice call /uav${1:1}/trackers_manager/mpc_tracker/goTo "goal: [${2:0}, ${3:0}, ${4:3}, ${5:0}]"
+rosservice call /uav${1:1}/control_manager/goto "goal: [${3:0}, ${4:0}, ${5:3}, ${6:0}]"
 endsnippet
 
 snippet gorel "" Ab
-rosservice call /uav${1:1}/trackers_manager/mpc_tracker/goToRelative "goal: [${2:0}, ${3:0}, ${4:0}, ${5:0}]"
+rosservice call /uav${1:1}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
+endsnippet
+
+snippet goal "" Ab
+rosservice call /uav${1:1}/control_manager/goto_altitude ${2:3.0}
+endsnippet
+
+snippet mpctracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/MpcTracker'"
+endsnippet
+
+snippet hover "" Ab
+rosservice call /uav${1:1}/control_manager/hover
+endsnippet
+
+snippet motors "" Ab
+rosservice call /uav${1:1}/control_manager/motors ${2:1}
+endsnippet
+
+snippet land "" Ab
+rosservice call /uav${1:1}/mav_manager/land_home
+endsnippet
+
+snippet takeoff "" Ab
+rosservice call /uav${1:1}/mav_manager/takeoff
+endsnippet
+
+snippet pid "" Ab
+rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/PidController'"
+endsnippet
+
+snippet lsf "" Ab
+rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/LsfController'"
+endsnippet
+
+snippet failsafe_controller "" Ab
+rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/FailsafeController'"
+endsnippet
+
+snippet linetracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LineTracker'"
+endsnippet
+
+snippet lofftracker "" Ab
+rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LandoffTracker'"
 endsnippet
 
 snippet gppo "" Ab
@@ -103,18 +159,6 @@ if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
 endsnippet
 
 # this part contains python snippets which rely on global complete function
-
-global !p
-def complete(t, opts):
-	if t:
-		opts = [ m[ len(t): ] for m in opts if m.startswith(t) ]
-	if len(opts) == 1:
-		return opts[0]
-	if len(opts) == 0:
-		return ""
-	else:
-		return "(" + '|'.join(opts) + ')'
-endglobal
 
 # snippet "git checkout $" "" Abr
 # git checkout $1`!p

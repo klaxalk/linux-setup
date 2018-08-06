@@ -10,19 +10,16 @@ fi
 # refresh the output devices
 xrandr --auto
 
-MONITOR=$( echo "STANDALONE
+MONITOR=$(echo "LAB
 PRESENTATION
-EXTERNAL" | rofi -dmenu -p "Select monitor:")
+STANDALONE" | rofi -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "EXTERNAL" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
 
 notify-send -u low -t 100 "Switching setup to $MONITOR" -h string:x-canonical-private-synchronous:anything
-
-# refresh the output devices
-xrandr --auto
 
 case "$SHELL" in 
   *bash*)
@@ -41,12 +38,20 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
-# link the arandr file
-MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/gpd_$MONITOR_LOWERCASE.sh ~/.monitor.sh
-
-# change the variable in bashrc
-$VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- "$RCFILE"
+case "$MONITOR" in 
+  LAB)
+    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_lab.sh ~/.monitor.sh
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
+    ;;
+  PRESENTATION)
+    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_presentation.sh ~/.monitor.sh
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
+    ;;
+  STANDALONE)
+    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_standalone.sh ~/.monitor.sh
+    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
+    ;;
+esac
 
 source ~/.monitor.sh
 

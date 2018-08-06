@@ -121,6 +121,7 @@ default_flags = [
     '-fexceptions',
     '-DNDEBUG',
     '-DUSE_CLANG_COMPLETER',
+    '-Qunused-arguments',
     # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know
     # which language to use when compiling headers. So it will guess. Badly. So
     # C++ headers will be compiled as C headers. You don't want that so ALWAYS
@@ -243,30 +244,56 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
     file in the ROS where the header file is.
     TODO: Does not work, when the workspace is not sourced
     """
-    try:
-        import rospkg
-    except ImportError:
-        return None
-    pkg_name = rospkg.get_package_name(headerfile)
-    if not pkg_name:
-        return None
-    try:
-        pkg_path = rospkg.RosPack().get_path(pkg_name)
-    except rospkg.ResourceNotFound:
-        return None
-    filename_no_ext = os.path.splitext(headerfile)[0]
-    hdr_basename_no_ext = os.path.basename(filename_no_ext)
-    for path, dirs, files in os.walk(pkg_path):
-        for src_filename in files:
-            src_basename_no_ext = os.path.splitext(src_filename)[0]
-            if hdr_basename_no_ext != src_basename_no_ext:
-                continue
-            for extension in SOURCE_EXTENSIONS:
-                if src_filename.endswith(extension):
-                    compilation_info = database.GetCompilationInfoForFile(
-                        path + os.path.sep + src_filename)
-                    if compilation_info.compiler_flags_:
-                        return compilation_info
+    with open("/tmp/ycm_debug.txt", "a") as file:
+        try:
+            import rospkg
+        except ImportError:
+            file.write("Missing rospkg")
+            return None
+        pkg_name = rospkg.get_package_name(headerfile)
+        if not pkg_name:
+            return None
+            file.write("Could not retrieve the package name")
+        try:
+            pkg_path = rospkg.RosPack().get_path(pkg_name)
+        except rospkg.ResourceNotFound:
+            return None
+            file.write("Could not retrive the package path")
+        try:
+            import re
+        except:
+            file.write("Missing re")
+            pass
+        filename_no_ext = os.path.splitext(headerfile)[0]
+        hdr_basename_no_ext = os.path.basename(filename_no_ext)
+        file.write("Header: {}\n".format(hdr_basename_no_ext))
+        pattern = re.compile("^#include .*"+hdr_basename_no_ext+".*$")
+        for path, dirs, files in os.walk(pkg_path):
+            for src_filename in files:
+                for extension in SOURCE_EXTENSIONS:
+                    if src_filename.endswith(extension):
+                        src_basename_no_ext = os.path.splitext(src_filename)[0]
+                        full_src_filename = path + os.path.sep + src_filename;
+                        fh = open(full_src_filename)
+                        file.write("{}".format(full_src_filename));
+                        for line in fh:
+                            if pattern.match(line):
+                                file.write(" YES\n\n")
+                                compilation_info = database.GetCompilationInfoForFile(
+                                    path + os.path.sep + src_filename)
+                                if compilation_info.compiler_flags_:
+                                    return compilation_info
+                        file.write("\n")
+                # if hdr_basename_no_ext != src_basename_no_ext:
+                #     continue
+                # for extension in SOURCE_EXTENSIONS:
+                #     if src_filename.endswith(extension):
+                #         compilation_info = database.GetCompilationInfoForFile(
+                #             path + os.path.sep + src_filename)
+                #         if compilation_info.compiler_flags_:
+                #             file.write("-----")
+                #             return compilation_info
+        file.write("-----\n")
     return None
 
 def GetCompilationInfoForFile(filename, database):

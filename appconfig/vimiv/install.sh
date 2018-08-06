@@ -4,9 +4,6 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-# install missing dependecies
-sudo apt-get install -y python3-setuptools
-
 default=y
 while true; do
   [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall vimiv? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
@@ -14,6 +11,10 @@ while true; do
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
+
+    # install missing dependecies
+    sudo apt -y install python3-setuptools
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # link the configuration
     cd $APP_PATH/../../submodules/vimiv/
