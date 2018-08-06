@@ -25,10 +25,10 @@ while true; do
       export BEAVER=1
     fi
 
-    EXTENSION_PATH="/usr/lib/urxvt/perl/"
+    EXTENSION_PATH="/usr/lib/urxvt/perl"
 
     if [ -n "$BEAVER" ]; then
-      EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl/"
+      EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     fi
 
     # link extensions
