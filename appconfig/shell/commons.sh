@@ -50,7 +50,7 @@ forceKillTmuxSession() {
     pids=`tmux list-panes -s -t "$1" -F "#{pane_pid} #{pane_current_command}" | grep -v tmux | awk '{print $1}'`
 
     for pid in "$pids"; do
-       killp "$pid"
+      killp "$pid"
     done
 
     $TMUX_BIN kill-session -t "$1"
@@ -201,6 +201,40 @@ if [ "$USE_I3" = "true" ]; then
 
 fi
 
+createSymlinkDatabase() {
+
+  echo "Generating symlink database"
+
+  file_path="/tmp/symlink_list.txt"
+
+  rm "$file_path" > /dev/null 2>&1
+
+  files=`ag -f ~/ --nocolor -g ""`
+  dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
+
+  for dir in `echo $dirs`
+  do
+    original=$(readlink "$dir")
+    if [[ ! -z "$original" ]];
+    then
+
+      if [[ "$original" == "."* ]]
+      then
+        temp="${dir%/*}/$original"
+        original=`( builtin cd "$temp" && pwd )`
+      fi
+
+      # echo "$dir -> $original"
+      echo "$dir, $original" >> "$file_path"
+    fi
+  done
+
+  # delete duplicite lines in the file
+  mv "$file_path" "$file_path".old
+  cat "$file_path".old | uniq > "$file_path"
+  rm "$file_path".old
+}
+
 symbolicCd() {
 
   # if ag is missing, run normal "cd"
@@ -213,37 +247,9 @@ symbolicCd() {
 
     file_path="/tmp/symlink_list.txt"
 
-    if [ ! -e "$file_path" ]
-    then
-      echo "Generating symlink database"
-
-      rm "$file_path" > /dev/null 2>&1 
-
-      files=`ag -f ~/ --nocolor -g ""`
-      dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
-
-      for dir in `echo $dirs`
-      do
-        original=$(readlink "$dir")
-        if [[ ! -z "$original" ]];
-        then
-
-          if [[ "$original" == "."* ]]
-          then
-            temp="${dir%/*}/$original"
-            original=`( builtin cd "$temp" && pwd )`
-          fi
-
-          # echo "$dir -> $original"
-          echo "$dir, $original" >> "$file_path"
-        fi
-      done
-
-      # delete duplicite lines in the file
-      mv "$file_path" "$file_path".old
-      cat "$file_path".old | uniq > "$file_path"
-      rm "$file_path".old
-
+    if [ ! -e "$file_path" ]; then
+      builtin cd "$@"
+      return
     fi
 
     # parse the csv file and extract file paths
@@ -312,21 +318,28 @@ waitForRos() {
   until rostopic list > /dev/null 2>&1; do
     echo "waiting for ros"
     sleep 1;
-  done  
+  done
 }
 
 waitForSimulation() {
-  until timeout 1s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
+  until timeout 3s rostopic echo /gazebo/model_states -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for simulation"
     sleep 1;
-  done  
+  done
 }
 
 waitForOdometry() {
-  until timeout 1s rostopic echo /$UAV_NAME/mavros/local_position/odom -n 1 --noarr > /dev/null 2>&1; do
+  until timeout 3s rostopic echo /$UAV_NAME/mavros/local_position/odom -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for odometry"
     sleep 1;
-  done  
+  done
+}
+
+waitForControl() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control"
+    sleep 1;
+  done
 }
 
 CURRENT_PATH=`pwd`

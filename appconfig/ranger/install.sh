@@ -6,6 +6,7 @@ APP_PATH=`( cd "$APP_PATH" && pwd )`
 
 # img2txt
 sudo apt -y install ranger caca-utils libimage-exiftool-perl
+if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
 # symlink vim settings
 rm ~/.config/ranger/rifle.conf

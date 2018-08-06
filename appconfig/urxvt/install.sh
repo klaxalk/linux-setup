@@ -13,21 +13,28 @@ while true; do
   then
 
     # install urvxt
-    sudo apt-get -y install rxvt-unicode-256color
+    sudo apt -y install rxvt-unicode-256color
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # link the configuration
     cp $APP_PATH/dotXresources ~/.Xresources
 
+    var1="18.04"
+    var2=`lsb_release -r | awk '{ print $2 }'`
+    if [ "$var2" = "$var1" ]; then
+      export BEAVER=1
+    fi
+
+    EXTENSION_PATH="/usr/lib/urxvt/perl"
+
+    if [ -n "$BEAVER" ]; then
+      EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
+    fi
+
     # link extensions
-    for file in `ls $APP_PATH/extensions/`
-do
-    # for 16.04
-    sudo ln -fs $APP_PATH/extensions/$file /usr/lib/urxvt/perl/$file
-
-    # for 18.04
-    sudo ln -fs $APP_PATH/extensions/$file /usr/lib/x86_64-linux-gnu/urxvt/perl/$file
-
-done
+    for file in `ls $APP_PATH/extensions/`; do
+      sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
+    done
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

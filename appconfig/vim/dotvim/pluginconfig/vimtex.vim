@@ -2,6 +2,10 @@
 
 let g:vimtex_view_method = 'zathura'
 
+if has("nvim")
+  let g:vimtex_compiler_progname = 'nvr'
+endif
+
 let g:vimtex_compiler_latexmk = {
       \ 'backend' : 'process',
       \ 'background' : 1,
@@ -66,5 +70,5 @@ au FileType tex set synmaxcol=10000
 
 " let g:vimtex_complete_recursive_bib = 1
 
-" add dictionary for mbzirc-treasure-hunt paper
-autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'
+" add custom dictionary for a specific 'paper'
+" autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'

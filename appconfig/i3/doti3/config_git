@@ -217,7 +217,6 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
-exec_always urxvt -name scratchpadurxvt
 exec urxvt -name scratchpadurxvt
 
 # #{ appearance, colors and color-schemes
@@ -235,9 +234,9 @@ set $background_color         #151515
 set $active_border            #005faf
 set $split_indicator          #B85335
 set $urgent                   #ff0000
-# EPIGEN_DEL_BLOCK_TOSHIBA {
+# EPIGEN_DEL_BLOCK_MATOUS {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
-# EPIGEN_DEL_BLOCK_TOSHIBA }
+# EPIGEN_DEL_BLOCK_MATOUS }
 for_window [class="^.*"] border pixel 2
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
@@ -253,9 +252,9 @@ for_window [class="^.*"] border pixel 2
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
-# # EPIGEN_DEL_BLOCK_TOSHIBA {
+# # EPIGEN_DEL_BLOCK_MATOUS {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# # EPIGEN_DEL_BLOCK_TOSHIBA }
+# # EPIGEN_DEL_BLOCK_MATOUS }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -295,7 +294,12 @@ bar {
   set $i3bar_bg #00000000
 
 # EPIGEN_ADD_BLOCK_MATOUS {
-  # set $i3bar_bg #000000FF
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   set $i3bar_bg #FFFFFFFF
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+#   set $i3bar_bg #000000FF
+# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 # EPIGEN_ADD_BLOCK_MATOUS }
   colors {
 
@@ -378,7 +382,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_GPD {
 
 # # # gpd has small screen, tabs should be the default option
-# # workspace_layout tabbed
+# # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_STANDALONE
 
 # # # speed of the track point
 # # exec_always xinput --set-prop 10 272 0.50
@@ -462,6 +466,38 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ DAN's customization
+
+# EPIGEN_ADD_BLOCK_DAN {
+
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Toggling ASUS touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_asus.sh'"
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+
+# # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
+
+# EPIGEN_ADD_BLOCK_DAN }
+
+# #}
+
 # #{ MATEJ's customization
 
 # EPIGEN_ADD_BLOCK_MATEJ {
@@ -530,7 +566,7 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 exec --no-startup-id indicator-sound-switcher
 
 # generate the symlink list
-exec_always --no-startup-id "~/.i3/detacher.sh 'cd ~'"
+exec_always --no-startup-id "~/.i3/detacher.sh 'createSymlinkDatabase'"
 
 # #}
 

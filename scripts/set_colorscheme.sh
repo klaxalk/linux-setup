@@ -14,8 +14,6 @@ else
   source ~/."$SNAME"rc
 fi
 
-echo "$SNAME $PNAME"
-
 RCFILE=~/."$SNAME"rc
 
 COLOR_SCHEME=$( echo "DARK
@@ -28,8 +26,16 @@ fi
 
 notify-send -u low -t 100 "Setting colorscheme to $COLOR_SCHEME" -h string:x-canonical-private-synchronous:anything
 
+if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
+  VIM_BIN="$(whereis nvim | awk '{print $2}')"
+  HEADLESS="--headless"
+elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
+  VIM_BIN="$(whereis vim | awk '{print $2}')"
+  HEADLESS=""
+fi
+
 # change the variable in bashrc
-/usr/bin/vim -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
+$VIM_BIN -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" $HEADLESS -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
 
 source $RCFILE
 
