@@ -475,6 +475,12 @@ endif
 if g:user_mode == "1"
 
   " set vim and airline colorscheme
+
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK ACTIVE
+  " colorscheme default
+  " let g:airline_theme='papercolor'
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK
+
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK ACTIVE
   colorscheme jellybeans
   let g:airline_theme='jellybeans'
