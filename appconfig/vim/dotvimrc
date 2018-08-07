@@ -475,11 +475,13 @@ endif
 if g:user_mode == "1"
 
   " set vim colorscheme
-  colorscheme jellybeans " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  colorscheme default " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT EPIGEN_DEL_LINE_COLORSCHEME_DARK
+  " colorscheme jellybeans " EPIGEN_ADD_LINE_COLORSCHEME_DARK
   " colorscheme raggi " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
   " set airline theme
-  let g:airline_theme='jellybeans' " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+  let g:airline_theme='default' " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT EPIGEN_DEL_LINE_COLORSCHEME_DARK
+  " let g:airline_theme='jellybeans' " EPIGEN_ADD_LINE_COLORSCHEME_DARK
   " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
   " customize bookmarks in startify
