@@ -14,6 +14,17 @@ while true; do
 
     toilet Installing neovim
 
+    sudo expect -c "
+    spawn sudo apt-add-repository ppa:neovim-ppa/unstable
+    expect { 
+      \"ENTER\" {
+        send "\\n"
+        interact
+      }
+    }
+    "
+    sudo apt update
+
     sudo apt -y install neovim
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
     mkdir -p ~/.config/nvim/
