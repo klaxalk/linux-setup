@@ -8,15 +8,15 @@ au BufNewFile,BufRead *.launch set filetype=roslaunch.xml
 function! PrepRos()
   python3 << EOS
 try:
-    import rospkg
-    import vim
-    from glob import glob
+    try:
+        import rospkg
+        import os
+        from glob import glob
+        import vim
+    except ImportError:
+        pass
     def GetWorkspacePath(filename):
     
-        try:
-            import rospkg
-        except ImportError:
-            return ''
         pkg_name = rospkg.get_package_name(filename)
     
         if not pkg_name:
