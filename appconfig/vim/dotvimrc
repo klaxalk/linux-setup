@@ -476,7 +476,7 @@ if g:user_mode == "1"
 
   " set vim colorscheme
   colorscheme default " EPIGEN_DEL_LINE_COLORSCHEME_DARK EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-  colorscheme jellybeans " EPIGEN_ADD_LINE_COLORSCHEME_DARK
+  " colorscheme jellybeans " EPIGEN_ADD_LINE_COLORSCHEME_DARK
   " colorscheme raggi " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
   " set airline theme
