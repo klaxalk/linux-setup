@@ -474,14 +474,22 @@ endif
 " additional settings for non-athame vim
 if g:user_mode == "1"
 
-  " set vim colorscheme
-  colorscheme default " EPIGEN_DEL_LINE_COLORSCHEME_DARK EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-  " colorscheme jellybeans " EPIGEN_ADD_LINE_COLORSCHEME_DARK
-  " colorscheme raggi " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+  " set vim and airline colorscheme
 
-  " set airline theme
-  let g:airline_theme='jellybeans' " EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-  " let g:airline_theme='papercolor' " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK ACTIVE
+  " colorscheme default
+  " let g:airline_theme='papercolor'
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK
+
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK ACTIVE
+  colorscheme jellybeans
+  let g:airline_theme='jellybeans'
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK
+  
+  " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+  " colorscheme raggi
+  " let g:airline_theme='papercolor'
+  " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 
   " customize bookmarks in startify
   let g:startify_bookmarks = [
