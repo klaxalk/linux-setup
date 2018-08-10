@@ -340,6 +340,10 @@ waitForControl() {
     echo "waiting for control"
     sleep 1;
   done
+  until timeout 3s rostopic echo /$UAV_NAME/odometry/new_odom -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for new_odom"
+    sleep 1;
+  done
 }
 
 CURRENT_PATH=`pwd`
