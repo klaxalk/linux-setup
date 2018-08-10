@@ -121,6 +121,9 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
         # set youcompleteme
         toilet Setting up youcompleteme
 
+        sudo apt -y install libboost-all-dev
+        if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+
         cd ~/.vim/plugged/youcompleteme/
         git submodule update --init --recursive
         python3 ./install.py --all --system-libclang --system-boost
