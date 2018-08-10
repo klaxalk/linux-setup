@@ -307,7 +307,7 @@ symbolicCd() {
 alias cd="symbolicCd"
 
 runRanger () {
-  ranger --choosedir="/tmp/lastrangerdir"
+  command ranger --choosedir="/tmp/lastrangerdir"
   LASTDIR=`cat "/tmp/lastrangerdir"`
   symbolicCd "$LASTDIR"
 }
