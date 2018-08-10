@@ -69,8 +69,8 @@ while true; do
         if [ "$num" -lt "1" ]; then
 
           echo "
-          # want to use athame?
-          export USE_ATHAME=true" >> ~/.bashrc
+# want to use athame?
+export USE_ATHAME=true" >> ~/.bashrc
 
         fi
 
@@ -84,8 +84,8 @@ while true; do
         if [ "$num" -lt "1" ]; then
 
           echo "
-          # want to use athame?
-          export USE_ATHAME=false" >> ~/.bashrc
+# want to use athame?
+export USE_ATHAME=false" >> ~/.bashrc
 
         fi
         break
