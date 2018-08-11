@@ -1,16 +1,9 @@
 PNAME=$( ps -p "$$" -o comm= )
 SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
 if [ "$PNAME" != "$SNAME" ]; then
-  exec "$SHELL" -i "$0" "$@"
+  exec "$SHELL" "$0" "$@"
   exit "$?"
 else
-  case $- in
-    *i*) ;;
-    *)
-      exec "$SHELL" -i "$0" "$@"
-      exit "$?"
-      ;;
-  esac
   source ~/."$SNAME"rc
 fi
 
