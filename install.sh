@@ -88,8 +88,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding GIT_PATH variable to .bashrc"
   # set bashrc
   echo "
-  # path to the git root
-  export GIT_PATH=$TEMP" >> ~/.bashrc
+# path to the git root
+export GIT_PATH=$TEMP" >> ~/.bashrc
 fi
 
 #############################################
@@ -108,8 +108,8 @@ if [ "$num" -lt "1" ]; then
     then
 
       echo "
-      # want to run tmux automatically with new terminal?
-      export RUN_TMUX=true" >> ~/.bashrc
+# want to run tmux automatically with new terminal?
+export RUN_TMUX=true" >> ~/.bashrc
 
       echo "Setting variable RUN_TMUX to true"
 
@@ -118,8 +118,8 @@ if [ "$num" -lt "1" ]; then
     then
 
       echo "
-      # want to run tmux automatically with new terminal?
-      export RUN_TMUX=false" >> ~/.bashrc
+# want to run tmux automatically with new terminal?
+export RUN_TMUX=false" >> ~/.bashrc
 
       echo "Setting variable RUN_TMUX to false"
 
@@ -147,10 +147,10 @@ if [ "$num" -lt "1" ]; then
 
   echo "Adding epigen rules to .bashrc"
   echo '
-  # profiling options for EPIGEN
-  export PROFILES_ADDITIONS=""
-  export PROFILES_DELETIONS=""
-  export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
+# profiling options for EPIGEN
+export PROFILES_ADDITIONS=""
+export PROFILES_DELETIONS=""
+export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
 
@@ -172,8 +172,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-  # sourcing tomas's tmux preparation
-  source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
+# sourcing tomas's tmux preparation
+source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 else
 

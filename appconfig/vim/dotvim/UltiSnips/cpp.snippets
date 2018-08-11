@@ -28,7 +28,9 @@ def ros_info():
 		text="ROS_WARN"
 	elif match.group(1) == "rerr":
 		text="ROS_ERROR"
-	if match.group(2) == "t":
+	if (match.group(2) == "s") or (match.group(3) == "s"):
+		text+="_STREAM"
+	if (match.group(2) == "t") or (match.group(3) == "t"):
 		text+="_THROTTLE"
 	return text
 
@@ -154,11 +156,11 @@ if (!std::isfinite(${1:${VISUAL}})) {
 }
 endsnippet
 
-snippet "(rinfo|rwarn|rerr)(t)?" "" re
+snippet "(rinfo|rwarn|rerr)(t|s)?(t|s)?" "" re
 `!p
 snip.rv=ros_info()+"("
 ``!p
-if match.group(2) == "t":
+if (match.group(2) == "t") or (match.group(3) == "t") :
 	snip.rv="1.0, "
 `"`!p
 if file_is_plugin():

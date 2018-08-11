@@ -307,7 +307,7 @@ symbolicCd() {
 alias cd="symbolicCd"
 
 runRanger () {
-  ranger --choosedir="/tmp/lastrangerdir"
+  command ranger --choosedir="/tmp/lastrangerdir"
   LASTDIR=`cat "/tmp/lastrangerdir"`
   symbolicCd "$LASTDIR"
 }
@@ -338,6 +338,10 @@ waitForOdometry() {
 waitForControl() {
   until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for control"
+    sleep 1;
+  done
+  until timeout 3s rostopic echo /$UAV_NAME/odometry/new_odom -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for new_odom"
     sleep 1;
   done
 }
