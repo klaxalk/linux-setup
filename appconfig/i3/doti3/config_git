@@ -234,12 +234,12 @@ set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
 set $inactive_background      #333333
 set $active_background        #005faf
-set $background_color         #151515
+set $background_color         #121212
 set $active_border            #005faf
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 # EPIGEN_DEL_BLOCK_MATOUS {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/151515.jpg
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
 # EPIGEN_DEL_BLOCK_MATOUS }
 for_window [class="^.*"] border pixel 2
 
@@ -296,7 +296,7 @@ bar {
 # EPIGEN_ADD_BLOCK_MATEJ }
 
   # transparent=#00000000
-  set $i3bar_bg #00000000
+  set $i3bar_bg #121212FF
 
 # EPIGEN_ADD_BLOCK_MATOUS {
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {

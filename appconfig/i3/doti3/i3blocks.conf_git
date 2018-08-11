@@ -104,7 +104,7 @@ separator=true
 # command=~/git/notes/save_and_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=10
+# interval=60
 # separator=true
 
 # EPIGEN_ADD_BLOCK_TOMAS }

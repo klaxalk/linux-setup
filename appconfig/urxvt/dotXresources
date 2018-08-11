@@ -82,7 +82,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 
 ! vim: ft=xdefaults
 ! EPIGEN_DEL_BLOCK_MATOUS {
-URxvt.background: #151515
+URxvt.background: #121212
 ! EPIGEN_DEL_BLOCK_MATOUS }
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! URxvt.background: rgba:0000/0000/0000/B000
