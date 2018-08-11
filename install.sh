@@ -37,6 +37,9 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+# compile and install zsh with athame
+bash $APPCONFIG_PATH/zsh/install.sh
+
 # install urxvt
 bash $APPCONFIG_PATH/urxvt/install.sh
 
@@ -54,9 +57,6 @@ bash $APPCONFIG_PATH/ranger/install.sh
 
 # setup vimiv
 bash $APPCONFIG_PATH/vimiv/install.sh
-
-# install athame
-bash $APPCONFIG_PATH/athame/install.sh
 
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh

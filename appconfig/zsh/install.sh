@@ -12,12 +12,20 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing zshell via athame
+    sudo apt -y install curl
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    # instal athame
-    # compiles zsh
-    cd $APP_PATH/../athame/
-    ./install.sh
+    # compile athame from sources
+    cd $APP_PATH/../../submodules/athame
+
+    if [ -x "$(command -v nvim)" ]; then
+      NEOVIM="--vimbin=$(which nvim)"
+    elif [ -x "$(command -v vim)" ]; then
+      NEOVIM=""
+    fi
+
+    # build new zsh with readline patched with athame
+    sudo ./zsh_athame_setup.sh --use_sudo --notest $NEOVIM
 
     # install oh-my-zsh
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -25,6 +33,12 @@ while true; do
     # symlink plugins
     if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
       ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    fi
+
+    # symlink the .zshrc
+    num=`cat ~/.zshrc | grep "dotzshrc" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      ln -sf $APP_PATH/dotzshrc_template ~/.zshrc
     fi
 
     break

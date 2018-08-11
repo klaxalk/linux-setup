@@ -1,0 +1,50 @@
+plugins=(git tmuxinator)
+
+source /opt/ros/kinetic/setup.zsh
+source ~/workspace/devel/setup.zsh
+# source ~/timepix_workspace/devel/setup.zsh
+# source ~/gdax_workspace/devel/setup.zsh
+
+source /usr/share/gazebo/setup.sh
+source ~/git/simulation/install/share/simulation/setup.sh
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/git/simulation/gazebo_files/models
+
+export UAV_MASS=3.0
+export UAV_NAME=uav1
+
+export ROS_IP=127.0.0.1
+export ROS_MASTER_URI=http://127.0.0.1:11311
+
+# path to the git root
+export ROS_WORKSPACE="~/mrs_workspace ~/workspace ~/timepix_workspace"
+
+# where should ctags look for sources to parse?
+# -R dir1 -R dir2 ...
+export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/timepix_workspace -R ~/workspace"
+
+# where should ctags look for sources to parse?
+# CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
+# -R dir1 -R dir2 ...
+export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"
+
+# path to the git root
+export GIT_PATH=~/git
+
+# want to run tmux automatically with new terminal?
+export RUN_TMUX=true
+
+# do you use i3?
+export USE_I3=true
+
+# want to use athame?
+export USE_ATHAME=true
+
+# what should be activated/deactivated by epigen?
+export PROFILES_ADDITIONS=""
+export PROFILES_DELETIONS=""
+export PROFILES_BOTH="TOMAS DESKTOP COLORSCHEME_DARK"
+
+export XDG_RUNTIME_DIR="/tmp"
+
+# sourcing tomas's tmux preparation
+source ~/git/linux-setup/appconfig/zsh/dotzshrc
