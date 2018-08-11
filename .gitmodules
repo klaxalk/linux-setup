@@ -52,3 +52,6 @@
 [submodule "appconfig/indicator-sound-switcher"]
 	path = appconfig/indicator-sound-switcher
 	url = https://github.com/yktoo/indicator-sound-switcher.git
+[submodule "submodules/indicator-sound-switcher"]
+	path = submodules/indicator-sound-switcher
+	url = https://github.com/yktoo/indicator-sound-switcher.git
