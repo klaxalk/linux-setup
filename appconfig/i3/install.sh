@@ -67,18 +67,10 @@ while true; do
     sudo apt -y install lxappearance 
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    sudo expect -c "
-    spawn apt-add-repository ppa:yktooo/ppa
-    expect { 
-      \"adding it\" {
-        send "\\n"
-        interact
-      }
-    }
-    "
-    sudo apt-get update
-    sudo apt -y install indicator-sound-switcher
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    # indicator-sound-switcher
+    sudo apt -y install libappindicator3-dev
+    cd $APP_PATH/../../submodules/indicator-sound-switcher
+    sudo python3 setup.py install
 
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
@@ -103,16 +95,6 @@ while true; do
     # install thunar
     sudo apt -y install thunar rofi compton i3blocks systemd
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
-    # put $USE_I3 into bashrc
-    num=`cat ~/.bashrc | grep "USE_I3" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "
-# do you use i3?
-export USE_I3=false" >> ~/.bashrc
-
-    fi
 
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false

@@ -1,11 +1,15 @@
 PNAME=$( ps -p "$$" -o comm= )
 SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
 if [ "$PNAME" != "$SNAME" ]; then
-  command "$SNAME" "$0" "$@"
+  exec "$SHELL" "$0" "$@"
   exit "$?"
+else
+  source ~/."$SNAME"rc
 fi
 
-MONITOR=$( echo "CLASSIC
+# THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
+
+MONITOR=$(echo "CLASSIC
 FHD_EXTERNAL" | rofi -dmenu -p "Select monitor:")
 
 if [[ "$MONITOR" != "CLASSIC" ]] && [[ "$MONITOR" != "FHD_EXTERNAL" ]]; then
@@ -15,14 +19,8 @@ fi
 
 notify-send -u low -t 100 "Switching monitor to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
-case "$SHELL" in
-  *bash*)
-    RCFILE="$HOME/.bashrc"
-    ;;
-  *zsh*)
-    RCFILE="$HOME/.zshrc"
-    ;;
-esac
+# refresh the output devices
+xrandr --auto
 
 if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
   VIM_BIN="$(whereis nvim | awk '{print $2}')"
@@ -32,21 +30,17 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
-case "$MONITOR" in
-  *CLASSIC*)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/vojta/classic.sh ~/.monitor.sh
-    ;;
-  *FHD_EXTERNAL*)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/vojta/fhd_external.sh ~/.monitor.sh
-    # change the variable in bashrc
-    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_LIGHT" -c "wqa" -- "$RCFILE"
-    ;;
-esac
+# link the arandr file
+MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/$MONITOR_LOWERCASE.sh ~/.monitor.sh
+
+# change the variable in bashrc
+$VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc
 
 source ~/.monitor.sh
 
-source "$RCFILE"
-
+# uncomment for changing the colorscheme
+source ~/."$SNAME"rc
 cd "$GIT_PATH/linux-setup"
 ./backup_and_deploy.sh
 
@@ -59,4 +53,4 @@ xrandr --auto
 # restart i3
 i3-msg restart
 
-notify-send -u low -t 100 "Monitor switched" -h string:x-canonical-private-synchronous:anything
+notify-send -u low -t 100 "Setup switched" -h string:x-canonical-private-synchronous:anything

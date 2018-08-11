@@ -6,6 +6,14 @@ alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
+# reload configuration for urxvt
+xrdb ~/.Xresources
+
+# set keyboard repeat rate
+xset r rate 350 55
+
+# export TERM=rxvt-unicode-256color
+
 # use ctags to generate code tags
 generateTags() {
 
@@ -187,19 +195,6 @@ sourceShellDotfile() {
   source "$RCFILE"
 }
 alias sb="sourceShellDotfile"
-
-# special code for i3 users
-if [ "$USE_I3" = "true" ]; then
-
-  # reload configuration for urxvt
-  xrdb ~/.Xresources
-
-  # set keyboard repeat rate
-  xset r rate 350 55
-
-  export TERM=rxvt-unicode-256color
-
-fi
 
 createSymlinkDatabase() {
 

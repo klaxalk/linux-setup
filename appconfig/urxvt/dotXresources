@@ -3,7 +3,7 @@
 ! the default font, will be commented out for
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ {
-URxvt.font: xft:terminess powerline:size=12
+URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
@@ -18,23 +18,23 @@ URxvt.font: xft:terminess powerline:size=12
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
 ! ! EPIGEN_ADD_BLOCK_DESKTOP {
-! ! URxvt.font: xft:terminess powerline:size=14
+! ! URxvt.font: xft:xft:Inconsolata for Powerline:size=14
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE {
-! ! URxvt.font: xft:terminess powerline:size=12
+! ! URxvt.font: xft:Inconsolata for Powerline:size=12
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE }
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
 
 ! ! ! ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
-! ! ! URxvt.font: xft:terminess powerline:size=15
+! ! ! URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! ! ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
 ! ! ! ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-! ! ! ! URxvt.font: xft:Liberation Mono for Powerline:size=13
+! ! ! ! URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! ! ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
@@ -51,7 +51,7 @@ URxvt.font: xft:terminess powerline:size=12
 ! ! ! Xft.dpi: 100
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_EXTERNAL }
 
-! ! URxvt.font: xft:terminess powerline:size=12
+! ! URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! EPIGEN_ADD_BLOCK_GPD }
 
@@ -82,7 +82,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 
 ! vim: ft=xdefaults
 ! EPIGEN_DEL_BLOCK_MATOUS {
-URxvt.background: #151515
+URxvt.background: #121212
 ! EPIGEN_DEL_BLOCK_MATOUS }
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! URxvt.background: rgba:0000/0000/0000/B000

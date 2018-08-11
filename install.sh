@@ -14,7 +14,7 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp
 if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
 var1="18.04"
@@ -37,6 +37,9 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh
 
+# compile and install zsh with athame
+bash $APPCONFIG_PATH/zsh/install.sh
+
 # install urxvt
 bash $APPCONFIG_PATH/urxvt/install.sh
 
@@ -54,9 +57,6 @@ bash $APPCONFIG_PATH/ranger/install.sh
 
 # setup vimiv
 bash $APPCONFIG_PATH/vimiv/install.sh
-
-# install athame
-bash $APPCONFIG_PATH/athame/install.sh
 
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh
