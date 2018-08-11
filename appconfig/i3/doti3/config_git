@@ -219,6 +219,9 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 exec urxvt -name scratchpadurxvt
 
+# bluetooth applet
+exec --no-startup-id blueman-applet
+
 # #{ appearance, colors and color-schemes
 
 # default dark colors
