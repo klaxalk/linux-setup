@@ -38,7 +38,7 @@ while true; do
     # symlink the .zshrc
     num=`cat ~/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
-      ln -sf $APP_PATH/dotzshrc_template ~/.zshrc
+      mv $APP_PATH/dotzshrc_template ~/.zshrc
     fi
 
     break

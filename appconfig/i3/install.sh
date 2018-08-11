@@ -95,16 +95,6 @@ while true; do
     sudo apt -y install thunar rofi compton i3blocks systemd
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    # put $USE_I3 into bashrc
-    num=`cat ~/.bashrc | grep "USE_I3" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "
-# do you use i3?
-export USE_I3=false" >> ~/.bashrc
-
-    fi
-
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
