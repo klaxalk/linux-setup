@@ -33,7 +33,7 @@ while true; do
     sudo pip3 install neovim-remote
 
     if [ ! -e ~/.config/nvim/init.vim ]; then
-      ln -sf $APP_PATH/../vim/dotvimrc ~/.config/nvim/init.vim
+      ln -sf ~/.vimrc ~/.config/nvim/init.vim
     fi
 
     ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/

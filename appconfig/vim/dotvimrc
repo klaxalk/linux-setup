@@ -309,8 +309,8 @@ nmap <leader>d "_d
 set wrap
 set linebreak
 set nolist  " list disables linebreak
-set textwidth=0
 set wrapmargin=0
+set textwidth=0
 
 " just show the autocomplete menu
 set completeopt=longest,menuone
@@ -476,20 +476,20 @@ if g:user_mode == "1"
 
   " set vim and airline colorscheme
 
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK ACTIVE
-  " colorscheme default
-  " let g:airline_theme='papercolor'
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_DARK
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+  colorscheme default
+  let g:airline_theme='papercolor'
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
-  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK ACTIVE
-  colorscheme jellybeans
-  let g:airline_theme='jellybeans'
-  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+  " colorscheme jellybeans
+  " let g:airline_theme='jellybeans'
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
   
-  " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
   " colorscheme raggi
   " let g:airline_theme='papercolor'
-  " EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   " customize bookmarks in startify
   let g:startify_bookmarks = [
