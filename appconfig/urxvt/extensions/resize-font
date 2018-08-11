@@ -89,13 +89,13 @@ sub on_action {
   if ($string eq "bigger") {
     foreach (@fonts) {
       next if not defined($_->{'default'});
-      update_font_size($self, $_, +2);
+      update_font_size($self, $_, +1);
     }
   }
   elsif ($string eq "smaller") {
     foreach (@fonts) {
       next if not defined($_->{'default'});
-      update_font_size($self, $_, -2);
+      update_font_size($self, $_, -1);
     }
   }
   elsif ($string eq "reset") {

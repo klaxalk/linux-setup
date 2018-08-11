@@ -63,6 +63,7 @@ font pango:Terminus 10
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
+# # font pango: Inconsolata 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # # font pango: LiberationMono 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -283,6 +284,7 @@ bar {
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
+# #   font pango: Inconsolata, FontAwesome 11
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
