@@ -67,18 +67,9 @@ while true; do
     sudo apt -y install lxappearance 
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    sudo expect -c "
-    spawn apt-add-repository ppa:yktooo/ppa
-    expect { 
-      \"adding it\" {
-        send "\\n"
-        interact
-      }
-    }
-    "
-    sudo apt-get update
-    sudo apt -y install indicator-sound-switcher
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    # indicator-sound-switcher
+    cd $APP_PATH/../../indicator-sound-switcher
+    sudo python3 setup.py install
 
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
