@@ -68,7 +68,8 @@ while true; do
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # indicator-sound-switcher
-    cd $APP_PATH/../../indicator-sound-switcher
+    sudo apt -y install libappindicator3-dev
+    cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
     # symlink settings folder
