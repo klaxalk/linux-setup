@@ -7,8 +7,7 @@ else
   source ~/."$SNAME"rc
 fi
 
-# refresh the output devices
-xrandr --auto
+# THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
 MONITOR=$(echo "LAB
 PRESENTATION
@@ -21,14 +20,8 @@ fi
 
 notify-send -u low -t 100 "Switching setup to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
-case "$SHELL" in 
-  *bash*)
-    RCFILE="$HOME/.bashrc"
-    ;;
-  *zsh*)
-    RCFILE="$HOME/.zshrc"
-    ;;
-esac
+# refresh the output devices
+xrandr --auto
 
 if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
   VIM_BIN="$(whereis nvim | awk '{print $2}')"
@@ -38,20 +31,12 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
-case "$MONITOR" in 
-  LAB)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_lab.sh ~/.monitor.sh
-    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
-    ;;
-  PRESENTATION)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_presentation.sh ~/.monitor.sh
-    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_EXTERNAL" -c "wqa" -- "$RCFILE"
-    ;;
-  STANDALONE)
-    ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/dan/asus_standalone.sh ~/.monitor.sh
-    $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_STANDALONE" -c "wqa" -- "$RCFILE"
-    ;;
-esac
+# link the arandr file
+MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+
+# change the variable in bashrc
+$VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc
 
 source ~/.monitor.sh
 
