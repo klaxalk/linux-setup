@@ -15,8 +15,8 @@ while true; do
     toilet Setting up vim
 
     sudo apt -y remove vim-*
-    sudo apt -y remove clang*
-    sudo apt -y remove libclang*
+    sudo apt -y remove clang-3.8
+    sudo apt -y remove libclang-common-3.8-dev
 
     sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-4.0 clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
