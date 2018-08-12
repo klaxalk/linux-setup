@@ -8,15 +8,14 @@ au BufNewFile,BufRead *.launch set filetype=roslaunch.xml
 function! PrepRos()
   python3 << EOS
 try:
-    try:
-        import rospkg
-        import os
-        from glob import glob
-        import vim
-    except ImportError:
-        pass
-    def GetWorkspacePath(filename):
+
+    import rospkg
+    import os
+    from glob import glob
+    import vim
     
+    def GetWorkspacePath(filename):
+
         pkg_name = rospkg.get_package_name(filename)
     
         if not pkg_name:
@@ -46,16 +45,17 @@ try:
                     return workspace_path
     
         return 0
+
+    pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
+    if pkgname:
+        workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
+        r = rospkg.RosPack()
+        vim.command("let is_ros='true'")
+        vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+"'")
+    else:
+        vim.command("let is_ros='false'")
 except ImportError:
     vim.command("let is_ros='N/A'")
-pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
-if pkgname:
-    workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
-    r = rospkg.RosPack()
-    vim.command("let is_ros='true'")
-    vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+"'")
-else:
-    vim.command("let is_ros='false'")
 EOS
   if is_ros == "true"
     set efm=%f:%l:%c:\ error:%m
