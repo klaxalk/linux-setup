@@ -28,7 +28,7 @@ while true; do
     "
     sudo apt-get update
 
-    sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
+    sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf help2man
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # install graphical X11 graphical backend with lightdm loading screen
@@ -46,6 +46,14 @@ while true; do
     ./autogen.sh --prefix=/usr
     make
     sudo make install
+
+    # install light for display backlight control
+    # compile i3
+    cd $APP_PATH/../../submodules/light/
+    git checkout 1.1.2 # checkout the latest (at the time of writing) release
+    make && sudo make install
+    # set the minimal backlight value to 5%
+    light -c -S 5
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/
@@ -101,6 +109,9 @@ while true; do
 
     # install xkblayout state
     bash $APP_PATH/../xkblayout-state/install.sh
+
+    # install prime-select (for switching gpus)
+    sudo apt -y install prime-select
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

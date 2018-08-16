@@ -177,6 +177,9 @@ bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
 # EPIGEN_ADD_BLOCK_VOJTA }
 
+# changing active gpu
+bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_gpu.sh'"
+
 # reload i3 settings from the ~/.i3/config file
 bindsym $mod+Shift+r restart
 
@@ -285,6 +288,9 @@ bar {
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
+# # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+# # #   font pango: Inconsolata, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -292,20 +298,17 @@ bar {
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {
-  # font pango: Terminus, FontAwesome 12
+  # font pango: Inconsolata 11
 # EPIGEN_ADD_BLOCK_MATEJ }
 
   # transparent=#00000000
+  # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
   set $i3bar_bg #121212FF
+  # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+  # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+    # set $i3bar_bg #FFFFFFFF
+  # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
-# EPIGEN_ADD_BLOCK_MATOUS {
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   set $i3bar_bg #FFFFFFFF
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
-#   set $i3bar_bg #000000FF
-# # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
-# EPIGEN_ADD_BLOCK_MATOUS }
   colors {
 
     statusline $text_color

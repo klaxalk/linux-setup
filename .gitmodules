@@ -52,3 +52,6 @@
 [submodule "submodules/indicator-sound-switcher"]
 	path = submodules/indicator-sound-switcher
 	url = https://github.com/yktoo/indicator-sound-switcher.git
+[submodule "submodules/light"]
+	path = submodules/light
+	url = https://github.com/haikarainen/light

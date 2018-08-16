@@ -24,7 +24,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! EPIGEN_ADD_BLOCK_DELL {
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE {
-! ! URxvt.font: xft:Inconsolata for Powerline:size=12
+! ! URxvt.font: xft:Roboto Mono for Powerline:size=12
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_STANDALONE }
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {

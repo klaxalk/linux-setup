@@ -190,6 +190,33 @@ snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\end{figure}
 endsnippet
 
+snippet jinstfigure2 "figure, as defined in the JINST tamplate"
+\begin{figure}[${1:htbp}]
+	\centering
+	\includegraphics[width=.4\textwidth,origin=c,angle=180]{fig/${2}}
+	\qquad
+	\includegraphics[width=.4\textwidth,origin=c,angle=180]{fig/${3}}
+	\caption{\label{fig:${4}} ${5}}
+\end{figure}
+endsnippet
+
+snippet jinsttable "table, as defined in the JINST tamplate"
+\begin{table}[htbp]
+	\centering
+	\caption{\label{tab:i} We prefer to have borders around the tables.}
+	\smallskip
+	\begin{tabular}{|lr|c|}
+	\hline
+	x&y&x and y\\
+	\hline
+	a & b & a and b\\
+	1 & 2 & 1 and 2\\
+	$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
+	\hline
+	\end{tabular}
+\end{table}
+endsnippet
+
 snippet ieeefigure "figure, as defined in the IEEE tamplate"
 \\begin{figure}[thpb]
 	\\centering
