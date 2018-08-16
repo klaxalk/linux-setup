@@ -110,6 +110,9 @@ while true; do
     # install xkblayout state
     bash $APP_PATH/../xkblayout-state/install.sh
 
+    # install prime-select (for switching gpus)
+    sudo apt -y install prime-select
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
