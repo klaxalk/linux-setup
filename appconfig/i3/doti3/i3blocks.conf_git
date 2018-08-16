@@ -127,14 +127,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_GPD }
 
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BlOCK_MATEJ {
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # [cputemp]
 # interval=1
 # label=CPU
 # command=~/.i3/show_temp.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BlOCK_MATEJ ACTIVE }
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
 
 [load]
 interval=5
@@ -252,12 +252,12 @@ command=~/.i3/show_keyboard_layout.sh
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_ADD_BLOCK_GPU {
-[gpu]
+# pu]
 # label=GPU
-interval=10
-command=$HOME/.i3/detacher.sh 1 'prime-select query'
+# terval=10
+# mmand=$HOME/.i3/detacher.sh 1 'prime-select query'
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# lor=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_GPU }
 
 # Date Time
