@@ -295,7 +295,7 @@ bar {
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {
-  # font pango: Terminus, FontAwesome 12
+  # font pango: Inconsolata 11
 # EPIGEN_ADD_BLOCK_MATEJ }
 
   # transparent=#00000000
