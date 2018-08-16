@@ -255,7 +255,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 [gpu]
 # label=GPU
 interval=10
-command=$HOME/.i3/detacher.sh 1 'prime-select query'
+command=$HOME/.i3/show_active_gpu.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_GPU }
