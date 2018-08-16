@@ -44,7 +44,7 @@ try:
                     # if it is, return path to its workspace
                     return workspace_path
     
-        return 0
+        return ''
 
     pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
     if pkgname:
