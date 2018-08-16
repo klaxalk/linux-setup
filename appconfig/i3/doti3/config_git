@@ -177,6 +177,9 @@ bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
 # EPIGEN_ADD_BLOCK_VOJTA }
 
+# changing active gpu
+bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_gpu.sh'"
+
 # reload i3 settings from the ~/.i3/config file
 bindsym $mod+Shift+r restart
 
