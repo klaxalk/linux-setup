@@ -48,19 +48,17 @@ while true; do
     sudo make install
 
     # install light for display backlight control
-    cd $APP_PATH/../../submodules/i3/
-    git clone https://github.com/Airblader/xcb-util-xrm
-    cd xcb-util-xrm
-    git submodule update --init
-    ./autogen.sh --prefix=/usr
-    make
-    sudo make install
+    # compile i3
+    cd $APP_PATH/../../submodules/light/
+    make && sudo make install
     # set the minimal backlight value to 5%
     light -c -S 5
 
     # compile i3
-    cd $APP_PATH/../../submodules/light/
-    make && sudo make install
+    cd $APP_PATH/../../submodules/i3/
+    autoreconf --force --install
+    rm -rf build/
+    mkdir -p build && cd build/
 
     # Disabling sanitizers is important for release versions!
     # The prefix and sysconfdir are, obviously, dependent on the distribution.
