@@ -157,6 +157,12 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 
 " EPIGEN_ADD_BLOCK_MATEJ }
 
+" EPIGEN_ADD_BLOCK_MATOUS {
+
+" let g:vimwiki_list = [mbzirc_wiki]
+
+" EPIGEN_ADD_BLOCK_MATOUS }
+
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
   if v:shell_error
