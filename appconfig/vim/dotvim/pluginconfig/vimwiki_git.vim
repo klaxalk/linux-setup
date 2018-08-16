@@ -9,6 +9,16 @@
 "   return 0
 " endfun
 
+let mbzirc_wiki = {}
+let mbzirc_wiki.path = '~/git/mbzirc2020/wiki'
+let mbzirc_wiki.html_template = '~/git/notes/template/template.html'
+let mbzirc_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+let mbzirc_wiki.index = 'README'
+let mbzirc_wiki.syntax = 'markdown'
+let mbzirc_wiki.ext = '.md'
+let mbzirc_wiki.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
+let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
+
 " EPIGEN_ADD_BLOCK_TOMAS {
 
 " let wiki_1 = {}
@@ -81,7 +91,7 @@
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let g:vimwiki_list = [wiki_1, wiki_2, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils]
+" let g:vimwiki_list = [wiki_1, wiki_2, mbzirc_wiki, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 
@@ -143,10 +153,10 @@
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let g:vimwiki_list = [wiki_notes, wiki_exam, naki]
+" let g:vimwiki_list = [wiki_notes, wiki_exam, naki, mbzirc_wiki]
 
 " EPIGEN_ADD_BLOCK_MATEJ }
-"
+
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
   if v:shell_error
