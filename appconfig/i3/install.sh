@@ -50,6 +50,7 @@ while true; do
     # install light for display backlight control
     # compile i3
     cd $APP_PATH/../../submodules/light/
+    git checkout 1.1.2 # checkout the latest (at the time of writing) release
     make && sudo make install
     # set the minimal backlight value to 5%
     light -c -S 5
