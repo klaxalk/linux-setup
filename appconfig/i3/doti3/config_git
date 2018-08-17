@@ -408,8 +408,6 @@ set $mode_gaps_inner inner gaps
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
 
 # # # brightness
-# # # The following line needs to be in /etc/sudoers
-# # # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
@@ -469,8 +467,8 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
 
 # # # Bind Toshiba screen brightness control
-# # bindsym XF86MonBrightnessDown --release exec --no-startup-id sudo ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp --release exec --no-startup-id sudo ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # # EPIGEN_ADD_BLOCK_TOSHIBA }
 

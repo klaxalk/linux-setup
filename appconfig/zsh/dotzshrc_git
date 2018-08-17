@@ -184,3 +184,5 @@ if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
     fi
   fi
 fi
+
+true # so that this script returns 0
