@@ -52,7 +52,7 @@ source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
 # handy for common tmuxinator scripts
 historyRead() {
 
-  eval "print $*"
+  eval 'print $@'
 }
 alias history='historyRead'
 
