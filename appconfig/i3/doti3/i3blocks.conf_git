@@ -168,7 +168,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=2
 # label=CPU
 # # EPIGEN_ADD_BLOCK_DELL {
-# command=~/.i3/show_temp.sh 7
+# # command=~/.i3/show_temp.sh 7
 # # EPIGEN_ADD_BLOCK_DELL }
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
