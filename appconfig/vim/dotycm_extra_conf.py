@@ -270,6 +270,7 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
         hdr_basename_no_ext = os.path.basename(filename_no_ext)
         file.write("Header: {}\n".format(hdr_basename_no_ext))
         pattern = re.compile("^#include .*"+hdr_basename_no_ext+".*$")
+        ros_include_pattern = re.compile("^#include .*ros.*$")
         for path, dirs, files in os.walk(pkg_path):
             for src_filename in files:
                 for extension in SOURCE_EXTENSIONS:
@@ -286,6 +287,22 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                                 if compilation_info.compiler_flags_:
                                     return compilation_info
                         file.write("\n")
+            # where reaching here, we have not find a c file to the header, lets use any in the package, that uses ros
+            file.write("didnt find suitable C file to the header, searching for some ROS c file\n\n")
+            for src_filename in files:
+                for extension in SOURCE_EXTENSIONS:
+                    if src_filename.endswith(extension):
+                        src_basename_no_ext = os.path.splitext(src_filename)[0]
+                        full_src_filename = path + os.path.sep + src_filename;
+                        fh = open(full_src_filename)
+                        file.write("{}".format(full_src_filename));
+                        for line in fh:
+                            if ros_include_pattern.match(line):
+                                file.write(" YES (ROS)\n\n")
+                                compilation_info = database.GetCompilationInfoForFile(
+                                    path + os.path.sep + src_filename)
+                                if compilation_info.compiler_flags_:
+                                    return compilation_info
                 # if hdr_basename_no_ext != src_basename_no_ext:
                 #     continue
                 # for extension in SOURCE_EXTENSIONS:
