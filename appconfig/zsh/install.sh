@@ -19,13 +19,13 @@ while true; do
     cd $APP_PATH/../../submodules/athame
 
     if [ -x "$(command -v nvim)" ]; then
-      NEOVIM="--vimbin=$(which nvim)"
+      NEOVIM="--vimbin=/usr/bin/nvim"
     elif [ -x "$(command -v vim)" ]; then
-      NEOVIM=""
+      NEOVIM="--vimbin=/usr/bin/vim"
     fi
 
     # build new zsh with readline patched with athame
-    sudo ./zsh_athame_setup.sh --use_sudo --notest $NEOVIM
+    sudo ./zsh_athame_setup.sh --notest $NEOVIM
 
     # install oh-my-zsh
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"

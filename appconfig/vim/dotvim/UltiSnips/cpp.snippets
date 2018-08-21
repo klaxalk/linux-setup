@@ -207,7 +207,7 @@ snippet "////" "" r
 endsnippet
 
 snippet "fold" "" r
-//{ ${1}
+/* ${1} //{ */
 
 ${2:${VISUAL}}
 
@@ -306,4 +306,8 @@ namespace ${1} {
 ${2:${VISUAL}}
 
 }
+endsnippet
+
+snippet pow "" i
+pow(${1}, ${2:2})
 endsnippet
