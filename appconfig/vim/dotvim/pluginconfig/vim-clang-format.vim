@@ -14,17 +14,20 @@ let g:clang_format#style_options = {
       \ 'AllowShortCaseLabelsOnASingleLine' : 'false',
       \ 'AllowShortIfStatementsOnASingleLine' : 'false',
       \ 'AlwaysBreakTemplateDeclarations' : 'true',
-      \ 'AlignConsecutiveAssignments' : 'true',
+      \ 'AlignConsecutiveAssignments' : 'false',
+      \ 'AlignConsecutiveDeclarations' : 'false',
       \ 'SpaceBeforeParens' : 'ControlStatements',
-      \ 'BreakBeforeBinaryOperators' : 'false',
+      \ 'BreakBeforeBinaryOperators' : 'NonAssignment',
       \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
+      \ 'DerivePointerAlignment' : 'false',
+      \ 'PointerAlignment' : 'Left',
       \ 'BreakBeforeBraces' : 'Custom',
       \ 'SortIncludes' : 'false',
       \ 'BraceWrapping' : {
-      \   'AfterClass' :      'false',
-      \   'AfterControlStatement' : 'false',
+      \   'AfterClass' :      'true',
+      \   'AfterControlStatement' : 'true',
       \   'AfterEnum' :       'true',
-      \   'AfterFunction' :   'false',
+      \   'AfterFunction' :   'true',
       \   'AfterNamespace' :  'true',
       \   'AfterObjCDeclaration' : 'true',
       \   'AfterStruct' :     'true',
@@ -33,7 +36,7 @@ let g:clang_format#style_options = {
       \   'BeforeElse' :      'false',
       \   'IndentBraces' :    'false'
       \   },
-      \ 'AlignConsecutiveDeclarations' : 'true' }
+      \ }
 
 autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>
 
