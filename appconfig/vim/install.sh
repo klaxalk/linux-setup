@@ -45,7 +45,7 @@ while true; do
     cd src
     make
     cd ../
-    make VIMRUNTIMEDIR=/usr/share/vim/vim80
+    make VIMRUNTIMEDIR=/usr/share/vim/vim81
     sudo make install
 
     # set vim as a default git mergetool
