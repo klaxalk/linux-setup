@@ -311,3 +311,23 @@ endsnippet
 snippet pow "" i
 pow(${1}, ${2:2})
 endsnippet
+
+snippet paramloader
+mrs_lib::ParamLoader param_loader(nh_, `!p
+if file_is_plugin():
+	snip.rv='"'+get_class_name()+'"'
+else:
+	snip.rv="ros::this_node::getName().c_str()"`);
+endsnippet
+
+snippet loadparam
+param_loader.load_param<${1:double}>("${1}")
+endsnippet
+
+snippet forit
+std::${1:vector}<${2}>::iterator it;
+for (it = ${3:data}.begin(); it != $3.end(); ++it){
+	ROS_INFO_STREAM(it->name);
+	${4:${VISUAL}}
+}
+endsnippet
