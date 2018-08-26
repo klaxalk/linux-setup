@@ -91,7 +91,7 @@ rosservice call /uav${1:1}/control_manager/set_yaw ${2:0.0}
 endsnippet
 
 snippet mpctracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/MpcTracker'"
+rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/MpcTracker
 endsnippet
 
 snippet hover "" Ab
@@ -111,23 +111,23 @@ rosservice call /uav${1:1}/mav_manager/takeoff
 endsnippet
 
 snippet pid "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/PidController'"
+rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/PidController
 endsnippet
 
 snippet lsf "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/LsfController'"
+rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/NsfController
 endsnippet
 
 snippet failsafe_controller "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller "controller: 'mrs_controllers/FailsafeController'"
+rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/FailsafeController
 endsnippet
 
 snippet linetracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LineTracker'"
+rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/LineTracker
 endsnippet
 
 snippet lofftracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker "tracker: 'mrs_trackers/LandoffTracker'"
+rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/LandoffTracker
 endsnippet
 
 snippet gppo "" Ab
