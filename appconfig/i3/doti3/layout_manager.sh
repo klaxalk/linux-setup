@@ -40,17 +40,36 @@ if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
   WINDOWS=$(~/.i3/workspace_list_windows.sh)
 
   for window in $WINDOWS; do
-    xdotool windowunmap $window
+
+    HAS_PID=$(xdotool getwindowpid $window 2>&1 | grep "pid" | wc -l)
+
+    if [ ! $HAS_PID -eq 0 ]; then
+      echo "$window does not have a process"
+    else
+      echo sending $window to back
+      xdotool windowunmap $window
+    fi
+
   done
 
-  # then we can apply to chosen layout
+  echo "killing the reamins"
 
+  # delete all empty layout windows from the workspace
+  i3-msg "focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, kill"
+
+  # then we can apply to chosen layout
   i3-msg "append_layout $WORKSPACE_FILE"
 
   # and then we can reintroduce the windows back to the workspace
 
   for window in $WINDOWS; do
-    xdotool windowmap $window
+    HAS_PID=$(xdotool getwindowpid $window 2>&1 | grep "pid" | wc -l)
+
+    if [ ! $HAS_PID -eq 0 ]; then
+      echo "$window does not have a process"
+    else
+      xdotool windowmap $window
+    fi
   done
 
 fi
