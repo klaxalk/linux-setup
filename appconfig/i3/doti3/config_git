@@ -212,6 +212,8 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # F1 will no longer activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 
+bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
+
 # bind i3 modes
 bindsym $mod+r mode "resize_mode"
 bindsym $mod+shift+t mode "throughput_mode"
@@ -400,8 +402,6 @@ set $mode_gaps_inner inner gaps
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
 
 # # # brightness
-# # # The following line needs to be in /etc/sudoers
-# # # klaxalk ALL = (root) NOPASSWD: /home/klaxalk/.i3/brightness.sh
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
@@ -461,8 +461,8 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
 
 # # # Bind Toshiba screen brightness control
-# # bindsym XF86MonBrightnessDown --release exec --no-startup-id sudo ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp --release exec --no-startup-id sudo ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # # EPIGEN_ADD_BLOCK_TOSHIBA }
 
@@ -590,6 +590,7 @@ for_window [title="market"] floating disable
 for_window [instance="scratchpadurxvt"] move scratchpad
 for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
+for_window [title="optic_flow"] floating disable
 for_window [class="^Gimp$"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [class="^rqt_reconfigure$"] move workspace $workspace9

@@ -18,7 +18,7 @@ while true; do
     sudo apt -y remove clang-3.8
     sudo apt -y remove libclang-common-3.8-dev
 
-    sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-4.0 clang-format
+    sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     sudo pip3 install rospkg
@@ -45,7 +45,7 @@ while true; do
     cd src
     make
     cd ../
-    make VIMRUNTIMEDIR=/usr/share/vim/vim80
+    make VIMRUNTIMEDIR=/usr/share/vim/vim81
     sudo make install
 
     # set vim as a default git mergetool
@@ -126,7 +126,7 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
         cd ~/.vim/plugged/youcompleteme/
         git submodule update --init --recursive
-        python3 ./install.py --all --system-libclang
+        python3 ./install.py --all
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
