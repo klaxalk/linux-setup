@@ -354,7 +354,7 @@ custom_catkin() {
     command catkin profile set default
     ;;
   *)
-    command git "$@"
+    command catkin "$@"
     ;;
 
   esac
