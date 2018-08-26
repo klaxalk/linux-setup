@@ -1,5 +1,8 @@
 #!/bin/bash
 
+LAYOUT_PATH=~/.layouts
+mkdir -p $LAYOUT_PATH > /dev/null 2>&1
+
 if [ -z $1 ]; then
 
   ACTION=$(echo "LOAD LAYOUT
@@ -12,7 +15,7 @@ DELETE LAYOUT" | rofi -i -dmenu -p "Select action:")
   fi
 
   # get me the nemes based on the existing file names in the home
-  LAYOUT_NAMES=$(ls -a ~/ | grep "\.layout.*json" | sed -nr 's/\.layout-(.*)\.json/\1/p' | sed 's/\s/\n/g')
+  LAYOUT_NAMES=$(ls -a $LAYOUT_PATH | grep "layout.*json" | sed -nr 's/layout-(.*)\.json/\1/p' | sed 's/\s/\n/g')
   LAYOUT_NAME=$(echo "$LAYOUT_NAMES" | rofi -dmenu -p "Select layout")
   LAYOUT_NAME=${LAYOUT_NAME^^}
 
@@ -27,7 +30,7 @@ if [ -z $LAYOUT_NAME ]; then
   exit
 fi
 
-WORKSPACE_FILE=~/.layout-"$LAYOUT_NAME".json
+LAYOUT_FILE=$LAYOUT_PATH/layout-"$LAYOUT_NAME".json
 CURRENT_WORKSPACE_ID=$(~/.i3/get_current_workspace.sh)
 
 if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
@@ -58,7 +61,7 @@ if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
   i3-msg "focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, kill"
 
   # then we can apply to chosen layout
-  i3-msg "append_layout $WORKSPACE_FILE"
+  i3-msg "append_layout $LAYOUT_FILE"
 
   # and then we can reintroduce the windows back to the workspace
 
@@ -76,7 +79,7 @@ fi
 
 if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
 
-  ALL_WS_FILE=~/.all-layouts.json
+  ALL_WS_FILE=$LAYOUT_PATH/all-layouts.json
 
   CURRENT_MONITOR=$(xrandr | grep -w connected | awk '{print $1}')
 
@@ -84,7 +87,11 @@ if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
   i3-save-tree --output "$CURRENT_MONITOR" > "$ALL_WS_FILE" 2>&1
 
   # get the i3-tree for the current workspace
-  i3-save-tree --workspace "$CURRENT_WORKSPACE_ID" > "$WORKSPACE_FILE" 2>&1
+  i3-save-tree --workspace "$CURRENT_WORKSPACE_ID" > "$LAYOUT_FILE" 2>&1
+
+  # back the output file.. we are gonna modify it and alter we will need it back
+  BACKUP_FILE=$LAYOUT_PATH/.layout_backup.txt
+  cp $LAYOUT_FILE $BACKUP_FILE
 
   # get me vim, we will be using it alot to postprocess the generated json files
   if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
@@ -111,31 +118,31 @@ if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
   # all-tree file we can find the workspace part.
 
   # remove comments
-  $VIM_BIN $HEADLESS -nEs -c '%g/\/\//norm dd' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/\/\//norm dd' -c "wqa" -- "$LAYOUT_FILE"
   $VIM_BIN $HEADLESS -nEs -c '%g/\/\//norm dd' -c "wqa" -- "$ALL_WS_FILE"
 
   # remove indents
-  $VIM_BIN $HEADLESS -nEs -c '%g/^/norm 0d^' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/^/norm 0d^' -c "wqa" -- "$LAYOUT_FILE"
   $VIM_BIN $HEADLESS -nEs -c '%g/^/norm 0d^' -c "wqa" -- "$ALL_WS_FILE"
 
   # remove commas
-  $VIM_BIN $HEADLESS -nEs -c '%s/^},$/}/g' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%s/^},$/}/g' -c "wqa" -- "$LAYOUT_FILE"
   $VIM_BIN $HEADLESS -nEs -c '%s/^},$/}/g' -c "wqa" -- "$ALL_WS_FILE"
 
   # remove empty lines in the the workspace file
-  $VIM_BIN $HEADLESS -nEs -c '%g/^$/norm dd' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/^$/norm dd' -c "wqa" -- "$LAYOUT_FILE"
 
   # now I will try to find the part in the big file which containts the
   # small file. I have not found a suitable solution using off-the-shelf
   # tools, so custom bash it is...
 
   MATCH=0
-  PATTERN_LINES=`cat $WORKSPACE_FILE | wc -l` # get me the number of lines in the small file
+  PATTERN_LINES=`cat $LAYOUT_FILE | wc -l` # get me the number of lines in the small file
   SOURCE_LINES=`cat $ALL_WS_FILE | wc -l` # get me the number of lines in the big file
   echo "pattern lines: $PATTERN_LINES"
 
   N_ITER=$(expr $SOURCE_LINES - $PATTERN_LINES)
-  readarray pattern < $WORKSPACE_FILE
+  readarray pattern < $LAYOUT_FILE
 
   MATCH_LINE=0
   for (( a=1 ; $a-$N_ITER ; a=$a+1 )); do
@@ -165,8 +172,8 @@ if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
 
   # lets extract the key part, containing the block with the root split
 
-  # generate new workspace file (we destroyed the old one, remember?)
-  i3-save-tree --workspace "$CURRENT_WORKSPACE_ID" > "$WORKSPACE_FILE" 2>&1
+  # load old workspace file (we destroyed the old one, remember?)
+  mv $BACKUP_FILE $LAYOUT_FILE
 
   # delete the part below and above the block
   $VIM_BIN $HEADLESS -nEs -c "normal ${MATCH_LINE}ggdGG{kdgg" -c "wqa" -- "$ALL_WS_FILE"
@@ -178,28 +185,28 @@ if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
   # extract the needed part of the file and add it to the workspace file
   # this part is mostly according to the i3 manual, except we actually put there
   # the information about the split type
-  cat $ALL_WS_FILE | cat - $WORKSPACE_FILE > /tmp/tmp.txt && mv /tmp/tmp.txt $WORKSPACE_FILE
+  cat $ALL_WS_FILE | cat - $LAYOUT_FILE > /tmp/tmp.txt && mv /tmp/tmp.txt $LAYOUT_FILE
   # add closing bracked at the end
-  $VIM_BIN $HEADLESS -nEs -c "normal Go]}" -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c "normal Go]}" -c "wqa" -- "$LAYOUT_FILE"
 
   # now we have to do some postprocessing on it, all is even advices on the official website
   # https://i3wm.org/docs/layout-saving.html
 
   # uncomment the instance swallow rule
-  $VIM_BIN $HEADLESS -nEs -c '%g/instance/norm ^dW' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/instance/norm ^dW' -c "wqa" -- "$LAYOUT_FILE"
   # uncomment the transient_for
-  $VIM_BIN $HEADLESS -nEs -c '%g/transient_for/norm ^dW' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/transient_for/norm ^dW' -c "wqa" -- "$LAYOUT_FILE"
 
   # delete all comments
-  $VIM_BIN $HEADLESS -nEs -c '%g/\/\//norm dd' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/\/\//norm dd' -c "wqa" -- "$LAYOUT_FILE"
   # add a missing comma to the last element of array we just deleted
-  $VIM_BIN $HEADLESS -nEs -c '%g/swallows/norm j^%k:s/,$//g' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/swallows/norm j^%k:s/,$//g' -c "wqa" -- "$LAYOUT_FILE"
   # delete all empty lines
-  $VIM_BIN $HEADLESS -nEs -c '%g/^$/norm dd' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%g/^$/norm dd' -c "wqa" -- "$LAYOUT_FILE"
   # add missing commas between the newly created inner parts of the root element
-  $VIM_BIN $HEADLESS -nEs -c '%s/}\n{/},{/g' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c '%s/}\n{/},{/g' -c "wqa" -- "$LAYOUT_FILE"
   # autoformat the file
-  $VIM_BIN $HEADLESS -nEs -c 'normal gg=G' -c "wqa" -- "$WORKSPACE_FILE"
+  $VIM_BIN $HEADLESS -nEs -c 'normal gg=G' -c "wqa" -- "$LAYOUT_FILE"
 
   notify-send -u low -t 2000 "Layout saved" -h string:x-canonical-private-synchronous:anything
 
@@ -207,6 +214,6 @@ fi
 
 if [[ "$ACTION" = "DELETE LAYOUT" ]]; then
 
-  rm "$WORKSPACE_FILE"
+  rm "$LAYOUT_FILE"
 
 fi
