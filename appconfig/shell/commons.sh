@@ -341,5 +341,25 @@ waitForControl() {
   done
 }
 
+custom_catkin() {
+
+  case $* in init*)
+
+    # give me the path to root of the repo we are in
+    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+
+    command catkin "$@"
+    command catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin profile set default
+    ;;
+  *)
+    command git "$@"
+    ;;
+
+  esac
+}
+alias catkin=custom_catkin
+
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"
