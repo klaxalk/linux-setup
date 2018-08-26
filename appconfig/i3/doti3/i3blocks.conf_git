@@ -140,7 +140,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # [cputemp]
 # interval=2
 # label=CPU
-# command=~/.i3/show_temp.sh 0
+# command=~/.i3/show_temp.sh 1
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
