@@ -341,7 +341,7 @@ waitForControl() {
   done
 }
 
-custom_catkin() {
+catkin() {
 
   case $* in init*)
 
@@ -359,7 +359,6 @@ custom_catkin() {
 
   esac
 }
-alias catkin=custom_catkin
 
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"
