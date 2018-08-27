@@ -256,3 +256,11 @@ endsnippet
 snippet "call" "" Abr
 rosservice call /uav${1:1}/
 endsnippet
+
+snippet setgains "" Ab
+rosservice call /uav${1:1}/gain_manager/set_gains ${2:soft}
+endsnippet
+
+snippet setconstraints "" Ab
+rosservice call /uav${1:1}/gain_manager/set_constraints ${2:medium}
+endsnippet
