@@ -79,6 +79,22 @@ fi
 
 if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
 
+  ACTION=$(echo "INSTANCE
+CLASS
+TITLE
+ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
+
+
+  if [[ "$ACTION" = "INSTANCE" ]]; then
+    CRITERION="instance"
+  elif [[ "$ACTION" = "CLASS" ]]; then
+    CRITERION="class"
+  elif [[ "$ACTION" = "TITLE" ]]; then
+    CRITERION="title"
+  elif [[ "$ACTION" = "ANY" ]]; then
+    CRITERION="any"
+  fi
+
   ALL_WS_FILE=$LAYOUT_PATH/all-layouts.json
 
   CURRENT_MONITOR=$(xrandr | grep -w connected | awk '{print $1}')
@@ -193,7 +209,12 @@ if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
   # https://i3wm.org/docs/layout-saving.html
 
   # uncomment the instance swallow rule
-  $VIM_BIN $HEADLESS -nEs -c '%g/instance/norm ^dW' -c "wqa" -- "$LAYOUT_FILE"
+  if [[ "$CRITERION" != "any" ]]; then
+    $VIM_BIN $HEADLESS -nEs -c "%g/${CRITERION}/norm ^dW" -c "wqa" -- "$LAYOUT_FILE"
+  else
+    $VIM_BIN $HEADLESS -nEs -c '%g/instance/norm ^dW3f"di"' -c "wqa" -- "$LAYOUT_FILE"
+  fi
+
   # uncomment the transient_for
   $VIM_BIN $HEADLESS -nEs -c '%g/transient_for/norm ^dW' -c "wqa" -- "$LAYOUT_FILE"
 
