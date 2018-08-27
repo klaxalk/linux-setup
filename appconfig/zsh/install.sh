@@ -25,7 +25,7 @@ while true; do
     fi
 
     # build new zsh with readline patched with athame
-    sudo ./zsh_athame_setup.sh --notest $NEOVIM
+    sudo ./zsh_athame_setup.sh --notest --use_sudo $NEOVIM
 
     # install oh-my-zsh
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
