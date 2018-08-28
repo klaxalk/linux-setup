@@ -72,16 +72,15 @@ if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
 
   done
 
-  echo "killing the reamins"
-
   # delete all empty layout windows from the workspace
-  i3-msg "focus parent, kill"
+  for (( i=0 ; $a-20 ; a=$a+1 )); do
+    i3-msg "focus parent, kill"
+  done
 
   # then we can apply to chosen layout
   i3-msg "append_layout $LAYOUT_FILE"
 
   # and then we can reintroduce the windows back to the workspace
-
   for window in $WINDOWS; do
     HAS_PID=$(xdotool getwindowpid $window 2>&1 | grep "pid" | wc -l)
 
