@@ -1,8 +1,18 @@
 #!/bin/bash
+# Author: klaxalk (klaxalk@gmail.com, github.com/klaxalk)
+# Dependencies:
+# - vim/nvim  : scriptable file editing
+# - jq        : json manipulation
+# - rofi      : nice dmenu alternative
+# - xdotool   : window manipulation
+# - xrandr    : getting info of current monitor
+# - i3-msg    : i3 tui
+# - awk+sed+cat ...
 
 LAYOUT_PATH=~/.layouts
 mkdir -p $LAYOUT_PATH > /dev/null 2>&1
 
+# if operating using dmenu
 if [ -z $1 ]; then
 
   ACTION=$(echo "LOAD LAYOUT
@@ -13,11 +23,12 @@ DELETE LAYOUT" | rofi -i -dmenu -no-custom -p "Select action")
     exit
   fi
 
-  # get me the nemes based on the existing file names in the home
-  LAYOUT_NAMES=$(ls -a $LAYOUT_PATH | grep "layout.*json" | sed -nr 's/layout-(.*)\.json/\1/p' | sed 's/\s/\n/g')
-  LAYOUT_NAME=$(echo "$LAYOUT_NAMES" | rofi -dmenu -p "Select layout")
-  LAYOUT_NAME=${LAYOUT_NAME^^}
+  # get me layout names based on existing file names in the LAYOUT_PATH
+  LAYOUT_NAMES=$(ls -a $LAYOUT_PATH | grep "layout.*json" | sed -nr 's/layout-(.*)\.json/\1/p' | sed 's/\s/\n/g') # layout names
+  LAYOUT_NAME=$(echo "$LAYOUT_NAMES" | rofi -dmenu -p "Select layout (you may type new name when creating)") # ask for selection
+  LAYOUT_NAME=${LAYOUT_NAME^^} # upper case
 
+# getting argument from command line
 else
 
   ACTION="LOAD LAYOUT"
@@ -25,21 +36,28 @@ else
 
 fi
 
+# no action, exit
 if [ -z "$LAYOUT_NAME" ]; then
   exit
 fi
 
 LAYOUT_FILE=$LAYOUT_PATH/layout-"$LAYOUT_NAME".json
-CURRENT_WORKSPACE_ID=$(~/.i3/get_current_workspace.sh)
+
+# get current workspace ID
+WORKSPACE_ID=$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).num' | cut -d"\"" -f2)
 
 if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
 
   # updating the workspace to the new layout is tricky
   # normally it does not influence existing windows
   # For it to apply to existing windows, we need to
-  # first remove them from the workspace
+  # first remove them from the workspace and then
+  # add them back while we remove any empty placeholders
+  # which would normally cause mess. The placeholders
+  # are recognize by having no process inside them.
 
-  WINDOWS=$(~/.i3/workspace_list_windows.sh)
+  # get the list of windows on the current workspace
+  WINDOWS=$(xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP | cut -c 24-) "" 2>/dev/null)
 
   for window in $WINDOWS; do
 
@@ -57,7 +75,7 @@ if [[ "$ACTION" = "LOAD LAYOUT" ]]; then
   echo "killing the reamins"
 
   # delete all empty layout windows from the workspace
-  i3-msg "focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, focus parent, kill"
+  i3-msg "focus parent, kill"
 
   # then we can apply to chosen layout
   i3-msg "append_layout $LAYOUT_FILE"
@@ -99,7 +117,7 @@ MATCH ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
   i3-save-tree --output "$CURRENT_MONITOR" > "$ALL_WS_FILE" 2>&1
 
   # get the i3-tree for the current workspace
-  i3-save-tree --workspace "$CURRENT_WORKSPACE_ID" > "$LAYOUT_FILE" 2>&1
+  i3-save-tree --workspace "$WORKSPACE_ID" > "$LAYOUT_FILE" 2>&1
 
   # back the output file.. we are gonna modify it and alter we will need it back
   BACKUP_FILE=$LAYOUT_PATH/.layout_backup.txt
@@ -266,7 +284,5 @@ MATCH ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
 fi
 
 if [[ "$ACTION" = "DELETE LAYOUT" ]]; then
-
   rm "$LAYOUT_FILE"
-
 fi
