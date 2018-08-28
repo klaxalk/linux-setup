@@ -7,10 +7,9 @@ if [ -z $1 ]; then
 
   ACTION=$(echo "LOAD LAYOUT
 SAVE LAYOUT
-DELETE LAYOUT" | rofi -i -dmenu -p "Select action:")
+DELETE LAYOUT" | rofi -i -dmenu -no-custom -p "Select action")
 
-  if [[ "$ACTION" != "LOAD LAYOUT" ]] && [[ "$ACTION" != "SAVE LAYOUT" ]] && [[ "$ACTION" != "DELETE LAYOUT" ]]; then
-    notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
+  if [ -z "$ACTION" ]; then
     exit
   fi
 
@@ -26,7 +25,7 @@ else
 
 fi
 
-if [ -z $LAYOUT_NAME ]; then
+if [ -z "$LAYOUT_NAME" ]; then
   exit
 fi
 
@@ -79,19 +78,16 @@ fi
 
 if [[ "$ACTION" = "SAVE LAYOUT" ]]; then
 
-  ACTION=$(echo "INSTANCE
-CLASS
-TITLE
-ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
+  ACTION=$(echo "DEFAULT (INSTANCE)
+SPECIFIC (CHOOSE)
+MATCH ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
 
 
-  if [[ "$ACTION" = "INSTANCE" ]]; then
-    CRITERION="instance"
-  elif [[ "$ACTION" = "CLASS" ]]; then
-    CRITERION="class"
-  elif [[ "$ACTION" = "TITLE" ]]; then
-    CRITERION="title"
-  elif [[ "$ACTION" = "ANY" ]]; then
+  if [[ "$ACTION" = "DEFAULT (INSTANCE)" ]]; then
+    CRITERION="default"
+  elif [[ "$ACTION" = "SPECIFIC (CHOOSE)" ]]; then
+    CRITERION="specific"
+  elif [[ "$ACTION" = "MATCH ANY" ]]; then
     CRITERION="any"
   fi
 
@@ -209,10 +205,46 @@ ANY" | rofi -i -dmenu -p "How to identify windows? (xprop style)")
   # https://i3wm.org/docs/layout-saving.html
 
   # uncomment the instance swallow rule
-  if [[ "$CRITERION" != "any" ]]; then
-    $VIM_BIN $HEADLESS -nEs -c "%g/${CRITERION}/norm ^dW" -c "wqa" -- "$LAYOUT_FILE"
-  else
+  if [[ "$CRITERION" = "default" ]]; then
+    echo default
+    $VIM_BIN $HEADLESS -nEs -c "%g/instance/norm ^dW" -c "wqa" -- "$LAYOUT_FILE"
+  elif [[ "$CRITERION" = "any" ]]; then
+    echo any
     $VIM_BIN $HEADLESS -nEs -c '%g/instance/norm ^dW3f"di"' -c "wqa" -- "$LAYOUT_FILE"
+  elif [[ "$CRITERION" = "specific" ]]; then
+
+    LAST_LINE=1
+
+    while true; do
+
+      LINE_NUM=$(cat $LAYOUT_FILE | tail -n +$LAST_LINE | grep '// "class' -n | awk '{print $1}')
+      HAS_INSTANCE=$(echo $LINE_NUM | wc -l)
+
+      if [ ! -z "$LINE_NUM" ]; then
+
+        LINE_NUM=$(echo $LINE_NUM | awk '{print $1}')
+        LINE_NUM=${LINE_NUM%:}
+        LINE_NUM=$(expr $LINE_NUM - 1)
+        LINE_NUM=$(expr $LINE_NUM + $LAST_LINE )
+
+        NAME=$(cat $LAYOUT_FILE | sed -n "$(expr ${LINE_NUM} - 4)p" | awk '{$1="";print $0}')
+
+        SELECTED_OPTION=$(cat -n $LAYOUT_FILE | sed -n "${LINE_NUM},$(expr $LINE_NUM + 2)p" | awk '{$2="";print $0}' | rofi -i -dmenu -no-custom -p "Choose the matching method for${NAME%,}" | awk '{print $1}')
+
+        # when user does not select, choose "instance" (class+1)
+        if [ -z "$SELECTED_OPTION" ]; then
+          SELECTED_OPTION=$(expr ${LINE_NUM} + 1)
+        fi
+
+        $VIM_BIN $HEADLESS -nEs -c "norm ${SELECTED_OPTION}gg^dW" -c "wqa" -- "$LAYOUT_FILE"
+
+        LAST_LINE=$( expr $SELECTED_OPTION)
+
+      else
+        break
+      fi
+
+    done
   fi
 
   # uncomment the transient_for
