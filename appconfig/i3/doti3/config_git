@@ -246,7 +246,7 @@ set $urgent                   #ff0000
 # EPIGEN_DEL_BLOCK_MATOUS {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
 # EPIGEN_DEL_BLOCK_MATOUS }
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
@@ -592,8 +592,8 @@ for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [title="optic_flow"] floating disable
 for_window [class="^Gimp$"] move workspace $workspace9
+
 # EPIGEN_ADD_BLOCK_TOMAS {
-# # for_window [class="^rqt_reconfigure$"] move workspace $workspace9
 # for_window [title="Gazebo"] move workspace $workspace9
 # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
@@ -601,6 +601,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 # EPIGEN_ADD_BLOCK_TOMAS }
+#
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
 # #}
