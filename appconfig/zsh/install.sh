@@ -18,10 +18,10 @@ while true; do
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
 
-    if [ -x "$(command -v nvim)" ]; then
-      NEOVIM="--vimbin=/usr/bin/nvim"
-    elif [ -x "$(command -v vim)" ]; then
+    if [ -x "$(command -v vim)" ]; then
       NEOVIM="--vimbin=/usr/bin/vim"
+    elif [ -x "$(command -v nvim)" ]; then
+      NEOVIM="--vimbin=/usr/bin/nvim"
     fi
 
     # build new zsh with readline patched with athame
