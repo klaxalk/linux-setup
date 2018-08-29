@@ -1,4 +1,5 @@
 global !p
+
 def complete(t, opts):
 	if t:
 		opts = [ m[ len(t): ] for m in opts if m.startswith(t) ]
@@ -8,6 +9,7 @@ def complete(t, opts):
 		return ""
 	else:
 		return "(" + '|'.join(opts) + ')'
+
 endglobal
 
 snippet fdisk "" Ab
@@ -75,59 +77,59 @@ grep ${2:-nr -e} "${1}"
 endsnippet
 
 snippet goto "" Ab
-rosservice call /uav${1:1}/control_manager/goto "goal: [${3:0}, ${4:0}, ${5:3}, ${6:0}]"
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:1.9}]"
 endsnippet
 
 snippet gorel "" Ab
-rosservice call /uav${1:1}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
 endsnippet
 
 snippet goal "" Ab
-rosservice call /uav${1:1}/control_manager/goto_altitude ${2:3.0}
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/goto_altitude ${2:3.0}
 endsnippet
 
 snippet setyaw "" Ab
-rosservice call /uav${1:1}/control_manager/set_yaw ${2:0.0}
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
 endsnippet
 
 snippet mpctracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/MpcTracker
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/MpcTracker
 endsnippet
 
 snippet hover "" Ab
-rosservice call /uav${1:1}/control_manager/hover
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/hover
 endsnippet
 
 snippet motors "" Ab
-rosservice call /uav${1:1}/control_manager/motors ${2:1}
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/motors ${2:1}
 endsnippet
 
 snippet land "" Ab
-rosservice call /uav${1:1}/mav_manager/land
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/mav_manager/land
 endsnippet
 
 snippet takeoff "" Ab
-rosservice call /uav${1:1}/mav_manager/takeoff
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/mav_manager/takeoff
 endsnippet
 
 snippet pid "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/PidController
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/PidController
 endsnippet
 
 snippet lsf "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/NsfController
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
 endsnippet
 
 snippet failsafe_controller "" Ab
-rosservice call /uav${1:1}/control_manager/switch_controller mrs_controllers/FailsafeController
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/FailsafeController
 endsnippet
 
 snippet linetracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/LineTracker
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LineTracker
 endsnippet
 
 snippet lofftracker "" Ab
-rosservice call /uav${1:1}/control_manager/switch_tracker mrs_trackers/LandoffTracker
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LandoffTracker
 endsnippet
 
 snippet gppo "" Ab
@@ -254,13 +256,13 @@ git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch |
 endsnippet
 
 snippet "call" "" Abr
-rosservice call /uav${1:1}/
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/
 endsnippet
 
 snippet setgains "" Ab
-rosservice call /uav${1:1}/gain_manager/set_gains ${2:soft}
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/gain_manager/set_gains ${2:soft}
 endsnippet
 
 snippet setconstraints "" Ab
-rosservice call /uav${1:1}/gain_manager/set_constraints ${2:medium}
+rosservice call /uav${1:`~/.scripts/get_uav_number.sh`}/gain_manager/set_constraints ${2:medium}
 endsnippet
