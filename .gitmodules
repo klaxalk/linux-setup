@@ -55,3 +55,6 @@
 [submodule "submodules/light"]
 	path = submodules/light
 	url = https://github.com/haikarainen/light
+[submodule "submodules/i3-layout-manager"]
+	path = submodules/i3-layout-manager
+	url = https://github.com/klaxalk/i3-layout-manager
