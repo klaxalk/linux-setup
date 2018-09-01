@@ -5,6 +5,7 @@ alias gppo="gitPullPush origin"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias cb="catkin build"
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -351,6 +352,7 @@ catkin() {
     command catkin "$@"
     command catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     command catkin profile set default
     ;;
   *)
