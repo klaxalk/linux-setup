@@ -51,7 +51,7 @@ try:
         workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
         r = rospkg.RosPack()
         vim.command("let is_ros='true'")
-        vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+"'")
+        vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+" --no-color'")
     else:
         vim.command("let is_ros='false'")
 except ImportError:

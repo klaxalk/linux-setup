@@ -91,7 +91,17 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let g:vimwiki_list = [wiki_1, wiki_2, mbzirc_wiki, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils]
+" let i3_layout_manager = {}
+" let i3_layout_manager.path = '~/git/i3-layout-manager/'
+" let i3_layout_manager.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let i3_layout_manager.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let i3_layout_manager.index = 'README'
+" let i3_layout_manager.syntax = 'markdown'
+" let i3_layout_manager.ext = '.md'
+" let i3_layout_manager.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let i3_layout_manager.path_html = '~/git/i3-layout-manager/html/'
+
+" let g:vimwiki_list = [wiki_1, wiki_2, mbzirc_wiki, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils, i3_layout_manager]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 

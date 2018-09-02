@@ -5,6 +5,7 @@ alias gppo="gitPullPush origin"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias cb="catkin build"
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -339,6 +340,26 @@ waitForControl() {
     echo "waiting for new_odom"
     sleep 1;
   done
+}
+
+catkin() {
+
+  case $* in init*)
+
+    # give me the path to root of the repo we are in
+    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+
+    command catkin "$@"
+    command catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin profile set default
+    ;;
+  *)
+    command catkin "$@"
+    ;;
+
+  esac
 }
 
 CURRENT_PATH=`pwd`

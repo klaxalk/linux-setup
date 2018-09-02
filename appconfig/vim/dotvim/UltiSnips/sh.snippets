@@ -1,3 +1,7 @@
+snippet "header" "" ir
+#!/usr/bin/env bash
+endsnippet
+
 snippet "for( )*" "" ir
 for ${1};
 do
@@ -19,4 +23,12 @@ endsnippet
 
 snippet "ifei( )*" "" ir
 if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
+endsnippet
+
+snippet "fold" "" r
+# #{ ${1}
+
+${2:${VISUAL}}
+
+# #}
 endsnippet
