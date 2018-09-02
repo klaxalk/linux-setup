@@ -112,10 +112,6 @@ snippet takeoff "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mav_manager/takeoff
 endsnippet
 
-snippet pid "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/PidController
-endsnippet
-
 snippet lsf "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
 endsnippet
