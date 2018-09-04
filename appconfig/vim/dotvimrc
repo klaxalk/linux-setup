@@ -100,6 +100,8 @@ if g:user_mode == "1"
 
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
+  " [l and ]l to move through the quickfix list
+  " ... it has many more useful commands
   Plug 'tpope/vim-unimpaired'
 
   " managing sessions
