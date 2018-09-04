@@ -261,6 +261,8 @@ nmap <leader>. <c-]>zt     " dive into the tag
 nmap <leader>/ :pop      " go back one tag
 nmap <leader>; :ts       " show list of files in which the tag is found
 
+nmap <leader>mts ^"oyiwdd0/{a std::scoped_lock lock(o);/og;
+
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
@@ -485,7 +487,7 @@ if g:user_mode == "1"
   " colorscheme jellybeans
   " let g:airline_theme='jellybeans'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-  
+
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
   " colorscheme raggi
   " let g:airline_theme='papercolor'
