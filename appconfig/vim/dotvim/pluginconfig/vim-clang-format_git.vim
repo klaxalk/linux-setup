@@ -89,7 +89,7 @@ call SetTomasFormat() " EPIGEN_DEL_LINE_MATOUS
 " according to Matous
 au BufReadPost * if getline(1) =~ "MatousFormat" | call SetMatousFormat() | endif
 
-autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>
+autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>zz
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
