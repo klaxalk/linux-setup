@@ -100,6 +100,10 @@ snippet hover "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/hover
 endsnippet
 
+snippet ehover "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/ehover
+endsnippet
+
 snippet motors "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/motors ${2:1}
 endsnippet
@@ -266,4 +270,8 @@ endsnippet
 snippet fuse "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
 snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
+endsnippet
+
+snippet headless "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
 endsnippet
