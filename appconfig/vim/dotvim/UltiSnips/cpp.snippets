@@ -88,6 +88,15 @@ ${1:m}.lock();
 $1.unlock();
 endsnippet
 
+snippet lock
+{
+	std::scoped_lock lock(${1});
+
+	${2:${VISUAL}}
+}
+endsnippet
+
+
 snippet switch
 switch (${1}) {
 case ${2}:
@@ -334,4 +343,8 @@ endsnippet
 
 snippet "unused" "" Air
 [[maybe_unused]]
+endsnippet
+
+snippet "sharedptr" "" ir
+std::shared_ptr<${1:${VISUAL}}>
 endsnippet
