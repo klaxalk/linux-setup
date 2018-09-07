@@ -468,8 +468,8 @@ if g:user_mode == "0"
   nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
   nnoremap <leader>ww Ivim ~/git/notes/index.md
 
-  nnoremap OA i<up>
-  nnoremap OB i<down>
+  nnoremap OA $a<up>
+  nnoremap OB $a<down>
   nnoremap OC li<right>
   nnoremap OD i
 
