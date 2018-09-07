@@ -473,6 +473,11 @@ if g:user_mode == "0"
   nnoremap OC li<right>
   nnoremap OD i
 
+  " EPIGEN_ADD_BLOCK_MATOUS {
+  " nnoremap j j$
+  " nnoremap k k$
+  " EPIGEN_ADD_BLOCK_MATOUS }
+
 endif
 
 " additional settings for non-athame vim

@@ -80,6 +80,10 @@ snippet goto "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
 endsnippet
 
+snippet gofcu "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_fcu "goal: [${2:0}, ${3:0}, ${4:0.0}, ${5:0.0}]"
+endsnippet
+
 snippet gorel "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
 endsnippet
