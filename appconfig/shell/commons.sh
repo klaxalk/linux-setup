@@ -336,8 +336,8 @@ waitForControl() {
     echo "waiting for control"
     sleep 1;
   done
-  until timeout 3s rostopic echo /$UAV_NAME/odometry/new_odom -n 1 --noarr > /dev/null 2>&1; do
-    echo "waiting for new_odom"
+  until timeout 3s rostopic echo /$UAV_NAME/odometry/odom_main -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for odom_main"
     sleep 1;
   done
 }

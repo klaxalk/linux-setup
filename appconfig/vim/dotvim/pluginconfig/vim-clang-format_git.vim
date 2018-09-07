@@ -1,8 +1,8 @@
 " config for vim-clang-format
 " https://clangformat.com/
+" let g:clang_format#style_options = {
 
-" EPIGEN_DEL_BLOCK_MATOUS {
-let g:clang_format#style_options = {
+let g:clang_format_tomas = {
       \ 'Standard' : 'C++11',
       \ 'BasedOnStyle' : 'Google',
       \ 'AccessModifierOffset' : -2,
@@ -35,48 +35,61 @@ let g:clang_format#style_options = {
       \   'IndentBraces' :    'false'
       \   },
       \ 'AlignConsecutiveDeclarations' : 'true' }
-" EPIGEN_DEL_BLOCK_MATOUS }
 
-" EPIGEN_ADD_BLOCK_MATOUS {
-" let g:clang_format#style_options = {
-"       \ 'Standard' : 'C++11',
-"       \ 'BasedOnStyle' : 'Google',
-"       \ 'AccessModifierOffset' : -2,
-"       \ 'ColumnLimit' : 160,
-"       \ 'MaxEmptyLinesToKeep' : 2,
-"       \ 'AlignAfterOpenBracket' : 'Align',
-"       \ 'AllowShortLoopsOnASingleLine' : 'false',
-"       \ 'AllowShortBlocksOnASingleLine' : 'false',
-"       \ 'AllowShortFunctionsOnASingleLine' : 'false',
-"       \ 'AllowShortCaseLabelsOnASingleLine' : 'false',
-"       \ 'AllowShortIfStatementsOnASingleLine' : 'false',
-"       \ 'AlwaysBreakTemplateDeclarations' : 'true',
-"       \ 'AlignConsecutiveAssignments' : 'false',
-"       \ 'AlignConsecutiveDeclarations' : 'false',
-"       \ 'SpaceBeforeParens' : 'ControlStatements',
-"       \ 'BreakBeforeBinaryOperators' : 'NonAssignment',
-"       \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
-"       \ 'DerivePointerAlignment' : 'false',
-"       \ 'PointerAlignment' : 'Left',
-"       \ 'BreakBeforeBraces' : 'Custom',
-"       \ 'SortIncludes' : 'false',
-"       \ 'BraceWrapping' : {
-"       \   'AfterClass' :      'true',
-"       \   'AfterControlStatement' : 'true',
-"       \   'AfterEnum' :       'true',
-"       \   'AfterFunction' :   'true',
-"       \   'AfterNamespace' :  'true',
-"       \   'AfterObjCDeclaration' : 'true',
-"       \   'AfterStruct' :     'true',
-"       \   'AfterUnion' :      'true',
-"       \   'BeforeCatch' :     'true',
-"       \   'BeforeElse' :      'false',
-"       \   'IndentBraces' :    'false'
-"       \   },
-"       \ }
-" EPIGEN_ADD_BLOCK_MATOUS }
+let g:clang_format_matous = {
+      \ 'Standard' : 'C++11',
+      \ 'BasedOnStyle' : 'Google',
+      \ 'AccessModifierOffset' : -2,
+      \ 'ColumnLimit' : 160,
+      \ 'MaxEmptyLinesToKeep' : 2,
+      \ 'AlignAfterOpenBracket' : 'Align',
+      \ 'AllowShortLoopsOnASingleLine' : 'false',
+      \ 'AllowShortBlocksOnASingleLine' : 'false',
+      \ 'AllowShortFunctionsOnASingleLine' : 'false',
+      \ 'AllowShortCaseLabelsOnASingleLine' : 'false',
+      \ 'AllowShortIfStatementsOnASingleLine' : 'false',
+      \ 'AlwaysBreakTemplateDeclarations' : 'true',
+      \ 'AlignConsecutiveAssignments' : 'false',
+      \ 'AlignConsecutiveDeclarations' : 'false',
+      \ 'SpaceBeforeParens' : 'ControlStatements',
+      \ 'BreakBeforeBinaryOperators' : 'NonAssignment',
+      \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
+      \ 'DerivePointerAlignment' : 'false',
+      \ 'PointerAlignment' : 'Left',
+      \ 'BreakBeforeBraces' : 'Custom',
+      \ 'SortIncludes' : 'false',
+      \ 'BraceWrapping' : {
+      \   'AfterClass' :      'true',
+      \   'AfterControlStatement' : 'true',
+      \   'AfterEnum' :       'true',
+      \   'AfterFunction' :   'true',
+      \   'AfterNamespace' :  'true',
+      \   'AfterObjCDeclaration' : 'true',
+      \   'AfterStruct' :     'true',
+      \   'AfterUnion' :      'true',
+      \   'BeforeCatch' :     'true',
+      \   'BeforeElse' :      'false',
+      \   'IndentBraces' :    'false'
+      \   },
+      \ }
 
-autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>
+function! SetMatousFormat()
+let g:clang_format#style_options = g:clang_format_matous
+endfunc
+
+function! SetTomasFormat()
+let g:clang_format#style_options = g:clang_format_tomas
+endfunc
+
+" this is the default
+call SetTomasFormat() " EPIGEN_DEL_LINE_MATOUS
+" call SetMatousFormat() " EPIGEN_ADD_LINE_MATOUS
+
+" if the first line of a file constains "MatousFormat", set formatting
+" according to Matous
+au BufReadPost * if getline(1) =~ "MatousFormat" | call SetMatousFormat() | endif
+
+autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>zz
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
