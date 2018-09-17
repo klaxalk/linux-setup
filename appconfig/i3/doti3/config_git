@@ -223,7 +223,6 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
-exec urxvt -name scratchpadurxvt
 
 # bluetooth applet
 exec --no-startup-id blueman-applet
@@ -349,6 +348,8 @@ set $mode_gaps_inner inner gaps
 # #{ TOMAS's customization
 
 # EPIGEN_ADD_BLOCK_TOMAS {
+
+# exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
 
 # # #{ DESKTOP
 

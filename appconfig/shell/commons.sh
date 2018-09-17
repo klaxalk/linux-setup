@@ -362,5 +362,29 @@ catkin() {
   esac
 }
 
+slack() {
+
+  SLACK_BIN=/usr/bin/slack-term
+
+  if [ -z $1 ]
+  then
+    SLACK_NAME=$(echo "mrs
+eagle" | rofi -i -dmenu -no-custom -p "Select slack")
+  else
+    SLACK_NAME=${1}
+  fi
+
+  case ${SLACK_NAME} in
+    mrs)
+    SLACK_CFG=~/git/notes/slack/mrsworkspace
+    ;;
+    eagle)
+    SLACK_CFG=~/git/notes/slack/drone-eagleone
+    ;;
+  esac
+
+  $SLACK_BIN -config $SLACK_CFG
+}
+
 CURRENT_PATH=`pwd`
 cd "$CURRENT_PATH"
