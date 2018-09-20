@@ -67,7 +67,7 @@ snippet color "\color{} " i
 endsnippet
 
 snippet "(TODO|todo)" "" ir
-\{\color{red} TODO: ${2:${VISUAL}}}
+\{\color{red} TODO ${2:${VISUAL}}}
 endsnippet
 
 snippet texttt "\texttt{}" i
@@ -190,12 +190,20 @@ snippet jfrfigure "figure, as defined in the JFR tamplate"
 \\end{figure}
 endsnippet
 
+snippet jinstfigure "figure, as defined in the JINST tamplate"
+\begin{figure}[${1:htbp}]
+	\centering
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${2}}
+	\caption{\label{fig:${4}} ${5}}
+\end{figure}
+endsnippet
+
 snippet jinstfigure2 "figure, as defined in the JINST tamplate"
 \begin{figure}[${1:htbp}]
 	\centering
-	\includegraphics[width=.4\textwidth,origin=c,angle=180]{fig/${2}}
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${2}}
 	\qquad
-	\includegraphics[width=.4\textwidth,origin=c,angle=180]{fig/${3}}
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${3}}
 	\caption{\label{fig:${4}} ${5}}
 \end{figure}
 endsnippet
