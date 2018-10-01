@@ -13,7 +13,7 @@ if [[ "$1" == "1" ]]; then
   OUT_FILE="/tmp/$SESSION_NAME.txt"
   rm "$OUT_FILE" > /dev/null 2>&1
 
-  $TMUX_PATH send-keys -t $SESSION_NAME:0 "$PARAMS > $OUT_FILEexit"
+  $TMUX_PATH send-keys -t $SESSION_NAME:0 " $PARAMS > $OUT_FILEexit"
 
   while true; do
 
@@ -31,6 +31,6 @@ else
 
   PARAMS="$*"
 
-  $TMUX_PATH send-keys -t $SESSION_NAME:0 "$PARAMSexit"
+  $TMUX_PATH send-keys -t $SESSION_NAME:0 " $PARAMSexit"
 
 fi
