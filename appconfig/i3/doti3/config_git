@@ -590,6 +590,7 @@ for_window [title="market"] floating disable
 for_window [instance="scratchpadurxvt"] move scratchpad
 for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
+for_window [title="float_pls"] floating enable
 for_window [title="optic_flow"] floating disable
 for_window [class="^Gimp$"] move workspace $workspace9
 
