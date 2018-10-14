@@ -5,6 +5,7 @@ This repo contains settings of klaxalk's Linux work environment.
 It could be summarized as follows:
 * **Ubuntu 16.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
+  * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
 * **tmux** terminal multiplexer is running all the time
   * **tmuxinator** for automation of tmux session
@@ -17,7 +18,7 @@ It could be summarized as follows:
   * Ctrl+P
   * smooth latex development with vimtex and zathura
   * Tim Pope is the king
-* **athame** gives you vim in the terminal (bash/zsh)
+* **athame** gives you vim in the terminal (zsh)
   * handfull of plugins in terminal: ultisnips, vim-surround, targets.vim, vim-exchange, etc.
 * **zsh** better shell for everyday use
 * **ranger** terminal file manager

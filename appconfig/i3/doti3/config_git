@@ -223,7 +223,6 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
-exec urxvt -name scratchpadurxvt
 
 # bluetooth applet
 exec --no-startup-id blueman-applet
@@ -350,6 +349,8 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
+# exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
+
 # # #{ DESKTOP
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
@@ -358,9 +359,9 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
 # # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym $mod+F7 exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
 
 # # EPIGEN_ADD_BLOCK_DESKTOP }
 

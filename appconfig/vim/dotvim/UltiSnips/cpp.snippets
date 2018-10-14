@@ -99,13 +99,16 @@ $1.unlock();
 endsnippet
 
 snippet lock
+std::scoped_lock lock(${1});
+endsnippet
+
+snippet lockscope
 {
 	std::scoped_lock lock(${1});
 
 	${2:${VISUAL}}
 }
 endsnippet
-
 
 snippet switch
 switch (${1}) {
