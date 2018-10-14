@@ -13,7 +13,7 @@ xrdb ~/.Xresources
 # set keyboard repeat rate
 xset r rate 350 55
 
-# export TERM=rxvt-unicode-256color
+export TERM=rxvt-unicode-256color
 
 # use ctags to generate code tags
 generateTags() {
