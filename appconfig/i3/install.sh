@@ -17,15 +17,7 @@ while true; do
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # install dependencies for compilation of i3gaps
-    sudo expect -c "
-    spawn sudo add-apt-repository ppa:aguignard/ppa
-    expect { 
-      \"ENTER\" {
-        send "\\n"
-        interact
-      }
-    }
-    "
+    sudo add-apt-repository ppa:aguignard/ppa
     sudo apt-get update
 
     sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf help2man
