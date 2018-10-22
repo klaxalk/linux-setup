@@ -361,6 +361,8 @@ nnoremap gf <C-W>gf
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
+au BufNewFile,BufRead *.m map <Leader>. :VtrSendLinesToRunner<cr>
+
 " nnoremap <leader>so :so ~/.vimrc<cr>
 
 " remap upper case saving and quitting to lower case
