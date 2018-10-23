@@ -254,9 +254,9 @@ set $inactive_background      #333333
 # set $active_background        #53B5FF
 # set $active_border            #5cd8ff
 # EPIGEN_ADD_BLOCK_PETR }
-# EPIGEN_DEL_BLOCK_PETR_ACTIVE {
-# set $active_background        #005faf
-# set $active_border            #005faf
+# EPIGEN_DEL_BLOCK_PETR {
+set $active_background        #005faf
+set $active_border            #005faf
 # EPIGEN_DEL_BLOCK_PETR }
 set $background_color         #121212
 set $split_indicator          #B85335
@@ -601,7 +601,7 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+Shift+Right move right
 
 # # Desktop background
-# exec_always --no-startup-id feh --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/falcon_heavy.jpg
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/falcon_heavy.jpg
 
 # # Numlock on by default
 # exec_always --no_startup_id numlockx on
