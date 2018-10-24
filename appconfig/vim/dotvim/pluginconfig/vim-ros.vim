@@ -49,11 +49,12 @@ try:
     
         return ''
 
+    pkgname = 0
     try:
         pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
     except:
         pass
-    if pkgname:
+    if pkgname != 0:
         workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
         r = rospkg.RosPack()
         vim.command("let is_ros='true'")
