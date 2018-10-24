@@ -85,7 +85,7 @@ if g:user_mode == "1"
 
   " VimWiki
   " Essential part in taking notes in vim
-  Plug 'vimwiki/vimwiki'
+  Plug 'vimwiki/vimwiki', { 'commit': 'bd88ea968baf4ce779d05f029acb63418a103e51' }
 
   " ???
   Plug 'vim-scripts/MatlabFilesEdition'
