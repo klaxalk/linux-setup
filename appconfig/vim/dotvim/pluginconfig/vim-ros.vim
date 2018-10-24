@@ -16,7 +16,10 @@ try:
     
     def GetWorkspacePath(filename):
 
-        pkg_name = rospkg.get_package_name(filename)
+        try:
+            pkg_name = rospkg.get_package_name(filename)
+        except:
+            return ''
     
         if not pkg_name:
             return ''
@@ -46,7 +49,10 @@ try:
     
         return ''
 
-    pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
+    try:
+        pkgname = rospkg.get_package_name(vim.eval("expand('%:p')"))
+    except:
+        pass
     if pkgname:
         workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
         r = rospkg.RosPack()
@@ -57,8 +63,11 @@ try:
 except ImportError:
     vim.command("let is_ros='N/A'")
 EOS
-  if is_ros == "true"
-    set efm=%f:%l:%c:\ error:%m
+
+  if exists("is_ros")
+    if is_ros == "true"
+      set efm=%f:%l:%c:\ error:%m
+    endif
   endif
 endfunction
 
