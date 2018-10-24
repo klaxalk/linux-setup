@@ -361,6 +361,7 @@ nnoremap gf <C-W>gf
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
 
+" sending lines of code to matlab
 au BufNewFile,BufRead *.m map <Leader>. :VtrSendLinesToRunner<cr>
 
 " nnoremap <leader>so :so ~/.vimrc<cr>
