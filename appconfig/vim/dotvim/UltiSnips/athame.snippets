@@ -132,6 +132,10 @@ snippet so3 "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/So3Controller
 endsnippet
 
+snippet joystick "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
+endsnippet
+
 snippet linetracker "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LineTracker
 endsnippet
