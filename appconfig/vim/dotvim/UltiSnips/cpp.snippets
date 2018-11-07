@@ -14,7 +14,7 @@ def get_class_name():
 	fh = open(path)
 	class_name = ""
 	for line in fh:
-		class_pattern = re.compile("^class ")
+		class_pattern = re.compile("^\s*class ")
 		if class_pattern.match(line):
 			class_name = line.split()[1]
 	return class_name

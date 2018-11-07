@@ -100,6 +100,14 @@ snippet mpctracker "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/MpcTracker
 endsnippet
 
+snippet joytracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/JoyTracker
+endsnippet
+
+snippet joystick "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
+endsnippet
+
 snippet hover "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/hover
 endsnippet
@@ -120,7 +128,7 @@ snippet takeoff "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mav_manager/takeoff
 endsnippet
 
-snippet lsf "" Ab
+snippet nsf "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
 endsnippet
 
@@ -130,6 +138,10 @@ endsnippet
 
 snippet so3 "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/So3Controller
+endsnippet
+
+snippet attitude "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/AttitudeController
 endsnippet
 
 snippet linetracker "" Ab
@@ -276,7 +288,7 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/gain_manager/set_gains 
 endsnippet
 
 snippet setconstraints "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/gain_manager/set_constraints ${2:slow}
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/constraint_manager/set_constraints ${2:slow}
 endsnippet
 
 snippet fuse "" Ab
