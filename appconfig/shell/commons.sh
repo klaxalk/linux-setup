@@ -14,6 +14,7 @@ xrdb ~/.Xresources
 xset r rate 350 55
 
 export TERM=rxvt-unicode-256color
+# export TERM=screen-256color
 
 # use ctags to generate code tags
 generateTags() {
