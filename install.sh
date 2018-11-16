@@ -61,6 +61,9 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh
 
+# install modified keyboard rules
+bash $APPCONFIG_PATH/keyboard/install.sh
+
 #############################################
 # remove the interactivity check from bashrc
 #############################################
@@ -181,8 +184,6 @@ else
 
 fi
 
-# copy modified keyboard default file
-sudo cp "$APPCONFIG_PATH/keyboard/keyboard" /etc/default/keyboard
 
 # deploy configs by Profile manager
 ./deploy_configs.sh
