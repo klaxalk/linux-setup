@@ -495,10 +495,13 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
+# # # compton without fancy graphics
+# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+
 # # EPIGEN_ADD_BLOCK_TOSHIBA }
 
 # # dropbox icon in tray
-# exec --no-startup-id dropbox start
+# # exec --no-startup-id dropbox start
 # exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # EPIGEN_ADD_BLOCK_MATOUS }
@@ -633,14 +636,8 @@ exec --no-startup-id nm-applet
 # run arandr to configure the monitors and to export the .monitor.sh file
 exec ~/.monitor.sh
 
-# KEYBOARD
-# setup US/CZ keyboard layout
-exec_always --no-startup-id "sleep 4; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";" # EPIGEN_DEL_LINE_PETR
-# caps lock should behave as ESC
-exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
-
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
