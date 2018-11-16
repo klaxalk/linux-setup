@@ -59,7 +59,7 @@ if g:user_mode == "1"
   Plug 'hynek/vim-python-pep8-indent'
 
   " automatic split resizing for more convenient coding
-  Plug 'zhaocai/GoldenView.Vim'
+  " Plug 'zhaocai/GoldenView.Vim'
 
   " Clever motions helper
   " highlights letters while using f, t motions
@@ -199,7 +199,7 @@ set hlsearch
 set incsearch
 
 " syntax highlighting for only first ** characters of each line
-set synmaxcol=200
+set synmaxcol=400
 
 " map the leader key
 nnoremap , <NOP>
@@ -290,6 +290,10 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
 
+" remap buffer navigations to shift + UI
+map <S-U> :bn<cr>
+map <S-I> :bp<cr>
+
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -327,7 +331,7 @@ imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>"
 imap <leader>( ()<Esc>i
 imap <leader>{ {}<Esc>i
 
-" clever jumping to first and last character of the line
+" " clever jumping to first and last character of the line
 nmap H ^
 vmap H ^
 nmap L $

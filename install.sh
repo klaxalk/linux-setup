@@ -181,6 +181,9 @@ else
 
 fi
 
+# copy modified keyboard default file
+sudo cp "$APPCONFIG_PATH/keyboard/keyboard" /etc/default/keyboard
+
 # deploy configs by Profile manager
 ./deploy_configs.sh
 

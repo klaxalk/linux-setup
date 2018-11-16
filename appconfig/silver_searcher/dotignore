@@ -22,3 +22,12 @@ submodules/
 # tle/
 
 # EPIGEN_ADD_BLOCK_TOMAS }
+
+# EPIGEN_ADD_BLOCK_MATOUS {
+
+# Downloads/
+# Dropbox/
+# /windows
+# git/opencv*/
+
+# EPIGEN_ADD_BLOCK_MATOUS }

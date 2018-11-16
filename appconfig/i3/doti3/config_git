@@ -565,12 +565,6 @@ exec --no-startup-id nm-applet
 # run arandr to configure the monitors and to export the .monitor.sh file
 exec ~/.monitor.sh
 
-# KEYBOARD
-# setup US/CZ keyboard layout
-exec_always --no-startup-id "sleep 4; setxkbmap -model pc101 -layout us,cz -variant ,qwerty -option \"grp:rctrl_toggle\";"
-# caps lock should behave as ESC
-exec_always --no-startup-id "sleep 6; setxkbmap -option \"caps:escape\""
-
 # enables transparency
 exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA
 
