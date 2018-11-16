@@ -59,7 +59,7 @@ if g:user_mode == "1"
   Plug 'hynek/vim-python-pep8-indent'
 
   " automatic split resizing for more convenient coding
-  " Plug 'zhaocai/GoldenView.Vim'
+  Plug 'zhaocai/GoldenView.Vim'
 
   " Clever motions helper
   " highlights letters while using f, t motions
