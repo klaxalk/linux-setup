@@ -85,7 +85,7 @@ if g:user_mode == "1"
 
   " VimWiki
   " Essential part in taking notes in vim
-  Plug 'vimwiki/vimwiki'
+  Plug 'vimwiki/vimwiki', { 'commit': 'bd88ea968baf4ce779d05f029acb63418a103e51' }
 
   " ???
   Plug 'vim-scripts/MatlabFilesEdition'
@@ -360,6 +360,9 @@ nnoremap gf <C-W>gf
 
 " vimgrepping in all subfolders
 map <Leader>lv :lv //g ./**/*<c-f>^f/a
+
+" sending lines of code to matlab
+au BufNewFile,BufRead *.m map <Leader>. :VtrSendLinesToRunner<cr>
 
 " nnoremap <leader>so :so ~/.vimrc<cr>
 

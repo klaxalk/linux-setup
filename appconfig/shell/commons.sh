@@ -342,6 +342,17 @@ waitForControl() {
   done
 }
 
+waitForMpc() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control"
+    sleep 1;
+  done
+  until timeout 3s rostopic echo /$UAV_NAME/odometry/odom_main -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for odom_main"
+    sleep 1;
+  done
+}
+
 catkin() {
 
   case $* in init*)
