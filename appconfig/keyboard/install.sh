@@ -12,10 +12,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing keyboard rules
+    toilet Setting up keyboard
 
     # copy modified keyboard default file
-    sudo cp "$APPCONFIG_PATH/keyboard/keyboard" /etc/default/keyboard
+    sudo cp "$APP_PATH/keyboard" /etc/default/keyboard
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
