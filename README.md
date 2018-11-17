@@ -3,7 +3,7 @@
 This repo contains settings of klaxalk's Linux work environment.
 
 It could be summarized as follows:
-* **Ubuntu 16.04**
+* **Ubuntu 18.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
