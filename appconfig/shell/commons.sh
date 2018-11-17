@@ -14,6 +14,7 @@ xrdb ~/.Xresources
 xset r rate 350 55
 
 export TERM=rxvt-unicode-256color
+# export TERM=screen-256color
 
 # use ctags to generate code tags
 generateTags() {
@@ -332,6 +333,17 @@ waitForOdometry() {
 }
 
 waitForControl() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control"
+    sleep 1;
+  done
+  until timeout 3s rostopic echo /$UAV_NAME/odometry/odom_main -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for odom_main"
+    sleep 1;
+  done
+}
+
+waitForMpc() {
   until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for control"
     sleep 1;

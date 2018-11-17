@@ -21,6 +21,7 @@ let g:clang_format_tomas = {
       \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
       \ 'BreakBeforeBraces' : 'Custom',
       \ 'SortIncludes' : 'false',
+      \ 'NamespaceIndentation' : 'All',
       \ 'BraceWrapping' : {
       \   'AfterClass' :      'false',
       \   'AfterControlStatement' : 'false',
@@ -58,6 +59,7 @@ let g:clang_format_matous = {
       \ 'PointerAlignment' : 'Left',
       \ 'BreakBeforeBraces' : 'Custom',
       \ 'SortIncludes' : 'false',
+      \ 'NamespaceIndentation' : 'All',
       \ 'BraceWrapping' : {
       \   'AfterClass' :      'true',
       \   'AfterControlStatement' : 'true',
