@@ -1,0 +1,12 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+# Modified by linux-setup to set proper default behaviour of kbd
+
+XKBMODEL="pc101"
+XKBLAYOUT="us,cz"
+XKBVARIANT=",qwerty"
+XKBOPTIONS="grp:rctrl_toggle,caps:escape"
+
+BACKSPACE="guess"
