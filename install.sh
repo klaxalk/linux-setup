@@ -61,6 +61,9 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh
 
+# install modified keyboard rules
+bash $APPCONFIG_PATH/keyboard/install.sh
+
 #############################################
 # remove the interactivity check from bashrc
 #############################################
@@ -180,6 +183,7 @@ else
   echo "Reference in .bashrc is already there..."
 
 fi
+
 
 # deploy configs by Profile manager
 ./deploy_configs.sh
