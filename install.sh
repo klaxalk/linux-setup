@@ -61,6 +61,9 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh
 
+# install debugging tools (gdb and some mods for it)
+bash $APPCONFIG_PATH/gdb/install.sh
+
 # install modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh
 
