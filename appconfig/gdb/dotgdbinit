@@ -1,13 +1,13 @@
 ### EIGEN PRETTY PRINTER
 python
 import sys
-sys.path.insert(0, '/home/matous/.gdb/eigen/')
+sys.path.insert(0, "~/.gdb/eigen/")
 from printers import register_eigen_printers
 register_eigen_printers (None)
 end
 
 ### OpenCV IMAGE SHOWER
-source /home/matous/.gdb/gdb-imshow/cv_imshow.py
+source ~/.gdb/gdb-imshow/cv_imshow.py
 
 ### USER SETTINGS
 # this line is necessary to enable breakpoints in a not-yet

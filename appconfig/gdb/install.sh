@@ -12,13 +12,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # install gdb
-    sudo apt install gdb
+    # install gdb and python3-pil for gdb-imshow
+    sudo apt install gdb python3-pil
     # link the configuration and mods
     mkdir -p ~/.gdb
-    ln -sf $APP_PATH/gdb_modules/gdb-imshow ~/.gdb/gdb-imshow
-    ln -sf $APP_PATH/gdb_modules/eigen ~/.gdb/eigen
-    ln -sf $APP_PATH/dotgdbinit ~/.gdbinit
+    ln -sf $APP_PATH/gdb_modules/gdb-imshow ~/.gdb
+    ln -sf $APP_PATH/gdb_modules/eigen ~/.gdb
+    cp -f $APP_PATH/dotgdbinit ~/.gdbinit
     # copy the script for debugging roslaunched programs
     sudo ln -sf $APP_PATH/debug_roslaunch /usr/bin/debug_roslaunch
 
