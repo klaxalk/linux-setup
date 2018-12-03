@@ -291,8 +291,9 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 au BufNewFile,BufRead *.cl setlocal ft=c
 
 " remap buffer navigations to shift + UI
-map <S-U> :bn<cr>
-map <S-I> :bp<cr>
+" nonono! those are normil vim bindings which should remain the same
+" map <S-U> :bn<cr>
+" map <S-I> :bp<cr>
 
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
