@@ -494,10 +494,10 @@ if g:user_mode == "1"
 
   " set vim and airline colorscheme
 
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
   let g:airline_theme='papercolor'
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
@@ -509,6 +509,14 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+  " colorscheme delek
+  " " let g:airline_theme='ayu_mirage'
+  " " let g:airline_theme='base16_3024'
+  " " let g:airline_theme='raven'
+  " let g:airline_theme='term'
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
@@ -516,6 +524,7 @@ if g:user_mode == "1"
         \ { 'i': '~/.i3/config' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
+        \ { 'x': '~/.Xresources' },
         \ ]
 
   function! SetEpigenSyntax()

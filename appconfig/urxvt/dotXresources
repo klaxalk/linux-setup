@@ -78,65 +78,65 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
-! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 
-! vim: ft=xdefaults
-! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
-URxvt.background: #121212
-! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
-! EPIGEN_ADD_BLOCK_MATOUS {
-! ! EPIGEN_ADD_BLOCK_TOSHIBA {
-! ! URxvt.background: #121212
-! ! EPIGEN_ADD_BLOCK_TOSHIBA }
-! ! EPIGEN_DEL_BLOCK_TOSHIBA {
-! URxvt.background: rgba:0000/0000/0000/B000
-! ! EPIGEN_DEL_BLOCK_TOSHIBA }
-! EPIGEN_ADD_BLOCK_MATOUS }
-! EPIGEN_ADD_BLOCK_PETR {
-! URxvt.background: #222222
-! EPIGEN_ADD_BLOCK_PETR }
-URxvt.foreground: #dddddd
-! black
-URxvt.color0: #1C1C1C
-URxvt.color8: #404040
-! red
-URxvt.color1: #B85335
-URxvt.color9: #CF6A4C
-! green
-URxvt.color2: #79AD6A
-URxvt.color10: #99DD6A
-! yellow
-URxvt.color3: #FFB964
-URxvt.color11: #FAD07A
-! blue
-URxvt.color4: #667899
-URxvt.color12: #8197BF
-! magenta
-URxvt.color5: #A7A7FF
-URxvt.color13: #C6B6EE
-! cyan
-URxvt.color6: #668799
-URxvt.color14: #8FBFDC
-! white
-URxvt.color7: #888888
-URxvt.color15: #E8E8D3
+! ! vim: ft=xdefaults
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+! URxvt.background: #121212
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
+! ! ! URxvt.background: #121212
+! ! ! EPIGEN_ADD_BLOCK_TOSHIBA }
+! ! ! EPIGEN_DEL_BLOCK_TOSHIBA {
+! ! URxvt.background: rgba:0000/0000/0000/B000
+! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
+! ! EPIGEN_ADD_BLOCK_MATOUS }
+! ! EPIGEN_ADD_BLOCK_PETR {
+! ! URxvt.background: #222222
+! ! EPIGEN_ADD_BLOCK_PETR }
+! URxvt.foreground: #dddddd
+! ! black
+! URxvt.color0: #1C1C1C
+! URxvt.color8: #404040
+! ! red
+! URxvt.color1: #B85335
+! URxvt.color9: #CF6A4C
+! ! green
+! URxvt.color2: #79AD6A
+! URxvt.color10: #99DD6A
+! ! yellow
+! URxvt.color3: #FFB964
+! URxvt.color11: #FAD07A
+! ! blue
+! URxvt.color4: #667899
+! URxvt.color12: #8197BF
+! ! magenta
+! URxvt.color5: #A7A7FF
+! URxvt.color13: #C6B6EE
+! ! cyan
+! URxvt.color6: #668799
+! URxvt.color14: #8FBFDC
+! ! white
+! URxvt.color7: #888888
+! URxvt.color15: #E8E8D3
 
-!! URxvt COLORS --------------------------------------------------------
-URxvt*depth                   : 32
-! URxvt.fading                  : 25
-! URxvt.fadeColor               : #101010
-URxvt*visualBell              : false
+! !! URxvt COLORS --------------------------------------------------------
+! URxvt*depth                   : 32
+! ! URxvt.fading                  : 25
+! ! URxvt.fadeColor               : #101010
+! URxvt*visualBell              : false
 
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! ! ------------------------------------------------------------------------------
+! ! ROFI Color theme
+! ! ------------------------------------------------------------------------------
+! rofi.color-enabled: true
+! rofi.color-window: #273238, #273238, #1e2529
+! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
-! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
@@ -200,3 +200,63 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! rofi.separator-style:                solid
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+
+! ! vim: ft=xdefaults
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+! URxvt.background: #121212
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
+! ! ! URxvt.background: #121212
+! ! ! EPIGEN_ADD_BLOCK_TOSHIBA }
+! ! ! EPIGEN_DEL_BLOCK_TOSHIBA {
+! ! URxvt.background: rgba:0000/0000/0000/B000
+! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
+! ! EPIGEN_ADD_BLOCK_MATOUS }
+! ! EPIGEN_ADD_BLOCK_PETR {
+! ! URxvt.background: #222222
+! ! EPIGEN_ADD_BLOCK_PETR }
+! URxvt.foreground: #dddddd
+! ! black
+! URxvt.color0: #1C1C1C
+! URxvt.color8: #404040
+! ! red
+! URxvt.color1: #B85335
+! URxvt.color9: #CF6A4C
+! ! green
+! URxvt.color2: #79AD6A
+! URxvt.color10: #99DD6A
+! ! yellow
+! URxvt.color3: #FFB964
+! URxvt.color11: #FAD07A
+! ! blue
+! URxvt.color4: #667899
+! URxvt.color12: #8197BF
+! ! magenta
+! URxvt.color5: #A7A7FF
+! URxvt.color13: #C6B6EE
+! ! cyan
+! URxvt.color6: #668799
+! URxvt.color14: #8FBFDC
+! ! white
+! URxvt.color7: #888888
+! URxvt.color15: #E8E8D3
+
+! !! URxvt COLORS --------------------------------------------------------
+! URxvt*depth                   : 32
+! ! URxvt.fading                  : 25
+! ! URxvt.fadeColor               : #101010
+! URxvt*visualBell              : false
+
+! ! ------------------------------------------------------------------------------
+! ! ROFI Color theme
+! ! ------------------------------------------------------------------------------
+! rofi.color-enabled: true
+! rofi.color-window: #273238, #273238, #1e2529
+! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+
+! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
