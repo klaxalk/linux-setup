@@ -218,7 +218,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! EPIGEN_ADD_BLOCK_PETR {
 ! ! URxvt.background: #222222
 ! ! EPIGEN_ADD_BLOCK_PETR }
-! URxvt.foreground: #dddddd
+! URxvt.foreground: #eeeeee
 ! ! black
 ! URxvt.color0: #1C1C1C
 ! URxvt.color8: #404040
@@ -254,9 +254,9 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! ROFI Color theme
 ! ! ------------------------------------------------------------------------------
 ! rofi.color-enabled: true
-! rofi.color-window: #273238, #273238, #1e2529
-! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! rofi.color-window: #324827, #324827, #25291e
+! rofi.color-normal: #324827, #c1c1c1, #324827, #424939, #ffffff
+! rofi.color-active: #324827, #cbc480, #324827, #424939, #cbc480
+! rofi.color-urgent: #324827, #1844ff, #324827, #424939, #1844ff
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
