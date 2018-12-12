@@ -262,7 +262,7 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
 # # EPIGEN_DEL_BLOCK_MATOUS {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
 # # EPIGEN_DEL_BLOCK_MATOUS }
 # for_window [class="^.*"] border pixel 3
 
