@@ -35,6 +35,7 @@ if &background == "light"
 else
     hi Search     ctermfg=Black	   ctermbg=82 guibg=Yellow guifg=Black
 endif
+hi SignColumn ctermbg=Black
 hi SpecialKey ctermfg=DarkBlue	   guifg=Blue
 hi StatusLine cterm=bold	   ctermbg=blue ctermfg=yellow guibg=gold guifg=blue
 hi StatusLineNC	cterm=bold	   ctermbg=blue ctermfg=black  guibg=gold guifg=blue
