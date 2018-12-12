@@ -537,7 +537,10 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
   " colorscheme grun
-  " let g:airline_theme='term'
+  " " config for airline theme 'term_grun' (the term theme with one changed
+  " " color to improve visibility of selected TMUX pane)
+  " source ~/.vim/pluginconfig/term_grun.vim
+  " let g:airline_theme='term_grun'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
   " customize bookmarks in startify
