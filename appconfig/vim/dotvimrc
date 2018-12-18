@@ -68,10 +68,21 @@ if g:user_mode == "1"
   " Shows tags in the file
   " currently mapped to F8
   Plug 'majutsushi/tagbar'
+  " Plug 'xolox/vim-easytags'
+  " Plug 'xolox/vim-misc'
+  " let g:easytags_async=1
+  " let g:easytags_events = ['BufRead', 'BufWritePost']
+  " let g:easytags_auto_update=0
+  " let g:easytags_file='~/tags'
+  " let g:easytags_syntax_keyword='always'
+  " let g:easytags_always_enabled=1
+  " let g:easytags_updatetime_min=1000
 
   " youcompleteme
   " automatic code completion for C++ and more
   Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  " Plug 'davits/youcompleteme'
+  " Plug 'davits/dyevim'
 
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
@@ -126,8 +137,21 @@ if g:user_mode == "1"
   " try gc<motion>
   Plug 'tpope/vim-commentary'
 
+  " better highlighting for c++11/14/17
+  " Plug 'jeaye/color_coded'
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  " Plug 'bfrg/vim-cpp-modern'
+  " Plug 'bbchung/clighter8'
+  " Plug 'bbchung/Clamp'
+  " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
+  " Plug 'justinmk/vim-syntax-extra'
+
   if has("nvim")
     Plug 'mklabs/split-term.vim'
+    " Plug 'arakashic/chromatica.nvim'
+    " let g:chromatica#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so'
+    " let g:chromatica#enable_at_startup=1
+    " let g:chromatica#dotclangfile_search_path=''
   endif
 
 endif
@@ -291,8 +315,9 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 au BufNewFile,BufRead *.cl setlocal ft=c
 
 " remap buffer navigations to shift + UI
-map <S-U> :bn<cr>
-map <S-I> :bp<cr>
+" nonono! those are normil vim bindings which should remain the same
+" map <S-U> :bn<cr>
+" map <S-I> :bp<cr>
 
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
@@ -455,6 +480,8 @@ if g:user_mode == "1"
   " config for vim-conflicted
   source ~/.vim/pluginconfig/vim-conflicted.vim
 
+  " config for vim-cpp-enhanced-highlight
+  source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
 endif
 
 " %:p:h path
@@ -493,10 +520,10 @@ if g:user_mode == "1"
 
   " set vim and airline colorscheme
 
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
   let g:airline_theme='papercolor'
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
@@ -508,6 +535,14 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+  " colorscheme grun
+  " " config for airline theme 'term_grun' (the term theme with one changed
+  " " color to improve visibility of selected TMUX pane)
+  " source ~/.vim/pluginconfig/term_grun.vim
+  " let g:airline_theme='term_grun'
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
@@ -515,6 +550,7 @@ if g:user_mode == "1"
         \ { 'i': '~/.i3/config' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
+        \ { 'x': '~/.Xresources' },
         \ ]
 
   function! SetEpigenSyntax()

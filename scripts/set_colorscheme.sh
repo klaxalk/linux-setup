@@ -17,9 +17,10 @@ fi
 RCFILE=~/."$SNAME"rc
 
 COLOR_SCHEME=$( echo "DARK
-LIGHT" | rofi -dmenu -p "Select colorscheme:")
+LIGHT
+GRUN" | rofi -dmenu -p "Select colorscheme:")
 
-if [ "$COLOR_SCHEME" != "DARK" ] && [ "$COLOR_SCHEME" != "LIGHT" ]; then
+if [ "$COLOR_SCHEME" != "DARK" ] && [ "$COLOR_SCHEME" != "LIGHT" ] && [ "$COLOR_SCHEME" != "GRUN" ]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
