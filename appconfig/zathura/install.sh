@@ -45,6 +45,8 @@ while true; do
 
     sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
+    mkdir -p ~/.config/zathura
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
