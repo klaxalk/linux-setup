@@ -404,6 +404,8 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
+# bindsym $mod+o exec ~/.scripts/i3_mark.sh
+# bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
 
 # # #{ DESKTOP
 
