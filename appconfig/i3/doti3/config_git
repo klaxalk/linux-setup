@@ -523,12 +523,29 @@ set $mode_gaps_inner inner gaps
 
 # # # compton without fancy graphics
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+# # exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # # EPIGEN_ADD_BLOCK_TOSHIBA }
 
+# # EPIGEN_ADD_BLOCK_LEJNOVO {
+
+# # # Bind audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind Lejnovo keyboard backlight control
+# # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
+
+# # # Bind screen brightness control
+# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/prepare_for_combat.jpeg"
+# # EPIGEN_ADD_BLOCK_LEJNOVO }
+
 # # dropbox icon in tray
 # # exec --no-startup-id dropbox start
-# exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # EPIGEN_ADD_BLOCK_MATOUS }
 
