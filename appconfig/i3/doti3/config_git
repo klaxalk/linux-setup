@@ -69,6 +69,19 @@ set $workspace10 "10"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_PETR }
 
+# EPIGEN_ADD_BLOCK_PAVEL ACTIVE {
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6"
+set $workspace7 "7: "
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+# EPIGEN_ADD_BLOCK_PAVEL }
+
 # #}
 
 # set font
@@ -667,6 +680,44 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
 # EPIGEN_ADD_BLOCK_PETR }
+
+# #}
+
+# #{ PAVEL's customization
+
+# EPIGEN_ADD_BLOCK_PAVEL ACTIVE {
+
+# EPIGEN_ADD_BLOCK_HP ACTIVE {
+
+# Lock screen
+# bindsym Control_L+l exec  --no-startup-id i3lock
+
+# Numlock on by default
+exec_always --no-startup-id numlockx on
+
+# Monitor setup
+bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+
+# Bind HP screen brightness control
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+
+# Toggling HP touchpad
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# Bind HP audio control keys
+bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# Default keyboard US, alt+shift to switch between US and CZ
+exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# EPIGEN_ADD_BLOCK_HP }
+
+# sem pis oneliner # EPIGEN_ADD_LINE_HP ACTIVE
+
+# EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}
 
