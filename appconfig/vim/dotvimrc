@@ -30,9 +30,15 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " Lean & mean status/tabline for vim that's light as air.
+  " Plug 'itchyny/lightline.vim'
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " integration with tmux (allows running bash commands in tmux splits)
   Plug 'benmills/vimux'
@@ -87,12 +93,14 @@ if g:user_mode == "1"
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " Latex stuff
-  Plug 'lervag/vimtex', { 'commit': '1adf2a4350121897294b41f319a83b72aa5f1c3a' }
+  Plug 'lervag/vimtex'
 
   " VimWiki
   " Essential part in taking notes in vim
