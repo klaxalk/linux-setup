@@ -449,7 +449,12 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-airline.vim
 
   " config for startify
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   source ~/.vim/pluginconfig/vim-startify.vim
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " source ~/.vim/pluginconfig/vim-startify-spider.vim
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
@@ -581,4 +586,12 @@ if g:user_mode == "1"
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
+
 endif
+
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " My large subconfig
+  " if !empty(glob("~/.my.vimrc"))
+  "   source ~/.my.vimrc
+  " endif
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
