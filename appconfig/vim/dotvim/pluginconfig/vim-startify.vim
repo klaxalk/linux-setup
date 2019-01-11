@@ -27,8 +27,15 @@ let g:startify_bookmarks = [
       \ ]
 
 " the bottom part of the startify
+" the bottom part of the startify
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
 let g:startify_custom_footer =
       \ ['', "   Pes štěká, kočka mňouká.", '']
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+" let g:startify_custom_footer =
+"       \ ['', "   Spider entraps.", '']
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
 hi StartifyBracket ctermfg=240
 hi StartifyFile    ctermfg=147
