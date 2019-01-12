@@ -334,7 +334,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
 map <S-J> :tabn<cr>
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 map <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
