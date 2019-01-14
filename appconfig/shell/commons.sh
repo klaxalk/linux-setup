@@ -144,29 +144,27 @@ git() {
         case $* in pull*|checkout*)
           echo "Updating git submodules"
           command git submodule update --init --recursive
-      esac
+        esac
 
-      if [[ "$?" == "0" ]]; then
+        if [[ "$?" == "0" ]]; then
+          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        fi
 
-        bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
-
+      else
+        command git "$@"
+        case $* in pull*|checkout*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
       fi
 
-    else
-      command git "$@"
-      case $* in pull*|checkout*)
-        echo "Updating git submodules"
-        command git submodule update --init --recursive
-    esac
-  fi
-
-else
-  command git "$@"
-  case $* in pull*|checkout*)
-    echo "Updating git submodules"
-    command git submodule update --init --recursive
-esac
-    fi
+      else
+        command git "$@"
+        case $* in pull*|checkout*)
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+        esac
+      fi
 
     ;;
   *)
