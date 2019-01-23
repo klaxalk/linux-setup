@@ -292,6 +292,11 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimat
 snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
 endsnippet
 
+snippet hdgfuse "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_hdg_estimator_type_string ${1}`!p
+snip.rv=complete(t[1], ["gyro", "compass", "optflow"])`
+endsnippet
+
 snippet headless "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
 endsnippet

@@ -4,5 +4,5 @@ map w adjust_window width
 
 map c set recolor true
 
-map n navigate next
-map m navigate previous
+map u navigate next
+map i navigate previous
