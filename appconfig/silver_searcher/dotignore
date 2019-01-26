@@ -2,6 +2,7 @@
 *.png
 *.jpg
 *.pdf
+*.pyc
 /tmp/
 youcompleteme/
 build/
