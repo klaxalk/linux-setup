@@ -1,0 +1,1 @@
+:cabbrev Glog Glog --follow
