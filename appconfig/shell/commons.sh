@@ -142,6 +142,8 @@ git() {
         command git "$@"
 
         case $* in pull*|checkout*)
+          echo "Syncing git submodules"
+          command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
         esac
@@ -153,6 +155,8 @@ git() {
       else
         command git "$@"
         case $* in pull*|checkout*)
+          echo "Syncing git submodules"
+          command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
         esac
@@ -161,6 +165,8 @@ git() {
       else
         command git "$@"
         case $* in pull*|checkout*)
+          echo "Syncing git submodules"
+          command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
         esac
