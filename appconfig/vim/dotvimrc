@@ -503,9 +503,6 @@ if g:user_mode == "1"
   " config for vim-conflicted
   source ~/.vim/pluginconfig/vim-conflicted.vim
 
-  " config for vim-fugitive
-  source ~/.vim/pluginconfig/vim-fugitive.vim
-
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
 endif
