@@ -268,6 +268,12 @@ nnoremap <leader>p :call TogglePaste()<cr>
 set nocursorline
 set nocursorcolumn
 
+" enable cursorlines
+function! EnableCursorLines()
+  set cursorline
+  set cursorcolumn
+endfunc
+
 " toggle cursorlines
 function! ToggleCursorLines()
   if(&cursorline == 0)
@@ -279,6 +285,9 @@ function! ToggleCursorLines()
   endif
 endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
+
+" enable cursor lines for python files
+au FileType python call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
