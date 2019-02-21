@@ -6,3 +6,5 @@ appconfig/vim/dotvim/session
 appconfig/vim/dotvim/.netrwhist
 
 html/
+
+*/__pycache__
