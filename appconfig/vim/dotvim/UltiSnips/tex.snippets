@@ -317,6 +317,10 @@ snippet mathrm "\mathrm{}" i
 \\mathrm{${1:${VISUAL}}}
 endsnippet
 
+snippet mathcal "\mathcal{}" i
+\\mathcal{${1:${VISUAL}}}
+endsnippet
+
 snippet mathbb "\mathbb{}" i
 \\mathbb{${1:${VISUAL}}}
 endsnippet
@@ -669,14 +673,6 @@ snippet "Pi" "" ri
 \Pi
 endsnippet
 
-snippet "pi" "" ri
-\pi
-endsnippet
-
-snippet "Pi" "" ri
-\Pi
-endsnippet
-
 snippet "nu" "" ri
 \nu
 endsnippet
@@ -729,4 +725,8 @@ snippet tabular
 \begin{tabular}{${1}}
 ${2:${VISUAL}}
 \end{tabular}
+endsnippet
+
+snippet makecell "" i
+\makecell{${1:${VISUAL}}}
 endsnippet
