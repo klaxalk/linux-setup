@@ -1,4 +1,4 @@
-snippet times "" i
+snippet times "" i}
 \times
 endsnippet
 
@@ -415,10 +415,14 @@ snippet forall "\forall" Ai
 \\forall ${1}
 endsnippet
 
-snippet subfloat "" i
+snippet subfloat "big" i
 \subfloat[${1:Image caption}] {
 	${2:${VISUAL}}
 }
+endsnippet
+
+snippet subfloat "small" i
+\subfloat[${1:Image caption}] {${2:${VISUAL}}}
 endsnippet
 
 snippet vphantom "" i
@@ -437,7 +441,7 @@ ${2:${VISUAL}}
 endsnippet
 
 snippet frame "image frame" 
-\frame{${1:${VISUAL}}
+\frame{${1:${VISUAL}}}
 endsnippet
 
 snippet block
@@ -729,4 +733,12 @@ snippet tabular
 \begin{tabular}{${1}}
 ${2:${VISUAL}}
 \end{tabular}
+endsnippet
+
+snippet hline
+\hline
+endsnippet
+
+snippet makecell "" i
+\makecell{${2:${VISUAL}}}
 endsnippet
