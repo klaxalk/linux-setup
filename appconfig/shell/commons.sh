@@ -402,6 +402,12 @@ slack() {
   $SLACK_BIN -config $SLACK_CFG
 }
 
+git_submodule_recursive() {
+
+  command git submodule foreach git "$@"
+}
+alias gr="git_submodule_recursive"
+
 repo_to_local() {
 
   MY_PATH=`dirname "$0"`
