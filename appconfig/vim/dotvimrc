@@ -30,9 +30,15 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " Lean & mean status/tabline for vim that's light as air.
+  " Plug 'itchyny/lightline.vim'
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " integration with tmux (allows running bash commands in tmux splits)
   Plug 'benmills/vimux'
@@ -87,9 +93,11 @@ if g:user_mode == "1"
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " Latex stuff
   Plug 'lervag/vimtex'
@@ -260,6 +268,12 @@ nnoremap <leader>p :call TogglePaste()<cr>
 set nocursorline
 set nocursorcolumn
 
+" enable cursorlines
+function! EnableCursorLines()
+  set cursorline
+  set cursorcolumn
+endfunc
+
 " toggle cursorlines
 function! ToggleCursorLines()
   if(&cursorline == 0)
@@ -271,6 +285,9 @@ function! ToggleCursorLines()
   endif
 endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
+
+" enable cursor lines for python files
+au FileType python call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
@@ -326,7 +343,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
 map <S-J> :tabn<cr>
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 map <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
@@ -369,12 +388,19 @@ vnoremap // y/<C-R>"<CR>
 au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%\ %{,%\ %}
 
-au FileType yml,yaml,sh,conf,python set foldmethod=marker
-au FileType yml,yaml,conf,python set foldmarker=#\ #{,#\ #}
-au FileType sh set foldmarker=#\ #{,#\ #}
+au BufNewFile,BufRead *.sk setf sketch
+au FileType sk,sketch set foldmethod=marker
+au FileType sk,sketch set foldmarker=%\ %{,%\ %}
+
+au FileType bib,yml,yaml,sh,conf,python set foldmethod=marker
+au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
+
+au BufNewFile,BufRead *.sk setf sketch
+au FileType sk,sketch set foldmethod=marker
+au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 
 " find and replace
 map <Leader>fr :%s///g<left><left>
@@ -433,7 +459,12 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-airline.vim
 
   " config for startify
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   source ~/.vim/pluginconfig/vim-startify.vim
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " source ~/.vim/pluginconfig/vim-startify-spider.vim
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
@@ -565,4 +596,12 @@ if g:user_mode == "1"
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
+
 endif
+
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " My large subconfig
+  " if !empty(glob("~/.my.vimrc"))
+  "   source ~/.my.vimrc
+  " endif
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
