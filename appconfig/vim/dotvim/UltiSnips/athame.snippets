@@ -100,6 +100,10 @@ snippet joytracker "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/JoyTracker
 endsnippet
 
+snippet fliptracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/FlipTracker
+endsnippet
+
 snippet joystick "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
 endsnippet
@@ -117,11 +121,11 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/motors 
 endsnippet
 
 snippet land "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mav_manager/land
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/land
 endsnippet
 
 snippet takeoff "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mav_manager/takeoff
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/takeoff
 endsnippet
 
 snippet nsf "" Ab
@@ -290,6 +294,11 @@ endsnippet
 snippet fuse "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
 snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
+endsnippet
+
+snippet hdgfuse "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_hdg_estimator_type_string ${1}`!p
+snip.rv=complete(t[1], ["gyro", "compass", "optflow"])`
 endsnippet
 
 snippet headless "" Ab
