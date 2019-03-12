@@ -1,6 +1,6 @@
 *.swp
 *.orig
-#.pyc
+*.pyc
 
 appconfig/vim/dotvim/plugged/*
 appconfig/vim/dotvim/session
