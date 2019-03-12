@@ -100,49 +100,59 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
-# [notes]
-# command=~/git/notes/save_and_update.sh
+# # [notes]
+# # command=~/git/notes/save_and_update.sh
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # interval=60
+# # separator=true
+
+# # EPIGEN_ADD_BLOCK_TOMAS }
+
+# # EPIGEN_DEL_BLOCK_GPD {
+
+# [rosip]
+# label=ROS_IP
+# interval=20
+# command=$HOME/.i3/detacher.sh 1 'echo $ROS_IP'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=60
-# separator=true
 
-# EPIGEN_ADD_BLOCK_TOMAS }
-
-# EPIGEN_DEL_BLOCK_GPD {
-
-[rosip]
-label=ROS_IP
-interval=20
-command=$HOME/.i3/detacher.sh 1 'echo $ROS_IP'
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-[rosmasteruri]
-label=ROS_MASTER
-interval=20
-command=$HOME/.i3/detacher.sh 1 'echo $ROS_MASTER_URI'
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# EPIGEN_DEL_BLOCK_GPD }
-
-# EPIGEN_ADD_BLOCK_MATEJ {
-# [cputemp]
-# interval=2
-# label=CPU
-# command=~/.i3/show_temp.sh 0
+# [rosmasteruri]
+# label=ROS_MASTER
+# interval=20
+# command=$HOME/.i3/detacher.sh 1 'echo $ROS_MASTER_URI'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_MATEJ }
+
+# # EPIGEN_DEL_BLOCK_GPD }
+
+# # EPIGEN_ADD_BLOCK_MATEJ {
+# # [cputemp]
+# # interval=2
+# # label=CPU
+# # command=~/.i3/show_temp.sh 0
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_MATEJ }
 
 # EPIGEN_ADD_BLOCK_MATOUS {
-# [cputemp]
-# interval=2
-# label=CPU
-# command=~/.i3/show_temp.sh 1
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_TOSHIBA {
+# # [cputemp]
+# # interval=2
+# # label=CPU
+# # command=~/.i3/show_temp.sh 1
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_TOSHIBA }
+# # EPIGEN_ADD_BLOCK_LEJNOVO {
+# # [cputemp]
+# # interval=2
+# # label=CPU
+# # command=~/.i3/show_temp.sh 3
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_LEJNOVO }
 # EPIGEN_ADD_BLOCK_MATOUS }
 
 # EPIGEN_ADD_BLOCK_VOJTA {

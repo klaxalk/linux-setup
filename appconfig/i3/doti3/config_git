@@ -533,6 +533,8 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioPlay --release exec --no-startup-id notify-send "Pausing/playing youtube" && xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p
+# # bindsym XF86AudioPause --release exec --no-startup-id notify-send "Pausing/playing youtube" && xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p
 
 # # # Bind Lejnovo keyboard backlight control
 # # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
@@ -541,7 +543,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/prepare_for_combat.jpeg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/dopesmoker.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
 # # dropbox icon in tray
