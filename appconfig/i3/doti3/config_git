@@ -253,23 +253,6 @@ bindsym $mod+Shift+minus move scratchpad
 # bluetooth applet
 exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 
-# EPIGEN_ADD_BLOCK_VIT {
-
-# # EPIGEN_ADD_BLOCK_DELL {
-
-# # # Bind screen brightness control to DELL's special keys
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-
-# # EPIGEN_ADD_BLOCK_DELL }
-
-# EPIGEN_ADD_BLOCK_VIT }
-
 # #{ appearance, colors and color-schemes
 
 # default dark colors
@@ -750,6 +733,27 @@ set $mode_gaps_inner inner gaps
 # # # sem pis oneliner # EPIGEN_ADD_LINE_HP
 
 # EPIGEN_ADD_BLOCK_PAVEL }
+
+# #}
+
+# #{ Vit's changes
+
+# EPIGEN_ADD_BLOCK_VIT {
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# EPIGEN_ADD_BLOCK_VIT }
 
 # #}
 
