@@ -299,3 +299,19 @@ endsnippet
 snippet headless "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
 endsnippet
+
+snippet "run two" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "run three" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/three_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "cd thesis" "" Ab
+cd ~/git/Thesis
+endsnippet
+
+snippet pdflatex "" Ab
+pdflatex --output-dir build ${1:main.tex}
+endsnippet
