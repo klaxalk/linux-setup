@@ -590,7 +590,22 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
-# # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
 
 # EPIGEN_ADD_BLOCK_DAN }
 
@@ -718,6 +733,27 @@ set $mode_gaps_inner inner gaps
 # # # sem pis oneliner # EPIGEN_ADD_LINE_HP
 
 # EPIGEN_ADD_BLOCK_PAVEL }
+
+# #}
+
+# #{ Vit's changes
+
+# EPIGEN_ADD_BLOCK_VIT {
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# EPIGEN_ADD_BLOCK_VIT }
 
 # #}
 
