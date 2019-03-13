@@ -69,6 +69,19 @@ set $workspace10 "10"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_PETR }
 
+# EPIGEN_ADD_BLOCK_PAVEL {
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "5: "
+# set $workspace6 "6"
+# set $workspace7 "7: "
+# set $workspace8 "8"
+# set $workspace9 "9"
+# set $workspace10 "10"
+# EPIGEN_ADD_BLOCK_PAVEL }
+
 # #}
 
 # set font
@@ -261,29 +274,29 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 
 # default dark colors
 # they are disabled, when the light color scheme is active
-# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+# EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 
-set $focused_ws_bg            #005faf
-set $active_text_color        #ffffff
-set $inactive_text_color      #eeeeee
-set $inactive_background      #333333
-# EPIGEN_ADD_BLOCK_PETR {
-# set $active_background        #53B5FF
-# set $active_border            #5cd8ff
-# EPIGEN_ADD_BLOCK_PETR }
-# EPIGEN_DEL_BLOCK_PETR {
-set $active_background        #005faf
-set $active_border            #005faf
-# EPIGEN_DEL_BLOCK_PETR }
-set $background_color         #121212
-set $split_indicator          #B85335
-set $urgent                   #ff0000
-# EPIGEN_DEL_BLOCK_MATOUS {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS }
-for_window [class="^.*"] border pixel 3
+# set $focused_ws_bg            #005faf
+# set $active_text_color        #ffffff
+# set $inactive_text_color      #eeeeee
+# set $inactive_background      #333333
+# # EPIGEN_ADD_BLOCK_PETR {
+# # set $active_background        #53B5FF
+# # set $active_border            #5cd8ff
+# # EPIGEN_ADD_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_PETR {
+# set $active_background        #005faf
+# set $active_border            #005faf
+# # EPIGEN_DEL_BLOCK_PETR }
+# set $background_color         #121212
+# set $split_indicator          #B85335
+# set $urgent                   #ff0000
+# # EPIGEN_DEL_BLOCK_MATOUS {
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS }
+# for_window [class="^.*"] border pixel 3
 
-# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+# EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # the alternative, light color scheme
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -308,6 +321,30 @@ for_window [class="^.*"] border pixel 3
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+
+# set $focused_ws_bg            #3f8f00
+# set $active_text_color        #ffffff
+# set $inactive_text_color      #eeeeee
+# set $inactive_background      #333333
+# # EPIGEN_ADD_BLOCK_PETR {
+# # set $active_background        #53B5FF
+# # set $active_border            #5cd8ff
+# # EPIGEN_ADD_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_PETR {
+# set $active_background        #3f8f00
+# set $active_border            #3f8f00
+# # EPIGEN_DEL_BLOCK_PETR }
+# set $background_color         #121212
+# set $split_indicator          #B85335
+# set $urgent                   #ff0000
+# # EPIGEN_DEL_BLOCK_MATOUS {
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS }
+# for_window [class="^.*"] border pixel 3
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 hide_edge_borders both
 
@@ -397,6 +434,8 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
+# bindsym $mod+o exec ~/.scripts/i3_mark.sh
+# bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
 
 # # #{ DESKTOP
 
@@ -514,12 +553,29 @@ set $mode_gaps_inner inner gaps
 
 # # # compton without fancy graphics
 # # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
+# # exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # # EPIGEN_ADD_BLOCK_TOSHIBA }
 
+# # EPIGEN_ADD_BLOCK_LEJNOVO {
+
+# # # Bind audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind Lejnovo keyboard backlight control
+# # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
+
+# # # Bind screen brightness control
+# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/prepare_for_combat.jpeg"
+# # EPIGEN_ADD_BLOCK_LEJNOVO }
+
 # # dropbox icon in tray
 # # exec --no-startup-id dropbox start
-# exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
 
 # EPIGEN_ADD_BLOCK_MATOUS }
 
@@ -551,7 +607,22 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
-# # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
 
 # EPIGEN_ADD_BLOCK_DAN }
 
@@ -644,6 +715,44 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ PAVEL's customization
+
+# EPIGEN_ADD_BLOCK_PAVEL {
+
+# # EPIGEN_ADD_BLOCK_HP {
+
+# # # Lock screen
+# # # bindsym Control_L+l exec  --no-startup-id i3lock
+
+# # # Numlock on by default
+# # exec_always --no-startup-id numlockx on
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+
+# # # Bind HP screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+
+# # # Toggling HP touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # Bind HP audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Default keyboard US, alt+shift to switch between US and CZ
+# # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # EPIGEN_ADD_BLOCK_HP }
+
+# # # sem pis oneliner # EPIGEN_ADD_LINE_HP
+
+# EPIGEN_ADD_BLOCK_PAVEL }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
@@ -684,6 +793,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # for_window [title="Gazebo"] move workspace $workspace9
 # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
+# for_window [class="Matplotlib"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
 #
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA

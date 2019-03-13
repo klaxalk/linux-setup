@@ -87,7 +87,7 @@ export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
 # where should ctags look for sources to parse?
 # CTAGS FROM THOSE FOLDERS WILL BE CREATED ONLY ONCE
 # -R dir1 -R dir2 ...
-export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/kinetic/include"' >> ~/.bashrc
+export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"' >> ~/.bashrc
 
     fi
 

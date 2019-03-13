@@ -9,6 +9,15 @@ def file_is_plugin():
 			return True
 	return False
 
+def file_is_gazebo_plugin():
+	import re
+	fh = open(path)
+	for line in fh:
+		plugin_pattern = re.compile("^.*GAZEBO_VISIBLE.*$")
+		if plugin_pattern.match(line):
+			return True
+	return False
+
 def get_class_name():
 	import re
 	fh = open(path)
@@ -17,6 +26,17 @@ def get_class_name():
 		class_pattern = re.compile("^\s*class ")
 		if class_pattern.match(line):
 			class_name = line.split()[1]
+	return class_name
+	return ""
+
+def get_gazebo_plugin_class_name():
+	import re
+	fh = open(path)
+	class_name = ""
+	for line in fh:
+		class_pattern = re.compile("^\s*class ")
+		if class_pattern.match(line):
+			class_name = line.split()[2]
 	return class_name
 	return ""
 
@@ -185,11 +205,15 @@ snip.rv=ros_info()+"("
 if (match.group(2) == "t") or (match.group(3) == "t") :
 	snip.rv="1.0, "
 `"`!p
-if file_is_plugin():
+is_plugin = file_is_plugin()
+is_gazebo_plugin = file_is_gazebo_plugin()
+if is_plugin:
 	snip.rv='['+get_class_name()+']'
+elif is_gazebo_plugin:
+	snip.rv='['+get_gazebo_plugin_class_name()+']'
 else:
 	snip.rv="[%s]"`: ${1}"`!p
-if not file_is_plugin():
+if not is_plugin and not is_gazebo_plugin:
 	snip.rv=", ros::this_node::getName().c_str()"``!p
 if "%" in t[1]:
 	snip.rv=", "
@@ -230,8 +254,16 @@ endsnippet
 
 snippet "fold" "" r
 /* ${1} //{ */
+
 ${2:${VISUAL}}
+
 //}
+endsnippet
+
+snippet "block" "" r
+{
+	${2:${VISUAL}}
+}
 endsnippet
 
 snippet class

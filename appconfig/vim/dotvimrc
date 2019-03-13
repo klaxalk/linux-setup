@@ -30,9 +30,15 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " Lean & mean status/tabline for vim that's light as air.
+  " Plug 'itchyny/lightline.vim'
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " integration with tmux (allows running bash commands in tmux splits)
   Plug 'benmills/vimux'
@@ -68,17 +74,30 @@ if g:user_mode == "1"
   " Shows tags in the file
   " currently mapped to F8
   Plug 'majutsushi/tagbar'
+  " Plug 'xolox/vim-easytags'
+  " Plug 'xolox/vim-misc'
+  " let g:easytags_async=1
+  " let g:easytags_events = ['BufRead', 'BufWritePost']
+  " let g:easytags_auto_update=0
+  " let g:easytags_file='~/tags'
+  " let g:easytags_syntax_keyword='always'
+  " let g:easytags_always_enabled=1
+  " let g:easytags_updatetime_min=1000
 
   " youcompleteme
   " automatic code completion for C++ and more
   Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  " Plug 'davits/youcompleteme'
+  " Plug 'davits/dyevim'
 
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
 
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " Latex stuff
   Plug 'lervag/vimtex'
@@ -126,8 +145,21 @@ if g:user_mode == "1"
   " try gc<motion>
   Plug 'tpope/vim-commentary'
 
+  " better highlighting for c++11/14/17
+  " Plug 'jeaye/color_coded'
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  " Plug 'bfrg/vim-cpp-modern'
+  " Plug 'bbchung/clighter8'
+  " Plug 'bbchung/Clamp'
+  " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
+  " Plug 'justinmk/vim-syntax-extra'
+
   if has("nvim")
     Plug 'mklabs/split-term.vim'
+    " Plug 'arakashic/chromatica.nvim'
+    " let g:chromatica#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so'
+    " let g:chromatica#enable_at_startup=1
+    " let g:chromatica#dotclangfile_search_path=''
   endif
 
 endif
@@ -236,6 +268,12 @@ nnoremap <leader>p :call TogglePaste()<cr>
 set nocursorline
 set nocursorcolumn
 
+" enable cursorlines
+function! EnableCursorLines()
+  set cursorline
+  set cursorcolumn
+endfunc
+
 " toggle cursorlines
 function! ToggleCursorLines()
   if(&cursorline == 0)
@@ -247,6 +285,9 @@ function! ToggleCursorLines()
   endif
 endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
+
+" enable cursor lines for python files
+au FileType python call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
@@ -291,8 +332,9 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 au BufNewFile,BufRead *.cl setlocal ft=c
 
 " remap buffer navigations to shift + UI
-map <S-U> :bn<cr>
-map <S-I> :bp<cr>
+" nonono! those are normil vim bindings which should remain the same
+" map <S-U> :bn<cr>
+" map <S-I> :bp<cr>
 
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
@@ -301,7 +343,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
 map <S-J> :tabn<cr>
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 map <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
@@ -344,12 +388,19 @@ vnoremap // y/<C-R>"<CR>
 au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%\ %{,%\ %}
 
-au FileType yml,yaml,sh,conf,python set foldmethod=marker
-au FileType yml,yaml,conf,python set foldmarker=#\ #{,#\ #}
-au FileType sh set foldmarker=#\ #{,#\ #}
+au BufNewFile,BufRead *.sk setf sketch
+au FileType sk,sketch set foldmethod=marker
+au FileType sk,sketch set foldmarker=%\ %{,%\ %}
+
+au FileType bib,yml,yaml,sh,conf,python set foldmethod=marker
+au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
+
+au BufNewFile,BufRead *.sk setf sketch
+au FileType sk,sketch set foldmethod=marker
+au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 
 " find and replace
 map <Leader>fr :%s///g<left><left>
@@ -408,7 +459,12 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-airline.vim
 
   " config for startify
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   source ~/.vim/pluginconfig/vim-startify.vim
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " source ~/.vim/pluginconfig/vim-startify-spider.vim
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
@@ -455,6 +511,8 @@ if g:user_mode == "1"
   " config for vim-conflicted
   source ~/.vim/pluginconfig/vim-conflicted.vim
 
+  " config for vim-cpp-enhanced-highlight
+  source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
 endif
 
 " %:p:h path
@@ -493,10 +551,10 @@ if g:user_mode == "1"
 
   " set vim and airline colorscheme
 
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
   let g:airline_theme='papercolor'
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
@@ -508,6 +566,14 @@ if g:user_mode == "1"
   " let g:airline_theme='papercolor'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+  " colorscheme grun
+  " " config for airline theme 'term_grun' (the term theme with one changed
+  " " color to improve visibility of selected TMUX pane)
+  " source ~/.vim/pluginconfig/term_grun.vim
+  " let g:airline_theme='term_grun'
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
@@ -515,6 +581,7 @@ if g:user_mode == "1"
         \ { 'i': '~/.i3/config' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
+        \ { 'x': '~/.Xresources' },
         \ ]
 
   function! SetEpigenSyntax()
@@ -529,4 +596,12 @@ if g:user_mode == "1"
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
+
 endif
+
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " " My large subconfig
+  " if !empty(glob("~/.my.vimrc"))
+  "   source ~/.my.vimrc
+  " endif
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }

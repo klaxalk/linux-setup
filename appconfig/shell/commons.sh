@@ -43,10 +43,10 @@ killp() {
 
   for child in $(ps -o pid,ppid -ax | \
     awk "{ if ( \$2 == $pes ) { print \$1 }}")
-do
-  # echo "Killing child process $child because ppid = $pes"
-  killp $child
-done
+    do
+      # echo "Killing child process $child because ppid = $pes"
+      killp $child
+    done
 
 # echo "killing $1"
 kill -9 "$1" > /dev/null 2> /dev/null
@@ -142,19 +142,21 @@ git() {
         command git "$@"
 
         case $* in pull*|checkout*)
+          echo "Syncing git submodules"
+          command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
       esac
 
       if [[ "$?" == "0" ]]; then
-
         bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
-
       fi
 
     else
       command git "$@"
       case $* in pull*|checkout*)
+        echo "Syncing git submodules"
+        command git submodule sync
         echo "Updating git submodules"
         command git submodule update --init --recursive
     esac
@@ -163,17 +165,19 @@ git() {
 else
   command git "$@"
   case $* in pull*|checkout*)
+    echo "Syncing git submodules"
+    command git submodule sync
     echo "Updating git submodules"
     command git submodule update --init --recursive
 esac
-    fi
+fi
 
-    ;;
-  *)
-    command git "$@"
-    ;;
+;;
+*)
+  command git "$@"
+  ;;
 
-  esac
+esac
 }
 
 getRcFile() {
@@ -362,10 +366,11 @@ catkin() {
     ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
     command catkin "$@"
-    command catkin config --profile default --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-    command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-    command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-    command catkin profile set default
+    command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-fopenmp -march=native -fno-diagnostics-color'
+    command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color' -DCMAKE_C_FLAGS='-fopenmp -march=native -fno-diagnostics-color'
+
+    command catkin profile set reldeb
     ;;
   *)
     command catkin "$@"
@@ -381,21 +386,147 @@ slack() {
   if [ -z $1 ]
   then
     SLACK_NAME=$(echo "mrs
-eagle" | rofi -i -dmenu -no-custom -p "Select slack")
+    eagle" | rofi -i -dmenu -no-custom -p "Select slack")
   else
     SLACK_NAME=${1}
   fi
 
   case ${SLACK_NAME} in
     mrs)
-    SLACK_CFG=~/git/notes/slack/mrsworkspace
-    ;;
+      SLACK_CFG=~/git/notes/slack/mrsworkspace
+      ;;
     eagle)
-    SLACK_CFG=~/git/notes/slack/drone-eagleone
-    ;;
+      SLACK_CFG=~/git/notes/slack/drone-eagleone
+      ;;
   esac
 
   $SLACK_BIN -config $SLACK_CFG
+}
+
+git_submodule_recursive() {
+
+  command git submodule foreach git "$@"
+}
+alias gr="git_submodule_recursive"
+
+repo_to_local() {
+
+  MY_PATH=`dirname "$0"`
+  MY_PATH=`( cd "$MY_PATH" && pwd )`
+
+  USERNAME="klaxalk"
+  ADDRESS="localhost"
+  SUBFOLDER="test"
+
+  # parse the .gitmodules files in the PATH
+  if [ -f "$MY_PATH/$1/.gitmodules" ]; then
+
+    # find each module in the .gitmodules file and extract its relative path from the doublequotes
+    SUBMODULES=($( cat "$MY_PATH/$1/.gitmodules" | grep "^\[submodule" | cut -d "\"" -f2 | cut -d "\"" -f1 ))
+
+    cp $MY_PATH/$1/.gitmodules $MY_PATH/$1/.gitmodules_new
+
+    # for each submodule
+    for submodule in $SUBMODULES; do
+
+      # recursively find its submodules
+      if [ -z "$1" ]; then # if we are in the root repo
+        repo_to_local "$submodule"
+      else
+        repo_to_local "$1/$submodule"
+      fi
+
+      # extract the name in the superrepo
+      echo SUBMODULE: $submodule
+      REPO_NAME=$( echo $submodule | sed -r 's/.*\/([^\/]+)/\1/g' )
+      echo REPO_NAME: $REPO_NAME
+
+      # extract the submodule server path
+      CMD="cat '$MY_PATH/$1/.gitmodules' | grep -e 'url.*$REPO_NAME' | sed -r 's/.*:(.*)$REPO_NAME.*/\1/g'"
+      SUB_PATH=$( eval $CMD )
+      echo SUB_PATH: $SUB_PATH
+
+      # check if the repo was actually created
+      CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+      eval $CMD
+      RET=$?
+      if [[ "$RET" == "0" ]]; then
+        echo "Cannot create the repo, already exists...\n"
+        continue
+      fi
+
+      # create the bare repo
+      CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
+      eval $CMD
+
+      # check if the repo was actually created
+      CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+      eval $CMD
+      RET=$?
+      if [[ "$RET" != "0" ]]; then
+        echo "Cannot create the repo, quitting...\n"
+        continue
+      fi
+
+      # push the local repo
+      cd "$MY_PATH/$1/$submodule"
+      git remote remove local
+      git remote add local "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH$REPO_NAME"
+      git push --all local -u
+      cd "$MY_PATH"
+      git config --file=.gitmodules_new "submodule.$submodule.url" "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+      git submodule sync > /dev/null
+
+    done
+
+    cp "$MY_PATH/$1/.gitmodules_new" "$MY_PATH/$1/.gitmodules"
+
+  fi
+
+  # fix the super repo
+  if [ -z "$1" ]; then
+
+    # extract the name in the superrepo
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/.*\/(.+)\s.*$/\1/g'"
+    REPO_NAME=$( eval $CMD )
+    echo REPO_NAME: $REPO_NAME
+
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*/\1/g'"
+    SUB_PATH=$( eval $CMD )
+    echo SUB_PATH: $SUB_PATH
+
+    # check if the repo was actually created
+    CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+    eval $CMD
+    RET=$?
+    if [[ "$RET" == "0" ]]; then
+      echo "Cannot create the repo, already exists..."
+      return
+    fi
+
+    # create the bare repo
+    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH$REPO_NAME; git init --bare'"
+    eval "$CMD"
+
+    # check if the repo was actually created
+    CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+    eval $CMD
+    RET=$?
+
+    if [[ "$RET" != "0" ]]; then
+      echo "Cannot create the repo, quitting..."
+      return
+    fi
+
+    # push the local repo
+    git remote remove local
+    git remote add local "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+    git push --all local -u
+    git add .gitmodules
+    git commit -m "switched .gitmodules to local"
+    git push
+
+  fi
 }
 
 CURRENT_PATH=`pwd`

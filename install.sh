@@ -14,7 +14,7 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvbf
 if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
 var1="18.04"
@@ -60,6 +60,9 @@ bash $APPCONFIG_PATH/vimiv/install.sh
 
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh
+
+# install debugging tools (gdb and some mods for it)
+bash $APPCONFIG_PATH/gdb/install.sh
 
 # install modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh
