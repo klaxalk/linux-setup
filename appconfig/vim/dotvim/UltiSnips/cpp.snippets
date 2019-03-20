@@ -111,11 +111,7 @@ if (${1}) {
 endsnippet
 
 snippet mutex
-${1:m}.lock();
-{
-	${0:${VISUAL}}
-}
-$1.unlock();
+std::mutex mutex_
 endsnippet
 
 snippet lock
