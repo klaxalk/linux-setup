@@ -124,6 +124,10 @@ snippet land "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/land
 endsnippet
 
+snippet eland "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/eland
+endsnippet
+
 snippet takeoff "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/takeoff
 endsnippet
