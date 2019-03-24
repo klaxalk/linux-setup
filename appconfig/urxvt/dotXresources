@@ -93,7 +93,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
 ! ! EPIGEN_ADD_BLOCK_MATOUS }
 ! ! EPIGEN_ADD_BLOCK_PETR {
-! ! URxvt.background: #222222
+! ! URxvt.background: rgba:0000/0000/0000/CC00
 ! ! EPIGEN_ADD_BLOCK_PETR }
 ! URxvt.foreground: #dddddd
 ! ! black
