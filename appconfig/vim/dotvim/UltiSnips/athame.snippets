@@ -100,6 +100,10 @@ snippet joytracker "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/JoyTracker
 endsnippet
 
+snippet fliptracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/FlipTracker
+endsnippet
+
 snippet joystick "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
 endsnippet
@@ -118,6 +122,10 @@ endsnippet
 
 snippet land "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/land
+endsnippet
+
+snippet eland "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/eland
 endsnippet
 
 snippet takeoff "" Ab
@@ -303,4 +311,20 @@ endsnippet
 
 snippet cbt "" Ab
 catkin build --this
+endsnippet 
+
+snippet "run two" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "run three" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/three_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "cd thesis" "" Ab
+cd ~/git/Thesis
+endsnippet
+
+snippet pdflatex "" Ab
+pdflatex --output-dir build ${1:main.tex}
 endsnippet

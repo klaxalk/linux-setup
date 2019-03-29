@@ -14,8 +14,7 @@ if [ -z $TMUX ]; then
 fi
 
 orig_tty=`tty`
-cmd="gdb -ex 'tty $orig_tty' -ex run --args $@"
-tmux split-window -h
-window_number=`tmux display-message -p '#I'`
-pane_number=`tmux display-message -p '#P'`
-tmux send-keys -t $window_number.$pane_number "$cmd"
+pre_cmd="source $HOME/.bashrc; export ROS_NAMESPACE=$ROS_NAMESPACE"
+gdb_cmd="gdb -ex 'tty $orig_tty' -ex run --args $@"
+cmd="$pre_cmd; $gdb_cmd; exit"
+tmux split-window -h "bash -c \"$cmd\""

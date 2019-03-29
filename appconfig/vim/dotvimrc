@@ -268,6 +268,12 @@ nnoremap <leader>p :call TogglePaste()<cr>
 set nocursorline
 set nocursorcolumn
 
+" enable cursorlines
+function! EnableCursorLines()
+  set cursorline
+  set cursorcolumn
+endfunc
+
 " toggle cursorlines
 function! ToggleCursorLines()
   if(&cursorline == 0)
@@ -279,6 +285,9 @@ function! ToggleCursorLines()
   endif
 endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
+
+" enable cursor lines for python files
+au FileType python call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
@@ -383,9 +392,8 @@ au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 
-au FileType yml,yaml,sh,conf,python set foldmethod=marker
-au FileType yml,yaml,conf,python set foldmarker=#\ #{,#\ #}
-au FileType sh set foldmarker=#\ #{,#\ #}
+au FileType bib,yml,yaml,sh,conf,python set foldmethod=marker
+au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}

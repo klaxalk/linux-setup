@@ -14,7 +14,7 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server pandoc xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb
 if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
 var1="18.04"
@@ -154,8 +154,6 @@ if [ "$num" -lt "1" ]; then
   echo "Adding epigen rules to .bashrc"
   echo '
 # profiling options for EPIGEN
-export PROFILES_ADDITIONS=""
-export PROFILES_DELETIONS=""
 export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
