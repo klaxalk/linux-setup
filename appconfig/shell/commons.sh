@@ -442,7 +442,7 @@ repo_to_local() {
       echo REPO_NAME: $REPO_NAME
 
       # extract the submodule server path
-      CMD="cat '$MY_PATH/$1/.gitmodules' | grep -e 'url.*$REPO_NAME' | sed -r 's/.*:(.*)$REPO_NAME.*/\1/g'"
+      CMD="cat '$MY_PATH/$1/.gitmodules' | sed -n '/url.*$REPO_NAME\(\.git\)*$/p' | sed -r 's/.*:(.*)$REPO_NAME(\.git)*$/\1/g' | tr -s /"
       SUB_PATH=$( eval $CMD )
       echo SUB_PATH: $SUB_PATH
 
@@ -491,7 +491,8 @@ repo_to_local() {
     REPO_NAME=$( eval $CMD )
     echo REPO_NAME: $REPO_NAME
 
-    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*/\1/g'"
+    # extract the submodule server path
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*$/\1/g' | tr -s /"
     SUB_PATH=$( eval $CMD )
     echo SUB_PATH: $SUB_PATH
 
@@ -505,7 +506,7 @@ repo_to_local() {
     fi
 
     # create the bare repo
-    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH$REPO_NAME; git init --bare'"
+    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
     eval "$CMD"
 
     # check if the repo was actually created
