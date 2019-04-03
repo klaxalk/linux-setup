@@ -327,6 +327,7 @@ waitForSimulation() {
     echo "waiting for simulation"
     sleep 1;
   done
+  sleep 1;
 }
 
 waitForOdometry() {
