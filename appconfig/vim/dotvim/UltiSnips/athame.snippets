@@ -136,8 +136,8 @@ snippet nsf "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
 endsnippet
 
-snippet failsafe_controller "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/FailsafeController
+snippet failsafe "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
 endsnippet
 
 snippet so3 "" Ab
@@ -308,6 +308,10 @@ endsnippet
 snippet headless "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
 endsnippet
+
+snippet cbt "" Ab
+catkin build --this
+endsnippet 
 
 snippet "run two" "" Ab
 ~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh

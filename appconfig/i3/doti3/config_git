@@ -274,9 +274,9 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 # set $background_color         #121212
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
-# # EPIGEN_DEL_BLOCK_MATOUS {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
@@ -664,25 +664,29 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_PETR {
 
 # # Add normie controls
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
+# bindsym $mod2+Left focus left
+# bindsym $mod2+Down focus down
+# bindsym $mod2+Up focus up
+# bindsym $mod2+Right focus right
 
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
+# bindsym $mod2+Shift+Left move left
+# bindsym $mod2+Shift+Down move down
+# bindsym $mod2+Shift+Up move up
+# bindsym $mod2+Shift+Right move right
 
 # # Desktop background
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/falcon_heavy.jpg
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/mountain.jpg
 
 # # Numlock on by default
 # exec_always --no_startup_id numlockx on
 
+# # Fancy compton stuff
+# exec_always compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
+# # exec compton --config ~/git/linux-setup/appconfig/compton/box_blur.conf
+
 # # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/.config/i3/scripts/brighten.sh
-# bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/.config/i3/scripts/darken.sh
+# bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
+# bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/git/linux-setup/scripts/darken.sh
 
 # # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -690,8 +694,8 @@ set $mode_gaps_inner inner gaps
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # # Smaller gaps
-# gaps inner 3
-# gaps outer 1
+# gaps inner 2
+# gaps outer 0
 
 # # Keyboard switching
 # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
