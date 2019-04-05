@@ -327,6 +327,7 @@ waitForSimulation() {
     echo "waiting for simulation"
     sleep 1;
   done
+  sleep 1;
 }
 
 waitForOdometry() {
@@ -366,7 +367,7 @@ catkin() {
     ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
     command catkin "$@"
-    command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
     command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
     command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color' -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
 
@@ -442,7 +443,7 @@ repo_to_local() {
       echo REPO_NAME: $REPO_NAME
 
       # extract the submodule server path
-      CMD="cat '$MY_PATH/$1/.gitmodules' | grep -e 'url.*$REPO_NAME' | sed -r 's/.*:(.*)$REPO_NAME.*/\1/g'"
+      CMD="cat '$MY_PATH/$1/.gitmodules' | sed -n '/url.*$REPO_NAME\(\.git\)*$/p' | sed -r 's/.*:(.*)$REPO_NAME(\.git)*$/\1/g' | tr -s /"
       SUB_PATH=$( eval $CMD )
       echo SUB_PATH: $SUB_PATH
 
@@ -491,7 +492,8 @@ repo_to_local() {
     REPO_NAME=$( eval $CMD )
     echo REPO_NAME: $REPO_NAME
 
-    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*/\1/g'"
+    # extract the submodule server path
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*$/\1/g' | tr -s /"
     SUB_PATH=$( eval $CMD )
     echo SUB_PATH: $SUB_PATH
 
@@ -505,7 +507,7 @@ repo_to_local() {
     fi
 
     # create the bare repo
-    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH$REPO_NAME; git init --bare'"
+    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
     eval "$CMD"
 
     # check if the repo was actually created
