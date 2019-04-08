@@ -11,6 +11,11 @@ end
 ### OpenCV IMAGE SHOWER
 source ~/.gdb/gdb-imshow/cv_imshow.py
 
+### DASHBOARD (shows source, vars etc. nicely)
+# uncomment the next two lines to activate gdb-dashboard
+# source ~/.gdb/gdb-dashboard/.gdbinit
+# dashboard -layout source expressions
+
 ### USER SETTINGS
 # this line is necessary to enable breakpoints in a not-yet
 # loaded program (which is needed for debugging roslaunched
