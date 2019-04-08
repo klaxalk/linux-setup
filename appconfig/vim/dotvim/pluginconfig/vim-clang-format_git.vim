@@ -21,7 +21,7 @@ let g:clang_format_tomas = {
       \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
       \ 'BreakBeforeBraces' : 'Custom',
       \ 'SortIncludes' : 'false',
-      \ 'NamespaceIndentation' : 'All',
+      \ 'NamespaceIndentation' : 'None',
       \ 'BraceWrapping' : {
       \   'AfterClass' :      'false',
       \   'AfterControlStatement' : 'false',
