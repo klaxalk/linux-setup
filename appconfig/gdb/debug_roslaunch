@@ -14,15 +14,9 @@ if [ -z $TMUX ]; then
 fi
 
 orig_tty=`tty`
-window_number=`tmux display-message -p '#I'`
-orig_pane_number=`tmux display-message -p '#P'`
-
-tmux split-window -h
-new_pane_number=`tmux display-message -p '#P'`
-tmux select-pane -t $window_number.$new_pane_number
-new_tty=`tmux display-message -p '#{pane_tty}'`
-
-tmux select-pane -t $window_number.$orig_pane_number
-gdb -ex "tty $new_tty" -ex run --args $@
-post_cmd="exit"
-tmux send-keys -t $window_number.$new_pane_number "$post_cmd"
+tmpfile=$(mktemp debug_roslaunch_env.XXXXXXXX)
+export -p > $tmpfile
+pre_cmd="source $HOME/.bashrc; source $tmpfile"
+gdb_cmd="gdb -ex 'tty $orig_tty' -ex run --args $@"
+cmd="$pre_cmd; $gdb_cmd; exit"
+tmux split-window -h "bash -c \"$cmd\""

@@ -22,6 +22,10 @@ snippet alert "" i
 \alert<${1:1}>{${2:${VISUAL}}}
 endsnippet
 
+snippet SI "" i
+\SI{${1}}{${2}}
+endsnippet
+
 snippet "fold" "" r
 %%\{ ${1}
 
@@ -293,8 +297,8 @@ snippet emph "\emph{}" i
 \\emph{${1:${VISUAL}}}
 endsnippet
 
-snippet ref "\ref{}" i
-\\ref{${1:${VISUAL}}}
+snippet autoref "\autoref{}" i
+\\autoref{${1:${VISUAL}}}
 endsnippet
 
 snippet cite "\cite{}" i

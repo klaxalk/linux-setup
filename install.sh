@@ -154,8 +154,6 @@ if [ "$num" -lt "1" ]; then
   echo "Adding epigen rules to .bashrc"
   echo '
 # profiling options for EPIGEN
-export PROFILES_ADDITIONS=""
-export PROFILES_DELETIONS=""
 export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
