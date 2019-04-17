@@ -36,8 +36,11 @@ if g:user_mode == "1"
   Plug 'vim-airline/vim-airline-themes'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " " Lean & mean status/tabline for vim that's light as air.
-  " Plug 'itchyny/lightline.vim'
+  "" Lean & mean status/tabline for vim that's light as air.
+  "Plug 'itchyny/lightline.vim'
+
+  ""For saving files with sudo from normal vim
+  "Plug 'lambdalisue/suda.vim'
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " integration with tmux (allows running bash commands in tmux splits)
@@ -463,7 +466,7 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-startify.vim
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " source ~/.vim/pluginconfig/vim-startify-spider.vim
+  " source ~/.vim/pluginconfig/vim-startify.vim
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
   " config for nerdtree
