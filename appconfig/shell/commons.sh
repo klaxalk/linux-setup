@@ -382,7 +382,7 @@ catkin() {
 
 slack() {
 
-  SLACK_BIN=/usr/bin/slack-term
+  SLACK_BIN=`which slack-term`
 
   if [ -z $1 ]
   then
@@ -391,6 +391,8 @@ slack() {
   else
     SLACK_NAME=${1}
   fi
+
+  mkdir -p ~/git/notes/slack
 
   case ${SLACK_NAME} in
     mrs)
