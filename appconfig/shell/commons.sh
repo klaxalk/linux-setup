@@ -475,10 +475,20 @@ repo_to_local() {
       cd "$MY_PATH/$1/$submodule"
       git remote remove local
       git remote add local "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH$REPO_NAME"
+
+      cd "$MY_PATH/$1/$submodule"
+      ORIGINAL_REMOTE=`git remote get-url origin`
+      echo "$ORIGINAL_REMOTE" > origin_remote.txt
+      git add origin_remote.txt
+      git commit -m "added origin_remote.txt"
+
       git push --all local -u
       cd "$MY_PATH"
       git config --file=.gitmodules_new "submodule.$submodule.url" "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
       git submodule sync > /dev/null
+
+      git add "$MY_PATH/$1/$submodule"
+      git commit -m "updated the $submodule submodule"
 
     done
 
@@ -573,7 +583,8 @@ repo_reset_origin() {
 
       # change the remote to the new address
       cd "$MY_PATH"
-      git config --file=.gitmodules_new "submodule.$submodule.url" "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+      NEW_PATH=`cat origin_remote.txt`
+      git config --file=.gitmodules_new "submodule.$submodule.url" $NEW_PATH
       git submodule sync > /dev/null
 
     done
