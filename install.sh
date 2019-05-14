@@ -49,6 +49,9 @@ bash $APPCONFIG_PATH/i3/install.sh
 # setup latex
 bash $APPCONFIG_PATH/latex/install.sh
 
+# setup pandoc
+bash $APPCONFIG_PATH/pandoc/install.sh
+
 # setup zathura
 bash $APPCONFIG_PATH/zathura/install.sh
 
