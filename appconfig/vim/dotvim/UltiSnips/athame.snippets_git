@@ -1,0 +1,330 @@
+global !p
+
+def complete(t, opts):
+	if t:
+		opts = [ m[ len(t): ] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	if len(opts) == 0:
+		return ""
+	else:
+		return "(" + '|'.join(opts) + ')'
+
+endglobal
+
+snippet fdisk "" Ab
+sudo fdisk -${1:l}
+endsnippet
+
+snippet mount "" Ab
+sudo mount
+endsnippet
+
+snippet umount "" Ab
+sudo umount
+endsnippet
+
+snippet reboot "" Ab
+sudo reboot
+endsnippet
+
+snippet sb "" Ab
+`case "$SHELL" in *zsh*) echo source ~/.zshrc;; *) echo source ~/.bashrc;; esac`
+endsnippet
+
+snippet "^ra" "" Abr
+ranger
+endsnippet
+
+snippet ll "" Ab
+ls -${2:lah}${1}
+endsnippet
+
+snippet octave "" Ab
+octave ${1:--no-gui}
+endsnippet
+
+snippet matlab "" Ab
+matlab ${1:-nodesktop}
+endsnippet
+
+snippet mux "" Ab
+tmuxinator
+endsnippet
+
+snippet "git submodule init" "" Ab
+git submodule init && git submodule update
+endsnippet
+
+snippet "git sup" "" Ab
+git submodule update --init --recursive
+endsnippet
+
+snippet gs "" Ab
+git status
+endsnippet
+
+snippet "git reset( )+" "" Abr
+git reset ${1:--hard}
+endsnippet
+
+snippet "grep ( )*" "" Abr
+grep ${2:-nr -e} "${1}"
+endsnippet
+
+snippet goto "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
+endsnippet
+
+snippet gofcu "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_fcu "goal: [${2:0}, ${3:0}, ${4:0.0}, ${5:0.0}]"
+endsnippet
+
+snippet gorel "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
+endsnippet
+
+snippet goal "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_altitude ${2:3.0}
+endsnippet
+
+snippet setyaw "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
+endsnippet
+
+snippet mpctracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/MpcTracker
+endsnippet
+
+snippet joytracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/JoyTracker
+endsnippet
+
+snippet fliptracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/FlipTracker
+endsnippet
+
+snippet joystick "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
+endsnippet
+
+snippet hover "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/hover
+endsnippet
+
+snippet ehover "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/ehover
+endsnippet
+
+snippet motors "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/motors ${2:1}
+endsnippet
+
+snippet land "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/land
+endsnippet
+
+snippet eland "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/eland
+endsnippet
+
+snippet takeoff "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/takeoff
+endsnippet
+
+snippet nsf "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
+endsnippet
+
+snippet failsafe "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
+endsnippet
+
+snippet so3 "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/So3Controller
+endsnippet
+
+snippet attitude "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/AttitudeController
+endsnippet
+
+snippet linetracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LineTracker
+endsnippet
+
+snippet lofftracker "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LandoffTracker
+endsnippet
+
+snippet gppo "" Ab
+git pull ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
+endsnippet
+
+snippet gppl "" Ab
+git pull ${1:local} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
+endsnippet
+
+snippet "(git commit( )+)|(commit )" "" Abr
+git commit -m "${1:${VISUAL}}" ${2:}
+endsnippet
+
+snippet "for( )*" "" ir
+for ${1}; do ${2:${VISUAL}}; done
+endsnippet
+
+snippet "while( )*" "" ir
+while ${1}; do ${2:${VISUAL}}; done
+endsnippet
+
+snippet "if( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; fi
+endsnippet
+
+snippet "ife( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; else fi
+endsnippet
+
+snippet "ifei( )*" "" ir
+if ${1}; then ${2:${VISUAL}}; elif ${3}; then ${4} fi
+endsnippet
+
+# this part contains python snippets which rely on global complete function
+
+# snippet "git checkout $" "" Abr
+# git checkout $1`!p
+# from git import Repo
+# try:
+# 	r = Repo(path, search_parent_directories=True)
+# except:
+# 	snip.rv=" # not a git repo"
+# else:
+# 	repo_heads = r.heads
+# 	repo_heads_names = [h.name for h in repo_heads]
+# 	snip.rv=complete(t[1], repo_heads_names)
+# `
+# endsnippet
+
+# snippet "git pull( )+" "" Abr
+# git pull ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}${3:`!p
+# from git import Repo
+# try:
+# 	r = Repo(path, search_parent_directories=True)
+# except:
+# 	snip.rv=" # not a git repo"
+# else:
+# 	repo_heads = r.heads
+# 	repo_heads_names = [h.name for h in repo_heads]
+# 	snip.rv=complete(t[2], repo_heads_names)
+# `
+# }
+# endsnippet
+
+# snippet "git push( )+" "" Abr
+# git push ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}${3:`!p
+# from git import Repo
+# try:
+# 	r = Repo(path, search_parent_directories=True)
+# except:
+# 	snip.rv=" # not a git repo"
+# else:
+# 	repo_heads = r.heads
+# 	repo_heads_names = [h.name for h in repo_heads]
+# 	snip.rv=complete(t[2], repo_heads_names)
+# `
+# }
+# endsnippet
+
+# snippet "rostopic $" "" Abr
+# rostopic $1`!p
+# snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
+# endsnippet
+
+snippet cdsim "" Ab
+cd ~/git/simulation/start_simulation/
+endsnippet
+
+snippet cdcore "" Ab
+cd ~/mrs_workspace/src/uav_core/ros_nodes
+endsnippet
+
+snippet cdmodules "" Ab
+cd ~/mrs_workspace/src/uav_modules/ros_nodes/
+endsnippet
+
+snippet glog "" Ab
+git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+endsnippet
+
+snippet "c*matrix" "" Arb
+cmatrix -a -b -C blue -u 3
+endsnippet
+
+snippet "(cd\.\.)|(cd\.\ \.)" "" Ar
+cd ..
+endsnippet
+
+snippet "(hopt)|(htpo)" "" Abr
+htop
+endsnippet
+
+snippet "untar $" "" Abr
+tar -xvf 
+endsnippet
+
+snippet "okular$" "" Abr
+okular --presentation
+endsnippet
+
+snippet "(open )" "" Abr
+gnome-open 
+endsnippet
+
+snippet "(gcgppo)|(cggpo)" "" Abr
+git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $3 $4
+endsnippet
+
+snippet "call" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/
+endsnippet
+
+snippet setgains "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/gain_manager/set_gains ${2:soft}
+endsnippet
+
+snippet setconstraints "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/constraint_manager/set_constraints ${2:slow}
+endsnippet
+
+snippet fuse "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
+snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
+endsnippet
+
+snippet hdgfuse "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_hdg_estimator_type_string ${1}`!p
+snip.rv=complete(t[1], ["gyro", "compass", "optflow"])`
+endsnippet
+
+snippet headless "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
+endsnippet
+
+snippet cbt "" Ab
+catkin build --this
+endsnippet 
+
+snippet "run two" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "run three" "" Ab
+~/workspace/src/formation_church_planning/simulation_scripts/three_drones_tmuxinator/start.sh
+endsnippet
+
+snippet "cd thesis" "" Ab
+cd ~/git/Thesis
+endsnippet
+
+snippet pdflatex "" Ab
+pdflatex --output-dir build ${1:main.tex}
+endsnippet
