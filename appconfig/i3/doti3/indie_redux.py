@@ -9,6 +9,7 @@ response = response.replace("&nbsp;","")
 response = response[response.find("menu / Daily menu"):response.find("Ke ka")]
 response = response.split("\n",2)[2];
 day = datetime.datetime.today().weekday()
+hour = datetime.datetime.today().hour
 if day == 0:
     response = response[response.find("MONDAY"):response.find("TUESDAY")]
     #    response = response[:response.rfind('\n')]
@@ -42,4 +43,5 @@ pork = response[response.find("4."):-1]
 pork = pork.partition("\n")[0]
 pork = pork[pork.find("/"):pork.find("  ")]
 
-print(chic+pork)
+if hour > 9 and hour < 14:
+    print(chic+pork)
