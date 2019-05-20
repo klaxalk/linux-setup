@@ -155,6 +155,15 @@ separator=true
 # EPIGEN_ADD_BLOCK_VOJTA }
 
 # EPIGEN_ADD_BLOCK_DAN {
+# [indie]
+# interval=60
+# label=
+# command=export PYTHONHTTPSVERIFY=0; python ~/.i3/indie_redux.py
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_DAN }
+
+# EPIGEN_ADD_BLOCK_DAN {
 # [cputemp]
 # interval=2
 # label=CPU
