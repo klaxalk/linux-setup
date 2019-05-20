@@ -43,5 +43,5 @@ pork = response[response.find("4."):-1]
 pork = pork.partition("\n")[0]
 pork = pork[pork.find("/"):pork.find("  ")]
 
-if hour > 9 and hour < 14:
+if hour > 9 and hour < 17:
     print(chic+pork)
