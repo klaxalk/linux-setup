@@ -14,6 +14,7 @@ APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
 unattended=0
+subinstall_params=""
 for param in "$@"
 do
   echo $param

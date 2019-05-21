@@ -11,6 +11,7 @@ if [ "$var2" = "$var1" ]; then
 fi
 
 unattended=0
+subinstall_params=""
 for param in "$@"
 do
   echo $param

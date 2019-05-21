@@ -116,7 +116,7 @@ while true; do
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
     # install xkblayout state
-    bash $APP_PATH/../xkblayout-state/install.sh
+    bash $APP_PATH/../xkblayout-state/install.sh $subinstall_params
 
     # install prime-select (for switching gpus)
     sudo apt -y install prime-select
