@@ -14,8 +14,23 @@ git submodule update --init --recursive
 # install packages
 sudo apt-get -y update
 
+subinstall_params=""
+unattended=0
+for param in "$@"
+do
+  echo $param
+  if [ $param="--unattended" ]; then
+    echo "installing in unattended mode"
+    unattended=1
+    subinstall_params="--unattended"
+  fi
+done
+
 sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb
-if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+if [ "$unattended" == "0" ]
+then
+  if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+fi
 
 var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
@@ -25,50 +40,53 @@ fi
 
 if [ ! -n "$BEAVER" ]; then
   sudo apt -y install pdftk 
-  if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+  if [ "$unattended" == "0" ]
+  then
+    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+  fi
 fi
 
 # download, compile and install tmux
-bash $APPCONFIG_PATH/tmux/install.sh
+bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 
 # compile and install tmuxinator
-bash $APPCONFIG_PATH/tmuxinator/install.sh
+bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
 # copy vim settings
-bash $APPCONFIG_PATH/vim/install.sh
+bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
 # compile and install zsh with athame
-bash $APPCONFIG_PATH/zsh/install.sh
+bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
 # install urxvt
-bash $APPCONFIG_PATH/urxvt/install.sh
+bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
 
 # install i3
-bash $APPCONFIG_PATH/i3/install.sh
+bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
 # setup latex
-bash $APPCONFIG_PATH/latex/install.sh
+bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
 # setup pandoc
-bash $APPCONFIG_PATH/pandoc/install.sh
+bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 
 # setup zathura
-bash $APPCONFIG_PATH/zathura/install.sh
+bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
 # setup ranger
-bash $APPCONFIG_PATH/ranger/install.sh
+bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
 # setup vimiv
-bash $APPCONFIG_PATH/vimiv/install.sh
+bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
 # install the silver searcher
-bash $APPCONFIG_PATH/silver_searcher/install.sh
+bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
 # install debugging tools (gdb and some mods for it)
-bash $APPCONFIG_PATH/gdb/install.sh
+bash $APPCONFIG_PATH/gdb/install.sh $subinstall_params
 
 # install modified keyboard rules
-bash $APPCONFIG_PATH/keyboard/install.sh
+bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
 #############################################
 # remove the interactivity check from bashrc
@@ -110,7 +128,12 @@ if [ "$num" -lt "1" ]; then
 
   default=y
   while true; do
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mDo you want to run TMUX automatically with every terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  	if [[ "$unattended" == "1" ]]
+    then
+      resp=$default
+    else
+      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mDo you want to run TMUX automatically with every terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    fi
     response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
     if [[ $response =~ ^(y|Y)=$ ]]
