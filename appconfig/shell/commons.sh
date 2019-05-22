@@ -6,6 +6,7 @@ alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias cb="catkin build"
+alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -146,6 +147,12 @@ git() {
           command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
+
+          HAS_GITMAN=$( gitman show -q 2>&1 )
+          if [ -z "$HAS_GITMAN" ]; then
+            echo "Updating gitman sub-repos"
+            gitman install
+          fi
       esac
 
       if [[ "$?" == "0" ]]; then
@@ -159,6 +166,12 @@ git() {
         command git submodule sync
         echo "Updating git submodules"
         command git submodule update --init --recursive
+
+        HAS_GITMAN=$( gitman show -q 2>&1 )
+        if [ -z "$HAS_GITMAN" ]; then
+          echo "Updating gitman sub-repos"
+          gitman install
+        fi
     esac
   fi
 
@@ -169,6 +182,12 @@ else
     command git submodule sync
     echo "Updating git submodules"
     command git submodule update --init --recursive
+
+    HAS_GITMAN=$( gitman show -q 2>&1 )
+    if [ -z "$HAS_GITMAN" ]; then
+      echo "Updating gitman sub-repos"
+      gitman install
+    fi
 esac
 fi
 
@@ -327,6 +346,7 @@ waitForSimulation() {
     echo "waiting for simulation"
     sleep 1;
   done
+  sleep 1;
 }
 
 waitForOdometry() {
@@ -360,28 +380,42 @@ waitForMpc() {
 
 catkin() {
 
-  case $* in init*)
+  case $* in
 
-    # give me the path to root of the repo we are in
-    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+    init*)
 
-    command catkin "$@"
-    command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
-    command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
-    command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color' -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
+      # give me the path to root of the repo we are in
+      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
-    command catkin profile set reldeb
-    ;;
-  *)
-    command catkin "$@"
-    ;;
+      command catkin "$@"
+      command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
+      command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color'  -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
+      command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native -fno-diagnostics-color' -DCMAKE_C_FLAGS='-march=native -fno-diagnostics-color'
+
+      command catkin profile set reldeb
+      ;;
+
+    build*|b|bt)
+
+      PACKAGES=$(catkin list)
+      if [ -z $PACKAGES ]; then
+        echo "Cannot compile, not in a workspace"
+      else
+        command catkin "$@"
+      fi
+
+      ;;
+
+    *)
+      command catkin "$@"
+      ;;
 
   esac
 }
 
 slack() {
 
-  SLACK_BIN=/usr/bin/slack-term
+  SLACK_BIN=`which slack-term`
 
   if [ -z $1 ]
   then
@@ -390,6 +424,8 @@ slack() {
   else
     SLACK_NAME=${1}
   fi
+
+  mkdir -p ~/git/notes/slack
 
   case ${SLACK_NAME} in
     mrs)
@@ -414,7 +450,7 @@ repo_to_local() {
   MY_PATH=`dirname "$0"`
   MY_PATH=`( cd "$MY_PATH" && pwd )`
 
-  USERNAME="klaxalk"
+  USER_NAME="klaxalk"
   ADDRESS="localhost"
   SUBFOLDER="test"
 
@@ -442,12 +478,12 @@ repo_to_local() {
       echo REPO_NAME: $REPO_NAME
 
       # extract the submodule server path
-      CMD="cat '$MY_PATH/$1/.gitmodules' | grep -e 'url.*$REPO_NAME' | sed -r 's/.*:(.*)$REPO_NAME.*/\1/g'"
+      CMD="cat '$MY_PATH/$1/.gitmodules' | sed -n '/url.*$REPO_NAME\(\.git\)*$/p' | sed -r 's/.*:(.*)$REPO_NAME(\.git)*$/\1/g' | tr -s /"
       SUB_PATH=$( eval $CMD )
       echo SUB_PATH: $SUB_PATH
 
       # check if the repo was actually created
-      CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+      CMD="ssh $USER_NAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
       eval $CMD
       RET=$?
       if [[ "$RET" == "0" ]]; then
@@ -456,11 +492,11 @@ repo_to_local() {
       fi
 
       # create the bare repo
-      CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
+      CMD="ssh $USER_NAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
       eval $CMD
 
       # check if the repo was actually created
-      CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+      CMD="ssh $USER_NAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
       eval $CMD
       RET=$?
       if [[ "$RET" != "0" ]]; then
@@ -471,15 +507,26 @@ repo_to_local() {
       # push the local repo
       cd "$MY_PATH/$1/$submodule"
       git remote remove local
-      git remote add local "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH$REPO_NAME"
+      git remote add local "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH$REPO_NAME"
+
+      cd "$MY_PATH/$1/$submodule"
+      ORIGINAL_REMOTE=`git remote get-url origin`
+      echo "$ORIGINAL_REMOTE" > origin_remote.txt
+      git add origin_remote.txt
+      git commit -m "added origin_remote.txt"
+
       git push --all local -u
       cd "$MY_PATH"
-      git config --file=.gitmodules_new "submodule.$submodule.url" "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+      git config --file=.gitmodules_new "submodule.$submodule.url" "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
       git submodule sync > /dev/null
+
+      git add "$MY_PATH/$1/$submodule"
+      git commit -m "updated the $submodule submodule"
 
     done
 
     cp "$MY_PATH/$1/.gitmodules_new" "$MY_PATH/$1/.gitmodules"
+    rm "$MY_PATH/$1/.gitmodules_new"
 
   fi
 
@@ -491,12 +538,13 @@ repo_to_local() {
     REPO_NAME=$( eval $CMD )
     echo REPO_NAME: $REPO_NAME
 
-    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*/\1/g'"
+    # extract the submodule server path
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*$/\1/g' | tr -s /"
     SUB_PATH=$( eval $CMD )
     echo SUB_PATH: $SUB_PATH
 
     # check if the repo was actually created
-    CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+    CMD="ssh $USER_NAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
     eval $CMD
     RET=$?
     if [[ "$RET" == "0" ]]; then
@@ -505,11 +553,11 @@ repo_to_local() {
     fi
 
     # create the bare repo
-    CMD="ssh $USERNAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH$REPO_NAME; git init --bare'"
+    CMD="ssh $USER_NAME@$ADDRESS 'mkdir -p ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; cd ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME; git init --bare'"
     eval "$CMD"
 
     # check if the repo was actually created
-    CMD="ssh $USERNAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
+    CMD="ssh $USER_NAME@$ADDRESS 'test -d ~/$SUBFOLDER/$SUB_PATH/$REPO_NAME'"
     eval $CMD
     RET=$?
 
@@ -520,11 +568,83 @@ repo_to_local() {
 
     # push the local repo
     git remote remove local
-    git remote add local "$USERNAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+    git remote add local "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
     git push --all local -u
     git add .gitmodules
     git commit -m "switched .gitmodules to local"
     git push
+
+  fi
+}
+
+repo_reset_origin() {
+
+  MY_PATH=`dirname "$0"`
+  MY_PATH=`( cd "$MY_PATH" && pwd )`
+
+  USER_NAME="git"
+  ADDRESS="mrs.felk.cvut.cz"
+  SUBFOLDER=""
+
+  # parse the .gitmodules files in the PATH
+  if [ -f "$MY_PATH/$1/.gitmodules" ]; then
+
+    # find each module in the .gitmodules file and extract its relative path from the doublequotes
+    SUBMODULES=($( cat "$MY_PATH/$1/.gitmodules" | grep "^\[submodule" | cut -d "\"" -f2 | cut -d "\"" -f1 ))
+
+    cp $MY_PATH/$1/.gitmodules $MY_PATH/$1/.gitmodules_new
+
+    # for each submodule
+    for submodule in $SUBMODULES; do
+
+      # recursively find its submodules
+      if [ -z "$1" ]; then # if we are in the root repo
+        repo_reset_origin "$submodule"
+      else
+        repo_reset_origin "$1/$submodule"
+      fi
+
+      # extract the name in the superrepo
+      echo SUBMODULE: $submodule
+      REPO_NAME=$( echo $submodule | sed -r 's/.*\/([^\/]+)/\1/g' )
+      echo REPO_NAME: $REPO_NAME
+
+      # extract the submodule server path
+      CMD="cat '$MY_PATH/$1/.gitmodules' | sed -n '/url.*$REPO_NAME\(\.git\)*$/p' | sed -r 's/.*:(.*)$REPO_NAME(\.git)*$/\1/g' | tr -s /"
+      SUB_PATH=$( eval $CMD )
+      echo SUB_PATH: $SUB_PATH
+
+      # change the remote to the new address
+      cd "$MY_PATH"
+      NEW_PATH=`cat origin_remote.txt`
+      git config --file=.gitmodules_new "submodule.$submodule.url" $NEW_PATH
+      git submodule sync > /dev/null
+
+    done
+
+    cp "$MY_PATH/$1/.gitmodules_new" "$MY_PATH/$1/.gitmodules"
+    rm "$MY_PATH/$1/.gitmodules_new"
+
+  fi
+
+  # fix the super repo
+  if [ -z "$1" ]; then
+
+    # extract the name in the superrepo
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/.*\/(.+)\s.*$/\1/g'"
+    REPO_NAME=$( eval $CMD )
+    echo REPO_NAME: $REPO_NAME
+
+    # extract the submodule server path
+    CMD="git remote -v | grep origin | head -n 1 | cut -d ":" -f2 | sed -r 's/(.*)$REPO_NAME.*$/\1/g' | tr -s /"
+    SUB_PATH=$( eval $CMD )
+    echo SUB_PATH: $SUB_PATH
+
+    # push the origin repo
+    git remote remove origin
+    git remote add origin "$USER_NAME@$ADDRESS:~/$SUBFOLDER/$SUB_PATH/$REPO_NAME"
+    git add .gitmodules
+    git commit -m "switched .gitmodules to origin"
 
   fi
 }
