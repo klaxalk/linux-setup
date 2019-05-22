@@ -142,61 +142,68 @@ git() {
 
         command git "$@"
 
-        case $* in pull*|checkout*)
+        if [[ "$?" == "0" ]]; then
+          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
+            echo "Syncing git submodules"
+            command git submodule sync
+            echo "Updating git submodules"
+            command git submodule update --init --recursive
+
+            if [ -e .gitman.yml ]; then
+              echo "Updating gitman sub-repos"
+              gitman install
+            fi
+          esac
+        fi
+
+        if [[ "$?" == "0" ]]; then
+          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        fi
+
+      else
+
+        command git "$@"
+
+        if [[ "$?" == "0" ]]; then
+          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
+            echo "Syncing git submodules"
+            command git submodule sync
+            echo "Updating git submodules"
+            command git submodule update --init --recursive
+
+            if [ -e .gitman.yml ]; then
+              echo "Updating gitman sub-repos"
+              gitman install
+            fi
+          esac
+        fi
+
+      fi
+
+    else
+
+      command git "$@"
+
+      if [[ "$?" == "0" ]]; then
+        case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
           echo "Syncing git submodules"
           command git submodule sync
           echo "Updating git submodules"
           command git submodule update --init --recursive
 
-          HAS_GITMAN=$( gitman show -q 2>&1 )
-          if [ -z "$HAS_GITMAN" ]; then
+          if [ -e .gitman.yml ]; then
             echo "Updating gitman sub-repos"
             gitman install
           fi
-      esac
-
-      if [[ "$?" == "0" ]]; then
-        bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        esac
       fi
-
-    else
-      command git "$@"
-      case $* in pull*|checkout*)
-        echo "Syncing git submodules"
-        command git submodule sync
-        echo "Updating git submodules"
-        command git submodule update --init --recursive
-
-        HAS_GITMAN=$( gitman show -q 2>&1 )
-        if [ -z "$HAS_GITMAN" ]; then
-          echo "Updating gitman sub-repos"
-          gitman install
-        fi
-    esac
-  fi
-
-else
-  command git "$@"
-  case $* in pull*|checkout*)
-    echo "Syncing git submodules"
-    command git submodule sync
-    echo "Updating git submodules"
-    command git submodule update --init --recursive
-
-    HAS_GITMAN=$( gitman show -q 2>&1 )
-    if [ -z "$HAS_GITMAN" ]; then
-      echo "Updating gitman sub-repos"
-      gitman install
     fi
-esac
-fi
+    ;;
+  *)
+    command git "$@"
+    ;;
 
-;;
-*)
-  command git "$@"
-  ;;
-
-esac
+  esac
 }
 
 getRcFile() {
@@ -410,8 +417,8 @@ catkin() {
       command catkin "$@"
       ;;
 
-  esac
-}
+    esac
+  }
 
 slack() {
 

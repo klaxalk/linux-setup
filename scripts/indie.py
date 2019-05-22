@@ -31,4 +31,9 @@ response = response.replace('3.', '\n3.', 1)
 response = response.replace('4.', '\n4.', 1)
 response = response.replace('5.', '\n5.', 1)
 response = response.replace('6.', '\n6.')
+# remove lines, containing only whitespaces
+lines = response.split('\n')
+lines = [line for line in lines if line.strip() != '']
+# join lines except the last one (containing the next day's name)
+response = '\n'.join(lines[0:-1])
 print(response)

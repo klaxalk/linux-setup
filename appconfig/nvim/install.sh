@@ -38,8 +38,8 @@ while true; do
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
     mkdir -p ~/.config/nvim/
 
-    sudo pip3 install neovim
-    sudo pip3 install neovim-remote
+    sudo -H pip3 install neovim
+    sudo -H pip3 install neovim-remote
 
     # link the configuration
     ln -sf ~/.vimrc ~/.config/nvim/init.vim
