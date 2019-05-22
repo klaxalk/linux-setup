@@ -149,8 +149,7 @@ git() {
             echo "Updating git submodules"
             command git submodule update --init --recursive
 
-            HAS_GITMAN=$( gitman show -q 2>&1 )
-            if [ -z "$HAS_GITMAN" ]; then
+            if [ -e .gitman.yml ]; then
               echo "Updating gitman sub-repos"
               gitman install
             fi
@@ -172,8 +171,7 @@ git() {
             echo "Updating git submodules"
             command git submodule update --init --recursive
 
-            HAS_GITMAN=$( gitman show -q 2>&1 )
-            if [ -z "$HAS_GITMAN" ]; then
+            if [ -e .gitman.yml ]; then
               echo "Updating gitman sub-repos"
               gitman install
             fi
@@ -193,8 +191,7 @@ git() {
           echo "Updating git submodules"
           command git submodule update --init --recursive
 
-          HAS_GITMAN=$( gitman show -q 2>&1 )
-          if [ -z "$HAS_GITMAN" ]; then
+          if [ -e .gitman.yml ]; then
             echo "Updating gitman sub-repos"
             gitman install
           fi
