@@ -17,6 +17,8 @@ xset r rate 350 55
 export TERM=rxvt-unicode-256color
 # export TERM=screen-256color
 
+export GITMAN_CACHE_DISABLE=1
+
 # use ctags to generate code tags
 generateTags() {
 
