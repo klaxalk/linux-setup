@@ -742,6 +742,36 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ VASEK's customization
+
+# EPIGEN_ADD_BLOCK_VASEK {
+
+#  # Bind ACER keyboard brightness control
+#  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+#  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+#  # Bind ACER screen brightness control
+#  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+#  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+#  # Toggling ACER touchpad
+#  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+#  # # Bind ACER audio control keys
+#  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+#  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+#  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+#  # Monitor setup
+#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
+
+#  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
+#  exec --no-startup-id dropbox start
+
+# EPIGEN_ADD_BLOCK_VASEK }
+
+# #}
+
 # #{ Vit's changes
 
 # EPIGEN_ADD_BLOCK_VIT {
