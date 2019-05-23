@@ -151,7 +151,7 @@ git() {
 
             if [ -e .gitman.yml ]; then
               echo "Updating gitman sub-repos"
-              gitman install
+              gitman install -q
             fi
           esac
         fi
@@ -173,7 +173,7 @@ git() {
 
             if [ -e .gitman.yml ]; then
               echo "Updating gitman sub-repos"
-              gitman install
+              gitman install -q
             fi
           esac
         fi
@@ -193,7 +193,7 @@ git() {
 
           if [ -e .gitman.yml ]; then
             echo "Updating gitman sub-repos"
-            gitman install
+            gitman install -q
           fi
         esac
       fi
