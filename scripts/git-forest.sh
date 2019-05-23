@@ -15,8 +15,8 @@ use utf8;
 use Encode qw(encode);
 my $Repo          = Git->repository($ENV{"GIT_DIR"} || ".");
 my $Pretty_fmt    = "format:%s";
-my $Reverse_order = 0;
-my $Show_all      = 0;
+my $Reverse_order = 1;
+my $Show_all      = 1;
 my $Show_rebase   = 1;
 my $Style         = 1;
 my $Subvine_depth = 2;
@@ -24,7 +24,7 @@ my $With_sha      = 0;
 my %Color         = (
 	"default" => "\e[0m", # ]
 	"at"      => "\e[1;30m", # ]
-	"hhead"   => "\e[1;31m", # ]
+	"hhead"   => "\e[1;31mCURRENTLY CHECKED OUT ", # ]
 	"head"    => "\e[1;32m", # ]
 	"ref"     => "\e[1;34m", # ]
 	"remote"  => "\e[1;35m", # ]
