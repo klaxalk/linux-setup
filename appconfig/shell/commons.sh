@@ -153,8 +153,12 @@ git() {
             command git submodule update --init --recursive
 
             if [ -e .gitman.yml ]; then
-              echo "Updating gitman sub-repos"
-              gitman install -q
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install -q
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
             fi
           esac
         fi
@@ -175,8 +179,12 @@ git() {
             command git submodule update --init --recursive
 
             if [ -e .gitman.yml ]; then
-              echo "Updating gitman sub-repos"
-              gitman install -q
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install -q
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
             fi
           esac
         fi
@@ -195,8 +203,12 @@ git() {
           command git submodule update --init --recursive
 
           if [ -e .gitman.yml ]; then
-            echo "Updating gitman sub-repos"
-            gitman install -q
+            if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+              echo "Updating gitman sub-repos"
+              gitman install -q
+            else
+              echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+            fi
           fi
         esac
       fi
