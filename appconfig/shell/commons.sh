@@ -7,6 +7,7 @@ alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias cb="catkin build"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
+alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -16,6 +17,8 @@ xset r rate 350 55
 
 export TERM=rxvt-unicode-256color
 # export TERM=screen-256color
+
+export GITMAN_CACHE_DISABLE=1
 
 # use ctags to generate code tags
 generateTags() {
@@ -150,8 +153,12 @@ git() {
             command git submodule update --init --recursive
 
             if [ -e .gitman.yml ]; then
-              echo "Updating gitman sub-repos"
-              gitman install
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install -q
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
             fi
           esac
         fi
@@ -172,8 +179,12 @@ git() {
             command git submodule update --init --recursive
 
             if [ -e .gitman.yml ]; then
-              echo "Updating gitman sub-repos"
-              gitman install
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install -q
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
             fi
           esac
         fi
@@ -192,8 +203,12 @@ git() {
           command git submodule update --init --recursive
 
           if [ -e .gitman.yml ]; then
-            echo "Updating gitman sub-repos"
-            gitman install
+            if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+              echo "Updating gitman sub-repos"
+              gitman install -q
+            else
+              echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+            fi
           fi
         esac
       fi
