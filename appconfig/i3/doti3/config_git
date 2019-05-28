@@ -560,7 +560,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
 # # screen locking with a key to prevent malicious locomotives
-# bindsym control+l exec --no-startup-id i3lock -c 003300
+# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
 # # dropbox icon in tray
 # # exec --no-startup-id dropbox start
 
