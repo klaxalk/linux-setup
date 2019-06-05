@@ -742,6 +742,25 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ LANGUAGE customization
+
+# EPIGEN_ADD_BLOCK_LANGUAGE {
+# exec "setxkbmap -layout us,cz"
+# exec "setxkbmap -option 'grp:alt_caps_toggle'"
+# EPIGEN_ADD_BLOCK_LANGUAGE }
+
+# #}
+
+# #{ SPOTIFY customization
+# EPIGEN_ADD_BLOCK_SPOTIFY {
+# # Spotify related key bindings
+# bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+# bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+# EPIGEN_ADD_BLOCK_SPOTIFY }
+# #}
+
 # #{ Vit's changes
 
 # EPIGEN_ADD_BLOCK_VIT {
