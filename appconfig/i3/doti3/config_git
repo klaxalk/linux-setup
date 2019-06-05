@@ -546,8 +546,10 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p && notify-send "Pausing/playing youtube" 
-# # bindsym XF86AudioPause --release exec --no-startup-id xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh && notify-send "Pausing/playing music" 
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh && notify-send "Pausing/playing music"
+# # # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/toggle_music_play.sh && notify-send "Prev song" 
+# # # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/toggle_music_play.sh && notify-send "Next song"
 
 # # # Bind Lejnovo keyboard backlight control
 # # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
