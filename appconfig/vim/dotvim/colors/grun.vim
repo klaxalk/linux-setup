@@ -4,12 +4,16 @@
 " A bit modified variant of the 'delek' color scheme.
 " Intended to work with dark background and 256 color terminal.
 
+set background=dark
 hi clear
+if exists("syntax_on")
+  syntax reset
+endif
 
 let g:colors_name = "grun"
 
 " Normal should come first
-hi Normal     guifg=Black  guibg=White
+hi Normal     guifg=Black  guibg=White ctermbg=233
 hi Cursor     guifg=bg     guibg=fg
 hi lCursor    guifg=NONE   guibg=Cyan
 

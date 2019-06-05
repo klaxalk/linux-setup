@@ -61,3 +61,9 @@
 [submodule "appconfig/gdb/gdb_modules/gdb-imshow"]
 	path = appconfig/gdb/gdb_modules/gdb-imshow
 	url = https://github.com/renatoGarcia/gdb-imshow
+[submodule "appconfig/gdb/gdb_modules/gdb-dashboard"]
+	path = appconfig/gdb/gdb_modules/gdb-dashboard
+	url = https://github.com/cyrus-and/gdb-dashboard
+[submodule "submodules/pandoc-goodies"]
+	path = submodules/pandoc-goodies
+	url = https://github.com/tajmone/pandoc-goodies

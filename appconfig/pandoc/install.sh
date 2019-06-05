@@ -22,19 +22,19 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall xkblayout-state? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up pandoc? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # link the configuration
-    cd $APP_PATH/../../submodules/xkblayout-state/
-    make
-    sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+    cd /tmp
+    wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
+    sudo dpkg -i pandoc-2.7.2-1-amd64.deb
 
     break
+
   elif [[ $response =~ ^(n|N)=$ ]]
   then
     break

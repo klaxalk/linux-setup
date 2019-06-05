@@ -14,7 +14,9 @@ if [ -z $TMUX ]; then
 fi
 
 orig_tty=`tty`
-pre_cmd="source $HOME/.bashrc; export ROS_NAMESPACE=$ROS_NAMESPACE"
+tmpfile=$(mktemp debug_roslaunch_env.XXXXXXXX)
+export -p > $tmpfile
+pre_cmd="source $HOME/.bashrc; source $tmpfile"
 gdb_cmd="gdb -ex 'tty $orig_tty' -ex run --args $@"
 cmd="$pre_cmd; $gdb_cmd; exit"
 tmux split-window -h "bash -c \"$cmd\""
