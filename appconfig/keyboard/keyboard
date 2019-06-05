@@ -7,6 +7,6 @@
 XKBMODEL="pc101"
 XKBLAYOUT="us,cz"
 XKBVARIANT=",qwerty"
-XKBOPTIONS="grp:sclk_toggle,caps:escape"
+XKBOPTIONS="grp:rctrl_rshift_toggle,caps:escape"
 
 BACKSPACE="guess"

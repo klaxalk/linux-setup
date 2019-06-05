@@ -144,6 +144,10 @@ snippet so3 "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/So3Controller
 endsnippet
 
+snippet mpc "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/MpcController
+endsnippet
+
 snippet attitude "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/AttitudeController
 endsnippet
