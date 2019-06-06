@@ -88,6 +88,9 @@ bash $APPCONFIG_PATH/gdb/install.sh $subinstall_params
 # install modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
+# install playerctl
+bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+
 #############################################
 # remove the interactivity check from bashrc
 #############################################
