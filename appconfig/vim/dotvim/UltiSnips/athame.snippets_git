@@ -301,7 +301,7 @@ endsnippet
 
 snippet fuse "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
-snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
+snip.rv=complete(t[1], ["gps", "optflow", "rtk", "hector"])`
 endsnippet
 
 snippet hdgfuse "" Ab
