@@ -27,6 +27,12 @@ do
 done
 
 sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb
+
+##################################################
+# install inputs libraries when they are missing 
+##################################################
+sudo apt -y install xserver-xorg-input-all
+
 if [ "$unattended" == "0" ]
 then
   if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
@@ -165,6 +171,11 @@ export RUN_TMUX=false" >> ~/.bashrc
   done
 fi
 
+##################################################
+# install inputs libraries when they are missing 
+##################################################
+sudo apt -y install xserver-xorg-input-all
+
 #############################################
 # link the scripts folder
 #############################################
@@ -213,7 +224,6 @@ else
   echo "Reference in .bashrc is already there..."
 
 fi
-
 
 # deploy configs by Profile manager
 ./deploy_configs.sh
