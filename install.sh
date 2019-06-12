@@ -165,6 +165,11 @@ export RUN_TMUX=false" >> ~/.bashrc
   done
 fi
 
+##################################################
+# install inputs libraries when they are missing 
+##################################################
+sudo apt -y install xserver-xorg-input-all
+
 #############################################
 # link the scripts folder
 #############################################
