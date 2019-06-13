@@ -420,7 +420,7 @@ catkin() {
     build*|b|bt)
 
       PACKAGES=$(catkin list)
-      if [ -z $PACKAGES ]; then
+      if [ -z "$PACKAGES" ]; then
         echo "Cannot compile, not in a workspace"
       else
         command catkin "$@"
