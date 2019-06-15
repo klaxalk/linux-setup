@@ -185,6 +185,8 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
 " let wiki_1.path_html = '~/git/notes/html'
 
+" let g:vimwiki_list = [wiki_1]
+
 " EPIGEN_ADD_BLOCK_VOJTA }
 
 " EPIGEN_ADD_BLOCK_MATOUS {
