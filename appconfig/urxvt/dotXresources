@@ -86,7 +86,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 
 ! ! vim: ft=xdefaults
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK {
-! URxvt.background: #121212
+! ! URxvt.background: #121212
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK }
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
@@ -107,9 +107,8 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! URxvt.foreground: #dddddd
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 ! ! EPIGEN_ADD_BLOCK_VASEK {
-! ! URxvt.background: [85]#121212
+! ! URxvt.background: #121212
 ! ! EPIGEN_ADD_BLOCK_VASEK }
-! URxvt.foreground: #dddddd
 ! ! black
 ! URxvt.color0: #1C1C1C
 ! URxvt.color8: #404040
@@ -163,7 +162,6 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! rofi.color-active: argb:00273238, #80cbc4, argb:00273238, #00bffa, #000000
 ! ! rofi.color-urgent: argb:00273238, #ff1844, argb:00273238, #394249, #ff1844
 ! ! rofi.run-command: i3 exec {cmd}
-! ! rofi.run-command: {cmd}
 ! ! rofi.show-icons:        true
 ! ! rofi.drun-icon-theme: Papirus-Dark
 ! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
