@@ -4,9 +4,25 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
+unattended=0
+for param in "$@"
+do
+  echo $param
+  if [ $param="--unattended" ]; then
+    echo "installing in unattended mode"
+    unattended=1
+    subinstall_params="--unattended"
+  fi
+done
+
 default=y
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  if [[ "$unattended" == "1" ]]
+  then
+    resp=$default
+  else  
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
@@ -17,7 +33,7 @@ while true; do
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # install dependencies for compilation of i3gaps
-    sudo add-apt-repository ppa:aguignard/ppa
+    sudo add-apt-repository -y ppa:aguignard/ppa
     sudo apt-get update
 
     sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf help2man
@@ -100,10 +116,10 @@ while true; do
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
     # install xkblayout state
-    bash $APP_PATH/../xkblayout-state/install.sh
+    bash $APP_PATH/../xkblayout-state/install.sh $subinstall_params
 
     # install prime-select (for switching gpus)
-    sudo apt -y install prime-select
+    sudo apt -y install nvidia-prime
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

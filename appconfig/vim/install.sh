@@ -4,9 +4,26 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
+unattended=0
+subinstall_params=""
+for param in "$@"
+do
+  echo $param
+  if [ $param="--unattended" ]; then
+    echo "installing in unattended mode"
+    unattended=1
+    subinstall_params="--unattended"
+  fi
+done
+
 default=y
 while true; do
-  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  if [[ "$unattended" == "1" ]]
+  then
+    resp=$default
+  else
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+  fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
@@ -15,13 +32,13 @@ while true; do
     toilet Setting up vim
 
     sudo apt -y remove vim-*
-    sudo apt -y remove clang-3.8
-    sudo apt -y remove libclang-common-3.8-dev
+    sudo apt -y remove clang-3.9
+    sudo apt -y remove libclang-common-3.9-dev
 
     sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    sudo pip3 install rospkg
+    sudo -H pip3 install rospkg
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
@@ -112,7 +129,12 @@ export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
     
     default=y
     while true; do
-      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+      if [[ "$unattended" == "1" ]]
+      then
+        resp=$default
+      else
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+      fi
       response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
       if [[ $response =~ ^(y|Y)=$ ]]

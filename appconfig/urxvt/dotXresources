@@ -85,9 +85,15 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 
 ! ! vim: ft=xdefaults
+<<<<<<< HEAD
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
 ! ! URxvt.background: #121212
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+=======
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK {
+! URxvt.background: #121212
+! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK }
+>>>>>>> 816e27ec42fb58cbef881e127ef9a144a651d755
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
 ! ! ! URxvt.background: #121212
@@ -99,6 +105,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! EPIGEN_ADD_BLOCK_PETR {
 ! ! URxvt.background: rgba:0000/0000/0000/CC00
 ! ! EPIGEN_ADD_BLOCK_PETR }
+<<<<<<< HEAD
 ! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
 ! ! URxvt.background: rgba:2000/2000/2000/cccc
 ! ! URxvt.foreground: #00bffa
@@ -106,6 +113,12 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 ! ! URxvt.foreground: #dddddd
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+=======
+! ! EPIGEN_ADD_BLOCK_VASEK {
+! ! URxvt.background: [85]#121212
+! ! EPIGEN_ADD_BLOCK_VASEK }
+! URxvt.foreground: #dddddd
+>>>>>>> 816e27ec42fb58cbef881e127ef9a144a651d755
 ! ! black
 ! URxvt.color0: #1C1C1C
 ! URxvt.color8: #404040

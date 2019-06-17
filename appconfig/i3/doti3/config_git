@@ -546,8 +546,10 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p && notify-send "Pausing/playing youtube" 
-# # bindsym XF86AudioPause --release exec --no-startup-id xdotool search --name "Mozilla Firefox" key Alt_L+Shift_L+p && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube" 
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 
 # # # Bind Lejnovo keyboard backlight control
 # # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
@@ -556,9 +558,11 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/dopesmoker.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/earth_cover.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
+# # screen locking with a key to prevent malicious locomotives
+# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
 # # dropbox icon in tray
 # # exec --no-startup-id dropbox start
 
@@ -739,6 +743,54 @@ set $mode_gaps_inner inner gaps
 # # # sem pis oneliner # EPIGEN_ADD_LINE_HP
 
 # EPIGEN_ADD_BLOCK_PAVEL }
+
+# #}
+
+# #{ LANGUAGE customization
+
+# EPIGEN_ADD_BLOCK_LANGUAGE {
+# exec "setxkbmap -layout us,cz"
+# exec "setxkbmap -option 'grp:alt_caps_toggle'"
+# EPIGEN_ADD_BLOCK_LANGUAGE }
+
+# #}
+
+# #{ SPOTIFY customization
+# EPIGEN_ADD_BLOCK_SPOTIFY {
+# # Spotify related key bindings
+# bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+# bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+# EPIGEN_ADD_BLOCK_SPOTIFY }
+
+# #{ VASEK's customization
+
+# EPIGEN_ADD_BLOCK_VASEK {
+
+#  # Bind ACER keyboard brightness control
+#  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+#  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+#  # Bind ACER screen brightness control
+#  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+#  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+#  # Toggling ACER touchpad
+#  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+#  # # Bind ACER audio control keys
+#  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+#  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+#  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+#  # Monitor setup
+#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
+
+#  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
+#  exec --no-startup-id dropbox start
+
+# EPIGEN_ADD_BLOCK_VASEK }
 
 # #}
 
