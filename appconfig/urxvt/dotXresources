@@ -3,13 +3,17 @@
 ! the default font, will be commented out for
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ {
-URxvt.font: xft:Inconsolata for Powerline:size=14
+! URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! URxvt.font: xft:terminess powerline:size=12
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
+!
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! urxvt.font: xft:Terminess powerline:size=10
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
 ! EPIGEN_ADD_BLOCK_MATEJ {
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=15
@@ -82,7 +86,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 
 ! ! vim: ft=xdefaults
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
-! URxvt.background: #121212
+! ! URxvt.background: #121212
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
@@ -95,7 +99,13 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! EPIGEN_ADD_BLOCK_PETR {
 ! ! URxvt.background: rgba:0000/0000/0000/CC00
 ! ! EPIGEN_ADD_BLOCK_PETR }
-! URxvt.foreground: #dddddd
+! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! ! URxvt.background: rgba:2000/2000/2000/cccc
+! ! URxvt.foreground: #00bffa
+! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+! ! URxvt.foreground: #dddddd
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 ! ! black
 ! URxvt.color0: #1C1C1C
 ! URxvt.color8: #404040
@@ -119,7 +129,12 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! URxvt.color14: #8FBFDC
 ! ! white
 ! URxvt.color7: #888888
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
 ! URxvt.color15: #E8E8D3
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! URxvt.color15: #FFFFFF
+! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
 ! !! URxvt COLORS --------------------------------------------------------
 ! URxvt*depth                   : 32
@@ -130,11 +145,24 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
 ! ! ------------------------------------------------------------------------------
-! rofi.color-enabled: true
-! rofi.color-window: #273238, #273238, #1e2529
-! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+! ! rofi.color-enabled: true
+! ! rofi.color-window: #273238, #273238, #1e2529
+! ! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+! ! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+! ! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! rofi.color-window: argb:dd000000, #273238, #1e2529
+! rofi.color-normal: argb:00273238, #00bffa, argb:00273238, #00bffa, #000000
+! rofi.color-active: argb:00273238, #80cbc4, argb:00273238, #00bffa, #000000
+! rofi.color-urgent: argb:00273238, #ff1844, argb:00273238, #394249, #ff1844
+! ! rofi.run-command: i3 exec {cmd}
+! rofi.run-command: {cmd}
+! rofi.show-icons:        true
+! rofi.drun-icon-theme: Papirus-Dark
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
