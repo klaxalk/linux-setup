@@ -40,7 +40,8 @@ generateTags() {
 killp() {
 
   if [ $# -eq 0 ]; then
-    pes=$( cat )
+    echo "The command killp() needs an argument, but none was provided!"
+    return
   else
     pes=$1
   fi
