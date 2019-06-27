@@ -2,6 +2,7 @@
 alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
+alias gcmp="git checkout master; git pull"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
