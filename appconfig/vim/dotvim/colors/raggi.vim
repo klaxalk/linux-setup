@@ -22,7 +22,7 @@ endif
 
 let g:colors_name = "raggi"
 
-hi Normal                 term=NONE            cterm=NONE             ctermbg=NONE           ctermfg=16
+hi Normal                 term=NONE            cterm=NONE             ctermbg=15           ctermfg=16
 hi NonText                term=NONE            cterm=NONE             ctermbg=NONE          ctermfg=NONE
 hi Boolean                term=NONE            cterm=bold             ctermbg=NONE          ctermfg=NONE
 hi Character              term=NONE            cterm=NONE             ctermbg=NONE          ctermfg=161
