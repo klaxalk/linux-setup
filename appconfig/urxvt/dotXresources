@@ -1,9 +1,9 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
 ! the default font, will be commented out for
-! ! ! specific user settings
-! ! ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN {
-! URxvt.font: xft:Inconsolata for Powerline:size=14
+! specific user settings
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN {
+URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
@@ -90,7 +90,8 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 
 ! ! vim: ft=xdefaults
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK {
-! ! URxvt.background: #121212
+! URxvt.background: #121212
+! URxvt.foreground: #dddddd
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK }
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
@@ -137,7 +138,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! white
 ! URxvt.color7: #888888
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-! ! URxvt.color15: #E8E8D3
+! URxvt.color15: #E8E8D3
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 ! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
 ! ! URxvt.color15: #FFFFFF
@@ -153,11 +154,11 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! ROFI Color theme
 ! ! ------------------------------------------------------------------------------
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-! ! rofi.color-enabled: true
-! ! rofi.color-window: #273238, #273238, #1e2529
-! ! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-! ! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-! ! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! rofi.color-enabled: true
+! rofi.color-window: #273238, #273238, #1e2529
+! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
 ! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
