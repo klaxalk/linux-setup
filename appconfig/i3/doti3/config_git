@@ -684,9 +684,8 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec_always --no_startup_id numlockx on
 
-# # Fancy compton stuff
-# exec_always compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
-# # exec compton --config ~/git/linux-setup/appconfig/compton/box_blur.conf
+# # Not so fancy compton stuff
+# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
