@@ -157,7 +157,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -183,7 +183,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -207,7 +207,7 @@ git() {
           if [ -e .gitman.yml ]; then
             if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
               echo "Updating gitman sub-repos"
-              gitman install -q
+              gitman install
             else
               echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
             fi
