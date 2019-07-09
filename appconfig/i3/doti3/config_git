@@ -833,6 +833,7 @@ set $mode_gaps_inner inner gaps
 # bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 # EPIGEN_ADD_BLOCK_SPOTIFY }
+# #}
 
 # #{ VASEK's customization
 
