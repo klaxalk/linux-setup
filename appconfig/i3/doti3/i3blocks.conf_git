@@ -181,14 +181,17 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# # #{ Pavel's customization
+# #{ Pavel's customization
 # EPIGEN_ADD_BLOCK_PAVEL {
-# [mediaplayer]
-# instance=spotify
-# interval=5
-# signal=10
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# # EPIGEN_ADD_BLOCK_SPOTIFY {
+# # [mediaplayer]
+# # instance=spotify
+# # interval=5
+# # signal=10
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_SPOTIFY }
 
 # [cpu_temperature]
 # interval=5
@@ -255,7 +258,7 @@ separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_PAVEL }
-# # #}
+# #}
 
 # EPIGEN_DEL_BLOCK_PAVEL {
 [load]
