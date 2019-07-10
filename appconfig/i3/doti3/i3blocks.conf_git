@@ -229,7 +229,6 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [volume]
-# label=VOL
 # label=
 # instance=Master
 # interval=1
@@ -240,13 +239,21 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [battery]
-# label=⚡
+# label=
 # instance=0
 # interval=30
-# separator=true
+# separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# [brightness]
+# label=
+# instance=0
+# interval=5
+# command=light | awk '{printf "%d%", $1}'
+# separator=true
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_PAVEL }
 # # #}
 
