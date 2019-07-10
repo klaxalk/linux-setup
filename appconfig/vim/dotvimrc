@@ -157,6 +157,10 @@ if g:user_mode == "1"
   " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
   " Plug 'justinmk/vim-syntax-extra'
 
+  " EPIGEN_ADD_BLOCK_TOMAS {
+  " Plug 'tikhomirov/vim-glsl'
+  " EPIGEN_ADD_BLOCK_TOMAS }
+
   if has("nvim")
     Plug 'mklabs/split-term.vim'
     " Plug 'arakashic/chromatica.nvim'
@@ -516,6 +520,11 @@ if g:user_mode == "1"
 
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
+
+  " EPIGEN_ADD_BLOCK_TOMAS {
+  " source ~/.vim/pluginconfig/vim-glsl.vim
+  " EPIGEN_ADD_BLOCK_TOMAS }
+
 endif
 
 " %:p:h path
