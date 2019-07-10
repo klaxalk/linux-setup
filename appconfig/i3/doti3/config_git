@@ -727,6 +727,15 @@ set $mode_gaps_inner inner gaps
 # gaps inner 2
 # gaps outer 0
 
+
+# # Background image
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
@@ -747,9 +756,6 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Background image
-# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
