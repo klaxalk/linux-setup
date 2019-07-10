@@ -562,7 +562,7 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
   "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-    let g:airline_theme='jellybeans'
+      " let g:airline_theme='jellybeans'
   "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
   "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
   " "   let g:lightline = {
