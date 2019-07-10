@@ -684,9 +684,8 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec_always --no_startup_id numlockx on
 
-# # Fancy compton stuff
-# exec_always compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
-# # exec compton --config ~/git/linux-setup/appconfig/compton/box_blur.conf
+# # Not so fancy compton stuff
+# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
@@ -712,16 +711,33 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Monitor setup
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Not so fancy compton stuff
+# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+
+# # Background image
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+# # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
-
-# # # Lock screen
-# # # bindsym Control_L+l exec  --no-startup-id i3lock
-
-# # # Numlock on by default
-# # exec_always --no-startup-id numlockx on
-
-# # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
 
 # # # Bind HP screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
@@ -735,14 +751,74 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
-# # # Default keyboard US, alt+shift to switch between US and CZ
-# # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
-
 # # EPIGEN_ADD_BLOCK_HP }
+# # # #}
 
-# # # sem pis oneliner # EPIGEN_ADD_LINE_HP
+# # #{ LENOVO
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+# # #}
 
 # EPIGEN_ADD_BLOCK_PAVEL }
+
+# #}
+
+# #{ VIT's customization
+
+# EPIGEN_ADD_BLOCK_VIT {
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vit_set_monitor_dell.sh'"
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# EPIGEN_ADD_BLOCK_VIT }
+
+# #}
+
+# #{ DANIEL's customization
+
+# EPIGEN_ADD_BLOCK_DANIEL {
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # Bind screen brightness control to DELL's special keys
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # # bind audio to DELL's special keys
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# EPIGEN_ADD_BLOCK_DANIEL }
 
 # #}
 
@@ -763,6 +839,7 @@ set $mode_gaps_inner inner gaps
 # bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 # EPIGEN_ADD_BLOCK_SPOTIFY }
+# #}
 
 # #{ VASEK's customization
 
@@ -791,27 +868,6 @@ set $mode_gaps_inner inner gaps
 #  exec --no-startup-id dropbox start
 
 # EPIGEN_ADD_BLOCK_VASEK }
-
-# #}
-
-# #{ Vit's changes
-
-# EPIGEN_ADD_BLOCK_VIT {
-
-# # EPIGEN_ADD_BLOCK_DELL {
-
-# # # Bind screen brightness control to DELL's special keys
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-
-# # EPIGEN_ADD_BLOCK_DELL }
-
-# EPIGEN_ADD_BLOCK_VIT }
 
 # #}
 
