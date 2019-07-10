@@ -711,8 +711,8 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 
-# # Lock screen
-# # bindsym Control_L+l exec  --no-startup-id i3lock
+# # System manager
+# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
@@ -720,37 +720,60 @@ set $mode_gaps_inner inner gaps
 # # Monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
 
-# # Bind HP screen brightness control
-# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
-# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
-
-# # Toggling HP touchpad
-# bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # Bind HP audio control keys
-# bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
 # # Default keyboard US, alt+shift to switch between US and CZ
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Not so fancy compton stuff
+# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+# # Background image
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
+# # # Bind HP screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+
+# # # Toggling HP touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # Bind HP audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
 # # EPIGEN_ADD_BLOCK_HP }
-
-# # # EPIGEN_ADD_LINE_HP
 # # # #}
 
-# # # #{ LENOVO
-# # # EPIGEN_ADD_BLOCK_LENOVO {
+# # #{ LENOVO
+# # EPIGEN_ADD_BLOCK_LENOVO {
 
-# # # # Background image
-# # # exec_always --no-startup-id "feh -F --bg-max /home/pavel/Pictures/ros.png"
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
 
-# # # EPIGEN_ADD_BLOCK_LENOVO }
-# # # #}
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+# # #}
 
 # EPIGEN_ADD_BLOCK_PAVEL }
 
@@ -818,6 +841,7 @@ set $mode_gaps_inner inner gaps
 # bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 # EPIGEN_ADD_BLOCK_SPOTIFY }
+# #}
 
 # #{ VASEK's customization
 

@@ -570,7 +570,26 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
-  " let g:airline_theme='jellybeans'
+  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  "     let g:airline_theme='jellybeans'
+  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " "   let g:lightline = {
+  " "       \ 'colorscheme': 'wombat',
+  " "       \ }
+  " "   hi NonText guibg=NONE ctermbg=NONE
+  " "   hi TabLineSel ctermbg=45
+  " "   hi TabLineFill ctermbg=45
+  " "   hi TabLine ctermbg=0 ctermfg=45
+  " "   hi Title ctermbg=45
+  " "   hi StartifyHeader ctermfg=39 cterm=bold
+  " "   hi StartifyFooter ctermfg=39 cterm=bold
+  " "   hi Normal ctermfg=39
+  " "   hi Normal guibg=NONE ctermbg=NONE
+  " "   hi NonText guibg=NONE ctermbg=NONE
+  " "   hi ColorColumn ctermbg=100
+  " "   call matchadd('ColorColumn', '\%81v',100)
+  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
