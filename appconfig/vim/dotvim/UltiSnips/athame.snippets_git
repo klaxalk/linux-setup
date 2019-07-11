@@ -92,16 +92,12 @@ snippet setyaw "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
 endsnippet
 
-snippet mpctracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/MpcTracker
+snippet trackermpc "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
 endsnippet
 
-snippet joytracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/JoyTracker
-endsnippet
-
-snippet fliptracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/FlipTracker
+snippet trackerline "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LineTracker
 endsnippet
 
 snippet joystick "" Ab
@@ -133,7 +129,7 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/takeoff
 endsnippet
 
 snippet nsf "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/NsfController
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller NsfController
 endsnippet
 
 snippet failsafe "" Ab
@@ -145,19 +141,11 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_
 endsnippet
 
 snippet mpc "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/MpcController
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller MpcController
 endsnippet
 
 snippet attitude "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller mrs_controllers/AttitudeController
-endsnippet
-
-snippet linetracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LineTracker
-endsnippet
-
-snippet lofftracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker mrs_trackers/LandoffTracker
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller AttitudeController
 endsnippet
 
 snippet gppo "" Ab
@@ -168,9 +156,11 @@ snippet gppl "" Ab
 git pull ${1:local} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
 endsnippet
 
+# EPIGEN_DEL_BLOCK_MATEJ {
 snippet "(git commit( )+)|(commit )" "" Abr
 git commit -m "${1:${VISUAL}}" ${2:}
 endsnippet
+# EPIGEN_DEL_BLOCK_MATEJ }
 
 snippet "for( )*" "" ir
 for ${1}; do ${2:${VISUAL}}; done
@@ -301,7 +291,7 @@ endsnippet
 
 snippet fuse "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
-snip.rv=complete(t[1], ["gps", "optflow", "rtk"])`
+snip.rv=complete(t[1], ["gps", "optflow", "rtk", "hector"])`
 endsnippet
 
 snippet hdgfuse "" Ab

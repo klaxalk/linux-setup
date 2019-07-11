@@ -2,6 +2,7 @@
 alias gs="git status"
 alias gppl="gitPullPush local"
 alias gppo="gitPullPush origin"
+alias gcmp="git checkout master; git pull"
 alias :q=exit
 alias octave="octave --no-gui $@"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
@@ -49,7 +50,8 @@ generateTags() {
 killp() {
 
   if [ $# -eq 0 ]; then
-    pes=$( cat )
+    echo "The command killp() needs an argument, but none was provided!"
+    return
   else
     pes=$1
   fi
@@ -164,7 +166,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -190,7 +192,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -214,7 +216,7 @@ git() {
           if [ -e .gitman.yml ]; then
             if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
               echo "Updating gitman sub-repos"
-              gitman install -q
+              gitman install
             else
               echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
             fi
@@ -429,7 +431,7 @@ catkin() {
     build*|b|bt)
 
       PACKAGES=$(catkin list)
-      if [ -z $PACKAGES ]; then
+      if [ -z "$PACKAGES" ]; then
         echo "Cannot compile, not in a workspace"
       else
         command catkin "$@" && beep || espeak -v cs "sprav si to vole"
