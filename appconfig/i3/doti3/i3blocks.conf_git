@@ -143,6 +143,13 @@ separator=true
 # command=~/.i3/show_temp.sh 1
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [music]
+# interval=1
+# label=Music
+# command=playerctl metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
 
 # EPIGEN_ADD_BLOCK_VOJTA {

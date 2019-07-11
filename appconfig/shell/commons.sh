@@ -9,6 +9,15 @@ alias cb="catkin build"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
 
+export BEEP="/usr/share/sounds/ubuntu/notifications/Blip.ogg"
+# My personal aliases:
+which paplay > /dev/null
+if [ $? -eq 0 ]; then
+  alias beep='paplay $BEEP';
+else
+  alias beep='espeak BEEP';
+fi
+
 # reload configuration for urxvt
 xrdb ~/.Xresources
 
@@ -423,13 +432,13 @@ catkin() {
       if [ -z $PACKAGES ]; then
         echo "Cannot compile, not in a workspace"
       else
-        command catkin "$@"
+        command catkin "$@" && beep || espeak -v cs "sprav si to vole"
       fi
 
       ;;
 
     *)
-      command catkin "$@"
+      command catkin $@
       ;;
 
     esac
