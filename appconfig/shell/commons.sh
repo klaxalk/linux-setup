@@ -9,6 +9,7 @@ alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cr
 alias cb="catkin build"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
+alias demangle="c++filt"
 
 export BEEP="/usr/share/sounds/ubuntu/notifications/Blip.ogg"
 # My personal aliases:
