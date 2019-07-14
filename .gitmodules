@@ -67,3 +67,9 @@
 [submodule "submodules/pandoc-goodies"]
 	path = submodules/pandoc-goodies
 	url = https://github.com/tajmone/pandoc-goodies
+[submodule "submodules/papis"]
+	path = submodules/papis
+	url = https://github.com/klaxalk/papis
+[submodule "submodules/papis-zotero"]
+	path = submodules/papis-zotero
+	url = http://github.com/papis/papis-zotero

@@ -159,6 +159,12 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_TOMAS {
   " Plug 'tikhomirov/vim-glsl'
+
+  " Plug 'junegunn/fzf'
+  " Plug 'papis/papis-vim'
+
+  " nnoremap <buffer> <leader>pc :Papis<cr>
+  " nnoremap <buffer> <leader>pv :PapisView<cr>
   " EPIGEN_ADD_BLOCK_TOMAS }
 
   if has("nvim")

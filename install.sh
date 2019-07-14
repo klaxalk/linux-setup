@@ -61,6 +61,9 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
+# install neovim
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
+
 # compile and install zsh with athame
 bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
@@ -72,6 +75,9 @@ bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
 # setup latex
 bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
+
+# setup pdftk
+bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
 
 # setup pandoc
 bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
