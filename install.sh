@@ -26,10 +26,10 @@ do
   fi
 done
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb gparted
 
 ##################################################
-# install inputs libraries when they are missing 
+# install inputs libraries when they are missing
 ##################################################
 sudo apt -y install xserver-xorg-input-all
 
@@ -45,7 +45,7 @@ if [ "$var2" = "$var1" ]; then
 fi
 
 if [ ! -n "$BEAVER" ]; then
-  sudo apt -y install pdftk 
+  sudo apt -y install pdftk
   if [ "$unattended" == "0" ]
   then
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
@@ -137,7 +137,7 @@ if [ "$num" -lt "1" ]; then
 
   default=y
   while true; do
-  	if [[ "$unattended" == "1" ]]
+    if [[ "$unattended" == "1" ]]
     then
       resp=$default
     else
@@ -172,7 +172,7 @@ export RUN_TMUX=false" >> ~/.bashrc
 fi
 
 ##################################################
-# install inputs libraries when they are missing 
+# install inputs libraries when they are missing
 ##################################################
 sudo apt -y install xserver-xorg-input-all
 
