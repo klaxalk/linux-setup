@@ -324,21 +324,9 @@ pdflatex --output-dir build ${1:main.tex}
 endsnippet
 
 snippet "papis export " "" Abr
-papis export ${2:-a} -f ${3:bibtex} '${1:*}'
-endsnippet
-
-snippet "papis edit " "" Abr
-papis edit '${1:*}'
-endsnippet
-
-snippet "papis rm " "" Abr
-papis rm '${1:*}'
+papis export ${2:-a} -f ${3:bibtex} > '${1:main.bib}'
 endsnippet
 
 snippet "papis-zotero " "" Abr
 papis-zotero import --from-bibtex '${1:main.bib}'
-endsnippet
-
-snippet "papis browse " "" Abr
-papis browse '${1:*}'
 endsnippet

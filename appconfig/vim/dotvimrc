@@ -163,8 +163,8 @@ if g:user_mode == "1"
   " Plug 'junegunn/fzf'
   " Plug 'papis/papis-vim'
 
-  " nnoremap <buffer> <leader>pc :Papis<cr>
-  " nnoremap <buffer> <leader>pv :PapisView<cr>
+  " nnoremap <localleader>pp :Papis<cr>
+  " nnoremap <localleader>pv :PapisView<cr>
   " EPIGEN_ADD_BLOCK_TOMAS }
 
   if has("nvim")

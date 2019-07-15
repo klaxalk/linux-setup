@@ -281,7 +281,7 @@ createSymlinkDatabase() {
       # which means its a relative link
       if [[ "$original" == "."* ]]
       then
-        
+
         # resolve the relative link
         temp="${dir%/*}/$original"
         original=`( builtin cd "$temp" && pwd )`
