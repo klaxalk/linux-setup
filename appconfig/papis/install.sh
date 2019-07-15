@@ -42,6 +42,8 @@ while true; do
     cd $APP_PATH/../../submodules/papis-zotero/
     sudo python3 setup.py install
 
+    # symlink the settings
+    rm -rf $HOME/.config/papis
     ln -sf $APP_PATH/papis $HOME/.config/papis
 
     break

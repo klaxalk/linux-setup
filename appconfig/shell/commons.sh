@@ -266,19 +266,35 @@ createSymlinkDatabase() {
   files=`ag -f ~/ --nocolor -g ""`
   dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
 
+  # for all the symlinks that we found
   for dir in `echo $dirs`
   do
+
+    # "original" = where the link is pointing to
     original=$(readlink "$dir")
+
+    # if the "original" path is not empty
     if [[ ! -z "$original" ]];
     then
 
+      # if the "original" path starts with "."
+      # which means its a relative link
       if [[ "$original" == "."* ]]
       then
+        
+        # resolve the relative link
         temp="${dir%/*}/$original"
         original=`( builtin cd "$temp" && pwd )`
       fi
 
-      # echo "$dir -> $original"
+      # the linked path must not contains /git/
+      if [[ $dir == *\/git\/* ]]
+      then
+        echo "Rejecting $dir as the target symlink"
+        continue
+      fi
+
+      # put it into our output file
       echo "$dir, $original" >> "$file_path"
     fi
   done
