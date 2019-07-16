@@ -159,6 +159,12 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_TOMAS {
   " Plug 'tikhomirov/vim-glsl'
+
+  " Plug 'junegunn/fzf'
+  " Plug 'papis/papis-vim'
+
+  " nnoremap <localleader>pp :Papis<cr>
+  " nnoremap <localleader>pv :PapisView<cr>
   " EPIGEN_ADD_BLOCK_TOMAS }
 
   if has("nvim")
@@ -612,6 +618,7 @@ if g:user_mode == "1"
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
+        \ { 'p': '~/.config/papis/config' },
         \ ]
 
   function! SetEpigenSyntax()

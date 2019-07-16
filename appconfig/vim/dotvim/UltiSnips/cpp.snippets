@@ -379,10 +379,16 @@ param_loader.load_param<${1:double}>("${1}")
 endsnippet
 
 snippet forit
-std::${1:vector}<${2}>::iterator ${3};
-for (it = ${4:data}.begin(); it != $4.end(); ++it){
-	ROS_INFO_STREAM(it->name);
-	${5:${VISUAL}}
+for (auto it = std::begin(${1:data}); it != std::end($1); ++it)
+{
+	${2:${VISUAL}}
+}
+endsnippet
+
+snippet forcit
+for (auto it = std::cbegin(${1:data}); it != std::cend($1); ++it)
+{
+	${2:${VISUAL}}
 }
 endsnippet
 
