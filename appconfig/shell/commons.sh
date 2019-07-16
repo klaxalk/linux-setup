@@ -31,6 +31,18 @@ export TERM=rxvt-unicode-256color
 
 export GITMAN_CACHE_DISABLE=1
 
+# create the symlink list
+# if we are not in TMUX
+if [ -z $TMUX ]; then
+
+  # and the symlinklist does not exist
+  if [ ! -e "/tmp/symlink_list.txt" ]; then
+
+    # create the symlink list
+    ~/.i3/detacher.sh ~/.scripts/createRosSymlinkDatabase.sh
+  fi
+fi
+
 # use ctags to generate code tags
 generateTags() {
 
@@ -254,56 +266,6 @@ sourceShellDotfile() {
   source "$RCFILE"
 }
 alias sb="sourceShellDotfile"
-
-createSymlinkDatabase() {
-
-  echo "Generating symlink database"
-
-  file_path="/tmp/symlink_list.txt"
-
-  rm "$file_path" > /dev/null 2>&1
-
-  files=`ag -f ~/ --nocolor -g ""`
-  dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
-
-  # for all the symlinks that we found
-  for dir in `echo $dirs`
-  do
-
-    # "original" = where the link is pointing to
-    original=$(readlink "$dir")
-
-    # if the "original" path is not empty
-    if [[ ! -z "$original" ]];
-    then
-
-      # if the "original" path starts with "."
-      # which means its a relative link
-      if [[ "$original" == "."* ]]
-      then
-
-        # resolve the relative link
-        temp="${dir%/*}/$original"
-        original=`( builtin cd "$temp" && pwd )`
-      fi
-
-      # the linked path must not contains /git/
-      if [[ $dir == *\/git\/* ]]
-      then
-        echo "Rejecting $dir as the target symlink"
-        continue
-      fi
-
-      # put it into our output file
-      echo "$dir, $original" >> "$file_path"
-    fi
-  done
-
-  # delete duplicite lines in the file
-  mv "$file_path" "$file_path".old
-  cat "$file_path".old | uniq > "$file_path"
-  rm "$file_path".old
-}
 
 symbolicCd() {
 
