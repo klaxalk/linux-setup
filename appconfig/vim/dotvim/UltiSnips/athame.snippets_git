@@ -330,3 +330,7 @@ endsnippet
 snippet "papis-zotero " "" Abr
 papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
+
+snippet "papis addto  " "" Abr
+papis add '${1:*}' -f '${1:*}'
+endsnippet

@@ -618,6 +618,7 @@ if g:user_mode == "1"
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
+        \ { 'p': '~/.config/papis/config' },
         \ ]
 
   function! SetEpigenSyntax()
