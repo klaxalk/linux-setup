@@ -46,7 +46,7 @@ Refer to the project's [wiki](https://github.com/klaxalk/linux-setup/wiki) (work
 
 # Credits
 
-I thank following sources for inspiration:
+I thank the following sources for inspiration:
 
 * All guys behind [thoughtbot](https://www.youtube.com/user/ThoughtbotVideo) and namely following presenters:
   * Mike Coutermarsh, https://www.youtube.com/watch?v=_NUO4JEtkDw
@@ -58,11 +58,11 @@ I thank following sources for inspiration:
 * Chris Hunt, https://www.youtube.com/watch?v=9jzWDr24UHQ
 * Gaël Ecorchard, https://github.com/galou
 
-# Toubleshooting
+# Troubleshooting
 
 It is possible and probable that after you update using ```git pull```, something might not work anymore.
-This usually happens due to new programs, plugins and dependencies that might not be satisfied anymore.
-I suggest to re-run **install.sh**, after each update.
+This usually happens due to new programs, plugins, and dependencies that might not be satisfied anymore.
+I suggest re-running **install.sh**, after each update.
 
 # Disclaimer
 

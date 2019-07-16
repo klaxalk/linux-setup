@@ -238,4 +238,4 @@ fi
 toilet All Done
 
 # say some tips to the new user
-echo Huray, the should be ready, try opening new terminal...
+echo "Huray, the 'Linux Setup' should be ready, try opening new terminal."
