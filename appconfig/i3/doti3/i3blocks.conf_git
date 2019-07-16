@@ -96,6 +96,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+[141]
+command=ping -c 1 192.168.0.141 >> /dev/null && echo '141' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+
 [152]
 command=ping -c 1 192.168.0.152 >> /dev/null && echo '152' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT

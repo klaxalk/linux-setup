@@ -724,7 +724,7 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
 
 # # Not so fancy compton stuff
-# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # Smaller gaps
 # gaps inner 2
