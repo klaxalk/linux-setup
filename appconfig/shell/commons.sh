@@ -9,6 +9,16 @@ alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cr
 alias cb="catkin build"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
+alias demangle="c++filt"
+
+export BEEP="/usr/share/sounds/ubuntu/notifications/Blip.ogg"
+# My personal aliases:
+which paplay > /dev/null
+if [ $? -eq 0 ]; then
+  alias beep='paplay $BEEP';
+else
+  alias beep='espeak BEEP';
+fi
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -256,19 +266,35 @@ createSymlinkDatabase() {
   files=`ag -f ~/ --nocolor -g ""`
   dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
 
+  # for all the symlinks that we found
   for dir in `echo $dirs`
   do
+
+    # "original" = where the link is pointing to
     original=$(readlink "$dir")
+
+    # if the "original" path is not empty
     if [[ ! -z "$original" ]];
     then
 
+      # if the "original" path starts with "."
+      # which means its a relative link
       if [[ "$original" == "."* ]]
       then
+
+        # resolve the relative link
         temp="${dir%/*}/$original"
         original=`( builtin cd "$temp" && pwd )`
       fi
 
-      # echo "$dir -> $original"
+      # the linked path must not contains /git/
+      if [[ $dir == *\/git\/* ]]
+      then
+        echo "Rejecting $dir as the target symlink"
+        continue
+      fi
+
+      # put it into our output file
       echo "$dir, $original" >> "$file_path"
     fi
   done
@@ -425,13 +451,13 @@ catkin() {
       if [ -z "$PACKAGES" ]; then
         echo "Cannot compile, not in a workspace"
       else
-        command catkin "$@"
+        command catkin "$@" && beep || espeak -v cs "sprav si to vole"
       fi
 
       ;;
 
     *)
-      command catkin "$@"
+      command catkin $@
       ;;
 
     esac
