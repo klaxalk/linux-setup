@@ -9,6 +9,16 @@ alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cr
 alias cb="catkin build"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
+alias demangle="c++filt"
+
+export BEEP="/usr/share/sounds/ubuntu/notifications/Blip.ogg"
+# My personal aliases:
+which paplay > /dev/null
+if [ $? -eq 0 ]; then
+  alias beep='paplay $BEEP';
+else
+  alias beep='espeak BEEP';
+fi
 
 # reload configuration for urxvt
 xrdb ~/.Xresources
@@ -20,6 +30,18 @@ export TERM=rxvt-unicode-256color
 # export TERM=screen-256color
 
 export GITMAN_CACHE_DISABLE=1
+
+# create the symlink list
+# if we are not in TMUX
+if [ -z $TMUX ]; then
+
+  # and the symlinklist does not exist
+  if [ ! -e "/tmp/symlink_list.txt" ]; then
+
+    # create the symlink list
+    ~/.i3/detacher.sh ~/.scripts/createRosSymlinkDatabase.sh
+  fi
+fi
 
 # use ctags to generate code tags
 generateTags() {
@@ -157,7 +179,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -183,7 +205,7 @@ git() {
             if [ -e .gitman.yml ]; then
               if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
                 echo "Updating gitman sub-repos"
-                gitman install -q
+                gitman install
               else
                 echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
               fi
@@ -207,7 +229,7 @@ git() {
           if [ -e .gitman.yml ]; then
             if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
               echo "Updating gitman sub-repos"
-              gitman install -q
+              gitman install
             else
               echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
             fi
@@ -244,40 +266,6 @@ sourceShellDotfile() {
   source "$RCFILE"
 }
 alias sb="sourceShellDotfile"
-
-createSymlinkDatabase() {
-
-  echo "Generating symlink database"
-
-  file_path="/tmp/symlink_list.txt"
-
-  rm "$file_path" > /dev/null 2>&1
-
-  files=`ag -f ~/ --nocolor -g ""`
-  dirs=$(echo "$files" | sed -e 's:/[^/]*$::' | uniq)
-
-  for dir in `echo $dirs`
-  do
-    original=$(readlink "$dir")
-    if [[ ! -z "$original" ]];
-    then
-
-      if [[ "$original" == "."* ]]
-      then
-        temp="${dir%/*}/$original"
-        original=`( builtin cd "$temp" && pwd )`
-      fi
-
-      # echo "$dir -> $original"
-      echo "$dir, $original" >> "$file_path"
-    fi
-  done
-
-  # delete duplicite lines in the file
-  mv "$file_path" "$file_path".old
-  cat "$file_path".old | uniq > "$file_path"
-  rm "$file_path".old
-}
 
 symbolicCd() {
 
@@ -425,13 +413,13 @@ catkin() {
       if [ -z "$PACKAGES" ]; then
         echo "Cannot compile, not in a workspace"
       else
-        command catkin "$@"
+        command catkin "$@" && beep || espeak -v cs "sprav si to vole"
       fi
 
       ;;
 
     *)
-      command catkin "$@"
+      command catkin $@
       ;;
 
     esac

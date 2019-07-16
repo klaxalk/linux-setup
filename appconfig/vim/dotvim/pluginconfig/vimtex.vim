@@ -72,6 +72,12 @@ au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
 " set it to some high number to prevent syntax highlite problems
 au FileType tex set synmaxcol=10000
 
+let g:vimtex_indent_conditionals = {
+      \ 'open': 'pesstekakockamnout',
+      \ 'else': '\\else\>',
+      \ 'close': '\\fi\>',
+      \}
+
 " let g:vimtex_complete_recursive_bib = 1
 
 " add custom dictionary for a specific 'paper'
