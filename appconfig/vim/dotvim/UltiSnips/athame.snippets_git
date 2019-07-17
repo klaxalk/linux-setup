@@ -262,7 +262,7 @@ htop
 endsnippet
 
 snippet "untar $" "" Abr
-tar -xvf 
+tar -xvf
 endsnippet
 
 snippet "okular$" "" Abr
@@ -270,7 +270,7 @@ okular --presentation
 endsnippet
 
 snippet "(open )" "" Abr
-gnome-open 
+gnome-ope
 endsnippet
 
 snippet "(gcgppo)|(cggpo)" "" Abr
@@ -305,7 +305,7 @@ endsnippet
 
 snippet cbt "" Ab
 catkin build --this
-endsnippet 
+endsnippet
 
 snippet "run two" "" Ab
 ~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
@@ -332,5 +332,9 @@ papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
 
 snippet "papis addto " "" Abr
-papis addto '${2:*}' -f '${1:main.pdf}'
+papis addto '${1:query}' -f '${2:main.pdf}' ${3:--copy-pdf}
+endsnippet
+
+snippet "papis add " "" Abr
+papis add --from bibtex '${1:main.bib}'
 endsnippet
