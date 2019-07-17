@@ -30,7 +30,7 @@ done
 for dir in `echo $dirs`
 do
 
-  echo "Evaluating: $dir"
+  # echo "Evaluating: $dir"
 
   # "original" = where the link is pointing to
   original=$(readlink "$dir")
