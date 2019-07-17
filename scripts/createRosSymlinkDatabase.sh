@@ -49,7 +49,7 @@ do
       original=`( builtin cd "$temp" && pwd )`
     fi
 
-    # the linked path must not contains /git/
+    # the linked path must not contain /git/
     if [[ $dir == *\/git\/* ]]
     then
       echo -e "\e[31mReject $dir\e[39m"
