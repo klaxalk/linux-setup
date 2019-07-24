@@ -30,7 +30,7 @@ done
 for dir in `echo $dirs`
 do
 
-  echo "Evaluating: $dir"
+  # echo "Evaluating: $dir"
 
   # "original" = where the link is pointing to
   original=$(readlink "$dir")
@@ -49,7 +49,7 @@ do
       original=`( builtin cd "$temp" && pwd )`
     fi
 
-    # the linked path must not contains /git/
+    # the linked path must not contain /git/
     if [[ $dir == *\/git\/* ]]
     then
       echo -e "\e[31mReject $dir\e[39m"

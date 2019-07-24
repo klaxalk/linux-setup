@@ -310,19 +310,37 @@ symbolicCd() {
         # echo substracted: ${new_path#*${paths2[$i]}}
         repath[$j]="${paths1[$i]}${new_path#*${paths2[$i]}}"
         # echo new_path: ${repath[$j]}
+        new_path=${repath[$j]}
         j=$(expr $j + 1)
         # echo ""
       fi
     done
 
+    # # test the new path for prefix again
+    # # echo ""
+    # j="1"
+    # for ((i=1; i < ${#paths1[*]}+1; i++));
+    # do
+    #   if [[ "$new_path" == *${paths2[$i]}* ]]
+    #   then
+    #     echo "found prefix: ${paths1[$i]} -> ${paths2[$i]} for $new_path"
+    #     # echo substracted: ${new_path#*${paths2[$i]}}
+    #     repath[$j]="${paths1[$i]}${new_path#*${paths2[$i]}}"
+    #     echo new_path: ${repath[$j]}
+    #     j=$(expr $j + 1)
+    #     # echo ""
+    #   fi
+    # done
+
     if [ "$j" -ge "2" ]
     then
-      if [ -e "${repath[1]}" ]
-      then
+          builtin cd "$new_path"
 
-        if [ "$j" -eq "2" ]
-        then
-          builtin cd "${repath[1]}"
+      # if [ -e "${repath[1]}" ]
+      # then
+      #   if [ "$j" -eq "2" ]
+      #   then
+      #     builtin cd "$new_path"
           # elif [ "$j" -gt "2" ]
           # then
           #   builtin cd "${repath[1]}"
@@ -331,8 +349,8 @@ symbolicCd() {
           #   do
           #     echo "	${repath[$i]} -> $new_path"
           #   done
-        fi
-      fi
+        # fi
+      # fi
     fi
   fi
 }

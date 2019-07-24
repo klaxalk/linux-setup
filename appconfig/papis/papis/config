@@ -12,7 +12,7 @@ opentool = rifle
 # Use ranger as a file browser, a nice python program
 file-browser = ranger
 # Ask for confirmation when doing papis add
-add-confirm = True
+add-confirm = False
 # Edit the info.yaml file before adding a doc into the library
 # papis add --edit
 add-edit = True
@@ -48,7 +48,7 @@ move_up_while_info_window_active_key = K
 
 # Define a lib
 [papers]
-dir = ~/Dropbox/papers
+dirs = ["~/git/bibliography", "~/Dropbox/papers"]
 extra-bibtex-keys = ["keywords"]
 
 # override settings from the section tui only for the papers library
@@ -58,7 +58,7 @@ tui-options_list.unselected_margin_style = bg:blue
 # use whoosh as a database for papers
 database-backend = papis
 # rename files added by author and title
-add-file-name = {doc[author]}{doc[title]}
+add-file-name = {doc[author]}-{doc[title]}
 
 # Define a lib for books
 [books]
