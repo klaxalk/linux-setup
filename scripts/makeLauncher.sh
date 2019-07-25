@@ -16,6 +16,6 @@ chmod +x $HOME/scripts/$c_fname.sh
 echo "[Desktop Entry]
 Type=Application
 Terminal=false
-Name=c_name
+Name=$c_name
 Exec=$HOME/scripts/$c_fname.sh
 Name=$c_name" > $HOME/.local/share/applications/$c_fname.desktop 
