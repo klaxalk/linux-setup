@@ -336,5 +336,5 @@ papis addto '${1:query}' -f '${2:main.pdf}' ${3:--copy-pdf}
 endsnippet
 
 snippet "papis add " "" Abr
-papis add --from bibtex '${1:main.bib}'
+papis add --from ${2:bibtex} '${1:main.bib}'
 endsnippet
