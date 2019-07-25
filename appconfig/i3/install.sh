@@ -112,7 +112,7 @@ while true; do
     sudo apt -y install thunar rofi compton i3blocks systemd
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    make_launchers.sh $APP_PATH/../../scripts
+    $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
