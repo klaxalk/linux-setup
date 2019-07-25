@@ -11,7 +11,7 @@ fi
 mkdir -p $HOME/scripts
 c_fname=`echo $c_name | tr ' ' '_'`
 echo "#!/bin/bash
-HOME/git/linux-setup/appconfig/i3/doti3/detacher.sh \"$c_command\"" > $HOME/scripts/$c_fname.sh
+$HOME/git/linux-setup/appconfig/i3/doti3/detacher.sh \"$c_command\"" > $HOME/scripts/$c_fname.sh
 chmod +x $HOME/scripts/$c_fname.sh
 echo "[Desktop Entry]
 Type=Application
