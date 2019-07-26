@@ -2,14 +2,18 @@
 
 ! the default font, will be commented out for
 ! specific user settings
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN {
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN {
 URxvt.font: xft:Inconsolata for Powerline:size=14
-! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN }
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN }
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! URxvt.font: xft:terminess powerline:size=12
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
+
+! EPIGEN_ADD_BLOCK_VOJTA {
+! URxvt.font: xft:Inconsolata for Powerline:size=13
+! EPIGEN_ADD_BLOCK_VOJTA }
 
 ! EPIGEN_ADD_BLOCK_DAN {
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12

@@ -513,6 +513,14 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
+# # Background image
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
 # EPIGEN_ADD_BLOCK_VOJTA }
 
 # #}
