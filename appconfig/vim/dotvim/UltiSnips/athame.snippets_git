@@ -338,3 +338,23 @@ endsnippet
 snippet "papis add " "" Abr
 papis add --from ${2:bibtex} '${1:main.bib}'
 endsnippet
+
+snippet "simulation" "" Abr
+roslaunch simulation simulation.launch gui:=true
+endsnippet
+
+snippet "spawn1" "" Abr
+spawn 1 --run --delete --enable-rangefinder
+endsnippet
+
+snippet "control" "" Abr
+roslaunch mrs_uav_manager simulation_f550_gps.launch
+endsnippet
+
+snippet "arm" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/cmd/arming 1
+endsnippet
+
+snippet "offboard" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/set_mode 0 offboard
+endsnippet

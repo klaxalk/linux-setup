@@ -305,6 +305,7 @@ au FileType python call EnableCursorLines()
 " should fix colors in tmux
 if !has("nvim")
   set term=screen-256color
+
 else
 
   cnoreabbrev vt VTerm
