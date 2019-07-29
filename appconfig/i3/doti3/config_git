@@ -732,9 +732,6 @@ set $mode_gaps_inner inner gaps
 # # Default keyboard US, alt+shift to switch between US and CZ
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
 
-# # Not so fancy compton stuff
-# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
-
 # # Smaller gaps
 # gaps inner 2
 # gaps outer 0
@@ -767,6 +764,9 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Not so fancy compton stuff
+# # exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +

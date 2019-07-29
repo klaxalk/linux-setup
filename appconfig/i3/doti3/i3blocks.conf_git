@@ -96,6 +96,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+[141]
+command=ping -c 1 192.168.0.141 >> /dev/null && echo '141' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+
 [152]
 command=ping -c 1 192.168.0.152 >> /dev/null && echo '152' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -325,7 +333,7 @@ instance=Master
 interval=1
 signal=10
 command=~/.i3/show_volume.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+ # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL }
 
@@ -353,7 +361,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 label=SSD
 #instance=/mnt/data
 interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+ # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL }
 
