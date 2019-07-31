@@ -269,6 +269,10 @@ snippet "okular$" "" Abr
 okular --presentation
 endsnippet
 
+snippet "pdfpc$" "" Abr
+pdfpc -s ${1:main.pdf}
+endsnippet
+
 snippet "(open )" "" Abr
 gnome-ope
 endsnippet
@@ -347,6 +351,14 @@ snippet "spawn1" "" Abr
 spawn 1 --run --delete --enable-rangefinder
 endsnippet
 
+snippet "spawn2" "" Abr
+spawn 1 --run --delete --enable-rangefinder ${1:--enable-bluefox-camera}
+endsnippet
+
+snippet "spawn3" "" Abr
+spawn 1 --run --delete --enable-rangefinder ${1:--enable-rplidar}
+endsnippet
+
 snippet "control" "" Abr
 roslaunch mrs_uav_manager simulation_f550_gps.launch
 endsnippet
@@ -357,4 +369,12 @@ endsnippet
 
 snippet "offboard" "" Abr
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/set_mode 0 offboard
+endsnippet
+
+snippet "optflow" "" Abr
+roslaunch mrs_optic_flow simulation.launch
+endsnippet
+
+snippet "rviz1" "" Abr
+roslaunch mrs_testing rviz_uav1.launch
 endsnippet
