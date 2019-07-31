@@ -116,6 +116,17 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL }
 
+# EPIGEN_ADD_BLOCK_TOMAS {
+
+# [bibliography]
+# command=~/git/bibliography/save_and_update.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=60
+# separator=true
+
+# EPIGEN_ADD_BLOCK_TOMAS }
+
 # EPIGEN_DEL_BLOCK_GPD EPIGEN_DEL_BLOCK_MATEJ {
 
 # [rosip]
