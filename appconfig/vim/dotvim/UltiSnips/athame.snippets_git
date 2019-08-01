@@ -343,6 +343,14 @@ snippet "papis add " "" Abr
 papis add --from ${2:bibtex} '${1:main.bib}'
 endsnippet
 
+snippet "papis open " "" Abr
+papis open '${1}'
+endsnippet
+
+snippet "papis edit " "" Abr
+papis edit '${1}'
+endsnippet
+
 snippet "simulation" "" Abr
 roslaunch simulation simulation.launch gui:=true
 endsnippet
