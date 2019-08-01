@@ -268,22 +268,12 @@ sourceShellDotfile() {
 }
 alias sb="sourceShellDotfile"
 
-symbolicCd() {
+# prepare the file paths for the symbolicCd alias
+if [ -x "$(command -v ag)" ]; then
 
-  # if ag is missing, run normal "cd"
-  if [ ! -x "$(command -v ag)" ]; then
+  file_path="/tmp/symlink_list.txt"
 
-    builtin cd "$@"
-
-    # if we have ag, do the magic
-  else
-
-    file_path="/tmp/symlink_list.txt"
-
-    if [ ! -e "$file_path" ]; then
-      builtin cd "$@"
-      return
-    fi
+  if [ -e "$file_path" ]; then
 
     # parse the csv file and extract file paths
     i="1"
@@ -296,6 +286,20 @@ symbolicCd() {
 
       i=$(expr $i + 1)
     done < "$file_path"
+
+  fi
+fi
+
+symbolicCd() {
+
+  # if ag is missing, run normal "cd"
+  if [ -z paths1 ]; then
+
+    builtin cd "$@"
+    return
+
+    # if we have ag, do the magic
+  else
 
     builtin cd "$@"
     new_path=`pwd`
@@ -317,41 +321,9 @@ symbolicCd() {
       fi
     done
 
-    # # test the new path for prefix again
-    # # echo ""
-    # j="1"
-    # for ((i=1; i < ${#paths1[*]}+1; i++));
-    # do
-    #   if [[ "$new_path" == *${paths2[$i]}* ]]
-    #   then
-    #     echo "found prefix: ${paths1[$i]} -> ${paths2[$i]} for $new_path"
-    #     # echo substracted: ${new_path#*${paths2[$i]}}
-    #     repath[$j]="${paths1[$i]}${new_path#*${paths2[$i]}}"
-    #     echo new_path: ${repath[$j]}
-    #     j=$(expr $j + 1)
-    #     # echo ""
-    #   fi
-    # done
-
     if [ "$j" -ge "2" ]
     then
-          builtin cd "$new_path"
-
-      # if [ -e "${repath[1]}" ]
-      # then
-      #   if [ "$j" -eq "2" ]
-      #   then
-      #     builtin cd "$new_path"
-          # elif [ "$j" -gt "2" ]
-          # then
-          #   builtin cd "${repath[1]}"
-          #   echo "FYI There is more than 1 symlink to this directory:"
-          #   for ((i=1; i < ${#repath[*]}+1; i++));
-          #   do
-          #     echo "	${repath[$i]} -> $new_path"
-          #   done
-        # fi
-      # fi
+      builtin cd "$new_path"
     fi
   fi
 }
