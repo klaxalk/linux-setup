@@ -16,7 +16,7 @@ do
   fi
 done
 
-default=y
+default=n
 while true; do
   if [[ "$unattended" == "1" ]]
   then
