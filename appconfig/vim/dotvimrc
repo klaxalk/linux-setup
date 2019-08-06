@@ -109,6 +109,10 @@ if g:user_mode == "1"
   " Essential part in taking notes in vim
   Plug 'vimwiki/vimwiki'
 
+  " allows showing logs with color codes in vim
+  " :ansi
+  Plug 'powerman/vim-plugin-AnsiEsc'
+
   " ???
   Plug 'vim-scripts/MatlabFilesEdition'
 
@@ -633,7 +637,6 @@ if g:user_mode == "1"
     hi def link epigenDel Constant
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
-
 
 endif
 
