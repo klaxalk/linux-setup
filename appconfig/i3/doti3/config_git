@@ -676,6 +676,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PETR {
 
+# # Fix font DPI issues caused by nvidia
+# exec_always --no_startup_id sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
+
 # # Add normie controls
 # bindsym $mod2+Left focus left
 # bindsym $mod2+Down focus down
@@ -691,10 +694,10 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/mountain.jpg
 
 # # Numlock on by default
-# exec_always --no_startup_id numlockx on
+# exec --no_startup_id numlockx on
 
 # # Not so fancy compton stuff
-# exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
@@ -710,7 +713,7 @@ set $mode_gaps_inner inner gaps
 # gaps outer 0
 
 # # Keyboard switching
-# exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
 # EPIGEN_ADD_BLOCK_PETR }
 
@@ -766,7 +769,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Not so fancy compton stuff
-# # exec_always compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -892,7 +895,7 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL
 
 # sound-card control
 exec --no-startup-id indicator-sound-switcher
