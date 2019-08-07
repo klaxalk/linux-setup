@@ -6,7 +6,7 @@ It could be summarized as follows:
 * **Ubuntu 18.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
-* **urxvt** terminal emulator with ability tu show images (when using the *ranger* file manager)
+* **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)
 * **tmux** terminal multiplexer is running all the time
   * **tmuxinator** for automation of tmux session
   * vim-compatible key bindings for split switching
