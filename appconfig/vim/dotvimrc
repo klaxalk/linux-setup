@@ -310,6 +310,9 @@ au FileType python call EnableCursorLines()
 if !has("nvim")
   set term=screen-256color
 
+  cnoreabbrev vt vertical terminal
+  cnoreabbrev st terminal
+
 else
 
   cnoreabbrev vt VTerm
