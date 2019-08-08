@@ -162,13 +162,19 @@ if g:user_mode == "1"
   " Plug 'justinmk/vim-syntax-extra'
 
   " EPIGEN_ADD_BLOCK_TOMAS {
-  " Plug 'tikhomirov/vim-glsl'
 
-  " Plug 'junegunn/fzf'
-  " Plug 'papis/papis-vim'
+"   " Grammar checking
+"   Plug 'rhysd/vim-grammarous'
 
-  " nnoremap <localleader>pp :Papis<cr>
-  " nnoremap <localleader>pv :PapisView<cr>
+"   " Syntax highlighting for GLSL language
+"   Plug 'tikhomirov/vim-glsl'
+
+"   " Papis vim integration
+"   Plug 'junegunn/fzf'
+"   Plug 'papis/papis-vim'
+"   nnoremap <localleader>pp :Papis<cr>
+"   nnoremap <localleader>pv :PapisView<cr>
+
   " EPIGEN_ADD_BLOCK_TOMAS }
 
   if has("nvim")
