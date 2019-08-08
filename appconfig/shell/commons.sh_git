@@ -358,6 +358,13 @@ waitForOdometry() {
   done
 }
 
+waitForControlManager() {
+  until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
+    echo "waiting for control manager"
+    sleep 1;
+  done
+}
+
 waitForControl() {
   until timeout 3s rostopic echo /$UAV_NAME/control_manager/tracker_status -n 1 --noarr > /dev/null 2>&1; do
     echo "waiting for control"
