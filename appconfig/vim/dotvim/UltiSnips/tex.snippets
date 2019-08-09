@@ -725,7 +725,7 @@ snippet "int" "" ri
 \int_
 endsnippet
 
-snippet "sum" "" ri
+snippet "sum" "" r
 \sum_
 endsnippet
 
@@ -747,12 +747,12 @@ snippet hline
 \hline
 endsnippet
 
-snippet makecell "" i
-\makecell{${1:${VISUAL}}}
+snippet "lipsum" "" r
+\lipsum[${1}]
 endsnippet
 
-snippet "(//)|(%%)" "" r
-% ${1}
+snippet makecell "" i
+\makecell{${1:${VISUAL}}}
 endsnippet
 
 snippet "(///)|(%%%)" "" r
@@ -763,4 +763,8 @@ snippet "(////)|(%%%%)" "" r
 %% --------------------------------------------------------------
 %% | `!p import math; snip.rv=' '*(30-(math.floor(len(t[1])/2.0))-2)` ${1} `!p import math; snip.rv=' '*(30-(math.ceil(len(t[1])/2.0))-2)` |
 %% --------------------------------------------------------------
+endsnippet
+
+snippet xray
+X-Ray
 endsnippet
