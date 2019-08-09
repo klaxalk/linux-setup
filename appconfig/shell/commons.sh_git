@@ -27,7 +27,6 @@ xrdb ~/.Xresources
 xset r rate 350 55
 
 export TERM=rxvt-unicode-256color
-# export TERM=screen-256color
 
 export GITMAN_CACHE_DISABLE=1
 
@@ -410,7 +409,15 @@ catkin() {
       if [ -z "$PACKAGES" ]; then
         echo "Cannot compile, not in a workspace"
       else
-        command catkin "$@" && beep || espeak -v cs "sprav si to vole"
+
+# EPIGEN_DEL_BLOCK_MATOUS {
+        command catkin "$@"
+# EPIGEN_DEL_BLOCK_MATOUS }
+
+# EPIGEN_ADD_BLOCK_MATOUS {
+        # command catkin "$@" && beep || espeak -v cs "sprav si to vole"
+# EPIGEN_ADD_BLOCK_MATOUS }
+
       fi
 
       ;;
