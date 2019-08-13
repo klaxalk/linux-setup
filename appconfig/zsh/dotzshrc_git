@@ -31,7 +31,7 @@ export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # EPIGEN_ADD_BLOCK_TOMAS {
-# eval "$(_PAPIS_COMPLETE=source_zsh papis)"
+# # eval "$(_PAPIS_COMPLETE=source_zsh papis)"
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # Vi mode in ZSH

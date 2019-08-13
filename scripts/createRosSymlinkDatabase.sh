@@ -2,6 +2,11 @@
 
 echo "Generating symlink database"
 
+if [ ! -x "$(command -v ag)" ]; then
+  echo "'ag' not installed"
+  return 1
+fi
+
 file_path="/tmp/symlink_list.txt"
 
 rm "$file_path" > /dev/null 2>&1
