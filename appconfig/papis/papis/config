@@ -24,7 +24,7 @@ use-cache = False
 #
 # Define custom default match and header formats
 #
-match-format = {doc[tags]}{doc.subfolder}{doc[title]}{doc[author]}{doc[year]}{doc[keywords]}
+match-format = {doc[tags]}{doc.subfolder}{doc[title]}{doc[author]}{doc[year]}{doc[keywords]}{doc[ref]}
 #
 # Define header format with colors and multiline support
 #

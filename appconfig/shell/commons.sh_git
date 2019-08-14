@@ -9,6 +9,30 @@ export TERM=rxvt-unicode-256color
 # disable gitman caching
 export GITMAN_CACHE_DISABLE=1
 
+# #{ generating ctags
+
+# use ctags to generate code tags
+
+# generate projects' tags
+if [ -z $TMUX ]; then
+
+  if [ ! -e "~/tags" ]; then
+    ctagscmd="ctags --fields=+l -f ~/tags $CTAGS_SOURCE_DIR"
+    ~/.i3/detacher.sh "$ctagscmd"
+  fi
+
+  if [ ! -e "~/tags-once" ]; then
+    # generate `once generated tags`, e.g. ROS's tags
+    if [ ! -e $(eval echo "$CTAGS_FILE_ONCE") ]; then
+      ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
+      ~/.i3/detacher.sh "$ctagscmd"
+    fi
+  fi
+
+fi
+
+# #}
+
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
@@ -247,26 +271,6 @@ getVideoThumbnail() {
 
   output="${file%.*}_thumbnail.jpg"
   ffmpeg -i "$file" -ss "$frame" -vframes 1 "$output"
-}
-
-# #}
-
-# #{ generateTags()
-
-# use ctags to generate code tags
-generateTags() {
-
-  # generate project's tags
-  # TODO check for file existence
-  ctagscmd="ctags --fields=+l -f ~/tags $CTAGS_SOURCE_DIR"
-  eval $ctagscmd
-
-  # generate `once generated tags`, e.g. ROS's tags
-  if [ ! -e $(eval echo "$CTAGS_FILE_ONCE") ]; then
-    echo "generating one-time generated tags"
-    ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
-    eval $ctagscmd
-  fi
 }
 
 # #}
