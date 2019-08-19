@@ -177,15 +177,6 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
 
-# EPIGEN_ADD_BLOCK_VOJTA {
-# [cputemp]
-# interval=2
-# label=CPU
-# command=~/.i3/show_temp.sh 0
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_VOJTA }
-
 # EPIGEN_ADD_BLOCK_DAN {
 # [cputemp]
 # interval=2
@@ -206,8 +197,8 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# #{ Pavel's customization
-# EPIGEN_ADD_BLOCK_PAVEL {
+# #{ Pavel's and Vojta's customization
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 
 # # EPIGEN_ADD_BLOCK_SPOTIFY {
 # # [mediaplayer]
@@ -248,14 +239,18 @@ separator=true
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
+# EPIGEN_ADD_BLOCK_PAVEL {
 # [memory]
 # label=SWP
 # instance=swap
 # interval=10
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_PAVEL }
 
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # [volume]
 # label=
 # instance=Master
@@ -282,17 +277,17 @@ separator=true
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # #}
 
-# EPIGEN_DEL_BLOCK_PAVEL {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [load]
 interval=5
 label=
 command=cat /proc/loadavg | cut -d' ' -f1-3
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
 
 # Network interface monitoring
 #
@@ -303,13 +298,13 @@ instance=eth0
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
-label=
-# EPIGEN_ADD_BLOCK_PAVEL {
+label=
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # # EPIGEN_ADD_BLOCK_LENOVO {
 # # instance=eth1
 # # EPIGEN_ADD_BLOCK_LENOVO }
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 [iface]
 instance=wlan0
@@ -317,24 +312,24 @@ instance=wlan0
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label=
-# EPIGEN_ADD_BLOCK_PAVEL {
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 [online-status]
 command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
 color=#FF0000
 interval=20
-# EPIGEN_ADD_BLOCK_PAVEL {
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-# EPIGEN_DEL_BLOCK_PAVEL {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [volume]
 label=VOL
 label=♪
@@ -345,7 +340,7 @@ signal=10
 command=~/.i3/show_volume.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
 
 # Memory usage
 #
@@ -366,33 +361,33 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-# EPIGEN_DEL_BLOCK_PAVEL {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [disk]
 label=SSD
 #instance=/mnt/data
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
 
 [wifi]
 instance=wlan0
-label=
+label=
 interval=10
-# EPIGEN_ADD_BLOCK_PAVEL {
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# EPIGEN_ADD_BLOCK_PAVEL {
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # [bandwidth]
 # label=
 # interval=1
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_PAVEL }
+# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 # CPU usage
 #
@@ -407,14 +402,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # Battery indicator
 #
 # The battery instance defaults to 0.
-# EPIGEN_DEL_BLOCK_PAVEL {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [battery]
 label=⚡
 instance=0
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
 
 [keyboard]
 label=
@@ -434,14 +429,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Rough weather information
 # Check on http://openweathermap.org/find to find your location (default: Prague CZ == 3067696)
-# # EPIGEN_ADD_BLOCK_PAVEL {
+# # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # [weather]
 # instance=3067696
 # interval=5
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_PAVEL }
+# # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 # Date Time
 #
