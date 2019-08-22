@@ -16,12 +16,12 @@ export GITMAN_CACHE_DISABLE=1
 # generate projects' tags
 if [ -z $TMUX ]; then
 
-  if [ ! -e "~/tags" ]; then
+  if [ ! -e ~/tags ]; then
     ctagscmd="ctags --fields=+l -f ~/tags $CTAGS_SOURCE_DIR"
     ~/.i3/detacher.sh "$ctagscmd"
   fi
 
-  if [ ! -e "~/tags-once" ]; then
+  if [ ! -e ~/tags-once ]; then
     # generate `once generated tags`, e.g. ROS's tags
     if [ ! -e $(eval echo "$CTAGS_FILE_ONCE") ]; then
       ctagscmd="ctags --fields=+l -f $CTAGS_FILE_ONCE $CTAGS_ONCE_SOURCE_DIR"
