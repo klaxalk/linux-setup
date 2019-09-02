@@ -676,9 +676,6 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PETR {
 
-# # Fix font DPI issues caused by nvidia
-# exec_always --no_startup_id sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
-
 # # Add normie controls
 # bindsym $mod2+Left focus left
 # bindsym $mod2+Down focus down
@@ -714,6 +711,12 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+
+# # lab monitor setup
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
+
+# # Fix font DPI issues caused by nvidia
+# bindsym $mod+Shift+f exec sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
 
 # EPIGEN_ADD_BLOCK_PETR }
 

@@ -108,7 +108,7 @@ URxvt.keysym.Shift-Control-P: \033[24;5~
 ! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
 ! ! EPIGEN_ADD_BLOCK_MATOUS }
 ! ! EPIGEN_ADD_BLOCK_PETR {
-! ! URxvt.background: rgba:0AC0/0AC0/0AC0/BBDD
+! ! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
 ! ! URxvt.foreground: #dddddd
 ! ! EPIGEN_ADD_BLOCK_PETR }
 ! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
