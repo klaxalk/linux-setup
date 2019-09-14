@@ -78,8 +78,6 @@ fi
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
-  
-  { generateTags & disown; } 2> /dev/null
 
   VIM_CMD=$(echo "$EDITOR ${@}")
 

@@ -20,7 +20,7 @@ fi
 
 # EPIGEN_DEL_BLOCK_MATOUS {
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# ZSH_THEME="" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# ZSH_THEME="jreese" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_MATOUS }
 # EPIGEN_ADD_BLOCK_MATOUS {
 # ZSH_THEME="mortalscumbag"
@@ -29,6 +29,10 @@ ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # eval "$(_PAPIS_COMPLETE=source_zsh papis)"
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 # Vi mode in ZSH
 bindkey -v
@@ -105,8 +109,6 @@ zshexit() {
 
 # VIM alias for running vim in tmux and in servermode
 runVim() {
-
-  ( generateTags & disown; ) 2> /dev/null
 
   VIM_CMD=$(echo "$EDITOR ${@}")
 

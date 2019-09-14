@@ -26,10 +26,10 @@ do
   fi
 done
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb gparted net-tools espeak
 
 ##################################################
-# install inputs libraries when they are missing 
+# install inputs libraries when they are missing
 ##################################################
 sudo apt -y install xserver-xorg-input-all
 
@@ -45,7 +45,7 @@ if [ "$var2" = "$var1" ]; then
 fi
 
 if [ ! -n "$BEAVER" ]; then
-  sudo apt -y install pdftk 
+  sudo apt -y install pdftk
   if [ "$unattended" == "0" ]
   then
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
@@ -61,6 +61,9 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 # copy vim settings
 bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
+# install neovim
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
+
 # compile and install zsh with athame
 bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
@@ -72,6 +75,9 @@ bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
 # setup latex
 bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
+
+# setup pdftk
+bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
 
 # setup pandoc
 bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
@@ -137,7 +143,7 @@ if [ "$num" -lt "1" ]; then
 
   default=y
   while true; do
-  	if [[ "$unattended" == "1" ]]
+    if [[ "$unattended" == "1" ]]
     then
       resp=$default
     else
@@ -172,7 +178,7 @@ export RUN_TMUX=false" >> ~/.bashrc
 fi
 
 ##################################################
-# install inputs libraries when they are missing 
+# install inputs libraries when they are missing
 ##################################################
 sudo apt -y install xserver-xorg-input-all
 
@@ -232,4 +238,4 @@ fi
 toilet All Done
 
 # say some tips to the new user
-echo Huray, the should be ready, try opening new terminal...
+echo "Huray, the 'Linux Setup' should be ready, try opening new terminal."

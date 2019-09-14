@@ -109,6 +109,10 @@ if g:user_mode == "1"
   " Essential part in taking notes in vim
   Plug 'vimwiki/vimwiki'
 
+  " allows showing logs with color codes in vim
+  " :ansi
+  Plug 'powerman/vim-plugin-AnsiEsc'
+
   " ???
   Plug 'vim-scripts/MatlabFilesEdition'
 
@@ -156,6 +160,22 @@ if g:user_mode == "1"
   " Plug 'bbchung/Clamp'
   " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
   " Plug 'justinmk/vim-syntax-extra'
+
+  " EPIGEN_ADD_BLOCK_TOMAS {
+
+"   " Grammar checking
+"   Plug 'rhysd/vim-grammarous'
+
+"   " Syntax highlighting for GLSL language
+"   Plug 'tikhomirov/vim-glsl'
+
+"   " Papis vim integration
+"   Plug 'junegunn/fzf'
+"   Plug 'papis/papis-vim'
+"   nnoremap <localleader>pp :Papis<cr>
+"   nnoremap <localleader>pv :PapisView<cr>
+
+  " EPIGEN_ADD_BLOCK_TOMAS }
 
   if has("nvim")
     Plug 'mklabs/split-term.vim'
@@ -295,6 +315,10 @@ au FileType python call EnableCursorLines()
 " should fix colors in tmux
 if !has("nvim")
   set term=screen-256color
+
+  cnoreabbrev vt vertical terminal
+  cnoreabbrev st terminal
+
 else
 
   cnoreabbrev vt VTerm
@@ -516,6 +540,11 @@ if g:user_mode == "1"
 
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
+
+  " EPIGEN_ADD_BLOCK_TOMAS {
+  " source ~/.vim/pluginconfig/vim-glsl.vim
+  " EPIGEN_ADD_BLOCK_TOMAS }
+
 endif
 
 " %:p:h path
@@ -561,7 +590,26 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
-  " let g:airline_theme='jellybeans'
+  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  "     let g:airline_theme='jellybeans'
+  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " "   let g:lightline = {
+  " "       \ 'colorscheme': 'wombat',
+  " "       \ }
+  " "   hi NonText guibg=NONE ctermbg=NONE
+  " "   hi TabLineSel ctermbg=45
+  " "   hi TabLineFill ctermbg=45
+  " "   hi TabLine ctermbg=0 ctermfg=45
+  " "   hi Title ctermbg=45
+  " "   hi StartifyHeader ctermfg=39 cterm=bold
+  " "   hi StartifyFooter ctermfg=39 cterm=bold
+  " "   hi Normal ctermfg=39
+  " "   hi Normal guibg=NONE ctermbg=NONE
+  " "   hi NonText guibg=NONE ctermbg=NONE
+  " "   hi ColorColumn ctermbg=100
+  " "   call matchadd('ColorColumn', '\%81v',100)
+  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -584,6 +632,7 @@ if g:user_mode == "1"
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
+        \ { 'p': '~/.config/papis/config' },
         \ ]
 
   function! SetEpigenSyntax()
@@ -597,7 +646,6 @@ if g:user_mode == "1"
     hi def link epigenDel Constant
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
-
 
 endif
 

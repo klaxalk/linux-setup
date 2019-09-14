@@ -92,16 +92,12 @@ snippet setyaw "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
 endsnippet
 
-snippet mpctracker "" Ab
+snippet trackermpc "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
 endsnippet
 
-snippet joytracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker JoyTracker
-endsnippet
-
-snippet fliptracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker FlipTracker
+snippet trackerline "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LineTracker
 endsnippet
 
 snippet joystick "" Ab
@@ -150,14 +146,6 @@ endsnippet
 
 snippet attitude "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller AttitudeController
-endsnippet
-
-snippet linetracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LineTracker
-endsnippet
-
-snippet lofftracker "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LandoffTracker
 endsnippet
 
 snippet gppo "" Ab
@@ -274,15 +262,19 @@ htop
 endsnippet
 
 snippet "untar $" "" Abr
-tar -xvf 
+tar -xvf
 endsnippet
 
 snippet "okular$" "" Abr
 okular --presentation
 endsnippet
 
+snippet "pdfpc$" "" Abr
+pdfpc -s ${1:main.pdf}
+endsnippet
+
 snippet "(open )" "" Abr
-gnome-open 
+gnome-ope
 endsnippet
 
 snippet "(gcgppo)|(cggpo)" "" Abr
@@ -317,7 +309,7 @@ endsnippet
 
 snippet cbt "" Ab
 catkin build --this
-endsnippet 
+endsnippet
 
 snippet "run two" "" Ab
 ~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
@@ -333,4 +325,64 @@ endsnippet
 
 snippet pdflatex "" Ab
 pdflatex --output-dir build ${1:main.tex}
+endsnippet
+
+snippet "papis export " "" Abr
+papis export ${2:-a} -f ${3:bibtex} > '${1:bib.bib}' && ./ppb.sh
+endsnippet
+
+snippet "papis-zotero " "" Abr
+papis-zotero import --from-bibtex '${1:main.bib}'
+endsnippet
+
+snippet "papis addto " "" Abr
+papis addto '${1:query}' -f '${2:main.pdf}' ${3:--copy}
+endsnippet
+
+snippet "papis add " "" Abr
+papis add --from ${2:bibtex} '${1:main.bib}'
+endsnippet
+
+snippet "papis open " "" Abr
+papis open '${1}'
+endsnippet
+
+snippet "papis edit " "" Abr
+papis edit '${1}'
+endsnippet
+
+snippet "simulation" "" Abr
+roslaunch simulation simulation.launch gui:=true
+endsnippet
+
+snippet "spawn1" "" Abr
+spawn 1 --run --delete --enable-rangefinder
+endsnippet
+
+snippet "spawn2" "" Abr
+spawn 1 --run --delete --enable-rangefinder ${1:--enable-bluefox-camera}
+endsnippet
+
+snippet "spawn3" "" Abr
+spawn 1 --run --delete --enable-rangefinder ${1:--enable-rplidar}
+endsnippet
+
+snippet "control" "" Abr
+roslaunch mrs_uav_manager simulation_f550_gps.launch
+endsnippet
+
+snippet "arm" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/cmd/arming 1
+endsnippet
+
+snippet "offboard" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/set_mode 0 offboard
+endsnippet
+
+snippet "optflow" "" Abr
+roslaunch mrs_optic_flow simulation.launch
+endsnippet
+
+snippet "rviz1" "" Abr
+roslaunch mrs_testing rviz_uav1.launch
 endsnippet
