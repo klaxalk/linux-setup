@@ -165,7 +165,7 @@ separator=true
 # [cputemp]
 # interval=2
 # label=CPU
-# command=~/.i3/show_temp.sh 1
+# command=~/.i3/show_temp.sh 0
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
