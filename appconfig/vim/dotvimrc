@@ -432,6 +432,9 @@ au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 
+au FileType xml,world,xacro set foldmethod=marker
+au FileType xml,world,xacro set foldmarker={-->,<!--}
+
 " find and replace
 map <Leader>fr :%s///g<left><left>
 map <Leader>frl :s///g<left><left>
