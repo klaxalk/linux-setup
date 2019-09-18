@@ -42,6 +42,10 @@ if g:user_mode == "1"
   ""For saving files with sudo from normal vim
   "Plug 'lambdalisue/suda.vim'
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  
+  " For saving files with sudo from normal vim
+  Plug 'lambdalisue/suda.vim'
+  cmap w!! w suda://%
 
   " integration with tmux (allows running bash commands in tmux splits)
   Plug 'benmills/vimux'
