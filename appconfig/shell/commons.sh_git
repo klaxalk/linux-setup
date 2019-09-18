@@ -498,6 +498,17 @@ waitForMpc() {
 
 # #}
 
+# #{ waitForCompile()
+
+waitForCompile() {
+  while timeout 3s  ps aux | grep "catkin build" | grep -v grep > /dev/null 2>&1; do
+    echo "waiting for compilation to complete"
+    sleep 1;
+  done
+}
+
+# #}
+
 # #{ catkin()
 
 # EPIGEN_ADD_BLOCK_MATOUS {
