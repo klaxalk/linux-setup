@@ -429,9 +429,15 @@ au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
 
+au FileType roslaunch.xml set foldmethod=marker
+au FileType roslaunch.xml set foldmarker=//{,//}
+
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
+
+au FileType xml,world,xacro set foldmethod=marker
+au FileType xml,world,xacro set foldmarker={-->,<!--}
 
 " find and replace
 map <Leader>fr :%s///g<left><left>
