@@ -425,6 +425,9 @@ au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 au FileType cpp set foldmethod=marker
 au FileType cpp set foldmarker=//{,//}
 
+au FileType roslaunch.xml set foldmethod=marker
+au FileType roslaunch.xml set foldmarker=//{,//}
+
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
