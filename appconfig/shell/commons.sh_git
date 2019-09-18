@@ -42,106 +42,6 @@ alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
 
-# #{ git()
-
-# upgrades the "git pull" to allow dotfiles profiling on linux-setup
-# Other "git" features should not be changed
-git() {
-
-  case $* in pull*|checkout*|"reset --hard")
-
-    # give me the path to root of the repo we are in
-    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
-
-    if [[ "$?" == "0" ]]; then
-
-      # if we are in the 'linux-setup' repo, use the Profile manager
-      if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
-
-        PROFILE_MANAGER="$GIT_PATH/linux-setup/submodules/profile_manager/profile_manager.sh"
-
-        bash -c "$PROFILE_MANAGER backup $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
-
-        command git "$@"
-
-        if [[ "$?" == "0" ]]; then
-          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-            echo "Syncing git submodules"
-            command git submodule sync
-            echo "Updating git submodules"
-            command git submodule update --init --recursive
-
-            if [ -e .gitman.yml ]; then
-              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-                echo "Updating gitman sub-repos"
-                gitman install
-              else
-                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-              fi
-            fi
-          esac
-        fi
-
-        if [[ "$?" == "0" ]]; then
-          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
-        fi
-
-      else
-
-        command git "$@"
-
-        if [[ "$?" == "0" ]]; then
-          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-            echo "Syncing git submodules"
-            command git submodule sync
-            echo "Updating git submodules"
-            command git submodule update --init --recursive
-
-            if [ -e .gitman.yml ]; then
-              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-                echo "Updating gitman sub-repos"
-                gitman install
-              else
-                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-              fi
-            fi
-          esac
-        fi
-
-      fi
-
-    else
-
-      command git "$@"
-
-      if [[ "$?" == "0" ]]; then
-        case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-          echo "Syncing git submodules"
-          command git submodule sync
-          echo "Updating git submodules"
-          command git submodule update --init --recursive
-
-          if [ -e .gitman.yml ]; then
-            if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-              echo "Updating gitman sub-repos"
-              gitman install
-            else
-              echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-            fi
-          fi
-        esac
-      fi
-    fi
-    ;;
-  *)
-    command git "$@"
-    ;;
-
-  esac
-}
-
-# #}
-
 # #{ ranger()
 
 ranger () {
@@ -293,6 +193,106 @@ alias gs="git status"
 alias gcmp="git checkout master; git pull"
 alias flog="~/.scripts/git-forest.sh --all --date=relative --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --style=15"
 alias glog="git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
+# #{ git()
+
+# upgrades the "git pull" to allow dotfiles profiling on linux-setup
+# Other "git" features should not be changed
+git() {
+
+  case $* in pull*|checkout*|"reset --hard")
+
+    # give me the path to root of the repo we are in
+    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+
+    if [[ "$?" == "0" ]]; then
+
+      # if we are in the 'linux-setup' repo, use the Profile manager
+      if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
+
+        PROFILE_MANAGER="$GIT_PATH/linux-setup/submodules/profile_manager/profile_manager.sh"
+
+        bash -c "$PROFILE_MANAGER backup $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+
+        command git "$@"
+
+        if [[ "$?" == "0" ]]; then
+          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
+            echo "Syncing git submodules"
+            command git submodule sync
+            echo "Updating git submodules"
+            command git submodule update --init --recursive
+
+            if [ -e .gitman.yml ]; then
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
+            fi
+          esac
+        fi
+
+        if [[ "$?" == "0" ]]; then
+          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        fi
+
+      else
+
+        command git "$@"
+
+        if [[ "$?" == "0" ]]; then
+          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
+            echo "Syncing git submodules"
+            command git submodule sync
+            echo "Updating git submodules"
+            command git submodule update --init --recursive
+
+            if [ -e .gitman.yml ]; then
+              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+                echo "Updating gitman sub-repos"
+                gitman install
+              else
+                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+              fi
+            fi
+          esac
+        fi
+
+      fi
+
+    else
+
+      command git "$@"
+
+      if [[ "$?" == "0" ]]; then
+        case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
+          echo "Syncing git submodules"
+          command git submodule sync
+          echo "Updating git submodules"
+          command git submodule update --init --recursive
+
+          if [ -e .gitman.yml ]; then
+            if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+              echo "Updating gitman sub-repos"
+              gitman install
+            else
+              echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+            fi
+          fi
+        esac
+      fi
+    fi
+    ;;
+  *)
+    command git "$@"
+    ;;
+
+  esac
+}
+
+# #}
 
 ## --------------------------------------------------------------
 ## |                        tmux aliases                        |
