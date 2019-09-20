@@ -713,6 +713,7 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
+# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
