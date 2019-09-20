@@ -212,7 +212,12 @@ bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 bindsym $mod+Shift+r restart
 
 # rofi launcher
+# EPIGEN_DEL_BLOCK_PETR {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
+# EPIGEN_DEL_BLOCK_PETR }
+# EPIGEN_ADD_BLOCK_PETR {
+# bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# EPIGEN_ADD_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
 # EPIGEN_DEL_BLOCK_TOMAS {
@@ -695,8 +700,9 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec --no_startup_id numlockx on
 
-# # Not so fancy compton stuff
-# exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # Fancy compton stuff
+# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
 
 # # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh

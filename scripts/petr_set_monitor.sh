@@ -11,7 +11,7 @@ CONNECTED_MONITORS="$(xrandr --query | grep ' connected' | grep "" -c)"
 
 notify-send -u low -t 1000 "Connected monitors: $CONNECTED_MONITORS" -h string:x-canonical-private-synchronous:anything
 
-if [ $CONNECTED_MONITORS > 1 ]; then
+if [ $CONNECTED_MONITORS -gt 1 ]; then
   MONITOR="lab"
 else
   MONITOR="alone"
