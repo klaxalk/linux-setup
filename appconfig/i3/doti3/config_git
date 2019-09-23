@@ -701,7 +701,6 @@ set $mode_gaps_inner inner gaps
 # exec --no_startup_id numlockx on
 
 # # Fancy compton stuff
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 # exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
 
 # # Screen brightness controls
@@ -718,7 +717,6 @@ set $mode_gaps_inner inner gaps
 # gaps outer 0
 
 # # Keyboard switching
-exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
 # # lab monitor setup
@@ -895,6 +893,16 @@ exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
 
 # EPIGEN_ADD_BLOCK_VASEK }
 
+# #}
+
+# #{ YURII's customization
+#
+# EPIGEN_ADD_BLOCK_YURII {
+#
+# exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
+#
+# EPIGEN_ADD_BLOCK_YURII }
+#
 # #}
 
 # #{ auto commands after login
