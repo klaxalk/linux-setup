@@ -180,6 +180,16 @@ fi
 sudo apt -y install xserver-xorg-input-all
 
 #############################################
+# Disable automatic update over apt
+#############################################
+
+sudo systemctl disable apt-daily.service
+sudo systemctl disable apt-daily.timer
+
+sudo systemctl disable apt-daily-upgrade.timer
+sudo systemctl disable apt-daily-upgrade.service
+
+#############################################
 # link the scripts folder
 #############################################
 
