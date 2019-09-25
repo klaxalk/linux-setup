@@ -15,8 +15,6 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
-assign [class="gazebo"] $workspace3
-assign [class="rviz"] $workspace3
 # #{ override the default $workspace names and icos by custom settings
 
 # EPIGEN_ADD_BLOCK_VOJTA {
@@ -221,17 +219,17 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 
 # default key bindings for audio on external keyboard
 # EPIGEN_DEL_BLOCK_TOMAS {
-bindsym $mod+F5 exec --no-startup-id amixer -d pulse sset master 10%-
-bindsym $mod+F6 exec --no-startup-id amixer -d pulse sset master 10%+
-bindsym $mod+F7 exec --no-startup-id amixer -d pulse sset master toggle
-bindsym $mod+F8 exec --no-startup-id amixer -d pulse sset master 100%
+bindsym $mod+f5 exec --no-startup-id amixer -d pulse sset master 10%-
+bindsym $mod+f6 exec --no-startup-id amixer -d pulse sset master 10%+
+bindsym $mod+f7 exec --no-startup-id amixer -d pulse sset master toggle
+bindsym $mod+f8 exec --no-startup-id amixer -d pulse sset master 100%
 # EPIGEN_DEL_BLOCK_TOMAS }
 
 # default key bindings for monitor brightness on external keyboard
-bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
-bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+bindsym $mod+f1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+bindsym $mod+f2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
+bindsym $mod+f3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
+bindsym $mod+f4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
 
 # printscreen using shutter
 bindsym Print exec shutter --select
