@@ -114,11 +114,11 @@ snippet mutex
 std::mutex mutex_
 endsnippet
 
-snippet lock
+snippet "lock" "" rb
 std::scoped_lock lock(${1});
 endsnippet
 
-snippet lockscope
+snippet "lockscope" "" rb
 {
 	std::scoped_lock lock(${1});
 
@@ -126,7 +126,7 @@ snippet lockscope
 }
 endsnippet
 
-snippet "({})|(scope)" "" r
+snippet "({})|(scope)" "" rb
 {
 	${1:${VISUAL}}
 }
