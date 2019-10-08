@@ -52,6 +52,8 @@ def ros_info():
 		text+="_STREAM"
 	if (match.group(2) == "t") or (match.group(3) == "t"):
 		text+="_THROTTLE"
+	if (match.group(2) == "o") or (match.group(3) == "o"):
+		text+="_ONCE"
 	return text
 
 def nodelet_info():
@@ -200,7 +202,7 @@ if (!std::isfinite(${1:${VISUAL}})) {
 }
 endsnippet
 
-snippet "(rinfo|rwarn|rerr)(t|s)?(t|s)?" "" re
+snippet "(rinfo|rwarn|rerr)(t|s|o)?(t|s)?" "" re
 `!p
 snip.rv=ros_info()+"("
 ``!p
