@@ -41,6 +41,9 @@ if g:user_mode == "1"
 
   ""For saving files with sudo from normal vim
   "Plug 'lambdalisue/suda.vim'
+
+  ""For maximum focus
+  "Plug 'junegunn/goyo.vim'
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   
   " For saving files with sudo from normal vim
