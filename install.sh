@@ -201,7 +201,7 @@ fi
 # add PROFILES variables
 #############################################
 
-num=`cat ~/.bashrc | grep "PROFILES_ADDITIONS" | wc -l`
+num=`cat ~/.bashrc | grep "PROFILES_BOTH" | wc -l`
 if [ "$num" -lt "1" ]; then
 
   echo "Adding epigen rules to .bashrc"
