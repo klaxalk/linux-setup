@@ -41,6 +41,9 @@ if g:user_mode == "1"
 
   ""For saving files with sudo from normal vim
   "Plug 'lambdalisue/suda.vim'
+  
+  ""For maximum focus
+  "Plug 'junegunn/goyo.vim'
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   
   " For saving files with sudo from normal vim
@@ -332,10 +335,15 @@ endif
 
 " remap tags keys
 nmap <leader>. <c-]>zt     " dive into the tag
-nmap <leader>/ :pop      " go back one tag
-nmap <leader>; :ts       " show list of files in which the tag is found
+nmap <leader>/ :pop
+      " go back one tag
+nmap <leader>; :ts
+       " show list of files in which the tag is found
 
-nmap <leader>mts ^"oyiwdd0/{a std::scoped_lock lock(o);/og;
+nmap <leader>mts ^"oyiwdd0/{
+a std::scoped_lock lock(o);
+/o
+g;
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
