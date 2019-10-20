@@ -240,8 +240,10 @@ bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 # shutdown/logout menu
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
-# F1 will no longer activate help of any program
+# EPIGEN_DEL_BLOCK_TOMAS {
+F1 will no longer activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
+# EPIGEN_DEL_BLOCK_TOMAS }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
@@ -940,7 +942,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # for_window [title="Gazebo"] move workspace $workspace9
-# for_window [class="rviz"] move workspace $workspace9
+# # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="Matplotlib"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }

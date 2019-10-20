@@ -294,13 +294,8 @@ rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/constraint_manager/set_
 endsnippet
 
 snippet fuse "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_estimator_type_string ${1}`!p
-snip.rv=complete(t[1], ["gps", "optflow", "rtk", "hector"])`
-endsnippet
-
-snippet hdgfuse "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_hdg_estimator_type_string ${1}`!p
-snip.rv=complete(t[1], ["gyro", "compass", "optflow"])`
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_odometry_source ${1}`!p
+snip.rv=complete(t[1], ["gps", "optflow", "rtk", "hector", "brick"])`
 endsnippet
 
 snippet headless "" Ab
