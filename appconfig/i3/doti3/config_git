@@ -242,7 +242,7 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # EPIGEN_DEL_BLOCK_TOMAS {
 F1 will no longer activate help of any program
-bindsym F1 exec --no-startup-id echo "help" > /dev/null
+ndsym F1 exec --no-startup-id echo "help" > /dev/null
 # EPIGEN_DEL_BLOCK_TOMAS }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
