@@ -165,7 +165,7 @@ separator=true
 # [cputemp]
 # interval=2
 # label=CPU
-# command=~/.i3/show_temp.sh 1
+# command=~/.i3/show_temp.sh 0
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
@@ -177,14 +177,14 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
 
-# EPIGEN_ADD_BLOCK_DAN {
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL {
 # [cputemp]
 # interval=2
 # label=CPU
 # command=~/.i3/show_temp.sh 0
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_DAN }
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL }
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # [cputemp]

@@ -94,9 +94,6 @@ bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 # install the silver searcher
 bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# install debugging tools (gdb and some mods for it)
-bash $APPCONFIG_PATH/gdb/install.sh $subinstall_params
-
 # install modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
@@ -183,6 +180,16 @@ fi
 sudo apt -y install xserver-xorg-input-all
 
 #############################################
+# Disable automatic update over apt
+#############################################
+
+sudo systemctl disable apt-daily.service
+sudo systemctl disable apt-daily.timer
+
+sudo systemctl disable apt-daily-upgrade.timer
+sudo systemctl disable apt-daily-upgrade.service
+
+#############################################
 # link the scripts folder
 #############################################
 
@@ -194,7 +201,7 @@ fi
 # add PROFILES variables
 #############################################
 
-num=`cat ~/.bashrc | grep "PROFILES_ADDITIONS" | wc -l`
+num=`cat ~/.bashrc | grep "PROFILES_BOTH" | wc -l`
 if [ "$num" -lt "1" ]; then
 
   echo "Adding epigen rules to .bashrc"
@@ -217,17 +224,11 @@ fi
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
 
-  cp $APPCONFIG_PATH/bash/dotbashrc_git $APPCONFIG_PATH/bash/dotbashrc
-
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-# sourcing tomas's tmux preparation
+# source Tomas's Linux Setup
 source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
-
-else
-
-  echo "Reference in .bashrc is already there..."
 
 fi
 
