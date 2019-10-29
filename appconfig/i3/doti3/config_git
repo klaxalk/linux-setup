@@ -233,7 +233,13 @@ bindsym Print exec shutter --select
 bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
+# EPIGEN_DEL_BLOCK_VOJTA {
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
+# EPIGEN_DEL_BLOCK_VOJTA }
+
+# EPIGEN_ADD_BLOCK_VOJTA {
+# bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
+# EPIGEN_ADD_BLOCK_VOJTA }
 
 # F1 will no longer activate help of any program
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
