@@ -951,6 +951,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="Matplotlib"] floating disable
+# for_window [title="pdfpc"] border none floating enable
 # EPIGEN_ADD_BLOCK_TOMAS }
 #
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA

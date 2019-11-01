@@ -269,10 +269,6 @@ snippet "okular$" "" Abr
 okular --presentation
 endsnippet
 
-snippet "pdfpc$" "" Abr
-pdfpc -s ${1:main.pdf}
-endsnippet
-
 snippet "(open )" "" Abr
 gnome-ope
 endsnippet
