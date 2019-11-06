@@ -517,9 +517,9 @@ snippet videoblock_split
 	\begin{center}
 		\begin{columns}[c]
 			\column{0.48\textwidth} % Left column and width
-				\movie[externalviewer]{
-					\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
-				}{video/${2:filename}.${3:mp4}}\\\\
+				\mymovie[autostart,loop]{
+					\includegraphics[width=0.8\textwidth]{./videos/$2_thumbnail.jpg}
+				}{./videos/${2:filename}.${3:mp4}}\\\\
 			\column{0.48\textwidth} % Left column and width
 				\url{${4:link}}
 		\end{columns}
@@ -530,9 +530,9 @@ endsnippet
 snippet videoblock
 \begin{block}{${1:Video title}}
 	\begin{center}
-		\movie[externalviewer]{
-			\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
-		}{video/${2:filename}.${3:mp4}}\\\\
+		\mymovie[autostart,loop]{
+			\includegraphics[width=0.8\textwidth]{./videos/$2_thumbnail.jpg}
+		}{./videos/${2:filename}.${3:mp4}}\\\\
 		Video: \url{${4:link}}
 	\end{center}
 \end{block}

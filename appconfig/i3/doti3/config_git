@@ -249,6 +249,8 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # F1 will no longer activate help of any program
 # bindsym F1 exec --no-startup-id echo "help" > /dev/null
+# bindsym $mod2+s exec espeak -v czech "mega sojka" -s 1 -p 0 -g 0
+# bindsym $mod2+d exec espeak -v czech "pozor sojka" -s 1 -p 0 -g 0
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
