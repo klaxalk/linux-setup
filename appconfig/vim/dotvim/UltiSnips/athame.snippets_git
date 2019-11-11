@@ -327,7 +327,7 @@ papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
 
 snippet "papis addto " "" Abr
-papis addto '${1:query}' -f '${2:main.pdf}' ${3:--copy}
+papis addto '${1:query}' -f ./${2}
 endsnippet
 
 snippet "papis add " "" Abr
