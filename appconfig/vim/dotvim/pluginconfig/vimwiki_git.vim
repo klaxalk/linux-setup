@@ -187,7 +187,43 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
 " let wiki_1.path_html = '~/git/notes/html'
 
-" let g:vimwiki_list = [wiki_1]
+" let wiki_school = {}
+" let wiki_school.path = '~/git/notes/school'
+" let wiki_school.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let wiki_school.template_default = 'GitHub'
+" let wiki_school.template_ext = '.html5'
+" let wiki_school.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_school.index = 'school'
+" let wiki_school.syntax = 'markdown'
+" let wiki_school.ext = '.md'
+" let wiki_school.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_school.path_html = '~/git/notes/html'
+
+" let wiki_naki = {}
+" let wiki_naki.path = '~/git/notes/projects/NAKI'
+" let wiki_naki.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let wiki_naki.template_default = 'GitHub'
+" let wiki_naki.template_ext = '.html5'
+" let wiki_naki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_naki.index = 'NAKI'
+" let wiki_naki.syntax = 'markdown'
+" let wiki_naki.ext = '.md'
+" let wiki_naki.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_naki.path_html = '~/git/notes/html'
+
+" let wiki_darpa = {}
+" let wiki_darpa.path = '~/git/notes/projects/DARPA'
+" let wiki_darpa.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let wiki_darpa.template_default = 'GitHub'
+" let wiki_darpa.template_ext = '.html5'
+" let wiki_darpa.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_darpa.index = 'DARPA'
+" let wiki_darpa.syntax = 'markdown'
+" let wiki_darpa.ext = '.md'
+" let wiki_darpa.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_darpa.path_html = '~/git/notes/html'
+
+" let g:vimwiki_list = [wiki_1, wiki_school, wiki_naki, wiki_darpa]
 
 " EPIGEN_ADD_BLOCK_PAVEL }
 
