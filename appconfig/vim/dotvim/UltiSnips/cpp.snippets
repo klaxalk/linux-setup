@@ -415,3 +415,19 @@ endsnippet
 snippet "(abs)|(fabs)" "" r
 fabs(${1:${VISUAL}})
 endsnippet
+
+snippet "getm" "" r
+auto ${1} = mrs_lib::get_mutexed(mutex_$1_, $1_);
+endsnippet
+
+snippet "getmm" "" r
+auto [${2}] = mrs_lib::get_mutexed(${1}, $2);
+endsnippet
+
+snippet "setm" "" r
+mrs_lib::set_mutexed(${1}, ${2}_, $2);
+endsnippet
+
+snippet "setmm" "" r
+mrs_lib::set_mutexed(${1}, std::forward_as_tuple(${2}), std::forward_as_tuple($2));
+endsnippet
