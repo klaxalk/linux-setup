@@ -211,6 +211,7 @@ Plug 'ardagnir/united-front'
 " snippet completion
 " magic!
 Plug 'SirVer/ultisnips'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
