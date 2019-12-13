@@ -429,5 +429,5 @@ mrs_lib::set_mutexed(${1}, ${2}_, $2);
 endsnippet
 
 snippet "setmm" "" r
-mrs_lib::set_mutexed(${1}, std::forward_as_tuple(${2}), std::forward_as_tuple($2));
+mrs_lib::set_mutexed(${1}, std::tuple(${2}), std::forward_as_tuple($2));
 endsnippet
