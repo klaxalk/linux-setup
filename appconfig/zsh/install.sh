@@ -58,6 +58,16 @@ while true; do
       cp $APP_PATH/dotzshrc_template ~/.zshrc
     fi
 
+    num=`cat ~/.zshrc | grep "USE_ATHAME" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      echo "Adding USE_ATHAME variable to .zshrc"
+      echo '
+# should use Athame by default?
+export USE_ATHAME="true"' >> ~/.zshrc
+
+    fi
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
