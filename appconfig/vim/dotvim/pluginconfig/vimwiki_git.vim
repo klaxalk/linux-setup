@@ -225,6 +225,24 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 
 " let g:vimwiki_list = [wiki_1, wiki_school, wiki_naki, wiki_darpa]
 
+" " EPIGEN_ADD_BLOCK_DARPA {
+
+" " let wiki_darpa_shared = {}
+" " let wiki_darpa_shared.path = '~/git/notes_darpa'
+" " let wiki_darpa_shared.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" " let wiki_darpa_shared.template_default = 'GitHub'
+" " let wiki_darpa_shared.template_ext = '.html5'
+" " let wiki_darpa_shared.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" " let wiki_darpa_shared.index = 'index'
+" " let wiki_darpa_shared.syntax = 'markdown'
+" " let wiki_darpa_shared.ext = '.md'
+" " let wiki_darpa_shared.custom_wiki2html = '~/git/notes_darpa/wiki2html.sh'
+" " let wiki_darpa_shared.path_html = '~/git/notes_darpa/html'
+
+" " let g:vimwiki_list = [wiki_1, wiki_school, wiki_naki, wiki_darpa, wiki_darpa_shared]
+
+" " EPIGEN_ADD_BLOCK_DARPA }
+
 " EPIGEN_ADD_BLOCK_PAVEL }
 
 " EPIGEN_ADD_BLOCK_VIT {
@@ -242,6 +260,24 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let wiki_1.path_html = '~/git/notes/html'
 
 " let g:vimwiki_list = [wiki_1]
+
+" " EPIGEN_ADD_BLOCK_DARPA {
+
+" " let wiki_darpa_shared = {}
+" " let wiki_darpa_shared.path = '~/git/notes_darpa'
+" " let wiki_darpa_shared.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" " let wiki_darpa_shared.template_default = 'GitHub'
+" " let wiki_darpa_shared.template_ext = '.html5'
+" " let wiki_darpa_shared.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" " let wiki_darpa_shared.index = 'index'
+" " let wiki_darpa_shared.syntax = 'markdown'
+" " let wiki_darpa_shared.ext = '.md'
+" " let wiki_darpa_shared.custom_wiki2html = '~/git/notes_darpa/wiki2html.sh'
+" " let wiki_darpa_shared.path_html = '~/git/notes_darpa/html'
+
+" " let g:vimwiki_list = [wiki_1, wiki_darpa_shared]
+
+" " EPIGEN_ADD_BLOCK_DARPA }
 
 " EPIGEN_ADD_BLOCK_VIT }
 

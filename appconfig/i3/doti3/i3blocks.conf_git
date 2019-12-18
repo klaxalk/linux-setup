@@ -197,6 +197,15 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_TOMAS }
 
+# EPIGEN_ADD_BLOCK_DARPA {
+# [notes]
+# command=~/git/notes_darpa/save_and_update.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=60
+# separator=true
+# EPIGEN_ADD_BLOCK_DARPA }
+
 # #{ Pavel's and Vojta's customization
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 
