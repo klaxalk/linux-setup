@@ -96,6 +96,10 @@ snippet trackermpc "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
 endsnippet
 
+snippet trackerspeed "" Ab
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker SpeedTracker
+endsnippet
+
 snippet trackerline "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LineTracker
 endsnippet
@@ -327,7 +331,7 @@ papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
 
 snippet "papis addto " "" Abr
-papis addto '${1:query}' -f '${2:main.pdf}' ${3:--copy}
+papis addto '${1:query}' -f ./${2}
 endsnippet
 
 snippet "papis add " "" Abr

@@ -214,7 +214,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 # EPIGEN_DEL_BLOCK_PETR }
 # EPIGEN_ADD_BLOCK_PETR {
-# bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # EPIGEN_ADD_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
@@ -249,6 +254,8 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # F1 will no longer activate help of any program
 # bindsym F1 exec --no-startup-id echo "help" > /dev/null
+# bindsym $mod2+s exec espeak -v czech "mega sojka" -s 1 -p 0 -g 0
+# bindsym $mod2+d exec espeak -v czech "pozor sojka" -s 1 -p 0 -g 0
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
@@ -382,7 +389,7 @@ bar {
   # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
   # EPIGEN_ADD_BLOCK_PETR {
-  # set $i3bar_bg #222222FF
+  # set $i3bar_bg #060606CF
   # EPIGEN_ADD_BLOCK_PETR }
   # EPIGEN_DEL_BLOCK_PETR {
   set $i3bar_bg #121212FF
@@ -703,7 +710,7 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod2+Shift+Right move right
 
 # # Desktop background
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/mountain.jpg
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg
 
 # # Numlock on by default
 # exec --no_startup_id numlockx on
@@ -954,6 +961,7 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="Matplotlib"] floating disable
 # for_window [title="pdfpc"] border none floating enable
+# # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
 #
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA

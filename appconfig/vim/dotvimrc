@@ -168,6 +168,9 @@ if g:user_mode == "1"
   " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
   " Plug 'justinmk/vim-syntax-extra'
 
+  " Thesaurus synonyms integration
+  Plug 'ron89/thesaurus_query.vim'
+
   " EPIGEN_ADD_BLOCK_TOMAS {
 
 "   " Grammar checking
@@ -208,6 +211,7 @@ Plug 'ardagnir/united-front'
 " snippet completion
 " magic!
 Plug 'SirVer/ultisnips'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " powerful targeting of text parts
 " makes targetting more naturally useful..
@@ -415,6 +419,9 @@ vmap H ^
 nmap L $
 vmap L $
 
+" dont jump to the next occurance, just highligh it
+nmap * *N
+
 " searching for visually selected text
 vnoremap // y/<C-R>"<CR>
 
@@ -487,10 +494,12 @@ set wildignore+=*/Downloads/**,*/Desktop/**,*/build/**
 set path+=~/git/**
 set path+=~/.vim/UltiSnips/**
 
-if has("nvim")
-  " tnoremap <Esc> <C-\><C-n>
-  tnoremap jk <C-\><C-n>
-endif
+" set jk in insert mode as ESC
+" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT {
+" if has("nvim")
+"   tnoremap jk <C-\><C-n>
+" endif
+" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT }
 
 " plugin settings for "normal" vim (not athame)
 if g:user_mode == "1"
@@ -553,7 +562,7 @@ if g:user_mode == "1"
 
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
-
+  
   " EPIGEN_ADD_BLOCK_TOMAS {
   " source ~/.vim/pluginconfig/vim-glsl.vim
   " EPIGEN_ADD_BLOCK_TOMAS }

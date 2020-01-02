@@ -58,6 +58,8 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
+nnoremap <leader>fix :YcmCompleter FixIt<CR>
+
 " Autocommand for completing functions using UltiSnips
 function! s:onCompleteDone()
   let abbr = v:completed_item.abbr
