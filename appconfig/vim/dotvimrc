@@ -83,7 +83,8 @@ if g:user_mode == "1"
 
   " Shows tags in the file
   " currently mapped to F8
-  Plug 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
+
   " Plug 'xolox/vim-easytags'
   " Plug 'xolox/vim-misc'
   " let g:easytags_async=1
