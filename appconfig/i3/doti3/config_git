@@ -263,6 +263,8 @@ bindsym $mod+c mode "mouse_mode"
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
+for_window [title="pdfpc"] border none floating enable
+
 # bluetooth applet
 exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 
@@ -580,7 +582,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/earth_cover.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
 # # screen locking with a key to prevent malicious locomotives
