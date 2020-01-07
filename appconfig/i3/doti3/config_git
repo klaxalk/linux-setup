@@ -903,7 +903,8 @@ set $mode_gaps_inner inner gaps
 #  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
 
 #  # Monitor setup
-#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
+#  # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
+#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vasek_set_monitor.sh'"
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
