@@ -443,6 +443,8 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
 # exec dropbox start
 
+# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+
 # # #{ DESKTOP
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
