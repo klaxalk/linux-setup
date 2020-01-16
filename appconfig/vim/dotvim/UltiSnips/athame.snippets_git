@@ -381,3 +381,7 @@ endsnippet
 snippet "rviz1" "" Abr
 roslaunch mrs_testing rviz_uav1.launch
 endsnippet
+
+snippet "pirouette" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/pirouette
+endsnippet
