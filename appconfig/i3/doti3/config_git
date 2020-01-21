@@ -258,6 +258,7 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # bindsym $mod2+w exec espeak -v czech "pozor sojka" -s 1 -p 0 -g 0
 # bindsym $mod2+s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
 # bindsym $mod2+d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
+# bindsym $mod2+n exec espeak "warning" -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN }
 
 # EPIGEN_ADD_BLOCK_DAN {
