@@ -253,11 +253,11 @@ snippet glog "" Ab
 git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 endsnippet
 
-snippet "c*matrix" "" Arb
+snippet "c*matrix" "" Abr
 cmatrix -a -b -C blue -u 3
 endsnippet
 
-snippet "(cd\.\.)|(cd\.\ \.)" "" Ar
+snippet "(cd\.\.)|(cd\.\ \.)" "" Abr
 cd ..
 endsnippet
 
@@ -384,4 +384,8 @@ endsnippet
 
 snippet "pirouette" "" Abr
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/pirouette
+endsnippet
+
+snippet "simtime" "" Abr
+rosparam set use_sim_time true
 endsnippet
