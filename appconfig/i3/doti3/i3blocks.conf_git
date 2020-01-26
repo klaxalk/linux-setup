@@ -112,6 +112,129 @@ separator=true
 
 # EPIGEN_DEL_BLOCK_GPD }
 
+# EPIGEN_ADD_BLOCK_DAN {
+
+# [alfa]
+# command=ping -c 1 alfa >> /dev/null && echo 'alfa' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [bravo]
+# command=ping -c 1 bravo >> /dev/null && echo 'bravo' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [charlie]
+# command=ping -c 1 charlie >> /dev/null && echo 'charlie' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [delta]
+# command=ping -c 1 delta >> /dev/null && echo 'delta' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [echo]
+# command=ping -c 1 echo >> /dev/null && echo 'echo' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [foxtrot]
+# command=ping -c 1 foxtrot >> /dev/null && echo 'foxtrot' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [golf]
+# command=ping -c 1 golf >> /dev/null && echo 'golf' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [hotel]
+# command=ping -c 1 hotel >> /dev/null && echo 'hotel' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [india]
+# command=ping -c 1 india >> /dev/null && echo 'india' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [juliett]
+# command=ping -c 1 juliett >> /dev/null && echo 'juliett' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [kilo]
+# command=ping -c 1 kilo >> /dev/null && echo 'kilo' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [lima]
+# command=ping -c 1 lima >> /dev/null && echo 'lima' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [mike]
+# command=ping -c 1 mike >> /dev/null && echo 'mike' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [papa]
+# command=ping -c 1 papa >> /dev/null && echo 'papa' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [quebec]
+# command=ping -c 1 quebec >> /dev/null && echo 'quebec' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [romeo]
+# command=ping -c 1 romeo >> /dev/null && echo 'romeo' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# [sierra]
+# command=ping -c 1 sierra >> /dev/null && echo 'sierra' || echo ""
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=5
+# separator=true
+
+# EPIGEN_ADD_BLOCK_DAN }
+
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL {
 
 # [notes]
