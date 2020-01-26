@@ -48,6 +48,8 @@ def ros_info():
 		text="ROS_WARN"
 	elif match.group(1) == "rerr":
 		text="ROS_ERROR"
+	elif match.group(1) == "rdeb":
+		text="ROS_DEBUG"
 	if (match.group(2) == "s") or (match.group(3) == "s"):
 		text+="_STREAM"
 	if (match.group(2) == "t") or (match.group(3) == "t"):
@@ -202,7 +204,7 @@ if (!std::isfinite(${1:${VISUAL}})) {
 }
 endsnippet
 
-snippet "(rinfo|rwarn|rerr)(t|s|o)?(t|s)?" "" re
+snippet "(rinfo|rwarn|rerr|rdeb)(t|s|o)?(t|s)?" "" re
 `!p
 snip.rv=ros_info()+"("
 ``!p
