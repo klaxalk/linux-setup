@@ -194,7 +194,7 @@ bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # # EPIGEN_ADD_BLOCK_GPD }
 
 # # EPIGEN_ADD_BLOCK_DELL {
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
+# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 # # EPIGEN_ADD_BLOCK_DELL }
 
 # EPIGEN_ADD_BLOCK_TOMAS }
@@ -253,12 +253,12 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN {
 # # F1 will no longer activate help of any program
-# bindsym F1 exec --no-startup-id echo "help" > /dev/null
-# bindsym $mod2+m exec espeak -v czech "mega sojka" -s 1 -p 0 -g 0
-# bindsym $mod2+w exec espeak -v czech "pozor sojka" -s 1 -p 0 -g 0
+# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
+# bindsym $mod2+m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
+# bindsym $mod2+w exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
 # bindsym $mod2+s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
 # bindsym $mod2+d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
-# bindsym $mod2+n exec espeak "warning" -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
+# bindsym $mod2+n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN }
 
 # EPIGEN_ADD_BLOCK_DAN {
