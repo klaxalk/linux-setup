@@ -390,9 +390,6 @@ bar {
 # # EPIGEN_ADD_BLOCK_DELL }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# EPIGEN_ADD_BLOCK_MATEJ {
-  # font pango: Inconsolata 11
-# EPIGEN_ADD_BLOCK_MATEJ }
 
   # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
@@ -974,6 +971,12 @@ for_window [class="^Gimp$"] move workspace $workspace9
 # for_window [title="pdfpc"] border none floating enable
 # # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
+
+# EPIGEN_ADD_BLOCK_MATEJ {
+# for_window [title="Gazebo"] move workspace $workspace9
+# for_window [class="rviz"] move workspace $workspace9
+# for_window [title="rqt_market"] move workspace $workspace9
+# EPIGEN_ADD_BLOCK_MATEJ }
 #
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
