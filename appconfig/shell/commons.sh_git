@@ -2,7 +2,7 @@
 xrdb ~/.Xresources
 
 # set keyboard repeat rate
-xset r rate 350 55
+DISPLAY=:0 && xset r rate 350 55
 
 export TERM=rxvt-unicode-256color
 
