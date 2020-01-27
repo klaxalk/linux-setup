@@ -339,8 +339,8 @@ catkin() {
       ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
       command catkin "$@"
-      command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native'  -DCMAKE_C_FLAGS='-march=native'
-      command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native'  -DCMAKE_C_FLAGS='-march=native'
+      command catkin config --profile debug --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native' -DCMAKE_C_FLAGS='-march=native'
+      command catkin config --profile release --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native' -DCMAKE_C_FLAGS='-march=native'
       command catkin config --profile reldeb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS='-std=c++17 -march=native' -DCMAKE_C_FLAGS='-march=native'
 
       command catkin profile set reldeb
@@ -350,11 +350,24 @@ catkin() {
 
       PACKAGES=$(catkin list)
       if [ -z "$PACKAGES" ]; then
-        echo "Cannot compile, not in a workspace"
+        echo "Cannot compile, probably not in a workspace (call catkin list, if the result is empty, build you workspace in its root first)."
       else
 
+      hostname=$( cat /etc/hostname )
+
+      if [[ $hostname == uav* ]]; then
+        memlimit="--mem-limit 50%"
+      else
+        memlimit=""
+      fi
+
 # EPIGEN_DEL_BLOCK_MATOUS {
+      if [ -z "$memlimit" ]; then
         command catkin "$@"
+      else
+        echo "Detected UAV PC, compiling with $memlimit"
+        command catkin "$@" $memlimit
+      fi
 # EPIGEN_DEL_BLOCK_MATOUS }
 
 # EPIGEN_ADD_BLOCK_MATOUS {
