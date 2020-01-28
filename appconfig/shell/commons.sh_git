@@ -1,8 +1,8 @@
 # reload X configuration
-xrdb ~/.Xresources
+xrdb ~/.Xresources 2> /dev/null
 
 # set keyboard repeat rate
-DISPLAY=:0 && xset r rate 350 55
+DISPLAY=:0 && xset r rate 350 55 2> /dev/null
 
 export TERM=rxvt-unicode-256color
 
