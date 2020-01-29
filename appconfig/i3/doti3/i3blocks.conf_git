@@ -112,7 +112,7 @@ separator=true
 
 # EPIGEN_DEL_BLOCK_GPD }
 
-# EPIGEN_ADD_BLOCK_DAN {
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS {
 
 # [alfa]
 # command=ping -c 1 alfa >> /dev/null && echo 'alfa' || echo ""
@@ -233,7 +233,7 @@ separator=true
 # interval=5
 # separator=true
 
-# EPIGEN_ADD_BLOCK_DAN }
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL {
 
