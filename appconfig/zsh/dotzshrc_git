@@ -18,6 +18,9 @@ else
   export TMUX_BIN=/usr/local/bin/tmux
 fi
 
+# create alisases
+alias sb="source ~/.zshrc"
+
 # EPIGEN_DEL_BLOCK_MATOUS {
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="jreese" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
