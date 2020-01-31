@@ -14,6 +14,7 @@ simulation/Firmware/
 submodules/
 /PlayOnLinux*/
 /VirtualBox*/
+bag_files/
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
@@ -24,8 +25,7 @@ submodules/
 # orbital_data/
 # tle/
 # 3dprint/
-# bag_files/
-# Diablo2/
+# Games/
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 
