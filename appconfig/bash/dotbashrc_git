@@ -38,7 +38,7 @@ case "$-" in
 esac
 
 # fzf
-[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf/fzf.bash
+[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
