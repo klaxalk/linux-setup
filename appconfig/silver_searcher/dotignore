@@ -8,6 +8,7 @@ youcompleteme/
 build/
 /*workspace/devel/
 /*workspace/logs/
+/*workspace/build/
 /*/install/
 simulation/Firmware/
 submodules/
@@ -18,9 +19,13 @@ submodules/
 
 # Downloads/
 # Dropbox/
+# Documents/
 # git/old_mbzirc/
 # orbital_data/
 # tle/
+# 3dprint/
+# bag_files/
+# Diablo2/
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 

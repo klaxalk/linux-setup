@@ -68,6 +68,9 @@ case "$-" in
   *i*) INTERACTIVE_SHELL=1
 esac
 
+# fzf
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
 
