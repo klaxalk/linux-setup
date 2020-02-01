@@ -138,11 +138,12 @@ endsnippet
 
 snippet switch
 switch (${1}) {
-case ${2}:
+case ${2}: {
 
-	${0:${VISUAL}}
+		${0:${VISUAL}}
 
-break;
+		break;
+	}
 }
 endsnippet
 
