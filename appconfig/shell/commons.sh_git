@@ -18,6 +18,16 @@ alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
 
+# #{ cd_media
+
+cd_media() {
+
+  cd /media/$USER
+  ranger
+}
+
+# #}
+
 # #{ git()
 
 # upgrades the "git pull" to allow dotfiles profiling on linux-setup

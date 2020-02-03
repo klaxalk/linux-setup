@@ -13,7 +13,8 @@ else
 fi
 
 if [ -n "$BEAVER" ]; then
-  export TMUX_BIN=/usr/bin/tmux
+  [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
+  [ ! -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/bin/tmux
 else
   export TMUX_BIN=/usr/local/bin/tmux
 fi

@@ -16,13 +16,13 @@ snippet fdisk "" Ab
 sudo fdisk -${1:l}
 endsnippet
 
-snippet mount "" Ab
-sudo mount
-endsnippet
+# snippet mount "" Ab
+# sudo mount
+# endsnippet
 
-snippet umount "" Ab
-sudo umount
-endsnippet
+# snippet umount "" Ab
+# sudo umount
+# endsnippet
 
 snippet reboot "" Ab
 sudo reboot
