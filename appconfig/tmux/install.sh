@@ -37,37 +37,14 @@ while true; do
 
     toilet Installing tmux
 
-    if [ -n "$BEAVER" ]; then
+    sudo apt -y remove tmux
 
-      sudo apt -y install tmux
-      if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
-    else
-
-      libevent=`ldconfig -p | grep libevent-2.0 | wc -l`
-      if [ "$libevent" -lt "2" ]; then
-
-        echo $'\033[31mLibevent not installed, installing... \033[00m' 
-
-        # install libevent
-        cd /tmp
-        wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
-        tar -xvf libevent-2.0.22-stable.tar.gz
-        rm libevent-2.0.22-stable.tar.gz
-        cd libevent-2.0.22-stable
-        ./configure && make >> /dev/null
-        sudo make install
-
-      fi
-
-      # instal tmux
-      cd $APP_PATH/../../submodules/tmux
-      sh autogen.sh
-      ./configure && make -j4
-      sudo make install-binPROGRAMS
-      git clean -fd
-
-    fi
+    # instal tmux
+    cd $APP_PATH/../../submodules/tmux
+    sh autogen.sh
+    ./configure && make -j4
+    sudo make install-binPROGRAMS
+    git clean -fd
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
