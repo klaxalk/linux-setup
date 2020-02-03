@@ -3,12 +3,17 @@
 devices=()
 folders=()
 
+OIFS="$IFS"
+IFS=$'\n'
 for folder in `ls /media/$USER`; do
 
   folders+=($(echo /media/$USER/$folder))
-  devices+=($(findmnt -T "/media/$USER/$folder" | tail -n 1 | awk '{print $2}'))
+  devices+=($(findmnt -T "/media/$USER/$folder" | tail -n 1 | grep -o '[^ ]*/dev[^ ]*'))
 
 done
+
+# echo $folders
+# echo $devices
 
 # if [ -z $devices ]; then
 #   exit 0
@@ -32,5 +37,3 @@ do
 done
 
 eval ${my_cmd[@]}
-
-exit 0
