@@ -15,9 +15,9 @@ done
 # echo $folders
 # echo $devices
 
-# if [ -z $devices ]; then
-#   exit 0
-# fi
+if [ -z $devices ]; then
+  exit 0
+fi
 
 j=0
 
