@@ -254,11 +254,30 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN {
 # # F1 will no longer activate help of any program
 # bindsym F1 exec --no-startup-id echo 'help' > /dev/null
-# bindsym $mod2+m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
-# bindsym $mod2+w exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
-# bindsym $mod2+s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
-# bindsym $mod2+d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
-# bindsym $mod2+n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
+
+# mode "sojka_deployment" {
+
+#   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
+#   bindsym m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
+#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
+#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch initiated" -s 140 -p 20 -g 0
+
+#   bindsym Escape  mode "default"
+# }
+
+# mode "sojka_detection" {
+
+#   bindsym s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
+#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
+#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
+
+#   bindsym Escape  mode "default"
+# }
+
+# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: detected, m: mega, p: pozor, n: nuclear'"
+
+# bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
+
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN }
 
 # EPIGEN_ADD_BLOCK_DAN {
