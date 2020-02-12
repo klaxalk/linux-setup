@@ -4,12 +4,6 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
 unattended=0
 subinstall_params=""
 for param in "$@"
@@ -28,24 +22,21 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall TMUX? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall fzf? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing tmux
+    cd $APP_PATH/../../submodules/fzf/
+    ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
 
-    sudo apt -y install tmux
+    mkdir ~/.config/fzf 2> /dev/null
 
-    # # instal tmux
-    # cd $APP_PATH/../../submodules/tmux
-    # sh autogen.sh
-    # ./configure && make -j4
-    # sudo make install-binPROGRAMS
-    # git clean -fd
-
+    ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
+    ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
+    
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

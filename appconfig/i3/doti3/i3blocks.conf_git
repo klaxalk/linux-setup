@@ -112,7 +112,7 @@ separator=true
 
 # EPIGEN_DEL_BLOCK_GPD }
 
-# EPIGEN_ADD_BLOCK_DAN {
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS {
 
 # [alfa]
 # command=ping -c 1 alfa >> /dev/null && echo 'alfa' || echo ""
@@ -233,7 +233,7 @@ separator=true
 # interval=5
 # separator=true
 
-# EPIGEN_ADD_BLOCK_DAN }
+# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL {
 
@@ -401,6 +401,7 @@ separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+
 # [brightness]
 # label=
 # instance=0
@@ -411,6 +412,13 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # #}
+
+[battery]
+command=~/git/linux-setup/appconfig/i3/doti3/battery_indicator.sh
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=60
+separator=true
 
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [load]

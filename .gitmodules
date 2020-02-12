@@ -73,3 +73,6 @@
 [submodule "submodules/papis-zotero"]
 	path = submodules/papis-zotero
 	url = http://github.com/papis/papis-zotero
+[submodule "submodules/fzf"]
+	path = submodules/fzf
+	url = https://github.com/junegunn/fzf.git

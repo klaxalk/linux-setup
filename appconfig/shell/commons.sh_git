@@ -6,6 +6,9 @@ DISPLAY=:0 && xset r rate 350 55 2> /dev/null
 
 export TERM=rxvt-unicode-256color
 
+export FZF_DEFAULT_OPTS='--height 25%'
+export FZF_DEFAULT_COMMAND='ag -l -f --nocolor -g ""'
+
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
@@ -14,6 +17,16 @@ alias :q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
+
+# #{ cd_media
+
+cd_media() {
+
+  cd /media/$USER
+  ranger
+}
+
+# #}
 
 # #{ git()
 

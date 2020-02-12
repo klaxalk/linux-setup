@@ -75,7 +75,7 @@ if g:user_mode == "1"
   Plug 'hynek/vim-python-pep8-indent'
 
   " automatic split resizing for more convenient coding
-  Plug 'zhaocai/GoldenView.Vim'
+  " Plug 'zhaocai/GoldenView.Vim'
 
   " Clever motions helper
   " highlights letters while using f, t motions
@@ -97,8 +97,9 @@ if g:user_mode == "1"
 
   " youcompleteme
   " automatic code completion for C++ and more
-  " Plug 'valloric/youcompleteme' ", { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
-  Plug 'valloric/youcompleteme'
+  " Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  Plug 'valloric/youcompleteme', { 'commit': '1386c6b' }
+  " Plug 'valloric/youcompleteme'
   " Plug 'davits/dyevim'
 
   " make vim and ROS friends
