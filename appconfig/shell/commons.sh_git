@@ -242,6 +242,28 @@ slack() {
 
 # #}
 
+# #{ auto-retry() 
+
+# from https://musigma.blog/2016/12/03/ssh-auto-retry.html
+function auto-retry()
+{
+    false
+    while [ $? -ne 0 ]; do
+        "$@" || (sleep 1;false)
+    done
+}
+
+# #}
+
+# #{ ssh-auto-retry()
+
+function ssh-auto-retry()
+{
+    auto-retry ssh "$@"
+}
+
+# #}
+
 ## --------------------------------------------------------------
 ## |                         git aliases                        |
 ## --------------------------------------------------------------
