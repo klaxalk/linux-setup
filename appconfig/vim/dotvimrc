@@ -673,9 +673,9 @@ if g:user_mode == "1"
 
 endif
 
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " " My large subconfig
-  " if !empty(glob("~/.my.vimrc"))
-  "   source ~/.my.vimrc
-  " endif
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+" " My large subconfig
+" if !empty(glob("~/.my.vimrc"))
+"   source ~/.my.vimrc
+" endif
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
