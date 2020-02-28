@@ -33,7 +33,6 @@ while true; do
 
     # install tmuxinator
     cd $APP_PATH/../../submodules/tmuxinator
-    git pull
 
     gem build tmuxinator.gemspec 
     sudo gem install tmuxinator

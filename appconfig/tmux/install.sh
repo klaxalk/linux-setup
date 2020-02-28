@@ -37,14 +37,14 @@ while true; do
 
     toilet Installing tmux
 
-    sudo apt -y install tmux
+    sudo apt -y remove tmux
 
-    # # instal tmux
-    # cd $APP_PATH/../../submodules/tmux
-    # sh autogen.sh
-    # ./configure && make -j4
-    # sudo make install-binPROGRAMS
-    # git clean -fd
+    # instal tmux
+    cd $APP_PATH/../../submodules/tmux
+    sh autogen.sh
+    ./configure && make -j4
+    sudo make install-binPROGRAMS
+    git clean -fd
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
