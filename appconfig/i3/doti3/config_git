@@ -202,6 +202,10 @@ bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # EPIGEN_ADD_BLOCK_VOJTA {
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
 # EPIGEN_ADD_BLOCK_VOJTA }
+#
+# EPIGEN_ADD_BLOCK_MATEJ {
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./matej_set_monitor.sh'"
+# EPIGEN_ADD_BLOCK_MATEJ }
 
 # changing active gpu
 bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_gpu.sh'"
