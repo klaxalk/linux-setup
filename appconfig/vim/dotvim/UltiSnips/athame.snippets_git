@@ -71,7 +71,7 @@ endsnippet
 # EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_TOMAS }
 
 snippet "grep ( )*" "" Abr
-grep ${2:-nr -e} "${1}"
+grep ${2:-nR -e} "${1}"
 endsnippet
 
 snippet goto "" Ab
