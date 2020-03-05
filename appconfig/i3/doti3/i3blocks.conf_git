@@ -371,10 +371,13 @@ separator=true
 # interval=1
 # signal=5
 # command=~/.i3/show_volume.sh
+# # EPIGEN_DEL_BLOCK_SUPERNUC {
 # separator=false
+# # EPIGEN_DEL_BLOCK_SUPERNUC }
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# # EPIGEN_DEL_BLOCK_SUPERNUC {
 # [battery]
 # label=
 # instance=0
@@ -382,7 +385,6 @@ separator=true
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
 
 # [brightness]
 # label=
@@ -392,15 +394,19 @@ separator=true
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_DEL_BLOCK_SUPERNUC }
+
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # #}
 
+# EPIGEN_DEL_BLOCK_SUPERNUC {
 [battery]
 command=~/git/linux-setup/appconfig/i3/doti3/battery_indicator.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=60
 separator=true
+# EPIGEN_DEL_BLOCK_SUPERNUC }
 
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
 [load]
