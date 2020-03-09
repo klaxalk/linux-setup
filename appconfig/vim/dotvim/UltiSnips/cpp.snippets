@@ -58,6 +58,20 @@ def ros_info():
 		text+="_ONCE"
 	return text
 
+def stream_info():
+	text=""
+	if match.group(1) == "sinfo":
+		text="ROS_INFO_STREAM"
+	elif match.group(1) == "swarn":
+		text="ROS_WARN_STREAM"
+	elif match.group(1) == "serr":
+		text="ROS_ERROR_STREAM"
+	elif match.group(1) == "sdeb":
+		text="ROS_DEBUG_STREAM"
+	if (match.group(2) == "t"):
+		text+="_THROTTLE"
+	return text
+
 def nodelet_info():
 	text=""
 	if match.group(1) == "ninfo":
@@ -169,7 +183,7 @@ snippet pubtry
 try {
 	${1:${VISUAL}}
 } catch (${3:...}) {
-	ROS_ERROR("Exception caught during publishing topic %s.", ${2}.getTopic().c_str());
+	ROS_ERROR("exception caught during publishing topic '%s'", ${2}.getTopic().c_str());
 }
 endsnippet
 
@@ -177,13 +191,13 @@ snippet try
 try {
 	${1:${VISUAL}}
 } catch (${2:...}) {
-	ROS_ERROR("Exception caught. ${3}");
+	ROS_ERROR("exception caught ${3}");
 }
 endsnippet
 
 snippet catch
 catch (${1:...}) {
-	ROS_ERROR("Exception caught. ${2}");
+	ROS_ERROR("exception caught ${2}");
 }
 endsnippet
 
@@ -203,6 +217,30 @@ snippet checknan
 if (!std::isfinite(${1:${VISUAL}})) {
 	ROS_ERROR("NaN detected in variable \"$1\"!!!");
 }
+endsnippet
+
+snippet "(sinfo|swarn|serr|sdeb)(t)?" "" re
+`!p
+snip.rv=stream_info()+"("
+``!p
+if (match.group(2) == "t"):
+	snip.rv="1.0, "
+`"`!p
+is_plugin = file_is_plugin()
+is_gazebo_plugin = file_is_gazebo_plugin()
+if is_plugin:
+	snip.rv='['+get_class_name()+']: " << ss.str()'
+if is_gazebo_plugin:
+	snip.rv='['+get_gazebo_plugin_class_name()+']: " << ss.str()'
+if not (is_plugin or is_gazebo_plugin):
+	snip.rv="[%s]: "
+if not is_plugin and not is_gazebo_plugin:
+	snip.rv=", ros::this_node::getName().c_str()"``!p
+if "%" in t[1]:
+	snip.rv=", "
+else:
+	snip.rv=""
+`${3});
 endsnippet
 
 snippet "(rinfo|rwarn|rerr|rdeb)(t|s|o)?(t|s)?" "" re
@@ -449,4 +487,8 @@ endsnippet
 
 snippet "doublemax" "" Air
 std::numeric_limits<double>::max()
+endsnippet
+
+snippet "ss" "" r
+std::stringstream ss;
 endsnippet
