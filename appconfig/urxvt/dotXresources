@@ -30,7 +30,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
 ! ! EPIGEN_ADD_BLOCK_DESKTOP {
-! ! URxvt.font: xft:Inconsolata for Powerline:size=13
+! ! URxvt.font: xft:Source Code Pro for Powerline:size=11
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
