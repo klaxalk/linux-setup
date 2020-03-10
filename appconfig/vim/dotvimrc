@@ -673,6 +673,10 @@ if g:user_mode == "1"
 
 endif
 
+nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
+nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
+nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
+
 " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
 " " My large subconfig
 " if !empty(glob("~/.my.vimrc"))
