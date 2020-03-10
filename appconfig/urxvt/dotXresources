@@ -87,6 +87,18 @@ URxvt.perl-ext-common: default,clipboard
 ! fix CTRL+SHIFT+P
 URxvt.keysym.Shift-Control-P: \033[24;5~
 
+! fix CTRL+0 ... CTRL+9
+URxvt.keysym.Control-1: \033[27;5;49~
+URxvt.keysym.Control-2: \033[27;5;50~
+URxvt.keysym.Control-3: \033[27;5;51~
+URxvt.keysym.Control-4: \033[27;5;52~
+URxvt.keysym.Control-5: \033[27;5;53~
+URxvt.keysym.Control-6: \033[27;5;54~
+URxvt.keysym.Control-7: \033[27;5;55~
+URxvt.keysym.Control-8: \033[27;5;56~
+URxvt.keysym.Control-9: \033[27;5;57~
+URxvt.keysym.Control-0: \033[27;5;48~
+
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
