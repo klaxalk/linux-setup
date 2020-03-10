@@ -327,6 +327,9 @@ separator=true
 # interval=5
 # label=CPU: 
 # command=~/.i3/show_temp.sh 0  
+# # EPIGEN_ADD_BLOCK_SUPERNUC {
+# # command=echo `sensors | grep 'Core 0' | cut -c17-23`
+# # EPIGEN_ADD_BLOCK_SUPERNUC }
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
@@ -372,7 +375,7 @@ separator=true
 # signal=5
 # command=~/.i3/show_volume.sh
 # # EPIGEN_DEL_BLOCK_SUPERNUC {
-# separator=false
+# separator=false 
 # # EPIGEN_DEL_BLOCK_SUPERNUC }
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
