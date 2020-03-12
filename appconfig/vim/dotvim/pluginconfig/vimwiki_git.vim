@@ -320,8 +320,8 @@ endfun
 " autocmd BufWritePost */notes/* AsyncRun bash -c ~/git/notes/save_and_update.sh
 
 " indention in insert mode
-autocmd BufRead */notes/* inoremap > <esc>ma>>`amalla
-autocmd BufRead */notes/* inoremap < <esc>ma<<`amaa
+" autocmd BufRead */notes/* inoremap > <esc>ma>>`amalla
+" autocmd BufRead */notes/* inoremap < <esc>ma<<`amaa
 
 nmap <Leader>wah :VimwikiAll2HTML<CR>:Vimwiki2HTMLBrowse<CR>
 
