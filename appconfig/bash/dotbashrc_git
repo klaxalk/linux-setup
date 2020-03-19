@@ -13,11 +13,9 @@ else
   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 fi
 
-if [ -n "$BEAVER" ]; then
-  export TMUX_BIN=/usr/bin/tmux
-else
-  export TMUX_BIN=/usr/local/bin/tmux
-fi
+# set the TMUX_BIN, prefer the user-compiled one
+[ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
+[ ! -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/bin/tmux
 
 export SHELL=/bin/bash
 
