@@ -27,6 +27,9 @@ if g:user_mode == "1"
   " fugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
 
+  " showing git changes in the file
+  Plug 'airblade/vim-gitgutter'
+
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
