@@ -503,9 +503,17 @@ std::stringstream ss;
 endsnippet
 
 snippet "printf" "" r
-printf("${1}", ${2});
+printf("${1}\n", ${2});
 endsnippet
 
 snippet "print" "" r
-printf("${1}");
+printf("${1}\n");
+endsnippet
+
+snippet "att" "" ri
+mrs_lib::AttitudeConverter(${1})${2};
+endsnippet
+
+snippet "tuple" "" ri
+std::tuple(${1})
 endsnippet
