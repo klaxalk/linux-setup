@@ -383,3 +383,7 @@ endsnippet
 snippet "garmin" "" Abr
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/toggle_garmin 0
 endsnippet
+
+snippet "parachute" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/parachute
+endsnippet
