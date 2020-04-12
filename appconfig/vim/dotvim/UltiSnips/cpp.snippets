@@ -517,3 +517,11 @@ endsnippet
 snippet "tuple" "" ri
 std::tuple(${1})
 endsnippet
+
+snippet "getheading" "" ri
+try {
+	${1} = mrs_lib::getHeading(${2});
+} catch (mrs_lib::AttitudeConverter::GetHeadingException e) {
+	ROS_ERROR_THROTTLE(1.0, "[${3}]: exception caught: '%s'", e.what());
+}
+endsnippet
