@@ -260,6 +260,9 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
+"  spellchecking
+au BufNewFile,BufRead *.md setlocal spell spelllang=en_us
+
 " autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit       ")
 " autocmd BufWritePost */notes/* AsyncRun bash -c ~/git/notes/save_and_update.sh
 
