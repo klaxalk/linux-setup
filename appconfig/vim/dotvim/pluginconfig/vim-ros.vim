@@ -5,6 +5,10 @@ let g:ros_build_system='catkin-tools'
 
 au BufNewFile,BufRead *.launch set filetype=roslaunch.xml
 
+" enable spell checking for message and service files
+au BufNewFile,BufRead *.msg setlocal spell spelllang=en_us
+au BufNewFile,BufRead *.srv setlocal spell spelllang=en_us
+
 function! PrepRos()
   python3 << EOS
 try:
