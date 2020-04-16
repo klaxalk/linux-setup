@@ -45,7 +45,7 @@ while true; do
     sudo ./zsh_athame_setup.sh --notest --use_sudo $NEOVIM
 
     # install oh-my-zsh
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
     # symlink plugins
     if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
