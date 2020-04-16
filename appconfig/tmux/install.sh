@@ -39,7 +39,7 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install libevent-dev
+    sudo apt -y install libevent-dev bison
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
