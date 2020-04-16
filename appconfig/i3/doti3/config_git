@@ -401,6 +401,8 @@ bar {
 
   font pango: Terminus, FontAwesome 10
 
+  tray_output primary
+
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
