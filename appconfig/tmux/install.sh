@@ -39,6 +39,8 @@ while true; do
 
     sudo apt -y remove tmux
 
+    sudo apt -y install libevent-dev
+
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
     sh autogen.sh
