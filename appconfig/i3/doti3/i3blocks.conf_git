@@ -257,14 +257,122 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 
+# #{ Matej's customization
+
 # EPIGEN_ADD_BLOCK_MATEJ {
-# [cputemp]
-# interval=2
-# label=CPU
-# command=~/.i3/show_temp.sh 0
+
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cpu_temperature]
+# interval=5
+# label=CPU: 
+# command=~/.i3/show_temp.sh 0  
+# # EPIGEN_ADD_BLOCK_SUPERNUC {
+# # command=echo `sensors | grep 'Core 0' | cut -c17-23`
+# # EPIGEN_ADD_BLOCK_SUPERNUC }
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cpu_usage]
+# interval=3
+# format=%usage
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [load]
+# interval=5
+# label=
+# command=cat /proc/loadavg | cut -d' ' -f1-3
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# separator=true
+
+# [memory]
+# label=RAM
+# interval=30
+# command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [disk]
+# label=SSD
+# interval=30
+# separator=true
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [iface]
+# instance=eth0
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=10
+# label=
+
+# [iface]
+# instance=wlo1
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# interval=10
+# label=
+# separator=false
+
+# [online-status]
+# command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
+# color=#FF0000
+# interval=20
+# separator=false
+
+# [bandwidth]
+# label=
+# interval=1
+# separator=true
+# min_width=90
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [volume]
+# label=
+# instance=Master
+# interval=1
+# signal=5
+# command=~/.i3/show_volume.sh
+# separator=true 
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [battery]
+# label=⚡
+# instance=0
+# interval=30
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [keyboard]
+# label=
+# interval=2
+# command=~/.i3/show_keyboard_layout.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# separator=true 
+
+# [weather]
+# instance=3067696
+# interval=5
+# separator=true
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
 # EPIGEN_ADD_BLOCK_MATEJ }
+
+# #}
 
 # EPIGEN_ADD_BLOCK_MATOUS {
 # [cputemp]
@@ -411,19 +519,21 @@ interval=60
 separator=true
 # EPIGEN_DEL_BLOCK_SUPERNUC }
 
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [load]
 interval=5
 label=
 command=cat /proc/loadavg | cut -d' ' -f1-3
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ }
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+# EPIGEN_DEL_BLOCK_MATEJ {
 [iface]
 instance=eth0
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -454,13 +564,14 @@ interval=20
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_MATEJ }
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [volume]
 label=VOL
 label=♪
@@ -471,7 +582,7 @@ signal=10
 command=~/.i3/show_volume.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ }
 
 # Memory usage
 #
@@ -492,14 +603,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [disk]
 label=SSD
 #instance=/mnt/data
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ }
 
 [wifi]
 instance=wlan0
@@ -533,21 +644,23 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # Battery indicator
 #
 # The battery instance defaults to 0.
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [battery]
 label=⚡
 instance=0
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ }
 
+# EPIGEN_DEL_BLOCK_MATEJ {
 [keyboard]
 label=
 interval=2
 command=~/.i3/show_keyboard_layout.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_DEL_BLOCK_MATEJ }
 
 # EPIGEN_ADD_BLOCK_GPU {
 # [gpu]
