@@ -16,6 +16,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=n
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -29,7 +33,12 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdfpc dvipng sketch 
+    if [ -n "$BEAVER" ]; then
+      sudo add-apt-repository -y ppa:malteworld/ppa
+      sudo apt update
+    fi
+
+    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdfpc dvipng sketch pdftk
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     break

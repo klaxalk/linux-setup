@@ -84,9 +84,6 @@ bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 # install MULTIMEDIA support
 bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# install PDFTK
-bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
-
 # install PANDOC
 bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 
