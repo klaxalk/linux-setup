@@ -22,7 +22,7 @@ export RUN_TMUX=true
 export USE_ATHAME=true
 
 # what should be activated/deactivated by epigen?
-export PROFILES_BOTH=""
+export PROFILES_BOTH="COLORSCHEME_DARK"
 
 # sourcing tomas's tmux preparation
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc

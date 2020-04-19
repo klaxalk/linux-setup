@@ -16,7 +16,7 @@ do
   fi
 done
 
-default=n
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -31,7 +31,7 @@ while true; do
 
     toilet Installing neovim
 
-    sudo apt-add-repository ppa:neovim-ppa/unstable
+    sudo apt-add-repository -y ppa:neovim-ppa/unstable
     sudo apt update
 
     sudo apt -y install neovim

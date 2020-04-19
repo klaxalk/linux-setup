@@ -16,30 +16,31 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall urxvt? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall shutter? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # install urvxt
-    sudo apt -y install rxvt-unicode-256color
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
-    sudo mkdir -p $EXTENSION_PATH
+    if [ -z "$BEAVER" ]; then
+      sudo add-apt-repository -y ppa:linuxuprising/shutter
+      sudo apt update
+    fi
 
-    # link extensions
-    for file in `ls $APP_PATH/extensions/`; do
-      sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
-    done
+    sudo apt -y install shutter
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

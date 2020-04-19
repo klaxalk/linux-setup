@@ -16,6 +16,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -29,9 +33,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    cd /tmp
-    wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
-    sudo dpkg -i pandoc-2.7.2-1-amd64.deb
+    if [ -z "$BEAVER" ]; then
+      cd /tmp
+      wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
+      sudo dpkg -i pandoc-2.7.2-1-amd64.deb
+    else
+      sudo apt -y install pandoc
+    fi
 
     break
 

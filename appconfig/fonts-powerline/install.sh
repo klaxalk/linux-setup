@@ -22,24 +22,30 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall urxvt? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall powerline fonts? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # install urvxt
-    sudo apt -y install rxvt-unicode-256color
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    toilet Setting up powerline fonts
 
-    EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
-    sudo mkdir -p $EXTENSION_PATH
+    cd $APP_PATH/../../submodules/fonts
 
-    # link extensions
-    for file in `ls $APP_PATH/extensions/`; do
-      sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
-    done
+    # apply our patch to change the font installation dir
+    # git apply $APP_PATH/patch.patch
+
+    ./install.sh
+
+    # make Terminus work
+    mkdir -p ~/.config/fontconfig/conf.d
+    cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
+    fc-cache -vf
+
+    # undo the patch
+    # git reset --hard
+    cd $APP_PATH
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

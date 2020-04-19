@@ -26,79 +26,82 @@ do
   fi
 done
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel python-git vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel shutter silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb gparted net-tools espeak pdfpc
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
 
-##################################################
-# install inputs libraries when they are missing
-##################################################
-sudo apt -y install xserver-xorg-input-all
+if [ -z "$BEAVER" ]; then
+  sudo apt -y install python-git
+else
+  sudo apt -y install python3-git
+fi
+
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb gparted net-tools espeak pdfpc xserver-xorg-input-all
 
 if [ "$unattended" == "0" ]
 then
   if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 fi
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
-if [ ! -n "$BEAVER" ]; then
-  sudo apt -y install pdftk
-  if [ "$unattended" == "0" ]
-  then
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-  fi
-fi
-
-# download, compile and install tmux
+# install TMUX
 bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 
-# compile and install tmuxinator
-bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
-
-# copy vim settings
-bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
-
-# install neovim
-bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
-
-# compile and install zsh with athame
-bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
-
-# install urxvt
-bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
-
-# install i3
-bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
-
-# setup latex
-bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
-
-# setup pdftk
-bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
-
-# setup pandoc
-bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
-
-# setup zathura
-bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
-
-# setup ranger
+# setup RANGER
 bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
-# setup vimiv
+# install VIM
+bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
+
+# install URXVT
+bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
+
+# install FONTS POWERLINE
+bash $APPCONFIG_PATH/fonts-powerline/install.sh $subinstall_params
+
+# install NVIM
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
+
+# install ZSH with ATHAME
+bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
+
+# install I3
+bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
+
+# install LATEX support
+bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
+
+# install PDFTK
+bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
+
+# install PANDOC
+bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+
+# install SHUTTER
+bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+
+# install ZATHURA
+bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
+
+# install VIMIV
 bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# install the silver searcher
+# install SILVER SEARCHER (ag)
 bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# install modified keyboard rules
+# setup modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# install playerctl
+# install PLAYERCTL
 bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+
+# install PAPIS
+bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
+
+# install GRUB CUSTOMIZER
+bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+
+# install TMUXINATOR
+bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
 #############################################
 # remove the interactivity check from bashrc

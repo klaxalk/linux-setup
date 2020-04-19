@@ -28,15 +28,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # install i3
-    sudo apt -y install i3
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
-    # install dependencies for compilation of i3gaps
-    sudo add-apt-repository -y ppa:aguignard/ppa
-    sudo apt-get update
-
-    sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf help2man
+    sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     # install graphical X11 graphical backend with lightdm loading screen
@@ -57,6 +49,7 @@ while true; do
 
     # install light for display backlight control
     # compile i3
+    sudo apt -y install help2man
     cd $APP_PATH/../../submodules/light/
     git checkout 1.1.2 # checkout the latest (at the time of writing) release
     make && sudo make install
@@ -74,6 +67,21 @@ while true; do
     ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
     make
     sudo make install
+
+    # clean after myself
+    git reset --hard
+    git clean -fd
+
+    # compile i3 blocks
+    cd $APP_PATH/../../submodules/i3blocks/
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+
+    # clean after myself
+    git reset --hard
+    git clean -fd
 
     # for brightness and volume control
     sudo apt -y install xbacklight alsa-utils pulseaudio feh arandr acpi
@@ -101,15 +109,15 @@ while true; do
 
     # copy fonts
     # fontawesome 4.7 
-    mkdir ~/.fonts
+    mkdir -p ~/.fonts
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
     mkdir ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
 
-    # install thunar
-    sudo apt -y install thunar rofi compton i3blocks systemd
+    # install useful gui utils
+    sudo apt -y install thunar rofi compton systemd
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts

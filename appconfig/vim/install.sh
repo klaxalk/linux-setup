@@ -32,8 +32,6 @@ while true; do
     toilet Setting up vim
 
     sudo apt -y remove vim-*
-    sudo apt -y remove clang-3.9
-    sudo apt -y remove libclang-common-3.9-dev
 
     sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
@@ -71,15 +69,6 @@ while true; do
     # symlink vim settings
     rm -rf ~/.vim
     ln -fs $APP_PATH/dotvim ~/.vim
-
-    # install patched fonts with powerline characters
-    cd $APP_PATH/../../submodules/fonts
-    sudo ./install.sh
-
-    # make Terminus work
-    mkdir -p ~/.config/fontconfig/conf.d
-    cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
-    fc-cache -vf
 
     # add variable for ctags sources into .bashrc
     num=`cat ~/.bashrc | grep "CTAGS_SOURCE_DIR" | wc -l`

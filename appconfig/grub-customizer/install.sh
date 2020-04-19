@@ -16,7 +16,11 @@ do
   fi
 done
 
-default=n
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -31,11 +35,12 @@ while true; do
 
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    # install pdftk
-    sudo add-apt-repository ppa:danielrichter2007/grub-customizer
-    sudo apt update
+    if [ -z "$BEAVER" ]; then
+      sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+      sudo apt update
+    fi
 
-    sudo apt-get install grub-customizer
+    sudo apt -y install grub-customizer
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
