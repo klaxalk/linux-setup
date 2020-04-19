@@ -37,13 +37,13 @@ else
 fi
 
 # essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config 
+sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool openssh-server net-tools 
 
 # python
 sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
 
 # other stuff
-sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags libtoolopenssh-server xclip xsel xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics blueman autossh jq xvfb gparted net-tools espeak xserver-xorg-input-all
+sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics blueman autossh jq xvfb gparted espeak xserver-xorg-input-all
 
 if [ "$unattended" == "0" ]
 then
