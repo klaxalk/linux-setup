@@ -38,7 +38,7 @@ while true; do
       sudo apt update
     fi
 
-    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdfpc dvipng sketch pdftk
+    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch pdftk
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     break
