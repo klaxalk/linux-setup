@@ -36,7 +36,14 @@ else
   sudo apt -y install python3-git
 fi
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq xvfb gparted net-tools espeak xserver-xorg-input-all
+# essentials
+sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config 
+
+# python
+sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+
+# other stuff
+sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags libtoolopenssh-server xclip xsel xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics blueman autossh jq xvfb gparted net-tools espeak xserver-xorg-input-all
 
 if [ "$unattended" == "0" ]
 then
@@ -69,6 +76,9 @@ bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
 # install LATEX and PDF support
 bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
+
+# install MULTIMEDIA support
+bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
 # install PDFTK
 bash $APPCONFIG_PATH/pdftk/install.sh $subinstall_params
@@ -130,8 +140,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding GIT_PATH variable to .bashrc"
   # set bashrc
   echo "
-# path to the git root
-export GIT_PATH=$TEMP" >> ~/.bashrc
+  # path to the git root
+  export GIT_PATH=$TEMP" >> ~/.bashrc
 fi
 
 #############################################
@@ -155,8 +165,8 @@ if [ "$num" -lt "1" ]; then
     then
 
       echo "
-# want to run tmux automatically with new terminal?
-export RUN_TMUX=true" >> ~/.bashrc
+      # want to run tmux automatically with new terminal?
+      export RUN_TMUX=true" >> ~/.bashrc
 
       echo "Setting variable RUN_TMUX to true"
 
@@ -165,8 +175,8 @@ export RUN_TMUX=true" >> ~/.bashrc
     then
 
       echo "
-# want to run tmux automatically with new terminal?
-export RUN_TMUX=false" >> ~/.bashrc
+      # want to run tmux automatically with new terminal?
+      export RUN_TMUX=false" >> ~/.bashrc
 
       echo "Setting variable RUN_TMUX to false"
 
@@ -209,8 +219,8 @@ if [ "$num" -lt "1" ]; then
 
   echo "Adding epigen rules to .bashrc"
   echo '
-# profiling options for EPIGEN
-export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
+  # profiling options for EPIGEN
+  export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
 
@@ -230,8 +240,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-# source Tomas's Linux Setup
-source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
+  # source Tomas's Linux Setup
+  source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
 
