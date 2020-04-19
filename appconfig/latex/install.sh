@@ -29,7 +29,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber
+    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdfpc dvipng 
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     break

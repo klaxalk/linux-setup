@@ -36,7 +36,7 @@ else
   sudo apt -y install python3-git
 fi
 
-sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel silversearcher-ag exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq okular dvipng okular xvfb gparted net-tools espeak pdfpc xserver-xorg-input-all
+sudo apt -y install cmake cmake-curses-gui ruby git sl htop indicator-multiload figlet toilet gem ruby build-essential tree exuberant-ctags libtool automake autoconf autogen libncurses5-dev python2.7-dev python3-dev libc++-dev openssh-server xclip xsel vlc pkg-config python-setuptools python3-setuptools ffmpeg sketch xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics python3-pip blueman gimp autossh jq xvfb gparted net-tools espeak xserver-xorg-input-all
 
 if [ "$unattended" == "0" ]
 then
@@ -67,7 +67,7 @@ bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 # install I3
 bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
-# install LATEX support
+# install LATEX and PDF support
 bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
 # install PDFTK
