@@ -32,13 +32,7 @@ while true; do
     sudo apt -y install ranger caca-utils libimage-exiftool-perl
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
-    # symlink vim settings
-    rm ~/.config/ranger/rifle.conf
-    rm ~/.config/ranger/commands.py
-    rm ~/.config/ranger/rc.conf
-    rm ~/.config/ranger/scope.sh
-
-    mkdir ~/.config/ranger
+    mkdir -p ~/.config/ranger
 
     ln -fs $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
     ln -fs $APP_PATH/commands.py ~/.config/ranger/commands.py
