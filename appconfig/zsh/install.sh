@@ -16,7 +16,7 @@ do
   fi
 done
 
-default=n
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -56,16 +56,6 @@ while true; do
     num=`cat ~/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
       cp $APP_PATH/dotzshrc_template ~/.zshrc
-    fi
-
-    num=`cat ~/.zshrc | grep "USE_ATHAME" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "Adding USE_ATHAME variable to .zshrc"
-      echo '
-# should use Athame by default?
-export USE_ATHAME="true"' >> ~/.zshrc
-
     fi
 
     break
