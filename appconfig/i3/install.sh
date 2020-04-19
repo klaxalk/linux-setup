@@ -137,8 +137,10 @@ while true; do
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
-    # install xkblayout state
-    bash $APP_PATH/../xkblayout-state/install.sh $subinstall_params
+    # install xkb layout state
+    cd $APP_PATH/../../submodules/xkblayout-state/
+    make
+    sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
     # install prime-select (for switching gpus)
     sudo apt -y install nvidia-prime
