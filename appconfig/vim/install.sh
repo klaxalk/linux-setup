@@ -16,6 +16,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -33,7 +37,11 @@ while true; do
 
     sudo apt -y remove vim-*
 
-    sudo apt -y install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
+    if [ -n "$BEAVER" ]; then
+      sudo apt -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
+    fi
+
+    sudo apt -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
     sudo -H pip3 install rospkg
@@ -57,11 +65,11 @@ while true; do
       # --enable-python3interp=yes \
       # --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
 
-    cd src
-    make
-    cd ../
-    make VIMRUNTIMEDIR=/usr/share/vim/vim81
-    sudo make install
+      cd src
+      make
+      cd ../
+      make VIMRUNTIMEDIR=/usr/share/vim/vim81
+      sudo make install
 
     # set vim as a default git mergetool
     git config --global merge.tool vimdiff
@@ -77,9 +85,9 @@ while true; do
       echo "Adding CTAGS_SOURCE_DIR variable to .bashrc"
       # set bashrc
       echo '
-# where should ctags look for sources to parse?
-# -R dir1 -R dir2 ...
-export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
+      # where should ctags look for sources to parse?
+      # -R dir1 -R dir2 ...
+      export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
 
     fi
 
@@ -90,15 +98,15 @@ export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
       echo "Adding CTAGS_ONCE_SOURCE_DIR variable to .bashrc"
       # set bashrc
       echo '
-# where should ctags look for sources to parse?
-# CTAGS FROM THOSE FOLDERS WILL BE CREATED ONLY ONCE
-# -R dir1 -R dir2 ...
-export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"' >> ~/.bashrc
+      # where should ctags look for sources to parse?
+      # CTAGS FROM THOSE FOLDERS WILL BE CREATED ONLY ONCE
+      # -R dir1 -R dir2 ...
+      export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"' >> ~/.bashrc
 
     fi
 
     #############################################
-    # adding ROS_WORKSPACE variable to .bashrc 
+    # adding ROS_WORKSPACE variable to .bashrc
     #############################################
 
     # add variable for path to the git repository
@@ -108,14 +116,14 @@ export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"' >> ~/.bashrc
       echo "Adding ROS_WORKSPACE variable to .bashrc"
       # set bashrc
       echo "
-# path to the ros workspace
-export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
+      # path to the ros workspace
+      export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
 
     fi
 
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
-    
+
     default=y
     while true; do
       if [[ "$unattended" == "1" ]]
