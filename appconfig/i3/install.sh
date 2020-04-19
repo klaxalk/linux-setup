@@ -29,15 +29,15 @@ while true; do
   then
 
     sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # install graphical X11 graphical backend with lightdm loading screen
     sudo apt -y install lightdm xserver-xorg
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # compile i3 dependency which is not present in the repo
     sudo apt -y install xutils-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd /tmp
     git clone https://github.com/Airblader/xcb-util-xrm
@@ -50,7 +50,7 @@ while true; do
     # install light for display backlight control
     # compile i3
     sudo apt -y install help2man
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd $APP_PATH/../../submodules/light/
     git checkout 1.1.2 # checkout the latest (at the time of writing) release
@@ -87,15 +87,15 @@ while true; do
 
     # for brightness and volume control
     sudo apt -y install xbacklight alsa-utils pulseaudio feh arandr acpi
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # for making gtk look better
     sudo apt -y install lxappearance 
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # indicator-sound-switcher
     sudo apt -y install libappindicator3-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
@@ -121,7 +121,7 @@ while true; do
 
     # install useful gui utils
     sudo apt -y install thunar rofi compton systemd
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
@@ -133,7 +133,7 @@ while true; do
 
     # install prime-select (for switching gpus)
     sudo apt -y install nvidia-prime
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

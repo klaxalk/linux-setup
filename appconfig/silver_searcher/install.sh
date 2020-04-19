@@ -32,7 +32,7 @@ while true; do
     toilet Installing silver searcher
 
     sudo apt -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # instal tmux
     cd $APP_PATH/../../submodules/the_silver_searcher

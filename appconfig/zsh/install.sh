@@ -30,7 +30,7 @@ while true; do
   then
 
     sudo apt -y install curl
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame

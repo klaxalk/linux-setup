@@ -32,7 +32,7 @@ while true; do
     toilet Installing multimedia support
 
     sudo apt -y install gimp vlc ffmpeg 
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

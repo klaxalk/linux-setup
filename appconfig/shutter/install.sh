@@ -39,7 +39,7 @@ while true; do
     fi
 
     sudo apt -y install shutter
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -39,11 +39,11 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
       sudo apt -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
-      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
     fi
 
     sudo apt -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     sudo -H pip3 install rospkg
 
@@ -142,7 +142,7 @@ while true; do
         toilet Setting up youcompleteme
 
         sudo apt -y install libboost-all-dev
-        [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+        [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
         cd ~/.vim/plugged/youcompleteme/
         git submodule update --init --recursive
