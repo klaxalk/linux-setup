@@ -63,7 +63,6 @@ while true; do
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd $APP_PATH/../../submodules/light/
-    git checkout 1.1.2 # checkout the latest (at the time of writing) release
     make && sudo make install
     # set the minimal backlight value to 5%
     light -c -S 5
