@@ -39,6 +39,7 @@ while true; do
       sudo dpkg -i pandoc-2.7.2-1-amd64.deb
     else
       sudo apt -y install pandoc
+      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
     fi
 
     break

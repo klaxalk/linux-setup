@@ -30,7 +30,7 @@ while true; do
   then
 
     sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdfpc dvipng sketch 
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

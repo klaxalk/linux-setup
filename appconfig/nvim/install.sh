@@ -35,7 +35,7 @@ while true; do
     sudo apt update
 
     sudo apt -y install neovim
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
     mkdir -p ~/.config/nvim/
 
     sudo -H pip3 install neovim

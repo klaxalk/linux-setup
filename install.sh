@@ -30,20 +30,24 @@ var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
+# essentials
+sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool openssh-server net-tools 
+[ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+
+# python
+sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+[ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
+
 if [ -n "$BEAVER" ]; then
   sudo apt -y install python-git
 else
   sudo apt -y install python3-git
 fi
-
-# essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool openssh-server net-tools 
-
-# python
-sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+[ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
 # other stuff
 sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics blueman autossh jq xvfb gparted espeak xserver-xorg-input-all
+[ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
 if [ "$unattended" == "0" ]
 then

@@ -46,11 +46,11 @@ while true; do
     if [ -n "$BEAVER" ]; then
 
       sudo apt -y remove zathura libgirara-dev
-      if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
       # sudo apt -y remove zathura-pdf-poppler
       sudo apt -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
-      if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
       sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
@@ -72,6 +72,7 @@ while true; do
     else
 
       sudo apt -y install zathura
+      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     fi
 

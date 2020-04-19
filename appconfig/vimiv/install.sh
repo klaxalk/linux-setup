@@ -31,7 +31,7 @@ while true; do
 
     # install missing dependecies
     sudo apt -y install python3-setuptools
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     # link the configuration
     cd $APP_PATH/../../submodules/vimiv/

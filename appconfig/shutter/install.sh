@@ -33,14 +33,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
     if [ -n "$BEAVER" ]; then
       sudo add-apt-repository -y ppa:linuxuprising/shutter
       sudo apt update
     fi
 
     sudo apt -y install shutter
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

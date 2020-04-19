@@ -29,8 +29,6 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
     # install papis
     cd $APP_PATH/../../submodules/papis/
     make submodules

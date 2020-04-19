@@ -40,6 +40,7 @@ while true; do
     sudo apt -y remove tmux
 
     sudo apt -y install libevent-dev bison
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux

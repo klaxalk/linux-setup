@@ -31,7 +31,7 @@ while true; do
 
     # install urvxt
     sudo apt -y install rxvt-unicode-256color
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     sudo mkdir -p $EXTENSION_PATH

@@ -29,10 +29,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
-
     sudo apt -y install ranger caca-utils libimage-exiftool-perl
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue."; read
 
     # symlink vim settings
     rm ~/.config/ranger/rifle.conf
