@@ -32,11 +32,14 @@ while true; do
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # install graphical X11 graphical backend with lightdm loading screen
+    echo ""
+    echo "-----------------------------------------------------------------"
     echo "Installing lightdm login manager. It might require manual action."
     echo "-----------------------------------------------------------------"
     echo "If so, please select \"lightdm\", after hitting Enter"
     echo ""
     echo "Waiting for Enter..."
+    echo ""
     read
 
     sudo apt -y install lightdm xserver-xorg
