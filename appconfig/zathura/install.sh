@@ -43,7 +43,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -z "$BEAVER" ]; then
+    if [ -n "$BEAVER" ]; then
 
       sudo apt -y remove zathura libgirara-dev
       if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi

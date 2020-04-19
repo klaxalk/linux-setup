@@ -35,7 +35,7 @@ while true; do
 
     if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    if [ -z "$BEAVER" ]; then
+    if [ -n "$BEAVER" ]; then
       sudo add-apt-repository -y ppa:linuxuprising/shutter
       sudo apt update
     fi

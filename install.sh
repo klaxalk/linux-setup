@@ -30,7 +30,7 @@ var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
-if [ -z "$BEAVER" ]; then
+if [ -n "$BEAVER" ]; then
   sudo apt -y install python-git
 else
   sudo apt -y install python3-git

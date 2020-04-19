@@ -33,7 +33,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -z "$BEAVER" ]; then
+    if [ -n "$BEAVER" ]; then
       cd /tmp
       wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
       sudo dpkg -i pandoc-2.7.2-1-amd64.deb
