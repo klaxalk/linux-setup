@@ -88,7 +88,7 @@ bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 
 # install SHUTTER
-bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
 
 # install ZATHURA
 bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
