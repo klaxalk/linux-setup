@@ -786,9 +786,6 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
 
-# # Monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
-
 # # Default keyboard US, alt+shift to switch between US and CZ
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
 
@@ -807,6 +804,9 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
+
 # # # Bind HP screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
@@ -824,6 +824,9 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
 
 # # # Not so fancy compton stuff
 # # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
