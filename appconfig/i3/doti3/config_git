@@ -122,7 +122,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
+# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
+# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -804,6 +806,9 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
+# # # Move workspace to another monitor
+# # bindsym $mod+x move workspace to output right
+#
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
@@ -824,6 +829,9 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Move workspace to another monitor
+# # bindsym $mod+x move workspace to output up
 
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
