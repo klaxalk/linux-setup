@@ -101,6 +101,8 @@ if g:user_mode == "1"
   " if has('nvim')
   "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   "   Plug 'kiddos/deoplete-cpp'
+  "   Plug 'deoplete-plugins/deoplete-tag'
+
   " else
   "   Plug 'Shougo/deoplete.nvim'
   "   Plug 'roxma/nvim-yarp'
