@@ -131,7 +131,7 @@ git() {
 # #{ ranger()
 
 ranger () {
-  command ranger --choosedir="/tmp/lastrangerdir"
+  command ranger --choosedir="/tmp/lastrangerdir" "$@"
   LASTDIR=`cat "/tmp/lastrangerdir"`
   cd "$LASTDIR"
 }

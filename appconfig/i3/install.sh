@@ -63,9 +63,11 @@ while true; do
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd $APP_PATH/../../submodules/light/
-    make && sudo make install
+    ./autogen.sh
+    ./configure && make
+    sudo make install
     # set the minimal backlight value to 5%
-    light -c -S 5
+    light -N 5
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/

@@ -31,7 +31,7 @@ markup=none
 # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
 
 # # [git_check]
-# # label=
+# # label= 
 # # interval=600
 # # command=$HOME/.i3/detacher.sh 1 'cd ~/.scripts/; ./git_check.sh'
 # # color=#FF0000
@@ -288,14 +288,14 @@ separator=true
 
 # [load]
 # interval=5
-# label=
+# label= 
 # command=cat /proc/loadavg | cut -d' ' -f1-3
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # separator=true
 
 # [memory]
-# label=RAM
+# label=RAM 
 # interval=30
 # command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
 # separator=false
@@ -303,7 +303,7 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [disk]
-# label=SSD
+# label=SSD 
 # interval=30
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -314,14 +314,14 @@ separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=10
-# label=
+# label= 
 
 # [iface]
 # instance=wlo1
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=10
-# label=
+# label= 
 # separator=false
 
 # [online-status]
@@ -331,7 +331,7 @@ separator=true
 # separator=false
 
 # [bandwidth]
-# label=
+# label= 
 # interval=1
 # separator=true
 # min_width=90
@@ -339,7 +339,7 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [volume]
-# label=
+# label= 
 # instance=Master
 # interval=1
 # signal=5
@@ -349,14 +349,14 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [battery]
-# label=⚡
+# label=⚡ 
 # instance=0
 # interval=30
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [keyboard]
-# label=
+# label= 
 # interval=2
 # command=~/.i3/show_keyboard_layout.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -377,14 +377,14 @@ separator=true
 # EPIGEN_ADD_BLOCK_MATOUS {
 # [cputemp]
 # interval=2
-# label=CPU
+# label=CPU 
 # command=sensors | grep 'Package id 0' | cut -c17-25
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [music]
 # interval=1
-# label=Music
+# label=Music 
 # command=playerctl metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
@@ -393,7 +393,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL {
 # [cputemp]
 # interval=2
-# label=CPU
+# label=CPU 
 # command=~/.i3/show_temp.sh 0
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
@@ -402,7 +402,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_TOMAS {
 # [cputemp]
 # interval=2
-# label=CPU
+# label=CPU 
 # # EPIGEN_ADD_BLOCK_DELL {
 # # command=~/.i3/show_temp.sh 7
 # # EPIGEN_ADD_BLOCK_DELL }
@@ -450,14 +450,14 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [disk]
-# label=SSD
+# label=SSD 
 # interval=30
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [memory]
-# label=RAM
+# label=RAM 
 # separator=false
 # interval=30
 # command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
@@ -468,7 +468,7 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 # [memory]
-# label=SWP
+# label=SWP 
 # instance=swap
 # interval=10
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -477,7 +477,7 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # [volume]
-# label=
+# label= 
 # instance=Master
 # interval=1
 # signal=5
@@ -490,7 +490,7 @@ separator=true
 
 # # EPIGEN_DEL_BLOCK_SUPERNUC {
 # [battery]
-# label=
+# label= 
 # instance=0
 # interval=30
 # separator=false
@@ -498,7 +498,7 @@ separator=true
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [brightness]
-# label=
+# label= 
 # instance=0
 # interval=5
 # command=light | awk '{printf "%d%", $1}'
@@ -522,7 +522,7 @@ separator=true
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [load]
 interval=5
-label=
+label= 
 command=cat /proc/loadavg | cut -d' ' -f1-3
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
@@ -539,7 +539,7 @@ instance=eth0
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
-label=
+label= 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # # EPIGEN_ADD_BLOCK_LENOVO {
@@ -552,7 +552,7 @@ instance=wlan0
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
-label=
+label= 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
@@ -573,8 +573,8 @@ interval=20
 # See the script for details.
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [volume]
-label=VOL
-label=♪
+label=VOL 
+label=♪ 
 instance=Master
 #instance=PCM
 interval=1
@@ -588,12 +588,12 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 #
 # The type defaults to "mem" if the instance is not specified.
 #[memory]
-#label=MEM
+#label=MEM 
 #separator=false
 #interval=30
 
 #[memory]
-#label=SWAP
+#label=SWAP 
 #instance=swap
 #separator=false
 #interval=30
@@ -605,7 +605,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # (defaults to 10 for 10%).
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [disk]
-label=SSD
+label=SSD 
 #instance=/mnt/data
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -614,7 +614,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [wifi]
 instance=wlan0
-label=
+label= 
 interval=10
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
@@ -624,7 +624,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # [bandwidth]
-# label=
+# label= 
 # interval=1
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -636,7 +636,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 #[cpu_usage]
-#label=CPU
+#label=CPU 
 #interval=1
 #min_width=CPU: 100.00%
 ##separator=false
@@ -646,7 +646,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The battery instance defaults to 0.
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
 [battery]
-label=⚡
+label=⚡ 
 instance=0
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -655,7 +655,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_DEL_BLOCK_MATEJ {
 [keyboard]
-label=
+label= 
 interval=2
 command=~/.i3/show_keyboard_layout.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -664,7 +664,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # EPIGEN_ADD_BLOCK_GPU {
 # [gpu]
-# # label=GPU
+# # label=GPU 
 # interval=10
 # command=$HOME/.i3/show_active_gpu.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -719,7 +719,7 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 #[temperature]
-#label=TEMP
+#label=TEMP 
 #interval=10
 
 # Key indicators
