@@ -67,7 +67,7 @@ while true; do
     ./configure && make
     sudo make install
     # set the minimal backlight value to 5%
-    light -c -S 5
+    light -N 5
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/
