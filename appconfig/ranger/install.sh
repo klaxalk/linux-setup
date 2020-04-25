@@ -29,8 +29,11 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install ranger caca-utils libimage-exiftool-perl
+    sudo apt -y install caca-utils libimage-exiftool-perl
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
+
+    cd $APP_PATH/../../submodules/ranger
+    sudo make install
 
     mkdir -p ~/.config/ranger
 
