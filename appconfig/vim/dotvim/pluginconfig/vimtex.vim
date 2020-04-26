@@ -26,6 +26,8 @@ let g:vimtex_compiler_latexmk = {
       \ ],
       \}
 
+au BufNewFile,BufRead *.tex set filetype=tex
+
 " sets the main file for the latex project
 autocmd FileType tex let b:vimtex_main = 'main.tex'
 
