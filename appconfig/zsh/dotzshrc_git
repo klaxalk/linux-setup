@@ -47,9 +47,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# the location of `once generated ctags file`
-export CTAGS_FILE_ONCE="~/tags-once"
-
 # source the mutual additions for all shells
 source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
 
