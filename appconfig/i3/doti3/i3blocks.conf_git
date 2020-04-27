@@ -335,8 +335,6 @@ separator=true
 # interval=1
 # separator=true
 # min_width=90
-# INLABEL= 
-# OUTLABEL= 
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
@@ -629,8 +627,6 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # label= 
 # interval=1
 # separator=true
-# INLABEL= 
-# OUTLABEL= 
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
