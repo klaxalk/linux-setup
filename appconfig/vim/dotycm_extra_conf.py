@@ -6,11 +6,11 @@
 # Author: Gaël Ecorchard (2015)                                          #
 # CoAuthor: Tomas Baca (2017)                                            #
 #                                                                        #
-# The file requires the definition of the $ROS_WORKSPACE variable in     #
+# The file requires the definition of the $ROS_WORKSPACES variable in    #
 # your shell. The variable should be a string with paths to all your     #
 # workspaces separated by a space.                                       #
 #                                                                        #
-# e.g. export ROS_WORKPSACE="~/ros_workspace ~/test_workspace"           #
+# e.g. export ROS_WORKPSACE="~/ROS_WORKSPACES ~/test_workspace"          #
 #                                                                        #
 # Name this file .ycm_extra_conf.py and place it to a folder in which    #
 # you keep your ROS workspaces (or rather your source codes since vim    #
@@ -45,9 +45,9 @@ def GetWorkspacePath(filename):
     if not pkg_name:
         return ''
 
-    # get the content of $ROS_WORKSPACE variable
+    # get the content of $ROS_WORKSPACES variable
     # and create an array out of it
-    paths =  os.path.expandvars('$ROS_WORKSPACE')
+    paths =  os.path.expandvars('$ROS_WORKSPACES')
     workspaces = paths.split()
 
     # iterate over all workspaces
@@ -73,7 +73,7 @@ def GetWorkspacePath(filename):
 def GetRosIncludePaths():
     """Return a list of potential include directories
 
-    The directories are looked for in $ROS_WORKSPACE.
+    The directories are looked for in $ROS_WORKSPACES.
     """
     try:
         from rospkg import RosPack
@@ -82,7 +82,7 @@ def GetRosIncludePaths():
     rospack = RosPack()
     includes = []
 
-    paths =  os.path.expandvars('$ROS_WORKSPACE')
+    paths =  os.path.expandvars('$ROS_WORKSPACES')
     words = paths.split()
     for word in words:
         includes.append(os.path.expanduser(word) + '/devel/include')

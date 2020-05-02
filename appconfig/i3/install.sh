@@ -32,7 +32,7 @@ while true; do
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # required for i3-layout-manager
-    sudo apt -y libanyevent-i3-perl
+    sudo apt -y install libanyevent-i3-perl
     [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # install graphical X11 graphical backend with lightdm loading screen

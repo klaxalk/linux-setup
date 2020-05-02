@@ -103,6 +103,8 @@ if g:user_mode == "1"
   "   Plug 'kiddos/deoplete-cpp'
   "   Plug 'deoplete-plugins/deoplete-tag'
 
+  "   " Plug 'dense-analysis/ale'
+  "   Plug 'neomake/neomake'
   " else
   "   Plug 'Shougo/deoplete.nvim'
   "   Plug 'roxma/nvim-yarp'
@@ -551,6 +553,8 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
   " source ~/.vim/pluginconfig/deoplete.vim
+  " source ~/.vim/pluginconfig/neomake.vim
+  " " source ~/.vim/pluginconfig/ale.vim
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " config for youcompleteme

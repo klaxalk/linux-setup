@@ -79,49 +79,6 @@ while true; do
     rm -rf ~/.vim
     ln -fs $APP_PATH/dotvim ~/.vim
 
-    # add variable for ctags sources into .bashrc
-    num=`cat ~/.bashrc | grep "CTAGS_SOURCE_DIR" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "Adding CTAGS_SOURCE_DIR variable to .bashrc"
-      # set bashrc
-      echo '
-      # where should ctags look for sources to parse?
-      # -R dir1 -R dir2 ...
-      export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"' >> ~/.bashrc
-
-    fi
-
-    # add variable for ctags sources into .bashrc
-    num=`cat ~/.bashrc | grep "CTAGS_ONCE_SOURCE_DIR" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "Adding CTAGS_ONCE_SOURCE_DIR variable to .bashrc"
-      # set bashrc
-      echo '
-      # where should ctags look for sources to parse?
-      # CTAGS FROM THOSE FOLDERS WILL BE CREATED ONLY ONCE
-      # -R dir1 -R dir2 ...
-      export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"' >> ~/.bashrc
-
-    fi
-
-    #############################################
-    # adding ROS_WORKSPACE variable to .bashrc
-    #############################################
-
-    # add variable for path to the git repository
-    num=`cat ~/.bashrc | grep "ROS_WORKSPACE" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "Adding ROS_WORKSPACE variable to .bashrc"
-      # set bashrc
-      echo "
-      # path to the ros workspace
-      export ROS_WORKSPACE=\"~/mrs_workspace ~/workspace\"" >> ~/.bashrc
-
-    fi
-
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
 

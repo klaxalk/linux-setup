@@ -1,28 +1,20 @@
 plugins=(git tmuxinator)
 
-# path to the git root
-export ROS_WORKSPACE="~/mrs_workspace ~/workspace"
-
-# where should ctags look for sources to parse?
-# -R dir1 -R dir2 ...
-export CTAGS_SOURCE_DIR="-R ~/mrs_workspace -R ~/workspace"
-
-# where should ctags look for sources to parse?
-# CTAGS FROM THOSE FILE WILL BE CREATED ONLY ONCE
-# -R dir1 -R dir2 ...
-export CTAGS_ONCE_SOURCE_DIR="-R /opt/ros/melodic/include"
+# list (space-separated) of your ROS workspaces
+# used for CTAGS generation, code completion and linting in Vim
+export ROS_WORKSPACES="~/mrs_workspace ~/workspace"
 
 # path to the git root
 export GIT_PATH=~/git
 
-# want to run tmux automatically with new terminal?
+# run Tmux automatically in every normal terminal
 export RUN_TMUX=true
 
-# want to use athame?
+# use Athame in every normal terminal
 export USE_ATHAME=true
 
-# what should be activated/deactivated by epigen?
-export PROFILES_BOTH="COLORSCHEME_DARK"
+# list (space-separated) of profile names for customizing configs
+export PROFILES="COLORSCHEME_DARK"
 
-# sourcing tomas's tmux preparation
+# sourcing Tomas's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc

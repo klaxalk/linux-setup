@@ -126,6 +126,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
+# this caused some problems once, but where?
 $VIM_BIN $HEADLESS -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
 
 #############################################
@@ -141,51 +142,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding GIT_PATH variable to .bashrc"
   # set bashrc
   echo "
-  # path to the git root
-  export GIT_PATH=$TEMP" >> ~/.bashrc
-fi
-
-#############################################
-# add tmux sourcing of dotbashrd to .bashrc
-#############################################
-
-num=`cat ~/.bashrc | grep "RUN_TMUX" | wc -l`
-if [ "$num" -lt "1" ]; then
-
-  default=y
-  while true; do
-    if [[ "$unattended" == "1" ]]
-    then
-      resp=$default
-    else
-      [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mDo you want to run TMUX automatically with every terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
-    fi
-    response=`echo $resp | sed -r 's/(.*)$/\1=/'`
-
-    if [[ $response =~ ^(y|Y)=$ ]]
-    then
-
-      echo "
-      # want to run tmux automatically with new terminal?
-      export RUN_TMUX=true" >> ~/.bashrc
-
-      echo "Setting variable RUN_TMUX to true"
-
-      break
-    elif [[ $response =~ ^(n|N)=$ ]]
-    then
-
-      echo "
-      # want to run tmux automatically with new terminal?
-      export RUN_TMUX=false" >> ~/.bashrc
-
-      echo "Setting variable RUN_TMUX to false"
-
-      break
-    else
-      echo " What? \"$resp\" is not a correct answer. Try y+Enter."
-    fi
-  done
+# path to the git root
+export GIT_PATH=$TEMP" >> ~/.bashrc
 fi
 
 ##################################################
@@ -215,22 +173,15 @@ fi
 # add PROFILES variables
 #############################################
 
-num=`cat ~/.bashrc | grep "PROFILES_BOTH" | wc -l`
+num=`cat ~/.bashrc | grep "PROFILES" | wc -l`
 if [ "$num" -lt "1" ]; then
 
   echo "Adding epigen rules to .bashrc"
   echo '
-  # profiling options for EPIGEN
-  export PROFILES_BOTH="COLORSCHEME_DARK"' >> ~/.bashrc
+# list (space-separated) of profile names for customizing configs
+export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 
 fi
-
-#############################################
-# creating .vimpath file
-#############################################
-
-# path for ctags
-# path for file search
 
 #############################################
 # add sourcing of dotbashrd to .bashrc
@@ -241,8 +192,8 @@ if [ "$num" -lt "1" ]; then
   echo "Adding source to .bashrc"
   # set bashrc
   echo "
-  # source Tomas's Linux Setup
-  source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
+# sourcing Tomas's linux setup
+source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
 
