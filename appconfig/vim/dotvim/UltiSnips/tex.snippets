@@ -79,7 +79,7 @@ snippet color "\color{} " i
 endsnippet
 
 snippet "(TODO|todo)" "" ir
-\{\color{red} TODO ${2:${VISUAL}}}
+\todo{${1:${VISUAL}}}
 endsnippet
 
 snippet texttt "\texttt{}" i
@@ -379,7 +379,7 @@ ${1:${VISUAL}}
 \$\$
 endsnippet
 
-snippet "inmath" "inline math $ .. $" riA
+snippet "inmath" "inline math $ .. $" ri
 \$${1:${VISUAL}}\$
 endsnippet
 
@@ -795,4 +795,20 @@ endsnippet
 
 snippet "\"\"" "" r
 \`\`${1:${VISUAL}}''
+endsnippet
+
+snippet "minus" "\minus" ir
+\minus
+endsnippet
+
+snippet "plus" "\plus" ir
+\plus
+endsnippet
+
+snippet "underbrace" "\underbrace{}" ir
+\underbrace{${1:${VISUAL}}}
+endsnippet
+
+snippet "overbrace" "\overbrace{}" ir
+\overbrace{${1:${VISUAL}}}
 endsnippet

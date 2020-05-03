@@ -482,19 +482,19 @@ snippet "setmm" "" r
 mrs_lib::set_mutexed(${1}, std::tuple(${2}), std::forward_as_tuple($2));
 endsnippet
 
-snippet "floatmin" "" Air
+snippet "floatmin" "" ir
 std::numeric_limits<float>::lowest()
 endsnippet
 
-snippet "floatmax" "" Air
+snippet "floatmax" "" ir
 std::numeric_limits<float>::max()
 endsnippet
 
-snippet "doublemin" "" Air
+snippet "doublemin" "" ir
 std::numeric_limits<double>::lowest()
 endsnippet
 
-snippet "doublemax" "" Air
+snippet "doublemax" "" ir
 std::numeric_limits<double>::max()
 endsnippet
 
