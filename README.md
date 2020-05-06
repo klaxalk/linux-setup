@@ -1,6 +1,6 @@
 # klaxalk's Linux environment
 
-
+|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | Ubuntu       | Status                                                                                                                   |
 | 18.04 Bionic | [![Build Status](https://travis-ci.com/klaxalk/linux-setup.svg?branch=master)](https://travis-ci.com/klaxalk/linu-setup) |
 
