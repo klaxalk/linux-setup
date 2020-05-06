@@ -38,16 +38,19 @@ while true; do
     # required for i3-layout-manager
     sudo apt -y install libanyevent-i3-perl
 
-    # install graphical X11 graphical backend with lightdm loading screen
-    echo ""
-    echo "-----------------------------------------------------------------"
-    echo "Installing lightdm login manager. It might require manual action."
-    echo "-----------------------------------------------------------------"
-    echo "If so, please select \"lightdm\", after hitting Enter"
-    echo ""
-    echo "Waiting for Enter..."
-    echo ""
-    read
+    if [[ $- == *i* ]]; # if running interractively
+    then
+      # install graphical X11 graphical backend with lightdm loading screen
+      echo ""
+      echo "-----------------------------------------------------------------"
+      echo "Installing lightdm login manager. It might require manual action."
+      echo "-----------------------------------------------------------------"
+      echo "If so, please select \"lightdm\", after hitting Enter"
+      echo ""
+      echo "Waiting for Enter..."
+      echo ""
+      read
+    fi
 
     sudo apt -y install lightdm xserver-xorg
 
@@ -55,6 +58,7 @@ while true; do
     sudo apt -y install xutils-dev
 
     cd /tmp
+    [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
     git clone https://github.com/Airblader/xcb-util-xrm
     cd xcb-util-xrm
     git submodule update --init
@@ -72,6 +76,9 @@ while true; do
     sudo make install
     # set the minimal backlight value to 5%
     light -N 5
+    # clean up after the compilation
+    make clean
+    git clean -fd
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/
@@ -128,7 +135,7 @@ while true; do
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
-    mkdir ~/.config/fontconfig
+    mkdir -p ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
 
     # install useful gui utils

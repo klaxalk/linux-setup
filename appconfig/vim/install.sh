@@ -105,7 +105,7 @@ while true; do
 
         cd ~/.vim/plugged/youcompleteme/
         git submodule update --init --recursive
-        python3 ./install.py --all
+        python3 ./install.py --clang-completer
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py

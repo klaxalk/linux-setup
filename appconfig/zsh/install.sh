@@ -49,17 +49,17 @@ while true; do
     sudo ./zsh_athame_setup.sh --notest --use_sudo $NEOVIM
 
     # install oh-my-zsh
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+    [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
     # symlink plugins
-    if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 
     # symlink the .zshrc
-    num=`cat ~/.zshrc | grep "dotzshrc" | wc -l`
+    num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
-      cp $APP_PATH/dotzshrc_template ~/.zshrc
+      cp $APP_PATH/dotzshrc_template $HOME/.zshrc
     fi
 
     break
