@@ -43,7 +43,6 @@ while true; do
     sudo gem install tmuxinator
 
     # symlink tmuxinator settings
-    rm ~/.tmuxinator
     ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator
 
     break
