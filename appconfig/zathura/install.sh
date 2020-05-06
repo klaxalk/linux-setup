@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # needs newer gtk
 # GIRARA_VERSION=0.2.7
 # ZATHURA_VERSION=0.3.7
@@ -46,11 +51,9 @@ while true; do
     if [ -n "$BEAVER" ]; then
 
       sudo apt -y remove zathura libgirara-dev
-      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
       # sudo apt -y remove zathura-pdf-poppler
       sudo apt -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
-      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
       sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
@@ -72,7 +75,6 @@ while true; do
     else
 
       sudo apt -y install zathura
-      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     fi
 
