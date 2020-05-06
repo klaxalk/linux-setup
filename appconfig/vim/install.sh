@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -39,11 +44,9 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
       sudo apt -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
-      [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
     fi
 
     sudo apt -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     sudo -H pip3 install rospkg
 
@@ -99,11 +102,10 @@ while true; do
         toilet Setting up youcompleteme
 
         sudo apt -y install libboost-all-dev
-        [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
         cd ~/.vim/plugged/youcompleteme/
         git submodule update --init --recursive
-        python3 ./install.py --all
+        python3 ./install.py --clang-completer
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -31,10 +36,15 @@ while true; do
 
     # install papis
     cd $APP_PATH/../../submodules/papis/
-    make submodules
-    sudo make install
+    make
 
+    sudo make install
     sudo pip3 install --upgrade whoosh
+
+    # clean up after the compilation
+    make clean
+    git clean -fd
+    git reset --hard
 
     # install papis-zotero
     cd $APP_PATH/../../submodules/papis-zotero/

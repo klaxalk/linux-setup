@@ -30,7 +30,7 @@ try:
     
         # get the content of $ROS_WORKSPACE variable
         # and create an array out of it
-        paths =  os.path.expandvars('$ROS_WORKSPACE')
+        paths =  os.path.expandvars('$ROS_WORKSPACES')
         workspaces = paths.split()
     
         # iterate over all workspaces
