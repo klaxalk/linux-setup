@@ -44,6 +44,7 @@ while true; do
     # clean up after the compilation
     make clean
     git clean -fd
+    git reset --hard
 
     # install papis-zotero
     cd $APP_PATH/../../submodules/papis-zotero/
