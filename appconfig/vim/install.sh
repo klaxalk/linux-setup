@@ -54,7 +54,6 @@ while true; do
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
-      --enable-rubyinterp=yes \
       --enable-python3interp=yes \
       --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
       --enable-perlinterp=yes \
@@ -83,7 +82,7 @@ while true; do
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # updated new plugins and clean old plugins
-    /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "PlugClean" -c "wqa"
+    /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
     default=y
     while true; do
