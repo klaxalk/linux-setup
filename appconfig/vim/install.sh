@@ -46,7 +46,7 @@ while true; do
       sudo apt -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
     fi
 
-    sudo apt -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format ruby-dev
+    sudo apt -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
 
     sudo -H pip3 install rospkg
 
@@ -54,7 +54,6 @@ while true; do
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
-      --enable-rubyinterp=yes \
       --enable-python3interp=yes \
       --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
       --enable-perlinterp=yes \
