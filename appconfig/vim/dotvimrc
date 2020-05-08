@@ -291,7 +291,7 @@ set synmaxcol=400
 " map the leader key
 nnoremap , <NOP>
 let mapleader = ","
-nnoremap <space> <NOP>
+nmap <space> ,
 let maplocalleader = "`"
 
 " wildmenu for file name suggestion while opening
