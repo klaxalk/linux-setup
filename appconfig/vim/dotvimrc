@@ -678,6 +678,9 @@ if g:user_mode == "1"
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
+  " building markdown file
+  nnoremap <leader>hh :AsyncRun ~/.scripts/md2html.sh %:p<cr>
+
 endif
 
 nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
