@@ -91,6 +91,8 @@ TEMPLATE_EXT=.html5
 # Count of '../' for pages buried in subdirs
 ROOT_PATH=""
 
+mkdir -p "$OUTPUTDIR"
+
 tohtml $OVERWRITE $SYNTAX $EXTENSION $OUTPUTDIR $INPUT $TEMPLATE_PATH $TEMPLATE_DEFAULT $TEMPLATE_EXT $ROOT_PATH
 
 xdg-open $OUTPUTDIR/$BASENAME.html
