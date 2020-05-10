@@ -26,16 +26,16 @@ let g:vimwiki_list = [wiki_notes]
 " EPIGEN_ADD_BLOCK_TOMAS {
 
 " let wiki_2 = {}
-" let wiki_2.path = '~/git/wiki_uav_core'
+" let wiki_2.path = '~/git/ctu-mrs.github.io'
 " let wiki_2.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
 " let wiki_2.template_default = 'GitHub'
 " let wiki_2.template_ext = '.html5'
 " let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_2.index = 'home'
+" let wiki_2.index = 'index'
 " let wiki_2.syntax = 'markdown'
 " let wiki_2.ext = '.md'
 " let wiki_2.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let wiki_2.path_html = '~/git/wiki_uav_core/html/'
+" let wiki_2.path_html = '~/git/ctu-mrs.github.io'
 
 " let epigen = {}
 " let epigen.path = '~/git/epigen'

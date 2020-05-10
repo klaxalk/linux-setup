@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -30,7 +35,6 @@ while true; do
   then
 
     sudo apt -y install curl
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame
@@ -45,17 +49,17 @@ while true; do
     sudo ./zsh_athame_setup.sh --notest --use_sudo $NEOVIM
 
     # install oh-my-zsh
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+    [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
     # symlink plugins
-    if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 
     # symlink the .zshrc
-    num=`cat ~/.zshrc | grep "dotzshrc" | wc -l`
+    num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
-      cp $APP_PATH/dotzshrc_template ~/.zshrc
+      cp $APP_PATH/dotzshrc_template $HOME/.zshrc
     fi
 
     break
