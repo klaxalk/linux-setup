@@ -233,22 +233,6 @@ let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_VIT }
 
-" EPIGEN_ADD_BLOCK_MATOUS {
-
-let mbzirc_wiki = {}
-let mbzirc_wiki.path = '~/git/mbzirc2020/wiki'
-let mbzirc_wiki.html_template = '~/git/notes/template/template.html'
-let mbzirc_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-let mbzirc_wiki.index = 'README'
-let mbzirc_wiki.syntax = 'markdown'
-let mbzirc_wiki.ext = '.md'
-let mbzirc_wiki.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
-let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
-
-" let g:vimwiki_list = [mbzirc_wiki]
-
-" EPIGEN_ADD_BLOCK_MATOUS }
-
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
   if v:shell_error
