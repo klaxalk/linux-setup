@@ -40,7 +40,7 @@ while true; do
 
     toilet Setting up vim
 
-    sudo apt -y remove vim-*
+    sudo apt -y remove vim-* || echo ""
 
     if [ -n "$BEAVER" ]; then
       sudo apt -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
