@@ -306,7 +306,7 @@ bindsym $mod+Shift+minus move scratchpad
 for_window [title="pdfpc"] border none floating enable
 
 # bluetooth applet
-exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
+exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIEL
 
 # #{ appearance, colors and color-schemes
 
@@ -901,6 +901,31 @@ set $mode_gaps_inner inner gaps
 # # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 
 # # EPIGEN_ADD_BLOCK_DELL }
+
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioMicMute --release exec --no-startup-id amixer -D pulse sset Capture toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+
+# bindsym XF86AudioPlay exec "mpc toggle"
+# bindsym XF86AudioStop exec "mpc stop"
+# bindsym XF86AudioNext exec "mpc next"
+# bindsym XF86AudioPrev exec "mpc prev"
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 

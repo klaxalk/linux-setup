@@ -207,7 +207,13 @@ if g:user_mode == "1"
 "   nnoremap <localleader>pv :PapisView<cr>
 
   " EPIGEN_ADD_BLOCK_TOMAS }
+  
+  " EPIGEN_ADD_BLOCK_DANIEL {
 
+""Syntax-error highlighting
+"Plug 'vim-syntastic/syntastic'
+  " EPIGEN_ADD_BLOCK_DANIEL }
+  
   if has("nvim")
     Plug 'mklabs/split-term.vim'
     " Plug 'arakashic/chromatica.nvim'
@@ -594,6 +600,10 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_TOMAS {
   " source ~/.vim/pluginconfig/vim-glsl.vim
   " EPIGEN_ADD_BLOCK_TOMAS }
+  "
+  " EPIGEN_ADD_BLOCK_DANIEL {
+  " source ~/.vim/pluginconfig/syntastic.vim
+  " EPIGEN_ADD_BLOCK_DANIEL }
 
 endif
 

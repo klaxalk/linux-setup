@@ -233,6 +233,24 @@ let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_VIT }
 
+" EPIGEN_ADD_BLOCK_DANIEL {
+
+" let wiki_1 = {}
+" let wiki_1.path = '~/git/notes'
+" let wiki_1.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let wiki_1.template_default = 'GitHub'
+" let wiki_1.template_ext = '.html5'
+" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_1.index = 'index'
+" let wiki_1.syntax = 'markdown'
+" let wiki_1.ext = '.md'
+" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_1.path_html = '~/git/notes/html'
+
+" let g:vimwiki_list = [wiki_1]
+
+" EPIGEN_ADD_BLOCK_DANIEL }
+
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
   if v:shell_error
