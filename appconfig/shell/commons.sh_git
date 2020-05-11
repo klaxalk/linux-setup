@@ -92,8 +92,14 @@ git() {
   case $* in
 
     push*)
+
       was_github=$(command git remote get-url origin | grep 'https://github.com' | wc -l)
+
+      # change remote to ssh
       [ "$was_github" -ge 1 ] && git2ssh
+
+      # run the original command
+      command git "$@"
       ;;
 
     pull*|checkout*|"reset --hard")
@@ -279,7 +285,7 @@ slack() {
 
 # #}
 
-# #{ auto-retry() 
+# #{ auto-retry()
 
 # from https://musigma.blog/2016/12/03/ssh-auto-retry.html
 function auto-retry()
