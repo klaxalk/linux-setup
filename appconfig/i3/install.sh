@@ -152,7 +152,7 @@ while true; do
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
     # install prime-select (for switching gpus)
-    sudo apt -y install nvidia-prime
+    # sudo apt -y install nvidia-prime
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

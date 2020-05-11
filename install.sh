@@ -48,7 +48,7 @@ else
 fi
 
 # other stuff
-sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel xserver-xorg-video-intel exfat-fuse exfat-utils xserver-xorg-input-synaptics blueman autossh jq xvfb gparted espeak xserver-xorg-input-all
+sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
 
 if [ "$unattended" == "0" ]
 then
@@ -205,4 +205,4 @@ fi
 toilet All Done
 
 # say some tips to the new user
-echo "Huray, the 'Linux Setup' should be ready, try opening new terminal."
+echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
