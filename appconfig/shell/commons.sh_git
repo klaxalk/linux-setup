@@ -28,99 +28,136 @@ cd_media() {
 
 # #}
 
+# #{ git2https()
+
+git2https() {
+
+  old_remote=$(git remote get-url origin)
+  echo Old remote: $old_remote
+
+  new_remote=$(echo $old_remote | sed -r 's|.*git@(.+):(.+)|https://\1/\2|' | head -n 1)
+  echo New remote: $new_remote
+
+  if [ -n "$new_remote" ]; then
+    git remote set-url origin "$new_remote"
+  fi
+}
+
+# #}
+
+# #{ git2ssh()
+
+git2ssh() {
+
+  old_remote=$(git remote get-url origin)
+  echo Old remote: $old_remote
+
+  new_remote=$(echo $old_remote | sed -r 's|https://([^/]+)/(.+)|git@\1:\2|' | head -n 1)
+  echo New remote: $new_remote
+
+  if [ -n "$new_remote" ]; then
+    git remote set-url origin "$new_remote"
+  fi
+}
+
+# #}
+
+# #{ gitUpdateSubmodules()
+
+gitUpdateSubmodules() {
+
+  echo "Syncing git submodules"
+  command git submodule sync
+  echo "Updating git submodules"
+  command git submodule update --init --recursive
+
+  if [ -e .gitman.yml ]; then
+    if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
+      echo "Updating gitman sub-repos"
+      gitman install
+    else
+      echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
+    fi
+  fi
+}
+
+# #}
+
 # #{ git()
 
 # upgrades the "git pull" to allow dotfiles profiling on linux-setup
 # Other "git" features should not be changed
 git() {
 
-  case $* in pull*|checkout*|"reset --hard")
+  case $* in
 
-    # give me the path to root of the repo we are in
-    ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
+    push*)
+      was_github=$(command git remote get-url origin | grep 'https://github.com' | wc -l)
+      [ "$was_github" -ge 1 ] && git2ssh
+      ;;
 
-    if [[ "$?" == "0" ]]; then
+    pull*|checkout*|"reset --hard")
 
-      # if we are in the 'linux-setup' repo, use the Profile manager
-      if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
+      # give me the path to root of the repo we are in
+      ROOT_DIR=`git rev-parse --show-toplevel` 2> /dev/null
 
-        PROFILE_MANAGER="$GIT_PATH/linux-setup/submodules/profile_manager/profile_manager.sh"
+      # we are in git repo subfolder
+      if [[ "$?" == "0" ]]; then
 
-        bash -c "$PROFILE_MANAGER backup $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+        # if we are in the 'linux-setup' repo, use the Profile manager
+        if [[ "$ROOT_DIR" == "$GIT_PATH/linux-setup" ]]; then
 
-        command git "$@"
+          PROFILE_MANAGER="$GIT_PATH/linux-setup/submodules/profile_manager/profile_manager.sh"
 
-        if [[ "$?" == "0" ]]; then
-          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-            echo "Syncing git submodules"
-            command git submodule sync
-            echo "Updating git submodules"
-            command git submodule update --init --recursive
+          bash -c "$PROFILE_MANAGER backup $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
 
-            if [ -e .gitman.yml ]; then
-              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-                echo "Updating gitman sub-repos"
-                gitman install
-              else
-                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-              fi
-            fi
-          esac
+          command git "$@"
+
+          if [[ "$?" == "0" ]]; then
+            case $* in
+              pull*|checkout*) # TODO: should only work for checkout of a branch
+                gitUpdateSubmodules
+                ;;
+            esac
+          fi
+
+          if [[ "$?" == "0" ]]; then
+            bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
+          fi
+
+        # this is generic git repo subfolder
+        else
+
+          command git "$@"
+
+          if [[ "$?" == "0" ]]; then
+            case $* in
+              pull*|checkout*) # TODO: should only work for checkout of a branch
+                gitUpdateSubmodules
+                ;;
+            esac
+          fi
+
         fi
 
-        if [[ "$?" == "0" ]]; then
-          bash -c "$PROFILE_MANAGER deploy $GIT_PATH/linux-setup/appconfig/profile_manager/file_list.txt"
-        fi
-
+      # we are not aware of being in a git subfolder
       else
 
+        # lets run the command as it would originally would
         command git "$@"
 
+        # and if it somehow succeeds, just update the submodules
         if [[ "$?" == "0" ]]; then
-          case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-            echo "Syncing git submodules"
-            command git submodule sync
-            echo "Updating git submodules"
-            command git submodule update --init --recursive
-
-            if [ -e .gitman.yml ]; then
-              if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-                echo "Updating gitman sub-repos"
-                gitman install
-              else
-                echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-              fi
-            fi
+          case $* in
+            pull*|checkout*) # TODO: should only work for checkout of a branch
+              gitUpdateSubmodules
+              ;;
           esac
         fi
-
       fi
-
-    else
-
+      ;;
+    *)
       command git "$@"
-
-      if [[ "$?" == "0" ]]; then
-        case $* in pull*|checkout*) # TODO: should only work for checkout of a branch
-          echo "Syncing git submodules"
-          command git submodule sync
-          echo "Updating git submodules"
-          command git submodule update --init --recursive
-
-          if [ -e .gitman.yml ]; then
-            if [[ ! $(git status .gitman.yml --porcelain) ]]; then # if .gitman.yml is unchanged
-              echo "Updating gitman sub-repos"
-              gitman install
-            else
-              echo -e "\e[31m.gitman.yml modified, not updating sub-repos\e[0m"
-            fi
-          fi
-        esac
-      fi
-    fi
-    ;;
-  *)
-    command git "$@"
     ;;
 
   esac
