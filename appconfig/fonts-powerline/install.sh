@@ -27,19 +27,30 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall playerctl to control music from terminal (from debian repos)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall powerline fonts? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up playerctl
+    toilet Setting up powerline fonts
 
-    wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb -O "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb"
-    wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb -O "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
-    sudo dpkg -i "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb" "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
-    rm "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb" "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
+    cd $APP_PATH/../../submodules/fonts
+
+    # apply our patch to change the font installation dir
+    # git apply $APP_PATH/patch.patch
+
+    ./install.sh
+
+    # make Terminus work
+    mkdir -p ~/.config/fontconfig/conf.d
+    cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
+    fc-cache -vf
+
+    # undo the patch
+    # git reset --hard
+    cd $APP_PATH
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

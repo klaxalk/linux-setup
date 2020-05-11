@@ -5,7 +5,7 @@ INCREMENT=10
 MINIMAL=5
 
 # set the minimal backlight value
-light -c -S $MINIMAL
+light -N $MINIMAL
 
 if [ $# -eq 0 ]; then
   echo Current brightness is: $(light -G)
@@ -19,7 +19,7 @@ else
 fi
 
 # raw maximal brightness value
-max_brightness=$(light -m -r -G)
+max_brightness=$(light -G -r)
 
 # raw minimal brightness value
 min_brightness=$(( $MINIMAL * $max_brightness / 100 ))

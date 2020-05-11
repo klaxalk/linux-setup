@@ -76,3 +76,9 @@
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "submodules/i3blocks"]
+	path = submodules/i3blocks
+	url = https://github.com/vivien/i3blocks.git
+[submodule "submodules/ranger"]
+	path = submodules/ranger
+	url = https://github.com/ranger/ranger

@@ -7,6 +7,16 @@ else
   source ~/."$SNAME"rc
 fi
 
+if [[ $# -gt 0 ]]; then
+  if [[ "$1" != "HP" ]] && [[ "$1" != "LENOVO" ]]; then
+    notify-send -u low -t 1500 "Supported models: HP, LENOVO" -h string:x-canonical-private-synchronous:anything
+    exit
+  fi
+else
+    notify-send -u low -t 1500 "PC model required. Supported models: HP, LENOVO" -h string:x-canonical-private-synchronous:anything
+    exit
+fi
+
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
 MONITOR=$(echo "LAB
@@ -32,9 +42,14 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
+MODEL_PREFIX_LOWERCASE=""
+if [[ "$MONITOR" == "HOME" ]] || [[ "$MONITOR" == "LAB" ]]; then
+  MODEL_PREFIX_LOWERCASE="$(echo $1 | awk '{print tolower($0)}')_"
+fi
+
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/pavel/hp_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/pavel/$MODEL_PREFIX_LOWERCASE$MONITOR_LOWERCASE.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc

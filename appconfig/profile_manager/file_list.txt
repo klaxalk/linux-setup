@@ -15,3 +15,4 @@ $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify_git.vim, $G
 $GIT_PATH/linux-setup/appconfig/silver_searcher/dotignore, ~/.ignore, \#\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
+$GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s

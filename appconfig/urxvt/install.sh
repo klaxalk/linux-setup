@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -31,22 +36,9 @@ while true; do
 
     # install urvxt
     sudo apt -y install rxvt-unicode-256color
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
 
-    # link the configuration
-    cp $APP_PATH/dotXresources ~/.Xresources
-
-    var1="18.04"
-    var2=`lsb_release -r | awk '{ print $2 }'`
-    if [ "$var2" = "$var1" ]; then
-      export BEAVER=1
-    fi
-
-    EXTENSION_PATH="/usr/lib/urxvt/perl"
-
-    if [ -n "$BEAVER" ]; then
-      EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
-    fi
+    EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
+    sudo mkdir -p $EXTENSION_PATH
 
     # link extensions
     for file in `ls $APP_PATH/extensions/`; do

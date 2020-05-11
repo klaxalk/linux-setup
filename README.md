@@ -1,9 +1,15 @@
 # klaxalk's Linux environment
 
+| Ubuntu       | Status                                                                                                                    |
+|--------------|---------------------------------------------------------------------------------------------------------------------------|
+| 18.04 Bionic | [![Build Status](https://travis-ci.com/klaxalk/linux-setup.svg?branch=master)](https://travis-ci.com/klaxalk/linux-setup) |
+
+## Summary
+
 This repo contains settings of klaxalk's Linux work environment.
 
 It could be summarized as follows:
-* **Ubuntu 18.04**
+* **Ubuntu 18.04 or 20.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)

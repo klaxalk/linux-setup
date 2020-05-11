@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -16,6 +21,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=n
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -29,8 +38,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texmaker texlive-fonts-extra texlive-bibtex-extra biber
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    sudo apt -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science latexmk texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
+
+    # TODO
+    # pdftk
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

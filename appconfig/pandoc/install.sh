@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -16,6 +21,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -29,9 +38,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    cd /tmp
-    wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
-    sudo dpkg -i pandoc-2.7.2-1-amd64.deb
+    if [ -n "$BEAVER" ]; then
+      cd /tmp
+      wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
+      sudo dpkg -i pandoc-2.7.2-1-amd64.deb
+    else
+      sudo apt -y install pandoc
+    fi
 
     break
 

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -16,7 +21,7 @@ do
   fi
 done
 
-default=n
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -31,11 +36,10 @@ while true; do
 
     toilet Installing neovim
 
-    sudo apt-add-repository ppa:neovim-ppa/unstable
+    sudo apt-add-repository -y ppa:neovim-ppa/unstable
     sudo apt update
 
     sudo apt -y install neovim
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
     mkdir -p ~/.config/nvim/
 
     sudo -H pip3 install neovim

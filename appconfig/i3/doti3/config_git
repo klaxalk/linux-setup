@@ -122,7 +122,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
+# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
+# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -400,6 +402,8 @@ bar {
   i3bar_command i3bar -t
 
   font pango: Terminus, FontAwesome 10
+
+  tray_output primary
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
@@ -784,9 +788,6 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
 
-# # Monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
-
 # # Default keyboard US, alt+shift to switch between US and CZ
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
 
@@ -805,6 +806,12 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
+# # # Move workspace to another monitor
+# # bindsym $mod+x move workspace to output right
+#
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
+
 # # # Bind HP screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
@@ -822,6 +829,12 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Move workspace to another monitor
+# # bindsym $mod+x move workspace to output up
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
 
 # # # Not so fancy compton stuff
 # # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
@@ -980,19 +993,19 @@ for_window [class="^Google-chrome$"] floating disable
 for_window [title="^Figure"] floating disable
 for_window [title="market"] floating disable
 for_window [instance="scratchpadurxvt"] move scratchpad
-for_window [title="GIMP Startup"] move workspace $workspace8
+# for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [title="float_pls"] floating enable
 for_window [title="optic_flow"] floating disable
-for_window [class="^Gimp$"] move workspace $workspace9
+# for_window [class="^Gimp$"] move workspace $workspace9
 
 # EPIGEN_ADD_BLOCK_TOMAS {
-# for_window [title="Gazebo"] move workspace $workspace9
+# # for_window [title="Gazebo"] move workspace $workspace9
 # # for_window [class="rviz"] move workspace $workspace9
-# for_window [title="rqt_market"] move workspace $workspace9
+# # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="Matplotlib"] floating disable
 # for_window [title="pdfpc"] border none floating enable
-# # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating disable
+# for_window [title="VZLUSAT-1 X-Ray data decoder"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {

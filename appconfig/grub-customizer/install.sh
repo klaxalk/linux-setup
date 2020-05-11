@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -16,7 +21,11 @@ do
   fi
 done
 
-default=n
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -29,13 +38,12 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    if [ -n "$BEAVER" ]; then
+      sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+      sudo apt update
+    fi
 
-    # install pdftk
-    sudo add-apt-repository ppa:danielrichter2007/grub-customizer
-    sudo apt update
-
-    sudo apt-get install grub-customizer
+    sudo apt -y install grub-customizer
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

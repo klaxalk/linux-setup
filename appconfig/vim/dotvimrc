@@ -27,6 +27,9 @@ if g:user_mode == "1"
   " fugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
 
+  " showing git changes in the file
+  Plug 'airblade/vim-gitgutter'
+
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
@@ -42,7 +45,7 @@ if g:user_mode == "1"
   ""For saving files with sudo from normal vim
   "Plug 'lambdalisue/suda.vim'
 
-  ""For maximum focus
+  ""An essential component for my isolation mode - when the brain refuses to cooperate
   "Plug 'junegunn/goyo.vim'
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   
@@ -84,7 +87,6 @@ if g:user_mode == "1"
   " Shows tags in the file
   " currently mapped to F8
   Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
-
   " Plug 'xolox/vim-easytags'
   " Plug 'xolox/vim-misc'
   " let g:easytags_async=1
@@ -94,13 +96,30 @@ if g:user_mode == "1"
   " let g:easytags_syntax_keyword='always'
   " let g:easytags_always_enabled=1
   " let g:easytags_updatetime_min=1000
+  
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " if has('nvim')
+  "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "   Plug 'kiddos/deoplete-cpp'
+  "   Plug 'deoplete-plugins/deoplete-tag'
 
+  "   " Plug 'dense-analysis/ale'
+  "   Plug 'neomake/neomake'
+  " else
+  "   Plug 'Shougo/deoplete.nvim'
+  "   Plug 'roxma/nvim-yarp'
+  "   Plug 'roxma/vim-hug-neovim-rpc'
+  " endif
+  " let g:deoplete#enable_at_startup = 1
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " youcompleteme
   " automatic code completion for C++ and more
   " Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
   Plug 'valloric/youcompleteme', { 'commit': '1386c6b' }
   " Plug 'valloric/youcompleteme'
   " Plug 'davits/dyevim'
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
@@ -272,7 +291,7 @@ set synmaxcol=400
 " map the leader key
 nnoremap , <NOP>
 let mapleader = ","
-nnoremap <space> <NOP>
+nmap <space> ,
 let maplocalleader = "`"
 
 " wildmenu for file name suggestion while opening
@@ -532,9 +551,16 @@ if g:user_mode == "1"
   " config for GoldenView
   source ~/.vim/pluginconfig/GoldenView.vim
 
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " source ~/.vim/pluginconfig/deoplete.vim
+  " source ~/.vim/pluginconfig/neomake.vim
+  " " source ~/.vim/pluginconfig/ale.vim
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " config for youcompleteme
   source ~/.vim/pluginconfig/youcompleteme.vim
-
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+ 
   " config for vim-ros
   source ~/.vim/pluginconfig/vim-ros.vim
 
@@ -614,26 +640,7 @@ if g:user_mode == "1"
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
-  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  "     let g:airline_theme='jellybeans'
-  "   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " "   let g:lightline = {
-  " "       \ 'colorscheme': 'wombat',
-  " "       \ }
-  " "   hi NonText guibg=NONE ctermbg=NONE
-  " "   hi TabLineSel ctermbg=45
-  " "   hi TabLineFill ctermbg=45
-  " "   hi TabLine ctermbg=0 ctermfg=45
-  " "   hi Title ctermbg=45
-  " "   hi StartifyHeader ctermfg=39 cterm=bold
-  " "   hi StartifyFooter ctermfg=39 cterm=bold
-  " "   hi Normal ctermfg=39
-  " "   hi Normal guibg=NONE ctermbg=NONE
-  " "   hi NonText guibg=NONE ctermbg=NONE
-  " "   hi ColorColumn ctermbg=100
-  " "   call matchadd('ColorColumn', '\%81v',100)
-  "   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " let g:airline_theme='jellybeans'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -670,6 +677,9 @@ if g:user_mode == "1"
     hi def link epigenDel Constant
   endfunction
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
+
+  " building markdown file
+  nnoremap <leader>hh :AsyncRun ~/.scripts/md2html.sh %:p<cr>
 
 endif
 
