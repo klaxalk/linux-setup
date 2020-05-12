@@ -998,6 +998,8 @@ for_window [title="Figure"] floating enable
 for_window [title="float_pls"] floating enable
 for_window [title="optic_flow"] floating disable
 # for_window [class="^Gimp$"] move workspace $workspace9
+for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
+for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9
