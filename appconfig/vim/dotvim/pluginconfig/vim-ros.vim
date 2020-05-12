@@ -5,6 +5,10 @@ let g:ros_build_system='catkin-tools'
 
 au BufNewFile,BufRead *.launch set filetype=roslaunch.xml
 
+" enable spell checking for message and service files
+au BufNewFile,BufRead *.msg setlocal spell spelllang=en_us
+au BufNewFile,BufRead *.srv setlocal spell spelllang=en_us
+
 function! PrepRos()
   python3 << EOS
 try:
@@ -26,7 +30,7 @@ try:
     
         # get the content of $ROS_WORKSPACE variable
         # and create an array out of it
-        paths =  os.path.expandvars('$ROS_WORKSPACE')
+        paths =  os.path.expandvars('$ROS_WORKSPACES')
         workspaces = paths.split()
     
         # iterate over all workspaces

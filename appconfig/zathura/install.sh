@@ -1,10 +1,16 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # needs newer gtk
 # GIRARA_VERSION=0.2.7
 # ZATHURA_VERSION=0.3.7
 # ZATHURA_PDF_POPPLER_VERSION=0.2.7
 
+# 18.04
 GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
 ZATHURA_PDF_POPPLER_VERSION=0.2.7
@@ -25,6 +31,10 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -38,29 +48,35 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y remove zathura libgirara-dev
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+    if [ -n "$BEAVER" ]; then
 
-    # sudo apt -y remove zathura-pdf-poppler
-    sudo apt -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.."; read; fi
+      sudo apt -y remove zathura libgirara-dev
 
-    sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
+      # sudo apt -y remove zathura-pdf-poppler
+      sudo apt -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
 
-    cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
-    cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
-    cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
+      sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
-    # cd /tmp/girara
-    # sudo make uninstall
+      cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
+      cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
+      cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
 
-    # cd /tmp/zathura
-    # sudo make uninstall
+      # cd /tmp/girara
+      # sudo make uninstall
 
-    # cd /tmp/zathura-pf-poppler
-    # sudo make uninstall
+      # cd /tmp/zathura
+      # sudo make uninstall
 
-    sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
+      # cd /tmp/zathura-pf-poppler
+      # sudo make uninstall
+
+      sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
+
+    else
+
+      sudo apt -y install zathura
+
+    fi
 
     mkdir -p ~/.config/zathura
 

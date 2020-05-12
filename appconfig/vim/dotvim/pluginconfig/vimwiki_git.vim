@@ -9,41 +9,33 @@
 "   return 0
 " endfun
 
-let mbzirc_wiki = {}
-let mbzirc_wiki.path = '~/git/mbzirc2020/wiki'
-let mbzirc_wiki.html_template = '~/git/notes/template/template.html'
-let mbzirc_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-let mbzirc_wiki.index = 'README'
-let mbzirc_wiki.syntax = 'markdown'
-let mbzirc_wiki.ext = '.md'
-let mbzirc_wiki.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
-let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
+let wiki_notes = {}
+let wiki_notes.path = '~/git/notes'
+let wiki_notes.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+let wiki_notes.template_default = 'GitHub'
+let wiki_notes.template_ext = '.html5'
+let wiki_notes.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+let wiki_notes.index = 'index'
+let wiki_notes.syntax = 'markdown'
+let wiki_notes.ext = '.md'
+let wiki_notes.custom_wiki2html = '~/git/notes/wiki2html.sh'
+let wiki_notes.path_html = '~/git/notes/html'
+
+let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_TOMAS {
 
-" let wiki_1 = {}
-" let wiki_1.path = '~/git/notes'
-" let wiki_1.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
-" let wiki_1.template_default = 'GitHub'
-" let wiki_1.template_ext = '.html5'
-" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_1.index = 'index'
-" let wiki_1.syntax = 'markdown'
-" let wiki_1.ext = '.md'
-" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
-" let wiki_1.path_html = '~/git/notes/html'
-
 " let wiki_2 = {}
-" let wiki_2.path = '~/git/wiki_uav_core'
+" let wiki_2.path = '~/git/ctu-mrs.github.io'
 " let wiki_2.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
 " let wiki_2.template_default = 'GitHub'
 " let wiki_2.template_ext = '.html5'
 " let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_2.index = 'home'
+" let wiki_2.index = 'index'
 " let wiki_2.syntax = 'markdown'
 " let wiki_2.ext = '.md'
 " let wiki_2.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let wiki_2.path_html = '~/git/wiki_uav_core/html/'
+" let wiki_2.path_html = '~/git/ctu-mrs.github.io'
 
 " let epigen = {}
 " let epigen.path = '~/git/epigen'
@@ -105,21 +97,11 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let i3_layout_manager.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let i3_layout_manager.path_html = '~/git/i3-layout-manager/html/'
 
-" let g:vimwiki_list = [wiki_1, wiki_2, mbzirc_wiki, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils, i3_layout_manager]
+" let g:vimwiki_list = [wiki_notes, wiki_2, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils, i3_layout_manager]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 
 " EPIGEN_ADD_BLOCK_MATEJ {
-
-" let wiki_notes = {}
-" let wiki_notes.path = '~/git/notes'
-" let wiki_notes.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
-" let wiki_notes.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_notes.index = 'readme'
-" let wiki_notes.syntax = 'markdown'
-" let wiki_notes.ext = '.md'
-" let wiki_notes.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let wiki_notes.path_html = '~/git/notes/html'
 
 " let wiki_exam = {}
 " let wiki_exam.path = '~/git/state_exam'
@@ -151,41 +133,23 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let g:vimwiki_list = [wiki_notes, wiki_exam, naki, mbzirc_wiki]
+" let g:vimwiki_list = [wiki_notes, wiki_exam, naki]
 
 " EPIGEN_ADD_BLOCK_MATEJ }
 
 " EPIGEN_ADD_BLOCK_VOJTA {
 
-" let wiki_1 = {}
-" let wiki_1.path = '~/git/notes'
-" let wiki_1.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
-" let wiki_1.template_default = 'GitHub'
-" let wiki_1.template_ext = '.html5'
-" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_1.index = 'index'
-" let wiki_1.syntax = 'markdown'
-" let wiki_1.ext = '.md'
-" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
-" let wiki_1.path_html = '~/git/notes/html'
-
-" let g:vimwiki_list = [wiki_1]
+" let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_VOJTA }
 
-" EPIGEN_ADD_BLOCK_PAVEL {
+" EPIGEN_ADD_BLOCK_DAN {
 
-" let wiki_1 = {}
-" let wiki_1.path = '~/git/notes'
-" let wiki_1.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
-" let wiki_1.template_default = 'GitHub'
-" let wiki_1.template_ext = '.html5'
-" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_1.index = 'index'
-" let wiki_1.syntax = 'markdown'
-" let wiki_1.ext = '.md'
-" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
-" let wiki_1.path_html = '~/git/notes/html'
+" let g:vimwiki_list = [wiki_notes]
+
+" EPIGEN_ADD_BLOCK_DAN }
+
+" EPIGEN_ADD_BLOCK_PAVEL {
 
 " let wiki_school = {}
 " let wiki_school.path = '~/git/notes/school'
@@ -223,7 +187,7 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " let wiki_darpa.custom_wiki2html = '~/git/notes/wiki2html.sh'
 " let wiki_darpa.path_html = '~/git/notes/html'
 
-" let g:vimwiki_list = [wiki_1, wiki_school, wiki_naki, wiki_darpa]
+" let g:vimwiki_list = [wiki_notes, wiki_school, wiki_naki, wiki_darpa]
 
 " " EPIGEN_ADD_BLOCK_DARPA {
 
@@ -239,13 +203,37 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 " " let wiki_darpa_shared.custom_wiki2html = '~/git/notes_darpa/wiki2html.sh'
 " " let wiki_darpa_shared.path_html = '~/git/notes_darpa/html'
 
-" " let g:vimwiki_list = [wiki_1, wiki_school, wiki_naki, wiki_darpa, wiki_darpa_shared]
+" " let g:vimwiki_list = [wiki_notes, wiki_school, wiki_naki, wiki_darpa, wiki_darpa_shared]
 
 " " EPIGEN_ADD_BLOCK_DARPA }
 
 " EPIGEN_ADD_BLOCK_PAVEL }
 
 " EPIGEN_ADD_BLOCK_VIT {
+
+" let g:vimwiki_list = [wiki_note3s]
+
+" " EPIGEN_ADD_BLOCK_DARPA {
+
+" " let wiki_darpa_shared = {}
+" " let wiki_darpa_shared.path = '~/git/notes_darpa'
+" " let wiki_darpa_shared.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" " let wiki_darpa_shared.template_default = 'GitHub'
+" " let wiki_darpa_shared.template_ext = '.html5'
+" " let wiki_darpa_shared.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" " let wiki_darpa_shared.index = 'index'
+" " let wiki_darpa_shared.syntax = 'markdown'
+" " let wiki_darpa_shared.ext = '.md'
+" " let wiki_darpa_shared.custom_wiki2html = '~/git/notes_darpa/wiki2html.sh'
+" " let wiki_darpa_shared.path_html = '~/git/notes_darpa/html'
+
+" " let g:vimwiki_list = [wiki_notes, wiki_darpa_shared]
+
+" " EPIGEN_ADD_BLOCK_DARPA }
+
+" EPIGEN_ADD_BLOCK_VIT }
+
+" EPIGEN_ADD_BLOCK_DANIEL {
 
 " let wiki_1 = {}
 " let wiki_1.path = '~/git/notes'
@@ -261,31 +249,7 @@ let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
 
 " let g:vimwiki_list = [wiki_1]
 
-" " EPIGEN_ADD_BLOCK_DARPA {
-
-" " let wiki_darpa_shared = {}
-" " let wiki_darpa_shared.path = '~/git/notes_darpa'
-" " let wiki_darpa_shared.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
-" " let wiki_darpa_shared.template_default = 'GitHub'
-" " let wiki_darpa_shared.template_ext = '.html5'
-" " let wiki_darpa_shared.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" " let wiki_darpa_shared.index = 'index'
-" " let wiki_darpa_shared.syntax = 'markdown'
-" " let wiki_darpa_shared.ext = '.md'
-" " let wiki_darpa_shared.custom_wiki2html = '~/git/notes_darpa/wiki2html.sh'
-" " let wiki_darpa_shared.path_html = '~/git/notes_darpa/html'
-
-" " let g:vimwiki_list = [wiki_1, wiki_darpa_shared]
-
-" " EPIGEN_ADD_BLOCK_DARPA }
-
-" EPIGEN_ADD_BLOCK_VIT }
-
-" EPIGEN_ADD_BLOCK_MATOUS {
-
-" let g:vimwiki_list = [mbzirc_wiki]
-
-" EPIGEN_ADD_BLOCK_MATOUS }
+" EPIGEN_ADD_BLOCK_DANIEL }
 
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
@@ -298,12 +262,15 @@ function! AutoGitCommit()
   call system('git push')
 endfun
 
+"  spellchecking
+" au BufNewFile,BufRead *.md setlocal spell spelllang=en_us
+
 " autocmd BufWritePost */notes/* call VimuxRunCommand("cd ~/git/notes; nohup ./save_and_update.sh & exit       ")
 " autocmd BufWritePost */notes/* AsyncRun bash -c ~/git/notes/save_and_update.sh
 
 " indention in insert mode
-autocmd BufRead */notes/* inoremap > <esc>ma>>`amalla
-autocmd BufRead */notes/* inoremap < <esc>ma<<`amaa
+" autocmd BufRead */notes/* inoremap > <esc>ma>>`amalla
+" autocmd BufRead */notes/* inoremap < <esc>ma<<`amaa
 
 nmap <Leader>wah :VimwikiAll2HTML<CR>:Vimwiki2HTMLBrowse<CR>
 

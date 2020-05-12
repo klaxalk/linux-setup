@@ -161,6 +161,15 @@ case ${2}: {
 }
 endsnippet
 
+snippet case
+case ${1}: {
+
+	${2}
+
+	break;
+}
+endsnippet
+
 snippet comment
 /*
 ${0:${VISUAL}}
@@ -441,7 +450,7 @@ for (auto it = std::cbegin(${1:data}); it != std::cend($1); ++it)
 }
 endsnippet
 
-snippet "unused" "" Air
+snippet "unused" "" ir
 [[maybe_unused]]
 endsnippet
 
@@ -473,22 +482,46 @@ snippet "setmm" "" r
 mrs_lib::set_mutexed(${1}, std::tuple(${2}), std::forward_as_tuple($2));
 endsnippet
 
-snippet "floatmin" "" Air
+snippet "floatmin" "" ir
 std::numeric_limits<float>::lowest()
 endsnippet
 
-snippet "floatmax" "" Air
+snippet "floatmax" "" ir
 std::numeric_limits<float>::max()
 endsnippet
 
-snippet "doublemin" "" Air
+snippet "doublemin" "" ir
 std::numeric_limits<double>::lowest()
 endsnippet
 
-snippet "doublemax" "" Air
+snippet "doublemax" "" ir
 std::numeric_limits<double>::max()
 endsnippet
 
 snippet "ss" "" r
 std::stringstream ss;
+endsnippet
+
+snippet "printf" "" r
+printf("${1}\n", ${2});
+endsnippet
+
+snippet "print" "" r
+printf("${1}\n");
+endsnippet
+
+snippet "att" "" ri
+mrs_lib::AttitudeConverter(${1})${2};
+endsnippet
+
+snippet "tuple" "" ri
+std::tuple(${1})
+endsnippet
+
+snippet "getheading" "" ri
+try {
+	${1} = mrs_lib::getHeading(${2});
+} catch (mrs_lib::AttitudeConverter::GetHeadingException e) {
+	ROS_ERROR_THROTTLE(1.0, "[${3}]: exception caught: '%s'", e.what());
+}
 endsnippet

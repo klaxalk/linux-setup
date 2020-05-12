@@ -6,3 +6,5 @@ map c set recolor true
 
 map u navigate next
 map i navigate previous
+
+set selection-clipboard clipboard
