@@ -1004,7 +1004,7 @@ exec ~/.monitor.sh
 exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL
 
 # sound-card control
-exec --no-startup-id indicator-sound-switcher
+exec_always --no-startup-id indicator-sound-switcher
 
 # #}
 
