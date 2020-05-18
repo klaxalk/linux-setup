@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
@@ -29,31 +34,31 @@ while true; do
   then
 
     sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # required for i3-layout-manager
     sudo apt -y install libanyevent-i3-perl
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
-    # install graphical X11 graphical backend with lightdm loading screen
-    echo ""
-    echo "-----------------------------------------------------------------"
-    echo "Installing lightdm login manager. It might require manual action."
-    echo "-----------------------------------------------------------------"
-    echo "If so, please select \"lightdm\", after hitting Enter"
-    echo ""
-    echo "Waiting for Enter..."
-    echo ""
-    read
+    if [[ $- == *i* ]]; # if running interractively
+    then
+      # install graphical X11 graphical backend with lightdm loading screen
+      echo ""
+      echo "-----------------------------------------------------------------"
+      echo "Installing lightdm login manager. It might require manual action."
+      echo "-----------------------------------------------------------------"
+      echo "If so, please select \"lightdm\", after hitting Enter"
+      echo ""
+      echo "Waiting for Enter..."
+      echo ""
+      read
+    fi
 
     sudo apt -y install lightdm xserver-xorg
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # compile i3 dependency which is not present in the repo
     sudo apt -y install xutils-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd /tmp
+    [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
     git clone https://github.com/Airblader/xcb-util-xrm
     cd xcb-util-xrm
     git submodule update --init
@@ -64,7 +69,6 @@ while true; do
     # install light for display backlight control
     # compile i3
     sudo apt -y install help2man
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
@@ -72,6 +76,9 @@ while true; do
     sudo make install
     # set the minimal backlight value to 5%
     light -N 5
+    # clean up after the compilation
+    make clean
+    git clean -fd
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/
@@ -102,15 +109,12 @@ while true; do
 
     # for brightness and volume control
     sudo apt -y install xbacklight alsa-utils pulseaudio feh arandr acpi
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # for making gtk look better
     sudo apt -y install lxappearance 
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     # indicator-sound-switcher
     sudo apt -y install libappindicator3-dev
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
@@ -131,12 +135,11 @@ while true; do
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
-    mkdir ~/.config/fontconfig
+    mkdir -p ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
 
     # install useful gui utils
     sudo apt -y install thunar rofi compton systemd
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
@@ -149,8 +152,7 @@ while true; do
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
     # install prime-select (for switching gpus)
-    sudo apt -y install nvidia-prime
-    [ "$?" != "0" ] && echo "Something went while installing packages. Send this log to Tomas. Press enter to continue." && read
+    # sudo apt -y install nvidia-prime
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

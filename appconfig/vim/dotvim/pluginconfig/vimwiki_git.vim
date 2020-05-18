@@ -26,16 +26,16 @@ let g:vimwiki_list = [wiki_notes]
 " EPIGEN_ADD_BLOCK_TOMAS {
 
 " let wiki_2 = {}
-" let wiki_2.path = '~/git/wiki_uav_core'
+" let wiki_2.path = '~/git/ctu-mrs.github.io'
 " let wiki_2.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
 " let wiki_2.template_default = 'GitHub'
 " let wiki_2.template_ext = '.html5'
 " let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_2.index = 'home'
+" let wiki_2.index = 'index'
 " let wiki_2.syntax = 'markdown'
 " let wiki_2.ext = '.md'
 " let wiki_2.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let wiki_2.path_html = '~/git/wiki_uav_core/html/'
+" let wiki_2.path_html = '~/git/ctu-mrs.github.io'
 
 " let epigen = {}
 " let epigen.path = '~/git/epigen'
@@ -235,21 +235,23 @@ let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_VIT }
 
-" EPIGEN_ADD_BLOCK_MATOUS {
+" EPIGEN_ADD_BLOCK_DANIEL {
 
-let mbzirc_wiki = {}
-let mbzirc_wiki.path = '~/git/mbzirc2020/wiki'
-let mbzirc_wiki.html_template = '~/git/notes/template/template.html'
-let mbzirc_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-let mbzirc_wiki.index = 'README'
-let mbzirc_wiki.syntax = 'markdown'
-let mbzirc_wiki.ext = '.md'
-let mbzirc_wiki.custom_wiki2html = '~/git/uav_core.wiki/wiki2html.sh'
-let mbzirc_wiki.path_html = '~/git/mbzirc2020/wiki'
+" let wiki_1 = {}
+" let wiki_1.path = '~/git/notes'
+" let wiki_1.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let wiki_1.template_default = 'GitHub'
+" let wiki_1.template_ext = '.html5'
+" let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let wiki_1.index = 'index'
+" let wiki_1.syntax = 'markdown'
+" let wiki_1.ext = '.md'
+" let wiki_1.custom_wiki2html = '~/git/notes/wiki2html.sh'
+" let wiki_1.path_html = '~/git/notes/html'
 
-" let g:vimwiki_list = [mbzirc_wiki]
+" let g:vimwiki_list = [wiki_1]
 
-" EPIGEN_ADD_BLOCK_MATOUS }
+" EPIGEN_ADD_BLOCK_DANIEL }
 
 function! AutoGitCommit()
   call system('git rev-parse --git-dir > /dev/null 2>&1')
