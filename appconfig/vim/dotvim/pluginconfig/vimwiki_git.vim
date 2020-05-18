@@ -103,6 +103,8 @@ let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_MATEJ {
 
+" let wiki_notes.index = 'readme'
+
 " let wiki_exam = {}
 " let wiki_exam.path = '~/git/state_exam'
 " let wiki_exam.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
