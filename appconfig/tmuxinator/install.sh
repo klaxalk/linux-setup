@@ -43,7 +43,7 @@ while true; do
     sudo gem install tmuxinator
 
     # symlink tmuxinator settings
-    ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator
+    [ ! -e ~/.tmuxinator ] && ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
