@@ -39,7 +39,7 @@ while true; do
     # install tmuxinator
     cd $APP_PATH/../../submodules/tmuxinator
 
-    gem build tmuxinator.gemspec 
+    gem build tmuxinator.gemspec
     sudo gem install tmuxinator
 
     # symlink tmuxinator settings
