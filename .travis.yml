@@ -1,10 +1,10 @@
 language: generic
-jobs:
-  os:
+os:
   - linux
-    dist: bionic
-  - linux
-    dist: focal
+matrix:
+  include:
+    - dist: bionic
+    - dist: focal
 branches:
   only:
   - master
