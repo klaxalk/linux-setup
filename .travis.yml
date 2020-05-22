@@ -1,11 +1,14 @@
 language: generic
-os:
-- linux
+jobs:
+  os:
+  - linux
+    dist: bionic
+  - linux
+    dist: focal
 branches:
   only:
   - master
 sudo: required
-dist: bionic
 compiler:
 - gcc
 before_install:
