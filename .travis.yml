@@ -7,7 +7,7 @@ env:
 dist:
   - bionic
   - focal
-matrix:
+jobs:
   exclude:
     - dist: focal
       env: BADGE=bionic
@@ -16,7 +16,6 @@ matrix:
 branches:
   only:
   - master
-sudo: required
 compiler:
 - gcc
 before_install:
