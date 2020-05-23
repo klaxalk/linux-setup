@@ -1,6 +1,7 @@
 language: generic
 
 matrix:
+  fast_finish: true
   include:
     - os: linux
       dist: bionic
@@ -9,7 +10,7 @@ matrix:
       dist: focal
       env: BADGE=focal
   allow_failures:
-    - if: env: BADGE=focal
+    - env: BADGE=focal
 
 branches:
   only:
