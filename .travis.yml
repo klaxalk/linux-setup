@@ -1,24 +1,33 @@
 language: generic
+
 os:
   - linux
+
 env:
   - BADGE=bionic
   - BADGE=focal
+
 dist:
   - bionic
   - focal
-jobs:
+
+matrix:
   exclude:
-    - env: BADGE=bionic
-      dist: focal
-    - env: BADGE=focal
-      dist: bionic
+    - dist: bionic
+      env: BADGE=focal
+    - dist: focal
+      env: BADGE=bionic
+
 branches:
   only:
   - master
+
 compiler:
 - gcc
+
 before_install:
 - ./.ci/ci_before_install.sh
+
 before_script: 
+
 script:
