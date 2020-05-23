@@ -4,11 +4,14 @@ os:
 env:
   - BADGE=bionic
   - BADGE=focal
+dist:
+  - bionic
+  - focal
 matrix:
   exclude:
-    - dist: bionic
-      env: BADGE=bionic
     - dist: focal
+      env: BADGE=bionic
+    - dist: bionic
       env: BADGE=focal
 branches:
   only:
