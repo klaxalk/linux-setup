@@ -4,15 +4,12 @@ os:
 env:
   - BADGE=bionic
   - BADGE=focal
-dist:
-  - bionic
-  - focal
 jobs:
-  exclude:
-    - dist: focal
-      env: BADGE=bionic
-    - dist: bionic
-      env: BADGE=focal
+  include:
+    - env: BADGE=bionic
+      dist: bionic
+    - env: BADGE=focal
+      dist: focal
 branches:
   only:
   - master
