@@ -36,7 +36,13 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
 # essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool openssh-server net-tools
+sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
+
+if [ "$BADGE" == "focal" ]; then
+  echo "Detected Travis focal build, skipping openssh-server installation"
+else
+  sudo apt -y install openssh-server 
+fi
 
 # python
 sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
