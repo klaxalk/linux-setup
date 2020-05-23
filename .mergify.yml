@@ -3,7 +3,7 @@ pull_request_rules:
     conditions:
       - status-success=Travis CI - Pull Request
       - label=ready-to-merge
-      - label=!squash-merge
+      - label!=squash-merge
       - base=master
     actions:
       merge:
