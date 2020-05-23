@@ -2,8 +2,8 @@
 
 | Ubuntu       | Status                                                                                                                                                          |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis/klaxalk/linux-setup?env=BADGE=bionic&label=build&branch=master)](https://travis-ci.com/klaxalk/linux-setup) |
-| 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis/klaxalk/linux-setup?env=BADGE=focal&label=build&branch=master)](https://travis-ci.com/klaxalk/linux-setup)  |
+| 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic)](https://travis-ci.com/klaxalk/linux-setup) |
+| 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic)](https://travis-ci.com/klaxalk/linux-setup)  |
 
 ## Summary
 
