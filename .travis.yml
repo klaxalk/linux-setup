@@ -1,22 +1,13 @@
 language: generic
 
-os:
-  - linux
-
-env:
-  - BADGE=bionic
-  - BADGE=focal
-
-dist:
-  - bionic
-  - focal
-
 matrix:
-  exclude:
-    - dist: bionic
-      env: BADGE=focal
-    - dist: focal
+  include:
+    - os: linux
+      dist: bionic
       env: BADGE=bionic
+    - os: linux
+      dist: focal
+      env: BADGE=focal
 
 branches:
   only:
