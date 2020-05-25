@@ -25,27 +25,27 @@ let g:vimwiki_list = [wiki_notes]
 
 " EPIGEN_ADD_BLOCK_TOMAS {
 
-" let wiki_2 = {}
-" let wiki_2.path = '~/git/ctu-mrs.github.io'
-" let wiki_2.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
-" let wiki_2.template_default = 'GitHub'
-" let wiki_2.template_ext = '.html5'
-" let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let wiki_2.index = 'index'
-" let wiki_2.syntax = 'markdown'
-" let wiki_2.ext = '.md'
-" let wiki_2.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let wiki_2.path_html = '~/git/ctu-mrs.github.io'
+" let mrs_wiki = {}
+" let mrs_wiki.path = '~/git/ctu-mrs.github.io'
+" let mrs_wiki.template_path = '~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github/'
+" let mrs_wiki.template_default = 'GitHub'
+" let mrs_wiki.template_ext = '.html5'
+" let mrs_wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let mrs_wiki.index = 'index'
+" let mrs_wiki.syntax = 'markdown'
+" let mrs_wiki.ext = '.md'
+" let mrs_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let mrs_wiki.path_html = '~/git/ctu-mrs.github.io'
 
-" let epigen = {}
-" let epigen.path = '~/git/epigen'
-" let epigen.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
-" let epigen.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let epigen.index = 'README'
-" let epigen.syntax = 'markdown'
-" let epigen.ext = '.md'
-" let epigen.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let epigen.path_html = '~/git/epigen/html/'
+" let mrs_uav_system = {}
+" let mrs_uav_system.path = '~/git/mrs_uav_system'
+" let mrs_uav_system.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
+" let mrs_uav_system.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
+" let mrs_uav_system.index = 'README'
+" let mrs_uav_system.syntax = 'markdown'
+" let mrs_uav_system.ext = '.md'
+" let mrs_uav_system.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
+" let mrs_uav_system.path_html = '~/git/mrs_uav_system/html/'
 
 " let profile_manager = {}
 " let profile_manager.path = '~/git/profile_manager'
@@ -57,26 +57,6 @@ let g:vimwiki_list = [wiki_notes]
 " let profile_manager.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let profile_manager.path_html = '~/git/profile_manager/html/'
 
-" let rospix = {}
-" let rospix.path = '~/git/rospix/rospix'
-" let rospix.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
-" let rospix.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let rospix.index = 'README'
-" let rospix.syntax = 'markdown'
-" let rospix.ext = '.md'
-" let rospix.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let rospix.path_html = '~/git/profile_manager/html/'
-
-" let rospix_utils = {}
-" let rospix_utils.path = '~/git/rospix/utils'
-" let rospix_utils.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
-" let rospix_utils.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let rospix_utils.index = 'README'
-" let rospix_utils.syntax = 'markdown'
-" let rospix_utils.ext = '.md'
-" let rospix_utils.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let rospix_utils.path_html = '~/git/profile_manager/html/'
-
 " let linux_setup_wiki = {}
 " let linux_setup_wiki.path = '~/git/linux-setup.wiki'
 " let linux_setup_wiki.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
@@ -87,17 +67,7 @@ let g:vimwiki_list = [wiki_notes]
 " let linux_setup_wiki.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
 " let linux_setup_wiki.path_html = '~/git/linux-setup.wiki/html/'
 
-" let i3_layout_manager = {}
-" let i3_layout_manager.path = '~/git/i3-layout-manager/'
-" let i3_layout_manager.html_template = '~/git/linux-setup/appconfig/vim/vimwiki_templates/default.html'
-" let i3_layout_manager.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'bash': 'sh'}
-" let i3_layout_manager.index = 'README'
-" let i3_layout_manager.syntax = 'markdown'
-" let i3_layout_manager.ext = '.md'
-" let i3_layout_manager.custom_wiki2html = '~/git/linux-setup/appconfig/vim/vimwiki_templates/wiki2html.sh'
-" let i3_layout_manager.path_html = '~/git/i3-layout-manager/html/'
-
-" let g:vimwiki_list = [wiki_notes, wiki_2, epigen, profile_manager, linux_setup_wiki, rospix, rospix_utils, i3_layout_manager]
+" let g:vimwiki_list = [wiki_notes, mrs_wiki, mrs_uav_system, linux_setup_wiki]
 
 " EPIGEN_ADD_BLOCK_TOMAS }
 
