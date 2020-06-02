@@ -36,7 +36,17 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
 # essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
+sudo apt -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
+
+
+sudo apt -y remove htop
+cd ~/git
+git clone git@github.com:KoffeinFlummi/htop-vim.git
+cd htop-vim
+./autogen.sh && ./configure && make
+sudo make install
+cd $MY_PATH
+
 
 if [ "$BADGE" == "focal" ]; then
   echo "Detected Travis focal build, skipping openssh-server installation"
