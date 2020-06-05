@@ -396,11 +396,6 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
 
-" remap buffer navigations to shift + UI
-" nonono! those are normil vim bindings which should remain the same
-" map <S-U> :bn<cr>
-" map <S-I> :bp<cr>
-
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -409,9 +404,9 @@ nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
 " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-map <S-J> :tabn<cr>
+nnoremap <S-J> :tabn<cr>
 " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-map <S-K> :tabp<cr>
+nnoremap <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
 vnoremap . :normal @a<CR>
@@ -441,10 +436,10 @@ imap <leader>( ()<Esc>i
 imap <leader>{ {}<Esc>i
 
 " " clever jumping to first and last character of the line
-nmap H ^
-vmap H ^
-nmap L $
-vmap L $
+" nmap H ^
+" vmap H ^
+" nmap L $
+" vmap L $
 
 " dont jump to the next occurance, just highligh it
 nmap * *N
