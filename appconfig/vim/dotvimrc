@@ -436,10 +436,10 @@ imap <leader>( ()<Esc>i
 imap <leader>{ {}<Esc>i
 
 " " clever jumping to first and last character of the line
-" nmap H ^
-" vmap H ^
-" nmap L $
-" vmap L $
+nmap H ^
+vmap H ^
+nmap L $
+vmap L $
 
 " dont jump to the next occurance, just highligh it
 nmap * *N
