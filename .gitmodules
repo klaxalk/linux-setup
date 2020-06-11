@@ -82,3 +82,6 @@
 [submodule "submodules/ranger"]
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
+[submodule "submodules/htop-vim"]
+	path = submodules/htop-vim
+	url = https://github.com/KoffeinFlummi/htop-vim
