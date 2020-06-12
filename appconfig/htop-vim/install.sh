@@ -40,7 +40,7 @@ while true; do
     # install dependencies
     sudo apt install libncursesw5-dev
 
-    cd ../../submodules/htop-vim
+    cd $APP_PATH/../../submodules/htop-vim
 
     ./autogen.sh
     ./configure && make
