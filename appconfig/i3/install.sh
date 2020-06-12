@@ -29,7 +29,7 @@ while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
-  else  
+  else
     [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
@@ -44,7 +44,7 @@ while true; do
     fi
 
     # required for i3-layout-manager
-    sudo apt -y install libanyevent-i3-perl
+    sudo apt -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [[ $- == *i* ]]; # if running interractively
     then
@@ -119,7 +119,7 @@ while true; do
     sudo apt -y install xbacklight alsa-utils pulseaudio feh arandr acpi
 
     # for making gtk look better
-    sudo apt -y install lxappearance 
+    sudo apt -y install lxappearance
 
     # indicator-sound-switcher
     sudo apt -y install libappindicator3-dev
@@ -138,13 +138,13 @@ while true; do
     cp $APP_PATH/i3blocks/battery_git $APP_PATH/i3blocks/battery
 
     # copy fonts
-    # fontawesome 4.7 
+    # fontawesome 4.7
     mkdir -p ~/.fonts
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
     mkdir -p ~/.config/fontconfig
-    ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
+    ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
     # install useful gui utils
     sudo apt -y install thunar rofi compton systemd
