@@ -342,9 +342,9 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIE
 # set $background_color         #121212
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
@@ -418,28 +418,43 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
 
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_ADD_BLOCK_DELL {
-# #   font pango: Inconsolata, FontAwesome 11
-# # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# # #   font pango: Inconsolata, FontAwesome 10
-# # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_DELL }
-# EPIGEN_ADD_BLOCK_TOMAS }
-
+  # EPIGEN_ADD_BLOCK_TOMAS {
+  # # EPIGEN_ADD_BLOCK_DELL {
+  # #   font pango: Inconsolata, FontAwesome 11
+  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+  # # #   font pango: Inconsolata, FontAwesome 10
+  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
+  # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+  # # #   font pango: LiberationMono, FontAwesome 10
+  # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+  # # EPIGEN_ADD_BLOCK_DELL }
+  # EPIGEN_ADD_BLOCK_TOMAS }
 
   # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+
+  # the default option
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS {
+  set $i3bar_bg #121212FF
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS ACTIVE }
+
+  # Peter's option
   # EPIGEN_ADD_BLOCK_PETR {
   # set $i3bar_bg #060606CF
   # EPIGEN_ADD_BLOCK_PETR }
-  # EPIGEN_DEL_BLOCK_PETR {
-  set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR }
+
+  # Tomas's option
+  # EPIGEN_ADD_BLOCK_TOMAS {
+  # # EPIGEN_ADD_BLOCK_DESKTOP {
+  # # set $i3bar_bg #12121200
+  # # EPIGEN_ADD_BLOCK_DESKTOP }
+  # # EPIGEN_ADD_BLOCK_DELL {
+  # # set $i3bar_bg #121212FF
+  # # EPIGEN_ADD_BLOCK_DELL }
+  # EPIGEN_ADD_BLOCK_TOMAS }
+
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
     # set $i3bar_bg #FFFFFFFF
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -463,7 +478,14 @@ bar {
 }
 
 # #{ i3-gaps settings
-smart_gaps on
+
+smart_gaps on # EPIGEN_DEL_LINE_TOMAS
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_DEL_BLOCK_DESKTOP {
+# smart_gaps on
+# # EPIGEN_DEL_BLOCK_DESKTOP }
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 set $default_gaps_inner 12
 set $default_gaps_outer 0
@@ -488,7 +510,16 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
 # exec dropbox start
 
-# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+# bindsym $mod2+k exec --no-startup-id i3lock -c 000000
+
+# # compton without fancy graphics
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/lightning.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # #{ DESKTOP
 
