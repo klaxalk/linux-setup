@@ -6,32 +6,67 @@
 URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 
+! { MATOUS
+
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! URxvt.font: xft:terminess powerline:size=12
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_ADD_BLOCK_MATOUS }
 
+! }
+
+! { VOJTA
+
 ! EPIGEN_ADD_BLOCK_VOJTA {
 ! URxvt.font: xft:Inconsolata for Powerline:size=13
 ! EPIGEN_ADD_BLOCK_VOJTA }
+
+! }
+
+! { DAN
 
 ! EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL {
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
 ! EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL }
 
+! }
+
+! { VIKTOR
+
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
 ! urxvt.font: xft:Terminess powerline:size=10
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+
+! }
+
+! { MATEJ
 
 ! EPIGEN_ADD_BLOCK_MATEJ {
 ! URxvt.font: xft:Inconsolata for Powerline:size=14
 ! EPIGEN_ADD_BLOCK_MATEJ }
 
+! }
+
+! { TOMAS
+
 ! EPIGEN_ADD_BLOCK_TOMAS {
 
+! ! { DESKTOP
+
 ! ! EPIGEN_ADD_BLOCK_DESKTOP {
-! ! URxvt.font: xft:Source Code Pro for Powerline:size=11
+
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
+! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=11
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
+! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=13
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
+
+! ! }
+
+! ! { DELL
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
 
@@ -53,6 +88,10 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! EPIGEN_ADD_BLOCK_DELL }
 
+! ! }
+
+! ! { GPD
+
 ! ! EPIGEN_ADD_BLOCK_GPD {
 
 ! ! ! EPIGEN_DEL_BLOCK_MONITOR_EXTERNAL {
@@ -67,7 +106,11 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! EPIGEN_ADD_BLOCK_GPD }
 
+! ! }
+
 ! EPIGEN_ADD_BLOCK_TOMAS }
+
+! }
 
 URxvt.scrollBar: false
 
@@ -102,96 +145,124 @@ URxvt.keysym.Control-0: \033[27;5;48~
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 
-! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+! { COLORSCHEME_DARK
 
-! ! vim: ft=xdefaults
-! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK {
-! URxvt.background: #121212
-! URxvt.foreground: #dddddd
-! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK }
-! ! EPIGEN_ADD_BLOCK_MATOUS {
-! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
-! ! ! URxvt.background: #121212
-! ! ! URxvt.foreground: #dddddd
-! ! ! EPIGEN_ADD_BLOCK_TOSHIBA }
-! ! ! EPIGEN_DEL_BLOCK_TOSHIBA {
-! ! URxvt.background: rgba:0000/0000/0000/B000
-! ! URxvt.foreground: #dddddd
-! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
-! ! EPIGEN_ADD_BLOCK_MATOUS }
-! ! EPIGEN_ADD_BLOCK_PETR {
-! ! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
-! ! URxvt.foreground: #dddddd
-! ! EPIGEN_ADD_BLOCK_PETR }
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-! ! URxvt.background: rgba:2000/2000/2000/cccc
-! ! URxvt.foreground: #00bffa
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-! ! URxvt.foreground: #dddddd
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-! ! EPIGEN_ADD_BLOCK_VASEK {
+! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
+
+! vim: ft=xdefaults
+! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK {
+URxvt.background: #121212
+URxvt.foreground: #dddddd
+! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_VASEK }
+
+! { MATOUS
+
+! EPIGEN_ADD_BLOCK_MATOUS {
+! ! EPIGEN_ADD_BLOCK_TOSHIBA {
 ! ! URxvt.background: #121212
 ! ! URxvt.foreground: #dddddd
-! ! EPIGEN_ADD_BLOCK_VASEK }
-! ! black
-! URxvt.color0: #1C1C1C
-! URxvt.color8: #404040
-! ! red
-! URxvt.color1: #B85335
-! URxvt.color9: #CF6A4C
-! ! green
-! URxvt.color2: #79AD6A
-! URxvt.color10: #99DD6A
-! ! yellow
-! URxvt.color3: #FFB964
-! URxvt.color11: #FAD07A
-! ! blue
-! URxvt.color4: #667899
-! URxvt.color12: #8197BF
-! ! magenta
-! URxvt.color5: #A7A7FF
-! URxvt.color13: #C6B6EE
-! ! cyan
-! URxvt.color6: #668799
-! URxvt.color14: #8FBFDC
-! ! white
-! URxvt.color7: #888888
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-! URxvt.color15: #E8E8D3
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-! ! URxvt.color15: #FFFFFF
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+! ! EPIGEN_ADD_BLOCK_TOSHIBA }
+! ! EPIGEN_DEL_BLOCK_TOSHIBA {
+! URxvt.background: rgba:0000/0000/0000/B000
+! URxvt.foreground: #dddddd
+! ! EPIGEN_DEL_BLOCK_TOSHIBA }
+! EPIGEN_ADD_BLOCK_MATOUS }
 
-! !! URxvt COLORS --------------------------------------------------------
-! URxvt*depth                   : 32
-! ! URxvt.fading                  : 25
-! ! URxvt.fadeColor               : #101010
-! URxvt*visualBell              : false
+! }
 
-! ! ------------------------------------------------------------------------------
-! ! ROFI Color theme
-! ! ------------------------------------------------------------------------------
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-! rofi.color-enabled: true
-! rofi.color-window: #273238, #273238, #1e2529
-! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-! ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+! { PETR
 
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-! ! rofi.color-window: argb:dd000000, #273238, #1e2529
-! ! rofi.color-normal: argb:00273238, #00bffa, argb:00273238, #00bffa, #000000
-! ! rofi.color-active: argb:00273238, #80cbc4, argb:00273238, #00bffa, #000000
-! ! rofi.color-urgent: argb:00273238, #ff1844, argb:00273238, #394249, #ff1844
-! ! rofi.run-command: i3 exec {cmd}
-! ! rofi.show-icons:        true
-! ! rofi.drun-icon-theme: Papirus-Dark
-! ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+! EPIGEN_ADD_BLOCK_PETR {
+! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
+! URxvt.foreground: #dddddd
+! EPIGEN_ADD_BLOCK_PETR }
 
-! EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+! }
+
+! { VIKTOR
+
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! URxvt.background: rgba:2000/2000/2000/cccc
+! URxvt.foreground: #00bffa
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+! URxvt.foreground: #dddddd
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+
+! }
+
+! { VASEK
+
+! EPIGEN_ADD_BLOCK_VASEK {
+! URxvt.background: #121212
+! URxvt.foreground: #dddddd
+! EPIGEN_ADD_BLOCK_VASEK }
+
+! }
+
+! black
+URxvt.color0: #1C1C1C
+URxvt.color8: #404040
+! red
+URxvt.color1: #B85335
+URxvt.color9: #CF6A4C
+! green
+URxvt.color2: #79AD6A
+URxvt.color10: #99DD6A
+! yellow
+URxvt.color3: #FFB964
+URxvt.color11: #FAD07A
+! blue
+URxvt.color4: #667899
+URxvt.color12: #8197BF
+! magenta
+URxvt.color5: #A7A7FF
+URxvt.color13: #C6B6EE
+! cyan
+URxvt.color6: #668799
+URxvt.color14: #8FBFDC
+! white
+URxvt.color7: #888888
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+URxvt.color15: #E8E8D3
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! URxvt.color15: #FFFFFF
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+
+!! URxvt COLORS --------------------------------------------------------
+URxvt*depth                   : 32
+! URxvt.fading                  : 25
+! URxvt.fadeColor               : #101010
+URxvt*visualBell              : false
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+! rofi.color-window: argb:dd000000, #273238, #1e2529
+! rofi.color-normal: argb:00273238, #00bffa, argb:00273238, #00bffa, #000000
+! rofi.color-active: argb:00273238, #80cbc4, argb:00273238, #00bffa, #000000
+! rofi.color-urgent: argb:00273238, #ff1844, argb:00273238, #394249, #ff1844
+! rofi.run-command: i3 exec {cmd}
+! rofi.show-icons:        true
+! rofi.drun-icon-theme: Papirus-Dark
+! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+
+! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
+
+! }
+
+! { COLORSCHEME_LIGHT
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
@@ -256,12 +327,17 @@ URxvt.keysym.Control-0: \033[27;5;48~
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
+! }
+
+! { COLORSCHEME_GRUN
+
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
 ! ! vim: ft=xdefaults
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
 ! URxvt.background: #121212
 ! ! EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+
 ! ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
 ! ! ! URxvt.background: #121212
@@ -270,6 +346,7 @@ URxvt.keysym.Control-0: \033[27;5;48~
 ! ! URxvt.background: rgba:0000/0000/0000/B000
 ! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
 ! ! EPIGEN_ADD_BLOCK_MATOUS }
+!
 ! ! EPIGEN_ADD_BLOCK_PETR {
 ! ! URxvt.background: #222222
 ! ! EPIGEN_ADD_BLOCK_PETR }
@@ -315,3 +392,5 @@ URxvt.keysym.Control-0: \033[27;5;48~
 ! rofi.color-urgent: #324827, #1844ff, #324827, #424939, #1844ff
 
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
+! }

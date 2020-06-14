@@ -451,6 +451,9 @@ vnoremap // y/<C-R>"<CR>
 au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%\ %{,%\ %}
 
+au FileType xdefaults set foldmethod=marker
+au FileType xdefaults set foldmarker=!\ {,!\ }
+
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
