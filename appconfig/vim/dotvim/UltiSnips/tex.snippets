@@ -91,7 +91,7 @@ snippet emphvar "\emphvar{}" i
 endsnippet
 
 snippet section "\section{}"
-\\section{${1}}
+\\section{${1:${VISUAL}}}
 endsnippet
 
 snippet chapter "\chapter{}"
@@ -99,11 +99,11 @@ snippet chapter "\chapter{}"
 endsnippet
 
 snippet subsection "\subsection{}"
-\\subsection{${1}}
+\\subsection{${1:${VISUAL}}}
 endsnippet
 
 snippet subsubsection "\subsection{}"
-\\subsubsection{${1}}
+\\subsubsection{${1:${VISUAL}}}
 endsnippet
 
 snippet section* "\section*{}"
