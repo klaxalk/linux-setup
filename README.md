@@ -1,8 +1,9 @@
 # klaxalk's Linux environment
 
-| Ubuntu       | Status                                                                                                                    |
-|--------------|---------------------------------------------------------------------------------------------------------------------------|
-| 18.04 Bionic | [![Build Status](https://travis-ci.com/klaxalk/linux-setup.svg?branch=master)](https://travis-ci.com/klaxalk/linux-setup) |
+| Ubuntu       | Status                                                                                                                                                 |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup) |
+| 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)   |
 
 ## Summary
 
