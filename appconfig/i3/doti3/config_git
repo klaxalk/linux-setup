@@ -797,10 +797,10 @@ set $mode_gaps_inner inner gaps
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # # #{ HP
@@ -808,7 +808,7 @@ set $mode_gaps_inner inner gaps
 
 # # # Move workspace to another monitor
 # # bindsym $mod+x move workspace to output right
-#
+
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
