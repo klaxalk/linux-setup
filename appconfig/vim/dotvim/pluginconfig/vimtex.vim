@@ -60,7 +60,7 @@ au FileType tex set foldmethod=marker
 au FileType tex set foldmarker=%%{,%%}
 
 " might solve some
-" let g:vimtex_indent_enabled = 0
+let g:vimtex_indent_enabled = 0
 
 " au FileType tex setlocal fdm=expr
 " au FileType tex setlocal foldexpr=vimtex#fold#level(2)
