@@ -44,12 +44,20 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install libevent-dev bison
+    sudo apt -y remove libevent-dev || echo "Could not removed pre-installed libevent"
+
+    # libevent
+    cd $APP_PATH/../../submodules/libevent
+    mkdir -p build
+    cd build
+    cmake ..
+    make
+    sudo make install
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
     sh autogen.sh
-    ./configure && make -j4
+    ./configure
     sudo make install-binPROGRAMS
     git clean -fd
 
