@@ -44,22 +44,29 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y remove libevent-dev || echo "Could not removed pre-installed libevent"
+    sudo apt -y install libevent-dev bison
 
-    # libevent
-    cd $APP_PATH/../../submodules/libevent
-    mkdir -p build
-    cd build
-    cmake ..
-    make
+    # # libevent
+    # cd $APP_PATH/../../submodules/libevent
+    # ./autogen.sh
+    # ./configure
+    # make
+    # sudo make install
+
+    # install libevent
+    cd /tmp
+    wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+    tar -xvf libevent-2.1.11-stable.tar.gz
+    rm libevent-2.1.11-stable.tar.gz
+    cd libevent-2.1.11-stable
+    ./configure && make
     sudo make install
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
-    sh autogen.sh
-    ./configure
+    ./autogen.sh
+    ./configure && make -j4
     sudo make install-binPROGRAMS
-    git clean -fd
 
     #############################################
     # add TMUX enable/disable to .bashrc
