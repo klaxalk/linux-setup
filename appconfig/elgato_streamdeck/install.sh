@@ -27,19 +27,26 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall multimedia support (editors, players, ...)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall Elgato Streamdeck support? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # for video, photo, audio, ..., viewing and editing
-    sudo apt -y install gimp vlc ffmpeg audacity
+    sudo apt -y install libhidapi-hidraw0 libudev-dev libusb-1.0-0-dev
 
-    # for screencasting
-    sudo add-apt-repository -y ppa:obsproject/obs-studio
-    sudo apt -y install obs-studio screenkey
+    sudo usermod -a -G plugdev `whoami`
+
+    sudo cp ./99-streamdeck.rules /etc/udev/rules.d
+
+    sudo udevadm control --reload-rules
+
+    pip3 install --user streamdeck_ui
+
+    # symlink the settings
+    rm -rf $HOME/.streamdeck_icons
+    ln -sf $APP_PATH/streamdeck_icons $HOME/.streamdeck_icons
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
