@@ -44,10 +44,12 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
-
     sudo apt -y install libevent-dev
 
+    # #{ for bad times when dependencies break
+
+    # sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
+    
     # # install libevent
     # cd /tmp
     # wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
@@ -56,7 +58,7 @@ while true; do
     # cd libevent-2.1.11-stable
     # ./configure && make
     # sudo make install
-
+    
     # # libevent
     # cd $APP_PATH/../../submodules/libevent
     # ./autogen.sh || echo "1st run of autogen.sh might fail"
@@ -65,14 +67,16 @@ while true; do
     # ./configure
     # make
     # sudo make install
-
+    
     # arch_full=`dpkg-architecture | grep DEB_BUILD_GNU_TYPE`
     # archi_short=`echo ${arch_full#*=}`
-    libevent_full_path=`dpkg -L libevent-dev | grep libevent.so`
-    libevent_path=`echo ${libevent_full_path%/*}`
-
-    export LIBEVENT_LIBS="-L$libevent_path -levent -Wl,-rpath -Wl,$libevent_path"
+    # libevent_full_path=`dpkg -L libevent-dev | grep libevent.so`
+    # libevent_path=`echo ${libevent_full_path%/*}`
+    
+    # export LIBEVENT_LIBS="-L$libevent_path -levent -Wl,-rpath -Wl,$libevent_path"
     # export LIBEVENT_LIBS="-L/usr/local/lib -levent -Wl,-rpath -Wl,/usr/local/lib"
+    
+    # #}
 
     # compile and install custom tmux
     cd $APP_PATH/../../submodules/tmux
