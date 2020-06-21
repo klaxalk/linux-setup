@@ -44,7 +44,7 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install libtool libtool-bin
+    sudo apt -y install autotools-dev autoconf libtool libtool-bin
 
     # # install libevent
     # cd /tmp
