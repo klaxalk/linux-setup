@@ -44,14 +44,39 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install libevent-dev bison
+    sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
 
-    # instal tmux
+    sudo apt -y install libevent-dev
+
+    # # install libevent
+    # cd /tmp
+    # wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+    # tar -xvf libevent-2.1.11-stable.tar.gz
+    # rm libevent-2.1.11-stable.tar.gz
+    # cd libevent-2.1.11-stable
+    # ./configure && make
+    # sudo make install
+
+    # # libevent
+    # cd $APP_PATH/../../submodules/libevent
+    # ./autogen.sh || echo "1st run of autogen.sh might fail"
+    # mv ../../ltmain.sh ./
+    # ./autogen.sh
+    # ./configure
+    # make
+    # sudo make install
+
+    # arch_full=`dpkg-architecture | grep DEB_BUILD_GNU_TYPE`
+    # archi_short=`echo ${arch_full#*=}`
+    libevent_full_path=`dpkg -L libevent-dev | grep libevent.so`
+    libevent_path=`echo ${libevent_full_path%/*}`
+
+    export LIBEVENT_LIBS="-L$libevent_path -levent -Wl,-rpath -Wl,$libevent_path"
+    # export LIBEVENT_LIBS="-L/usr/local/lib -levent -Wl,-rpath -Wl,/usr/local/lib"
+
+    # compile and install custom tmux
     cd $APP_PATH/../../submodules/tmux
-    sh autogen.sh
-    ./configure && make -j4
-    sudo make install-binPROGRAMS
-    git clean -fd
+    ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt -y install tmux)
 
     #############################################
     # add TMUX enable/disable to .bashrc
