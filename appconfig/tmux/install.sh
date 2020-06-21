@@ -44,23 +44,25 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install libevent-dev bison
+    sudo apt -y install libtool-bin
 
-    # # libevent
-    # cd $APP_PATH/../../submodules/libevent
-    # ./autogen.sh
-    # ./configure
-    # make
+    # # install libevent
+    # cd /tmp
+    # wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+    # tar -xvf libevent-2.1.11-stable.tar.gz
+    # rm libevent-2.1.11-stable.tar.gz
+    # cd libevent-2.1.11-stable
+    # ./configure && make
     # sudo make install
 
-    # install libevent
-    cd /tmp
-    wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
-    tar -xvf libevent-2.1.11-stable.tar.gz
-    rm libevent-2.1.11-stable.tar.gz
-    cd libevent-2.1.11-stable
-    ./configure && make
+    # libevent
+    cd $APP_PATH/../../submodules/libevent
+    ./autogen.sh
+    ./configure
+    make
     sudo make install
+
+    export LIBEVENT_LIBS="-L/usr/local/lib -levent -Wl,-rpath -Wl,/usr/local/lib"
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
