@@ -57,14 +57,15 @@ while true; do
     # ./configure && make
     # sudo make install
 
-    # libevent
+    # # libevent
     # cd $APP_PATH/../../submodules/libevent
     # ./autogen.sh || echo "1st run of autogen.sh might fail"
-    # libtoolize
+    # mv ../../ltmain.sh ./
     # ./autogen.sh
     # ./configure
     # make
     # sudo make install
+
 
     arch_full=`dpkg-architecture | grep DEB_BUILD_GNU_TYPE`
     archi_short=`echo ${arch_full#*=}`
@@ -72,6 +73,7 @@ while true; do
     libevent_path=`echo ${libevent_full_path%/*}`
 
     export LIBEVENT_LIBS="-L$libevent_path -levent -Wl,-rpath -Wl,$libevent_path"
+    # export LIBEVENT_LIBS="-L/usr/local/lib -levent -Wl,-rpath -Wl,/usr/local/lib"
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
