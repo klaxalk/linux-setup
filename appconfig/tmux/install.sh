@@ -44,7 +44,9 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
+    sudo apt -y install libevent-dev
+
+    # sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
 
     # # install libevent
     # cd /tmp
@@ -56,15 +58,20 @@ while true; do
     # sudo make install
 
     # libevent
-    cd $APP_PATH/../../submodules/libevent
-    ./autogen.sh || echo "1st run of autogen.sh might fail"
-    libtoolize
-    ./autogen.sh
-    ./configure
-    make
-    sudo make install
+    # cd $APP_PATH/../../submodules/libevent
+    # ./autogen.sh || echo "1st run of autogen.sh might fail"
+    # libtoolize
+    # ./autogen.sh
+    # ./configure
+    # make
+    # sudo make install
 
-    export LIBEVENT_LIBS="-L/usr/local/lib -levent -Wl,-rpath -Wl,/usr/local/lib"
+    arch_full=`dpkg-architecture | grep DEB_BUILD_GNU_TYPE`
+    archi_short=`echo ${arch_full#*=}`
+    libevent_full_path=`dpkg -L libevent-dev | grep libevent.so`
+    libevent_path=`echo ${libevent_full_path%/*}`
+
+    export LIBEVENT_LIBS="-L$libevent_path -levent -Wl,-rpath -Wl,$libevent_path"
 
     # instal tmux
     cd $APP_PATH/../../submodules/tmux
