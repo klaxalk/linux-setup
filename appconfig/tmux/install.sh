@@ -44,7 +44,7 @@ while true; do
 
     sudo apt -y remove tmux
 
-    sudo apt -y install autotools-dev autoconf libtool libtool-bin
+    sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
 
     # # install libevent
     # cd /tmp
