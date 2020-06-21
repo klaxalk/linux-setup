@@ -57,6 +57,8 @@ while true; do
 
     # libevent
     cd $APP_PATH/../../submodules/libevent
+    ./autogen.sh || echo "1st run of autogen.sh might fail"
+    libtoolize
     ./autogen.sh
     ./configure
     make
