@@ -60,7 +60,7 @@ while true; do
       read
     fi
 
-    sudo apt -y install lightdm xserver-xorg
+    sudo apt -y install lightdm
 
     # compile i3 dependency which is not present in the repo
     sudo apt -y install xutils-dev
