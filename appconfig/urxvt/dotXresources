@@ -191,7 +191,7 @@ URxvt.foreground: #dddddd
 ! { VIKTOR
 
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-! URxvt.background: rgba:2000/2000/2000/cccc
+! URxvt.background: rgba:0000/0000/0000/cccc
 ! URxvt.foreground: #00bffa
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
 ! EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
