@@ -59,7 +59,7 @@ let g:vimtex_fold_enabled = 0
 au FileType tex set foldmethod=marker
 au FileType tex set foldmarker=%%{,%%}
 
-" might solve some
+" might solve some problems
 let g:vimtex_indent_enabled = 0
 
 " au FileType tex setlocal fdm=expr

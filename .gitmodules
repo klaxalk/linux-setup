@@ -85,3 +85,6 @@
 [submodule "submodules/htop-vim"]
 	path = submodules/htop-vim
 	url = https://github.com/KoffeinFlummi/htop-vim
+[submodule "submodules/libevent"]
+	path = submodules/libevent
+	url = https://github.com/libevent/libevent
