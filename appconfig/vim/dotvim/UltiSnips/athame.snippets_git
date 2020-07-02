@@ -132,8 +132,8 @@ snippet failsafe "" Ab
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
 endsnippet
 
-snippet so3 "" Ab
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller So3Controller
+snippet "(so3)|(se3)" "" Abr
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller Se3Controller
 endsnippet
 
 snippet mpc "" Ab

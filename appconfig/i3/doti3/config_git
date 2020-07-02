@@ -1029,6 +1029,9 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_HONZA {
 
+# # # Keyboard switching
+# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+
 # # System manager
 # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
@@ -1064,6 +1067,9 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind LENOVO microhpone on/off
+# # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 # # #}
