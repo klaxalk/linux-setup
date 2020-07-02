@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install curl
+    sudo apt-get -y install curl
 
     # compile athame from sources
     cd $APP_PATH/../../submodules/athame

@@ -36,7 +36,7 @@ while true; do
 
     toilet Installing silver searcher
 
-    sudo apt -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+    sudo apt-get -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
     # instal tmux
     cd $APP_PATH/../../submodules/the_silver_searcher

@@ -42,13 +42,13 @@ while true; do
 
     toilet Installing tmux
 
-    sudo apt -y remove tmux
+    sudo apt-get -y remove tmux
 
-    sudo apt -y install libevent-dev
+    sudo apt-get -y install libevent-dev
 
     # #{ for bad times when dependencies break
 
-    # sudo apt -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
+    # sudo apt-get -y install autotools-dev automake autoconf libtool libtool-bin cmake build-essential
     
     # # install libevent
     # cd /tmp
@@ -80,7 +80,7 @@ while true; do
 
     # compile and install custom tmux
     cd $APP_PATH/../../submodules/tmux
-    ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt -y install tmux)
+    ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
 
     #############################################
     # add TMUX enable/disable to .bashrc

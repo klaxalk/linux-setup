@@ -35,7 +35,7 @@ while true; do
   then
 
     # install missing dependecies
-    sudo apt -y install python3-setuptools
+    sudo apt-get -y install python3-setuptools
 
     # link the configuration
     cd $APP_PATH/../../submodules/vimiv/
