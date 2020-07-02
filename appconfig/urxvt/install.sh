@@ -35,7 +35,7 @@ while true; do
   then
 
     # install urvxt
-    sudo apt -y install rxvt-unicode-256color
+    sudo apt-get -y install rxvt-unicode-256color
 
     EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     sudo mkdir -p $EXTENSION_PATH

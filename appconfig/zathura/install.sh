@@ -50,10 +50,10 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
 
-      sudo apt -y remove zathura libgirara-dev
+      sudo apt-get -y remove zathura libgirara-dev
 
-      # sudo apt -y remove zathura-pdf-poppler
-      sudo apt -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
+      # sudo apt-get -y remove zathura-pdf-poppler
+      sudo apt-get -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
 
       sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 
@@ -74,7 +74,7 @@ while true; do
 
     else
 
-      sudo apt -y install zathura
+      sudo apt-get -y install zathura
 
     fi
 
