@@ -39,9 +39,9 @@ while true; do
   then
 
     sudo add-apt-repository -y ppa:linuxuprising/shutter
-    sudo apt update
+    sudo apt-get update
 
-    sudo apt -y install shutter
+    sudo apt-get -y install shutter
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

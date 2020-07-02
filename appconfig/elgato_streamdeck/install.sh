@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install libhidapi-hidraw0 libudev-dev libusb-1.0-0-dev
+    sudo apt-get -y install libhidapi-hidraw0 libudev-dev libusb-1.0-0-dev
 
     sudo usermod -a -G plugdev `whoami`
 

@@ -36,25 +36,25 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
 # essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
+sudo apt-get -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
 
 if [ "$BADGE" == "focal" ]; then
   echo "Detected Travis focal build, skipping openssh-server installation"
 else
-  sudo apt -y install openssh-server 
+  sudo apt-get -y install openssh-server 
 fi
 
 # python
-sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
 
 if [ -n "$BEAVER" ]; then
-  sudo apt -y install python-git
+  sudo apt-get -y install python-git
 else
-  sudo apt -y install python3-git
+  sudo apt-get -y install python3-git
 fi
 
 # other stuff
-sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
 
 if [ "$unattended" == "0" ]
 then
@@ -159,7 +159,7 @@ fi
 ##################################################
 # install inputs libraries when they are missing
 ##################################################
-sudo apt -y install xserver-xorg-input-all
+sudo apt-get -y install xserver-xorg-input-all
 
 #############################################
 # Disable automatic update over apt
