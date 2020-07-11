@@ -49,7 +49,7 @@ sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setu
 
 if [ -n "$BEAVER" ]; then
   sudo apt-get -y install python-git
-  sudo ln -s /bin/python2.7 /bin/python
+  sudo ln -sf /bin/python2.7 /bin/python
 else
   sudo apt-get -y install python3-git
 fi
