@@ -1018,9 +1018,11 @@ set $mode_gaps_inner inner gaps
 # #{ YURII's customization
 #
 # EPIGEN_ADD_BLOCK_YURII {
-#
+##
 # exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
-#
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output left
+
 # EPIGEN_ADD_BLOCK_YURII }
 #
 # #}
