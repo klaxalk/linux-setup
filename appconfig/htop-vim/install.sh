@@ -35,10 +35,10 @@ while true; do
   then
 
     # remove the normal  htop
-    sudo apt -y remove htop
+    sudo apt-get -y remove htop
 
     # install dependencies
-    sudo apt install libncursesw5-dev
+    sudo apt-get install libncursesw5-dev
 
     cd $APP_PATH/../../submodules/htop-vim
 

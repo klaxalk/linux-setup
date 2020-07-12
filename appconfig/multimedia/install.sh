@@ -35,11 +35,11 @@ while true; do
   then
 
     # for video, photo, audio, ..., viewing and editing
-    sudo apt -y install gimp vlc ffmpeg audacity
+    sudo apt-get -y install gimp vlc ffmpeg audacity
 
     # for screencasting
     sudo add-apt-repository -y ppa:obsproject/obs-studio
-    sudo apt -y install obs-studio screenkey
+    sudo apt-get -y install obs-studio screenkey
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
