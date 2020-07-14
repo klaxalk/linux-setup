@@ -35,7 +35,7 @@ while true; do
   then
 
     # for video, photo, audio, ..., viewing and editing
-    sudo apt-get -y install gimp vlc ffmpeg audacity
+    sudo apt-get -y install gimp vlc ffmpeg audacity rawtherapee
 
     # for screencasting
     sudo add-apt-repository -y ppa:obsproject/obs-studio
