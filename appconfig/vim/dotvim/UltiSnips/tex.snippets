@@ -58,12 +58,8 @@ snippet tikzeval "" Ai
 (\$ ${1:${VISUAL}} \$)
 endsnippet
 
-snippet "eq" "" r
-(\\ref{eq:${1:${VISUAL}}})
-endsnippet
-
-snippet "leq" "" ri
-\leq
+snippet "refeq" "\refeq{}" ri
+\refeq{${1:${VISUAL}}}
 endsnippet
 
 snippet cmd "generic command \{}" i
@@ -823,4 +819,12 @@ endsnippet
 
 snippet ac "\ac{}" i
 \ac{${1:${VISUAL}}}
+endsnippet
+
+snippet text "\text{}" i
+\text{${1:${VISUAL}}}
+endsnippet
+
+snippet intercal "\intercal i
+\intercal
 endsnippet
