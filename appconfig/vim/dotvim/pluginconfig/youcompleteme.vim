@@ -47,7 +47,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
 
 let g:ycm_enable_diagnostic_signs = 1
 let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_always_populate_location_list = 0 "default 0
 let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
 
 let g:ycm_add_preview_to_completeopt = 1
