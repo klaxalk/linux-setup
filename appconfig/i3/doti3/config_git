@@ -390,7 +390,7 @@ bar {
   # the default option
   # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS {
   set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS ACTIVE }
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS }
 
   # #{ PETER's i3bar bg
 
@@ -1078,6 +1078,42 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ AFZAL's customization
+
+# EPIGEN_ADD_BLOCK_AFZAL {
+
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+# # #{ ASUS 
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Toggling ASUS touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+
+# # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# EPIGEN_ADD_BLOCK_AFZAL }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
@@ -1130,6 +1166,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 #
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
+# assign [class="Braved-Web-Brower"] $workspace1 # EPIGEN_ADD_LINE_AFZAL
 # #}
 
 # #{ bindings for external programs

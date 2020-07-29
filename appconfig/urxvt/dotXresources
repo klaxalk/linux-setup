@@ -3,7 +3,7 @@
 ! the default font, will be commented out for
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL {
-URxvt.font: xft:Inconsolata for Powerline:size=14
+URxvt.font: xft:Inconsolata for Powerline:size=12
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 
 ! { MATOUS
@@ -185,6 +185,15 @@ URxvt.foreground: #dddddd
 ! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
 ! URxvt.foreground: #dddddd
 ! EPIGEN_ADD_BLOCK_PETR }
+
+! }
+
+! { AFZAL 
+
+! EPIGEN_ADD_BLOCK_AFZAL {
+! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
+! URxvt.foreground: #dddddd
+! EPIGEN_ADD_BLOCK_AFZAL }
 
 ! }
 
