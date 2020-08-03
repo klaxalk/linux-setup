@@ -42,6 +42,9 @@ while true; do
     sudo apt-get -y install neovim
     mkdir -p ~/.config/nvim/
 
+    sudo -H pip install wheel
+    sudo -H pip3 install wheel
+
     sudo -H pip3 install neovim
     sudo -H pip3 install neovim-remote
 
