@@ -987,13 +987,13 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_MPD {
 
-# # Mpd notifier
-# #exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
+# # # Mpd notifier
+# # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
 
-# #bindsym XF86AudioPlay exec "mpc toggle"
-# #bindsym XF86AudioStop exec "mpc stop"
-# #bindsym XF86AudioNext exec "mpc next"
-# #bindsym XF86AudioPrev exec "mpc prev"
+# # bindsym XF86AudioPlay exec "mpc toggle"
+# # bindsym XF86AudioStop exec "mpc stop"
+# # bindsym XF86AudioNext exec "mpc next"
+# # bindsym XF86AudioPrev exec "mpc prev"
 
 # # EPIGEN_ADD_BLOCK_MPD }
 
