@@ -376,6 +376,15 @@ separator=true
 
 # #}
 
+# EPIGEN_ADD_BLOCK_MPD {
+# [mpd]
+# interval=1
+# label=MPD
+# command=~/git/linux-setup/scripts/mpd_indicator.sh
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_MPD }
+
 # EPIGEN_ADD_BLOCK_MATOUS {
 # [cputemp]
 # interval=2

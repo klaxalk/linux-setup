@@ -25,9 +25,17 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! { DAN
 
-! EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL {
+! EPIGEN_ADD_BLOCK_DAN {
 ! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
-! EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL }
+! EPIGEN_ADD_BLOCK_DAN }
+
+! }
+
+! { DANIEL
+
+! EPIGEN_ADD_BLOCK_DANIEL {
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=10
+! EPIGEN_ADD_BLOCK_DANIEL }
 
 ! }
 
