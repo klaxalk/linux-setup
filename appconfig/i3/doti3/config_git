@@ -417,6 +417,7 @@ bar {
   font pango: Terminus, FontAwesome 10
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
+  tray_output eDP-1
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_ADD_BLOCK_DELL {
