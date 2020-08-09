@@ -19,14 +19,16 @@ fi
 # create alisases
 alias sb="source ~/.zshrc"
 
-# EPIGEN_DEL_BLOCK_MATOUS {
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # ZSH_THEME="jreese" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_MATOUS }
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # EPIGEN_ADD_BLOCK_MATOUS {
 # ZSH_THEME="mortalscumbag"
 # EPIGEN_ADD_BLOCK_MATOUS }
-
+# EPIGEN_ADD_BLOCK_DANIEL {
+# ZSH_THEME="lukerandall"
+# EPIGEN_ADD_BLOCK_DANIEL }
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh

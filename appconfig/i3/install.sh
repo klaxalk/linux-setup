@@ -20,12 +20,16 @@ do
   fi
 done
 
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "$var1" ] && export BEAVER=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
-  else  
+  else
     [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
@@ -33,10 +37,14 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst python-keybinder libkeybinder-3.0-0 gir1.2-keybinder
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0
+
+    if [ -n "$BEAVER" ]; then
+      sudo apt-get -y install python-keybinder gir1.2-keybinder
+    fi
 
     # required for i3-layout-manager
-    sudo apt -y install libanyevent-i3-perl
+    sudo apt-get -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [[ $- == *i* ]]; # if running interractively
     then
@@ -52,10 +60,10 @@ while true; do
       read
     fi
 
-    sudo apt -y install lightdm xserver-xorg
+    sudo apt-get -y install lightdm
 
     # compile i3 dependency which is not present in the repo
-    sudo apt -y install xutils-dev
+    sudo apt-get -y install xutils-dev
 
     cd /tmp
     [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
@@ -68,7 +76,7 @@ while true; do
 
     # install light for display backlight control
     # compile i3
-    sudo apt -y install help2man
+    sudo apt-get -y install help2man
 
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
@@ -108,13 +116,13 @@ while true; do
     git clean -fd
 
     # for brightness and volume control
-    sudo apt -y install xbacklight alsa-utils pulseaudio feh arandr acpi
+    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr acpi
 
     # for making gtk look better
-    sudo apt -y install lxappearance 
+    sudo apt-get -y install lxappearance
 
     # indicator-sound-switcher
-    sudo apt -y install libappindicator3-dev
+    sudo apt-get -y install libappindicator3-dev
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
@@ -130,16 +138,16 @@ while true; do
     cp $APP_PATH/i3blocks/battery_git $APP_PATH/i3blocks/battery
 
     # copy fonts
-    # fontawesome 4.7 
+    # fontawesome 4.7
     mkdir -p ~/.fonts
     cp $APP_PATH/fonts/* ~/.fonts/
 
     # link fonts.conf file
     mkdir -p ~/.config/fontconfig
-    ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf         
+    ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
     # install useful gui utils
-    sudo apt -y install thunar rofi compton systemd
+    sudo apt-get -y install thunar rofi compton systemd
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
@@ -152,7 +160,7 @@ while true; do
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
     # install prime-select (for switching gpus)
-    # sudo apt -y install nvidia-prime
+    # sudo apt-get -y install nvidia-prime
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

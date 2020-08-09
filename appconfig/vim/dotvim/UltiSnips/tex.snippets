@@ -58,16 +58,8 @@ snippet tikzeval "" Ai
 (\$ ${1:${VISUAL}} \$)
 endsnippet
 
-snippet "eq" "" r
-(\\ref{eq:${1:${VISUAL}}})
-endsnippet
-
-snippet "leq" "" ri
-\leq
-endsnippet
-
-snippet "sec" "" ri
-(section~\\ref{sec:${1:${VISUAL}}})
+snippet "refeq" "\refeq{}" ri
+\refeq{${1:${VISUAL}}}
 endsnippet
 
 snippet cmd "generic command \{}" i
@@ -91,7 +83,7 @@ snippet emphvar "\emphvar{}" i
 endsnippet
 
 snippet section "\section{}"
-\\section{${1}}
+\\section{${1:${VISUAL}}}
 endsnippet
 
 snippet chapter "\chapter{}"
@@ -99,11 +91,11 @@ snippet chapter "\chapter{}"
 endsnippet
 
 snippet subsection "\subsection{}"
-\\subsection{${1}}
+\\subsection{${1:${VISUAL}}}
 endsnippet
 
 snippet subsubsection "\subsection{}"
-\\subsubsection{${1}}
+\\subsubsection{${1:${VISUAL}}}
 endsnippet
 
 snippet section* "\section*{}"
@@ -309,6 +301,14 @@ snippet autoref "\autoref{}" i
 \\autoref{${1:${VISUAL}}}
 endsnippet
 
+snippet refsec "\refsec{}" i
+\\refsec{${1:${VISUAL}}}
+endsnippet
+
+snippet reffig "\reffig{}" i
+\\reffig{${1:${VISUAL}}}
+endsnippet
+
 snippet "cite" "\cite{}" r
 \\cite{${1:${VISUAL}}}
 endsnippet
@@ -341,6 +341,10 @@ snippet mathbf "\mathbf{}" i
 \\mathbf{${1:${VISUAL}}}
 endsnippet
 
+snippet bm "\bm{}" i
+\\bm{${1:${VISUAL}}}
+endsnippet
+
 snippet mathrm "\mathrm{}" i
 \\mathrm{${1:${VISUAL}}}
 endsnippet
@@ -363,10 +367,6 @@ endsnippet
 
 snippet url "\url{}" i
 \\url{${1:${VISUAL}}}
-endsnippet
-
-snippet "(jed)|(unit)" "\unit{}" ir
-\\unit{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet transpose "^T" i
@@ -649,6 +649,10 @@ snippet "Phi" "" ri
 \Phi
 endsnippet
 
+snippet "chi" "" ri
+\chi
+endsnippet
+
 snippet "sigma" "" ri
 \sigma
 endsnippet
@@ -815,4 +819,56 @@ endsnippet
 
 snippet "overbrace" "\overbrace{}" ir
 \overbrace{${1:${VISUAL}}}
+endsnippet
+
+snippet ac "\ac{}" i
+\ac{${1:${VISUAL}}}
+endsnippet
+
+snippet ac "\acp{}" i
+\acp{${1:${VISUAL}}}
+endsnippet
+
+snippet text "\text{}" i
+\text{${1:${VISUAL}}}
+endsnippet
+
+snippet intercal "\intercal i
+\intercal
+endsnippet
+
+snippet si "\si{}" i
+\si{${1:${VISUAL}}}
+endsnippet
+
+snippet meter "\meter" i
+\meter
+endsnippet
+
+snippet second "\second" i
+\second
+endsnippet
+
+snippet per "\per" i
+\per
+endsnippet
+
+snippet squared "\squared" i
+\squared
+endsnippet
+
+snippet cubed "\cubed" i
+\cubed
+endsnippet
+
+snippet teseracted "\teseracted" i
+\teseracted
+endsnippet
+
+snippet kilogram "\kilogram" i
+\kilogram
+endsnippet
+
+snippet hertz "\hertz" i
+\hertz
 endsnippet

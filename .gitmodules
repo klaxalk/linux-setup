@@ -9,7 +9,7 @@
 	url = https://github.com/junegunn/vim-plug.git
 [submodule "submodules/athame"]
 	path = submodules/athame
-	url = http://github.com/ardagnir/athame
+	url = http://github.com/klaxalk/athame
 [submodule "submodules/i3"]
 	path = submodules/i3
 	url = https://www.github.com/Airblader/i3
@@ -82,3 +82,9 @@
 [submodule "submodules/ranger"]
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
+[submodule "submodules/htop-vim"]
+	path = submodules/htop-vim
+	url = https://github.com/KoffeinFlummi/htop-vim
+[submodule "submodules/libevent"]
+	path = submodules/libevent
+	url = https://github.com/libevent/libevent
