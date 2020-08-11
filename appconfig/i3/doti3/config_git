@@ -356,6 +356,7 @@ bar {
   font pango: Terminus, FontAwesome 10
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
+  tray_output eDP-1
 
   # #{ TOMAS font
 
@@ -1059,8 +1060,8 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod2+greater move workspace to output right
 # bindsym $mod2+less move workspace to output left
 
-
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./yurii_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
 
 # EPIGEN_ADD_BLOCK_YURII }
 #
