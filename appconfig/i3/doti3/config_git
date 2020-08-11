@@ -272,9 +272,9 @@ set $active_border            #005faf
 set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS {
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
 for_window [class="^.*"] border pixel 3
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
@@ -356,6 +356,7 @@ bar {
   font pango: Terminus, FontAwesome 10
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
+  tray_output eDP-1
 
   # #{ TOMAS font
 
@@ -367,7 +368,7 @@ bar {
 # #   #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   #   font pango: LiberationMono, FontAwesome 10
+# # #     font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
@@ -384,19 +385,41 @@ bar {
 
   # #}
 
+  # #{ DANIEL font
+
+  # EPIGEN_ADD_BLOCK_DANIEL {
+
+#   # EPIGEN_ADD_BLOCK_LENOVO {
+# #   font pango: Inconsolata, FontAwesome 8
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   # font pango: LiberationMono, FontAwesome 10
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+#   # EPIGEN_ADD_BLOCK_LENOVO }
+  # EPIGEN_ADD_BLOCK_DANIEL }
+
+  # #}
+
   # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
   # the default option
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS {
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
   set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS ACTIVE }
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
 
   # #{ PETER's i3bar bg
 
   # EPIGEN_ADD_BLOCK_PETR {
   # set $i3bar_bg #060606CF
   # EPIGEN_ADD_BLOCK_PETR }
+
+  # #}
+
+  # #{ DANIEL's i3bar bg
+
+  # EPIGEN_ADD_BLOCK_DANIEL {
+  # set $i3bar_bg #002456
+  # EPIGEN_ADD_BLOCK_DANIEL }
 
   # #}
 
@@ -435,6 +458,9 @@ bar {
 
   # i3bar position
   position top
+
+  # position bottom # EPIGEN_ADD_LINE_DANIEL
+
 }
 
 # #{ i3-gaps settings
@@ -559,6 +585,26 @@ set $mode_gaps_inner inner gaps
 # # #}
 
 # EPIGEN_ADD_BLOCK_TOMAS }
+
+# #}
+
+# #{ Thinkpad 490 controls
+
+# EPIGEN_ADD_BLOCK_TP490NV {
+# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh -"
+
+# bindsym XF86Display exec "arandr"
+
+# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
+
+# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
+
+# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+
+# EPIGEN_ADD_BLOCK_TP490NV }
 
 # #}
 
@@ -938,6 +984,10 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
+# # # Wallpaper
+# # exec_always --no-startup-id feh --bg-fill ~/Pictures/004.jpg
+# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
 # # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
@@ -956,10 +1006,17 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
-# bindsym XF86AudioPlay exec "mpc toggle"
-# bindsym XF86AudioStop exec "mpc stop"
-# bindsym XF86AudioNext exec "mpc next"
-# bindsym XF86AudioPrev exec "mpc prev"
+# # EPIGEN_ADD_BLOCK_MPD {
+
+# # # Mpd notifier
+# # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
+
+# # bindsym XF86AudioPlay exec "mpc toggle"
+# # bindsym XF86AudioStop exec "mpc stop"
+# # bindsym XF86AudioNext exec "mpc next"
+# # bindsym XF86AudioPrev exec "mpc prev"
+
+# # EPIGEN_ADD_BLOCK_MPD }
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 
@@ -1018,9 +1075,14 @@ set $mode_gaps_inner inner gaps
 # #{ YURII's customization
 #
 # EPIGEN_ADD_BLOCK_YURII {
-#
-# exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
-#
+##
+# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output left
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./yurii_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
+
 # EPIGEN_ADD_BLOCK_YURII }
 #
 # #}
@@ -1088,10 +1150,12 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
+
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_power_management/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV 
 
 # #}
 
@@ -1127,7 +1191,31 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_MATEJ }
-#
+
+
+# EPIGEN_ADD_BLOCK_DANIEL {
+# # browser
+# for_window [class="Firefox"] move workspace $workspace1
+# # cads
+# for_window [class="FreeCAD"] move workspace $workspace6
+# for_window [class="Kicad"] move workspace $workspace6
+# for_window [class="Qucs"] move workspace $workspace6
+# # media
+# for_window [class="Gimp"] move workspace $workspace7
+# for_window [title="GIMP Startup"] move workspace $workspace6
+# for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+# for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+# for_window [class="kdenlive"] move workspace $workspace7
+# # music
+# for_window [class="Spotify"] move workspace $workspace8
+# for_window [class="Gnome-terminal"] move workspace $workspace8
+# # mrs
+# for_window [title="Gazebo"] move workspace $workspace9
+# for_window [class="rviz"] move workspace $workspace9
+# for_window [title="rqt_market"] move workspace $workspace9
+
+# EPIGEN_ADD_BLOCK_DANIEL }
+
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
 # #}
