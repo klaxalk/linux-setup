@@ -628,6 +628,26 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ Thinkpad 490 controls
+
+# EPIGEN_ADD_BLOCK_TP490NV {
+# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh -"
+
+# bindsym XF86Display exec "arandr"
+
+# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
+
+# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
+
+# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+
+# EPIGEN_ADD_BLOCK_TP490NV }
+
+# #}
+
 # #{ MATOUS's customization
 
 # EPIGEN_ADD_BLOCK_MATOUS {
@@ -1134,6 +1154,8 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
+
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_power_management/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
