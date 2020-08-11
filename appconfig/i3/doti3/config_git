@@ -633,8 +633,8 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_TP490NV {
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
-# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh +"
-# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_power_management/setBrightness.sh -"
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh -"
 
 # bindsym XF86Display exec "arandr"
 
@@ -1155,7 +1155,7 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
 
-# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_power_management/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
