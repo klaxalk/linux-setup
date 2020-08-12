@@ -49,7 +49,7 @@ cd "$GIT_PATH/linux-setup"
 xrdb ~/.Xresources
 
 # refresh the output devices
-xrandr --auto
+# xrandr --auto
 
 # restart i3
 i3-msg restart
