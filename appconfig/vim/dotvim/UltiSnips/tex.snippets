@@ -27,7 +27,7 @@ snippet alert "" i
 endsnippet
 
 snippet SI "" i
-\SI{${1}}{${2}}
+\SI{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet "fold" "" r
@@ -841,8 +841,32 @@ snippet si "\si{}" i
 \si{${1:${VISUAL}}}
 endsnippet
 
+snippet ref "\ref{}" i
+\ref{${1:${VISUAL}}}
+endsnippet
+
 snippet meter "\meter" i
 \meter
+endsnippet
+
+snippet volt "\volt" i
+\volt
+endsnippet
+
+snippet giga "\giga" i
+\giga
+endsnippet
+
+snippet gibi "\gibi" i
+\gibi
+endsnippet
+
+snippet byte "\byte" i
+\byte
+endsnippet
+
+snippet pixel "\pixel" i
+\pixel
 endsnippet
 
 snippet second "\second" i
