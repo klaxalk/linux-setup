@@ -9,10 +9,11 @@ fi
 
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
-MONITOR=$(echo "CLASSIC
-FHD_EXTERNAL" | rofi -dmenu -p "Select monitor:")
+MONITOR=$(echo "LAB
+PRESENTATION
+STANDALONE" | rofi -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "CLASSIC" ]] && [[ "$MONITOR" != "FHD_EXTERNAL" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
@@ -32,7 +33,7 @@ fi
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/$MONITOR_LOWERCASE.sh ~/.monitor.sh
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/vojta/$MONITOR_LOWERCASE.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc
@@ -48,7 +49,7 @@ cd "$GIT_PATH/linux-setup"
 xrdb ~/.Xresources
 
 # refresh the output devices
-xrandr --auto
+# xrandr --auto
 
 # restart i3
 i3-msg restart
