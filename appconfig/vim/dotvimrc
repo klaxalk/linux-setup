@@ -33,12 +33,12 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
   "" Lean & mean status/tabline for vim that's light as air.
   "Plug 'itchyny/lightline.vim'
 
@@ -47,7 +47,7 @@ if g:user_mode == "1"
 
   ""An essential component for my isolation mode - when the brain refuses to cooperate
   "Plug 'junegunn/goyo.vim'
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
   
   " For saving files with sudo from normal vim
   Plug 'lambdalisue/suda.vim'
@@ -124,11 +124,11 @@ if g:user_mode == "1"
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
 
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
   " Latex stuff
   Plug 'lervag/vimtex'
@@ -403,9 +403,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
 nnoremap <S-J> :tabn<cr>
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 nnoremap <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
@@ -533,12 +533,12 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-airline.vim
 
   " config for startify
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   source ~/.vim/pluginconfig/vim-startify.vim
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
   " source ~/.vim/pluginconfig/vim-startify.vim
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
@@ -695,9 +695,9 @@ nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
 nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
 nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
 
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
 " " My large subconfig
 " if !empty(glob("~/.my.vimrc"))
 "   source ~/.my.vimrc
 " endif
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
