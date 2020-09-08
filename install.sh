@@ -113,6 +113,9 @@ bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 # setup modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
+# setup fuzzyfinder
+bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
+
 # install PLAYERCTL
 bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 
