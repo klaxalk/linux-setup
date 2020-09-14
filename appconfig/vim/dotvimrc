@@ -194,7 +194,7 @@ if g:user_mode == "1"
   " Thesaurus synonyms integration
   Plug 'ron89/thesaurus_query.vim'
 
-  " EPIGEN_ADD_BLOCK_TOMAS {
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
 "   Plug 'rhysd/vim-grammarous'
@@ -208,7 +208,7 @@ if g:user_mode == "1"
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
 
-  " EPIGEN_ADD_BLOCK_TOMAS }
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
   
   " EPIGEN_ADD_BLOCK_DANIEL {
 
