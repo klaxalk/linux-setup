@@ -198,6 +198,14 @@ export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 fi
 
 #############################################
+# fix touchpad touch-clicking
+#############################################
+
+if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
+  ./$MY_PATH/scripts/fix_touchpad_click.sh
+fi
+
+#############################################
 # add sourcing of dotbashrd to .bashrc
 #############################################
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
