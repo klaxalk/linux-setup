@@ -59,7 +59,7 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 
 # the "gce-compute-image-packages" package often freezes the installation
 # the installation freezes when it tries to manage some systemd services
-((sleep 90 && (timeout 60s sudo apt-get install gce-compute-image-packages && echo "gce service restarted" || echo "gce service not restarted")) & (sudo timeout 120s apt-get -y install gce-compute-image-packages)) || echo "\e[1;31mInstallation of gce-compute-image-packages failed\e[0m"
+((sleep 10 && (sudo systemctl setop google-instance-setup.service && echo "gce service stoped" || echo "gce service not stoped")) & (sudo timeout 20s apt-get -y install gce-compute-image-packages)) || echo "\e[1;31mInstallation of gce-compute-image-packages failed\e[0m"
 
 if [ "$unattended" == "0" ]
 then
