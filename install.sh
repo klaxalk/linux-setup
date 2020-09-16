@@ -202,7 +202,7 @@ fi
 #############################################
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
-  ./$MY_PATH/scripts/fix_touchpad_click.sh
+  $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
 #############################################
