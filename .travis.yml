@@ -7,7 +7,7 @@ matrix:
       dist: bionic
       arch: amd64
       env:
-        - BADGE=focal
+        - BADGE=bionic
         - ARCH=amd
     - os: linux
       dist: focal
@@ -19,7 +19,7 @@ matrix:
       dist: bionic
       arch: arm64
       env:
-        - BADGE=focal
+        - BADGE=bionic
         - ARCH=arm
     - os: linux
       dist: focal
