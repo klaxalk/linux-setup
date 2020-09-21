@@ -37,7 +37,7 @@ while true; do
     cd $APP_PATH/../../submodules/fzf/
     ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
 
-    mkdir ~/.config/fzf 2> /dev/null
+    mkdir -p ~/.config/fzf 2> /dev/null
 
     ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
     ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
