@@ -5,12 +5,30 @@ matrix:
   include:
     - os: linux
       dist: bionic
-      env: BADGE=bionic
+      arch: amd64
+      env:
+        - BADGE=focal
+        - ARCH=amd
     - os: linux
       dist: focal
-      env: BADGE=focal
-  # allow_failures:
-  #   - env: BADGE=focal
+      arch: amd64
+      env:
+        - BADGE=focal
+        - ARCH=amd
+    - os: linux
+      dist: bionic
+      arch: arm64
+      env:
+        - BADGE=focal
+        - ARCH=arm
+    - os: linux
+      dist: focal
+      arch: arm64
+      env:
+        - BADGE=focal
+        - ARCH=arm
+  allow_failures:
+    - env: ARCH=arm
 
 branches:
   only:
