@@ -28,7 +28,7 @@ matrix:
         - BADGE=focal
         - ARCH=arm
   allow_failures:
-    - env: ARCH=arm
+    - arch: arm64
 
 branches:
   only:
