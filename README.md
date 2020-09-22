@@ -2,9 +2,9 @@
 
 | Ubuntu             | Status                                                                                                                                                                |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| amd64 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic&arch=amd64&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup) |
+| amd64 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic&arch=AMD64&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup) |
 | arm64 18.04 Bionic | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic&arch=arm64&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup) |
-| amd64 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal&arch=amd64&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)    |
+| amd64 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal&arch=AMD64&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)    |
 | arm64 20.04 Focal  | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal&arch=arm64&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)   |
 
 ## Summary
