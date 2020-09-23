@@ -9,7 +9,7 @@
 	url = https://github.com/junegunn/vim-plug.git
 [submodule "submodules/athame"]
 	path = submodules/athame
-	url = http://github.com/klaxalk/athame
+	url = http://github.com/ardagnir/athame
 [submodule "submodules/i3"]
 	path = submodules/i3
 	url = https://www.github.com/Airblader/i3
