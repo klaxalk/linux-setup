@@ -306,7 +306,7 @@ for_window [class="^.*"] border pixel 3
 
 # #}
 
-# #{ COLORSCHEME_LIGHT colors
+# #{ COLORSCHEME_GRUN colors
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
@@ -362,17 +362,14 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# #   #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #     font pango: LiberationMono, FontAwesome 10
+# #   # font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
+# # #   font pango: Terminus, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13

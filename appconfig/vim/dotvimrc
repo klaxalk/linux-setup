@@ -668,12 +668,13 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
-        \ { 'z': '~/.zshrc' },
         \ { 'i': '~/.i3/config' },
+        \ { 'p': '~/.config/papis/config' },
+        \ { 'r': '~/.config/ranger/rc.conf' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
-        \ { 'p': '~/.config/papis/config' },
+        \ { 'z': '~/.zshrc' },
         \ ]
 
   function! SetEpigenSyntax()
