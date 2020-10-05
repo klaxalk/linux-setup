@@ -36,7 +36,7 @@ while true; do
 
     toilet Installing neovim
 
-    sudo apt-add-repository -y ppa:neovim-ppa/unstable
+    sudo apt-add-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
 
     sudo apt-get -y install neovim
