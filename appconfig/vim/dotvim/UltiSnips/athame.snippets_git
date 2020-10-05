@@ -308,31 +308,31 @@ snippet pdflatex "" Ab
 pdflatex --output-dir build ${1:main.tex}
 endsnippet
 
-snippet "papis export " "" Abr
-papis export ${2:-a} -f ${3:bibtex} > '${1:bib.bib}' && bash ./ppb.sh
+snippet "^papis export " "" Ar
+papis export ${2:-a} -f ${3:bibtex} > '${1:papis_export.bib}' && bash ./ppb.sh
 endsnippet
 
-snippet "papis-zotero " "" Abr
+snippet "^papis-zotero " "" Ar
 papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
 
-snippet "papis addto " "" Abr
+snippet "^papis addto " "" Ar
 papis addto '${1:query}' --copy-pdf -f ./${2}
 endsnippet
 
-snippet "papis add " "" Abr
+snippet "^papis add " "" Ar
 papis add --from ${2:bibtex} '${1:main.bib}'
 endsnippet
 
-snippet "papis open " "" Abr
+snippet "^papis open " "" Ar
 papis open '${1}'
 endsnippet
 
-snippet "papis edit " "" Abr
+snippet "^papis edit " "" Ar
 papis edit '${1}'
 endsnippet
 
-snippet "simulation" "" Abr
+snippet "simulation" "" Ar
 roslaunch simulation simulation.launch gui:=true
 endsnippet
 
