@@ -126,6 +126,9 @@ bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 # install PAPIS
 bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
+# install VIM-STREAM
+bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
+
 # install GRUB CUSTOMIZER
 bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
 
