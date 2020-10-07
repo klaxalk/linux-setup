@@ -12,143 +12,143 @@ def complete(t, opts):
 
 endglobal
 
-snippet fdisk "" Ab
+snippet "^fdisk" "" Ar
 sudo fdisk -${1:l}
 endsnippet
 
-# snippet mount "" Ab
+# "^snippet" mount "" Ar
 # sudo mount
 # endsnippet
 
-# snippet umount "" Ab
+# "^snippet" umount "" Ar
 # sudo umount
 # endsnippet
 
-snippet reboot "" Ab
+snippet "^reboot" "" Ar
 sudo reboot
 endsnippet
 
-snippet sb "" Ab
+snippet "^sb" "" Ar
 `case "$SHELL" in *zsh*) echo source ~/.zshrc;; *) echo source ~/.bashrc;; esac`
 endsnippet
 
-snippet ll "" Ab
+snippet "^ll" "" Ar
 ls -${2:lah}${1}
 endsnippet
 
-snippet octave "" Ab
+snippet "^octave" "" Ar
 octave ${1:--no-gui}
 endsnippet
 
-snippet matlab "" Ab
+snippet "^matlab" "" Ar
 matlab ${1:-nodesktop}
 endsnippet
 
-snippet mux "" Ab
+snippet "^mux" "" Ar
 tmuxinator
 endsnippet
 
-snippet "git submodule init" "" Ab
+snippet "^"git" submodule init" "" Ar
 git submodule init && git submodule update
 endsnippet
 
-snippet "git sup" "" Ab
+snippet "^"git" sup" "" Ar
 git submodule update --init --recursive
 endsnippet
 
-snippet gs "" Ab
+snippet "^gs" "" Ar
 git status
 endsnippet
 
-snippet "grep ( )*" "" Abr
+snippet "^grep ( )*" "" Ar
 grep ${2:-nR -e} "${1}"
 endsnippet
 
-snippet goto "" Ab
+snippet "^goto" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
 endsnippet
 
-snippet gofcu "" Ab
+snippet "^gofcu" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_fcu "goal: [${2:0}, ${3:0}, ${4:0.0}, ${5:0.0}]"
 endsnippet
 
-snippet gorel "" Ab
+snippet "^gorel" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_relative "goal: [${3:0}, ${4:0}, ${5:0}, ${6:0}]"
 endsnippet
 
-snippet goal "" Ab
+snippet "^goal" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_altitude ${2:3.0}
 endsnippet
 
-snippet setyaw "" Ab
+snippet "^setyaw" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
 endsnippet
 
-snippet trackermpc "" Ab
+snippet "^trackermpc" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
 endsnippet
 
-snippet trackerspeed "" Ab
+snippet "^trackerspeed" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker SpeedTracker
 endsnippet
 
-snippet trackerline "" Ab
+snippet "^trackerline" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker LineTracker
 endsnippet
 
-snippet joystick "" Ab
+snippet "^joystick" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/use_joystick
 endsnippet
 
-snippet hover "" Ab
+snippet "^hover" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/hover
 endsnippet
 
-snippet ehover "" Ab
+snippet "^ehover" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/ehover
 endsnippet
 
-snippet motors "" Ab
+snippet "^motors" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/motors ${2:1}
 endsnippet
 
-snippet land "" Ab
+snippet "^land" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/land
 endsnippet
 
-snippet eland "" Ab
+snippet "^eland" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/eland
 endsnippet
 
-snippet takeoff "" Ab
+snippet "^takeoff" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/takeoff
 endsnippet
 
-snippet nsf "" Ab
+snippet "^nsf" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller NsfController
 endsnippet
 
-snippet failsafe "" Ab
+snippet "^failsafe" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
 endsnippet
 
-snippet "(so3)|(se3)" "" Abr
+snippet "^(so3)|(se3)" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller Se3Controller
 endsnippet
 
-snippet mpc "" Ab
+snippet "^mpc" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller MpcController
 endsnippet
 
-snippet attitude "" Ab
+snippet "^attitude" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_controller AttitudeController
 endsnippet
 
-snippet gppo "" Ab
+snippet "^gppo" "" Ar
 git pull ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
 endsnippet
 
-snippet gppl "" Ab
+snippet "^gppl" "" Ar
 git pull ${1:local} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $1 $2
 endsnippet
 
@@ -174,7 +174,7 @@ endsnippet
 
 # this part contains python snippets which rely on global complete function
 
-# snippet "git checkout $" "" Abr
+# snippet "^git checkout $" "" Ar
 # git checkout $1`!p
 # from git import Repo
 # try:
@@ -188,7 +188,7 @@ endsnippet
 # `
 # endsnippet
 
-# snippet "git pull( )+" "" Abr
+# snippet "^git pull( )+" "" Ar
 # git pull ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}${3:`!p
 # from git import Repo
 # try:
@@ -203,7 +203,7 @@ endsnippet
 # }
 # endsnippet
 
-# snippet "git push( )+" "" Abr
+# snippet "^git push( )+" "" Ar
 # git push ${1:origin} ${2:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`}${3:`!p
 # from git import Repo
 # try:
@@ -218,168 +218,168 @@ endsnippet
 # }
 # endsnippet
 
-# snippet "rostopic $" "" Abr
+# snippet "^rostopic $" "" Ar
 # rostopic $1`!p
 # snip.rv=complete(t[1], ["echo", "list", "hz", "type"])`
 # endsnippet
 
-snippet cdsim "" Ab
+snippet "^cdsim" "" Ar
 cd ~/git/simulation/start_simulation/
 endsnippet
 
-snippet cdcore "" Ab
+snippet "^cdcore" "" Ar
 cd ~/mrs_workspace/src/uav_core/ros_nodes
 endsnippet
 
-snippet cdmodules "" Ab
+snippet "^cdmodules" "" Ar
 cd ~/mrs_workspace/src/uav_modules/ros_nodes/
 endsnippet
 
-snippet glog "" Ab
+snippet "^glog" "" Ar
 git log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 endsnippet
 
-snippet "c*matrix" "" Abr
+snippet "^c*matrix" "" Ar
 cmatrix -a -b -C blue -u 3
 endsnippet
 
-snippet "(cd\.\.)|(cd\.\ \.)" "" Abr
+snippet "^(cd\.\.)|(cd\.\ \.)" "" Ar
 cd ..
 endsnippet
 
-snippet "(hopt)|(htpo)" "" Abr
+snippet "^(hopt)|(htpo)" "" Ar
 htop
 endsnippet
 
-snippet "untar $" "" Abr
+snippet "^untar $" "" Ar
 tar -xvf
 endsnippet
 
-snippet "okular$" "" Abr
+snippet "^okular$" "" Ar
 okular --presentation
 endsnippet
 
-snippet "(open )" "" Abr
+snippet "^(open )" "" Ar
 gnome-ope
 endsnippet
 
-snippet "(gcgppo)|(cggpo)" "" Abr
+snippet "^(gcgppo)|(cggpo)" "" Ar
 git commit -m "${1:${VISUAL}}" ${2:-a} && git pull ${3:origin} ${4:`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`} && git push $3 $4
 endsnippet
 
-snippet "call" "" Abr
+snippet "^call" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/
 endsnippet
 
-snippet setgains "" Ab
+snippet "^setgains" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/gain_manager/set_gains ${2:soft}
 endsnippet
 
-snippet setconstraints "" Ab
+snippet "^setconstraints" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/constraint_manager/set_constraints ${2:slow}
 endsnippet
 
-snippet fuse "" Ab
+snippet "^fuse" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/change_odometry_source ${1}`!p
 snip.rv=complete(t[1], ["gps", "optflow", "rtk", "hector", "brick"])`
 endsnippet
 
-snippet headless "" Ab
+snippet "^headless" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/mpc_tracker/headless ${1:0}
 endsnippet
 
-snippet cbt "" Ab
+snippet "^cbt" "" Ar
 catkin build --this
 endsnippet
 
-snippet "run two" "" Ab
+snippet "^"run" two" "" Ar
 ~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
 endsnippet
 
-snippet "run three" "" Ab
+snippet "^"run" three" "" Ar
 ~/workspace/src/formation_church_planning/simulation_scripts/three_drones_tmuxinator/start.sh
 endsnippet
 
-snippet "cd thesis" "" Ab
+snippet "^"cd" thesis" "" Ar
 cd ~/git/Thesis
 endsnippet
 
-snippet pdflatex "" Ab
+snippet "^pdflatex" "" Ar
 pdflatex --output-dir build ${1:main.tex}
 endsnippet
 
-snippet "papis export " "" Abr
-papis export ${2:-a} -f ${3:bibtex} > '${1:bib.bib}' && bash ./ppb.sh
+snippet "^papis export " "" Ar
+papis export ${2:-a} -f ${3:bibtex} > '${1:papis_export.bib}' && bash ./ppb.sh
 endsnippet
 
-snippet "papis-zotero " "" Abr
+snippet "^papis-zotero " "" Ar
 papis-zotero import --from-bibtex '${1:main.bib}'
 endsnippet
 
-snippet "papis addto " "" Abr
+snippet "^papis addto " "" Ar
 papis addto '${1:query}' --copy-pdf -f ./${2}
 endsnippet
 
-snippet "papis add " "" Abr
+snippet "^papis add " "" Ar
 papis add --from ${2:bibtex} '${1:main.bib}'
 endsnippet
 
-snippet "papis open " "" Abr
+snippet "^papis open " "" Ar
 papis open '${1}'
 endsnippet
 
-snippet "papis edit " "" Abr
+snippet "^papis edit " "" Ar
 papis edit '${1}'
 endsnippet
 
-snippet "simulation" "" Abr
+snippet "simulation" "" Ar
 roslaunch simulation simulation.launch gui:=true
 endsnippet
 
-snippet "spawn1" "" Abr
+snippet "^spawn1" "" Ar
 spawn 1 --run --delete --enable-rangefinder
 endsnippet
 
-snippet "spawn2" "" Abr
+snippet "^spawn2" "" Ar
 spawn 1 --run --delete --enable-rangefinder ${1:--enable-bluefox-camera}
 endsnippet
 
-snippet "spawn3" "" Abr
+snippet "^spawn3" "" Ar
 spawn 1 --run --delete --enable-rangefinder ${1:--enable-rplidar}
 endsnippet
 
-snippet "control" "" Abr
+snippet "^control" "" Ar
 roslaunch mrs_uav_manager simulation_f550_gps.launch
 endsnippet
 
-snippet "arm" "" Abr
+snippet "^arm" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/cmd/arming 1
 endsnippet
 
-snippet "offboard" "" Abr
+snippet "^offboard" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/mavros/set_mode 0 offboard
 endsnippet
 
-snippet "optflow" "" Abr
+snippet "^optflow" "" Ar
 roslaunch mrs_optic_flow simulation.launch
 endsnippet
 
-snippet "rviz1" "" Abr
+snippet "^rviz1" "" Ar
 roslaunch mrs_testing rviz_uav1.launch
 endsnippet
 
-snippet "pirouette" "" Abr
+snippet "^pirouette" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/pirouette
 endsnippet
 
-snippet "simtime" "" Abr
+snippet "^simtime" "" Ar
 rosparam set use_sim_time true
 endsnippet
 
-snippet "garmin" "" Abr
+snippet "^garmin" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/toggle_garmin 0
 endsnippet
 
-snippet "parachute" "" Abr
+snippet "^parachute" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/parachute
 endsnippet
