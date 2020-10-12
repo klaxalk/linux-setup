@@ -355,6 +355,7 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
+  tray_output DP-1-2
 
   # #{ TOMAS font
 
