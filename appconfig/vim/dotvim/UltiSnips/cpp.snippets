@@ -436,6 +436,20 @@ snippet loadparam
 param_loader.load_param<${1:double}>("${1}")
 endsnippet
 
+snippet fora
+for (auto& ${1:el} : ${2:data})
+{
+	${3:${VISUAL}}
+}
+endsnippet
+
+snippet forca
+for (const auto& ${1:el} : ${2:data})
+{
+	${3:${VISUAL}}
+}
+endsnippet
+
 snippet forit
 for (auto it = std::begin(${1:data}); it != std::end($1); ++it)
 {
