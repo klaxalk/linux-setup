@@ -126,9 +126,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
-# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
-# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -308,7 +306,7 @@ for_window [class="^.*"] border pixel 3
 
 # #}
 
-# #{ COLORSCHEME_LIGHT colors
+# #{ COLORSCHEME_GRUN colors
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
@@ -357,6 +355,7 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
+  tray_output DP-1-2
 
   # #{ TOMAS font
 
@@ -364,17 +363,14 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# #   #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #     font pango: LiberationMono, FontAwesome 10
+# #   # font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
+# # #   font pango: Terminus, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
@@ -686,32 +682,10 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DAN {
 
-# # F1 will no longer activate help of any program
-# bindsym $mod2+f exec espeak "fuck" -s 160 -p 20 -g 0
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_asus.sh'"
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_lenovo.sh'"
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -866,9 +840,6 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output right
-
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
@@ -889,9 +860,6 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output up
 
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
@@ -1120,6 +1088,42 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ AFZAL's customization
+
+# EPIGEN_ADD_BLOCK_AFZAL {
+
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+# # #{ ASUS 
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Toggling ASUS touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+
+# # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# EPIGEN_ADD_BLOCK_AFZAL }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
@@ -1196,6 +1200,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
+# assign [class="Braved-Web-Brower"] $workspace1 # EPIGEN_ADD_LINE_AFZAL
 # #}
 
 # #{ bindings for external programs

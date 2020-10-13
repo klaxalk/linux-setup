@@ -57,6 +57,10 @@ fi
 # other stuff
 sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
 
+# the "gce-compute-image-packages" package often freezes the installation
+# the installation freezes when it tries to manage some systemd services
+((sleep 90 && (sudo systemctl stop google-instance-setup.service && echo "gce service stoped" || echo "gce service not stoped")) & (sudo timeout 120 apt-get -y install gce-compute-image-packages)) || echo "\e[1;31mInstallation of gce-compute-image-packages failed\e[0m"
+
 if [ "$unattended" == "0" ]
 then
   if [ "$?" != "0" ]; then echo "Press Enter to continues.." && read; fi
@@ -121,6 +125,9 @@ bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 
 # install PAPIS
 bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
+
+# install VIM-STREAM
+bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
 # install GRUB CUSTOMIZER
 bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
@@ -195,6 +202,14 @@ if [ "$num" -lt "1" ]; then
 # list (space-separated) of profile names for customizing configs
 export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 
+fi
+
+#############################################
+# fix touchpad touch-clicking
+#############################################
+
+if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
+  $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
 #############################################

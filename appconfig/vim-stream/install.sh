@@ -27,30 +27,15 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall NEOVIM? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim-stream? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing neovim
-
-    sudo apt-add-repository -y ppa:neovim-ppa/stable
-    sudo apt-get update
-
-    sudo apt-get -y install neovim
-    mkdir -p ~/.config/nvim/
-
-    sudo -H pip install wheel
-    sudo -H pip3 install wheel
-
-    sudo -H pip3 install neovim
-    sudo -H pip3 install neovim-remote
-
-    # link the configuration
-    ln -sf ~/.vimrc ~/.config/nvim/init.vim
-    ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+    # install vim-stream
+    sudo cp $APP_PATH/../../submodules/vim-stream/vims /usr/bin
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
