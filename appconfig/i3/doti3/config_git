@@ -205,18 +205,20 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 # EPIGEN_DEL_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS {
-bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
-bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZALACTIVE {
+# bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
+# bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
+# bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+# bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
+# # EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL}
 
-# default key bindings for monitor brightness on external keyboard
-bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
-bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+# # EPIGEN_DEL_BLOCK_AFZAL {
+# # default key bindings for monitor brightness on external keyboard
+# bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
+# bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
+# bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+# EPIGEN_DEL_BLOCK_AFZAL }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
@@ -1119,8 +1121,8 @@ set $mode_gaps_inner inner gaps
 # # exec_always xinput set-prop 17 320 1
 
 # # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+# # bindsym $mod+F5 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym $mod+F6 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
 
 # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
