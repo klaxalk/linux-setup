@@ -52,6 +52,7 @@ move_up_while_info_window_active_key = K
 # define a lib
 [papers]
 # dirs = ["~/git/bibliography", "~/Dropbox/papers"] # EPIGEN_ADD_LINE_TOMAS EPIGEN_ADD_LINE_AFZAL
+# dirs = ["~/git/bibliography", "~/papers"] # EPIGEN_ADD_LINE_PETR
 
 extra-bibtex-keys = ["keywords"]
 bibtex-unicode = True

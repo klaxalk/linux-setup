@@ -64,7 +64,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! EPIGEN_ADD_BLOCK_DESKTOP {
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=11
+! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=12
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 ! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=13

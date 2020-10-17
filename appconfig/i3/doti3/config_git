@@ -126,9 +126,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
-# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
-# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -310,7 +308,7 @@ for_window [class="^.*"] border pixel 3
 
 # #}
 
-# #{ COLORSCHEME_LIGHT colors
+# #{ COLORSCHEME_GRUN colors
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
@@ -359,6 +357,7 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
+  tray_output DP-1-2
 
   # #{ TOMAS font
 
@@ -366,17 +365,14 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# #   #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #     font pango: LiberationMono, FontAwesome 10
+# #   # font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
+# # #   font pango: Terminus, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
@@ -846,9 +842,6 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output right
-
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
@@ -869,9 +862,6 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output up
 
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
