@@ -629,6 +629,11 @@ set $mode_gaps_inner inner gaps
 # #{ Thinkpad 490 controls
 
 # EPIGEN_ADD_BLOCK_TP490NV {
+# # to the run the setBrightness.sh and nvidiaEnable.sh 
+# # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
+
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 # bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
@@ -1140,6 +1145,17 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ T490 Thinkpad
+# # EPIGEN_ADD_BLOCK_T490 {
+
+# # # Bind T490 audio control keys (requires pavucontrol, pulseaudio and xfce4-pulseaudio-plugin)
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_T490 }
 # # #}
 
 # EPIGEN_ADD_BLOCK_AFZAL }
