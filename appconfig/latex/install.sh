@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science latexmk texmaker texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
+    sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
     # TODO
     # pdftk
