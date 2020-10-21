@@ -203,18 +203,20 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 # EPIGEN_DEL_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS {
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL {
 bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
 bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL }
 
-# default key bindings for monitor brightness on external keyboard
+# EPIGEN_DEL_BLOCK_AFZAL {
+# # default key bindings for monitor brightness on external keyboard
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
 bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
 bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+# EPIGEN_DEL_BLOCK_AFZAL }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
@@ -355,6 +357,7 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
+  tray_output DP-1-2
 
   # #{ TOMAS font
 
@@ -620,6 +623,31 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # EPIGEN_ADD_BLOCK_VOJTA }
+
+# #}
+
+# #{ Thinkpad 490 controls
+
+# EPIGEN_ADD_BLOCK_TP490NV {
+# # to the run the setBrightness.sh and nvidiaEnable.sh 
+# # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
+
+# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh -"
+
+# bindsym XF86Display exec "arandr"
+
+# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
+
+# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
+
+# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+
+# EPIGEN_ADD_BLOCK_TP490NV }
 
 # #}
 
@@ -1108,8 +1136,8 @@ set $mode_gaps_inner inner gaps
 # # exec_always xinput set-prop 17 320 1
 
 # # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
+# # bindsym $mod+F5 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym $mod+F6 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
 
 # # # Bind ASUS audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
@@ -1117,6 +1145,17 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ T490 Thinkpad
+# # EPIGEN_ADD_BLOCK_T490 {
+
+# # # Bind T490 audio control keys (requires pavucontrol, pulseaudio and xfce4-pulseaudio-plugin)
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_T490 }
 # # #}
 
 # EPIGEN_ADD_BLOCK_AFZAL }
@@ -1137,6 +1176,8 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
+
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
