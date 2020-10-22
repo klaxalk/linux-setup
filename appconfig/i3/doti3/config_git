@@ -75,7 +75,7 @@ set $workspace10 "10"
 # set $workspace3 "3: "
 # set $workspace4 "4: "
 # set $workspace5 "5: "
-# set $workspace6 "6"
+# set $workspace6 "6: "
 # set $workspace7 "7: "
 # set $workspace8 "8"
 # set $workspace9 "9"
@@ -1237,6 +1237,12 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [title="rqt_market"] move workspace $workspace9
 
 # EPIGEN_ADD_BLOCK_DANIEL }
+
+# EPIGEN_ADD_BLOCK_PAVEL {
+# for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
+# for_window [class="Spotify"] move workspace $workspace7
+# EPIGEN_ADD_BLOCK_PAVEL }
 
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
