@@ -116,7 +116,12 @@ while true; do
     git clean -fd
 
     # for brightness and volume control
-    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr acpi
+    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
+
+    arch=$( uname -i )
+    if [ "$arch" != "aarch64" ]; then
+      sudo apt-get -y install acpi
+    fi
 
     # for making gtk look better
     sudo apt-get -y install lxappearance

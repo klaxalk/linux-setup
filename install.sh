@@ -35,6 +35,8 @@ var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
+arch=`uname -i`
+
 # essentials
 sudo apt-get -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
 
@@ -103,7 +105,9 @@ bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 
 # install SHUTTER
-bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+fi
 
 # install ZATHURA
 bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
@@ -121,7 +125,9 @@ bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
 
 # install PLAYERCTL
-bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+fi
 
 # install PAPIS
 bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
