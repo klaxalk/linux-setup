@@ -24,6 +24,6 @@ sudo apt-get install dpkg git
 
 echo "running the main install.sh"
 
-./install.sh
+./install.sh --unattended
 
 echo "install part ended"
