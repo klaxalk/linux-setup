@@ -46,7 +46,7 @@ while true; do
     # required for i3-layout-manager
     sudo apt-get -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
-    if [[ $- == *i* ]]; # if running interractively
+    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
     then
       # install graphical X11 graphical backend with lightdm loading screen
       echo ""
