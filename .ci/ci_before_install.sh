@@ -4,8 +4,15 @@ set -e
 
 sudo apt-get update -qq
 
+distro=`lsb_release -r | awk '{ print $2 }'`
+[ "$distro" = "18.04" ] && ROS_DISTRO="melodic"
+[ "$distro" = "20.04" ] && ROS_DISTRO="noetic"
+
 sudo apt-mark hold openssh-server
-sudo apt-mark hold postgresql-10
+
+if [ "$distro" = "18.04" ]; then
+  sudo apt-mark hold postgresql-10
+fi
 
 # the "gce-compute-image-packages" package often freezes the installation
 # the installation freezes when it tries to manage some systemd services
