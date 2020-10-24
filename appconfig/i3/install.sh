@@ -46,7 +46,7 @@ while true; do
     # required for i3-layout-manager
     sudo apt-get -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
-    if [[ $- == *i* ]]; # if running interractively
+    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
     then
       # install graphical X11 graphical backend with lightdm loading screen
       echo ""
@@ -116,7 +116,12 @@ while true; do
     git clean -fd
 
     # for brightness and volume control
-    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr acpi
+    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
+
+    arch=$( uname -i )
+    if [ "$arch" != "aarch64" ]; then
+      sudo apt-get -y install acpi
+    fi
 
     # for making gtk look better
     sudo apt-get -y install lxappearance
