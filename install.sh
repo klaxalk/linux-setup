@@ -102,7 +102,9 @@ bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
 # install PANDOC
-bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+fi
 
 # install SHUTTER
 if [ "$arch" != "aarch64" ]; then
