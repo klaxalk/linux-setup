@@ -5,6 +5,7 @@ set -e
 sudo apt-get update -qq
 
 sudo apt-mark hold openssh-server
+sudo apt-mark hold postgresql-10
 
 # the "gce-compute-image-packages" package often freezes the installation
 # the installation freezes when it tries to manage some systemd services
