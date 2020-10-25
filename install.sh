@@ -138,7 +138,9 @@ bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
 # install GRUB CUSTOMIZER
-bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+fi
 
 # install TMUXINATOR
 bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
