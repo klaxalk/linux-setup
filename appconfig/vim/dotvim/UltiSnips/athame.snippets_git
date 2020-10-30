@@ -332,22 +332,6 @@ snippet "^papis edit " "" Ar
 papis edit '${1}'
 endsnippet
 
-snippet "simulation" "" Ar
-roslaunch simulation simulation.launch gui:=true
-endsnippet
-
-snippet "^spawn1" "" Ar
-spawn 1 --run --delete --enable-rangefinder
-endsnippet
-
-snippet "^spawn2" "" Ar
-spawn 1 --run --delete --enable-rangefinder ${1:--enable-bluefox-camera}
-endsnippet
-
-snippet "^spawn3" "" Ar
-spawn 1 --run --delete --enable-rangefinder ${1:--enable-rplidar}
-endsnippet
-
 snippet "^control" "" Ar
 roslaunch mrs_uav_manager simulation_f550_gps.launch
 endsnippet
