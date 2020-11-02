@@ -690,7 +690,7 @@ if g:user_mode == "1"
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
   " building markdown file
-  nnoremap <leader>hh :AsyncRun ~/.scripts/md2html.sh %:p<cr>
+  au FileType md,vimwiki,markdown nnoremap <leader>m :AsyncRun ~/.scripts/md2html.sh %:p<cr>
 
 endif
 
