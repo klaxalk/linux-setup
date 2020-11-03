@@ -586,14 +586,9 @@ copytmap <ESC> q Q w <C-c>
 map ef eval if os.environ.has_key('TMUX'): fm.execute_console("shell tmux splitw -h 'bash -c \"$EDITOR " + fm.thisfile.basename + "\"'")
 
 # Custom key bindings for movement
-map gm cd ~/mrs_workspace/src/uav_modules/ros_nodes
-map tm tab_new ~/mrs_workspace/src/uav_modules/ros_nodes
-map gc cd ~/mrs_workspace/src/uav_core/ros_nodes
-map tc tab_new ~/mrs_workspace/src/uav_core/ros_nodes
-map gl cd ~/git/linux-setup
-map tl tab_new ~/git/linux-setup
-map gw cd ~/mrs_workspace
-map tw tab_new ~/mrs_workspace
+# EPIGEN_ADD_BLOCK_TOMAS {
+# map gl tab_new ~/subt_workspace/src/subt_virtual/ros_packages/subt_virtual_launch
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 map <C-p> fzf_select
 map <C-f> fzf_select

@@ -75,7 +75,7 @@ snippet "(TODO|todo)" "" ir
 endsnippet
 
 snippet "todoinline" "" ir
-\todoonline{${1:${VISUAL}}}
+\todoinline{${1:${VISUAL}}}
 endsnippet
 
 snippet texttt "\texttt{}" i
@@ -467,12 +467,14 @@ endsnippet
 
 snippet frame "Beamer frame" 
 %%{ $1
+
 \begin{frame}
 \frametitle{${1:Frame title}}
 
 ${2:${VISUAL}}
 
 \end{frame}
+
 %%}
 endsnippet
 
@@ -609,7 +611,7 @@ snippet corr "" i
 \\corrected {${1:${VISUAL}}}
 endsnippet
 
-snippet up "" i
+snippet "(up)|(updated)" "" ir
 \\updated {${1:${VISUAL}}}
 endsnippet
 
@@ -829,6 +831,14 @@ snippet ac "\ac{}" i
 \ac{${1:${VISUAL}}}
 endsnippet
 
+snippet acl "\acl{}" i
+\acl{${1:${VISUAL}}}
+endsnippet
+
+snippet acs "\acs{}" i
+\acs{${1:${VISUAL}}}
+endsnippet
+
 snippet acp "\acp{}" i
 \acp{${1:${VISUAL}}}
 endsnippet
@@ -837,7 +847,7 @@ snippet text "\text{}" i
 \text{${1:${VISUAL}}}
 endsnippet
 
-snippet intercal "\intercal i
+snippet intercal "\intercal" i
 \intercal
 endsnippet
 
@@ -847,6 +857,10 @@ endsnippet
 
 snippet ref "\ref{}" i
 \ref{${1:${VISUAL}}}
+endsnippet
+
+snippet fbox "\fbox{}" i
+\fbox{${1:${VISUAL}}}
 endsnippet
 
 snippet meter "\meter" i
@@ -877,6 +891,14 @@ snippet second "\second" i
 \second
 endsnippet
 
+snippet minut "\minut" i
+\minut
+endsnippet
+
+snippet "(radian)|(rad)" "\radian" ir
+\radian
+endsnippet
+
 snippet per "\per" i
 \per
 endsnippet
@@ -897,14 +919,78 @@ snippet kilogram "\kilogram" i
 \kilogram
 endsnippet
 
+snippet celsius "\celsius" i
+\celsius
+endsnippet
+
+snippet decibel "\decibel" i
+\decibel
+endsnippet
+
+snippet gram "\gram" i
+\gram
+endsnippet
+
+snippet kilo "\kilo" i
+\kilo
+endsnippet
+
+snippet mega "\mega" i
+\mega
+endsnippet
+
+snippet electronvolt "\electronvolt" i
+\electronvolt
+endsnippet
+
+snippet milli "\milli" i
+\milli
+endsnippet
+
+snippet micro "\micro" i
+\micro
+endsnippet
+
+snippet nano "\nano" i
+\nano
+endsnippet
+
 snippet hertz "\hertz" i
 \hertz
+endsnippet
+
+snippet becquerel "\becquerel" i
+\becquerel
 endsnippet
 
 snippet "(degree)|(deg)" "\degree" ir
 \degree
 endsnippet
 
+snippet "arcmin" "\arcmin" ir
+\arcmin
+endsnippet
+
 snippet "(radian)|(rad)" "\radian" ir
 \radian
+endsnippet
+
+snippet "in" "\in" ir
+\in
+endsnippet
+
+snippet "leq" "\leq" ir
+\leq
+endsnippet
+
+snippet "geq" "\geq" ir
+\geq
+endsnippet
+
+snippet "numberthis" "\numberthis" ir
+\numberthis
+endsnippet
+
+snippet "{}" "{}" ir
+{${1}}
 endsnippet

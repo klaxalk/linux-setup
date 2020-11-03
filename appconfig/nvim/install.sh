@@ -36,13 +36,15 @@ while true; do
 
     toilet Installing neovim
 
-    sudo apt-add-repository -y ppa:neovim-ppa/unstable
+    sudo apt-add-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
 
     sudo apt-get -y install neovim
     mkdir -p ~/.config/nvim/
 
-    sudo -H pip install wheel
+    if [ "$distro" = "18.04" ]; then
+      sudo -H pip install wheel
+    fi
     sudo -H pip3 install wheel
 
     sudo -H pip3 install neovim

@@ -35,6 +35,8 @@ var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
+arch=`uname -i`
+
 # essentials
 sudo apt-get -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
 
@@ -56,6 +58,10 @@ fi
 
 # other stuff
 sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
+
+# the "gce-compute-image-packages" package often freezes the installation
+# the installation freezes when it tries to manage some systemd services
+((sleep 90 && (sudo systemctl stop google-instance-setup.service && echo "gce service stoped" || echo "gce service not stoped")) & (sudo timeout 120 apt-get -y install gce-compute-image-packages)) || echo "\e[1;31mInstallation of gce-compute-image-packages failed\e[0m"
 
 if [ "$unattended" == "0" ]
 then
@@ -96,10 +102,14 @@ bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
 # install PANDOC
-bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+fi
 
 # install SHUTTER
-bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+fi
 
 # install ZATHURA
 bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
@@ -113,14 +123,24 @@ bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 # setup modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
+# setup fuzzyfinder
+bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
+
 # install PLAYERCTL
-bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+fi
 
 # install PAPIS
 bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
+# install VIM-STREAM
+bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
+
 # install GRUB CUSTOMIZER
-bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+fi
 
 # install TMUXINATOR
 bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
@@ -192,6 +212,14 @@ if [ "$num" -lt "1" ]; then
 # list (space-separated) of profile names for customizing configs
 export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 
+fi
+
+#############################################
+# fix touchpad touch-clicking
+#############################################
+
+if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
+  $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
 #############################################

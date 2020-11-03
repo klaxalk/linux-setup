@@ -75,7 +75,7 @@ set $workspace10 "10"
 # set $workspace3 "3: "
 # set $workspace4 "4: "
 # set $workspace5 "5: "
-# set $workspace6 "6"
+# set $workspace6 "6: "
 # set $workspace7 "7: "
 # set $workspace8 "8"
 # set $workspace9 "9"
@@ -126,9 +126,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
-# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
-# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -205,18 +203,20 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 # EPIGEN_DEL_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS {
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL {
 bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
 bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL }
 
-# default key bindings for monitor brightness on external keyboard
+# EPIGEN_DEL_BLOCK_AFZAL {
+# # default key bindings for monitor brightness on external keyboard
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
 bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
 bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+# EPIGEN_DEL_BLOCK_AFZAL }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
@@ -308,7 +308,7 @@ for_window [class="^.*"] border pixel 3
 
 # #}
 
-# #{ COLORSCHEME_LIGHT colors
+# #{ COLORSCHEME_GRUN colors
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
@@ -357,6 +357,7 @@ bar {
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
+  tray_output DP-1-2
 
   # #{ TOMAS font
 
@@ -364,17 +365,14 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# #   #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #     font pango: LiberationMono, FontAwesome 10
+# #   # font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
+# # #   font pango: Terminus, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
@@ -628,6 +626,31 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ Thinkpad 490 controls
+
+# EPIGEN_ADD_BLOCK_TP490NV {
+# # to the run the setBrightness.sh and nvidiaEnable.sh 
+# # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
+
+# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh -"
+
+# bindsym XF86Display exec "arandr"
+
+# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
+
+# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
+
+# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+
+# EPIGEN_ADD_BLOCK_TP490NV }
+
+# #}
+
 # #{ MATOUS's customization
 
 # EPIGEN_ADD_BLOCK_MATOUS {
@@ -686,32 +709,10 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DAN {
 
-# # F1 will no longer activate help of any program
-# bindsym $mod2+f exec espeak "fuck" -s 160 -p 20 -g 0
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_asus.sh'"
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_lenovo.sh'"
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -866,9 +867,6 @@ set $mode_gaps_inner inner gaps
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output right
-
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
@@ -889,9 +887,6 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output up
 
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
@@ -1120,6 +1115,53 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ AFZAL's customization
+
+# EPIGEN_ADD_BLOCK_AFZAL {
+
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+# # #{ ASUS 
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Toggling ASUS touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind ASUS screen brightness control
+# # bindsym $mod+F5 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym $mod+F6 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
+
+# # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ T490 Thinkpad
+# # EPIGEN_ADD_BLOCK_T490 {
+
+# # # Bind T490 audio control keys (requires pavucontrol, pulseaudio and xfce4-pulseaudio-plugin)
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_T490 }
+# # #}
+
+# EPIGEN_ADD_BLOCK_AFZAL }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
@@ -1134,6 +1176,8 @@ exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync op
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
+
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
@@ -1194,8 +1238,15 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 
+# EPIGEN_ADD_BLOCK_PAVEL {
+# for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
+# for_window [class="Spotify"] move workspace $workspace7
+# EPIGEN_ADD_BLOCK_PAVEL }
+
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
+# assign [class="Braved-Web-Brower"] $workspace1 # EPIGEN_ADD_LINE_AFZAL
 # #}
 
 # #{ bindings for external programs

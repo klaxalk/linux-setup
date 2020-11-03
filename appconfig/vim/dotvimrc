@@ -117,6 +117,8 @@ if g:user_mode == "1"
   " automatic code completion for C++ and more
   " Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
   Plug 'valloric/youcompleteme', { 'commit': '1386c6b' }
+  Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
+
   " Plug 'valloric/youcompleteme'
   " Plug 'davits/dyevim'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
@@ -192,7 +194,7 @@ if g:user_mode == "1"
   " Thesaurus synonyms integration
   Plug 'ron89/thesaurus_query.vim'
 
-  " EPIGEN_ADD_BLOCK_TOMAS {
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
 "   Plug 'rhysd/vim-grammarous'
@@ -206,7 +208,7 @@ if g:user_mode == "1"
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
 
-  " EPIGEN_ADD_BLOCK_TOMAS }
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
   
   " EPIGEN_ADD_BLOCK_DANIEL {
 
@@ -666,12 +668,13 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
-        \ { 'z': '~/.zshrc' },
         \ { 'i': '~/.i3/config' },
+        \ { 'p': '~/.config/papis/config' },
+        \ { 'r': '~/.config/ranger/rc.conf' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
-        \ { 'p': '~/.config/papis/config' },
+        \ { 'z': '~/.zshrc' },
         \ ]
 
   function! SetEpigenSyntax()
@@ -687,7 +690,7 @@ if g:user_mode == "1"
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
   " building markdown file
-  nnoremap <leader>hh :AsyncRun ~/.scripts/md2html.sh %:p<cr>
+  au FileType md,vimwiki,markdown nnoremap <leader>m :AsyncRun ~/.scripts/md2html.sh %:p<cr>
 
 endif
 

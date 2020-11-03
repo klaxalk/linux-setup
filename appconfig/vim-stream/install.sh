@@ -27,21 +27,16 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall fzf? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim-stream? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    cd $APP_PATH/../../submodules/fzf/
-    ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
+    # install vim-stream
+    sudo cp $APP_PATH/../../submodules/vim-stream/vims /usr/bin
 
-    mkdir -p ~/.config/fzf 2> /dev/null
-
-    ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
-    ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
-    
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
