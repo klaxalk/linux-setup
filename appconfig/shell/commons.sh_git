@@ -175,6 +175,11 @@ git() {
 
 papis() {
 
+  if [ -z $* ];
+  then
+    papis edit
+  fi
+
   case $* in
 
     edit*)
