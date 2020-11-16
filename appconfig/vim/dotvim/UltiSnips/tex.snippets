@@ -994,3 +994,15 @@ endsnippet
 snippet "{}" "{}" ir
 {${1}}
 endsnippet
+
+snippet "multirow" "\multirow" ir
+\multirow{${1:2}}{${2:*}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "multicolumn" "\multicolumn" ir
+\multicolumn{${1:2}}{${2:c}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "colsep" "\renewcommand{\tabcolsep}{-4pt}" ir
+\renewcommand{\tabcolsep}{${1:0}pt}
+endsnippet
