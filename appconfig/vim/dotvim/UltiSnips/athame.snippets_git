@@ -80,8 +80,8 @@ snippet "^goal" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_altitude ${2:3.0}
 endsnippet
 
-snippet "^setyaw" "" Ar
-rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_yaw ${2:0.0}
+snippet "(^setyaw)|(^setheading)" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/set_heading "goal: ${2:0.0}"
 endsnippet
 
 snippet "^trackermpc" "" Ar
