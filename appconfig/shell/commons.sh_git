@@ -171,6 +171,52 @@ git() {
 
 # #}
 
+# #{ papis()
+
+papis() {
+
+  if [[ "$*" == "" ]];
+  then
+    command papis edit
+  else
+    case "$1" in
+
+      edit*)
+
+        shift
+
+        if [[ "$@" == "" ]]; then
+          command papis edit
+        else
+          # run the original command
+          command papis edit "$@"
+        fi
+
+        ;;
+
+      open*)
+
+        shift
+
+        if [[ "$@" == "" ]]; then
+          command papis open
+        else
+          # run the original command
+          command papis open "$@"
+        fi
+
+        ;;
+
+      *)
+        command papis "$@"
+      ;;
+
+    esac
+  fi
+}
+
+# #}
+
 # #{ ranger()
 
 ranger () {

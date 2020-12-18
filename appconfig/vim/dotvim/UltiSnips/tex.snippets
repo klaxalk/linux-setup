@@ -317,12 +317,8 @@ snippet "cite" "\cite{}" r
 \\cite{${1:${VISUAL}}}
 endsnippet
 
-snippet "fullcite" "\fullcite{}" r
-\\fullcite{${1:${VISUAL}}}
-endsnippet
-
-snippet "fullciteinbox" "\fullciteinbox{}" r
-\\fullciteinbox{${1:${VISUAL}}}
+snippet "fullcite" "\fullciteinbox{}" r
+\\fullciteinbox{${1:${VISUAL}}}{}
 endsnippet
 
 snippet dot "\dot{}" i
@@ -843,6 +839,10 @@ snippet acp "\acp{}" i
 \acp{${1:${VISUAL}}}
 endsnippet
 
+snippet aclp "\aclp{}" i
+\aclp{${1:${VISUAL}}}
+endsnippet
+
 snippet text "\text{}" i
 \text{${1:${VISUAL}}}
 endsnippet
@@ -993,4 +993,16 @@ endsnippet
 
 snippet "{}" "{}" ir
 {${1}}
+endsnippet
+
+snippet "multirow" "\multirow" ir
+\multirow{${1:2}}{${2:*}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "multicolumn" "\multicolumn" ir
+\multicolumn{${1:2}}{${2:c}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "colsep" "\renewcommand{\tabcolsep}{-4pt}" ir
+\renewcommand{\tabcolsep}{${1:0}pt}
 endsnippet

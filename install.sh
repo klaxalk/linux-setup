@@ -38,7 +38,7 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 arch=`uname -i`
 
 # essentials
-sudo apt-get -y install git cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
+sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
 
 if [ "$BADGE" == "focal" ]; then
   echo "Detected Travis focal build, skipping openssh-server installation"
