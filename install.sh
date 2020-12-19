@@ -38,13 +38,7 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 arch=`uname -i`
 
 # essentials
-sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools
-
-if [ "$BADGE" == "focal" ]; then
-  echo "Detected Travis focal build, skipping openssh-server installation"
-else
-  sudo apt-get -y install openssh-server 
-fi
+sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
