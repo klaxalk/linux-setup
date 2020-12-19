@@ -2,9 +2,9 @@
 
 | Ubuntu               | Architecture | Status                                                                                                                                                           |
 | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 18.04 Bionic         | AMD64        | [![Build Status](https://github.com/klaxalk/linux_setup/workflows/Bionic/badge.svg)](https://github.com/klaxalk/linux_setup/actions)                             |
+| 18.04 Bionic         | AMD64        | [![Build Status](https://github.com/klaxalk/linux-etup/workflows/Bionic/badge.svg)](https://github.com/klaxalk/linux-etup/actions)                             |
 | 18.04 Bionic         | arm64        |                                                                                                                                                                  |
-| 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux_setup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux_setup/actions)                              |
+| 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux-etup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux-etup/actions)                              |
 | 20.04 Focal          | arm64        |                                                                                                                                                                  |
 
 ## Summary
