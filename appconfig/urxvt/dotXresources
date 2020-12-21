@@ -196,7 +196,7 @@ URxvt.foreground: #dddddd
 
 ! }
 
-! { AFZAL 
+! { AFZAL
 
 ! EPIGEN_ADD_BLOCK_AFZAL {
 ! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
@@ -369,10 +369,10 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! ! ! URxvt.background: #121212
 ! ! ! EPIGEN_ADD_BLOCK_TOSHIBA }
 ! ! ! EPIGEN_DEL_BLOCK_TOSHIBA {
-! ! URxvt.background: rgba:0000/0000/0000/B000
+! !  URxvt.background: rgba:0000/0000/0000/B000
 ! ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
 ! ! EPIGEN_ADD_BLOCK_MATOUS }
-!
+
 ! ! EPIGEN_ADD_BLOCK_PETR {
 ! ! URxvt.background: #222222
 ! ! EPIGEN_ADD_BLOCK_PETR }
@@ -402,10 +402,10 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.color7: #888888
 ! URxvt.color15: #E8E8D3
 
-! !! URxvt COLORS --------------------------------------------------------
+! ! URxvt COLORS --------------------------------------------------------
 ! URxvt*depth                   : 32
-! ! URxvt.fading                  : 25
-! ! URxvt.fadeColor               : #101010
+! ! URxvt.fading                : 25
+! ! URxvt.fadeColor             : #101010
 ! URxvt*visualBell              : false
 
 ! ! ------------------------------------------------------------------------------
