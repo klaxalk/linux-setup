@@ -1,7 +1,8 @@
 pull_request_rules:
   - name: automatic merge
     conditions:
-      - status-success=Travis CI - Pull Request
+      - check-success=Bionic
+      - check-success=Focal
       - label=auto-merge
       - label!=auto-squash-merge
       - base=master
@@ -10,7 +11,8 @@ pull_request_rules:
         method: merge
   - name: automatic squash merge
     conditions:
-      - status-success=Travis CI - Pull Request
+      - check-success=Bionic
+      - check-success=Focal
       - label=auto-merge
       - label=auto-squash-merge
       - base=master
