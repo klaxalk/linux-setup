@@ -33,6 +33,8 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
+  Plug 'frazrepo/vim-rainbow'
+
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
@@ -640,6 +642,8 @@ endif
 
 " additional settings for non-athame vim
 if g:user_mode == "1"
+
+  let g:tex_flavor = 'latex'
 
   " set vim and airline colorscheme
 
