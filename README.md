@@ -2,10 +2,10 @@
 
 | Ubuntu               | Architecture | Status                                                                                                                                                           |
 | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 18.04 Bionic         | AMD64        | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic+ARCH=amd&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup)  |
-| 18.04 Bionic         | arm64        | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=bionic+ARCH=arm&label=Bionic)](https://travis-ci.com/klaxalk/linux-setup)  |
-| 20.04 Focal          | AMD64        | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal+ARCH=amd&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)    |
-| 20.04 Focal          | arm64        | [![Build Status](http://badges.herokuapp.com/travis.com/klaxalk/linux-setup?env=BADGE=focal+ARCH=arm&label=Focal)](https://travis-ci.com/klaxalk/linux-setup)    |
+| 18.04 Bionic         | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Bionic/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                             |
+| 18.04 Bionic         | arm64        |                                                                                                                                                                  |
+| 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                              |
+| 20.04 Focal          | arm64        |                                                                                                                                                                  |
 
 ## Summary
 
