@@ -192,6 +192,7 @@ if g:user_mode == "1"
   " Plug 'justinmk/vim-syntax-extra'
 
   " Thesaurus synonyms integration
+  " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
