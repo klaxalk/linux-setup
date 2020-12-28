@@ -31,6 +31,8 @@ let g:ycm_filetype_blacklist = {
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start
 
+au FileType c,cpp,hpp,h nnoremap <leader>. :YcmCompleter GoTo<cr>
+
 " scrolling in autocomplete menu with j and k, or c-j and c-k
 " should work only when the menu has been entered either by tab or arrows
 set completeopt+=noinsert
@@ -47,6 +49,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
 
 let g:ycm_enable_diagnostic_signs = 1
 let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_always_populate_location_list = 1 "default 0
 let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
 
 function! YcmLocationList()
@@ -55,13 +58,16 @@ function! YcmLocationList()
     au! yll
     augroup! yll
     let g:ycm_always_populate_location_list = 0 "default 0
+    YcmRestartServer
+    echo 'YCM location list: OFF'
     return 0
   else
     augroup yll
       au!
       let g:ycm_always_populate_location_list = 1 "default 0
+      YcmRestartServer
+      echo 'YCM location list: ON'
     augroup end
-    echo 'YCM location list: ON'
     return 1
   endif
 endfunction
