@@ -604,11 +604,15 @@ snippet hat "" i
 endsnippet
 
 snippet corr "" i
-\\corrected {${1:${VISUAL}}}
+\corrected {${1:${VISUAL}}}
 endsnippet
 
-snippet "(up)|(updated)" "" ir
-\\updated {${1:${VISUAL}}}
+snippet "(up)|(updated)" "\updated{}" ir
+\updated{${1:${VISUAL}}}
+endsnippet
+
+snippet "(add)|(added)" "\added{}" ir
+\added{${1:${VISUAL}}}
 endsnippet
 
 snippet tableofcontents
@@ -865,6 +869,10 @@ endsnippet
 
 snippet meter "\meter" i
 \meter
+endsnippet
+
+snippet newton "\newton" i
+\newton
 endsnippet
 
 snippet volt "\volt" i
