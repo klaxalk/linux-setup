@@ -1,6 +1,7 @@
 " vimtex config
 
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 " let g:vimtex_view_general_viewer = 'okular'
 " let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
@@ -52,13 +53,15 @@ au BufNewFile,BufRead *.tex map <Leader>l :ccl<CR>
 au BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
 let g:tex_comment_nospell= 1 " disable spellchecking in comments
 
+au BufReadPost * if getline(1) =~ "spell_cs" | setlocal spell spelllang=cs_cz | endif
+
 " folding
 let g:vimtex_fold_enabled = 0
 au FileType tex set foldmethod=marker
 au FileType tex set foldmarker=%%{,%%}
 
-" might solve some
-" let g:vimtex_indent_enabled = 0
+" might solve some problems
+let g:vimtex_indent_enabled = 0
 
 " au FileType tex setlocal fdm=expr
 " au FileType tex setlocal foldexpr=vimtex#fold#level(2)

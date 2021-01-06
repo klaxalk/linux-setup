@@ -33,12 +33,14 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  Plug 'frazrepo/vim-rainbow'
+
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
   "" Lean & mean status/tabline for vim that's light as air.
   "Plug 'itchyny/lightline.vim'
 
@@ -47,8 +49,8 @@ if g:user_mode == "1"
 
   ""An essential component for my isolation mode - when the brain refuses to cooperate
   "Plug 'junegunn/goyo.vim'
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
-  
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
+
   " For saving files with sudo from normal vim
   Plug 'lambdalisue/suda.vim'
   cmap w!! w suda://%
@@ -77,9 +79,6 @@ if g:user_mode == "1"
   " python formatting
   Plug 'hynek/vim-python-pep8-indent'
 
-  " automatic split resizing for more convenient coding
-  " Plug 'zhaocai/GoldenView.Vim'
-
   " Clever motions helper
   " highlights letters while using f, t motions
   Plug 'unblevable/quick-scope'
@@ -87,16 +86,7 @@ if g:user_mode == "1"
   " Shows tags in the file
   " currently mapped to F8
   Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
-  " Plug 'xolox/vim-easytags'
-  " Plug 'xolox/vim-misc'
-  " let g:easytags_async=1
-  " let g:easytags_events = ['BufRead', 'BufWritePost']
-  " let g:easytags_auto_update=0
-  " let g:easytags_file='~/tags'
-  " let g:easytags_syntax_keyword='always'
-  " let g:easytags_always_enabled=1
-  " let g:easytags_updatetime_min=1000
-  
+
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
   " if has('nvim')
   "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -112,23 +102,22 @@ if g:user_mode == "1"
   " endif
   " let g:deoplete#enable_at_startup = 1
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+
   " youcompleteme
   " automatic code completion for C++ and more
-  " Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   Plug 'valloric/youcompleteme', { 'commit': '1386c6b' }
-  " Plug 'valloric/youcompleteme'
-  " Plug 'davits/dyevim'
+  Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
 
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
   " Latex stuff
   Plug 'lervag/vimtex'
@@ -190,9 +179,10 @@ if g:user_mode == "1"
   " Plug 'justinmk/vim-syntax-extra'
 
   " Thesaurus synonyms integration
+  " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
-  " EPIGEN_ADD_BLOCK_TOMAS {
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
 "   Plug 'rhysd/vim-grammarous'
@@ -206,14 +196,13 @@ if g:user_mode == "1"
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
 
-  " EPIGEN_ADD_BLOCK_TOMAS }
-  
-  " EPIGEN_ADD_BLOCK_DANIEL {
+  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
 
-""Syntax-error highlighting
-"Plug 'vim-syntastic/syntastic'
+  " EPIGEN_ADD_BLOCK_DANIEL {
+  " " Syntax-error highlighting
+  " Plug 'vim-syntastic/syntastic'
   " EPIGEN_ADD_BLOCK_DANIEL }
-  
+
   if has("nvim")
     Plug 'mklabs/split-term.vim'
     " Plug 'arakashic/chromatica.nvim'
@@ -364,13 +353,6 @@ else
 
 endif
 
-" remap tags keys
-nmap <leader>. <c-]>zt     " dive into the tag
-nmap <leader>/ :pop      " go back one tag
-nmap <leader>; :ts       " show list of files in which the tag is found
-
-nmap <leader>mts ^"oyiwdd0/{a std::scoped_lock lock(o);/og;
-
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
@@ -396,11 +378,6 @@ nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
 
-" remap buffer navigations to shift + UI
-" nonono! those are normil vim bindings which should remain the same
-" map <S-U> :bn<cr>
-" map <S-I> :bp<cr>
-
 " remap split navigations to ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -408,10 +385,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-map <S-J> :tabn<cr>
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-map <S-K> :tabp<cr>
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
+nnoremap <S-J> :tabn<cr>
+" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
+nnoremap <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
 vnoremap . :normal @a<CR>
@@ -455,6 +432,9 @@ vnoremap // y/<C-R>"<CR>
 " folding by marker for various file types
 au FileType m,matlab set foldmethod=marker
 au FileType m,matlab set foldmarker=%\ %{,%\ %}
+
+au FileType xdefaults set foldmethod=marker
+au FileType xdefaults set foldmarker=!\ {,!\ }
 
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
@@ -508,11 +488,6 @@ au BufNewFile,BufRead *.pln set listchars=tab:▸▸
 au BufNewFile,BufRead *.shadron set filetype=cpp
 au BufNewFile,BufRead *.tpp set filetype=cpp
 
-" where should vim look for the tags?
-" tags are generated by ctags utility
-" multiple paths should be separated by comma
-set tags+=~/tags,~/tags-once
-
 " those will be ignored by and vimgrep
 set wildignore+=*/Downloads/**,*/Desktop/**,*/build/**
 
@@ -535,12 +510,12 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-airline.vim
 
   " config for startify
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   source ~/.vim/pluginconfig/vim-startify.vim
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
   " source ~/.vim/pluginconfig/vim-startify.vim
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
   " config for nerdtree
   source ~/.vim/pluginconfig/nerdtree.vim
@@ -566,7 +541,7 @@ if g:user_mode == "1"
   " config for youcompleteme
   source ~/.vim/pluginconfig/youcompleteme.vim
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
- 
+
   " config for vim-ros
   source ~/.vim/pluginconfig/vim-ros.vim
 
@@ -596,11 +571,11 @@ if g:user_mode == "1"
 
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
-  
+
   " EPIGEN_ADD_BLOCK_TOMAS {
   " source ~/.vim/pluginconfig/vim-glsl.vim
   " EPIGEN_ADD_BLOCK_TOMAS }
-  "
+
   " EPIGEN_ADD_BLOCK_DANIEL {
   " source ~/.vim/pluginconfig/syntastic.vim
   " EPIGEN_ADD_BLOCK_DANIEL }
@@ -641,6 +616,8 @@ endif
 " additional settings for non-athame vim
 if g:user_mode == "1"
 
+  let g:tex_flavor = 'latex'
+
   " set vim and airline colorscheme
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
@@ -668,12 +645,13 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
-        \ { 'z': '~/.zshrc' },
         \ { 'i': '~/.i3/config' },
+        \ { 'p': '~/.config/papis/config' },
+        \ { 'r': '~/.config/ranger/rc.conf' },
         \ { 't': '~/.tmux.conf' },
         \ { 'v': '~/.vimrc' },
         \ { 'x': '~/.Xresources' },
-        \ { 'p': '~/.config/papis/config' },
+        \ { 'z': '~/.zshrc' },
         \ ]
 
   function! SetEpigenSyntax()
@@ -689,7 +667,7 @@ if g:user_mode == "1"
   autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
   " building markdown file
-  nnoremap <leader>hh :AsyncRun ~/.scripts/md2html.sh %:p<cr>
+  au FileType md,vimwiki,markdown nnoremap <leader>m :AsyncRun ~/.scripts/md2html.sh %:p<cr>
 
 endif
 
@@ -697,9 +675,9 @@ nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
 nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
 nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
 
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
 " " My large subconfig
 " if !empty(glob("~/.my.vimrc"))
 "   source ~/.my.vimrc
 " endif
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
+" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }

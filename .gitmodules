@@ -82,3 +82,12 @@
 [submodule "submodules/ranger"]
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
+[submodule "submodules/htop-vim"]
+	path = submodules/htop-vim
+	url = https://github.com/KoffeinFlummi/htop-vim
+[submodule "submodules/libevent"]
+	path = submodules/libevent
+	url = https://github.com/libevent/libevent
+[submodule "submodules/vim-stream"]
+	path = submodules/vim-stream
+	url = https://github.com/MilesCranmer/vim-stream.git

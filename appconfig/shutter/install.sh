@@ -38,12 +38,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -n "$BEAVER" ]; then
-      sudo add-apt-repository -y ppa:linuxuprising/shutter
-      sudo apt update
-    fi
+    sudo add-apt-repository -y ppa:linuxuprising/shutter
+    sudo apt-get update
 
-    sudo apt -y install shutter
+    sudo apt-get -y install shutter
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

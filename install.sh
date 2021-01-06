@@ -13,7 +13,6 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 APPCONFIG_PATH=$MY_PATH/appconfig
 
 cd $MY_PATH
-git pull
 git submodule update --init --recursive
 
 # install packages
@@ -35,20 +34,23 @@ var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
 [ "$var2" = "$var1" ] && export BEAVER=1
 
+arch=`uname -i`
+
 # essentials
-sudo apt -y install git cmake cmake-curses-gui build-essential htop automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool openssh-server net-tools
+sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server
 
 # python
-sudo apt -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
 
 if [ -n "$BEAVER" ]; then
-  sudo apt -y install python-git
+  sudo apt-get -y install python-git
+  sudo ln -sf /bin/python2.7 /bin/python
 else
-  sudo apt -y install python3-git
+  sudo apt-get -y install python3-git
 fi
 
 # other stuff
-sudo apt -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak
 
 if [ "$unattended" == "0" ]
 then
@@ -63,6 +65,9 @@ bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
 # install VIM
 bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
+
+# install HTOP-VIM
+bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
 # install URXVT
 bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
@@ -86,10 +91,14 @@ bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
 # install PANDOC
-bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
+fi
 
 # install SHUTTER
-bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
+fi
 
 # install ZATHURA
 bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
@@ -103,14 +112,24 @@ bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 # setup modified keyboard rules
 bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
+# setup fuzzyfinder
+bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
+
 # install PLAYERCTL
-bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
+fi
 
 # install PAPIS
 bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
+# install VIM-STREAM
+bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
+
 # install GRUB CUSTOMIZER
-bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+if [ "$arch" != "aarch64" ]; then
+  bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+fi
 
 # install TMUXINATOR
 bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
@@ -150,7 +169,7 @@ fi
 ##################################################
 # install inputs libraries when they are missing
 ##################################################
-sudo apt -y install xserver-xorg-input-all
+sudo apt-get -y install xserver-xorg-input-all
 
 #############################################
 # Disable automatic update over apt
@@ -182,6 +201,14 @@ if [ "$num" -lt "1" ]; then
 # list (space-separated) of profile names for customizing configs
 export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 
+fi
+
+#############################################
+# fix touchpad touch-clicking
+#############################################
+
+if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
+  $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
 #############################################

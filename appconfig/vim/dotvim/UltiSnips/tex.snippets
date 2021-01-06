@@ -27,7 +27,7 @@ snippet alert "" i
 endsnippet
 
 snippet SI "" i
-\SI{${1}}{${2}}
+\SI{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet "fold" "" r
@@ -58,16 +58,8 @@ snippet tikzeval "" Ai
 (\$ ${1:${VISUAL}} \$)
 endsnippet
 
-snippet "eq" "" r
-(\\ref{eq:${1:${VISUAL}}})
-endsnippet
-
-snippet "leq" "" ri
-\leq
-endsnippet
-
-snippet "sec" "" ri
-(section~\\ref{sec:${1:${VISUAL}}})
+snippet "refeq" "\refeq{}" ri
+\refeq{${1:${VISUAL}}}
 endsnippet
 
 snippet cmd "generic command \{}" i
@@ -82,6 +74,10 @@ snippet "(TODO|todo)" "" ir
 \todo{${1:${VISUAL}}}
 endsnippet
 
+snippet "todoinline" "" ir
+\todoinline{${1:${VISUAL}}}
+endsnippet
+
 snippet texttt "\texttt{}" i
 \\texttt{${1:${VISUAL}}}
 endsnippet
@@ -91,7 +87,7 @@ snippet emphvar "\emphvar{}" i
 endsnippet
 
 snippet section "\section{}"
-\\section{${1}}
+\\section{${1:${VISUAL}}}
 endsnippet
 
 snippet chapter "\chapter{}"
@@ -99,11 +95,11 @@ snippet chapter "\chapter{}"
 endsnippet
 
 snippet subsection "\subsection{}"
-\\subsection{${1}}
+\\subsection{${1:${VISUAL}}}
 endsnippet
 
 snippet subsubsection "\subsection{}"
-\\subsubsection{${1}}
+\\subsubsection{${1:${VISUAL}}}
 endsnippet
 
 snippet section* "\section*{}"
@@ -309,16 +305,20 @@ snippet autoref "\autoref{}" i
 \\autoref{${1:${VISUAL}}}
 endsnippet
 
+snippet refsec "\refsec{}" i
+\\refsec{${1:${VISUAL}}}
+endsnippet
+
+snippet reffig "\reffig{}" i
+\\reffig{${1:${VISUAL}}}
+endsnippet
+
 snippet "cite" "\cite{}" r
 \\cite{${1:${VISUAL}}}
 endsnippet
 
-snippet "fullcite" "\fullcite{}" r
-\\fullcite{${1:${VISUAL}}}
-endsnippet
-
-snippet "fullciteinbox" "\fullciteinbox{}" r
-\\fullciteinbox{${1:${VISUAL}}}
+snippet "fullcite" "\fullciteinbox{}" r
+\\fullciteinbox{${1:${VISUAL}}}{}
 endsnippet
 
 snippet dot "\dot{}" i
@@ -339,6 +339,10 @@ endsnippet
 
 snippet mathbf "\mathbf{}" i
 \\mathbf{${1:${VISUAL}}}
+endsnippet
+
+snippet bm "\bm{}" i
+\\bm{${1:${VISUAL}}}
 endsnippet
 
 snippet mathrm "\mathrm{}" i
@@ -363,10 +367,6 @@ endsnippet
 
 snippet url "\url{}" i
 \\url{${1:${VISUAL}}}
-endsnippet
-
-snippet "(jed)|(unit)" "\unit{}" ir
-\\unit{${1:${VISUAL}}}{${2}}
 endsnippet
 
 snippet transpose "^T" i
@@ -463,12 +463,14 @@ endsnippet
 
 snippet frame "Beamer frame" 
 %%{ $1
+
 \begin{frame}
 \frametitle{${1:Frame title}}
 
 ${2:${VISUAL}}
 
 \end{frame}
+
 %%}
 endsnippet
 
@@ -602,11 +604,15 @@ snippet hat "" i
 endsnippet
 
 snippet corr "" i
-\\corrected {${1:${VISUAL}}}
+\corrected {${1:${VISUAL}}}
 endsnippet
 
-snippet up "" i
-\\updated {${1:${VISUAL}}}
+snippet "(up)|(updated)" "\updated{}" ir
+\updated{${1:${VISUAL}}}
+endsnippet
+
+snippet "(add)|(added)" "\added{}" ir
+\added{${1:${VISUAL}}}
 endsnippet
 
 snippet tableofcontents
@@ -647,6 +653,10 @@ endsnippet
 
 snippet "Phi" "" ri
 \Phi
+endsnippet
+
+snippet "chi" "" ri
+\chi
 endsnippet
 
 snippet "sigma" "" ri
@@ -815,4 +825,192 @@ endsnippet
 
 snippet "overbrace" "\overbrace{}" ir
 \overbrace{${1:${VISUAL}}}
+endsnippet
+
+snippet ac "\ac{}" i
+\ac{${1:${VISUAL}}}
+endsnippet
+
+snippet acl "\acl{}" i
+\acl{${1:${VISUAL}}}
+endsnippet
+
+snippet acs "\acs{}" i
+\acs{${1:${VISUAL}}}
+endsnippet
+
+snippet acp "\acp{}" i
+\acp{${1:${VISUAL}}}
+endsnippet
+
+snippet aclp "\aclp{}" i
+\aclp{${1:${VISUAL}}}
+endsnippet
+
+snippet text "\text{}" i
+\text{${1:${VISUAL}}}
+endsnippet
+
+snippet intercal "\intercal" i
+\intercal
+endsnippet
+
+snippet si "\si{}" i
+\si{${1:${VISUAL}}}
+endsnippet
+
+snippet ref "\ref{}" i
+\ref{${1:${VISUAL}}}
+endsnippet
+
+snippet fbox "\fbox{}" i
+\fbox{${1:${VISUAL}}}
+endsnippet
+
+snippet meter "\meter" i
+\meter
+endsnippet
+
+snippet newton "\newton" i
+\newton
+endsnippet
+
+snippet volt "\volt" i
+\volt
+endsnippet
+
+snippet giga "\giga" i
+\giga
+endsnippet
+
+snippet gibi "\gibi" i
+\gibi
+endsnippet
+
+snippet byte "\byte" i
+\byte
+endsnippet
+
+snippet pixel "\pixel" i
+\pixel
+endsnippet
+
+snippet second "\second" i
+\second
+endsnippet
+
+snippet minut "\minut" i
+\minut
+endsnippet
+
+snippet "(radian)|(rad)" "\radian" ir
+\radian
+endsnippet
+
+snippet per "\per" i
+\per
+endsnippet
+
+snippet squared "\squared" i
+\squared
+endsnippet
+
+snippet cubed "\cubed" i
+\cubed
+endsnippet
+
+snippet teseracted "\teseracted" i
+\teseracted
+endsnippet
+
+snippet kilogram "\kilogram" i
+\kilogram
+endsnippet
+
+snippet celsius "\celsius" i
+\celsius
+endsnippet
+
+snippet decibel "\decibel" i
+\decibel
+endsnippet
+
+snippet gram "\gram" i
+\gram
+endsnippet
+
+snippet kilo "\kilo" i
+\kilo
+endsnippet
+
+snippet mega "\mega" i
+\mega
+endsnippet
+
+snippet electronvolt "\electronvolt" i
+\electronvolt
+endsnippet
+
+snippet milli "\milli" i
+\milli
+endsnippet
+
+snippet micro "\micro" i
+\micro
+endsnippet
+
+snippet nano "\nano" i
+\nano
+endsnippet
+
+snippet hertz "\hertz" i
+\hertz
+endsnippet
+
+snippet becquerel "\becquerel" i
+\becquerel
+endsnippet
+
+snippet "(degree)|(deg)" "\degree" ir
+\degree
+endsnippet
+
+snippet "arcmin" "\arcmin" ir
+\arcmin
+endsnippet
+
+snippet "(radian)|(rad)" "\radian" ir
+\radian
+endsnippet
+
+snippet "in" "\in" ir
+\in
+endsnippet
+
+snippet "leq" "\leq" ir
+\leq
+endsnippet
+
+snippet "geq" "\geq" ir
+\geq
+endsnippet
+
+snippet "numberthis" "\numberthis" ir
+\numberthis
+endsnippet
+
+snippet "{}" "{}" ir
+{${1}}
+endsnippet
+
+snippet "multirow" "\multirow" ir
+\multirow{${1:2}}{${2:*}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "multicolumn" "\multicolumn" ir
+\multicolumn{${1:2}}{${2:c}}{${3:${VISUAL}}}
+endsnippet
+
+snippet "colsep" "\renewcommand{\tabcolsep}{-4pt}" ir
+\renewcommand{\tabcolsep}{${1:0}pt}
 endsnippet

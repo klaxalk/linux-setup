@@ -1,8 +1,11 @@
 # klaxalk's Linux environment
 
-| Ubuntu       | Status                                                                                                                    |
-|--------------|---------------------------------------------------------------------------------------------------------------------------|
-| 18.04 Bionic | [![Build Status](https://travis-ci.com/klaxalk/linux-setup.svg?branch=master)](https://travis-ci.com/klaxalk/linux-setup) |
+| Ubuntu               | Architecture | Status                                                                                                                                                           |
+| -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 18.04 Bionic         | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Bionic/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                             |
+| 18.04 Bionic         | arm64        |                                                                                                                                                                  |
+| 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                              |
+| 20.04 Focal          | arm64        |                                                                                                                                                                  |
 
 ## Summary
 

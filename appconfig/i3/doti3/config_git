@@ -75,26 +75,30 @@ set $workspace10 "10"
 # set $workspace3 "3: "
 # set $workspace4 "4: "
 # set $workspace5 "5: "
-# set $workspace6 "6"
+# set $workspace6 "6: "
 # set $workspace7 "7: "
 # set $workspace8 "8"
 # set $workspace9 "9"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_PAVEL }
 
+# EPIGEN_ADD_BLOCK_HONZA {
+# set $workspace1 "1"
+# set $workspace2 "2"
+# set $workspace3 "3"
+# set $workspace4 "4"
+# set $workspace5 "5"
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8"
+# set $workspace9 "9"
+# set $workspace10 "10"
+# EPIGEN_ADD_BLOCK_HONZA }
+
 # #}
 
 # set font
 font pango:Terminus 10
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_ADD_BLOCK_DELL {
-# # font pango: Inconsolata 10
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # # font pango: LiberationMono 10
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_DELL }
-# EPIGEN_ADD_BLOCK_TOMAS }
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -122,9 +126,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move workspace to another monitor
-# EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+x move workspace to output right
-# EPIGEN_DEL_BLOCK_PAVEL }
 
 # cycle through workspaces on current monitor
 bindsym $mod+n workspace next_on_output
@@ -189,26 +191,6 @@ bindsym $mod+Shift+c reload
 # changing color schemes
 bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh'"
 
-# EPIGEN_ADD_BLOCK_TOMAS {
-
-# # EPIGEN_ADD_BLOCK_GPD {
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_gpd.sh'"
-# # EPIGEN_ADD_BLOCK_GPD }
-
-# # EPIGEN_ADD_BLOCK_DELL {
-# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
-# # EPIGEN_ADD_BLOCK_DELL }
-
-# EPIGEN_ADD_BLOCK_TOMAS }
-
-# EPIGEN_ADD_BLOCK_VOJTA {
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
-# EPIGEN_ADD_BLOCK_VOJTA }
-#
-# EPIGEN_ADD_BLOCK_MATEJ {
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./matej_set_monitor.sh'"
-# EPIGEN_ADD_BLOCK_MATEJ }
-
 # changing active gpu
 bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_gpu.sh'"
 
@@ -219,28 +201,22 @@ bindsym $mod+Shift+r restart
 # EPIGEN_DEL_BLOCK_PETR {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
 # EPIGEN_DEL_BLOCK_PETR }
-# EPIGEN_ADD_BLOCK_PETR {
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# EPIGEN_ADD_BLOCK_PETR }
 
 # default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS {
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL {
 bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
 bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS }
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL }
 
-# default key bindings for monitor brightness on external keyboard
+# EPIGEN_DEL_BLOCK_AFZAL {
+# # default key bindings for monitor brightness on external keyboard
 bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
 bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
 bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
+# EPIGEN_DEL_BLOCK_AFZAL }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
@@ -253,44 +229,6 @@ bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # EPIGEN_DEL_BLOCK_VOJTA }
 
-# EPIGEN_ADD_BLOCK_VOJTA {
-# bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
-# EPIGEN_ADD_BLOCK_VOJTA }
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
-# # # F1 will no longer activate help of any program
-# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
-
-# mode "sojka_deployment" {
-
-#   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
-#   bindsym m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
-#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
-#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch initiated" -s 140 -p 20 -g 0
-
-#   bindsym Escape  mode "default"
-# }
-
-# mode "sojka_detection" {
-
-#   bindsym s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
-#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
-#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
-
-#   bindsym Escape  mode "default"
-# }
-
-# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: detected, m: mega, p: pozor, n: nuclear'"
-
-# bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
-
-# EPIGEN_ADD_BLOCK_DAN {
-# # F1 will no longer activate help of any program
-# bindsym $mod2+f exec espeak "fuck" -s 160 -p 20 -g 0
-# EPIGEN_ADD_BLOCK_DAN }
-#
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -308,35 +246,43 @@ for_window [title="pdfpc"] border none floating enable
 # bluetooth applet
 exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIEL
 
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
+# # # F1 will no longer activate help of any program
+# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
+
 # #{ appearance, colors and color-schemes
 
-# default dark colors
-# they are disabled, when the light color scheme is active
-# EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #{ COLORSCHEME_DARK colors
 
-# set $focused_ws_bg            #005faf
-# set $active_text_color        #ffffff
-# set $inactive_text_color      #eeeeee
-# set $inactive_background      #333333
-# # EPIGEN_ADD_BLOCK_PETR {
-# # set $active_background        #53B5FF
-# # set $active_border            #5cd8ff
-# # EPIGEN_ADD_BLOCK_PETR }
-# # EPIGEN_DEL_BLOCK_PETR {
-# set $active_background        #005faf
-# set $active_border            #005faf
-# # EPIGEN_DEL_BLOCK_PETR }
-# set $background_color         #121212
-# set $split_indicator          #B85335
-# set $urgent                   #ff0000
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
-# for_window [class="^.*"] border pixel 3
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
 
-# EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+set $focused_ws_bg            #005faf
+set $active_text_color        #ffffff
+set $inactive_text_color      #eeeeee
+set $inactive_background      #333333
+# EPIGEN_ADD_BLOCK_PETR {
+# set $active_background        #53B5FF
+# set $active_border            #5cd8ff
+# EPIGEN_ADD_BLOCK_PETR }
+# EPIGEN_DEL_BLOCK_PETR {
+set $active_background        #005faf
+set $active_border            #005faf
+# EPIGEN_DEL_BLOCK_PETR }
+set $background_color         #121212
+set $split_indicator          #B85335
+set $urgent                   #ff0000
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
+exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
+for_window [class="^.*"] border pixel 3
 
-# the alternative, light color scheme
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
+
+# #}
+
+# #{ COLORSCHEME_LIGHT colors
+
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
 # set $inactive_text_color         #1d2021
@@ -359,6 +305,10 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIE
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+# #}
+
+# #{ COLORSCHEME_GRUN colors
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
@@ -384,6 +334,8 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIE
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
+# #}
+
 hide_edge_borders both
 
 # window colors
@@ -404,29 +356,86 @@ bar {
   font pango: Terminus, FontAwesome 10
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
+  tray_output eDP-1
+  tray_output DP-1-2
 
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_ADD_BLOCK_DELL {
+  # #{ TOMAS font
+
+  # EPIGEN_ADD_BLOCK_TOMAS {
+
+#   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
-# # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# # #   font pango: Inconsolata, FontAwesome 10
-# # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_DELL }
-# EPIGEN_ADD_BLOCK_TOMAS }
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   # font pango: LiberationMono, FontAwesome 10
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+#   # EPIGEN_ADD_BLOCK_DELL }
 
+#   # EPIGEN_ADD_BLOCK_DESKTOP {
+# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
+# # #   font pango: Terminus, FontAwesome 11
+# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
+# #   # font pango: Terminus, FontAwesome 13
+# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+#   # EPIGEN_ADD_BLOCK_DESKTOP }
+
+  # EPIGEN_ADD_BLOCK_TOMAS }
+
+  # #}
+
+  # #{ DANIEL font
+
+  # EPIGEN_ADD_BLOCK_DANIEL {
+
+#   # EPIGEN_ADD_BLOCK_LENOVO {
+# #   font pango: Inconsolata, FontAwesome 8
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   # font pango: LiberationMono, FontAwesome 10
+# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+#   # EPIGEN_ADD_BLOCK_LENOVO }
+  # EPIGEN_ADD_BLOCK_DANIEL }
+
+  # #}
 
   # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+
+  # the default option
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
+  set $i3bar_bg #121212FF
+  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
+
+  # #{ PETER's i3bar bg
+
   # EPIGEN_ADD_BLOCK_PETR {
   # set $i3bar_bg #060606CF
   # EPIGEN_ADD_BLOCK_PETR }
-  # EPIGEN_DEL_BLOCK_PETR {
-  set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR }
+
+  # #}
+
+  # #{ DANIEL's i3bar bg
+
+  # EPIGEN_ADD_BLOCK_DANIEL {
+  # set $i3bar_bg #002456
+  # EPIGEN_ADD_BLOCK_DANIEL }
+
+  # #}
+
+  # #{ TOMAS's i3bar bg
+
+  # EPIGEN_ADD_BLOCK_TOMAS {
+  # # EPIGEN_ADD_BLOCK_DESKTOP {
+  # # set $i3bar_bg #12121200
+  # # EPIGEN_ADD_BLOCK_DESKTOP }
+  # # EPIGEN_ADD_BLOCK_DELL {
+  # # set $i3bar_bg #121212FF
+  # # EPIGEN_ADD_BLOCK_DELL }
+  # EPIGEN_ADD_BLOCK_TOMAS }
+
+  # #}
+
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
     # set $i3bar_bg #FFFFFFFF
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -447,10 +456,20 @@ bar {
 
   # i3bar position
   position top
+
+  # position bottom # EPIGEN_ADD_LINE_DANIEL
+
 }
 
 # #{ i3-gaps settings
-smart_gaps on
+
+smart_gaps on # EPIGEN_DEL_LINE_TOMAS
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_DEL_BLOCK_DESKTOP {
+# smart_gaps on
+# # EPIGEN_DEL_BLOCK_DESKTOP }
+# EPIGEN_ADD_BLOCK_TOMAS }
 
 set $default_gaps_inner 12
 set $default_gaps_outer 0
@@ -470,16 +489,34 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
+# # EPIGEN_ADD_BLOCK_DELL {
+# # font pango: Inconsolata 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # # font pango: LiberationMono 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_DELL }
+
 # exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
 # bindsym $mod+o exec ~/.scripts/i3_mark.sh
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
 # exec dropbox start
 
-# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+# bindsym $mod2+k exec --no-startup-id i3lock -c 000000
+
+# # compton without fancy graphics
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/lightning.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # #{ DESKTOP
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
 
 # # # sound
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
@@ -496,6 +533,8 @@ set $mode_gaps_inner inner gaps
 # # #{ DELL
 
 # # EPIGEN_ADD_BLOCK_DELL {
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
 # # # Bind screen brightness control to DELL's special keys
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -517,6 +556,8 @@ set $mode_gaps_inner inner gaps
 # # #{ GPD
 
 # # EPIGEN_ADD_BLOCK_GPD {
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_gpd.sh'"
 
 # # # gpd has small screen, tabs should be the default option
 # # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_STANDALONE
@@ -549,6 +590,10 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 
+# bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
+
 # # EPIGEN_ADD_BLOCK_ASUS {
 
 # # # Bing ASUS keyboard brightness control
@@ -578,6 +623,31 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # EPIGEN_ADD_BLOCK_VOJTA }
+
+# #}
+
+# #{ Thinkpad 490 controls
+
+# EPIGEN_ADD_BLOCK_TP490NV {
+# # to the run the setBrightness.sh and nvidiaEnable.sh 
+# # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
+# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
+
+# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
+# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh -"
+
+# bindsym XF86Display exec "arandr"
+
+# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
+
+# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
+
+# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+
+# EPIGEN_ADD_BLOCK_TP490NV }
 
 # #}
 
@@ -626,6 +696,20 @@ set $mode_gaps_inner inner gaps
 # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
+# # EPIGEN_ADD_BLOCK_SKUMPA {
+
+# # # Bind audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+
+# # EPIGEN_ADD_BLOCK_SKUMPA }
+
 # # screen locking with a key to prevent malicious locomotives
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
 # # dropbox icon in tray
@@ -639,29 +723,10 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DAN {
 
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_asus.sh'"
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
 # # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_lenovo.sh'"
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -685,6 +750,8 @@ set $mode_gaps_inner inner gaps
 # #{ MATEJ's customization
 
 # EPIGEN_ADD_BLOCK_MATEJ {
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./matej_set_monitor.sh'"
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
@@ -732,6 +799,13 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PETR {
 
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
 # # Add normie controls
 # bindsym $mod2+Left focus left
 # bindsym $mod2+Down focus down
@@ -767,6 +841,7 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
@@ -797,18 +872,15 @@ set $mode_gaps_inner inner gaps
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # # #{ HP
 # # EPIGEN_ADD_BLOCK_HP {
 
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output right
-#
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
 
@@ -829,9 +901,6 @@ set $mode_gaps_inner inner gaps
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Move workspace to another monitor
-# # bindsym $mod+x move workspace to output up
 
 # # # Monitor setup
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
@@ -904,6 +973,10 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
+# # # Wallpaper
+# # exec_always --no-startup-id feh --bg-fill ~/Pictures/004.jpg
+# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
 # # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
@@ -922,10 +995,17 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
-# bindsym XF86AudioPlay exec "mpc toggle"
-# bindsym XF86AudioStop exec "mpc stop"
-# bindsym XF86AudioNext exec "mpc next"
-# bindsym XF86AudioPrev exec "mpc prev"
+# # EPIGEN_ADD_BLOCK_MPD {
+
+# # # Mpd notifier
+# # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
+
+# # bindsym XF86AudioPlay exec "mpc toggle"
+# # bindsym XF86AudioStop exec "mpc stop"
+# # bindsym XF86AudioNext exec "mpc next"
+# # bindsym XF86AudioPrev exec "mpc prev"
+
+# # EPIGEN_ADD_BLOCK_MPD }
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 
@@ -984,11 +1064,116 @@ set $mode_gaps_inner inner gaps
 # #{ YURII's customization
 #
 # EPIGEN_ADD_BLOCK_YURII {
-#
-# exec_always --no-startup-id setxkbmap -layout us,ua -option "grp:rctrl_toggle"
-#
+##
+# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output left
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./yurii_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
+
 # EPIGEN_ADD_BLOCK_YURII }
 #
+# #}
+
+# #{ HONZA's customization
+
+# EPIGEN_ADD_BLOCK_HONZA {
+
+# # # Keyboard switching
+# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+
+# # System manager
+# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+
+# # Background image
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+# # #{ LENOVO
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Not so fancy compton stuff
+# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind LENOVO microhpone on/off
+# # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+# # #}
+
+# EPIGEN_ADD_BLOCK_HONZA }
+
+# #}
+
+# #{ AFZAL's customization
+
+# EPIGEN_ADD_BLOCK_AFZAL {
+
+# # Numlock on by default
+# exec_always --no-startup-id numlockx on
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Smaller gaps
+# gaps inner 2
+# gaps outer 0
+
+# # #{ ASUS 
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Toggling ASUS touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind ASUS screen brightness control
+# # bindsym $mod+F5 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym $mod+F6 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
+
+# # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ T490 Thinkpad
+# # EPIGEN_ADD_BLOCK_T490 {
+
+# # # Bind T490 audio control keys (requires pavucontrol, pulseaudio and xfce4-pulseaudio-plugin)
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # EPIGEN_ADD_BLOCK_T490 }
+# # #}
+
+# EPIGEN_ADD_BLOCK_AFZAL }
+
 # #}
 
 # #{ auto commands after login
@@ -1001,10 +1186,12 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
+
+# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
@@ -1030,9 +1217,9 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # # for_window [title="Gazebo"] move workspace $workspace9
 # # for_window [class="rviz"] move workspace $workspace9
 # # for_window [title="rqt_market"] move workspace $workspace9
-# for_window [class="Matplotlib"] floating disable
+# for_window [class="matplotlib"] floating enable
 # for_window [title="pdfpc"] border none floating enable
-# for_window [title="VZLUSAT-1 X-Ray data decoder"] floating disable
+# for_window [title="VZLUSAT-1 X-Ray data decoder"] floating enable
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {
@@ -1040,9 +1227,40 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_MATEJ }
-#
+
+
+# EPIGEN_ADD_BLOCK_DANIEL {
+# # browser
+# for_window [class="Firefox"] move workspace $workspace1
+# # cads
+# for_window [class="FreeCAD"] move workspace $workspace6
+# for_window [class="Kicad"] move workspace $workspace6
+# for_window [class="Qucs"] move workspace $workspace6
+# # media
+# for_window [class="Gimp"] move workspace $workspace7
+# for_window [title="GIMP Startup"] move workspace $workspace6
+# for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
+# for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
+# for_window [class="kdenlive"] move workspace $workspace7
+# # music
+# for_window [class="Spotify"] move workspace $workspace8
+# for_window [class="Gnome-terminal"] move workspace $workspace8
+# # mrs
+# for_window [title="Gazebo"] move workspace $workspace9
+# for_window [class="rviz"] move workspace $workspace9
+# for_window [title="rqt_market"] move workspace $workspace9
+
+# EPIGEN_ADD_BLOCK_DANIEL }
+
+# EPIGEN_ADD_BLOCK_PAVEL {
+# for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
+# for_window [class="Spotify"] move workspace $workspace7
+# EPIGEN_ADD_BLOCK_PAVEL }
+
 # assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
 
+# assign [class="Braved-Web-Brower"] $workspace1 # EPIGEN_ADD_LINE_AFZAL
 # #}
 
 # #{ bindings for external programs
@@ -1176,6 +1394,36 @@ mode "resize_mode" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
+
+# #}
+
+# #{ SOJKA MODE
+
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
+# mode "sojka_deployment" {
+
+#   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
+#   bindsym m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
+#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
+#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch initiated" -s 140 -p 20 -g 0
+
+#   bindsym Escape  mode "default"
+# }
+
+# mode "sojka_detection" {
+
+#   bindsym s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
+#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
+#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
+
+#   bindsym Escape  mode "default"
+# }
+
+# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: detected, m: mega, p: pozor, n: nuclear'"
+
+# bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
+
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
 
 # #}
 

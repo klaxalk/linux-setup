@@ -40,10 +40,10 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
       sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-      sudo apt update
+      sudo apt-get update
     fi
 
-    sudo apt -y install grub-customizer
+    sudo apt-get -y install grub-customizer
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

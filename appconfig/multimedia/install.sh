@@ -34,9 +34,12 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing multimedia support
+    # for video, photo, audio, ..., viewing and editing
+    sudo apt-get -y install gimp vlc ffmpeg audacity rawtherapee hugin
 
-    sudo apt -y install gimp vlc ffmpeg 
+    # for screencasting
+    sudo add-apt-repository -y ppa:obsproject/obs-studio
+    sudo apt-get -y install obs-studio screenkey
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

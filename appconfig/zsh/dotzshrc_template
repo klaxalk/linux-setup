@@ -1,9 +1,5 @@
 plugins=(git tmuxinator)
 
-# list (space-separated) of your ROS workspaces
-# used for CTAGS generation, code completion and linting in Vim
-export ROS_WORKSPACES="~/mrs_workspace ~/workspace"
-
 # path to the git root
 export GIT_PATH=~/git
 

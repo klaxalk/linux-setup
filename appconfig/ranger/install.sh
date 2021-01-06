@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt -y install caca-utils libimage-exiftool-perl
+    sudo apt-get -y install caca-utils libimage-exiftool-perl w3m w3m-img
 
     cd $APP_PATH/../../submodules/ranger
     sudo make install
