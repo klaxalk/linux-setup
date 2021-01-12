@@ -164,6 +164,8 @@ while true; do
     make
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
+    sudo apt-get -y install i3lock
+
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
 
