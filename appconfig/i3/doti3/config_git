@@ -379,6 +379,10 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
 #   # EPIGEN_ADD_BLOCK_DESKTOP }
 
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
+# #   font pango: Terminus, FontAwesome 10
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
+
   # EPIGEN_ADD_BLOCK_TOMAS }
 
   # #}
@@ -427,6 +431,9 @@ bar {
   # # EPIGEN_ADD_BLOCK_DESKTOP {
   # # set $i3bar_bg #12121200
   # # EPIGEN_ADD_BLOCK_DESKTOP }
+  # # EPIGEN_ADD_BLOCK_DESKTOP2 {
+  # # set $i3bar_bg #12121200
+  # # EPIGEN_ADD_BLOCK_DESKTOP2 }
   # # EPIGEN_ADD_BLOCK_DELL {
   # # set $i3bar_bg #121212FF
   # # EPIGEN_ADD_BLOCK_DELL }
@@ -466,9 +473,9 @@ bar {
 smart_gaps on # EPIGEN_DEL_LINE_TOMAS
 
 # EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_DEL_BLOCK_DESKTOP {
+# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
 # smart_gaps on
-# # EPIGEN_DEL_BLOCK_DESKTOP }
+# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 set $default_gaps_inner 12
@@ -514,7 +521,7 @@ set $mode_gaps_inner inner gaps
 
 # # #{ DESKTOP
 
-# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 {
 
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
 
@@ -526,7 +533,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
 # # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
 
-# # EPIGEN_ADD_BLOCK_DESKTOP }
+# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 }
 
 # # #}
 
