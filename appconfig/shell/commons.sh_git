@@ -510,4 +510,3 @@ catkin() {
   }
 
 # #}
-alias cb="catkin build"
