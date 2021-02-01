@@ -9,6 +9,9 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 
+" enable YCM refactoring for C-style languages using clangd
+let g:ycm_clangd_args = ['-cross-file-rename']
+
 " make ros and youcompleteme be friends
 let g:ycm_semantic_triggers = {
 \   'roslaunch' : ['="', '$(', '/'],

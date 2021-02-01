@@ -106,7 +106,7 @@ if g:user_mode == "1"
   " youcompleteme
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  Plug 'valloric/youcompleteme', { 'commit': '1386c6b' }
+  Plug 'ycm-core/YouCompleteMe', { 'commit': '2434b10', 'do': './install.py --clangd-completer' }
   Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
@@ -641,6 +641,9 @@ if g:user_mode == "1"
   " " color to improve visibility of selected TMUX pane)
   " let g:airline_theme='term_grun'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
+  " enable YCM refactoring for C-style languages
+  let g:ycm_clangd_args = ['-cross-file-rename']
 
   " customize bookmarks in startify
   let g:startify_bookmarks = [
