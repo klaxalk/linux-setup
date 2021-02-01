@@ -352,7 +352,7 @@ def Settings(**kwargs):
         final_flags = MakeRelativePathsInFlagsAbsolute(
             compilation_info.arguments,
             compilation_info.directory)
-        final_flags += default_flags
+        final_flags += flags
     else:
         relative_to = DirectoryOfThisScript()
         final_flags = MakeRelativePathsInFlagsAbsolute(flags, relative_to)
