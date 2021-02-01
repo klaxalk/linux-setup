@@ -642,9 +642,6 @@ if g:user_mode == "1"
   " let g:airline_theme='term_grun'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
-  " enable YCM refactoring for C-style languages
-  let g:ycm_clangd_args = ['-cross-file-rename']
-
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },

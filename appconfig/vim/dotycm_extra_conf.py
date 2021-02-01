@@ -337,30 +337,14 @@ def GetCompilationInfoForFile(filename, database):
 
 def Settings(**kwargs):
     filename = kwargs['filename']
-    database = GetDatabase(GetCompilationDatabaseFolder(filename))
-    if database:
-        # Bear in mind that compilation_info.compiler_flags_ does NOT return a
-        # python list, but a "list-like" StringVec object
-        compilation_info = GetCompilationInfoForFile(filename, database)
-        if not compilation_info:
-            # Return the default flags defined above.
-            return {
-                'flags': flags,
-                'do_cache': True,
-            }
-
-        final_flags = MakeRelativePathsInFlagsAbsolute(
-            compilation_info.arguments,
-            compilation_info.directory)
-        final_flags += default_flags
-    else:
-        relative_to = DirectoryOfThisScript()
-        final_flags = MakeRelativePathsInFlagsAbsolute(flags, relative_to)
-
-    return {
-        'flags': final_flags,
-        'do_cache': True
-    }
+    language = kwargs['language']
+    if language == 'cfamily':
+      return {
+        'ls': {
+          'compilationDatabasePath': GetCompilationDatabaseFolder(filename)
+        }
+      }
+    return None
 
 if __name__ == '__main__':
-    print(Settings(filename = sys.argv[1]))
+    print(Settings(filename = sys.argv[1], language = "cfamily"))
