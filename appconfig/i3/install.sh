@@ -114,6 +114,9 @@ while true; do
     # clean after myself
     git reset --hard
     git clean -fd
+    
+    # for cpu usage in i3blocks
+    sudo apt-get -y install sysstat
 
     # for brightness and volume control
     sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
