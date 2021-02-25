@@ -773,6 +773,9 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
+# # exec "setxkbmap -layout us,cz"
+# # exec "setxkbmap -option 'grp:alt_caps_toggle'"
+
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
 # EPIGEN_ADD_BLOCK_FRANTA }
