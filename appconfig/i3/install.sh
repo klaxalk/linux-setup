@@ -44,7 +44,7 @@ while true; do
     fi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
     then
@@ -114,7 +114,7 @@ while true; do
     # clean after myself
     git reset --hard
     git clean -fd
-    
+
     # for cpu usage in i3blocks
     sudo apt-get -y install sysstat
 
