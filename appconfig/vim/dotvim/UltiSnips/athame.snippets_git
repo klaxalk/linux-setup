@@ -88,6 +88,10 @@ snippet "^trackermpc" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
 endsnippet
 
+snippet "^trackerflip" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker FlipTracker
+endsnippet
+
 snippet "^trackerspeed" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker SpeedTracker
 endsnippet
@@ -130,6 +134,10 @@ endsnippet
 
 snippet "^failsafe" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
+endsnippet
+
+snippet "^flip" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/flip_tracker/flip
 endsnippet
 
 snippet "^(so3)|(se3)" "" Ar
