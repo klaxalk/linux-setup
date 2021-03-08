@@ -106,7 +106,7 @@ if g:user_mode == "1"
   " youcompleteme
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  Plug 'ycm-core/YouCompleteMe', { 'commit': '2434b10', 'do': './install.py --clangd-completer' }
+  Plug 'ycm-core/YouCompleteMe', { 'commit': '380a7f6', 'do': './install.py --clangd-completer' }
   Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 

@@ -64,7 +64,7 @@ snippet "^grep ( )*" "" Ar
 grep ${2:-nR -e} "${1}"
 endsnippet
 
-snippet "^gcom " "" Ar
+snippet "^gcom" "" Ar
 git commit -m "${1}"
 endsnippet
 
