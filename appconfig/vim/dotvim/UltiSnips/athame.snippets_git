@@ -64,6 +64,10 @@ snippet "^grep ( )*" "" Ar
 grep ${2:-nR -e} "${1}"
 endsnippet
 
+snippet "^gcom " "" Ar
+git commit -m "${1}"
+endsnippet
+
 snippet "^goto" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
 endsnippet
