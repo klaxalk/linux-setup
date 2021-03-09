@@ -100,17 +100,19 @@ while true; do
         # set youcompleteme
         toilet Setting up youcompleteme
 
-        # install prequisites for YCM
-        sudo apt-get -y install python3-clang clangd-11
-        # set clangd to version 11 by default
-        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
-
         # if not on 20.04, g++-8 has to be installed manually
         if [ -n "$BEAVER" ]; then
           sudo apt-get -y install g++-8
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+          # add llvm repo for clangd and python3-clang
+          wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+          sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11.0 main"
         fi
+        # install prequisites for YCM
+        sudo apt-get -y install python3-clang clangd-11
+        # set clangd to version 11 by default
+        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
         sudo apt-get -y install libboost-all-dev
 
         cd ~/.vim/plugged/YouCompleteMe/
