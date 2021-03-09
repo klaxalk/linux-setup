@@ -107,7 +107,7 @@ while true; do
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
           # add llvm repo for clangd and python3-clang
           wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-          sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11.0 main"
+          sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
         fi
         # install prequisites for YCM
         sudo apt-get -y install python3-clang clangd-11
