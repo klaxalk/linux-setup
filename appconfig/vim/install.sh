@@ -109,11 +109,11 @@ while true; do
           wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
           sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
           # if 18.04, python3-clang has to be installed throught pip3 with prequisites manually from apt
-          sudo apt-get -y clang-11 libclang-11-dev
+          sudo apt-get -y install clang-11 libclang-11-dev
           sudo pip3 install clang
         else
           # if 20.04, just install python3-clang from apt
-          sudo apt-get -y python3-clang 
+          sudo apt-get -y install python3-clang 
         fi
         # install prequisites for YCM
         sudo apt-get -y install clangd-11
