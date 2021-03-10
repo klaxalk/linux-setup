@@ -18,10 +18,6 @@ hi Cursor     guifg=bg     guibg=fg
 hi lCursor    guifg=NONE   guibg=Cyan
 
 " Note: we never set 'term' because the defaults for B&W terminals are OK
-hi DiffAdd    ctermbg=LightBlue    guibg=LightBlue
-hi DiffChange ctermbg=LightMagenta guibg=LightMagenta
-hi DiffDelete ctermfg=Blue	   ctermbg=LightCyan gui=bold guifg=Blue guibg=LightCyan
-hi DiffText   ctermbg=Red	   cterm=bold gui=bold guibg=Red
 hi Directory  ctermfg=DarkBlue	   guifg=Blue
 hi ErrorMsg   ctermfg=White	   ctermbg=DarkRed  guibg=Red	    guifg=White
 hi FoldColumn ctermfg=DarkBlue	   ctermbg=Grey     guibg=Grey	    guifg=DarkBlue
@@ -34,11 +30,7 @@ hi NonText    ctermfg=Blue	   gui=bold guifg=gray guibg=white
 hi Pmenu      guibg=LightBlue
 hi PmenuSel   ctermfg=White	   ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 hi Question   ctermfg=DarkGreen    gui=bold guifg=SeaGreen
-if &background == "light"
-    hi Search     ctermfg=NONE	   ctermbg=82 guibg=Yellow guifg=NONE
-else
-    hi Search     ctermfg=Black	   ctermbg=82 guibg=Yellow guifg=Black
-endif
+hi Search     ctermfg=Black	   ctermbg=82 guibg=Yellow guifg=Black
 hi SignColumn ctermbg=Black
 hi SpecialKey ctermfg=DarkBlue	   guifg=Blue
 hi StatusLine cterm=bold	   ctermbg=blue ctermfg=yellow guibg=gold guifg=blue
@@ -60,5 +52,11 @@ hi Statement  cterm=bold ctermfg=Blue	     gui=bold guifg=blue
 hi Type	      cterm=NONE ctermfg=136	     gui=bold guifg=blue
 hi Function	  cterm=NONE ctermfg=68
 hi Error  	  cterm=NONE ctermbg=124
+
+" vimdiff highlighting
+hi DiffAdd    cterm=NONE ctermbg=52 gui=none guifg=bg guibg=Red
+hi DiffDelete cterm=NONE ctermbg=52 gui=none guifg=bg guibg=Red
+hi DiffChange cterm=NONE ctermbg=52 gui=none guifg=bg guibg=Red
+hi DiffText   cterm=NONE ctermbg=88 gui=none guifg=bg guibg=Red
 
 " vim: sw=2

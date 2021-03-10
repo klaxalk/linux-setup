@@ -1,16 +1,17 @@
-#!/bin/python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 ##########################################################################
 # YouCompleteMe configuration for ROS                                    #
 # Author: Gaël Ecorchard (2015)                                          #
 # CoAuthor: Tomas Baca (2017)                                            #
+# CoAuthor: Matouš Vrba (2020)                                           #
 #                                                                        #
 # The file requires the definition of the $ROS_WORKSPACES variable in    #
 # your shell. The variable should be a string with paths to all your     #
 # workspaces separated by a space.                                       #
 #                                                                        #
-# e.g. export ROS_WORKPSACE="~/ROS_WORKSPACES ~/test_workspace"          #
+# e.g. export ROS_WORKPSACES="~/ROS_WORKSPACES ~/test_workspace"         #
 #                                                                        #
 # Name this file .ycm_extra_conf.py and place it to a folder in which    #
 # you keep your ROS workspaces (or rather your source codes since vim    #
@@ -27,27 +28,27 @@
 #                                                                        #
 ##########################################################################
 
+import sys
 import os
-try:
-    import ycm_core
-except:
-    pass
 from glob import glob
+from clang import cindex
+import rospkg
+import re
+
+ENV_WORKSPACES = 'ROS_WORKSPACES'
 
 def GetWorkspacePath(filename):
 
-    try:
-        import rospkg
-    except ImportError:
-        return ''
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
         return ''
 
-    # get the content of $ROS_WORKSPACES variable
-    # and create an array out of it
-    paths =  os.path.expandvars('$ROS_WORKSPACES')
+    paths = []
+    if not ENV_WORKSPACES in os.environ:
+        raise ValueError("The {} environmental variable is not set!".format(ENV_WORKSPACES))
+    else:
+        paths = os.environ[ENV_WORKSPACES]
     workspaces = paths.split()
 
     # iterate over all workspaces
@@ -73,7 +74,7 @@ def GetWorkspacePath(filename):
 def GetRosIncludePaths():
     """Return a list of potential include directories
 
-    The directories are looked for in $ROS_WORKSPACES.
+    The directories are looked for in the ENV_WORKSPACES environment variable.
     """
     try:
         from rospkg import RosPack
@@ -82,10 +83,16 @@ def GetRosIncludePaths():
     rospack = RosPack()
     includes = []
 
-    paths =  os.path.expandvars('$ROS_WORKSPACES')
-    words = paths.split()
-    for word in words:
-        includes.append(os.path.expanduser(word) + '/devel/include')
+    paths = []
+    if not ENV_WORKSPACES in os.environ:
+        raise ValueError("The {} environmental variable is not set!".format(ENV_WORKSPACES))
+    else:
+        paths = os.environ[ENV_WORKSPACES]
+    workspaces = paths.split()
+
+    workspaces = paths.split()
+    for workspace in workspaces:
+        includes.append(os.path.expanduser(workspace) + '/devel/include')
 
     for p in rospack.list():
         if os.path.exists(rospack.get_path(p) + '/include'):
@@ -164,10 +171,6 @@ def GetCompilationDatabaseFolder(filename):
     The compilation_commands.json for the given file is returned by getting
     the package the file belongs to.
     """
-    try:
-        import rospkg
-    except ImportError:
-        return ''
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
@@ -188,7 +191,7 @@ def GetCompilationDatabaseFolder(filename):
 
 def GetDatabase(compilation_database_folder):
     if os.path.exists(compilation_database_folder):
-        return ycm_core.CompilationDatabase(compilation_database_folder)
+        return cindex.CompilationDatabase.fromDirectory(compilation_database_folder)
     return None
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
@@ -248,11 +251,6 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
     TODO: Does not work, when the workspace is not sourced
     """
     with open("/tmp/ycm_debug.txt", "a") as file:
-        try:
-            import rospkg
-        except ImportError:
-            file.write("Missing rospkg")
-            return None
         pkg_name = rospkg.get_package_name(headerfile)
         if not pkg_name:
             return None
@@ -262,11 +260,6 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
         except rospkg.ResourceNotFound:
             return None
             file.write("Could not retrive the package path")
-        try:
-            import re
-        except:
-            file.write("Missing re")
-            pass
         filename_no_ext = os.path.splitext(headerfile)[0]
         hdr_basename_no_ext = os.path.basename(filename_no_ext)
         file.write("Header: {}\n".format(hdr_basename_no_ext))
@@ -332,25 +325,26 @@ def GetCompilationInfoForFile(filename, database):
         compilation_info = GetCompilationInfoForHeaderRos(filename, database)
         if compilation_info:
             return compilation_info
-    return database.GetCompilationInfoForFile(filename)
+        print("HEADER")
 
-def FlagsForFile(filename):
+    cmds = database.getCompileCommands(filename)
+    return cmds[0]
+    # return database.GetCompilationInfoForFile(filename)
+
+def Settings(**kwargs):
+    filename = kwargs['filename']
     database = GetDatabase(GetCompilationDatabaseFolder(filename))
     if database:
         # Bear in mind that compilation_info.compiler_flags_ does NOT return a
         # python list, but a "list-like" StringVec object
         compilation_info = GetCompilationInfoForFile(filename, database)
-        if not compilation_info:
-            # Return the default flags defined above.
-            return {
-                'flags': flags,
-                'do_cache': True,
-            }
-
-        final_flags = MakeRelativePathsInFlagsAbsolute(
-            compilation_info.compiler_flags_,
-            compilation_info.compiler_working_dir_)
-        final_flags += default_flags
+        if compilation_info:
+            final_flags = MakeRelativePathsInFlagsAbsolute(
+                compilation_info.arguments,
+                compilation_info.directory)
+            # final_flags += flags
+        else:
+            final_flags = flags
     else:
         relative_to = DirectoryOfThisScript()
         final_flags = MakeRelativePathsInFlagsAbsolute(flags, relative_to)
@@ -359,3 +353,9 @@ def FlagsForFile(filename):
         'flags': final_flags,
         'do_cache': True
     }
+
+if __name__ == '__main__':
+    fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
+    if len(sys.argv) > 1:
+        fname = sys.argv[1]
+    print(Settings(filename = fname))
