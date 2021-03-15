@@ -1125,7 +1125,8 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
+# bindsym XF86Display exec "arandr"
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
