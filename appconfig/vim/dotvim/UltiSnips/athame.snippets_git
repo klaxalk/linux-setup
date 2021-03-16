@@ -304,10 +304,6 @@ snippet "^cbt" "" Ar
 catkin build --this
 endsnippet
 
-snippet "^cb" "" Ar
-catkin build
-endsnippet
-
 snippet "^"run" two" "" Ar
 ~/workspace/src/formation_church_planning/simulation_scripts/two_drones_tmuxinator/start.sh
 endsnippet
