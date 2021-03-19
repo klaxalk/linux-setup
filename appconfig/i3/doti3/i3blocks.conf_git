@@ -456,6 +456,13 @@ separator=true
 # [cpu_usage]
 # interval=3
 # format=%usage
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cpu_frequency]
+# interval=3
+# command=~/.i3/show_cpu_freq.sh
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
