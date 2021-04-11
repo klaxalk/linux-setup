@@ -12,7 +12,7 @@
 	url = http://github.com/ardagnir/athame
 [submodule "submodules/i3"]
 	path = submodules/i3
-	url = https://www.github.com/Airblader/i3
+	url = https://github.com/Airblader/i3
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts.git
