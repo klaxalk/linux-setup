@@ -479,11 +479,11 @@ catkin() {
 
       hostname=$( cat /etc/hostname )
 
-      if [[ $hostname == uav* ]]; then
-        memlimit="--mem-limit 50%"
-      else
-        memlimit=""
-      fi
+      # if [[ $hostname == uav* ]]; then
+      #   memlimit="--mem-limit 50%"
+      # else
+      #   memlimit=""
+      # fi
 
 # EPIGEN_DEL_BLOCK_MATOUS {
       if [ -z "$memlimit" ]; then
