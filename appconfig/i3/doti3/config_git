@@ -248,7 +248,7 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIE
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
-# # bindsym F1 exec --no-startup-id echo 'help' > /dev/null
+# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
 
 # #{ appearance, colors and color-schemes
