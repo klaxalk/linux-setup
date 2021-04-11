@@ -27,6 +27,9 @@ if g:user_mode == "1"
   " fugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
 
+  " async
+  Plug 'tpope/vim-dispatch'
+
   " showing git changes in the file
   Plug 'airblade/vim-gitgutter'
 
@@ -445,8 +448,8 @@ au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 au FileType bib,yml,yaml,sh,conf,python set foldmethod=marker
 au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 
-au FileType cpp set foldmethod=marker
-au FileType cpp set foldmarker=//{,//}
+au FileType cpp,c set foldmethod=marker
+au FileType cpp,c set foldmarker=//{,//}
 
 au FileType roslaunch.xml set foldmethod=marker
 au FileType roslaunch.xml set foldmarker=//{,//}
@@ -464,7 +467,7 @@ map <Leader>frl :s///g<left><left>
 map <Leader>fa :%s//&/g<left><left>
 map <Leader>fal :s//&/g<left><left>
 
-map <Leader>m :wa\|make\|redraw!\|cc<CR>
+map <Leader>m :Make<cr>
 
 " remap "gf" to "gf in new tab"
 nnoremap gf <C-W>gf

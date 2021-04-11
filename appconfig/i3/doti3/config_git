@@ -248,7 +248,7 @@ exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIE
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
-# # bindsym F1 exec --no-startup-id echo 'help' > /dev/null
+# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
 
 # #{ appearance, colors and color-schemes
@@ -1125,7 +1125,8 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
+# bindsym XF86Display exec "arandr"
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
