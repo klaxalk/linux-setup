@@ -62,7 +62,9 @@ try:
         workspace_path = GetWorkspacePath(vim.eval("expand('%:p')"))
         r = rospkg.RosPack()
         vim.command("let is_ros='true'")
-        vim.command("let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+" --no-color --cmake-args -DCMAKE_CXX_FLAGS=-fno-diagnostics-color'")
+        make_cmd="let &makeprg='cd "+workspace_path+"; catkin build "+pkgname+" --no-color --cmake-args -DCMAKE_CXX_FLAGS=-fno-diagnostics-color'"
+        # print(make_cmd)
+        vim.command(make_cmd)
     else:
         vim.command("let is_ros='false'")
 except ImportError:
