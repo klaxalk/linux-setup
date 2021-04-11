@@ -361,7 +361,7 @@ function ssh-auto-retry()
 
 gitPullPush() {
 
-  branch=`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`
+  branch=`git branch | grep \* | sed 's/\*\s\([a-zA-Z0-9]*\)/\1/'`
 
   if [ $# -eq 0 ]; then
     git pull origin "$branch"
