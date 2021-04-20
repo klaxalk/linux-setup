@@ -40,71 +40,85 @@ markup=none
 
 # EPIGEN_DEL_BLOCK_GPD {
 
-[101]
+[1]
 command=ping -c 1 192.168.69.101 >> /dev/null && echo 'uav1' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[102]
+[2]
 command=ping -c 1 192.168.69.102 >> /dev/null && echo 'uav2' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[103]
+[3]
 command=ping -c 1 192.168.69.103 >> /dev/null && echo 'uav3' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[104]
+[4]
 command=ping -c 1 192.168.69.104 >> /dev/null && echo 'uav4' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[105]
+[5]
 command=ping -c 1 192.168.69.105 >> /dev/null && echo 'uav5' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[106]
+[6]
 command=ping -c 1 192.168.69.106 >> /dev/null && echo 'uav6' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[107]
+[7]
 command=ping -c 1 192.168.69.107 >> /dev/null && echo 'uav7' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[108]
+[8]
 command=ping -c 1 192.168.69.108 >> /dev/null && echo 'uav8' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[141]
+[9]
 command=ping -c 1 192.168.69.109 >> /dev/null && echo 'uav9' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
-[152]
+[10]
 command=ping -c 1 192.168.69.110 >> /dev/null && echo 'uav10' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[21]
+command=ping -c 1 192.168.69.121 >> /dev/null && echo 'uav21' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[22]
+command=ping -c 1 192.168.69.122 >> /dev/null && echo 'uav22' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
