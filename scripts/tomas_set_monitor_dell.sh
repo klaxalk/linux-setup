@@ -12,7 +12,7 @@ fi
 MONITOR=$(echo "LAB
 DUAL
 PRESENTATION
-STANDALONE" | rofi -dmenu -p "Select setup:")
+STANDALONE" | rofi -i -dmenu -p "Select setup:")
 
 if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "DUAL" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything

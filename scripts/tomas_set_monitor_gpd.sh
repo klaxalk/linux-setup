@@ -11,7 +11,7 @@ fi
 
 MONITOR=$(echo "STANDALONE
 PRESENTATION
-EXTERNAL" | rofi -dmenu -p "Select monitor:")
+EXTERNAL" | rofi -i -dmenu -p "Select monitor:")
 
 if [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "EXTERNAL" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
