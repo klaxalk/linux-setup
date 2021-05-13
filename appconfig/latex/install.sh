@@ -40,6 +40,9 @@ while true; do
 
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
+    # use in pdfpc to play videos
+    sudo apt-get -y install gstreamer1.0-libav
+
     # TODO
     # pdftk
 
