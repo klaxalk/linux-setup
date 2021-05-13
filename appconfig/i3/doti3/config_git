@@ -1080,6 +1080,16 @@ set $mode_gaps_inner inner gaps
 #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
 #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
 
+#  # keyboard backlight modes
+#  bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
+
+#  # fan profile
+#  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
+
+#  # animetrix
+#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
+#  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
+
 #  # Toggling ACER touchpad
 #  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
