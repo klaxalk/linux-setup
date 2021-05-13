@@ -1087,7 +1087,7 @@ set $mode_gaps_inner inner gaps
 #  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
 
 #  # animetrix
-#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
+#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/Dropbox/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
 #  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
 
 #  # Toggling ACER touchpad
