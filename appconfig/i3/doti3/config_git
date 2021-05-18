@@ -366,8 +366,11 @@ bar {
 #   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   # font pango: LiberationMono, FontAwesome 10
+# # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
+# # #   font pango: LiberationMono, FontAwesome 13
+# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
@@ -1076,6 +1079,16 @@ set $mode_gaps_inner inner gaps
 #  # Bind ACER screen brightness control
 #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
 #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+#  # keyboard backlight modes
+#  bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
+
+#  # fan profile
+#  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
+
+#  # animetrix
+#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/Dropbox/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
+#  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
 
 #  # Toggling ACER touchpad
 #  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh

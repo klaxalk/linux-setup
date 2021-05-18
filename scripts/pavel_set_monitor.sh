@@ -20,11 +20,10 @@ fi
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
 MONITOR=$(echo "LAB
-PRESENTATION
 STANDALONE
-HOME" | rofi -dmenu -p "Select setup:")
+HOME" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "HOME" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "HOME" ]]; then
   notify-send -u low -t 1500 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
@@ -42,10 +41,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
-MODEL_PREFIX_LOWERCASE=""
-if [[ "$MONITOR" == "HOME" ]] || [[ "$MONITOR" == "LAB" ]]; then
-  MODEL_PREFIX_LOWERCASE="$(echo $1 | awk '{print tolower($0)}')_"
-fi
+MODEL_PREFIX_LOWERCASE="$(echo $1 | awk '{print tolower($0)}')_"
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')

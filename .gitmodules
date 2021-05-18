@@ -12,7 +12,7 @@
 	url = http://github.com/ardagnir/athame
 [submodule "submodules/i3"]
 	path = submodules/i3
-	url = https://www.github.com/Airblader/i3
+	url = https://github.com/Airblader/i3
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts.git
@@ -91,3 +91,6 @@
 [submodule "submodules/vim-stream"]
 	path = submodules/vim-stream
 	url = https://github.com/MilesCranmer/vim-stream.git
+[submodule "submodules/keychron-k2-function-keys-linux"]
+	path = submodules/keychron-k2-function-keys-linux
+	url = https://github.com/adam-savard/keychron-k2-function-keys-linux.git
