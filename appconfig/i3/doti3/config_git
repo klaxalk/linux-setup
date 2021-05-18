@@ -1116,7 +1116,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_HONZA {
 
 # # # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# exec --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:alt_caps_toggle" 
 
 # # System manager
 # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
