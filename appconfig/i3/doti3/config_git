@@ -1104,6 +1104,7 @@ set $mode_gaps_inner inner gaps
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
+#  exec --no-startup-id /usr/bin/owncloud
 
 # EPIGEN_ADD_BLOCK_VASEK }
 
