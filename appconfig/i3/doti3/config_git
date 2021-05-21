@@ -879,7 +879,6 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
-# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
