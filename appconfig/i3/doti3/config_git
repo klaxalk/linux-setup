@@ -380,6 +380,9 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K {
+# # #   font pango: Terminus, FontAwesome 20
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K }
 #   # EPIGEN_ADD_BLOCK_DESKTOP }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP2 {

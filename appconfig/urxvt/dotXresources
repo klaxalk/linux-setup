@@ -69,6 +69,9 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 ! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=13
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_4K {
+! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=20
+! ! ! EPIGEN_ADD_BLOCK_MONITOR_4K }
 
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
@@ -76,10 +79,8 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! { DESKTOP2
 
-! ! ! EPIGEN_ADD_BLOCK_DESKTOP2 {
-
-! URxvt.font: xft:Source Code Pro for Powerline:size=10
-
+! ! EPIGEN_ADD_BLOCK_DESKTOP2 {
+! ! URxvt.font: xft:Source Code Pro for Powerline:size=10
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
 
 ! ! }
