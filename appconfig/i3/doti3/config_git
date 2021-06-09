@@ -364,7 +364,7 @@ bar {
   # EPIGEN_ADD_BLOCK_TOMAS {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
-# #   font pango: Inconsolata, FontAwesome 11
+# #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
