@@ -140,7 +140,9 @@ bindsym $mod+braceright split h
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 {
 bindsym $mod+f fullscreen
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 }
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
