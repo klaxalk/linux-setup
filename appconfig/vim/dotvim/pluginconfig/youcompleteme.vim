@@ -1,13 +1,15 @@
 " YouCompleteMe vim config
 "
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
-let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
+let g:ycm_key_list_select_completion   = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+
+nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
+nmap <leader>yfw <Plug>(YCMFindSymbolInDocument)
+nmap <leader>yr :YcmCompleter RefactorRename i
 
 let g:ycm_python_binary_path = '/usr/bin/python3'
-
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
 
 " enable YCM refactoring for C-style languages using clangd
 let g:ycm_clangd_args = ['-log=verbose', '-pretty']
@@ -90,87 +92,3 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 nnoremap <leader>fix :YcmCompleter FixIt<CR>
-
-" Autocommand for completing functions using UltiSnips
-function! s:onCompleteDone()
-  let abbr = v:completed_item.abbr
-  let startIdx = stridx(abbr,"(")
-  let endIdx = strridx(abbr,")")
-  if endIdx - startIdx > 1
-    let argsStr = strpart(abbr, startIdx+1, endIdx - startIdx -1)
-    "let argsList = split(argsStr, ",")
-
-    let argsList = []
-    let arg = ''
-    let countParen = 0
-    for i in range(strlen(argsStr))
-      if argsStr[i] == ',' && countParen == 0
-        call add(argsList, arg)
-        let arg = ''
-      elseif argsStr[i] == '('
-        let countParen += 1
-        let arg = arg . argsStr[i]
-      elseif argsStr[i] == ')'
-        let countParen -= 1
-        let arg = arg . argsStr[i]
-      else
-        let arg = arg . argsStr[i]
-      endif
-    endfor
-    if arg != '' && countParen == 0
-      call add(argsList, arg)
-    endif
-  else
-    let argsList = []
-  endif
-
-  let snippet = '('
-  let c = 1
-  for i in argsList
-    if c > 1
-      let snippet = snippet . ", "
-    endif
-    " strip space
-    let arg = substitute(i, '^\s*\(.\{-}\)\s*$', '\1', '')
-    let snippet = snippet . '${' . c . ":" . arg . '}'
-    let c += 1
-  endfor
-  let snippet = snippet . ')' . "$0"
-  return UltiSnips#Anon(snippet)
-endfunction
-
-function! PressL()
-    if exists('v:completed_item') && !empty(v:completed_item)
-      let snippet = UltiSnips#ExpandSnippetOrJump()
-      if g:ulti_expand_or_jump_res > 0
-          return snippet
-      else
-        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
-          return s:onCompleteDone()
-        else
-          return "\<C-y>"
-        end
-      endif
-    else
-      return "\<C-y>l"
-    endif
-endfunction
-inoremap <expr> l pumvisible() ? "<C-R>=PressL()<cr>" : "l"
-
-function! PressCr()
-    if exists('v:completed_item') && !empty(v:completed_item)
-      let snippet = UltiSnips#ExpandSnippetOrJump()
-      if g:ulti_expand_or_jump_res > 0
-          return snippet
-      else
-        if (v:completed_item.word != '' && v:completed_item.kind == 'f')
-          return s:onCompleteDone()
-        else
-          return "\<C-y>"
-        end
-      endif
-    else
-      return "\<C-y>\<cr>"
-    endif
-endfunction
-inoremap <expr> <cr> pumvisible() ? "<C-R>=PressCr()<cr>" : "\<cr>"

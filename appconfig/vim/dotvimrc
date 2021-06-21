@@ -152,9 +152,6 @@ if g:user_mode == "1"
   " ... it has many more useful commands
   Plug 'tpope/vim-unimpaired'
 
-  " managing sessions
-  " Plug 'tpope/vim-obsession'
-
   " fuzzy finder
   Plug 'ctrlpvim/ctrlp.vim'
 
@@ -230,7 +227,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ardagnir/united-front'
 
 " snippet completion
-" magic!
 Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
