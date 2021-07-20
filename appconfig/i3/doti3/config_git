@@ -140,7 +140,9 @@ bindsym $mod+braceright split h
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 {
 bindsym $mod+f fullscreen
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 }
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -364,7 +366,7 @@ bar {
   # EPIGEN_ADD_BLOCK_TOMAS {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
-# #   font pango: Inconsolata, FontAwesome 11
+# #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -380,6 +382,9 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K {
+# # #   font pango: Terminus, FontAwesome 20
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K }
 #   # EPIGEN_ADD_BLOCK_DESKTOP }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP2 {
@@ -431,15 +436,15 @@ bar {
   # #{ TOMAS's i3bar bg
 
   # EPIGEN_ADD_BLOCK_TOMAS {
-  # # EPIGEN_ADD_BLOCK_DESKTOP {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP }
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 }
-  # # EPIGEN_ADD_BLOCK_DELL {
-  # # set $i3bar_bg #121212FF
-  # # EPIGEN_ADD_BLOCK_DELL }
+#   # EPIGEN_ADD_BLOCK_DESKTOP {
+#   # set $i3bar_bg #12121200
+#   # EPIGEN_ADD_BLOCK_DESKTOP }
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
+#   # set $i3bar_bg #12121200
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
+#   # EPIGEN_ADD_BLOCK_DELL {
+# #   set $i3bar_bg #121212FF
+#   # EPIGEN_ADD_BLOCK_DELL }
   # EPIGEN_ADD_BLOCK_TOMAS }
 
   # #}
@@ -879,6 +884,7 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
@@ -1079,6 +1085,16 @@ set $mode_gaps_inner inner gaps
 #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
 #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
 
+#  # keyboard backlight modes
+#  bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
+
+#  # fan profile
+#  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
+
+#  # animetrix
+#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/Dropbox/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
+#  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
+
 #  # Toggling ACER touchpad
 #  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
@@ -1093,6 +1109,7 @@ set $mode_gaps_inner inner gaps
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
+#  exec --no-startup-id /usr/bin/owncloud
 
 # EPIGEN_ADD_BLOCK_VASEK }
 
@@ -1118,7 +1135,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_HONZA {
 
 # # # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# exec --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:alt_caps_toggle" 
 
 # # System manager
 # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
