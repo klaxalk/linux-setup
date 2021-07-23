@@ -899,7 +899,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_PAVEL {
 
 # # System manager
-# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
@@ -1452,7 +1452,7 @@ mode "resize_mode" {
 
 # #{ SOJKA MODE
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL {
 # mode "sojka_deployment" {
 
 #   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
@@ -1476,7 +1476,7 @@ mode "resize_mode" {
 
 # bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}
 
