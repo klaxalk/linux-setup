@@ -225,6 +225,12 @@ source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
 
+#############################################
+# link dotclang-tidy to ~/.clang-tidy
+# (enable linting for YCM)
+#############################################
+ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
+
 # deploy configs by Profile manager
 ./deploy_configs.sh
 

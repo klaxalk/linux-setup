@@ -10,9 +10,10 @@ fi
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
 MONITOR=$(echo "NORMAL
-SCREENCAST" | rofi -dmenu -p "Select setup:")
+SCREENCAST
+4K" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "NORMAL" ]] && [[ "$MONITOR" != "SCREENCAST" ]]; then
+if [[ "$MONITOR" != "NORMAL" ]] && [[ "$MONITOR" != "SCREENCAST" ]] && [[ "$MONITOR" != "4K" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi

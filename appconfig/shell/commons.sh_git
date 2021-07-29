@@ -361,7 +361,7 @@ function ssh-auto-retry()
 
 gitPullPush() {
 
-  branch=`git branch | grep \* | sed 's/\* \([a-Z]*\)/\1/'`
+  branch=`git branch | grep \* | sed 's/\*\s\([a-zA-Z0-9]*\)/\1/'`
 
   if [ $# -eq 0 ]; then
     git pull origin "$branch"
@@ -479,11 +479,11 @@ catkin() {
 
       hostname=$( cat /etc/hostname )
 
-      if [[ $hostname == uav* ]]; then
-        memlimit="--mem-limit 50%"
-      else
-        memlimit=""
-      fi
+      # if [[ $hostname == uav* ]]; then
+      #   memlimit="--mem-limit 50%"
+      # else
+      #   memlimit=""
+      # fi
 
 # EPIGEN_DEL_BLOCK_MATOUS {
       if [ -z "$memlimit" ]; then
@@ -510,4 +510,3 @@ catkin() {
   }
 
 # #}
-alias cb="catkin build"

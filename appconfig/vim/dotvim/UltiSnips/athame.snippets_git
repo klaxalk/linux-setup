@@ -64,6 +64,10 @@ snippet "^grep ( )*" "" Ar
 grep ${2:-nR -e} "${1}"
 endsnippet
 
+snippet "^gcom " "" Ar
+git commit -m "${1}"
+endsnippet
+
 snippet "^goto" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
 endsnippet
@@ -86,6 +90,10 @@ endsnippet
 
 snippet "^trackermpc" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker MpcTracker
+endsnippet
+
+snippet "^trackerflip" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/switch_tracker FlipTracker
 endsnippet
 
 snippet "^trackerspeed" "" Ar
@@ -130,6 +138,10 @@ endsnippet
 
 snippet "^failsafe" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/failsafe_escalating
+endsnippet
+
+snippet "^flip" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/flip_tracker/flip
 endsnippet
 
 snippet "^(so3)|(se3)" "" Ar

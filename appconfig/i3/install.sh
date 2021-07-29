@@ -44,7 +44,7 @@ while true; do
     fi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq vim rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
     then
@@ -115,6 +115,9 @@ while true; do
     git reset --hard
     git clean -fd
 
+    # for cpu usage in i3blocks
+    sudo apt-get -y install sysstat
+
     # for brightness and volume control
     sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
 
@@ -163,6 +166,8 @@ while true; do
     cd $APP_PATH/../../submodules/xkblayout-state/
     make
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+
+    sudo apt-get -y install i3lock
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime

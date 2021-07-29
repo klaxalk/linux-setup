@@ -58,7 +58,8 @@ while true; do
       --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
-      --enable-gui=gtk2 --enable-cscope --prefix=/usr
+      --enable-gui=no \
+      --enable-cscope --prefix=/usr
 
       ## add for python2
       # --enable-pythoninterp=yes \
@@ -100,11 +101,30 @@ while true; do
         # set youcompleteme
         toilet Setting up youcompleteme
 
+        # if not on 20.04, g++-8 has to be installed manually
+        if [ -n "$BEAVER" ]; then
+          sudo apt-get -y install g++-8
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+          # add llvm repo for clangd and python3-clang
+          wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+          sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
+          # if 18.04, python3-clang has to be installed throught pip3 with prequisites manually from apt
+          sudo apt-get -y install clang-11 libclang-11-dev
+          sudo pip3 install clang
+        else
+          # if 20.04, just install python3-clang from apt
+          sudo apt-get -y install python3-clang 
+        fi
+        # install prequisites for YCM
+        sudo apt-get -y install clangd-11
+        # set clangd to version 11 by default
+        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
         sudo apt-get -y install libboost-all-dev
 
-        cd ~/.vim/plugged/youcompleteme/
+        cd ~/.vim/plugged/YouCompleteMe/
         git submodule update --init --recursive
-        python3 ./install.py --clang-completer
+        python3 ./install.py --clangd-completer
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py

@@ -10,10 +10,10 @@ fi
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
 MONITOR=$(echo "LAB
-PRESENTATION
+HOME
 STANDALONE" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "HOME" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
@@ -33,7 +33,7 @@ fi
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/tomas/dell_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/honza/$MONITOR_LOWERCASE.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc

@@ -21,6 +21,8 @@ do
   fi
 done
 
+distro=`lsb_release -r | awk '{ print $2 }'`
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -34,10 +36,12 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing neovim
+    echo Installing neovim
 
-    sudo apt-add-repository -y ppa:neovim-ppa/stable
-    sudo apt-get update
+    if [ "$distro" = "18.04" ]; then
+      sudo apt-add-repository -y ppa:neovim-ppa/stable
+      sudo apt-get update
+    fi
 
     sudo apt-get -y install neovim
     mkdir -p ~/.config/nvim/

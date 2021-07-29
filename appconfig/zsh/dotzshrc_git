@@ -12,6 +12,10 @@ else
   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 fi
 
+# EPIGEN_ADD_BLOCK_BETTER_YCM {
+# export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# EPIGEN_ADD_BLOCK_BETTER_YCM }
+
 # set the TMUX_BIN, prefer the user-compiled one
 [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
 [ ! -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/bin/tmux

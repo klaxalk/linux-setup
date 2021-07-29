@@ -140,7 +140,9 @@ bindsym $mod+braceright split h
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 {
 bindsym $mod+f fullscreen
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 }
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -364,10 +366,13 @@ bar {
   # EPIGEN_ADD_BLOCK_TOMAS {
 
 #   # EPIGEN_ADD_BLOCK_DELL {
-# #   font pango: Inconsolata, FontAwesome 11
+# #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   # font pango: LiberationMono, FontAwesome 10
+# # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
+# # #   font pango: LiberationMono, FontAwesome 13
+# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
 #   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
@@ -377,7 +382,14 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K {
+# # #   font pango: Terminus, FontAwesome 20
+# #   # EPIGEN_ADD_BLOCK_MONITOR_4K }
 #   # EPIGEN_ADD_BLOCK_DESKTOP }
+
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
+# #   font pango: Terminus, FontAwesome 10
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
 
   # EPIGEN_ADD_BLOCK_TOMAS }
 
@@ -424,12 +436,15 @@ bar {
   # #{ TOMAS's i3bar bg
 
   # EPIGEN_ADD_BLOCK_TOMAS {
-  # # EPIGEN_ADD_BLOCK_DESKTOP {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP }
-  # # EPIGEN_ADD_BLOCK_DELL {
-  # # set $i3bar_bg #121212FF
-  # # EPIGEN_ADD_BLOCK_DELL }
+#   # EPIGEN_ADD_BLOCK_DESKTOP {
+#   # set $i3bar_bg #12121200
+#   # EPIGEN_ADD_BLOCK_DESKTOP }
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
+#   # set $i3bar_bg #12121200
+#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
+#   # EPIGEN_ADD_BLOCK_DELL {
+# #   set $i3bar_bg #121212FF
+#   # EPIGEN_ADD_BLOCK_DELL }
   # EPIGEN_ADD_BLOCK_TOMAS }
 
   # #}
@@ -466,9 +481,9 @@ bar {
 smart_gaps on # EPIGEN_DEL_LINE_TOMAS
 
 # EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_DEL_BLOCK_DESKTOP {
+# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
 # smart_gaps on
-# # EPIGEN_DEL_BLOCK_DESKTOP }
+# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 set $default_gaps_inner 12
@@ -514,7 +529,7 @@ set $mode_gaps_inner inner gaps
 
 # # #{ DESKTOP
 
-# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 {
 
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
 
@@ -526,7 +541,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
 # # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
 
-# # EPIGEN_ADD_BLOCK_DESKTOP }
+# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 }
 
 # # #}
 
@@ -747,6 +762,34 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ FRANTA's customization
+
+# EPIGEN_ADD_BLOCK_FRANTA {
+
+# # EPIGEN_ADD_BLOCK_LENOVO {
+
+# # # Bing LENOVO keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # exec "setxkbmap -layout us,cz"
+# # exec "setxkbmap -option 'grp:alt_caps_toggle'"
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+
+# EPIGEN_ADD_BLOCK_FRANTA }
+
+# #}
+
 # #{ MATEJ's customization
 
 # EPIGEN_ADD_BLOCK_MATEJ {
@@ -858,7 +901,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_PAVEL {
 
 # # System manager
-# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
@@ -1042,6 +1085,16 @@ set $mode_gaps_inner inner gaps
 #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
 #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
 
+#  # keyboard backlight modes
+#  bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
+
+#  # fan profile
+#  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
+
+#  # animetrix
+#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/Dropbox/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
+#  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
+
 #  # Toggling ACER touchpad
 #  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
@@ -1056,6 +1109,7 @@ set $mode_gaps_inner inner gaps
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
+#  exec --no-startup-id /usr/bin/owncloud
 
 # EPIGEN_ADD_BLOCK_VASEK }
 
@@ -1081,7 +1135,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_HONZA {
 
 # # # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# exec --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:alt_caps_toggle" 
 
 # # System manager
 # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
@@ -1090,7 +1144,8 @@ set $mode_gaps_inner inner gaps
 # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor_hp.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
+# bindsym XF86Display exec "arandr"
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -1399,7 +1454,7 @@ mode "resize_mode" {
 
 # #{ SOJKA MODE
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL {
 # mode "sojka_deployment" {
 
 #   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
@@ -1423,7 +1478,7 @@ mode "resize_mode" {
 
 # bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}
 
