@@ -375,7 +375,7 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 11
+# # #   font pango: Terminus, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
