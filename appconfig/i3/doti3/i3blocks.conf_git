@@ -110,6 +110,76 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+[11]
+command=ping -c 1 192.168.69.111 >> /dev/null && echo 'uav11' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[12]
+command=ping -c 1 192.168.69.112 >> /dev/null && echo 'uav12' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[13]
+command=ping -c 1 192.168.69.113 >> /dev/null && echo 'uav13' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[14]
+command=ping -c 1 192.168.69.114 >> /dev/null && echo 'uav14' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[15]
+command=ping -c 1 192.168.69.115 >> /dev/null && echo 'uav15' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[16]
+command=ping -c 1 192.168.69.116 >> /dev/null && echo 'uav16' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[17]
+command=ping -c 1 192.168.69.117 >> /dev/null && echo 'uav17' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[18]
+command=ping -c 1 192.168.69.118 >> /dev/null && echo 'uav18' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[19]
+command=ping -c 1 192.168.69.119 >> /dev/null && echo 'uav19' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[20]
+command=ping -c 1 192.168.69.120 >> /dev/null && echo 'uav20' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
 [21]
 command=ping -c 1 192.168.69.121 >> /dev/null && echo 'uav21' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -130,118 +200,6 @@ separator=true
 
 # [alfa]
 # command=ping -c 1 alfa >> /dev/null && echo 'alfa' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [bravo]
-# command=ping -c 1 bravo >> /dev/null && echo 'bravo' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [charlie]
-# command=ping -c 1 charlie >> /dev/null && echo 'charlie' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [delta]
-# command=ping -c 1 delta >> /dev/null && echo 'delta' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [echo]
-# command=ping -c 1 echo >> /dev/null && echo 'echo' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [foxtrot]
-# command=ping -c 1 foxtrot >> /dev/null && echo 'foxtrot' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [golf]
-# command=ping -c 1 golf >> /dev/null && echo 'golf' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [hotel]
-# command=ping -c 1 hotel >> /dev/null && echo 'hotel' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [india]
-# command=ping -c 1 india >> /dev/null && echo 'india' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [juliett]
-# command=ping -c 1 juliett >> /dev/null && echo 'juliett' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [kilo]
-# command=ping -c 1 kilo >> /dev/null && echo 'kilo' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [lima]
-# command=ping -c 1 lima >> /dev/null && echo 'lima' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [mike]
-# command=ping -c 1 mike >> /dev/null && echo 'mike' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [papa]
-# command=ping -c 1 papa >> /dev/null && echo 'papa' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [quebec]
-# command=ping -c 1 quebec >> /dev/null && echo 'quebec' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [romeo]
-# command=ping -c 1 romeo >> /dev/null && echo 'romeo' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# [sierra]
-# command=ping -c 1 sierra >> /dev/null && echo 'sierra' || echo ""
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=5
