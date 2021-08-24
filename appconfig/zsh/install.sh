@@ -62,6 +62,9 @@ while true; do
       cp $APP_PATH/dotzshrc_template $HOME/.zshrc
     fi
 
+    # add k plugin
+    source $HOME/git/linux-setup/appconfig/zsh/install_k_plugin.sh
+   
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
