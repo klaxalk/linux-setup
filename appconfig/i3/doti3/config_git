@@ -140,9 +140,7 @@ bindsym $mod+braceright split h
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 {
 bindsym $mod+f fullscreen
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_DESKTOP2 }
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -377,7 +375,7 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 11
+# # #   font pango: Terminus, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
@@ -443,7 +441,8 @@ bar {
   # # set $i3bar_bg #12121200
   # # EPIGEN_ADD_BLOCK_DESKTOP2 }
   # # EPIGEN_ADD_BLOCK_DELL {
-# #   set $i3bar_bg #121212FF
+  # # set $i3bar_bg #121212FF
+  # # set $i3bar_bg #121212FF
   # # EPIGEN_ADD_BLOCK_DELL }
   # EPIGEN_ADD_BLOCK_TOMAS }
 
@@ -884,6 +883,7 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
@@ -900,7 +900,7 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_PAVEL {
 
 # # System manager
-# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
@@ -1454,7 +1454,7 @@ mode "resize_mode" {
 
 # #{ SOJKA MODE
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL {
 # mode "sojka_deployment" {
 
 #   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
@@ -1474,11 +1474,11 @@ mode "resize_mode" {
 #   bindsym Escape  mode "default"
 # }
 
-# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: detected, m: mega, p: pozor, n: nuclear'"
+# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: deployed, m: mega, p: pozor, n: nuclear'"
 
 # bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
+# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}
 
