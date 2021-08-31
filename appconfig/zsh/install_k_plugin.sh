@@ -22,6 +22,7 @@ do
 done
 
 default=y
+while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
@@ -32,13 +33,14 @@ default=y
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
-  
-  git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k;
 
-
+    git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k
+   
+    break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."
   fi
+done
