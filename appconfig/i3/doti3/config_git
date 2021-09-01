@@ -375,7 +375,7 @@ bar {
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 11
+# # #   font pango: Terminus, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 # #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 # #   # font pango: Terminus, FontAwesome 13
@@ -441,6 +441,7 @@ bar {
   # # set $i3bar_bg #12121200
   # # EPIGEN_ADD_BLOCK_DESKTOP2 }
   # # EPIGEN_ADD_BLOCK_DELL {
+  # # set $i3bar_bg #121212FF
   # # set $i3bar_bg #121212FF
   # # EPIGEN_ADD_BLOCK_DELL }
   # EPIGEN_ADD_BLOCK_TOMAS }
@@ -1274,6 +1275,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [title="pythonplot"] floating disable
 # for_window [title="pdfpc"] border none floating enable
 # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating enable
+# for_window [title="pythonplot"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # EPIGEN_ADD_BLOCK_MATEJ {

@@ -12,6 +12,11 @@ else
   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 fi
 
+# check for k plugin
+if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
+  plugins+=(k)
+fi
+
 # EPIGEN_ADD_BLOCK_BETTER_YCM {
 # export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 # EPIGEN_ADD_BLOCK_BETTER_YCM }

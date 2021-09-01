@@ -56,6 +56,9 @@ while true; do
       ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 
+    # add k plugin for zsh
+    # $APP_PATH/install_k_plugin.sh
+
     # symlink the .zshrc
     num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
