@@ -57,7 +57,7 @@ while true; do
     fi
 
     # add k plugin for zsh
-    $APP_PATH/install_k_plugin.sh
+    # $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
     num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
