@@ -6,12 +6,13 @@
 # Author: Gaël Ecorchard (2015)                                          #
 # CoAuthor: Tomas Baca (2017)                                            #
 # CoAuthor: Matouš Vrba (2020)                                           #
+# CoAuthor: Vojtech Spurny (2021)                                        #
 #                                                                        #
 # The file requires the definition of the $ROS_WORKSPACES variable in    #
 # your shell. The variable should be a string with paths to all your     #
 # workspaces separated by a space.                                       #
 #                                                                        #
-# e.g. export ROS_WORKPSACES="~/ROS_WORKSPACES ~/test_workspace"         #
+# e.g. export ROS_WORKSPACES="~/ROS_WORKSPACES ~/test_workspace"         #
 #                                                                        #
 # Name this file .ycm_extra_conf.py and place it to a folder in which    #
 # you keep your ROS workspaces (or rather your source codes since vim    #
@@ -20,7 +21,7 @@
 # and link them to their respective ROS workspaces in my home. So I      #
 # placed it to my home folder.                                           #
 #                                                                        #
-# Tested with Ubuntu 16.04 and Kinetic.                                  #
+# Tested with Ubuntu 20.04 and ROS Melodic and ROS 2 Foxy                #
 #                                                                        #
 # License: CC0                                                           #
 #                                                                        #
@@ -32,14 +33,66 @@ import sys
 import os
 from glob import glob
 from clang import cindex
-import rospkg
 import re
+
+try:
+    from xml.etree.cElementTree import ElementTree
+except ImportError:
+    from xml.etree.ElementTree import ElementTree
+
+ENV_ROS_VERSION = 'ROS_VERSION'
+
+if not ENV_ROS_VERSION in os.environ:
+    raise ValueError("The {} environmental variable is not set!".format(ENV_ROS_VERSION))
+else:
+    ROS_VERSION = os.environ[ENV_ROS_VERSION]
+
+if ROS_VERSION == "1":
+    import rospkg
+else:
+    import ament_index_python
 
 ENV_WORKSPACES = 'ROS_WORKSPACES'
 
+# Modified version for ROS 2 based on rospkg in ROS 1
+# https://github.com/ros-infrastructure/rospkg/blob/master/src/rospkg/rospack.py#L507
+def GetRos2PkgName(path):
+    # NOTE: the realpath is going to create issues with symlinks, most likely.
+    PACKAGE_FILE = "package.xml"
+    parent = os.path.dirname(os.path.realpath(path))
+    path = os.path.realpath(path)
+    # walk up until we hit ros root or ros/pkg
+    while not os.path.exists(os.path.join(path, PACKAGE_FILE)) and parent != path:
+        path = parent
+        parent = os.path.dirname(path)
+    # check termination condition
+    if os.path.exists(os.path.join(path, PACKAGE_FILE)):
+        root = ElementTree(None, os.path.join(path, PACKAGE_FILE))
+        return root.findtext('name')
+    else:
+        return None
+
+def GetRos2PkgSrcPath(path):
+    # NOTE: the realpath is going to create issues with symlinks, most likely.
+    PACKAGE_FILE = "package.xml"
+    parent = os.path.dirname(os.path.realpath(path))
+    path = os.path.realpath(path)
+    # walk up until we hit ros root or ros/pkg
+    while not os.path.exists(os.path.join(path, PACKAGE_FILE)) and parent != path:
+        path = parent
+        parent = os.path.dirname(path)
+    # check termination condition
+    if os.path.exists(os.path.join(path, PACKAGE_FILE)):
+        return path
+    else:
+        return None
+
 def GetWorkspacePath(filename):
 
-    pkg_name = rospkg.get_package_name(filename)
+    if ROS_VERSION == "1":
+        pkg_name = rospkg.get_package_name(filename)
+    else:
+        pkg_name = GetRos2PkgName(filename)
 
     if not pkg_name:
         return ''
@@ -58,7 +111,7 @@ def GetWorkspacePath(filename):
         workspace_path = os.path.expanduser(single_workspace)
 
         # get all ros packages built in workspace's build directory
-        paths = glob(workspace_path + "/build/*")
+        paths = glob(os.path.join(workspace_path, "build", "*"))
 
         # iterate over all the packages built in the workspace
         for package_path in paths:
@@ -72,7 +125,7 @@ def GetWorkspacePath(filename):
     return 0
 
 def GetRosIncludePaths():
-    """Return a list of potential include directories
+    """Return a list of potential include directories in ROS1
 
     The directories are looked for in the ENV_WORKSPACES environment variable.
     """
@@ -90,20 +143,70 @@ def GetRosIncludePaths():
         paths = os.environ[ENV_WORKSPACES]
     workspaces = paths.split()
 
-    workspaces = paths.split()
     for workspace in workspaces:
-        includes.append(os.path.expanduser(workspace) + '/devel/include')
+        includes.append(os.path.join(os.path.expanduser(workspace), 'devel', 'include'))
 
     for p in rospack.list():
-        if os.path.exists(rospack.get_path(p) + '/include'):
-            includes.append(rospack.get_path(p) + '/include')
+        if os.path.exists(os.path.join(rospack.get_path(p), 'include')):
+            includes.append(os.path.join(rospack.get_path(p), 'include'))
     for distribution in os.listdir('/opt/ros'):
-        includes.append('/opt/ros/' + distribution + '/include')
+        includes.append(os.path.join('/opt/ros', distribution, 'include'))
     return includes
 
+def GetRos2IncludePaths():
+    """Return a list of potential include directories in ROS2
+
+    The directories are looked for in the ENV_WORKSPACES environment variable.
+    """
+    try:
+        from ament_index_python import get_search_paths
+    except ImportError:
+        return []
+    includes = []
+
+    paths = []
+    if not ENV_WORKSPACES in os.environ:
+        raise ValueError("The {} environmental variable is not set!".format(ENV_WORKSPACES))
+    else:
+        paths = os.environ[ENV_WORKSPACES]
+    workspaces = paths.split()
+
+    for single_workspace in workspaces:
+        
+        # get the full path to the workspace
+        workspace_path = os.path.expanduser(single_workspace)
+
+        # get all ros packages installed in workspace
+        p_paths = glob(os.path.join(workspace_path, "install", "*"))
+
+        # iterate over all the packages installed in the workspace
+        for p_path in p_paths:
+            p_include_path = os.path.join(p_path, 'include')
+            if os.path.exists(p_include_path):
+                includes.append(p_include_path)
+
+    p_paths = get_search_paths()
+    for p_path in p_paths:
+        p_include_path = os.path.join(p_path, 'include')
+        if os.path.exists(p_include_path) and not p_include_path in includes:
+            includes.append(p_include_path)
+
+    for distribution in os.listdir('/opt/ros'):
+        p_include_path = os.path.join('/opt/ros', distribution, 'include')
+        if not p_include_path in includes:
+            includes.append(p_include_path)
+    
+    return includes
+            
+
 def GetRosIncludeFlags():
-    includes = GetRosIncludePaths()
     flags = []
+
+    if ROS_VERSION == "1":
+        includes = GetRosIncludePaths()
+    else:
+        includes = GetRos2IncludePaths()
+
     for include in includes:
         flags.append('-isystem')
         flags.append(include)
@@ -171,7 +274,11 @@ def GetCompilationDatabaseFolder(filename):
     The compilation_commands.json for the given file is returned by getting
     the package the file belongs to.
     """
-    pkg_name = rospkg.get_package_name(filename)
+
+    if ROS_VERSION == "1":
+        pkg_name = rospkg.get_package_name(filename)
+    else:
+        pkg_name = GetRos2PkgName(filename)
 
     if not pkg_name:
         return ''
@@ -181,13 +288,7 @@ def GetCompilationDatabaseFolder(filename):
     if not workspace_path:
         return ''
 
-    dir = (workspace_path +
-           os.path.sep +
-           'build' +
-           os.path.sep +
-           pkg_name)
-
-    return dir
+    return os.path.join(workspace_path, 'build', pkg_name)
 
 def GetDatabase(compilation_database_folder):
     if os.path.exists(compilation_database_folder):
@@ -251,15 +352,24 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
     TODO: Does not work, when the workspace is not sourced
     """
     with open("/tmp/ycm_debug.txt", "a") as file:
-        pkg_name = rospkg.get_package_name(headerfile)
+        if ROS_VERSION == "1":
+            pkg_name = rospkg.get_package_name(headerfile)
+        else:
+            pkg_name = GetRos2PkgName(headerfile)
+
         if not pkg_name:
             return None
             file.write("Could not retrieve the package name")
-        try:
-            pkg_path = rospkg.RosPack().get_path(pkg_name)
-        except rospkg.ResourceNotFound:
-            return None
-            file.write("Could not retrive the package path")
+
+        if ROS_VERSION == "1":
+            try:
+                pkg_path = rospkg.RosPack().get_path(pkg_name)
+            except rospkg.ResourceNotFound:
+                return None
+                file.write("Could not retrive the package path")
+        else:
+            pkg_path = GetRos2PkgSrcPath(headerfile)
+
         filename_no_ext = os.path.splitext(headerfile)[0]
         hdr_basename_no_ext = os.path.basename(filename_no_ext)
         file.write("Header: {}\n".format(hdr_basename_no_ext))
@@ -355,7 +465,13 @@ def Settings(**kwargs):
     }
 
 if __name__ == '__main__':
-    fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
-    if len(sys.argv) > 1:
-        fname = sys.argv[1]
+    # ROS 1
+    # fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
+    # print(Settings(filename = fname))
+
+    # ROS 2
+    fname = "/home/vojta/ros2_workspace/src/octomap_server2/src/octomap_server.cpp"
+    # print(GetRos2PkgName(fname))
+    # print(GetWorkspacePath(fname))
+    # print(GetRos2IncludePaths())
     print(Settings(filename = fname))
