@@ -339,9 +339,10 @@ def GetCompilationInfoForHeaderSameDir(headerfile, database):
     for extension in SOURCE_EXTENSIONS:
         replacement_file = filename_no_ext + extension
         if os.path.exists(replacement_file):
-            compilation_info = database.GetCompilationInfoForFile(
-                replacement_file)
-            if compilation_info.compiler_flags_:
+            compilation_info = GetCompilationInfoForFile(
+                replacement_file,
+                database)
+            if compilation_info:
                 return compilation_info
     return None
 
@@ -386,9 +387,10 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         for line in fh:
                             if pattern.match(line):
                                 file.write(" YES\n\n")
-                                compilation_info = database.GetCompilationInfoForFile(
-                                    path + os.path.sep + src_filename)
-                                if compilation_info.compiler_flags_:
+                                compilation_info = GetCompilationInfoForFile(
+                                    path + os.path.sep + src_filename,
+                                    database)
+                                if compilation_info:
                                     return compilation_info
                         file.write("\n")
             # where reaching here, we have not find a c file to the header, lets use any in the package, that uses ros
@@ -403,19 +405,11 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         for line in fh:
                             if ros_include_pattern.match(line):
                                 file.write(" YES (ROS)\n\n")
-                                compilation_info = database.GetCompilationInfoForFile(
-                                    path + os.path.sep + src_filename)
-                                if compilation_info.compiler_flags_:
+                                compilation_info = GetCompilationInfoForFile(
+                                    path + os.path.sep + src_filename,
+                                    database)
+                                if compilation_info:
                                     return compilation_info
-                # if hdr_basename_no_ext != src_basename_no_ext:
-                #     continue
-                # for extension in SOURCE_EXTENSIONS:
-                #     if src_filename.endswith(extension):
-                #         compilation_info = database.GetCompilationInfoForFile(
-                #             path + os.path.sep + src_filename)
-                #         if compilation_info.compiler_flags_:
-                #             file.write("-----")
-                #             return compilation_info
         file.write("-----\n")
     return None
 
@@ -426,6 +420,7 @@ def GetCompilationInfoForFile(filename, database):
     # that file should be good enough.
     # Corresponding source file are looked for in the same package.
     if IsHeaderFile(filename):
+        # print("HEADER")
         # Look in the same directory.
         compilation_info = GetCompilationInfoForHeaderSameDir(
             filename, database)
@@ -435,18 +430,14 @@ def GetCompilationInfoForFile(filename, database):
         compilation_info = GetCompilationInfoForHeaderRos(filename, database)
         if compilation_info:
             return compilation_info
-        print("HEADER")
 
     cmds = database.getCompileCommands(filename)
     return cmds[0]
-    # return database.GetCompilationInfoForFile(filename)
 
 def Settings(**kwargs):
     filename = kwargs['filename']
     database = GetDatabase(GetCompilationDatabaseFolder(filename))
     if database:
-        # Bear in mind that compilation_info.compiler_flags_ does NOT return a
-        # python list, but a "list-like" StringVec object
         compilation_info = GetCompilationInfoForFile(filename, database)
         if compilation_info:
             final_flags = MakeRelativePathsInFlagsAbsolute(
@@ -470,7 +461,8 @@ if __name__ == '__main__':
     # print(Settings(filename = fname))
 
     # ROS 2
-    fname = "/home/vojta/ros2_workspace/src/octomap_server2/src/octomap_server.cpp"
+    fname = "/home/vojta/ros2_workspace/src/octomap_server2/include/octomap_server2/octomap_server.hpp"
+    # fname = "/home/vojta/ros2_workspace/src/fog_rviz_plugins"
     # print(GetRos2PkgName(fname))
     # print(GetWorkspacePath(fname))
     # print(GetRos2IncludePaths())
