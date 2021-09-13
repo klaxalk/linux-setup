@@ -194,6 +194,13 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 separator=true
 
+[23]
+command=ping -c 1 192.168.69.122 >> /dev/null && echo 'uav23' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
 # EPIGEN_DEL_BLOCK_GPD }
 
 # EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS {
