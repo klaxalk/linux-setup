@@ -21,9 +21,9 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var2" = "18.04" ] && export BEAVER=1
+[ "$var2" = "20.04" ] && export FOCAL=1
 
 default=n
 while true; do
@@ -40,11 +40,12 @@ while true; do
 
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
+    if [ -n "$FOCAL" ]; then
+      sudo apt-get -y pdftk
+    fi
+
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav
-
-    # TODO
-    # pdftk
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
