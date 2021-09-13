@@ -584,7 +584,7 @@ tmap <ESC> taskview_close
 copytmap <ESC> q Q w <C-c>
 
 # edit in vim+tmux split
-map ef eval if os.environ.has_key('TMUX'): fm.execute_console("shell tmux splitw -h 'bash -c \"$EDITOR " + fm.thisfile.basename + "\"'")
+map ef eval if not os.environ.get('TMUX') == '': fm.execute_console("shell tmux splitw -h 'bash -c \"$EDITOR " + fm.thisfile.basename + "\"'")
 
 # Custom key bindings for movement
 # EPIGEN_ADD_BLOCK_TOMAS {
