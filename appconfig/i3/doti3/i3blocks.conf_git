@@ -195,7 +195,21 @@ interval=10
 separator=true
 
 [23]
-command=ping -c 1 192.168.69.122 >> /dev/null && echo 'uav23' || echo ""
+command=ping -c 1 192.168.69.123 >> /dev/null && echo 'uav23' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[24]
+command=ping -c 1 192.168.69.124 >> /dev/null && echo 'uav24' || echo ""
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+interval=10
+separator=true
+
+[25]
+command=ping -c 1 192.168.69.125 >> /dev/null && echo 'uav25' || echo ""
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
