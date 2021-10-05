@@ -434,16 +434,16 @@ bar {
   # #{ TOMAS's i3bar bg
 
   # EPIGEN_ADD_BLOCK_TOMAS {
-#   # EPIGEN_ADD_BLOCK_DESKTOP {
-#   # set $i3bar_bg #12121200
-#   # EPIGEN_ADD_BLOCK_DESKTOP }
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
-#   # set $i3bar_bg #12121200
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
-#   # EPIGEN_ADD_BLOCK_DELL {
-# #   set $i3bar_bg #121212FF
-# #   set $i3bar_bg #121212FF
-#   # EPIGEN_ADD_BLOCK_DELL }
+  # # EPIGEN_ADD_BLOCK_DESKTOP {
+  # # set $i3bar_bg #12121200
+  # # EPIGEN_ADD_BLOCK_DESKTOP }
+  # # EPIGEN_ADD_BLOCK_DESKTOP2 {
+  # # set $i3bar_bg #12121200
+  # # EPIGEN_ADD_BLOCK_DESKTOP2 }
+  # # EPIGEN_ADD_BLOCK_DELL {
+  # # set $i3bar_bg #121212FF
+  # # set $i3bar_bg #121212FF
+  # # EPIGEN_ADD_BLOCK_DELL }
   # EPIGEN_ADD_BLOCK_TOMAS }
 
   # #}
