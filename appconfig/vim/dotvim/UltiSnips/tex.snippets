@@ -462,16 +462,12 @@ snippet vphantom "" i
 endsnippet
 
 snippet frame "Beamer frame" 
-%%{ $1
-
 \begin{frame}
 \frametitle{${1:Frame title}}
 
 ${2:${VISUAL}}
 
 \end{frame}
-
-%%}
 endsnippet
 
 snippet frame "image frame" 
@@ -1013,4 +1009,10 @@ endsnippet
 
 snippet "colsep" "\renewcommand{\tabcolsep}{-4pt}" ir
 \renewcommand{\tabcolsep}{${1:0}pt}
+endsnippet
+
+snippet "pnote" "\pnote{}" ir
+\pnote{
+${1:${VISUAL}}
+}
 endsnippet
