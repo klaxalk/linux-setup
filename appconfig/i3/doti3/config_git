@@ -79,7 +79,7 @@ set $workspace10 "10"
 # set $workspace7 "7: "
 # set $workspace8 "8"
 # set $workspace9 "9"
-# set $workspace10 "10"
+# set $workspace10 "10: "
 # EPIGEN_ADD_BLOCK_PAVEL }
 
 # EPIGEN_ADD_BLOCK_HONZA {
@@ -1310,6 +1310,8 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 # for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="Google-chrome"] move workspace $workspace1
+# for_window [class="Mailspring"] move workspace $workspace10
 # for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
 # for_window [class="Spotify"] move workspace $workspace7
 # EPIGEN_ADD_BLOCK_PAVEL }
