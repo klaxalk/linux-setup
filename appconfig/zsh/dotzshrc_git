@@ -5,12 +5,14 @@ if [ "$var2" = "$var1" ]; then
   export BEAVER=1
 fi
 
-# if nvim is present, use it!
-if [ -x "$(command -v nvim)" ]; then
-  export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-else
-  export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-fi
+# # if nvim is present, use it!
+# if [ -x "$(command -v nvim)" ]; then
+#   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+# else
+#   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# fi
+
+export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then

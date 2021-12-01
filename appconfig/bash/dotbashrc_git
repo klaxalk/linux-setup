@@ -6,12 +6,14 @@ if [ "$var2" = "$var1" ]; then
   export BEAVER=1
 fi
 
-# if nvim is present, use it!
-if [ -x "$(command -v nvim)" ]; then
-  export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-else
-  export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-fi
+# # if nvim is present, use it!
+# if [ -x "$(command -v nvim)" ]; then
+#   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+# else
+#   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# fi
+
+export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 
 # set the TMUX_BIN, prefer the user-compiled one
 [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
@@ -20,7 +22,7 @@ fi
 export SHELL=/bin/bash
 
 # the location of `once generated ctags file`
-export CTAGS_FILE_ONCE="~/tags-once" 
+export CTAGS_FILE_ONCE="~/tags-once"
 
 # set vi mode in bash
 # set -o vi # EPIGEN_ADD_LINE_TOMAS
@@ -42,21 +44,21 @@ esac
 runTmux() {
 
   SESSION_NAME="T$BASHPID"
-  
+
   # try to find session with the correct session id (based on the bashs PID)
-  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l` 
+  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
 
   if [ "$EXISTING_SESSION" -gt "0" ]; then
-  
+
     # if such session exists, attach to it
     $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
-  
+
   else
-  
+
     # if such session does not exist, create it
     $TMUX_BIN new-session -s "$SESSION_NAME"
-  
-  fi 
+
+  fi
 
   # hook after exitting the session
   # when the session exists, find a file in /tmp with the name of the session
@@ -73,8 +75,8 @@ runTmux() {
   fi
 }
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively
-  _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
-  trap _trap_exit EXIT                                                                                  
+  _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }
+  trap _trap_exit EXIT
 fi
 
 # VIM alias for running vim in tmux and in servermode
@@ -86,7 +88,7 @@ runVim() {
   if [ -z $TMUX ]; then
 
     SESSION_NAME="T$BASHPID"
-  
+
     # if there is a tmux session with the same name as the current bashpid
     num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
     if [ "$num" -gt "0" ]; then
@@ -95,8 +97,8 @@ runVim() {
       sleep 1.0
       $TMUX_BIN send-keys -t $ID "$VIM_CMD" C-m
       $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
-    
-    else 
+
+    else
 
       $TMUX_BIN new-session -s "$SESSION_NAME" -d "$VIM_CMD" \; attach
 
@@ -135,11 +137,11 @@ if [ -n "$TMUX" ]; then
   fi
 fi
 
-# load tmux automatically                                                                             
+# load tmux automatically
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
-  if command -v $TMUX_BIN>/dev/null; then                                                                    
+  if command -v $TMUX_BIN>/dev/null; then
     if [ "$RUN_TMUX" = "true" ]; then
-      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux                                                  
-    fi                                                                                                  
+      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
+    fi
   fi
 fi

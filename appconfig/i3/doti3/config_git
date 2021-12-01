@@ -79,7 +79,7 @@ set $workspace10 "10"
 # set $workspace7 "7: "
 # set $workspace8 "8"
 # set $workspace9 "9"
-# set $workspace10 "10"
+# set $workspace10 "10: "
 # EPIGEN_ADD_BLOCK_PAVEL }
 
 # EPIGEN_ADD_BLOCK_HONZA {
@@ -95,6 +95,19 @@ set $workspace10 "10"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_HONZA }
 
+# EPIGEN_ADD_BLOCK_DANIEL {
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4"
+# set $workspace5 "5"
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8: "
+# set $workspace9 "9"
+# set $workspace10 "10: "
+# EPIGEN_ADD_BLOCK_DANIEL }
+#
 # #}
 
 # set font
@@ -198,17 +211,17 @@ bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 bindsym $mod+Shift+r restart
 
 # rofi launcher
-# EPIGEN_DEL_BLOCK_PETR {
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
-# EPIGEN_DEL_BLOCK_PETR }
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL }
 
 # default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL {
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL EPIGEN_DEL_BLOCK_DANIEL {
 bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
 bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL }
+# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL EPIGEN_DEL_BLOCK_DANIEL }
 
 # EPIGEN_DEL_BLOCK_AFZAL {
 # # default key bindings for monitor brightness on external keyboard
@@ -244,7 +257,7 @@ bindsym $mod+Shift+minus move scratchpad
 for_window [title="pdfpc"] border none floating enable
 
 # bluetooth applet
-exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_DANIEL
+# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR 
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
@@ -400,7 +413,7 @@ bar {
 #   # EPIGEN_ADD_BLOCK_LENOVO {
 # #   font pango: Inconsolata, FontAwesome 8
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   # font pango: LiberationMono, FontAwesome 10
+# # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_LENOVO }
   # EPIGEN_ADD_BLOCK_DANIEL }
@@ -426,7 +439,7 @@ bar {
   # #{ DANIEL's i3bar bg
 
   # EPIGEN_ADD_BLOCK_DANIEL {
-  # set $i3bar_bg #002456
+#   set $i3bar_bg #002456
   # EPIGEN_ADD_BLOCK_DANIEL }
 
   # #}
@@ -470,8 +483,6 @@ bar {
 
   # i3bar position
   position top
-
-  # position bottom # EPIGEN_ADD_LINE_DANIEL
 
 }
 
@@ -998,6 +1009,22 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DANIEL {
 
+# exec_always --no-startup-id feh --bg-fill ~/git/notes/files/007.jpg
+
+# bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./daniel_set_monitor.sh'"
+
+# bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 5%-
+# bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 5%+
+# bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
+# bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Capture toggle
+ 
+# bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+# exec_always --no-startup-id setxkbmap -layout us,cz -variant ,bksl -option "grp:win_space_toggle"
+
 # # EPIGEN_ADD_BLOCK_DELL {
 
 # # # Bind screen brightness control to DELL's special keys
@@ -1009,14 +1036,11 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
 
-# # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
-
 # # EPIGEN_ADD_BLOCK_DELL }
 
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Wallpaper
-# # exec_always --no-startup-id feh --bg-fill ~/Pictures/004.jpg
 # # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
@@ -1032,8 +1056,6 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMicMute --release exec --no-startup-id amixer -D pulse sset Capture toggle
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
@@ -1288,12 +1310,14 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # EPIGEN_ADD_BLOCK_DANIEL {
 # # browser
 # for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="qutebrowser"] move workspace $workspace1
 # # cads
 # for_window [class="FreeCAD"] move workspace $workspace6
 # for_window [class="Kicad"] move workspace $workspace6
 # for_window [class="Qucs"] move workspace $workspace6
 # # media
 # for_window [class="Gimp"] move workspace $workspace7
+# for_window [class="Inkscape"] move workspace $workspace7
 # for_window [title="GIMP Startup"] move workspace $workspace6
 # for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
@@ -1305,11 +1329,18 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [title="Gazebo"] move workspace $workspace9
 # for_window [class="rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
+# for_window [title="Signal"] move workspace $workspace10
+# for_window [class="Caprine"] move workspace $workspace10
+# for_window [class="Microsoft Teams"] move workspace $workspace10
+# for_window [class="Evolution"] move workspace $workspace10
+
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 # for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="Google-chrome"] move workspace $workspace1
+# for_window [class="Mailspring"] move workspace $workspace10
 # for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
 # for_window [class="Spotify"] move workspace $workspace7
 # EPIGEN_ADD_BLOCK_PAVEL }
