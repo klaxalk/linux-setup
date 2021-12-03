@@ -461,6 +461,14 @@ bar {
 
   # #}
 
+  # #{ PEPPE
+
+  # EPIGEN_ADD_BLOCK_PEPPE {
+  # font pango: Terminus, FontAwesome 10
+  # EPIGEN_ADD_BLOCK_PEPPE }
+
+  # #}
+
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {

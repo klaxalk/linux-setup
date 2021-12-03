@@ -135,6 +135,14 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! }
 
+! { PEPPE
+
+! EPIGEN_ADD_BLOCK_PEPPE {
+! Xft.dpi: 180
+! EPIGEN_ADD_BLOCK_PEPPE }
+
+! }
+
 URxvt.scrollBar: false
 
 URxvt.saveLine: 10000
