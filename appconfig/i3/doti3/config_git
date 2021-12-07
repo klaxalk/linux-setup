@@ -547,7 +547,7 @@ set $mode_gaps_inner inner gaps
 
 # # #{ DESKTOP
 
-# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 {
+# # EPIGEN_ADD_BLOCK_DESKTOP {
 
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
 
@@ -559,7 +559,25 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
 # # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
 
-# # EPIGEN_ADD_BLOCK_DESKTOP EPIGEN_ADD_BLOCK_DESKTOP2 }
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+
+# # #}
+
+# # #{ DESKTOP2
+
+# # EPIGEN_ADD_BLOCK_DESKTOP2 {
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop2.sh'"
+
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
+
+# # EPIGEN_ADD_BLOCK_DESKTOP2 }
 
 # # #}
 
