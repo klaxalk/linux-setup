@@ -242,10 +242,10 @@ separator=true
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN {
 
 # [mail]
-# command=~/git/mail/scripts/i3bar_update.sh
+# command=~/git/mail/scripts/i3/i3bar_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=120
+# interval=300
 # separator=true
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN }
