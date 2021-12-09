@@ -6,6 +6,8 @@ set lazyredraw
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
 
+let g:email = get(g:, 'email', "0")
+
 " if in diff, set user mode to 1
 if &diff
   let g:user_mode = 1
@@ -679,6 +681,14 @@ endif
 nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
 nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
 nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
+
+" when opened from mutt, format it as an email
+if g:email == "1"
+  set filetype=mail
+endif
+
+" gx will open a link under a cursor
+nmap gx :silent execute "!xdg-open " . shellescape("<cWORD>") . " &"<CR>
 
 " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
 " " My large subconfig
