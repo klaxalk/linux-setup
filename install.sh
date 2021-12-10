@@ -87,6 +87,9 @@ bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 # install LATEX and PDF support
 bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
+# install PDFPC
+bash $APPCONFIG_PATH/pdfpc/install.sh $subinstall_params
+
 # install MULTIMEDIA support
 bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
