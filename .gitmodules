@@ -94,3 +94,6 @@
 [submodule "submodules/keychron-k2-function-keys-linux"]
 	path = submodules/keychron-k2-function-keys-linux
 	url = https://github.com/adam-savard/keychron-k2-function-keys-linux.git
+[submodule "submodules/pdfpc"]
+	path = submodules/pdfpc
+	url = https://github.com/pdfpc/pdfpc.git
