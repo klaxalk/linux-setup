@@ -204,6 +204,9 @@ if g:user_mode == "1"
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
 
+"   " better 'gx' command for opening files and urls
+"   Plug 'arp242/xdg_open.vim'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
 
   " EPIGEN_ADD_BLOCK_DANIEL {
@@ -686,9 +689,6 @@ nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
 if g:email == "1"
   set filetype=mail
 endif
-
-" gx will open a link under a cursor
-nmap gx :silent execute "!xdg-open " . shellescape("<cWORD>") . " &"<CR>
 
 " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
 " " My large subconfig
