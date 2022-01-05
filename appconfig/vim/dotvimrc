@@ -207,6 +207,10 @@ if g:user_mode == "1"
 "   " better 'gx' command for opening files and urls
 "   Plug 'arp242/xdg_open.vim'
 
+"   " syntax highlight for Singularity files
+"   Plug 'biosugar0/singularity-vim'
+"   au BufRead *.def set ft=singularity
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
 
   " EPIGEN_ADD_BLOCK_DANIEL {
