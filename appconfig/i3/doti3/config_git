@@ -1368,6 +1368,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [class="Google-chrome"] move workspace $workspace1
 # for_window [class="Mailspring"] move workspace $workspace10
 # for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
+# for_window [class="teams-for-linux"] move workspace $workspace6
 # for_window [class="Spotify"] move workspace $workspace7
 # EPIGEN_ADD_BLOCK_PAVEL }
 
