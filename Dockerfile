@@ -3,9 +3,11 @@ FROM ubuntu:20.04
 RUN apt-get update && \
       apt-get -y install sudo
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+RUN sudo apt-get install -y -q
+RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install keyboard-configuration
 
-RUN sudo apt-get -y update && sudo apt-get -y install git
+RUN sudo apt-get -y update && sudo apt-get -y install software-properties-common git
 
 # fixes prompts during apt installations
 RUN echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
