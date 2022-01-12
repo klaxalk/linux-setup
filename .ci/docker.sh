@@ -9,4 +9,4 @@ docker build . --file Dockerfile --tag klaxalk/linux-setup
 
 docker login --username klaxalk --password $TOKEN
 
-docker push klaxalk/linux-setup:latest
+docker push klaxalk/linux-setup:master

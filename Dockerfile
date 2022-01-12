@@ -15,6 +15,6 @@ RUN sudo apt-get install -y -q
 
 RUN mkdir -p /opt/klaxalk/git && cd /opt/klaxalk/git && git clone https://github.com/klaxalk/linux-setup
 
-RUN cd /opt/klaxalk/git/linux-setup && ./install.sh --unattended
+RUN cd /opt/klaxalk/git/linux-setup && ./install.sh --unattended --docker
 
 CMD ["bash"]
