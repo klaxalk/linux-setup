@@ -697,9 +697,7 @@ if g:email == "1"
   set filetype=mail
 endif
 
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
-" " My large subconfig
-" if !empty(glob("~/.my.vimrc"))
-"   source ~/.my.vimrc
-" endif
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
+" Custom config
+if !empty(glob("~/.my.vimrc"))
+  source ~/.my.vimrc
+endif
