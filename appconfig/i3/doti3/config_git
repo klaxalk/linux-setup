@@ -1321,7 +1321,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="matplotlib"] floating enable
 # for_window [title="pythonplot"] floating disable
-# for_window [title="pdfpc"] border none floating enable
+# for_window [title="pdfpc"] border none floating disable
 # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating enable
 # for_window [title="pythonplot"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
