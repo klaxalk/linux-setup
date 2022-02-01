@@ -102,7 +102,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
 fi
 
 # Copy bib file
-cp $BIB /tmp/tmp.bib
+cp "$BIB" /tmp/tmp.bib
 BIB=/tmp/tmp.bib
 
 # Replace czech characters
@@ -127,7 +127,7 @@ $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/norm f=wi{$a F,i}' -c "wqa" -- "$BIB"
 # Remove double {{ }} from title
 $VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/{//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/}//g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/norm f=wi{$bi}' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/norm f=wi{$a F,i}' -c "wqa" -- "$BIB"
 
 # Month field correction
 $VIM_BIN $HEADLESS -nEs -c '%g/month.*=.*/s/}//g' -c "wqa" -- "$BIB" # delete } brackets around the month
@@ -146,8 +146,9 @@ $VIM_BIN $HEADLESS -nEs -c '%g/month.*=/s/october/10' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/month.*=/s/november/11' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/month.*=/s/december/12' -c "wqa" -- "$BIB"
 
-# Ensure there is -- between pages
+# Ensure there is -- between ranges
 $VIM_BIN $HEADLESS -nEs -c '%g/pages.*=/s/\d\zs-\ze\d/--' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%g/issn.*=/s/\d\zs-\ze\d/--' -c "wqa" -- "$BIB"
 
 ## #}
 
@@ -170,6 +171,7 @@ else
 
   # Check if ref does not exist
   if [ -d "$PAPIS_DIR/$REF" ]; then
+    # TODO: Ask user if the reference should be replaced.
     echo -e "Reference ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE} already exists in the database."
     exit 0
   fi
@@ -192,7 +194,7 @@ if [ ! -z "$KEYWORDS" ]; then papis update --doc-folder "$REF" -s keywords "$KEY
 
 if [ ! -z "$REF" ] && [ -d "$PAPIS_DIR/$REF" ]; then
 
-    FILE=$PAPIS_DIR/$REF/info.yaml
+    FILE="$PAPIS_DIR"/"$REF"/info.yaml
     echo -e "Processing fields in file: $PAPIS_DIR/${COLOR_HIGHLIGHT}$REF${STYLE_NONE}/info.yaml"
 
     # Move ref and addendum up
@@ -202,4 +204,3 @@ if [ ! -z "$REF" ] && [ -d "$PAPIS_DIR/$REF" ]; then
 fi
 
 ## #}
-
