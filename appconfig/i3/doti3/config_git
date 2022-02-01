@@ -210,6 +210,11 @@ bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # reload i3 settings from the ~/.i3/config file
 bindsym $mod+Shift+r restart
 
+# launch system manager menu
+# EPIGEN_DEL_BLOCK_HONZA {
+bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# EPIGEN_DEL_BLOCK_HONZA }
+
 # rofi launcher
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
@@ -935,9 +940,6 @@ set $mode_gaps_inner inner gaps
 # #{ PAVEL's customization
 
 # EPIGEN_ADD_BLOCK_PAVEL {
-
-# # System manager
-# bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
