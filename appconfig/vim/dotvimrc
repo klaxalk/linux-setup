@@ -521,7 +521,7 @@ set path+=~/.vim/UltiSnips/**
 " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT }
 
 " fold around visual block
-xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
+xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
 
 " plugin settings for "normal" vim (not athame)
 if g:user_mode == "1"
