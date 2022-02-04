@@ -210,6 +210,11 @@ bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 # reload i3 settings from the ~/.i3/config file
 bindsym $mod+Shift+r restart
 
+# launch system manager menu
+# EPIGEN_DEL_BLOCK_HONZA {
+bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# EPIGEN_DEL_BLOCK_HONZA }
+
 # rofi launcher
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
@@ -936,9 +941,6 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PAVEL {
 
-# # System manager
-# bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
-
 # # Numlock on by default
 # exec_always --no-startup-id numlockx on
 
@@ -1321,7 +1323,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [class="matplotlib"] floating enable
 # for_window [title="pythonplot"] floating disable
-# for_window [title="pdfpc"] border none floating enable
+# for_window [title="pdfpc"] border none floating disable
 # for_window [title="VZLUSAT-1 X-Ray data decoder"] floating enable
 # for_window [title="pythonplot"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
