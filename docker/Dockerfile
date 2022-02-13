@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS main
 
 RUN apt-get update && \
       apt-get -y install sudo
@@ -10,8 +10,11 @@ RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install keyboard-configuratio
 
 RUN sudo apt-get -y update && sudo apt-get -y install software-properties-common git
 
-RUN mkdir -p /opt/klaxalk/git && cd /opt/klaxalk/git && git clone https://github.com/klaxalk/linux-setup && chmod -R +666 /opt/klaxalk/git
+RUN mkdir -p /opt/klaxalk/git && cd /opt/klaxalk/git && git clone https://github.com/klaxalk/linux-setup
 
-RUN cd /opt/klaxalk/git/linux-setup && ./install.sh --unattended --docker && chmod -R +666 /opt/klaxalk/git
+RUN cd /opt/klaxalk/git/linux-setup && ./install.sh --unattended --docker && rm -rf /var/lib/apt/lists/*
+
+FROM scratch AS finish
+COPY --from=main / /
 
 CMD ["bash"]
