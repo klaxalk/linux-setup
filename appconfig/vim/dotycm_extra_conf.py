@@ -276,10 +276,9 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         for line in fh:
                             if pattern.match(line):
                                 file.write(" YES\n\n")
-                                compilation_info = database.GetCompilationInfoForFile(
-                                    path + os.path.sep + src_filename)
-                                if compilation_info.compiler_flags_:
-                                    return compilation_info
+                                file.write("getting info for file: {}".format(path + os.path.sep + src_filename))
+                                compilation_info = GetCompilationInfoForFile(path + os.path.sep + src_filename, database)
+                                return compilation_info
                         file.write("\n")
             # where reaching here, we have not find a c file to the header, lets use any in the package, that uses ros
             file.write("didnt find suitable C file to the header, searching for some ROS c file\n\n")

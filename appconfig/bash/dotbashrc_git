@@ -1,3 +1,5 @@
+# get the path to this script
+REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
 # detect the OS version
 var1="18.04"
@@ -30,7 +32,7 @@ export CTAGS_FILE_ONCE="~/tags-once"
 # create alisases
 alias sb="source ~/.bashrc"
 
-source "$GIT_PATH/linux-setup/appconfig/shell/commons.sh"
+source "$REPO_PATH/appconfig/shell/commons.sh"
 
 # is the shell running interactively
 case "$-" in
@@ -113,7 +115,7 @@ runVim() {
 alias vim=runVim
 
 # source tmuxinator
-source $GIT_PATH/linux-setup/submodules/tmuxinator/completion/tmuxinator.bash
+source $REPO_PATH/submodules/tmuxinator/completion/tmuxinator.bash
 
 # by default, athame should be off
 export ATHAME_ENABLED=0

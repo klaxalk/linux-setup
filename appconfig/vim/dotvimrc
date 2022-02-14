@@ -6,6 +6,8 @@ set lazyredraw
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
 
+let g:email = get(g:, 'email', "0")
+
 " if in diff, set user mode to 1
 if &diff
   let g:user_mode = 1
@@ -201,6 +203,13 @@ if g:user_mode == "1"
 "   Plug 'papis/papis-vim'
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
+
+"   " better 'gx' command for opening files and urls
+"   Plug 'arp242/xdg_open.vim'
+
+"   " syntax highlight for Singularity files
+"   Plug 'biosugar0/singularity-vim'
+"   au BufRead *.def set ft=singularity
 
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
 
@@ -486,6 +495,9 @@ command! Wq wq
 command! W w
 command! Q q
 
+" set default listchars
+set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:.
+
 " set listchars for planner scripts
 au BufNewFile,BufRead *.pln set list
 au BufNewFile,BufRead *.pln set listchars=tab:▸▸
@@ -507,6 +519,9 @@ set path+=~/.vim/UltiSnips/**
 "   tnoremap jk <C-\><C-n>
 " endif
 " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT }
+
+" fold around visual block
+xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
 
 " plugin settings for "normal" vim (not athame)
 if g:user_mode == "1"
@@ -680,9 +695,12 @@ nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
 nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
 nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
 
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
-" " My large subconfig
-" if !empty(glob("~/.my.vimrc"))
-"   source ~/.my.vimrc
-" endif
-" EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
+" when opened from mutt, format it as an email
+if g:email == "1"
+  set filetype=mail
+endif
+
+" Custom config
+if !empty(glob("~/.my.vimrc"))
+  source ~/.my.vimrc
+endif
