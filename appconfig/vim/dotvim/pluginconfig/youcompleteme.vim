@@ -92,3 +92,6 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 nnoremap <leader>fix :YcmCompleter FixIt<CR>
+
+let g:ycm_auto_hover=''
+nmap <leader>D <plug>(YCMHover)
