@@ -416,7 +416,7 @@ bar {
   # EPIGEN_ADD_BLOCK_DANIEL {
 
 #   # EPIGEN_ADD_BLOCK_LENOVO {
-# #   font pango: Inconsolata, FontAwesome 8
+# #   font pango: Inconsolata, FontAwesome 10 
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -1037,7 +1037,8 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DANIEL {
 
-# exec_always --no-startup-id feh --bg-fill ~/git/notes/files/007.jpg
+# # exec_always --no-startup-id feh --bg-fill ~/git/notes/files/007.jpg
+# bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
 
 # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./daniel_set_monitor.sh'"
@@ -1354,8 +1355,8 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [class="Spotify"] move workspace $workspace8
 # for_window [class="Gnome-terminal"] move workspace $workspace8
 # # mrs
-# for_window [title="Gazebo"] move workspace $workspace9
-# for_window [class="rviz"] move workspace $workspace9
+# for_window [class="^gazebo$"] move workspace $workspace9
+# for_window [class="^rviz$"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [title="Signal"] move workspace $workspace10
 # for_window [class="Caprine"] move workspace $workspace10

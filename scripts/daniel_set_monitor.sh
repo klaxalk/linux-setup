@@ -9,12 +9,13 @@ fi
 
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
-MONITOR=$(echo "LAB
+MONITOR=$(echo "GPU
+LAB
 HOME
 PRESENTATION
 STANDALONE" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "HOME" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
+if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "HOME" ]] && [[ "$MONITOR" != "PRESENTATION" ]] && [[ "$MONITOR" != "STANDALONE" ]]; then
   notify-send -u low -t 100 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi

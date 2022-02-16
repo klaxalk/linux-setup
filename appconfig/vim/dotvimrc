@@ -20,9 +20,9 @@ endif
 
 call plug#begin("~/.vim/plugged")
 
-" EPIGEN_ADD_BLOCK_TOMAS {
+" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL {
 " set viminfo='100,n$HOME/.vim/files/info/viminfo
-" EPIGEN_ADD_BLOCK_TOMAS }
+" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL }
 
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
