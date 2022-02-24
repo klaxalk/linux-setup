@@ -317,9 +317,9 @@ for_window [class="^.*"] border pixel 3
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
-# # EPIGEN_DEL_BLOCK_MATOUS {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -345,9 +345,9 @@ for_window [class="^.*"] border pixel 3
 # set $background_color         #121212
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
-# # EPIGEN_DEL_BLOCK_MATOUS {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
@@ -444,7 +444,15 @@ bar {
   # #{ DANIEL's i3bar bg
 
   # EPIGEN_ADD_BLOCK_DANIEL {
-#   set $i3bar_bg #002456
+  
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK { 
+  # # set $i3bar_bg #4a3c87
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK } 
+
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN { 
+  # # set $i3bar_bg #383838
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN } 
+ 
   # EPIGEN_ADD_BLOCK_DANIEL }
 
   # #}
@@ -1037,7 +1045,18 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_DANIEL {
 
-# # exec_always --no-startup-id feh --bg-fill ~/git/notes/files/007.jpg
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/tree.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/red.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/green.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
 # bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
 
 # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
@@ -1356,7 +1375,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [class="Gnome-terminal"] move workspace $workspace8
 # # mrs
 # for_window [class="^gazebo$"] move workspace $workspace9
-# for_window [class="^rviz$"] move workspace $workspace9
+# for_window [class="^rviz"] move workspace $workspace9
 # for_window [title="rqt_market"] move workspace $workspace9
 # for_window [title="Signal"] move workspace $workspace10
 # for_window [class="Caprine"] move workspace $workspace10
