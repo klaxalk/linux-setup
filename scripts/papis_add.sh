@@ -82,7 +82,16 @@ fi
 COLOR_HIGHLIGHT='\033[0;32m'
 STYLE_NONE='\033[0m'
 TEXT_BOLD='\033[1m'
+
 echo "###################"
+
+if [ -z "$REF" ]; then
+  echo -e "No ${COLOR_HIGHLIGHT}${TEXT_BOLD}--ref${STYLE_NONE} specified. No additional data (pdf, addendum, keywords) will be linked to the record.\n"
+  PDF=""
+  ADDENDUM=""
+  KEYWORDS=""
+fi
+
 echo -e bib:      ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
 echo -e ref:      ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
 echo -e pdf:      ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
