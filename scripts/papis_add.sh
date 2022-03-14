@@ -170,7 +170,7 @@ if [ -z "$REF" ]; then
 else
 
   # Check if ref does not exist
-  if [ -d "$PAPIS_DIR/$REF" ]; then
+  if [ -d "${PAPIS_DIR}/${REF}" ]; then
     # TODO: Ask user if the reference should be replaced.
     echo -e "Reference ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE} already exists in the database."
     exit 0
@@ -180,15 +180,15 @@ else
   papis add --batch --from bibtex "$BIB" --folder-name "$REF"
 
   # Update ref field to REF keyword (force update of `ref`)
-  papis update --force --doc-folder "$REF" -s ref "$REF"
+  papis update --force --doc-folder "${PAPIS_DIR}/${REF}" -s ref "$REF"
 
   # Add pdf file
-  if [ ! -z "$PDF" ]; then papis addto --doc-folder "$REF" --copy-pdf -f "$PDF"; fi
+  if [ ! -z "$PDF" ]; then papis addto --doc-folder "${PAPIS_DIR}/${REF}" --copy-pdf -f "$PDF"; fi
 fi
 
 # Update item parameters
-if [ ! -z "$ADDENDUM" ]; then papis update --doc-folder "$REF" -s addendum "$ADDENDUM"; fi
-if [ ! -z "$KEYWORDS" ]; then papis update --doc-folder "$REF" -s keywords "$KEYWORDS"; fi
+if [ ! -z "$ADDENDUM" ]; then papis update --doc-folder "${PAPIS_DIR}/${REF}" -s addendum "$ADDENDUM"; fi
+if [ ! -z "$KEYWORDS" ]; then papis update --doc-folder "${PAPIS_DIR}/${REF}" -s keywords "$KEYWORDS"; fi
 
 ## #{ Postprocess output yaml file
 
