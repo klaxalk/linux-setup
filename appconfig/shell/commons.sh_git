@@ -474,7 +474,7 @@ catkin() {
 
       PACKAGES=$(catkin list)
       if [ -z "$PACKAGES" ]; then
-        echo "Cannot compile, probably not in a workspace (call catkin list, if the result is empty, build you workspace in its root first)."
+        echo "Cannot compile, probably not in a workspace, or, your workspace lacks ROS packages. To initialize it, place your packages into 'src/' and call 'catkin init' or 'catkin build' again in the root of the workspace."
       else
 
       hostname=$( cat /etc/hostname )
