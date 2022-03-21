@@ -77,7 +77,10 @@ runTmux() {
   fi
 }
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively
-  _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }
+  _trap_exit() {
+    pwd >> /tmp/tmux_restore_path.txt
+    forceKillTmuxSession "T$BASHPID"
+  }
   trap _trap_exit EXIT
 fi
 
