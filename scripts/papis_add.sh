@@ -85,15 +85,26 @@ TEXT_BOLD='\033[1m'
 
 echo "###################"
 
+echo -e bib:      ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
+
 if [ -z "$REF" ]; then
-  echo -e "No ${COLOR_HIGHLIGHT}${TEXT_BOLD}--ref${STYLE_NONE} specified. No additional data (pdf, addendum, keywords) will be linked to the record.\n"
-  PDF=""
-  ADDENDUM=""
-  KEYWORDS=""
+
+  REF=$(cat "$BIB" | tr -d " \t\n\r")
+  REF="$(echo "$REF" | vims -s 'dt{xf,D')"
+
+  if [ -z "$REF" ]; then
+    echo -e "${COLOR_HIGHLIGHT}No ${TEXT_BOLD}--ref${STYLE_NONE}${COLOR_HIGHLIGHT}specified and it could not be read from bib file.\n${STYLE_NONE}"
+    exit -1
+  else
+    echo -e "ref: ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE} (parsed from bib)"
+  fi
+  
+else
+
+  echo -e ref:      ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
+
 fi
 
-echo -e bib:      ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
-echo -e ref:      ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
 echo -e pdf:      ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
 echo -e addendum: ${COLOR_HIGHLIGHT}$ADDENDUM${STYLE_NONE}
 echo -e keywords: ${COLOR_HIGHLIGHT}$KEYWORDS${STYLE_NONE}
