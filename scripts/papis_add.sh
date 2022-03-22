@@ -85,7 +85,7 @@ TEXT_BOLD='\033[1m'
 
 echo "###################"
 
-echo -e bib:      ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
+echo -e bib: ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
 
 if [ -z "$REF" ]; then
 
@@ -101,11 +101,11 @@ if [ -z "$REF" ]; then
   
 else
 
-  echo -e ref:      ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
+  echo -e ref: ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
 
 fi
 
-echo -e pdf:      ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
+echo -e pdf: ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
 echo -e addendum: ${COLOR_HIGHLIGHT}$ADDENDUM${STYLE_NONE}
 echo -e keywords: ${COLOR_HIGHLIGHT}$KEYWORDS${STYLE_NONE}
 echo "###################"
