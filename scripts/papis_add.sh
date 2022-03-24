@@ -125,10 +125,11 @@ fi
 cp "$BIB" /tmp/tmp.bib
 BIB=/tmp/tmp.bib
 
-# Replace czech characters
+# Remove {} around author
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/{//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/}//g' -c "wqa" -- "$BIB"
 
+# Replace czech characters
 $VIM_BIN $HEADLESS -nEs -c '%s/ě/e/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/š/s/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/č/c/g' -c "wqa" -- "$BIB"
@@ -139,9 +140,25 @@ $VIM_BIN $HEADLESS -nEs -c '%s/á/a/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/í/i/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/é/e/g' -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%s/Ě/E/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Š/S/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Č/C/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ř/R/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ž/Z/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ý/Y/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Á/A/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Í/I/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/É/E/g' -c "wqa" -- "$BIB"
+
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\v//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\\//g" -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\v//g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+
+# Insert {} back around author
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/norm f=wi{$a F,i}' -c "wqa" -- "$BIB"
 
 # Remove double {{ }} from title
