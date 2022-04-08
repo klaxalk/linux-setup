@@ -82,10 +82,30 @@ fi
 COLOR_HIGHLIGHT='\033[0;32m'
 STYLE_NONE='\033[0m'
 TEXT_BOLD='\033[1m'
+
 echo "###################"
-echo -e bib:      ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
-echo -e ref:      ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
-echo -e pdf:      ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
+
+echo -e bib: ${COLOR_HIGHLIGHT}$BIB${STYLE_NONE}
+
+if [ -z "$REF" ]; then
+
+  REF=$(cat "$BIB" | tr -d " \t\n\r")
+  REF="$(echo "$REF" | vims -s 'dt{xf,D')"
+
+  if [ -z "$REF" ]; then
+    echo -e "${COLOR_HIGHLIGHT}No ${TEXT_BOLD}--ref${STYLE_NONE}${COLOR_HIGHLIGHT}specified and it could not be read from bib file.\n${STYLE_NONE}"
+    exit -1
+  else
+    echo -e "ref: ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE} (parsed from bib)"
+  fi
+  
+else
+
+  echo -e ref: ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE}
+
+fi
+
+echo -e pdf: ${COLOR_HIGHLIGHT}$PDF${STYLE_NONE}
 echo -e addendum: ${COLOR_HIGHLIGHT}$ADDENDUM${STYLE_NONE}
 echo -e keywords: ${COLOR_HIGHLIGHT}$KEYWORDS${STYLE_NONE}
 echo "###################"
@@ -105,10 +125,11 @@ fi
 cp "$BIB" /tmp/tmp.bib
 BIB=/tmp/tmp.bib
 
-# Replace czech characters
+# Remove {} around author
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/{//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/}//g' -c "wqa" -- "$BIB"
 
+# Replace czech characters
 $VIM_BIN $HEADLESS -nEs -c '%s/ě/e/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/š/s/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/č/c/g' -c "wqa" -- "$BIB"
@@ -119,9 +140,25 @@ $VIM_BIN $HEADLESS -nEs -c '%s/á/a/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/í/i/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/é/e/g' -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%s/Ě/E/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Š/S/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Č/C/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ř/R/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ž/Z/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Ý/Y/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Á/A/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/Í/I/g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c '%s/É/E/g' -c "wqa" -- "$BIB"
+
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\v//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\\//g" -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\v//g' -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+
+# Insert {} back around author
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/norm f=wi{$a F,i}' -c "wqa" -- "$BIB"
 
 # Remove double {{ }} from title
@@ -170,7 +207,7 @@ if [ -z "$REF" ]; then
 else
 
   # Check if ref does not exist
-  if [ -d "$PAPIS_DIR/$REF" ]; then
+  if [ -d "${PAPIS_DIR}/${REF}" ]; then
     # TODO: Ask user if the reference should be replaced.
     echo -e "Reference ${COLOR_HIGHLIGHT}${TEXT_BOLD}$REF${STYLE_NONE} already exists in the database."
     exit 0
@@ -180,15 +217,15 @@ else
   papis add --batch --from bibtex "$BIB" --folder-name "$REF"
 
   # Update ref field to REF keyword (force update of `ref`)
-  papis update --force --doc-folder "$REF" -s ref "$REF"
+  papis update --force --doc-folder "${PAPIS_DIR}/${REF}" -s ref "$REF"
 
   # Add pdf file
-  if [ ! -z "$PDF" ]; then papis addto --doc-folder "$REF" --copy-pdf -f "$PDF"; fi
+  if [ ! -z "$PDF" ]; then papis addto --doc-folder "${PAPIS_DIR}/${REF}" --copy-pdf -f "$PDF"; fi
 fi
 
 # Update item parameters
-if [ ! -z "$ADDENDUM" ]; then papis update --doc-folder "$REF" -s addendum "$ADDENDUM"; fi
-if [ ! -z "$KEYWORDS" ]; then papis update --doc-folder "$REF" -s keywords "$KEYWORDS"; fi
+if [ ! -z "$ADDENDUM" ]; then papis update --doc-folder "${PAPIS_DIR}/${REF}" -s addendum "$ADDENDUM"; fi
+if [ ! -z "$KEYWORDS" ]; then papis update --doc-folder "${PAPIS_DIR}/${REF}" -s keywords "$KEYWORDS"; fi
 
 ## #{ Postprocess output yaml file
 

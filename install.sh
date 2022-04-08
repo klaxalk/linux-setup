@@ -12,9 +12,6 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 # define paths
 APPCONFIG_PATH=$MY_PATH/appconfig
 
-cd $MY_PATH
-git submodule update --init --recursive
-
 # install packages
 sudo apt-get -y update
 
@@ -34,6 +31,10 @@ do
     docker=true
   fi
 done
+
+cd $MY_PATH
+$docker && git submodule update --init --recursive --recommend-shallow
+! $docker && git submodule update --init --recursive
 
 var1="18.04"
 var2=`lsb_release -r | awk '{ print $2 }'`
