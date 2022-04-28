@@ -425,7 +425,6 @@ bar {
 
   # #}
 
-  # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
   # the default option
@@ -459,19 +458,17 @@ bar {
 
 # #{ TOMAS's i3bar bg
 
-  # EPIGEN_ADD_BLOCK_TOMAS {
-#   # EPIGEN_ADD_BLOCK_DESKTOP {
-#   # set $i3bar_bg #12121200
-#   # EPIGEN_ADD_BLOCK_DESKTOP }
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
-#   # set $i3bar_bg #12121200
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
-#   # EPIGEN_ADD_BLOCK_DELL {
-# #   set $i3bar_bg #121212FF
-# #   set $i3bar_bg #121212FF
-# #   set $urgent #FF0000
-#   # EPIGEN_ADD_BLOCK_DELL }
-  # EPIGEN_ADD_BLOCK_TOMAS }
+EPIGEN_ADD_BLOCK_TOMAS {
+# EPIGEN_ADD_BLOCK_DESKTOP {
+# set $i3bar_bg #12121200
+# EPIGEN_ADD_BLOCK_DESKTOP }
+# EPIGEN_ADD_BLOCK_DESKTOP2 {
+# set $i3bar_bg #12121200
+# EPIGEN_ADD_BLOCK_DESKTOP2 }
+# EPIGEN_ADD_BLOCK_DELL {
+# set $i3bar_bg #121212FF
+# EPIGEN_ADD_BLOCK_DELL }
+EPIGEN_ADD_BLOCK_TOMAS }
 
 # #}
 
@@ -486,7 +483,10 @@ bar {
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-    # set $i3bar_bg #FFFFFFFF
+
+#   set $i3bar_bg #FFFFFFFF
+#   set $urgent #FF0000
+
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   colors {
