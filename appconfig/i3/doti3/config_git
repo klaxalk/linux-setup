@@ -808,6 +808,26 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Toggling ASUS touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+
 # EPIGEN_ADD_BLOCK_DAN }
 
 # #}
