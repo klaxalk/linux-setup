@@ -17,3 +17,4 @@ cd $APP_PATH/../../scripts/
 ./makeLauncher.sh "rosrun rqt_reconfigure rqt_reconfigure" "rqt Dynamic Reconfigurator"
 ./makeLauncher.sh "rosrun rqt_tf_tree rqt_tf_tree" "rqt TF Tree Viewer"
 ./makeLauncher.sh "rqt" "rqt Menu"
+./makeLauncher.sh "roslaunch rqt_bag rqt_bag.launch" "rqt bag"
