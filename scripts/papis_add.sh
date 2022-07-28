@@ -150,10 +150,12 @@ $VIM_BIN $HEADLESS -nEs -c '%s/Á/A/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/Í/I/g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%s/É/E/g' -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\n//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\v//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\'//g" -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\\//g" -c "wqa" -- "$BIB"
 
+$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\n//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\v//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\'//g" -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\\//g" -c "wqa" -- "$BIB"
