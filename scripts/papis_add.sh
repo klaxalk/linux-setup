@@ -222,7 +222,17 @@ else
   papis update --force --doc-folder "${PAPIS_DIR}/${REF}" -s ref "$REF"
 
   # Add pdf file
-  if [ ! -z "$PDF" ]; then papis addto --doc-folder "${PAPIS_DIR}/${REF}" --copy-pdf -f "$PDF"; fi
+  if [ ! -z "$PDF" ]; then
+
+    # Compress
+    PDF_BASENAME="`basename ${PDF}`"
+    PDF_COMPRESSED="/tmp/${PDF_BASENAME}"
+    echo -e "Compressing pdf file with ghostscript (prepress settings) to: $PDF_COMPRESSED"
+    "gs" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile="${PDF_COMPRESSED}" "$PDF"
+
+    # Add to papis database
+    papis addto --doc-folder "${PAPIS_DIR}/${REF}" --copy-pdf -f "$PDF_COMPRESSED" 
+  fi
 fi
 
 # Update item parameters
