@@ -543,10 +543,11 @@ set $mode_gaps_inner inner gaps
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_DELL }
 
-# exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
+# exec dropbox start
+# exec owncloud
+
 # bindsym $mod+o exec ~/.scripts/i3_mark.sh
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
-# exec dropbox start
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 000000
 
