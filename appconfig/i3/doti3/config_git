@@ -1224,14 +1224,11 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_HONZA {
 
-# # # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:alt_caps_toggle" 
-
 # # System manager
-# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
-# exec_always --no-startup-id numlockx on
+# # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
