@@ -1034,3 +1034,19 @@ snippet "pnote" "\pnote{}" ir
 ${1:${VISUAL}}
 }
 endsnippet
+
+snippet "adjustbox" "adjustbox" r
+\begin{adjustbox}{max totalsize={1.0\textwidth}{.65\textheight}, center}
+${1:${VISUAL}}
+\end{adjustbox}
+endsnippet
+
+snippet "scalebox" "scalebox" ri
+\scalebox{${2:1.0}} {
+${1:${VISUAL}}
+}
+endsnippet
+
+snippet "(prop)|(propto)" "proportional to" ri
+\propto
+endsnippet
