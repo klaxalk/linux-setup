@@ -153,7 +153,7 @@ bindsym $mod+braceright split h
 bindsym $mod+braceleft split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+# bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -425,7 +425,6 @@ bar {
 
   # #}
 
-  # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
   # the default option
@@ -457,22 +456,21 @@ bar {
 
   # #}
 
-  # #{ TOMAS's i3bar bg
+# #{ TOMAS's i3bar bg
 
-  # EPIGEN_ADD_BLOCK_TOMAS {
-  # # EPIGEN_ADD_BLOCK_DESKTOP {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP }
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 }
-  # # EPIGEN_ADD_BLOCK_DELL {
-  # # set $i3bar_bg #121212FF
-  # # set $i3bar_bg #121212FF
-  # # EPIGEN_ADD_BLOCK_DELL }
-  # EPIGEN_ADD_BLOCK_TOMAS }
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # set $i3bar_bg #12121200
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+# # EPIGEN_ADD_BLOCK_DESKTOP2 {
+# # set $i3bar_bg #12121200
+# # EPIGEN_ADD_BLOCK_DESKTOP2 }
+# # EPIGEN_ADD_BLOCK_DELL {
+# # set $i3bar_bg #121212FF
+# # EPIGEN_ADD_BLOCK_DELL }
+# EPIGEN_ADD_BLOCK_TOMAS }
 
-  # #}
+# #}
 
   # #{ PEPPE
 
@@ -485,7 +483,10 @@ bar {
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-    # set $i3bar_bg #FFFFFFFF
+
+#   set $i3bar_bg #FFFFFFFF
+#   set $urgent #FF0000
+
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   colors {
@@ -806,6 +807,26 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
+
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Toggling ASUS touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
 
 # EPIGEN_ADD_BLOCK_DAN }
 

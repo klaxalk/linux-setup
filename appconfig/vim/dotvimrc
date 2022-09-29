@@ -6,7 +6,7 @@ set lazyredraw
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
 
-let g:email = get(g:, 'email', "0")
+let g:mail_mode = get(g:, 'mail_mode', "0")
 
 " if in diff, set user mode to 1
 if &diff
@@ -16,6 +16,10 @@ endif
 " set athame filetype
 if g:user_mode == "0"
   set filetype=athame
+endif
+
+if g:mail_mode == "1"
+  set filetype=mail
 endif
 
 call plug#begin("~/.vim/plugged")
@@ -592,6 +596,9 @@ if g:user_mode == "1"
   " config for vim-cpp-enhanced-highlight
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
 
+  " config for mail files
+  au FileType mail source ~/.vim/pluginconfig/mail.vim 
+
   " EPIGEN_ADD_BLOCK_TOMAS {
   " source ~/.vim/pluginconfig/vim-glsl.vim
   " EPIGEN_ADD_BLOCK_TOMAS }
@@ -694,11 +701,6 @@ endif
 nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
 nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
 nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
-
-" when opened from mutt, format it as an email
-if g:email == "1"
-  set filetype=mail
-endif
 
 " Custom config
 if !empty(glob("~/.my.vimrc"))
