@@ -597,7 +597,7 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
 
   " config for mail files
-  au FileType mail source ~/.vim/pluginconfig/mail.vim 
+  au FileType mail source ~/.vim/pluginconfig/mail.vim
 
   " EPIGEN_ADD_BLOCK_TOMAS {
   " source ~/.vim/pluginconfig/vim-glsl.vim
