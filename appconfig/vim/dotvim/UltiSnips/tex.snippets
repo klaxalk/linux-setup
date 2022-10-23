@@ -15,11 +15,15 @@ snippet isotope "" i
 endsnippet
 
 snippet only "" i
-\only<${1:1}>{${2:${VISUAL}}}
+\only<${1:1}>{
+	${2:${VISUAL}}
+}
 endsnippet
 
 snippet onslide "" i
-\onslide<${1:1}>{${2:${VISUAL}}}
+\onslide<${1:1}>{
+	${2:${VISUAL}}
+}
 endsnippet
 
 snippet alert "" i
@@ -1032,5 +1036,13 @@ endsnippet
 snippet "pnote" "\pnote{}" ir
 \pnote{
 ${1:${VISUAL}}
+}
+endsnippet
+
+snippet "inote" "\pnote{}" ir
+\pnote{
+	\begin{itemize}
+		\item ${1}
+	\end{itemize}
 }
 endsnippet
