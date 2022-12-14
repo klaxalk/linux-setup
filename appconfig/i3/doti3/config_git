@@ -382,7 +382,7 @@ bar {
 
   # EPIGEN_ADD_BLOCK_TOMAS {
 
-#   # EPIGEN_ADD_BLOCK_DELL {
+#   # EPIGEN_ADD_BLOCK_THINKPAD {
 # #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
@@ -390,7 +390,7 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
 # # #   font pango: LiberationMono, FontAwesome 13
 # #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
-#   # EPIGEN_ADD_BLOCK_DELL }
+#   # EPIGEN_ADD_BLOCK_THINKPAD }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
@@ -466,9 +466,9 @@ bar {
 # # EPIGEN_ADD_BLOCK_DESKTOP2 {
 # # set $i3bar_bg #12121200
 # # EPIGEN_ADD_BLOCK_DESKTOP2 }
-# # EPIGEN_ADD_BLOCK_DELL {
+# # EPIGEN_ADD_BLOCK_THINKPAD {
 # # set $i3bar_bg #121212FF
-# # EPIGEN_ADD_BLOCK_DELL }
+# # EPIGEN_ADD_BLOCK_THINKPAD }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # #}
@@ -537,12 +537,12 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
-# # EPIGEN_ADD_BLOCK_DELL {
+# # EPIGEN_ADD_BLOCK_THINKPAD {
 # # font pango: Inconsolata 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # # font pango: LiberationMono 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_DELL }
+# # EPIGEN_ADD_BLOCK_THINKPAD }
 
 # exec dropbox start
 # exec owncloud
@@ -597,17 +597,17 @@ set $mode_gaps_inner inner gaps
 
 # # #}
 
-# # #{ DELL
+# # #{ THINKPAD
 
-# # EPIGEN_ADD_BLOCK_DELL {
+# # EPIGEN_ADD_BLOCK_THINKPAD {
 
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
-# # # Bind screen brightness control to DELL's special keys
+# # # Bind screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # # bind audio to DELL's special keys
+# # # bind audio
 # # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
@@ -616,7 +616,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 # # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
-# # EPIGEN_ADD_BLOCK_DELL }
+# # EPIGEN_ADD_BLOCK_THINKPAD }
 
 # # #}
 
