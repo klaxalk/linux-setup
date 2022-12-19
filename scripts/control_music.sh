@@ -8,12 +8,13 @@ fi
 playerctl -v > /dev/null 2>&1
 pctl_res=$?
 if [ $pctl_res -eq 0 ]; then
-  cmd_toggle="playerctl play-pause";
-  cmd_play="playerctl play";
-  cmd_pause="playerctl pause";
+  player_priority="--player=spotify,%all"
+  cmd_toggle="playerctl $player_priority play-pause";
+  cmd_play="playerctl $player_priority play";
+  cmd_pause="playerctl $player_priority pause";
   cmd_stop="playerctl --all-players stop";
-  cmd_previous="playerctl previous";
-  cmd_next="playerctl next";
+  cmd_previous="playerctl $player_priority previous";
+  cmd_next="playerctl $player_priority next";
 else
   cmd_toggle="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause";
   cmd_play="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play";

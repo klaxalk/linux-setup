@@ -174,6 +174,16 @@ def GetCompilationDatabaseFolder(filename):
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
+        path = os.path.dirname(os.path.expanduser(filename))
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
+        path = os.path.join(path, "build")
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
         return ''
 
     workspace_path = GetWorkspacePath(filename)
@@ -354,7 +364,7 @@ def Settings(**kwargs):
     }
 
 if __name__ == '__main__':
-    fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
+    fname = "~/git/tii/gstreamer_rtsp/main.cpp"
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     print(Settings(filename = fname))
