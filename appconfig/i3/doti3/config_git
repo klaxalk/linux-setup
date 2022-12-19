@@ -771,8 +771,12 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
 # # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
 # # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/primitive_and_deadly.jpg"
 
 # # EPIGEN_ADD_BLOCK_SKUMPA }
+
+# # prettier notifications
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 
 # # screen locking with a key to prevent malicious locomotives
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
