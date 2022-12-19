@@ -4,7 +4,9 @@
 let g:ycm_key_list_select_completion   = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+let g:ycm_auto_hover=''
 
+nmap <leader>D <plug>(YCMHover)
 nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>yfw <Plug>(YCMFindSymbolInDocument)
 nmap <leader>yr :YcmCompleter RefactorRename i
@@ -92,3 +94,6 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<cr> :lop<cr>
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 nnoremap <leader>fix :YcmCompleter FixIt<CR>
+
+let g:ycm_auto_hover=''
+nmap <leader>D <plug>(YCMHover)
