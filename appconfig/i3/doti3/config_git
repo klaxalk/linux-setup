@@ -70,7 +70,8 @@ set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_PETR }
 
 # EPIGEN_ADD_BLOCK_PAVEL {
-# set $workspace1 "1: "
+# # set $workspace1 "1: "
+# set $workspace1 "1: "
 # set $workspace2 "2: "
 # set $workspace3 "3: "
 # set $workspace4 "4: "
@@ -425,7 +426,6 @@ bar {
 
   # #}
 
-  # transparent=#00000000
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
   # the default option
@@ -457,22 +457,21 @@ bar {
 
   # #}
 
-  # #{ TOMAS's i3bar bg
+# #{ TOMAS's i3bar bg
 
-  # EPIGEN_ADD_BLOCK_TOMAS {
-  # # EPIGEN_ADD_BLOCK_DESKTOP {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP }
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 {
-  # # set $i3bar_bg #12121200
-  # # EPIGEN_ADD_BLOCK_DESKTOP2 }
-  # # EPIGEN_ADD_BLOCK_DELL {
-  # # set $i3bar_bg #121212FF
-  # # set $i3bar_bg #121212FF
-  # # EPIGEN_ADD_BLOCK_DELL }
-  # EPIGEN_ADD_BLOCK_TOMAS }
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # set $i3bar_bg #12121200
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+# # EPIGEN_ADD_BLOCK_DESKTOP2 {
+# # set $i3bar_bg #12121200
+# # EPIGEN_ADD_BLOCK_DESKTOP2 }
+# # EPIGEN_ADD_BLOCK_DELL {
+# # set $i3bar_bg #121212FF
+# # EPIGEN_ADD_BLOCK_DELL }
+# EPIGEN_ADD_BLOCK_TOMAS }
 
-  # #}
+# #}
 
   # #{ PEPPE
 
@@ -485,7 +484,10 @@ bar {
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-    # set $i3bar_bg #FFFFFFFF
+
+#   set $i3bar_bg #FFFFFFFF
+#   set $urgent #FF0000
+
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   colors {
@@ -542,10 +544,11 @@ set $mode_gaps_inner inner gaps
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_DELL }
 
-# exec urxvt -name scratchpadurxvt -e ~/git/notes/slack/mrs.sh
+# exec dropbox start
+# exec owncloud
+
 # bindsym $mod+o exec ~/.scripts/i3_mark.sh
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
-# exec dropbox start
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 000000
 
@@ -810,6 +813,26 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
+
+# # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # Bing ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# # # Toggling ASUS touchpad
+# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+# # # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
 
 # EPIGEN_ADD_BLOCK_DAN }
 
@@ -1207,14 +1230,11 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_HONZA {
 
-# # # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:alt_caps_toggle" 
-
 # # System manager
-# bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
-# exec_always --no-startup-id numlockx on
+# # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
@@ -1304,6 +1324,129 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ FILIP's customization
+
+# EPIGEN_ADD_BLOCK_FILIP {
+
+# # Numlock on by default
+# # exec_always --no-startup-id numlockx on
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # #{ ASUS 
+# # # EPIGEN_ADD_BLOCK_ASUS {
+
+# # # set bar background
+# # set $i3bar_bg #002456
+
+# # # run bluetooth always
+# # exec_always --no-startup-id blueman-applet
+
+# # # Toggling ASUS touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind ASUS keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # Bind ASUS screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+# # bindcode 253 exec xset dpms force off
+
+# # # Bind ASUS audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind calculator to Calculator button
+# # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
+
+# # # Bind gnome-control-center to asus rogstrix key
+# # bindcode 156 exec gnome-control-center 
+
+# # # Bind script to set monitors
+# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
+
+# # # Bind nautilus (file manager)
+# # bindsym $mod2+e exec nautilus
+
+# # # Run Thunderbird upon startup and assign it to workspace 10
+# # exec --no-startup-id thunderbird
+# # assign [class="Thunderbird"] $workspace10 
+
+# # # Run Sticky notes upon startup
+# # exec_always --no-startup-id indicator-stickynotes
+# # assign [class="^Indicator-stickynotes$"] $workspace10 
+
+# # # #{ COLORSCHEME DARK 
+# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # # # set wallpaper
+# # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"
+# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # # #}
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ LENOVO 
+# # # EPIGEN_ADD_BLOCK_LENOVO {
+  
+# # # run bluetooth always
+# # exec --no-startup-id blueman-applet
+
+# # # Toggling LENOVO touchpad
+# # exec_always xinput set-prop 17 320 1
+
+# # # Bind LENOVO keyboard brightness control
+# # bindsym F10 exec --no-startup-id ~/.scripts/kb-light.py -
+# # bindsym F11 exec --no-startup-id ~/.scripts/kb-light.py +
+
+# # # Bind LENOVO screen brightness control
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+# # bindsym XF86Display exec xset dpms force off # turn screen off
+
+# # # Bind LENOVO audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# # # Bind calculator to Calculator button
+# # # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
+
+# # # Bind gnome-control-center to Favorites key
+# # bindsym XF86Favorites exec gnome-control-center 
+
+# # # Bind script to set monitors
+# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
+
+# # # Bind nautilus (file manager)
+# # bindsym $mod2+e exec nautilus
+
+# # # Run Thunderbird upon startup and assign it to workspace 10
+# # exec --no-startup-id thunderbird
+# # assign [class="Thunderbird"] $workspace10 
+
+# # # Run Sticky notes upon startup
+# # exec --no-startup-id indicator-stickynotes
+# # assign [class="^Indicator-stickynotes$"] $workspace10 
+
+# # # #{ COLORSCHEME DARK 
+# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # # # set wallpaper
+# # # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"
+# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # # #}
+
+# # EPIGEN_ADD_BLOCK_LENOVO }
+# # #}
+
+# EPIGEN_ADD_BLOCK_FILIP }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
@@ -1390,7 +1533,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # EPIGEN_ADD_BLOCK_DANIEL }
 
 # EPIGEN_ADD_BLOCK_PAVEL {
-# for_window [class="Firefox"] move workspace $workspace1
+# for_window [class="firefox"] move workspace $workspace1
 # for_window [class="Google-chrome"] move workspace $workspace1
 # for_window [class="Mailspring"] move workspace $workspace10
 # for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
