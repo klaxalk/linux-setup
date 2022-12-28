@@ -177,6 +177,16 @@ def GetCompilationDatabaseFolder(filename):
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
+        path = os.path.dirname(os.path.expanduser(filename))
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
+        path = os.path.join(path, "build")
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
         return ''
 
     workspace_path = GetWorkspacePath(filename)
