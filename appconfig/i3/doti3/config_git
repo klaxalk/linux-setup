@@ -263,7 +263,7 @@ bindsym $mod+Shift+minus move scratchpad
 for_window [title="pdfpc"] border none floating enable
 
 # bluetooth applet
-# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR 
+# exec --no-startup-id blueman-applet # EPIGEN_ADD_LINE_PETR
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
@@ -375,8 +375,7 @@ bar {
   font pango: Terminus, FontAwesome 10
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
-  tray_output eDP-1
-  tray_output DP-1-2
+  tray_output eDP
 
   # #{ TOMAS font
 
@@ -436,7 +435,7 @@ bar {
   # #{ PETER's i3bar bg
 
   # EPIGEN_ADD_BLOCK_PETR {
-  # set $i3bar_bg #060606CF
+  # set $i3bar_bg #060606CC
   # EPIGEN_ADD_BLOCK_PETR }
 
   # #}
@@ -943,7 +942,7 @@ set $mode_gaps_inner inner gaps
 # exec --no_startup_id numlockx on
 
 # # Fancy compton stuff
-# exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
+# exec picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf
 
 # # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
@@ -960,13 +959,9 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
-# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
-
-# # Fix font DPI issues caused by nvidia
-# bindsym $mod+Shift+f exec sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
 
 # EPIGEN_ADD_BLOCK_PETR }
 
