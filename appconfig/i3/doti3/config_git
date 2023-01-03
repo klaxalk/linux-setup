@@ -374,7 +374,7 @@ bar {
 
   font pango: Terminus, FontAwesome 10
 
-  tray_output primary # EPIGEN_DEL_LINE_PETR
+  tray_output primary
   tray_output eDP
 
   # #{ TOMAS font
@@ -941,7 +941,7 @@ set $mode_gaps_inner inner gaps
 # # Numlock on by default
 # exec --no_startup_id numlockx on
 
-# # Fancy compton stuff
+# # Fancy blurred terminals
 # exec picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf
 
 # # Screen brightness controls

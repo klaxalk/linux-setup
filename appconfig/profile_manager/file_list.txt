@@ -17,3 +17,4 @@ $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_P
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
 $GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s
 $GIT_PATH/linux-setup/appconfig/ranger/rc.conf_git, $GIT_PATH/linux-setup/appconfig/ranger/rc.conf, \#\ %s
+$GIT_PATH/linux-setup/appconfig/picom/fancy_blur.conf_git, $GIT_PATH/linux-setup/appconfig/picom/fancy_blur.conf, \#\ %s
