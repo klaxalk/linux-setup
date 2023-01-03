@@ -7,17 +7,17 @@ else
   source ~/."$SNAME"rc
 fi
 
-CONNECTED_MONITORS="$(xrandr --query | grep ' connected' | grep "" -c)"
+CONNECTED_MONITORS="$(xrandr --query | grep ' connected' -c)"
 
 notify-send -u low -t 1000 "Connected monitors: $CONNECTED_MONITORS" -h string:x-canonical-private-synchronous:anything
 
-if [ $CONNECTED_MONITORS -gt 1 ]; then
-  MONITOR="lab"
+if [ $CONNECTED_MONITORS -gt 2 ]; then
+  MONITOR="lab_docked"
 else
   MONITOR="alone"
 fi
 
-notify-send -u low -t 1000 "Changing setup to dell_$MONITOR" -h string:x-canonical-private-synchronous:anything
+notify-send -u low -t 1000 "Changing setup to $MONITOR" -h string:x-canonical-private-synchronous:anything
 
 # refresh the output devices
 xrandr --auto
@@ -32,7 +32,7 @@ fi
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/petr/dell_$MONITOR.sh ~/.monitor.sh
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/petr/$MONITOR.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc

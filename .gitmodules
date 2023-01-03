@@ -97,3 +97,6 @@
 [submodule "submodules/pdfpc"]
 	path = submodules/pdfpc
 	url = https://github.com/pdfpc/pdfpc.git
+[submodule "submodules/picom"]
+	path = submodules/picom
+	url = https://github.com/yshui/picom
