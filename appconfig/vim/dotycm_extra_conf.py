@@ -171,6 +171,9 @@ def GetCompilationDatabaseFolder(filename):
     The compilation_commands.json for the given file is returned by getting
     the package the file belongs to.
     """
+
+    filename = os.path.abspath(os.path.expanduser(os.path.expandvars(filename)))
+
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
@@ -364,7 +367,7 @@ def Settings(**kwargs):
     }
 
 if __name__ == '__main__':
-    fname = "~/git/tii/gstreamer_rtsp/main.cpp"
+    fname = "~/hw_interface_workspace/src/mrs_uav_hw_interface/src/dummy_api.cpp"
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     print(Settings(filename = fname))

@@ -12,6 +12,7 @@ function printHelp() {
  echo "   -p, --pdf <PATH>           File name of the correlating pdf file." 
  echo "   -k, --keywords <TEXT>      New keywords of the bibliography record. Example: --keywords \"mine, core, journal\"." 
  echo "   -a, --addendum <TEXT>      New addendum of the bibliography record. Example: --addendum \"Q1 in Robotics.\"." 
+ echo "   -c, --clean                Clean (remove bib and pdf files) after successful insertion to the papis database." 
 }
 ## #}
 
@@ -54,6 +55,10 @@ while [[ $# -gt 0 ]]; do
       KEYWORDS="$2"
       shift # past argument
       shift # past value
+      ;;
+    -c|--clean)
+      CLEAN="true"
+      shift # past argument
       ;;
     -h|--help)
       printHelp
@@ -122,6 +127,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
 fi
 
 # Copy bib file
+BIB_ORIG="$BIB"
 cp "$BIB" /tmp/tmp.bib
 BIB=/tmp/tmp.bib
 
@@ -249,6 +255,19 @@ if [ ! -z "$REF" ] && [ -d "$PAPIS_DIR/$REF" ]; then
     # Move ref and addendum up
     $VIM_BIN $HEADLESS -nEs -c '%g/addendum:/norm ddggP' -c "wqa" -- "$FILE"
     $VIM_BIN $HEADLESS -nEs -c '%g/ref:/norm ddggP' -c "wqa" -- "$FILE"
+
+fi
+
+## #}
+
+## #{ Clean
+
+if [ ! -z "$CLEAN" ] && [ "$CLEAN" == "true" ]; then
+
+  echo -e "Cleaning: removing pdf and bib files."
+
+  rm "$BIB_ORIG"
+  rm "$PDF"
 
 fi
 

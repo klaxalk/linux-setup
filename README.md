@@ -2,8 +2,6 @@
 
 | Ubuntu               | Architecture | Status                                                                                                                                                           |
 | -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 18.04 Bionic         | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Bionic/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                             |
-| 18.04 Bionic         | arm64        |                                                                                                                                                                  |
 | 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                              |
 | 20.04 Focal          | arm64        |                                                                                                                                                                  |
 
@@ -12,7 +10,7 @@
 This repo contains settings of klaxalk's Linux work environment.
 
 It could be summarized as follows:
-* **Ubuntu 18.04 or 20.04**
+* **Ubuntu 20.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)
