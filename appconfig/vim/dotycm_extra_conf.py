@@ -305,10 +305,8 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         for line in fh:
                             if ros_include_pattern.match(line):
                                 file.write(" YES (ROS)\n\n")
-                                compilation_info = database.GetCompilationInfoForFile(
-                                    path + os.path.sep + src_filename)
-                                if compilation_info.compiler_flags_:
-                                    return compilation_info
+                                compilation_info = GetCompilationInfoForFile(path + os.path.sep + src_filename, database)
+                                return compilation_info
                 # if hdr_basename_no_ext != src_basename_no_ext:
                 #     continue
                 # for extension in SOURCE_EXTENSIONS:
