@@ -1453,6 +1453,88 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
+# #{ ONDRA's customization
+
+# EPIGEN_ADD_BLOCK_ONDRA {
+
+# # Default keyboard US, win+space to switch between US and CZ
+#  exec_always --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:win_space_toggle"
+
+# # Default redshift setup
+#  exec --no-startup-id redshift -t 6500:3000 -l 50.075079:14.433410
+
+#  # audio control with external keyboard
+#  bindsym XF86AudioPlay exec playerctl play-pause
+#  bindsym XF86AudioPause exec playerctl play-pause
+#  bindsym XF86AudioNext exec playerctl next
+#  bindsym XF86AudioPrev exec playerctl previous
+
+# # #{ DESKTOP
+
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./ondra_set_monitor_desktop.sh'"
+
+# # # sound
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
+# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
+# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
+# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
+# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
+
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+
+# # #}
+
+# # #{ ASUS 
+# # # EPIGEN_ADD_BLOCK_ASUS {
+ 
+# #  # Bind ASUS keyboard brightness control
+# #  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# #  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# #  # Bind ASUS screen brightness control
+# #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+# #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+# #  # Bind ASUS audio control keys
+# #  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# #  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# #  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+# # EPIGEN_ADD_BLOCK_ASUS }
+# # #}
+
+# # #{ ACER 
+# # # EPIGEN_ADD_BLOCK_ACER {
+
+##  # Monitor setup
+##  # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
+##
+##  # Bind ACER keyboard brightness control
+##  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+##  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+##  # Bind ACER screen brightness control
+##  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+##  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+
+##  # Toggling ACER touchpad
+##  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+
+##  # # Bind ACER audio control keys
+##  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+##  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+##  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
+
+# # EPIGEN_ADD_BLOCK_ACER }
+# # #}
+
+# EPIGEN_ADD_BLOCK_ONDRA }
+
+# #}
+
 # #{ auto commands after login
 
 # network monitor
