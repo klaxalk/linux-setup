@@ -1473,15 +1473,12 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./ondra_set_monitor_desktop.sh'"
+# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./ondra_set_monitor_desktop.sh'"
 
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
-# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
+# # # Bind desktop keyboard audio control
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
 
 # # EPIGEN_ADD_BLOCK_DESKTOP }
 

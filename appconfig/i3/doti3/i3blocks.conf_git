@@ -416,6 +416,32 @@ separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # [gpu]
+# # label=GPU: 
+# # interval=3
+# # command=$HOME/.i3/show_gpu_load.sh
+# # min_width=70
+# # separator=false
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# # [gpu_free_memory]
+# # interval=3
+# # command=$HOME/.i3/show_gpu_mem.sh
+# # # min_width=80
+# # separator=false
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# # [gpu_temperature]
+# # interval=3
+# # command=$HOME/.i3/show_gpu_temp.sh
+# # # min_width=80
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+
 # [load]
 # interval=5
 # label= 
@@ -488,12 +514,14 @@ separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# [battery]
-# label=⚡ 
-# instance=0
-# interval=30
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_ASUS EPIGEN_ADD_BLOCK_ACER {
+# # [battery]
+# # label=⚡ 
+# # instance=0
+# # interval=30
+# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# # EPIGEN_ADD_BLOCK_ASUS EPIGEN_ADD_BLOCK_ACER }
 
 # [keyboard]
 # label= 
