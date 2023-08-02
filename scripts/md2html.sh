@@ -44,7 +44,7 @@ tohtml() {
 
   pandoc_template="pandoc \
       --mathjax=$MATHJAX \
-      --template=$TEMPLATE_PATH$TEMPLATE_DEFAULT$TEMPLATE_EXT \
+      --template=$TEMPLATE_PATH$TEMPLATE_DEFAULT.$TEMPLATE_EXT \
       --metadata pagetitle="test" \
       --self-contained \
       -f $SYNTAX \
@@ -69,15 +69,13 @@ tohtml() {
 
 FILEDIR="$( cd "$( dirname "$1" )" && pwd )"
 echo dir: $FILEDIR
-BASENAME=`basename "$1"`
-echo file name: $BASENAME
 
 # Do not overwrite (0) or overwrite (1)
 OVERWRITE=1
 # Syntax chosen for the wiki
 SYNTAX=markdown
 # File extension for the wiki
-EXTENSION=.md
+EXTENSION=md
 # Full path of the output directory
 OUTPUTDIR=/tmp/mdhtml/
 # Full path of the wiki page
@@ -87,12 +85,15 @@ TEMPLATE_PATH=~/git/linux-setup/submodules/pandoc-goodies/templates/html5/github
 # The default template name
 TEMPLATE_DEFAULT=GitHub
 # The extension of template files
-TEMPLATE_EXT=.html5
+TEMPLATE_EXT=html5
 # Count of '../' for pages buried in subdirs
 ROOT_PATH=""
+
+FILENAME=$(basename "$INPUT" ."$EXTENSION")
+echo file name: $FILENAME
 
 mkdir -p "$OUTPUTDIR"
 
 tohtml $OVERWRITE $SYNTAX $EXTENSION $OUTPUTDIR $INPUT $TEMPLATE_PATH $TEMPLATE_DEFAULT $TEMPLATE_EXT $ROOT_PATH
 
-xdg-open $OUTPUTDIR/$BASENAME.html
+xdg-open $OUTPUTDIR/$FILENAME.html

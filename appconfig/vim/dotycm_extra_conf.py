@@ -174,7 +174,7 @@ def GetCompilationDatabaseFolder(filename):
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
-        path = os.path.dirname(filename)
+        path = os.path.dirname(os.path.expanduser(filename))
         prev_path = None
         while path != prev_path:
             prev_path = path
