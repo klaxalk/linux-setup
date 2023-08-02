@@ -313,7 +313,7 @@ for_window [class="^.*"] border pixel 3
 # # EPIGEN_ADD_BLOCK_PETR }
 # # EPIGEN_DEL_BLOCK_PETR {
 # set $inactive_background         #dddddd
-# set $active_background           #888888
+# set $active_background           #2121ff
 # # EPIGEN_DEL_BLOCK_PETR }
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
