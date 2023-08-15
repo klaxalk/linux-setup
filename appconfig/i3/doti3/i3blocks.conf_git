@@ -696,10 +696,11 @@ separator=true
 
 # EPIGEN_DEL_BLOCK_SUPERNUC {
 [battery]
-command=~/git/linux-setup/appconfig/i3/doti3/battery_indicator.sh
+label=⚡ 
+instance=0
+interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=60
 separator=true
 # EPIGEN_DEL_BLOCK_SUPERNUC }
 
