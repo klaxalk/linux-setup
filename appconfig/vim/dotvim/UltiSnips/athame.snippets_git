@@ -372,6 +372,14 @@ snippet "^simtime" "" Ar
 rosparam set use_sim_time true
 endsnippet
 
+snippet "^update" "" Ar
+sudo apt-get update && rosdep update && sudo apt-get upgrade
+endsnippet
+
+snippet "^install" "" Ar
+sudo apt-get install
+endsnippet
+
 snippet "^garmin" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/odometry/toggle_garmin 0
 endsnippet
