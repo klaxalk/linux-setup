@@ -694,14 +694,6 @@ separator=true
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # #}
 
-[battery]
-label=⚡ 
-instance=0
-interval=30
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-separator=true
-
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 # [load]
 # interval=5
