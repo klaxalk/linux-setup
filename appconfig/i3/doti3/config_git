@@ -775,6 +775,9 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
 # # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 
+# # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/bees.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/BT\ Wallpapers\ 2023\ 21st\ Centauri\ Lancers.png"
+
 # # EPIGEN_ADD_BLOCK_SKUMPA }
 
 # # screen locking with a key to prevent malicious locomotives

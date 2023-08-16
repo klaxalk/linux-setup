@@ -24,7 +24,7 @@
 use Env qw(BLOCK_INSTANCE);
 
 my @metadata = ();
-my $player_arg = "";
+my $player_arg = "--player=spotify,%all";
 
 if ($BLOCK_INSTANCE) {
     $player_arg = "--player='$BLOCK_INSTANCE'";
