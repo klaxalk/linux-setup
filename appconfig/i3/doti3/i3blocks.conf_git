@@ -562,7 +562,7 @@ separator=true
 # [music]
 # interval=1
 # label=Music 
-# command=playerctl metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
+# command=playerctl --player=spotify,%any metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }
@@ -695,12 +695,12 @@ separator=true
 # #}
 
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-# [load]
-# interval=5
-# label= 
-# command=cat /proc/loadavg | cut -d' ' -f1-3
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+[load]
+interval=5
+label= 
+command=cat /proc/loadavg | cut -d' ' -f1-3
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # Network interface monitoring
