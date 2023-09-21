@@ -14,7 +14,7 @@ nmap <leader>yr :YcmCompleter RefactorRename i
 let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " enable YCM refactoring for C-style languages using clangd
-let g:ycm_clangd_args = ['-log=verbose', '-pretty', '--header-insertion=never']
+let g:ycm_clangd_args = ['--log=verbose', '--pretty', '--header-insertion=never', '--clang-tidy', '--background-index', '--cross-file-rename']
 " let g:ycm_clangd_args = ['-cross-file-rename']
 " Let clangd fully control code completion
 " let g:ycm_clangd_uses_ycmd_caching = 1

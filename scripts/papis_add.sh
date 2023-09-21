@@ -12,6 +12,8 @@ function printHelp() {
  echo "   -p, --pdf <PATH>           File name of the correlating pdf file." 
  echo "   -k, --keywords <TEXT>      New keywords of the bibliography record. Example: --keywords \"mine, core, journal\"." 
  echo "   -a, --addendum <TEXT>      New addendum of the bibliography record. Example: --addendum \"Q1 in Robotics.\"." 
+ echo "   -c, --clean                Clean (remove bib and pdf files) after successful insertion to the papis database." 
+ echo "   --keep-czech-chars         Will keep czech characters in all fields (removed by default)." 
 }
 ## #}
 
@@ -21,6 +23,7 @@ REF=""
 PDF=""
 ADDENDUM=""
 KEYWORDS=""
+REPLACE_CZECH_CHARS="true"
 
 ## #{ Parse arguments
 
@@ -54,6 +57,14 @@ while [[ $# -gt 0 ]]; do
       KEYWORDS="$2"
       shift # past argument
       shift # past value
+      ;;
+    -c|--clean)
+      CLEAN="true"
+      shift # past argument
+      ;;
+    --keep-czech-chars)
+      REPLACE_CZECH_CHARS="false"
+      shift # past argument
       ;;
     -h|--help)
       printHelp
@@ -122,6 +133,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
 fi
 
 # Copy bib file
+BIB_ORIG="$BIB"
 cp "$BIB" /tmp/tmp.bib
 BIB=/tmp/tmp.bib
 
@@ -130,35 +142,40 @@ $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/{//g' -c "wqa" -- "$BIB"
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/}//g' -c "wqa" -- "$BIB"
 
 # Replace czech characters
-$VIM_BIN $HEADLESS -nEs -c '%s/ě/e/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/š/s/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/č/c/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/ř/r/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/ž/z/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/ý/y/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/á/a/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/í/i/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/é/e/g' -c "wqa" -- "$BIB"
 
-$VIM_BIN $HEADLESS -nEs -c '%s/Ě/E/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Š/S/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Č/C/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Ř/R/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Ž/Z/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Ý/Y/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Á/A/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/Í/I/g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%s/É/E/g' -c "wqa" -- "$BIB"
+if [ "$REPLACE_CZECH_CHARS" == "true" ]; then
+  echo -e "Replacing czech characters in input bib file."
 
-$VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\n//g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\v//g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\'//g" -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/ě/e/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/š/s/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/č/c/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/ř/r/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/ž/z/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/ý/y/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/á/a/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/í/i/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/é/e/g' -c "wqa" -- "$BIB"
 
-$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\n//g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\v//g' -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\'//g" -c "wqa" -- "$BIB"
-$VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Ě/E/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Š/S/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Č/C/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Ř/R/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Ž/Z/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Ý/Y/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Á/A/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/Í/I/g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%s/É/E/g' -c "wqa" -- "$BIB"
+
+  $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\n//g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/s/\\v//g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c "%g/author.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+
+  $VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\n//g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c '%g/title.*=/s/\\v//g' -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\'//g" -c "wqa" -- "$BIB"
+  $VIM_BIN $HEADLESS -nEs -c "%g/title.*=/s/\\\\//g" -c "wqa" -- "$BIB"
+fi
 
 # Insert {} back around author
 $VIM_BIN $HEADLESS -nEs -c '%g/author.*=/norm f=wi{$a F,i}' -c "wqa" -- "$BIB"
@@ -249,6 +266,19 @@ if [ ! -z "$REF" ] && [ -d "$PAPIS_DIR/$REF" ]; then
     # Move ref and addendum up
     $VIM_BIN $HEADLESS -nEs -c '%g/addendum:/norm ddggP' -c "wqa" -- "$FILE"
     $VIM_BIN $HEADLESS -nEs -c '%g/ref:/norm ddggP' -c "wqa" -- "$FILE"
+
+fi
+
+## #}
+
+## #{ Clean
+
+if [ ! -z "$CLEAN" ] && [ "$CLEAN" == "true" ]; then
+
+  echo -e "Cleaning: removing pdf and bib files."
+
+  rm "$BIB_ORIG"
+  rm "$PDF"
 
 fi
 
