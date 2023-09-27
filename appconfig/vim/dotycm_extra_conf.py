@@ -36,10 +36,21 @@ import rospkg
 import re
 
 ENV_WORKSPACES = 'ROS_WORKSPACES'
+ENV_ROS_VERSION = 'ROS_VERSION'
 
-def GetWorkspacePath(filename):
+def GetRosVersion():
+    ver_txt = []
+    if not ENV_ROS_VERSION in os.environ:
+        raise ValueError("The {} environmental variable is not set!".format(ENV_ROS_VERSION))
+    else:
+        ver_txt = os.environ[ENV_ROS_VERSION]
+    try:
+        return int(ver_txt)
+    except:
+        return ''
 
-    pkg_name = rospkg.get_package_name(filename)
+
+def GetWorkspacePath(pkg_name):
 
     if not pkg_name:
         return ''
@@ -171,12 +182,25 @@ def GetCompilationDatabaseFolder(filename):
     The compilation_commands.json for the given file is returned by getting
     the package the file belongs to.
     """
+
+    filename = os.path.abspath(os.path.expanduser(os.path.expandvars(filename)))
+
     pkg_name = rospkg.get_package_name(filename)
 
     if not pkg_name:
+        path = os.path.dirname(os.path.expanduser(filename))
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
+        path = os.path.join(path, "build")
+        ccs = os.path.join(path, "compile_commands.json")
+        if os.path.exists(ccs):
+            return path
+
         return ''
 
-    workspace_path = GetWorkspacePath(filename)
+    workspace_path = GetWorkspacePath(pkg_name)
 
     if not workspace_path:
         return ''
@@ -292,10 +316,8 @@ def GetCompilationInfoForHeaderRos(headerfile, database):
                         for line in fh:
                             if ros_include_pattern.match(line):
                                 file.write(" YES (ROS)\n\n")
-                                compilation_info = database.GetCompilationInfoForFile(
-                                    path + os.path.sep + src_filename)
-                                if compilation_info.compiler_flags_:
-                                    return compilation_info
+                                compilation_info = GetCompilationInfoForFile(path + os.path.sep + src_filename, database)
+                                return compilation_info
                 # if hdr_basename_no_ext != src_basename_no_ext:
                 #     continue
                 # for extension in SOURCE_EXTENSIONS:
@@ -332,7 +354,9 @@ def GetCompilationInfoForFile(filename, database):
 
 def Settings(**kwargs):
     filename = kwargs['filename']
-    database = GetDatabase(GetCompilationDatabaseFolder(filename))
+    folder = GetCompilationDatabaseFolder(filename)
+    print(folder)
+    database = GetDatabase(folder)
     if database:
         # Bear in mind that compilation_info.compiler_flags_ does NOT return a
         # python list, but a "list-like" StringVec object
@@ -354,7 +378,7 @@ def Settings(**kwargs):
     }
 
 if __name__ == '__main__':
-    fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
+    fname = "mrs_workspace/src/uav_core/ros_packages/mrs_lib/include/impl/subscribe_handler.hpp"
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     print(Settings(filename = fname))

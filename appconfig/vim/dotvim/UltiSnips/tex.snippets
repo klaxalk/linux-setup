@@ -15,11 +15,15 @@ snippet isotope "" i
 endsnippet
 
 snippet only "" i
-\only<${1:1}>{${2:${VISUAL}}}
+\only<${1:1}>{
+	${2:${VISUAL}}
+}
 endsnippet
 
 snippet onslide "" i
-\onslide<${1:1}>{${2:${VISUAL}}}
+\onslide<${1:1}>{
+	${2:${VISUAL}}
+}
 endsnippet
 
 snippet alert "" i
@@ -150,7 +154,7 @@ endsnippet
 
 snippet itemize "\itemize{}" i
 \\begin{itemize}
-${1:${VISUAL}}
+	${1:${VISUAL}}
 \\end{itemize}
 endsnippet
 
@@ -271,7 +275,7 @@ snippet centering "\centering{}" i
 \\centering
 endsnippet
 
-snippet includegraphics "\includegraphics{}" i
+snippet "includegraphics" "\includegraphics{}" ir
 \\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
 endsnippet
 
@@ -279,7 +283,7 @@ snippet label "\label{}" i
 \\label{${1:${VISUAL}}}
 endsnippet
 
-snippet input "\input{}" i
+snippet "input" "\input{}" ri
 \\input{${1:${VISUAL}}}
 endsnippet
 
@@ -321,6 +325,10 @@ endsnippet
 
 snippet "cite" "\cite{}" r
 \\cite{${1:${VISUAL}}}
+endsnippet
+
+snippet "citet" "\citet{}" r
+\\citet{${1:${VISUAL}}}
 endsnippet
 
 snippet "fullcite" "\fullciteinbox{}" r
@@ -476,10 +484,6 @@ ${2:${VISUAL}}
 \end{frame}
 endsnippet
 
-snippet frame "image frame" 
-\frame{${1:${VISUAL}}}
-endsnippet
-
 snippet block
 \begin{block}{${1:Block title}}
 ${2:${VISUAL}}
@@ -565,7 +569,7 @@ snippet overview
 \end{frame}
 endsnippet
 
-snippet inst "" i
+snippet "inst" "" ir
 \\inst{${1:${VISUAL}}}
 endsnippet
 
@@ -595,10 +599,6 @@ endsnippet
 
 snippet path
 \\path[-] (\$(${1:from_point})\$) edge [${2:->}] (\$(${3:to_point})\$);
-endsnippet
-
-snippet in
-\\in
 endsnippet
 
 snippet hat "" i
@@ -631,6 +631,10 @@ endsnippet
 
 snippet huge
 \\huge
+endsnippet
+
+snippet "large" "" ri
+\\large
 endsnippet
 
 snippet "(paragraph|par)" "" r
@@ -1029,9 +1033,17 @@ snippet "colsep" "\renewcommand{\tabcolsep}{-4pt}" ir
 \renewcommand{\tabcolsep}{${1:0}pt}
 endsnippet
 
-snippet "pnote" "\pnote{}" ir
+snippet "(pnote)|(note)" "\pnote{}" ir
 \pnote{
 ${1:${VISUAL}}
+}
+endsnippet
+
+snippet "inote" "\pnote{}" ir
+\pnote{
+	\begin{itemize}
+		\item ${1}
+	\end{itemize}
 }
 endsnippet
 
