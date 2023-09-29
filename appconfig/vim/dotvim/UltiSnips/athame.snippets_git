@@ -373,7 +373,7 @@ rosparam set use_sim_time true
 endsnippet
 
 snippet "^update" "" Ar
-sudo apt-get update && rosdep update && sudo apt-get upgrade
+sudo apt-get update && rosdep update && sudo apt-get upgrade --with-new-pkgs
 endsnippet
 
 snippet "^install" "" Ar
