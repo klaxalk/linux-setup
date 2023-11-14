@@ -134,9 +134,6 @@ if g:user_mode == "1"
   Plug 'edkolev/tmuxline.vim'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
-  " Latex stuff
-  Plug 'lervag/vimtex'
-
   " VimWiki
   " Essential part in taking notes in vim
   Plug 'vimwiki/vimwiki'
@@ -193,9 +190,6 @@ if g:user_mode == "1"
   " Thesaurus synonyms integration
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
-
-  " OpenSCAD syntax highlighting
-  Plug 'sirtaj/vim-openscad'
 
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
@@ -266,6 +260,12 @@ Plug 'tpope/vim-surround'
 " exchangin of two parts of a file...
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
+
+" Latex stuff
+Plug 'lervag/vimtex'
+
+" config for vimtex
+source ~/.vim/pluginconfig/vimtex.vim
 
 call plug#end()
 
@@ -430,9 +430,11 @@ set textwidth=0
 " just show the autocomplete menu
 set completeopt=longest,menuone
 
+" EPIGEN_DEL_BLOCK_MATOUS {
 " better escape: when naviating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
+" EPIGEN_DEL_BLOCK_MATOUS }
 
 " clever brackets
 imap <leader>( ()<Esc>i
@@ -575,9 +577,6 @@ if g:user_mode == "1"
   " config for tmuxline
   source ~/.vim/pluginconfig/tmuxline.vim
 
-  " config for vimtex
-  source ~/.vim/pluginconfig/vimtex.vim
-
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
 
@@ -588,7 +587,7 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-tmux-runner.vim
 
   " config for vim-clang-format
- source ~/.vim/pluginconfig/vim-clang-format.vim
+  source ~/.vim/pluginconfig/vim-clang-format.vim
 
   " config for vim-easy-align
   source ~/.vim/pluginconfig/vim-easy-align.vim
