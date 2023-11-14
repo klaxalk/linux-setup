@@ -178,16 +178,16 @@ def GetCompilationDatabaseFolder(filename):
 
     if not pkg_name:
         path = os.path.dirname(os.path.expanduser(filename))
-        ccs = os.path.join(path, "compile_commands.json")
-        if os.path.exists(ccs):
-            return path
-
-        path = os.path.join(path, "build")
-        ccs = os.path.join(path, "compile_commands.json")
-        if os.path.exists(ccs):
-            return path
-
-        return ''
+        prev_path = None
+        while path != prev_path:
+            prev_path = path
+            path = os.path.split(path)[0]
+            build_path = os.path.join(path, "buid")
+            if os.path.isfile(os.path.join(path, "compile_commands.json")):
+                return path
+            elif os.path.isfile(os.path.join(build_path, "compile_commands.json")):
+                return build_path
+        return None
 
     workspace_path = GetWorkspacePath(filename)
 
@@ -203,6 +203,8 @@ def GetCompilationDatabaseFolder(filename):
     return dir
 
 def GetDatabase(compilation_database_folder):
+    if compilation_database_folder is None:
+        return None
     if os.path.exists(compilation_database_folder):
         return cindex.CompilationDatabase.fromDirectory(compilation_database_folder)
     return None
@@ -345,7 +347,8 @@ def GetCompilationInfoForFile(filename, database):
 
 def Settings(**kwargs):
     filename = kwargs['filename']
-    database = GetDatabase(GetCompilationDatabaseFolder(filename))
+    database_folder = GetCompilationDatabaseFolder(filename)
+    database = GetDatabase(database_folder)
     if database:
         # Bear in mind that compilation_info.compiler_flags_ does NOT return a
         # python list, but a "list-like" StringVec object
@@ -367,7 +370,7 @@ def Settings(**kwargs):
     }
 
 if __name__ == '__main__':
-    fname = "~/hw_interface_workspace/src/mrs_uav_hw_interface/src/dummy_api.cpp"
+    fname = "~/mrs_workspace/src/uav_core/ros_packages/mrs_msgs/src/main.cpp"
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     print(Settings(filename = fname))
