@@ -163,7 +163,7 @@ alias vimdiff="vim -d"
 
 kzsh() {
   for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do
-    killp "$i"
+    killProcessRecursive "$i"
   done
 }
 
