@@ -194,6 +194,9 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
+  " OpenSCAD syntax highlighting
+  Plug 'sirtaj/vim-openscad'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking

@@ -207,6 +207,14 @@ snippet include
 #include <${1}>
 endsnippet
 
+snippet sval
+" << ${1} << "
+endsnippet
+
+snippet sstr
+\"" << ${1} << "\"
+endsnippet
+
 snippet debuginfo
 ROS_INFO("Starting: ${1:pes}");
 {
@@ -618,8 +626,16 @@ snippet "atomic" "" ri
 std::atomic<${1}>
 endsnippet
 
+snippet "optional" "" ri
+std::optional<${1:${VISUAL}}>
+endsnippet
+
 snippet "cout" "" ri
 std::cout << 
+endsnippet
+
+snippet "string" "" r
+std::string
 endsnippet
 
 snippet "endl" "" ri
