@@ -61,7 +61,7 @@ git status
 endsnippet
 
 snippet "^grep ( )*" "" Ar
-grep ${2:-nRi -e} "${1}"
+grep ${2:-nR -e} "${1}"
 endsnippet
 
 snippet "^gcom " "" Ar

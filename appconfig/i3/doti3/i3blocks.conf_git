@@ -390,24 +390,24 @@ separator=true
 # EPIGEN_ADD_BLOCK_MPD }
 
 # EPIGEN_ADD_BLOCK_MATOUS {
-# [veles_t]
+# [temp]
 # interval=2
-# label=T: 
-# command=~/scripts/veles-i3blocks/read_value.py T 109
+# # label=Temp 
+# command=~/dev/python/veles-i3blocks/read_value.py T
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# [veles_rh]
+# [humidity]
 # interval=2
-# label=RH: 
-# command=~/scripts/veles-i3blocks/read_value.py RH 109
+# # label=Temp 
+# command=~/dev/python/veles-i3blocks/read_value.py RH
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# [veles_co2]
+# [CO2]
 # interval=2
-# label=CO2: 
-# command=~/scripts/veles-i3blocks/read_value.py CO2 109
+# # label=Temp 
+# command=~/dev/python/veles-i3blocks/read_value.py CO2
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
@@ -421,7 +421,7 @@ separator=true
 # [music]
 # interval=1
 # label=Music 
-# command=playerctl --player=spotify,%all metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
+# command=playerctl --player=spotify,%any metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MATOUS }

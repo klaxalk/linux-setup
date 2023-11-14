@@ -207,6 +207,14 @@ snippet include
 #include <${1}>
 endsnippet
 
+snippet sval
+" << ${1} << "
+endsnippet
+
+snippet sstr
+\"" << ${1} << "\"
+endsnippet
+
 snippet debuginfo
 ROS_INFO("Starting: ${1:pes}");
 {

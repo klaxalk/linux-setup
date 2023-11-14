@@ -382,7 +382,7 @@ bar {
 
   # EPIGEN_ADD_BLOCK_TOMAS {
 
-#   # EPIGEN_ADD_BLOCK_THINKPAD {
+#   # EPIGEN_ADD_BLOCK_DELL {
 # #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
@@ -390,7 +390,7 @@ bar {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
 # # #   font pango: LiberationMono, FontAwesome 13
 # #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
-#   # EPIGEN_ADD_BLOCK_THINKPAD }
+#   # EPIGEN_ADD_BLOCK_DELL }
 
 #   # EPIGEN_ADD_BLOCK_DESKTOP {
 # #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
@@ -466,9 +466,9 @@ bar {
 # # EPIGEN_ADD_BLOCK_DESKTOP2 {
 # # set $i3bar_bg #12121200
 # # EPIGEN_ADD_BLOCK_DESKTOP2 }
-# # EPIGEN_ADD_BLOCK_THINKPAD {
+# # EPIGEN_ADD_BLOCK_DELL {
 # # set $i3bar_bg #121212FF
-# # EPIGEN_ADD_BLOCK_THINKPAD }
+# # EPIGEN_ADD_BLOCK_DELL }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
 # #}
@@ -537,12 +537,12 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
-# # EPIGEN_ADD_BLOCK_THINKPAD {
+# # EPIGEN_ADD_BLOCK_DELL {
 # # font pango: Inconsolata 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # # font pango: LiberationMono 10
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_THINKPAD }
+# # EPIGEN_ADD_BLOCK_DELL }
 
 # exec dropbox start
 # exec owncloud
@@ -597,17 +597,17 @@ set $mode_gaps_inner inner gaps
 
 # # #}
 
-# # #{ THINKPAD
+# # #{ DELL
 
-# # EPIGEN_ADD_BLOCK_THINKPAD {
+# # EPIGEN_ADD_BLOCK_DELL {
 
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
-# # # Bind screen brightness control
+# # # Bind screen brightness control to DELL's special keys
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # # bind audio
+# # # bind audio to DELL's special keys
 # # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
@@ -616,7 +616,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 # # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
-# # EPIGEN_ADD_BLOCK_THINKPAD }
+# # EPIGEN_ADD_BLOCK_DELL }
 
 # # #}
 
@@ -774,11 +774,12 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
 # # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
 # # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
-
-# # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/bees.jpg"
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/BT\ Wallpapers\ 2023\ 21st\ Centauri\ Lancers.png"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/primitive_and_deadly.jpg"
 
 # # EPIGEN_ADD_BLOCK_SKUMPA }
+
+# # prettier notifications
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 
 # # screen locking with a key to prevent malicious locomotives
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
@@ -1093,9 +1094,9 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 # bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Capture toggle
  
-# # bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-# # bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-# # bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+# bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+# bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 # exec_always --no-startup-id setxkbmap -layout us,cz -variant ,bksl -option "grp:win_space_toggle"
 
@@ -1131,9 +1132,6 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
-# # exec_always --no-startup-id "xinput set-prop 12 \"Device Enabled\" 1"
-# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.25"
-
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
 # # EPIGEN_ADD_BLOCK_MPD {
@@ -1141,9 +1139,10 @@ set $mode_gaps_inner inner gaps
 # # # Mpd notifier
 # # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
 
-# # bindsym $mod+F11 exec --no-startup-id mpc toggle
-# # bindsym $mod+F12 exec --no-startup-id mpc next
-# # bindsym $mod+F10 exec --no-startup-id mpc prev
+# # bindsym XF86AudioPlay exec "mpc toggle"
+# # bindsym XF86AudioStop exec "mpc stop"
+# # bindsym XF86AudioNext exec "mpc next"
+# # bindsym XF86AudioPrev exec "mpc prev"
 
 # # EPIGEN_ADD_BLOCK_MPD }
 
@@ -1502,9 +1501,10 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [title="rqt_market"] move workspace $workspace9
 # EPIGEN_ADD_BLOCK_MATEJ }
 
+
 # EPIGEN_ADD_BLOCK_DANIEL {
 # # browser
-# for_window [class="^firefox$"] move workspace $workspace1
+# for_window [class="Firefox"] move workspace $workspace1
 # for_window [class="qutebrowser"] move workspace $workspace1
 # # cads
 # for_window [class="FreeCAD"] move workspace $workspace6
@@ -1518,12 +1518,17 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 # for_window [class="kdenlive"] move workspace $workspace7
 # # music
-# for_window [class="FreeTube"] move workspace $workspace8
 # for_window [class="Spotify"] move workspace $workspace8
 # for_window [class="Gnome-terminal"] move workspace $workspace8
 # # mrs
+# for_window [class="^gazebo$"] move workspace $workspace9
+# for_window [class="^rviz"] move workspace $workspace9
+# for_window [title="rqt_market"] move workspace $workspace9
 # for_window [title="Signal"] move workspace $workspace10
+# for_window [class="Caprine"] move workspace $workspace10
 # for_window [class="Microsoft Teams"] move workspace $workspace10
+# for_window [class="Evolution"] move workspace $workspace10
+
 
 # EPIGEN_ADD_BLOCK_DANIEL }
 
