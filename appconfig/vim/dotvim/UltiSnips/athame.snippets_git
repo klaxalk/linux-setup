@@ -373,7 +373,7 @@ rosparam set use_sim_time true
 endsnippet
 
 snippet "^update" "" Ar
-sudo apt-get update && rosdep update && sudo apt-get upgrade --with-new-pkgs
+sudo apt-get update && rosdep update && sudo apt-get upgrade --with-new-pkgs --allow-downgrades
 endsnippet
 
 snippet "^install" "" Ar
@@ -390,4 +390,8 @@ endsnippet
 
 snippet "^params" "" Ar
 vim <(rosrun mrs_uav_core get_public_params.py)
+endsnippet
+
+snippet "^delbra" "" Ar
+git branch -D ${1:hw_api}; git push origin --delete $1
 endsnippet
