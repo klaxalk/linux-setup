@@ -70,7 +70,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=13
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_4K {
-! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=20
+! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=22
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_4K }
 
 ! ! EPIGEN_ADD_BLOCK_DESKTOP }
@@ -85,7 +85,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! }
 
-! ! { DELL
+! ! { THINKPAD
 
 ! ! EPIGEN_ADD_BLOCK_DELL {
 

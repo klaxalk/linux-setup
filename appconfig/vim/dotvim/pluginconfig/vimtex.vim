@@ -14,6 +14,7 @@ endif
 let g:vimtex_compiler_latexmk = {
       \ 'backend' : 'process',
       \ 'background' : 1,
+      \ 'out_dir' : 'build',
       \ 'build_dir' : 'build',
       \ 'callback' : 1,
       \ 'continuous' : 1,
@@ -74,7 +75,7 @@ let g:vimtex_indent_enabled = 0
 " grepping
 au FileType tex nmap <leader>lv :lv //g ./**/*.tex<c-f>^f/a
 
-" set it to some high number to prevent syntax highlite problems
+" set it to some high number to prevent syntax highlight problems
 au FileType tex set synmaxcol=10000
 
 let g:vimtex_indent_conditionals = {
