@@ -763,7 +763,7 @@ set $mode_gaps_inner inner gaps
 # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
-# # EPIGEN_ADD_BLOCK_SKUMPA {
+# # EPIGEN_ADD_BLOCK_SKUMPA EPIGEN_ADD_BLOCK_RAFIK {
 
 # # # Bind audio control keys
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
@@ -776,7 +776,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/primitive_and_deadly.jpg"
 
-# # EPIGEN_ADD_BLOCK_SKUMPA }
+# # EPIGEN_ADD_BLOCK_SKUMPA EPIGEN_ADD_BLOCK_RAFIK }
 
 # # prettier notifications
 # exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
