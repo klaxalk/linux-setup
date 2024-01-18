@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,bugprone-*,cppcoreguidelines-*,modernize-*,-modernize-use-trailing-return-type,-cppcoreguidelines-pro-bounds-array-to-pointer-decay'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,bugprone-*,misc-include-cleaner',cppcoreguidelines-*,modernize-*,-modernize-use-trailing-return-type,-cppcoreguidelines-pro-bounds-array-to-pointer-decay'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
