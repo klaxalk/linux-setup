@@ -391,7 +391,3 @@ endsnippet
 snippet "^params" "" Ar
 vim <(rosrun mrs_uav_core get_public_params.py)
 endsnippet
-
-snippet "^delbra" "" Ar
-git branch -D ${1:hw_api}; git push origin --delete $1
-endsnippet
