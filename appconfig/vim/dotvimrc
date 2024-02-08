@@ -194,6 +194,9 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
+  " Syntax highlighting for jinja
+  Plug 'lepture/vim-jinja'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -229,7 +232,6 @@ if g:user_mode == "1"
     " let g:chromatica#enable_at_startup=1
     " let g:chromatica#dotclangfile_search_path=''
   endif
-
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -472,8 +474,8 @@ au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
 au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 
-au FileType xml,world,xacro set foldmethod=marker
-au FileType xml,world,xacro set foldmarker={-->,<!--}
+au FileType xml,world,xacro,jinja set foldmethod=marker
+au FileType xml,world,xacro,jinja set foldmarker={-->,<!--}
 
 " find and replace
 map <Leader>fr :%s///g<left><left>
