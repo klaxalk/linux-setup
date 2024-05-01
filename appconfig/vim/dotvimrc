@@ -40,6 +40,12 @@ if g:user_mode == "1"
   " async
   Plug 'tpope/vim-dispatch'
 
+  " github coilot
+  Plug 'github/copilot.vim', {'branch': 'release'}
+
+  " A plugin that shows the context of the currently visible buffera contents
+  Plug 'wellle/context.vim'
+
   " showing git changes in the file
   Plug 'airblade/vim-gitgutter'
 
