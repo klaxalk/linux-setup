@@ -19,11 +19,11 @@ fi
 
 # THE NAME OF THE PROFILE SHOULD REFLECT THE NAME OF THE ARANDR FILE LATER LINKED
 
-MONITOR=$(echo "LAB
+MONITOR=$(echo "MRS_LAB
 STANDALONE
-HOME" | rofi -i -dmenu -p "Select setup:")
+SECOND_MONITOR" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "HOME" ]]; then
+if [[ "$MONITOR" != "MRS LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "SECOND_MONITOR" ]]; then
   notify-send -u low -t 1500 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
