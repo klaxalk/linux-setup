@@ -445,13 +445,13 @@ bar {
 
   # EPIGEN_ADD_BLOCK_DANIEL {
   
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK { 
-  # # set $i3bar_bg #4a3c87
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK } 
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+  # # set $i3bar_bg #4a3c8700
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN { 
-  # # set $i3bar_bg #383838
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN } 
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+  # # set $i3bar_bg #38383800
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
  
   # EPIGEN_ADD_BLOCK_DANIEL }
 
@@ -1077,15 +1077,15 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_DANIEL {
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/tree.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/white.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/red.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/black.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/green.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/green.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
@@ -1093,10 +1093,10 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./daniel_set_monitor.sh'"
 
-# bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 5%-
-# bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 5%+
-# bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
-# bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Capture toggle
+# bindsym $mod+F5 exec --no-startup-id amixer sset Master 5%-
+# bindsym $mod+F6 exec --no-startup-id amixer sset Master 5%+
+# bindsym $mod+F7 exec --no-startup-id amixer sset Master toggle
+# bindsym $mod+F8 exec --no-startup-id amixer sset Capture toggle
  
 # # bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 # # bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -1137,7 +1137,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # exec_always --no-startup-id "xinput set-prop 12 \"Device Enabled\" 1"
-# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.25"
+# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.35"
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 

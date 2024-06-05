@@ -292,9 +292,11 @@ if is_plugin:
 	snip.rv='['+get_class_name()+']'
 elif is_gazebo_plugin:
 	snip.rv='['+get_gazebo_plugin_class_name()+']'
+elif (match.group(2) == "s") or (match.group(3) == "s") :
+	snip.rv="[\" << ros::this_node::getName().c_str() << \"]"
 else:
 	snip.rv="[%s]"`: ${1}"`!p
-if not is_plugin and not is_gazebo_plugin:
+if not is_plugin and not is_gazebo_plugin and not ((match.group(2) == "s") or (match.group(3) == "s")) :
 	snip.rv=", ros::this_node::getName().c_str()"``!p
 if "%" in t[1]:
 	snip.rv=", "
@@ -620,6 +622,18 @@ endsnippet
 
 snippet "optional" "" ri
 std::optional<${1:${VISUAL}}>
+endsnippet
+
+snippet "duration" "" ri
+ros::Duration(${1:${VISUAL}}>)
+endsnippet
+
+snippet "now" "" ri
+ros::Time::now()
+endsnippet
+
+snippet "time" "" ri
+ros::Time::
 endsnippet
 
 snippet "cout" "" ri

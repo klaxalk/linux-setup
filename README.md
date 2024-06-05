@@ -1,9 +1,9 @@
 # klaxalk's Linux environment
 
-| Ubuntu               | Architecture | Status                                                                                                                                                           |
-| -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20.04 Focal          | AMD64        | [![Build Status](https://github.com/klaxalk/linux-setup/workflows/Focal/badge.svg)](https://github.com/klaxalk/linux-setup/actions)                              |
-| 20.04 Focal          | arm64        |                                                                                                                                                                  |
+|              |       |                                                                                                                                                                       |
+|--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 20.04 Docker | AMD64 | [![Focal](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml)          |
+| 20.04        | AMD64 | [![Docker](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml)       |
 
 ## Summary
 
