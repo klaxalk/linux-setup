@@ -23,7 +23,7 @@ MONITOR=$(echo "MRS_LAB
 STANDALONE
 SECOND_MONITOR" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "MRS LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "SECOND_MONITOR" ]]; then
+if [[ "$MONITOR" != "MRS_LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "SECOND_MONITOR" ]]; then
   notify-send -u low -t 1500 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
