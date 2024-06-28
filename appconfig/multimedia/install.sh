@@ -21,6 +21,12 @@ do
   fi
 done
 
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
+
 default=n
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -38,8 +44,13 @@ while true; do
     sudo apt-get -y install gimp vlc ffmpeg audacity rawtherapee hugin pavucontrol
 
     # for screencasting
-    sudo add-apt-repository -y ppa:obsproject/obs-studio
-    sudo apt-get -y install obs-studio screenkey
+    # install prerequisities
+    if [ -n "$NUMBAT" ]; then
+      echo "Not installing obs-studio (not supported for Ubuntu 24.04)"
+    else
+      sudo add-apt-repository -y ppa:obsproject/obs-studio
+      sudo apt-get -y install obs-studio screenkey
+    fi
 
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav

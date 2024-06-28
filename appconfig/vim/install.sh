@@ -21,9 +21,11 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
 
 default=y
 while true; do
@@ -48,7 +50,11 @@ while true; do
 
     sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
 
-    sudo -H pip3 install rospkg
+    if [ -n "$NUMBAT" ]; then
+      sudo apt-get -y install python3-rospkg
+    else
+      sudo -H pip3 install rospkg
+    fi
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
@@ -116,11 +122,20 @@ while true; do
           # if 20.04, just install python3-clang from apt
           sudo apt-get -y install python3-clang 
         fi
-        # install prequisites for YCM
-        sudo apt-get -y install clangd-11
-        # set clangd to version 11 by default
-        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
-        sudo apt-get -y install libboost-all-dev
+
+        if [ -n "$NUMBAT" ]; then
+          # install prequisites for YCM
+          sudo apt-get -y install clangd-18
+          # set clangd to version 18 by default
+          sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-18 999
+          sudo apt-get -y install libboost-all-dev
+        else
+          # install prequisites for YCM
+          sudo apt-get -y install clangd-11
+          # set clangd to version 11 by default
+          sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
+          sudo apt-get -y install libboost-all-dev
+        fi
 
         cd ~/.vim/plugged/YouCompleteMe/
         git submodule update --init --recursive

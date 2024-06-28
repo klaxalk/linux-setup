@@ -20,9 +20,11 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
 
 default=y
 while true; do
@@ -74,19 +76,24 @@ while true; do
     make
     sudo make install
 
-    # install light for display backlight control
-    # compile i3
-    sudo apt-get -y install help2man
+    # light doesn't compile on NUMBAT, just skip it for not
+    if [ -n "$NUMBAT" ]; then
+      echo "Not installing light on Ubuntu 24.04"
+    else
+      # install light for display backlight control
+      # compile i3
+      sudo apt-get -y install help2man
 
-    cd $APP_PATH/../../submodules/light/
-    ./autogen.sh
-    ./configure && make
-    sudo make install
-    # set the minimal backlight value to 5%
-    light -N 5
-    # clean up after the compilation
-    make clean
-    git clean -fd
+      cd $APP_PATH/../../submodules/light/
+      ./autogen.sh
+      ./configure && make
+      sudo make install
+      # set the minimal backlight value to 5%
+      light -N 5
+      # clean up after the compilation
+      make clean
+      git clean -fd
+    fi
 
     # compile i3
     cd $APP_PATH/../../submodules/i3/
@@ -94,6 +101,10 @@ while true; do
     rm -rf build/
     mkdir -p build && cd build/
 
+    # Install libpcre on 24.04
+    if [ -n "$NUMBAT" ]; then
+      sudo apt install libpcre3-dev
+    fi
     # Disabling sanitizers is important for release versions!
     # The prefix and sysconfdir are, obviously, dependent on the distribution.
     ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
@@ -130,7 +141,11 @@ while true; do
     sudo apt-get -y install lxappearance
 
     # indicator-sound-switcher
-    sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    if [ -n "$NUMBAT" ]; then
+      sudo apt-get -y install gir1.2-keybinder-3.0
+    else
+      sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    fi
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 

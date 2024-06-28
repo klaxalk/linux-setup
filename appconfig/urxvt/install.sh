@@ -21,6 +21,12 @@ do
   fi
 done
 
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -35,7 +41,12 @@ while true; do
   then
 
     # install urvxt
-    sudo apt-get -y install rxvt-unicode-256color
+
+    if [ -n "$NUMBAT" ]; then
+      sudo apt-get -y install rxvt-unicode
+    else
+      sudo apt-get -y install rxvt-unicode-256color
+    fi
 
     EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     sudo mkdir -p $EXTENSION_PATH

@@ -21,9 +21,11 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
 
 default=y
 while true; do
@@ -38,8 +40,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo add-apt-repository -y ppa:linuxuprising/shutter
-    sudo apt-get update
+    # install prerequisities
+    if [ -n "$NUMBAT" ]; then
+      sudo apt-get install pdf-presenter-console
+    else
+      sudo add-apt-repository -y ppa:linuxuprising/shutter
+      sudo apt-get update
+    fi
 
     sudo apt-get -y install shutter
 

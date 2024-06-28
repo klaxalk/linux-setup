@@ -36,9 +36,11 @@ cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
 ! $docker && git submodule update --init --recursive
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+beaver_ver="18.04"
+numbat_ver="24.04"
+lsb=`lsb_release -r | awk '{ print $2 }'`
+[ "$lsb" = "$beaver_ver" ] && export BEAVER=1
+[ "$lsb" = "$numbat_ver" ] && export NUMBAT=1
 
 arch=`uname -i`
 
@@ -46,7 +48,11 @@ arch=`uname -i`
 sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server nmap
 
 # python
-sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+if [ -n "$NUMBAT" ]; then
+  sudo apt-get -y install python3-dev python3-setuptools python3-pip
+else
+  sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+fi
 
 if [ -n "$BEAVER" ]; then
   sudo apt-get -y install python-git
@@ -56,7 +62,11 @@ else
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak ncdu pavucontrol
+if [ -n "$NUMBAT" ]; then
+  sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfatprogs blueman autossh jq xvfb gparted espeak ncdu pavucontrol
+else
+  sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak ncdu pavucontrol
+fi
 
 if [ "$unattended" == "0" ]
 then
@@ -115,8 +125,12 @@ fi
 # install VIMIV
 ! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# install SILVER SEARCHER (ag)
-bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
+if [ -n "$NUMBAT" ]; then
+  echo "Not installing Silver Searcher (needs updating for 24.04)"
+else
+  # install SILVER SEARCHER (ag)
+  bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
+fi
 
 # setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
@@ -129,8 +143,12 @@ if [ "$arch" != "aarch64" ]; then
   ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 fi
 
-# install PAPIS
-! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
+if [ -n "$NUMBAT" ]; then
+  echo "Not installing papis (needs updating for 24.04)"
+else
+  # install PAPIS
+  ! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
+fi
 
 # install VIM-STREAM
 bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
