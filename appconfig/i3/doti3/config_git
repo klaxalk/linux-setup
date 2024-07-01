@@ -244,9 +244,7 @@ bindsym Print exec shutter --select
 bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
-# EPIGEN_DEL_BLOCK_VOJTA {
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
-# EPIGEN_DEL_BLOCK_VOJTA }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
