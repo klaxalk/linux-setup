@@ -143,6 +143,11 @@ fi
 # install TMUXINATOR
 bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
+# the docker setup ends here
+if $docker; then
+  return 0
+fi
+
 #############################################
 # remove the interactivity check from bashrc
 #############################################
@@ -217,7 +222,7 @@ fi
 #############################################
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
-  ! $docker && $MY_PATH/scripts/fix_touchpad_click.sh
+  $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
 #############################################
