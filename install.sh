@@ -145,7 +145,7 @@ bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
 # the docker setup ends here
 if $docker; then
-  return 0
+  exit 0
 fi
 
 #############################################
