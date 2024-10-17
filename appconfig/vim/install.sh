@@ -48,14 +48,14 @@ while true; do
 
     sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
 
-    sudo -H pip3 install rospkg
+    # sudo -H pip3 install rospkg
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp=yes \
-      --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+      --with-python3-config-dir=/usr/lib/python3.12/config-3.12-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-gui=no \

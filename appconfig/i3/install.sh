@@ -75,30 +75,29 @@ while true; do
     sudo make install
 
     # install light for display backlight control
-    # compile i3
-    sudo apt-get -y install help2man
+    # sudo apt-get -y install help2man
 
-    cd $APP_PATH/../../submodules/light/
-    ./autogen.sh
-    ./configure && make
-    sudo make install
-    # set the minimal backlight value to 5%
-    light -N 5
-    # clean up after the compilation
-    make clean
-    git clean -fd
+    # cd $APP_PATH/../../submodules/light/
+    # ./autogen.sh
+    # ./configure && make
+    # sudo make install
+    # # set the minimal backlight value to 5%
+    # light -N 5
+    # # clean up after the compilation
+    # make clean
+    # git clean -fd
 
-    # compile i3
-    cd $APP_PATH/../../submodules/i3/
-    autoreconf --force --install
-    rm -rf build/
-    mkdir -p build && cd build/
+    # # compile i3
+    # cd $APP_PATH/../../submodules/i3/
+    # autoreconf --force --install
+    # rm -rf build/
+    # mkdir -p build && cd build/
 
-    # Disabling sanitizers is important for release versions!
-    # The prefix and sysconfdir are, obviously, dependent on the distribution.
-    ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-    make
-    sudo make install
+    # # Disabling sanitizers is important for release versions!
+    # # The prefix and sysconfdir are, obviously, dependent on the distribution.
+    # ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+    # make
+    # sudo make install
 
     # clean after myself
     git reset --hard
@@ -129,10 +128,10 @@ while true; do
     # for making gtk look better
     sudo apt-get -y install lxappearance
 
-    # indicator-sound-switcher
-    sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
-    cd $APP_PATH/../../submodules/indicator-sound-switcher
-    sudo python3 setup.py install
+    # # indicator-sound-switcher
+    # sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    # cd $APP_PATH/../../submodules/indicator-sound-switcher
+    # sudo python3 setup.py install
 
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then

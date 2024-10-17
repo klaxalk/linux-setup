@@ -119,14 +119,14 @@ if g:user_mode == "1"
   " youcompleteme
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
-  Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
-  " enable airline YCM status
+  " Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
+  " Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
+  "  enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " make vim and ROS friends
-  Plug 'klaxalk/vim-ros'
+  "Plug 'klaxalk/vim-ros'
 
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
@@ -566,11 +566,11 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " config for youcompleteme
-  source ~/.vim/pluginconfig/youcompleteme.vim
+  "source ~/.vim/pluginconfig/youcompleteme.vim
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " config for vim-ros
-  source ~/.vim/pluginconfig/vim-ros.vim
+  "source ~/.vim/pluginconfig/vim-ros.vim
 
   " config for tmuxline
   source ~/.vim/pluginconfig/tmuxline.vim

@@ -14,7 +14,7 @@ fi
 #   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 # fi
 
-export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+export EDITOR="/usr/bin/vi --cmd 'let g:user_mode=1'"
 
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then

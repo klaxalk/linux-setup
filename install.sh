@@ -46,7 +46,7 @@ arch=`uname -i`
 sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server nmap
 
 # python
-sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+sudo apt-get -y install python3-dev python3-setuptools python3-pip
 
 if [ -n "$BEAVER" ]; then
   sudo apt-get -y install python-git
@@ -56,7 +56,7 @@ else
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak ncdu pavucontrol
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel blueman autossh jq xvfb gparted espeak ncdu pavucontrol
 
 if [ "$unattended" == "0" ]
 then
