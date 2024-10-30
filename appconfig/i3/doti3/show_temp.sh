@@ -7,5 +7,9 @@ else
 fi
 
 OUTPUT=$(cat /sys/class/thermal/thermal_zone"$THERMAL_ZONE"/temp | cut -c1-2; echo '°C') 
+if [[ "$OUTPUT" == "°C" ]]; then
+  OUTPUT="N/A"
+fi
+
 echo $OUTPUT
 
