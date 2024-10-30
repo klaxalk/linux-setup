@@ -1033,6 +1033,18 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LENOVO }
 # # #}
 
+# # #{ WORKSTATION
+# # EPIGEN_ADD_BLOCK_F4F_WORKSTATION {
+
+# # # Monitor setup
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh WORKSTATION'"
+
+# # # Not so fancy compton stuff
+# # exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
+
+# # EPIGEN_ADD_BLOCK_F4F_WORKSTATION }
+# # #}
+
 # EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}

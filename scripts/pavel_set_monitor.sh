@@ -8,12 +8,12 @@ else
 fi
 
 if [[ $# -gt 0 ]]; then
-  if [[ "$1" != "HP" ]] && [[ "$1" != "LENOVO" ]]; then
-    notify-send -u low -t 1500 "Supported models: HP, LENOVO" -h string:x-canonical-private-synchronous:anything
+  if [[ "$1" != "HP" ]] && [[ "$1" != "LENOVO" ]] && [[ "$1" != "WORKSTATION" ]]; then
+    notify-send -u low -t 1500 "Supported models: HP, LENOVO, WORKSTATION" -h string:x-canonical-private-synchronous:anything
     exit
   fi
 else
-    notify-send -u low -t 1500 "PC model required. Supported models: HP, LENOVO" -h string:x-canonical-private-synchronous:anything
+    notify-send -u low -t 1500 "PC model required. Supported models: HP, LENOVO, WORKSTATION" -h string:x-canonical-private-synchronous:anything
     exit
 fi
 
@@ -21,9 +21,13 @@ fi
 
 MONITOR=$(echo "MRS_LAB
 STANDALONE
-SECOND_MONITOR" | rofi -i -dmenu -p "Select setup:")
+SECOND_MONITOR
+F4F" | rofi -i -dmenu -p "Select setup:")
 
-if [[ "$MONITOR" != "MRS_LAB" ]] && [[ "$MONITOR" != "STANDALONE" ]] && [[ "$MONITOR" != "SECOND_MONITOR" ]]; then
+if [[ "$MONITOR" != "MRS_LAB" ]] &&
+   [[ "$MONITOR" != "STANDALONE" ]] &&
+   [[ "$MONITOR" != "F4F" ]] &&
+   [[ "$MONITOR" != "SECOND_MONITOR" ]]; then
   notify-send -u low -t 1500 "Wrong choice!" -h string:x-canonical-private-synchronous:anything
   exit
 fi
