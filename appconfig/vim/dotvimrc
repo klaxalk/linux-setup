@@ -135,7 +135,7 @@ if g:user_mode == "1"
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
   " Latex stuff
-  Plug 'lervag/vimtex'
+  Plug 'lervag/vimtex', { 'commit': 'v2.14' }
 
   " VimWiki
   " Essential part in taking notes in vim
