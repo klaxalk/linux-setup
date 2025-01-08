@@ -72,6 +72,10 @@ snippet "^goto" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto "goal: [${2:0}, ${3:0}, ${4:1.5}, ${5:0.0}]"
 endsnippet
 
+snippet "^reset" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/octomap_server/reset_map
+endsnippet
+
 snippet "^gofcu" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/control_manager/goto_fcu "goal: [${2:0}, ${3:0}, ${4:0.0}, ${5:0.0}]"
 endsnippet
@@ -285,6 +289,10 @@ endsnippet
 
 snippet "^setgains" "" Ar
 rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/gain_manager/set_gains ${2:soft}
+endsnippet
+
+snippet "^midair" "" Ar
+rosservice call /uav${10:`~/.scripts/get_uav_number.sh`}/uav_manager/midair_activation
 endsnippet
 
 snippet "^setconstraints" "" Ar
