@@ -9,6 +9,8 @@ export TERM=rxvt-unicode-256color
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='ag -l -f --nocolor -g ""'
 
+export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------

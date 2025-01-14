@@ -1,15 +1,6 @@
 # get the path to this script
 REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
-# # if nvim is present, use it!
-# if [ -x "$(command -v nvim)" ]; then
-#   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-# else
-#   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-# fi
-
-export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-
 # set the TMUX_BIN, prefer the user-compiled one
 [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
 [ ! -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/bin/tmux

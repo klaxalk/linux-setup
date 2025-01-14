@@ -7,23 +7,10 @@ if [ "$var2" = "$var1" ]; then
   export BEAVER=1
 fi
 
-# # if nvim is present, use it!
-# if [ -x "$(command -v nvim)" ]; then
-#   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
-# else
-#   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-# fi
-
-export EDITOR="/usr/bin/vi --cmd 'let g:user_mode=1'"
-
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
   plugins+=(k)
 fi
-
-# EPIGEN_ADD_BLOCK_BETTER_YCM {
-# export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
-# EPIGEN_ADD_BLOCK_BETTER_YCM }
 
 # set the TMUX_BIN, prefer the user-compiled one
 [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux

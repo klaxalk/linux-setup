@@ -1,15 +1,9 @@
-[submodule "submodules/i3blocks-contrib"]
-	path = submodules/i3blocks-contrib
-	url = https://github.com/vivien/i3blocks-contrib.git
 [submodule "submodules/tmux-themepack"]
 	path = submodules/tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack.git
 [submodule "submodules/vim-plug"]
 	path = submodules/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
-[submodule "submodules/i3"]
-	path = submodules/i3
-	url = https://github.com/Airblader/i3
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts.git
@@ -73,9 +67,6 @@
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "submodules/i3blocks"]
-	path = submodules/i3blocks
-	url = https://github.com/vivien/i3blocks.git
 [submodule "submodules/ranger"]
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
