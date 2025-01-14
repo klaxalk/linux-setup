@@ -1,13 +1,6 @@
 # get the path to this script
 REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
-# detect the OS version
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
 # # if nvim is present, use it!
 # if [ -x "$(command -v nvim)" ]; then
 #   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
@@ -15,7 +8,7 @@ fi
 #   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 # fi
 
-export EDITOR="/usr/bin/vi --cmd 'let g:user_mode=1'"
+export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
 
 # set the TMUX_BIN, prefer the user-compiled one
 [ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux

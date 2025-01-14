@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up keyboard
+    echo Setting up keyboard
 
     # copy modified keyboard default file
     sudo cp "$APP_PATH/keyboard" /etc/default/keyboard

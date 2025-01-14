@@ -22,7 +22,7 @@ let g:startify_skiplist = [
 " bookmarks in startify
 let g:startify_bookmarks = [
       \ { 'b': '~/.bashrc' },
-      \ { 'v': '~/.vimrc' },
+      \ { 'v': '~/.config/nvim/init.vim' },
       \ '~/someotherfile',
       \ ]
 
@@ -51,7 +51,7 @@ map <leader>s :tabnew<cr>:Startify<CR>
 
 " load quotes for startify
 " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
-source ~/.vim/../startify_quotes.txt
+source ~/.config/nvim/pluginconfig/startify_quotes.txt
 " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
 " load Viktor's quotes for startify

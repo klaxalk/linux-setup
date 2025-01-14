@@ -27,14 +27,22 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall zshell? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall zshell (with athame)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install zsh
+    sudo apt-get -y install curl
+
+    # compile athame from sources
+    cd $APP_PATH/../../submodules/athame
+
+    VIMBIN="--vimbin=/usr/bin/vi"
+
+    # build new zsh with readline patched with athame
+    sudo ./zsh_athame_setup.sh --notest --use_sudo $VIMBIN
 
     # install oh-my-zsh
     [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
@@ -43,6 +51,9 @@ while true; do
     if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
       ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
+
+    # add k plugin for zsh
+    # $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
     num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`

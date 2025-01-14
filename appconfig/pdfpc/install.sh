@@ -40,6 +40,9 @@ while true; do
     libjson-glib-dev libmarkdown2-dev libwebkit2gtk-4.0-dev libsoup2.4-dev \
     libqrencode-dev gstreamer1.0-gtk3
 
+    # use in pdfpc to play videos
+    sudo apt-get -y install gstreamer1.0-libav
+
     # compile and install pdfpc
     cd $APP_PATH/../../submodules/pdfpc/
     [ ! -e build ] && mkdir build

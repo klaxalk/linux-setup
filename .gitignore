@@ -1,13 +1,14 @@
 *.swp
+*.swo
 *.orig
 *.pyc
 
 **/.nvimlog
 
-appconfig/vim/dotvim/plugged/*
-appconfig/vim/dotvim/session
-appconfig/vim/dotvim/.netrwhist
-appconfig/vim/dotvim/files/info/viminfo
+appconfig/nvim/dotvim/plugged/*
+appconfig/nvim/dotvim/session
+appconfig/nvim/dotvim/.netrwhist
+appconfig/nvim/dotvim/files/info/viminfo
 
 html/
 

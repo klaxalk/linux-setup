@@ -41,9 +41,6 @@ while true; do
     sudo add-apt-repository -y ppa:obsproject/obs-studio
     sudo apt-get -y install obs-studio screenkey
 
-    # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav
-
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

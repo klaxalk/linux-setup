@@ -34,11 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    # remove the normal  htop
+    # remove the normal htop
     sudo apt-get -y remove htop
-
-    # install dependencies
-    sudo apt-get install libncursesw5-dev
 
     cd $APP_PATH/../../submodules/htop-vim
 

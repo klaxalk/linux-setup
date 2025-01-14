@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up powerline fonts
+    echo Setting up powerline fonts
 
     cd $APP_PATH/../../submodules/fonts
 

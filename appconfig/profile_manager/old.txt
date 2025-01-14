@@ -1,0 +1,2 @@
+$GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s
+$GIT_PATH/linux-setup/appconfig/silver_searcher/dotignore, ~/.ignore, \#\ %s

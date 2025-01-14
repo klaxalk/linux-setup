@@ -113,6 +113,16 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! }
 
+! ! { THINKPAD
+
+! ! EPIGEN_ADD_BLOCK_ASUS {
+
+! ! URxvt.font: xft:Roboto Mono for Powerline:size=18
+
+! ! EPIGEN_ADD_BLOCK_ASUS }
+
+! ! }
+
 ! ! { GPD
 
 ! ! EPIGEN_ADD_BLOCK_GPD {

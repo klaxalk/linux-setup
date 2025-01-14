@@ -12,7 +12,6 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 # define paths
 APPCONFIG_PATH=$MY_PATH/appconfig
 
-# install packages
 sudo apt-get -y update
 
 subinstall_params=""
@@ -69,8 +68,8 @@ bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 # setup RANGER
 bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
-# install VIM
-bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
+# install NVIM
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
 
 # install HTOP-VIM
 bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
@@ -80,12 +79,6 @@ bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
 # install FONTS POWERLINE
 ! $docker && bash $APPCONFIG_PATH/fonts-powerline/install.sh $subinstall_params
-
-# install NVIM
-# bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
-
-# install ZSH with ATHAME
-! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
 # install I3
 ! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
@@ -99,49 +92,14 @@ bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 # install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# install PANDOC
-if [ "$arch" != "aarch64" ]; then
-  ! $docker && bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
-fi
-
-# install SHUTTER
-if [ "$arch" != "aarch64" ]; then
-  ! $docker && bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
-fi
-
 # install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
-
-# install VIMIV
-! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
-
-# install SILVER SEARCHER (ag)
-bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
 # setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# setup fuzzyfinder
-bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
-
-# install PLAYERCTL
-if [ "$arch" != "aarch64" ]; then
-  ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
-fi
-
-# install PAPIS
-! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
-
 # install VIM-STREAM
 bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
-
-# install GRUB CUSTOMIZER
-if [ "$arch" != "aarch64" ]; then
-  ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
-fi
-
-# install TMUXINATOR
-bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
 #############################################
 # remove the interactivity check from bashrc

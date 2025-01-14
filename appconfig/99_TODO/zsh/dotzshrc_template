@@ -1,0 +1,16 @@
+plugins=(git tmuxinator)
+
+# path to the git root
+export GIT_PATH=~/git
+
+# run Tmux automatically in every normal terminal
+export RUN_TMUX=true
+
+# use Athame in every normal terminal
+export USE_ATHAME=true
+
+# list (space-separated) of profile names for customizing configs
+export PROFILES="COLORSCHEME_DARK"
+
+# sourcing Tomas's linux setup
+source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc

@@ -22,10 +22,10 @@ if g:mail_mode == "1"
   set filetype=mail
 endif
 
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.config/nvim/plugged")
 
 " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL {
-" set viminfo='100,n$HOME/.vim/files/info/viminfo
+" set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
 " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL }
 
 " which plugins should not be loaded outside of normal session (not in athame)
@@ -122,7 +122,7 @@ if g:user_mode == "1"
   " Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
   " Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
   "  enable airline YCM status
-  let g:airline#extensions#ycm#enabled = 1
+  " let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " make vim and ROS friends
@@ -518,7 +518,7 @@ set wildignore+=*/Downloads/**,*/Desktop/**,*/build/**
 " set path for filename suggestions
 " ** means "in any subfolder"
 set path+=~/git/**
-set path+=~/.vim/UltiSnips/**
+set path+=~/.config/nvim/UltiSnips/**
 
 " set jk in insert mode as ESC
 " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT {
@@ -534,80 +534,80 @@ xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
 if g:user_mode == "1"
 
   " config for airline
-  source ~/.vim/pluginconfig/vim-airline.vim
+  source ~/.config/nvim/pluginconfig/vim-airline.vim
 
   " config for startify
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
-  source ~/.vim/pluginconfig/vim-startify.vim
+  source ~/.config/nvim/pluginconfig/vim-startify.vim
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
-  " source ~/.vim/pluginconfig/vim-startify.vim
+  " source ~/.config/nvim/pluginconfig/vim-startify.vim
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
   " config for nerdtree
-  source ~/.vim/pluginconfig/nerdtree.vim
+  source ~/.config/nvim/pluginconfig/nerdtree.vim
 
   " config for vim-argwrap
-  source ~/.vim/pluginconfig/vim-argwrap.vim
+  source ~/.config/nvim/pluginconfig/vim-argwrap.vim
 
   " config for quick-scope
-  source ~/.vim/pluginconfig/quick-scope.vim
+  source ~/.config/nvim/pluginconfig/quick-scope.vim
 
   " config for tagbar
-  source ~/.vim/pluginconfig/tagbar.vim
+  source ~/.config/nvim/pluginconfig/tagbar.vim
 
   " config for GoldenView
-  source ~/.vim/pluginconfig/GoldenView.vim
+  source ~/.config/nvim/pluginconfig/GoldenView.vim
 
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " source ~/.vim/pluginconfig/deoplete.vim
-  " source ~/.vim/pluginconfig/neomake.vim
-  " " source ~/.vim/pluginconfig/ale.vim
+  " source ~/.config/nvim/pluginconfig/deoplete.vim
+  " source ~/.config/nvim/pluginconfig/neomake.vim
+  " " source ~/.config/nvim/pluginconfig/ale.vim
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   " config for youcompleteme
-  "source ~/.vim/pluginconfig/youcompleteme.vim
+  "source ~/.config/nvim/pluginconfig/youcompleteme.vim
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " config for vim-ros
-  "source ~/.vim/pluginconfig/vim-ros.vim
+  "source ~/.config/nvim/pluginconfig/vim-ros.vim
 
   " config for tmuxline
-  source ~/.vim/pluginconfig/tmuxline.vim
+  source ~/.config/nvim/pluginconfig/tmuxline.vim
 
   " config for vimtex
-  source ~/.vim/pluginconfig/vimtex.vim
+  source ~/.config/nvim/pluginconfig/vimtex.vim
 
   " config for VimWiki
-  source ~/.vim/pluginconfig/vimwiki.vim
+  source ~/.config/nvim/pluginconfig/vimwiki.vim
 
   " config for ctrl+P
-  source ~/.vim/pluginconfig/ctrlp.vim
+  source ~/.config/nvim/pluginconfig/ctrlp.vim
 
   " config for vim-tmux-runner
-  source ~/.vim/pluginconfig/vim-tmux-runner.vim
+  source ~/.config/nvim/pluginconfig/vim-tmux-runner.vim
 
   " config for vim-clang-format
- source ~/.vim/pluginconfig/vim-clang-format.vim
+ source ~/.config/nvim/pluginconfig/vim-clang-format.vim
 
   " config for vim-easy-align
-  source ~/.vim/pluginconfig/vim-easy-align.vim
+  source ~/.config/nvim/pluginconfig/vim-easy-align.vim
 
   " config for vim-conflicted
-  source ~/.vim/pluginconfig/vim-conflicted.vim
+  source ~/.config/nvim/pluginconfig/vim-conflicted.vim
 
   " config for vim-cpp-enhanced-highlight
-  source ~/.vim/pluginconfig/vim-cpp-enhanced-highlight.vim
+  source ~/.config/nvim/pluginconfig/vim-cpp-enhanced-highlight.vim
 
   " config for mail files
-  au FileType mail source ~/.vim/pluginconfig/mail.vim
+  au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
 
   " EPIGEN_ADD_BLOCK_TOMAS {
-  " source ~/.vim/pluginconfig/vim-glsl.vim
+  " source ~/.config/nvim/pluginconfig/vim-glsl.vim
   " EPIGEN_ADD_BLOCK_TOMAS }
 
   " EPIGEN_ADD_BLOCK_DANIEL {
-  " source ~/.vim/pluginconfig/syntastic.vim
+  " source ~/.config/nvim/pluginconfig/syntastic.vim
   " EPIGEN_ADD_BLOCK_DANIEL }
 
 endif
@@ -617,18 +617,18 @@ endif
 autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
 
 " config for vim-multiple-cursors
-source ~/.vim/pluginconfig/vim-multiple-cursors.vim
+source ~/.config/nvim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
-source ~/.vim/pluginconfig/ultisnips.vim
+source ~/.config/nvim/pluginconfig/ultisnips.vim
 
 " config for vim-commentary
-source ~/.vim/pluginconfig/vim-commentary.vim
+source ~/.config/nvim/pluginconfig/vim-commentary.vim
 
 " additional settings only for athame
 if g:user_mode == "0"
 
-  nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
+  nnoremap <leader>u Ivim ~/.config/nvim/UltiSnips/athame.snippets
   nnoremap <leader>ww Ivim ~/git/notes/index.md
 
   nnoremap OA $a<up>
@@ -679,7 +679,7 @@ if g:user_mode == "1"
         \ { 'p': '~/.config/papis/config' },
         \ { 'r': '~/.config/ranger/rc.conf' },
         \ { 't': '~/.tmux.conf' },
-        \ { 'v': '~/.vimrc' },
+        \ { 'v': '~/.config/nvim/init.vim' },
         \ { 'x': '~/.Xresources' },
         \ { 'z': '~/.zshrc' },
         \ ]

@@ -1,0 +1,209 @@
+REPO_PATH="$(cd "$(dirname "$_")"/../..; pwd)"
+
+# detect the OS version
+var1="18.04"
+var2=`lsb_release -r | awk '{ print $2 }'`
+if [ "$var2" = "$var1" ]; then
+  export BEAVER=1
+fi
+
+# # if nvim is present, use it!
+# if [ -x "$(command -v nvim)" ]; then
+#   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
+# else
+#   export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# fi
+
+export EDITOR="/usr/bin/vi --cmd 'let g:user_mode=1'"
+
+# check for k plugin
+if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
+  plugins+=(k)
+fi
+
+# EPIGEN_ADD_BLOCK_BETTER_YCM {
+# export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
+# EPIGEN_ADD_BLOCK_BETTER_YCM }
+
+# set the TMUX_BIN, prefer the user-compiled one
+[ -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/local/bin/tmux
+[ ! -f /usr/local/bin/tmux ] && export TMUX_BIN=/usr/bin/tmux
+
+# create alisases
+alias sb="source ~/.zshrc"
+
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
+ZSH_THEME="agnoster" # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# ZSH_THEME="jreese" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
+# EPIGEN_ADD_BLOCK_MATOUS {
+# ZSH_THEME="mortalscumbag"
+# EPIGEN_ADD_BLOCK_MATOUS }
+# EPIGEN_ADD_BLOCK_DANIEL {
+# ZSH_THEME="lukerandall"
+# EPIGEN_ADD_BLOCK_DANIEL }
+
+# Path to your oh-my-zsh installation.
+if [ -e $HOME/.oh-my-zsh ]; then
+  export ZSH=$HOME/.oh-my-zsh
+  source $ZSH/oh-my-zsh.sh
+fi
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# # eval "$(_PAPIS_COMPLETE=source_zsh papis)"
+# EPIGEN_ADD_BLOCK_TOMAS }
+
+# Vi mode in ZSH
+bindkey -v
+
+# I dont like shared history between terminals, does not play well with tmux
+unsetopt share_history
+
+# use the vi navigation keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# source the mutual additions for all shells
+source "$REPO_PATH/appconfig/shell/commons.sh"
+
+# alias the "bash's" command history to "zshell's" command read
+# handy for common tmuxinator scripts
+historyRead() {
+
+  eval 'print $@'
+}
+alias history='historyRead'
+
+# is the shell running interactively
+case "$-" in
+  *i*) INTERACTIVE_SHELL=1
+esac
+
+# fzf
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+
+# running new tmux (or attaching) with session name derived from parent zsh pid
+runTmux() {
+
+  SESSION_NAME="T$PPID"
+
+  # try to find session with the correct session id (based on the zsh PID)
+  EXISTING_SESSION=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
+
+  if [ "$EXISTING_SESSION" -gt "0" ]; then
+
+    # if such session exists, attach to it
+    $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
+
+  else
+
+    # if such session does not exist, create it
+    $TMUX_BIN new-session -s "$SESSION_NAME"
+
+  fi
+
+  # hook after exitting the session
+  # when the session exists, find a file in /tmp with the name of the session
+  # and extract a path from it. Then cd to it.
+  FILENAME="/tmp/tmux_restore_path.txt"
+  if [ -f $FILENAME ]; then
+
+    MY_PATH=$(tail -n 1 $FILENAME)
+
+    rm /tmp/tmux_restore_path.txt
+
+    cd $MY_PATH
+
+  fi
+}
+
+zshexit() {
+
+  pwd >> /tmp/tmux_restore_path.txt
+
+  forceKillTmuxSession "T$PPID"
+}
+
+# VIM alias for running vim in tmux and in servermode
+runVim() {
+
+  VIM_CMD=$(echo "$EDITOR ${@}")
+
+  # if the tmux session does not exist, create new and run vim in it
+  if [ -z $TMUX ]; then
+
+    SESSION_NAME="T$PPID"
+
+    # if there is a tmux session with the same name as the current bashpid
+    num=`$TMUX_BIN ls 2> /dev/null | grep "$SESSION_NAME" | wc -l`
+    if [ "$num" -gt "0" ]; then
+
+      ID=`$TMUX_BIN new-window -t "$SESSION_NAME" -a -P`
+      sleep 1.0
+      $TMUX_BIN send-keys -t $ID "$VIM_CMD" C-m
+      $TMUX_BIN -2 attach-session -t "$SESSION_NAME"
+
+    else
+
+      $TMUX_BIN new-session -s "$SESSION_NAME" -d "$VIM_CMD" \; attach
+
+    fi
+
+  else
+
+    zsh -c "$VIM_CMD"
+
+  fi
+}
+alias vim=runVim
+
+alias vimdiff="vim -d"
+
+kzsh() {
+  for i in `ps aux | grep "\-[z]sh" | awk '{print $2}'`; do
+    killProcessRecursive "$i"
+  done
+}
+
+# source tmuxinator
+source "$REPO_PATH/submodules/tmuxinator/completion/tmuxinator.zsh"
+
+# by default, athame should be off
+export ATHAME_ENABLED=0
+export ATHAME_SHOW_MODE=0
+export ATHAME_VIM_PERSIST=0
+export ATHAME_SHOW_ERROR=0
+export ATHAME_USE_JOBS=1
+
+# but if we are in tmux launched by the user/terminal (not tmuxinator)
+# and if user want to use athame, use it
+if [ -n "$TMUX" ]; then
+
+  if [ "$USE_ATHAME" = "true" ]; then
+
+    SESSION_NAME=`$TMUX_BIN display-message -p '#S'`
+
+    if [[ $SESSION_NAME =~ ^T[0-9]+$ ]]; then
+
+      if [ -z "${VIM+x}" ]; then
+
+        export ATHAME_ENABLED=1
+
+      fi
+
+    fi
+  fi
+fi
+
+# load tmux automatically
+if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
+  if [ "$RUN_TMUX" = "true" ]; then
+    if command -v $TMUX_BIN>/dev/null; then
+        [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
+    fi
+  fi
+fi
+
+true # so that this script returns 0

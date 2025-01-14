@@ -21,42 +21,33 @@ do
   fi
 done
 
-distro=`lsb_release -r | awk '{ print $2 }'`
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall NEOVIM? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall neovim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    echo Installing neovim
+    echo Setting up neovim
 
-    if [ "$distro" = "18.04" ]; then
-      sudo apt-add-repository -y ppa:neovim-ppa/stable
-      sudo apt-get update
-    fi
-
+    # install neovim
     sudo apt-get -y install neovim
-    mkdir -p ~/.config/nvim/
 
-    if [ "$distro" = "18.04" ]; then
-      sudo -H pip install wheel
-    fi
-    sudo -H pip3 install wheel
-
-    sudo -H pip3 install neovim
-    sudo -H pip3 install neovim-remote
+    # set vim as a default git mergetool
+    git config --global merge.tool vimdiff
 
     # link the configuration
-    ln -sf ~/.vimrc ~/.config/nvim/init.vim
-    ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+    mkdir -p ~/.config/nvim
+    ln -sf $APP_PATH/dotvim/* ~/.config/nvim/
+
+    # updated new plugins and clean old plugins
+    /usr/bin/nvim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

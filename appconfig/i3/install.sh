@@ -154,7 +154,7 @@ while true; do
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
     # install useful gui utils
-    sudo apt-get -y install thunar rofi compton systemd
+    sudo apt-get -y install rofi compton systemd
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
