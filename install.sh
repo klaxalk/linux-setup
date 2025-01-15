@@ -35,27 +35,13 @@ cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
 ! $docker && git submodule update --init --recursive
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 arch=`uname -i`
 
 # essentials
 sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server nmap
 
-# python
-sudo apt-get -y install python3-dev python3-setuptools python3-pip
-
-if [ -n "$BEAVER" ]; then
-  sudo apt-get -y install python-git
-  sudo ln -sf /bin/python2.7 /bin/python
-else
-  sudo apt-get -y install python3-git
-fi
-
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel blueman autossh jq xvfb gparted espeak ncdu pavucontrol
+sudo apt-get -y install ruby indicator-multiload gem tree exuberant-ctags xclip xsel blueman autossh xvfb gparted espeak ncdu pavucontrol
 
 if [ "$unattended" == "0" ]
 then

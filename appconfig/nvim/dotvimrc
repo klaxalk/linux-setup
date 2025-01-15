@@ -24,18 +24,11 @@ endif
 
 call plug#begin("~/.config/nvim/plugged")
 
-" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL {
-" set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
-" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DANIEL }
-
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
 
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
-
-  " fugitive.vim: a Git wrapper so awesome, it should be illegal
-  Plug 'tpope/vim-fugitive'
 
   " async
   Plug 'tpope/vim-dispatch'
@@ -46,23 +39,9 @@ if g:user_mode == "1"
   " resolving conflicts in git the better way
   Plug 'christoomey/vim-conflicted'
 
-  Plug 'frazrepo/vim-rainbow'
-
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
-  "" Lean & mean status/tabline for vim that's light as air.
-  "Plug 'itchyny/lightline.vim'
-
-  ""For saving files with sudo from normal vim
-  "Plug 'lambdalisue/suda.vim'
-
-  ""An essential component for my isolation mode - when the brain refuses to cooperate
-  "Plug 'junegunn/goyo.vim'
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
   " For saving files with sudo from normal vim
   Plug 'lambdalisue/suda.vim'
@@ -100,39 +79,9 @@ if g:user_mode == "1"
   " currently mapped to F8
   Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
 
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " if has('nvim')
-  "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "   Plug 'kiddos/deoplete-cpp'
-  "   Plug 'deoplete-plugins/deoplete-tag'
-
-  "   " Plug 'dense-analysis/ale'
-  "   Plug 'neomake/neomake'
-  " else
-  "   Plug 'Shougo/deoplete.nvim'
-  "   Plug 'roxma/nvim-yarp'
-  "   Plug 'roxma/vim-hug-neovim-rpc'
-  " endif
-  " let g:deoplete#enable_at_startup = 1
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
-
-  " youcompleteme
-  " automatic code completion for C++ and more
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  " Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
-  " Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
-  "  enable airline YCM status
-  " let g:airline#extensions#ycm#enabled = 1
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-
-  " make vim and ROS friends
-  "Plug 'klaxalk/vim-ros'
-
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
   Plug 'edkolev/tmuxline.vim'
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
   " Latex stuff
   Plug 'lervag/vimtex'
@@ -145,9 +94,6 @@ if g:user_mode == "1"
   " :ansi
   Plug 'powerman/vim-plugin-AnsiEsc'
 
-  " ???
-  Plug 'vim-scripts/MatlabFilesEdition'
-
   " Managing navigation between vim and tmux
   " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
   " and vim panels... its like magic :-)
@@ -158,7 +104,7 @@ if g:user_mode == "1"
 
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
-  " [l and ]l to move through the quickfix list
+  " []l to move through the quickfix list
   " ... it has many more useful commands
   Plug 'tpope/vim-unimpaired'
 
@@ -521,11 +467,7 @@ set path+=~/git/**
 set path+=~/.config/nvim/UltiSnips/**
 
 " set jk in insert mode as ESC
-" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT {
-" if has("nvim")
-"   tnoremap jk <C-\><C-n>
-" endif
-" EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_VIT }
+tnoremap jk <C-\><C-n>
 
 " fold around visual block
 xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
@@ -556,22 +498,6 @@ if g:user_mode == "1"
   " config for tagbar
   source ~/.config/nvim/pluginconfig/tagbar.vim
 
-  " config for GoldenView
-  source ~/.config/nvim/pluginconfig/GoldenView.vim
-
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
-  " source ~/.config/nvim/pluginconfig/deoplete.vim
-  " source ~/.config/nvim/pluginconfig/neomake.vim
-  " " source ~/.config/nvim/pluginconfig/ale.vim
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX }
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  " config for youcompleteme
-  "source ~/.config/nvim/pluginconfig/youcompleteme.vim
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
-
-  " config for vim-ros
-  "source ~/.config/nvim/pluginconfig/vim-ros.vim
-
   " config for tmuxline
   source ~/.config/nvim/pluginconfig/tmuxline.vim
 
@@ -601,10 +527,6 @@ if g:user_mode == "1"
 
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
-
-  " EPIGEN_ADD_BLOCK_TOMAS {
-  " source ~/.config/nvim/pluginconfig/vim-glsl.vim
-  " EPIGEN_ADD_BLOCK_TOMAS }
 
   " EPIGEN_ADD_BLOCK_DANIEL {
   " source ~/.config/nvim/pluginconfig/syntastic.vim

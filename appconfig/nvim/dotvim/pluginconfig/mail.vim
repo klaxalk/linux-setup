@@ -8,5 +8,5 @@ set wrapmargin=0
 set wrap
 set linebreak
 
-autocmd VimResized * exe "set columns=80"
-autocmd VimEnter * exe "set columns=80"
+autocmd VimResized * exe "set textwidth=80"
+autocmd VimEnter * exe "set textwidth=80"

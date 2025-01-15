@@ -141,9 +141,6 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 # printscreen using shutter
 bindsym Print exec shutter --select
 
-# toggling touchpad
-bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
 # shutdown/logout menu
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
@@ -335,9 +332,9 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # # EPIGEN_ADD_BLOCK_ASUS {
-# # font pango: Inconsolata 15
+# # font pango: Inconsolata 12
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # # font pango: LiberationMono 15
+# # # font pango: LiberationMono 12
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_ASUS }
 
@@ -349,9 +346,10 @@ set $mode_gaps_inner inner gaps
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 000000
 
+# exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+
 # # compton without fancy graphics
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
 # # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/lightning.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -364,8 +362,8 @@ set $mode_gaps_inner inner gaps
 
 # # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
-# # # enable touchpad tapping
-# # exec_always xinput set-prop "ASUE120A:00 04F3:327D Touchpad" "libinput Tapping Enabled" 1
+# # # toggle touchpad tapping
+# # bindsym $mod+t exec ~/.scripts/toggle_touchpad_tapping.sh "ASUE120A:00 04F3:327D Touchpad"
 
 # # # screen brightness control
 # # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
