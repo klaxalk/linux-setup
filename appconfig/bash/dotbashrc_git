@@ -60,6 +60,7 @@ runTmux() {
 
   fi
 }
+
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively
   _trap_exit() {
     pwd >> /tmp/tmux_restore_path.txt

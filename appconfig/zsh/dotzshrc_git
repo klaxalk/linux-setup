@@ -101,9 +101,13 @@ runTmux() {
 
 zshexit() {
 
-  pwd >> /tmp/tmux_restore_path.txt
+  if [[ $- == *i* ]]; then
 
-  forceKillTmuxSession "T$PPID"
+    pwd >> /tmp/tmux_restore_path.txt
+
+    forceKillTmuxSession "T$PPID"
+
+  fi
 }
 
 # VIM alias for running vim in tmux and in servermode

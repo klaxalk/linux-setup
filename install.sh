@@ -62,14 +62,17 @@ then
   if [ "$?" != "0" ]; then echo "Press Enter to continues.." && read; fi
 fi
 
+# install PYTHON
+bash $APPCONFIG_PATH/python/install.sh $subinstall_params
+
+# install NVIM
+bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
+
 # install TMUX
 bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 
 # setup RANGER
 bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
-
-# install NVIM
-bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
 
 # install HTOP-VIM
 bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
