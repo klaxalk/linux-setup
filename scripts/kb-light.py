@@ -4,8 +4,8 @@
 from sys import argv
 import dbus
 
-
 def kb_light_set(delta):
+
     bus = dbus.SystemBus()
     kbd_backlight_proxy = bus.get_object('org.freedesktop.UPower', '/org/freedesktop/UPower/KbdBacklight')
     kbd_backlight = dbus.Interface(kbd_backlight_proxy, 'org.freedesktop.UPower.KbdBacklight')
@@ -22,7 +22,9 @@ def kb_light_set(delta):
     return 100 * current / maximum
 
 if __name__ == '__main__':
+
     if len(argv[1:]) == 1:
+
         if argv[1] == "--up" or argv[1] == "+":
             # ./kb-light.py (+|--up) to increment
             print(kb_light_set(1))

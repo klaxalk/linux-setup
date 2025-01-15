@@ -1,12 +1,5 @@
 REPO_PATH="$(cd "$(dirname "$_")"/../..; pwd)"
 
-# detect the OS version
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
   plugins+=(k)

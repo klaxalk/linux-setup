@@ -258,9 +258,9 @@ bar {
   # EPIGEN_ADD_BLOCK_TOMAS {
 
 #   # EPIGEN_ADD_BLOCK_ASUS {
-# #   font pango: Inconsolata, FontAwesome 12
+# #   font pango: Inconsolata, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   #   font pango: LiberationMono, FontAwesome 12
+# #   #   font pango: LiberationMono, FontAwesome 11
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 #   # EPIGEN_ADD_BLOCK_ASUS }
 
@@ -361,24 +361,27 @@ set $mode_gaps_inner inner gaps
 # # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
-# # #{ THINKPAD
+# # #{ ASUS
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
 # # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
-# # # Bind screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+# # # enable touchpad tapping
+# # exec_always xinput set-prop "ASUE120A:00 04F3:327D Touchpad" "libinput Tapping Enabled" 1
 
-# # # bind audio
+# # # screen brightness control
+# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
+# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
+
+# # # keyboard brightness control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # audio controls
 # # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-
-# # bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-# # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
 # # EPIGEN_ADD_BLOCK_ASUS }
 
