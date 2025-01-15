@@ -58,7 +58,10 @@ while true; do
     sudo apt-get -y install sysstat
 
     # for brightness and volume control
-    sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
+    sudo apt-get -y install alsa-utils pulseaudio feh arandr
+
+    # for setting up desktop wallpaper
+    sudo apt-get -y install feh
 
     # for making gtk look better
     sudo apt-get -y install lxappearance
@@ -91,13 +94,20 @@ while true; do
     # disable nautilus
     # gsettings set org.gnome.desktop.background show-desktop-icons false
 
+    # compile and install "light" for brightness control
+    cd $APP_PATH/../../submodules/light
+    ./autogen.sh
+    ./configure --with-udev
+    make
+    sudo make install
+    git clean -fd
+    cd $APP_PATH
+
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
     make
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
-
-    # install prime-select (for switching gpus)
-    # sudo apt-get -y install nvidia-prime
+    cd $APP_PATH
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

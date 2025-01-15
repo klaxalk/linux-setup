@@ -17,19 +17,6 @@ set $workspace10 "10"
 
 # #{ override the default $workspace names and icos by custom settings
 
-# EPIGEN_ADD_BLOCK_VOJTA {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5: "
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
-# EPIGEN_ADD_BLOCK_VOJTA }
-
 # EPIGEN_ADD_BLOCK_TOMAS {
 # set $workspace1 "1: "
 # set $workspace2 "2: "
@@ -43,76 +30,10 @@ set $workspace10 "10"
 # set $workspace10 "10"
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# EPIGEN_ADD_BLOCK_MATOUS {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5   "
-# set $workspace6 "6   "
-# set $workspace7 "7   "
-# set $workspace8 "8   "
-# set $workspace9 "9   "
-# set $workspace10 "10  "
-# EPIGEN_ADD_BLOCK_MATOUS }
-
-# EPIGEN_ADD_BLOCK_PETR {
-# set $workspace1 "1"
-# set $workspace2 "2"
-# set $workspace3 "3"
-# set $workspace4 "4"
-# set $workspace5 "5"
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
-# EPIGEN_ADD_BLOCK_PETR }
-
-# EPIGEN_ADD_BLOCK_PAVEL {
-# # set $workspace1 "1: "
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5: "
-# set $workspace6 "6: "
-# set $workspace7 "7: "
-# set $workspace8 "8: Z"
-# set $workspace9 "9"
-# set $workspace10 "10: "
-# EPIGEN_ADD_BLOCK_PAVEL }
-
-# EPIGEN_ADD_BLOCK_HONZA {
-# set $workspace1 "1"
-# set $workspace2 "2"
-# set $workspace3 "3"
-# set $workspace4 "4"
-# set $workspace5 "5"
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
-# set $workspace10 "10"
-# EPIGEN_ADD_BLOCK_HONZA }
-
-# EPIGEN_ADD_BLOCK_DANIEL {
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4"
-# set $workspace5 "5"
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8: "
-# set $workspace9 "9"
-# set $workspace10 "10: "
-# EPIGEN_ADD_BLOCK_DANIEL }
-#
 # #}
 
 # set font
-font pango:Terminus 10
+font pango:Terminus 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -212,30 +133,10 @@ bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set
 bindsym $mod+Shift+r restart
 
 # launch system manager menu
-# EPIGEN_DEL_BLOCK_HONZA {
 bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
-# EPIGEN_DEL_BLOCK_HONZA }
 
 # rofi launcher
-# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL {
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
-# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL }
-
-# default key bindings for audio on external keyboard
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL EPIGEN_DEL_BLOCK_DANIEL {
-bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 10%-
-bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
-bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
-bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Master 100%
-# EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_AFZAL EPIGEN_DEL_BLOCK_DANIEL }
-
-# EPIGEN_DEL_BLOCK_AFZAL {
-# # default key bindings for monitor brightness on external keyboard
-bindsym $mod+F1 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-bindsym $mod+F2 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen brightness
-bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
-# EPIGEN_DEL_BLOCK_AFZAL }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
@@ -244,9 +145,7 @@ bindsym Print exec shutter --select
 bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
-# EPIGEN_DEL_BLOCK_VOJTA {
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
-# EPIGEN_DEL_BLOCK_VOJTA }
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
@@ -263,12 +162,10 @@ bindsym $mod+Shift+minus move scratchpad
 for_window [title="pdfpc"] border none floating enable
 
 # bluetooth applet
-# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR 
+exec --no-startup-id blueman-applet
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
-# # # F1 will no longer activate help of any program
-# bindsym F1 exec --no-startup-id echo 'help' > /dev/null
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ }
+# F1 will no longer activate help of any program
+bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 
 # #{ appearance, colors and color-schemes
 
@@ -280,20 +177,14 @@ set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
 set $inactive_background      #333333
-# EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL {
-# set $active_background        #53B5FF
-# set $active_border            #5cd8ff
-# EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL }
-# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL {
 set $active_background        #005faf
 set $active_border            #005faf
-# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL }
 set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL {
+
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL }
+
 for_window [class="^.*"] border pixel 3
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
@@ -307,20 +198,12 @@ for_window [class="^.*"] border pixel 3
 # set $inactive_text_color         #1d2021
 # set $active_text_color           #1d2021
 # set $active_border               #aaaaaa
-# # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL {
-# # set $inactive_background       #888888
-# # set $active_background         #FF6666
-# # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL }
-# # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL {
 # set $inactive_background         #dddddd
 # set $active_background           #888888
-# # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL }
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -335,20 +218,12 @@ for_window [class="^.*"] border pixel 3
 # set $active_text_color        #ffffff
 # set $inactive_text_color      #eeeeee
 # set $inactive_background      #333333
-# # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL {
-# # set $active_background        #53B5FF
-# # set $active_border            #5cd8ff
-# # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL }
-# # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL {
 # set $active_background        #3f8f00
 # set $active_border            #3f8f00
-# # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PAVEL }
 # set $background_color         #121212
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
@@ -372,7 +247,7 @@ bar {
 
   i3bar_command i3bar -t
 
-  font pango: Terminus, FontAwesome 10
+  font pango: Terminus, FontAwesome 12
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
@@ -382,112 +257,37 @@ bar {
 
   # EPIGEN_ADD_BLOCK_TOMAS {
 
-#   # EPIGEN_ADD_BLOCK_THINKPAD {
-# #   font pango: Inconsolata, FontAwesome 15
+#   # EPIGEN_ADD_BLOCK_ASUS {
+# #   font pango: Inconsolata, FontAwesome 12
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
+# #   #   font pango: LiberationMono, FontAwesome 12
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
-# # #   font pango: LiberationMono, FontAwesome 13
-# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
-#   # EPIGEN_ADD_BLOCK_THINKPAD }
-
-#   # EPIGEN_ADD_BLOCK_DESKTOP {
-# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
-# #   # font pango: Terminus, FontAwesome 13
-# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_4K {
-# # #   font pango: Terminus, FontAwesome 20
-# #   # EPIGEN_ADD_BLOCK_MONITOR_4K }
-#   # EPIGEN_ADD_BLOCK_DESKTOP }
-
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
-# #   font pango: Terminus, FontAwesome 10
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
+#   # EPIGEN_ADD_BLOCK_ASUS }
 
   # EPIGEN_ADD_BLOCK_TOMAS }
-
-  # #}
-
-  # #{ DANIEL font
-
-  # EPIGEN_ADD_BLOCK_DANIEL {
-
-#   # EPIGEN_ADD_BLOCK_LENOVO {
-# #   font pango: Inconsolata, FontAwesome 10 
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-#   # EPIGEN_ADD_BLOCK_LENOVO }
-  # EPIGEN_ADD_BLOCK_DANIEL }
 
   # #}
 
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
 
   # the default option
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL {
   set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL EPIGEN_DEL_BLOCK_PAVEL }
 
-  # #{ PETER's i3bar bg
+  # #{ TOMAS's i3bar bg
 
-  # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL {
-  # set $i3bar_bg #060606CF
-  # EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_PAVEL }
-
-  # #}
-
-  # #{ DANIEL's i3bar bg
-
-  # EPIGEN_ADD_BLOCK_DANIEL {
-  
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-  # # set $i3bar_bg #4a3c8700
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-  # # set $i3bar_bg #38383800
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
- 
-  # EPIGEN_ADD_BLOCK_DANIEL }
-
-  # #}
-
-# #{ TOMAS's i3bar bg
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_ADD_BLOCK_DESKTOP {
-# # set $i3bar_bg #12121200
-# # EPIGEN_ADD_BLOCK_DESKTOP }
-# # EPIGEN_ADD_BLOCK_DESKTOP2 {
-# # set $i3bar_bg #12121200
-# # EPIGEN_ADD_BLOCK_DESKTOP2 }
-# # EPIGEN_ADD_BLOCK_THINKPAD {
-# # set $i3bar_bg #121212FF
-# # EPIGEN_ADD_BLOCK_THINKPAD }
-# EPIGEN_ADD_BLOCK_TOMAS }
-
-# #}
-
-  # #{ PEPPE
-
-  # EPIGEN_ADD_BLOCK_PEPPE {
-  # font pango: Terminus, FontAwesome 10
-  # EPIGEN_ADD_BLOCK_PEPPE }
+  # EPIGEN_ADD_BLOCK_TOMAS {
+  # # EPIGEN_ADD_BLOCK_ASUS {
+  # # set $i3bar_bg #121212FF
+  # # EPIGEN_ADD_BLOCK_ASUS }
+  # EPIGEN_ADD_BLOCK_TOMAS }
 
   # #}
 
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-
-#   set $i3bar_bg #FFFFFFFF
-#   set $urgent #FF0000
-
+  # set $i3bar_bg #FFFFFFFF
+  # set $urgent #FF0000
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   colors {
@@ -537,12 +337,12 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 
-# # EPIGEN_ADD_BLOCK_THINKPAD {
-# # font pango: Inconsolata 10
+# # EPIGEN_ADD_BLOCK_ASUS {
+# # font pango: Inconsolata 15
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # # font pango: LiberationMono 10
+# # # font pango: LiberationMono 15
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_THINKPAD }
+# # EPIGEN_ADD_BLOCK_ASUS }
 
 # exec dropbox start
 # exec owncloud
@@ -561,47 +361,11 @@ set $mode_gaps_inner inner gaps
 # # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
-# # #{ DESKTOP
-
-# # EPIGEN_ADD_BLOCK_DESKTOP {
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
-
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
-# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
-
-# # EPIGEN_ADD_BLOCK_DESKTOP }
-
-# # #}
-
-# # #{ DESKTOP2
-
-# # EPIGEN_ADD_BLOCK_DESKTOP2 {
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop2.sh'"
-
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 2 set PCM 3.3db+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -c 2 set PCM toggle
-# # bindsym $mod+F5 exec --no-startup-id amixer -c 1 set PCM 3.3db-
-# # bindsym $mod+F6 exec --no-startup-id amixer -c 1 set PCM 3.3db+
-# # bindsym $mod+F7 exec --no-startup-id amixer -c 1 set PCM toggle
-
-# # EPIGEN_ADD_BLOCK_DESKTOP2 }
-
-# # #}
-
 # # #{ THINKPAD
 
-# # EPIGEN_ADD_BLOCK_THINKPAD {
+# # EPIGEN_ADD_BLOCK_ASUS {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
+# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
 
 # # # Bind screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -616,950 +380,11 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 10%+
 # # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 
-# # EPIGEN_ADD_BLOCK_THINKPAD }
-
-# # #}
-
-# # #{ GPD
-
-# # EPIGEN_ADD_BLOCK_GPD {
-
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_gpd.sh'"
-
-# # # gpd has small screen, tabs should be the default option
-# # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_STANDALONE
-
-# # # speed of the track point
-# # exec_always xinput --set-prop 10 272 0.50
-# # exec_always xinput --set-prop 10 273 0.40
-
-# # # compton without fancy graphics
-# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
-
-# # # brightness
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # sound
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-
-# # EPIGEN_ADD_BLOCK_GPD }
+# # EPIGEN_ADD_BLOCK_ASUS }
 
 # # #}
 
 # EPIGEN_ADD_BLOCK_TOMAS }
-
-# #}
-
-# #{ VOJTA's customization
-
-# EPIGEN_ADD_BLOCK_VOJTA {
-
-# bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
-
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
-# # Background image
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-# EPIGEN_ADD_BLOCK_VOJTA }
-
-# #}
-
-# #{ Thinkpad 490 controls
-
-# EPIGEN_ADD_BLOCK_TP490NV {
-# # to the run the setBrightness.sh and nvidiaEnable.sh 
-# # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
-# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
-# # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
-
-# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
-
-# bindsym XF86MonBrightnessUp exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh +"
-# bindsym XF86MonBrightnessDown exec "sudo ~/.i3/thinkpad_t490_nvidia/setBrightness.sh -"
-
-# bindsym XF86Display exec "arandr"
-
-# bindsym XF86Bluetooth exec "if (rfkill list bluetooth | grep Soft | grep no); then; rfkill block bluetooth; else; rfkill unblock bluetooth; fi"
-
-# bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
-
-# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
-
-# EPIGEN_ADD_BLOCK_TP490NV }
-
-# #}
-
-# #{ MATOUS's customization
-
-# EPIGEN_ADD_BLOCK_MATOUS {
-
-# # EPIGEN_ADD_BLOCK_TOSHIBA {
-
-# # # Bind Toshiba audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # # Bind Toshiba keyboard backlight control
-# # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
-
-# # # Bind Toshiba screen brightness control
-# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # compton without fancy graphics
-# # exec compton --backend glx --paint-on-overlay --vsync opengl-swc
-# # exec_always --no-startup-id "feh -F --bg-max /windows/Users/shraj/Pictures/prepare_for_combat_by_punakettu-d2ppgb8.jpg"
-
-# # EPIGEN_ADD_BLOCK_TOSHIBA }
-
-# # EPIGEN_ADD_BLOCK_LEJNOVO {
-
-# # # Bind audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
-# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
-# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
-# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
-
-# # # Bind Lejnovo keyboard backlight control
-# # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
-
-# # # Bind screen brightness control
-# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
-# # EPIGEN_ADD_BLOCK_LEJNOVO }
-
-# # EPIGEN_ADD_BLOCK_SKUMPA {
-
-# # # Bind audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
-# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
-# # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
-# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
-# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/primitive_and_deadly.jpg"
-
-# # EPIGEN_ADD_BLOCK_SKUMPA }
-
-# # prettier notifications
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
-
-# # screen locking with a key to prevent malicious locomotives
-# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
-# # dropbox icon in tray
-# # exec --no-startup-id dropbox start
-
-# EPIGEN_ADD_BLOCK_MATOUS }
-
-# #}
-
-# #{ DAN's customization
-
-# EPIGEN_ADD_BLOCK_DAN {
-
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_lenovo.sh'"
-
-# # # Bing LENOVO keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
-# EPIGEN_ADD_BLOCK_DAN }
-
-# #}
-
-# #{ FRANTA's customization
-
-# EPIGEN_ADD_BLOCK_FRANTA {
-
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Bing LENOVO keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # exec "setxkbmap -layout us,cz"
-# # exec "setxkbmap -option 'grp:alt_caps_toggle'"
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-
-# EPIGEN_ADD_BLOCK_FRANTA }
-
-# #}
-
-# #{ MATEJ's customization
-
-# EPIGEN_ADD_BLOCK_MATEJ {
-
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./matej_set_monitor.sh'"
-
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-
-# # # sem pis oneliner # EPIGEN_ADD_LINE_ASUS
-
-# EPIGEN_ADD_BLOCK_MATEJ }
-
-# #}
-
-# #{ NICOLAS's customization
-
-# EPIGEN_ADD_BLOCK_NICOLAS {
-
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Bind screen brightness control to DELL's special keys
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-
-# EPIGEN_ADD_BLOCK_NICOLAS }
-
-# #}
-
-# #{ PETR's customization
-
-# EPIGEN_ADD_BLOCK_PETR {
-
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-
-# # Add normie controls
-# bindsym $mod2+Left focus left
-# bindsym $mod2+Down focus down
-# bindsym $mod2+Up focus up
-# bindsym $mod2+Right focus right
-
-# bindsym $mod2+Shift+Left move left
-# bindsym $mod2+Shift+Down move down
-# bindsym $mod2+Shift+Up move up
-# bindsym $mod2+Shift+Right move right
-
-# # Desktop background
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg
-
-# # Numlock on by default
-# exec --no_startup_id numlockx on
-
-# # Fancy compton stuff
-# exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
-
-# # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
-# bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/git/linux-setup/scripts/darken.sh
-
-# # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-
-# # Smaller gaps
-# gaps inner 2
-# gaps outer 0
-
-# # Keyboard switching
-# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
-# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
-
-# # lab monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
-
-# # Fix font DPI issues caused by nvidia
-# bindsym $mod+Shift+f exec sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
-
-# EPIGEN_ADD_BLOCK_PETR }
-
-# #}
-
-# #{ PAVEL's customization
-
-# EPIGEN_ADD_BLOCK_PAVEL {
-
-# # Numlock on by default
-# exec_always --no-startup-id numlockx on
-
-# # Default keyboard US, alt+shift to switch between US and CZ
-# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
-
-# # Smaller gaps
-# gaps inner 2
-# gaps outer 0
-
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-# # Desktop background
-# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg
-# # exec_always --no-startup-id feh --bg-fill ~/Pictures/hades_red.jpg
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/`ls ~/Pictures/wallpapers | shuf -n 1`
-
-# # # #{ HP
-# # EPIGEN_ADD_BLOCK_HP {
-
-# # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
-
-# # # Bind HP screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brighten.sh
-
-# # # Toggling HP touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # Bind HP audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_HP }
-# # # #}
-
-# # #{ LENOVO
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
-
-# # # Not so fancy compton stuff
-# # exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
-
-# # # Bing LENOVO keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-# # #}
-
-# EPIGEN_ADD_BLOCK_PAVEL }
-
-# #}
-
-# #{ VIT's customization
-
-# EPIGEN_ADD_BLOCK_VIT {
-
-# # EPIGEN_ADD_BLOCK_DELL {
-
-# # # Bind screen brightness control to DELL's special keys
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-
-# # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vit_set_monitor_dell.sh'"
-
-# # EPIGEN_ADD_BLOCK_DELL }
-
-# EPIGEN_ADD_BLOCK_VIT }
-
-# #}
-
-# #{ DANIEL's customization
-
-# EPIGEN_ADD_BLOCK_DANIEL {
-
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/white.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/black.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/personal-setup/wallpapers/green.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
-
-# bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
-
-# bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./daniel_set_monitor.sh'"
-
-# bindsym $mod+F5 exec --no-startup-id amixer sset Master 5%-
-# bindsym $mod+F6 exec --no-startup-id amixer sset Master 5%+
-# bindsym $mod+F7 exec --no-startup-id amixer sset Master toggle
-# bindsym $mod+F8 exec --no-startup-id amixer sset Capture toggle
- 
-# # bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-# # bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-# # bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-
-# exec_always --no-startup-id setxkbmap -layout us,cz -variant ,bksl -option "grp:win_space_toggle"
-
-# # EPIGEN_ADD_BLOCK_DELL {
-
-# # # Bind screen brightness control to DELL's special keys
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
-
-# # # bind audio to DELL's special keys
-# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-
-# # EPIGEN_ADD_BLOCK_DELL }
-
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Wallpaper
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
-
-# # # Bing LENOVO keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioMicMute --release exec --no-startup-id amixer -D pulse sset Capture toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # exec_always --no-startup-id "xinput set-prop 12 \"Device Enabled\" 1"
-# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.35"
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-
-# # EPIGEN_ADD_BLOCK_MPD {
-
-# # # Mpd notifier
-# # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
-
-# # bindsym $mod+F11 exec --no-startup-id mpc toggle
-# # bindsym $mod+F12 exec --no-startup-id mpc next
-# # bindsym $mod+F10 exec --no-startup-id mpc prev
-
-# # EPIGEN_ADD_BLOCK_MPD }
-
-# EPIGEN_ADD_BLOCK_DANIEL }
-
-# #}
-
-# #{ LANGUAGE customization
-
-# EPIGEN_ADD_BLOCK_LANGUAGE {
-# exec "setxkbmap -layout us,cz"
-# exec "setxkbmap -option 'grp:alt_caps_toggle'"
-# EPIGEN_ADD_BLOCK_LANGUAGE }
-
-# #}
-
-# #{ SPOTIFY customization
-# EPIGEN_ADD_BLOCK_SPOTIFY {
-# # Spotify related key bindings
-# bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-# bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
-# bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-# bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-# EPIGEN_ADD_BLOCK_SPOTIFY }
-# #}
-
-# #{ VASEK's customization
-
-# EPIGEN_ADD_BLOCK_VASEK {
-
-#  # Bind ACER keyboard brightness control
-#  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-#  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-#  # Bind ACER screen brightness control
-#  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-#  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-#  # keyboard backlight modes
-#  bindsym XF86Launch3 exec --no-startup-id asusctl led-mode -n
-
-#  # fan profile
-#  bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
-
-#  # animetrix
-#  bindsym XF86Launch1 exec --no-startup-id "asusctl anime image -p ~/Dropbox/logo_conv.png -s 1.5 -x 1.0; asusctl anime -t on"
-#  bindsym $mod+XF86Launch1 exec --no-startup-id "asusctl anime -t off"
-
-#  # Toggling ACER touchpad
-#  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-#  # # Bind ACER audio control keys
-#  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-#  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-#  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-#  # Monitor setup
-#  # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
-#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vasek_set_monitor.sh'"
-
-#  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
-#  exec --no-startup-id dropbox start
-#  exec --no-startup-id /usr/bin/owncloud
-
-# EPIGEN_ADD_BLOCK_VASEK }
-
-# #}
-
-# #{ YURII's customization
-#
-# EPIGEN_ADD_BLOCK_YURII {
-##
-# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
-# bindsym $mod2+greater move workspace to output right
-# bindsym $mod2+less move workspace to output left
-
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./yurii_set_monitor.sh'"
-# bindsym $mod2+w sticky toggle
-
-# EPIGEN_ADD_BLOCK_YURII }
-#
-# #}
-
-# #{ HONZA's customization
-
-# EPIGEN_ADD_BLOCK_HONZA {
-
-# # System manager
-# # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
-
-# # Numlock on by default
-# # exec_always --no-startup-id numlockx on
-
-# # Monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
-# bindsym XF86Display exec "arandr"
-
-# # Background image
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
-# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
-# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-# # #{ LENOVO
-# # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # Not so fancy compton stuff
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
-
-# # # Bing LENOVO keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # # Bind LENOVO microhpone on/off
-# # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-# # #}
-
-# EPIGEN_ADD_BLOCK_HONZA }
-
-# #}
-
-# #{ AFZAL's customization
-
-# EPIGEN_ADD_BLOCK_AFZAL {
-
-# # Numlock on by default
-# exec_always --no-startup-id numlockx on
-
-# # Default keyboard US, alt+shift to switch between US and CZ
-# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
-
-# # Smaller gaps
-# gaps inner 2
-# gaps outer 0
-
-# # #{ ASUS 
-# # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # Toggling ASUS touchpad
-# # exec_always xinput set-prop 17 320 1
-
-# # # Bind ASUS screen brightness control
-# # bindsym $mod+F5 exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
-# # bindsym $mod+F6 exec --no-startup-id ~/.i3/brightness.sh + # decrease screen brightness
-
-# # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-# # #}
-
-# # #{ T490 Thinkpad
-# # EPIGEN_ADD_BLOCK_T490 {
-
-# # # Bind T490 audio control keys (requires pavucontrol, pulseaudio and xfce4-pulseaudio-plugin)
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_T490 }
-# # #}
-
-# EPIGEN_ADD_BLOCK_AFZAL }
-
-# #}
-
-# #{ FILIP's customization
-
-# EPIGEN_ADD_BLOCK_FILIP {
-
-# # Numlock on by default
-# # exec_always --no-startup-id numlockx on
-
-# # Default keyboard US, alt+shift to switch between US and CZ
-# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
-
-# # #{ ASUS 
-# # # EPIGEN_ADD_BLOCK_ASUS {
-
-# # # set bar background
-# # set $i3bar_bg #002456
-
-# # # run bluetooth always
-# # exec_always --no-startup-id blueman-applet
-
-# # # Toggling ASUS touchpad
-# # exec_always xinput set-prop 17 320 1
-
-# # # Bind ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-# # bindcode 253 exec xset dpms force off
-
-# # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # # Bind calculator to Calculator button
-# # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
-
-# # # Bind gnome-control-center to asus rogstrix key
-# # bindcode 156 exec gnome-control-center 
-
-# # # Bind script to set monitors
-# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
-
-# # # Bind nautilus (file manager)
-# # bindsym $mod2+e exec nautilus
-
-# # # Run Thunderbird upon startup and assign it to workspace 10
-# # exec --no-startup-id thunderbird
-# # assign [class="Thunderbird"] $workspace10 
-
-# # # Run Sticky notes upon startup
-# # exec_always --no-startup-id indicator-stickynotes
-# # assign [class="^Indicator-stickynotes$"] $workspace10 
-
-# # # #{ COLORSCHEME DARK 
-# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # # # set wallpaper
-# # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"
-# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-# # # #}
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-# # #}
-
-# # #{ LENOVO 
-# # # EPIGEN_ADD_BLOCK_LENOVO {
-
-# # # set notebook monitor as primary display
-# # exec_always xrandr --output eDP --primary
-  
-# # # run bluetooth always
-# # exec --no-startup-id blueman-applet
-
-# # # Toggling LENOVO touchpad
-# # exec_always xinput set-prop 17 320 1
-
-# # # Bind LENOVO keyboard brightness control
-# # bindsym F10 exec --no-startup-id ~/.scripts/kb-light.py -
-# # bindsym F11 exec --no-startup-id ~/.scripts/kb-light.py +
-
-# # # Bind LENOVO screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-# # # bindcode 151 exec xset dpms force off # turn screen off
-
-# # # Bind LENOVO audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # # Bind calculator to Calculator button
-# # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
-
-# # # Bind gnome-control-center to Favorites key
-# # bindsym XF86Favorites exec gnome-control-center 
-
-# # # Bind script to set monitors
-# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
-
-# # # Bind nautilus (file manager)
-# # bindsym $mod2+e exec nautilus
-
-# # # Run Thunderbird upon startup and assign it to workspace 10
-# # exec --no-startup-id thunderbird
-# # assign [class="Thunderbird"] $workspace10 
-
-# # # Run Sticky notes upon startup
-# # exec --no-startup-id indicator-stickynotes
-# # assign [class="^Indicator-stickynotes$"] $workspace10 
-
-# # # Run Zotero upon startup and assign it to workspace 9
-# # exec --no-startup-id zotero
-# # assign [class="Zotero"] $workspace9 
-
-# # # Run Teams upon startup and assign it to workspace 1
-# # exec --no-startup-id teams
-# # assign [class="Teams"] $workspace1 
-
-# # # #{ COLORSCHEME DARK 
-# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # # # set wallpaper
-# # # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"
-# # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-# # # #}
-
-# # EPIGEN_ADD_BLOCK_LENOVO }
-# # #}
-
-# # #{ RAPTURE_KEYBOARD 
-# # # EPIGEN_ADD_BLOCK_RAPTURE_KEYBOARD {
-
-# #   # Bind LENOVO screen brightness control
-# #   bindsym XF86AudioPrev exec --no-startup-id ~/.i3/brightness.sh -
-# #   bindsym XF86AudioNext exec --no-startup-id ~/.i3/brightness.sh +
-# #   bindsym XF86AudioStop exec xset dpms force off # turn screen off
-
-# #   # Bind Rapture menu key
-# #   bindsym Menu nop 
-
-# #   # Bind F1 to gnome control center
-# #   bindsym XF86Tools exec gnome-control-center 
-
-# #   # Bind F9 to go to mail
-# #   bindsym XF86Mail workspace 10
-
-# # EPIGEN_ADD_BLOCK_RAPTURE_KEYBOARD }
-# # #}
-
-# EPIGEN_ADD_BLOCK_FILIP }
-
-# #}
-
-# #{ ONDRA's customization
-
-# EPIGEN_ADD_BLOCK_ONDRA {
-
-# # Default keyboard US, win+space to switch between US and CZ
-#  exec_always --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:win_space_toggle"
-
-# # Default redshift setup
-#  exec --no-startup-id redshift -t 6500:3000 -l 50.075079:14.433410
-
-#  # audio control with external keyboard
-#  bindsym XF86AudioPlay exec playerctl play-pause
-#  bindsym XF86AudioPause exec playerctl play-pause
-#  bindsym XF86AudioNext exec playerctl next
-#  bindsym XF86AudioPrev exec playerctl previous
-
-# # #{ DESKTOP
-
-# # EPIGEN_ADD_BLOCK_DESKTOP {
-
-# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./ondra_set_monitor_desktop.sh'"
-
-# # # Bind desktop keyboard audio control
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_DESKTOP }
-
-# # #}
-
-# # #{ ASUS 
-# # # EPIGEN_ADD_BLOCK_ASUS {
- 
-# #  # Bind ASUS keyboard brightness control
-# #  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# #  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# #  # Bind ASUS screen brightness control
-# #  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# #  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# #  # Bind ASUS audio control keys
-# #  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# #  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-# #  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
-# # #}
-
-# # #{ ACER 
-# # # EPIGEN_ADD_BLOCK_ACER {
-
-##  # Monitor setup
-##  # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
-##
-##  # Bind ACER keyboard brightness control
-##  bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-##  bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-##  # Bind ACER screen brightness control
-##  bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-##  bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-##  # Toggling ACER touchpad
-##  bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-##  # # Bind ACER audio control keys
-##  bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-##  bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%-
-##  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 2%+
-
-# # EPIGEN_ADD_BLOCK_ACER }
-# # #}
-
-# EPIGEN_ADD_BLOCK_ONDRA }
 
 # #}
 
@@ -1573,12 +398,10 @@ exec --no-startup-id nm-applet
 exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
-
-# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # #}
 
@@ -1611,50 +434,6 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 # for_window [title="pythonplot"] floating disable
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# EPIGEN_ADD_BLOCK_MATEJ {
-# for_window [title="Gazebo"] move workspace $workspace9
-# for_window [class="rviz"] move workspace $workspace9
-# for_window [title="rqt_market"] move workspace $workspace9
-# EPIGEN_ADD_BLOCK_MATEJ }
-
-# EPIGEN_ADD_BLOCK_DANIEL {
-# # browser
-# for_window [class="^firefox$"] move workspace $workspace1
-# for_window [class="qutebrowser"] move workspace $workspace1
-# # cads
-# for_window [class="FreeCAD"] move workspace $workspace6
-# for_window [class="Kicad"] move workspace $workspace6
-# for_window [class="Qucs"] move workspace $workspace6
-# # media
-# for_window [class="Gimp"] move workspace $workspace7
-# for_window [class="Inkscape"] move workspace $workspace7
-# for_window [title="GIMP Startup"] move workspace $workspace6
-# for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
-# for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-# for_window [class="kdenlive"] move workspace $workspace7
-# # music
-# for_window [class="FreeTube"] move workspace $workspace8
-# for_window [class="Spotify"] move workspace $workspace8
-# for_window [class="Gnome-terminal"] move workspace $workspace8
-# # mrs
-# for_window [title="Signal"] move workspace $workspace10
-# for_window [class="Microsoft Teams"] move workspace $workspace10
-
-# EPIGEN_ADD_BLOCK_DANIEL }
-
-# EPIGEN_ADD_BLOCK_PAVEL {
-# for_window [class="firefox"] move workspace $workspace1
-# for_window [class="Google-chrome"] move workspace $workspace1
-# for_window [class="Mailspring"] move workspace $workspace10
-# for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
-# for_window [class="teams-for-linux"] move workspace $workspace6
-# for_window [class="Spotify"] move workspace $workspace7
-# for_window [class="Zotero"] move workspace $workspace8
-# EPIGEN_ADD_BLOCK_PAVEL }
-
-# assign [class="Google-chrome"] $workspace1 # EPIGEN_ADD_LINE_VOJTA
-
-# assign [class="Braved-Web-Brower"] $workspace1 # EPIGEN_ADD_LINE_AFZAL
 # #}
 
 # #{ bindings for external programs
@@ -1729,22 +508,6 @@ mode "mouse_mode" {
 
 # #}
 
-# #{ gaps resize mode
-
-mode "gaps_mode" {
-
-  bindsym plus  gaps inner all plus 5
-  bindsym minus gaps inner all minus 5
-
-  bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner all set 0" && i3-msg "gaps outer all set 0"
-  bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner all set $default_gaps_inner" && i3-msg "gaps outer all set $default_gaps_outer"
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-# #}
-
 # #{ throughput mode
 
 # is usefull for controlling i3 and tmux throught teamviewer
@@ -1788,36 +551,6 @@ mode "resize_mode" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-
-# #}
-
-# #{ SOJKA MODE
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL {
-# mode "sojka_deployment" {
-
-#   bindsym d exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'deployed' -s 1 -p 0 -g 0
-#   bindsym m exec espeak -v czech 'mega sojka' -s 1 -p 0 -g 0
-#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
-#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch initiated" -s 140 -p 20 -g 0
-
-#   bindsym Escape  mode "default"
-# }
-
-# mode "sojka_detection" {
-
-#   bindsym s exec espeak -v czech 'sojka' -s 1 -p 0 -g 0 && espeak 'detected' -s 1 -p 0 -g 0
-#   bindsym p exec espeak -v czech 'pozor sojka' -s 1 -p 0 -g 0
-#   bindsym n exec espeak 'warning' -s 140 -p 20 -g 0 && espeak "nuclear launch detected" -s 140 -p 20 -g 0
-
-#   bindsym Escape  mode "default"
-# }
-
-# bindsym $mod2+d mode "sojka_deployment"; exec --no-startup-id "notify-send 'd: deployed, m: mega, p: pozor, n: nuclear'"
-
-# bindsym $mod2+s mode "sojka_detection"; exec --no-startup-id "notify-send 's: sojka, p: pozor, n: nuclear'"
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ EPIGEN_ADD_BLOCK_PAVEL }
 
 # #}
 
