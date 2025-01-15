@@ -34,22 +34,26 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    sudo apt-get -y install pdfpc
+
+    ## | ----------------- old manual compilation ----------------- |
+
     # install prerequisities
-    sudo apt-get -y install cmake valac libgee-0.8-dev libpoppler-glib-dev \
-    libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-    libjson-glib-dev libmarkdown2-dev libwebkit2gtk-4.0-dev libsoup2.4-dev \
-    libqrencode-dev gstreamer1.0-gtk3
+    # sudo apt-get -y install cmake valac libgee-0.8-dev libpoppler-glib-dev \
+    # libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+    # libjson-glib-dev libmarkdown2-dev libwebkit2gtk-4.0-dev libsoup2.4-dev \
+    # libqrencode-dev gstreamer1.0-gtk3
 
-    # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav
+    # # use in pdfpc to play videos
+    # sudo apt-get -y install gstreamer1.0-libav
 
-    # compile and install pdfpc
-    cd $APP_PATH/../../submodules/pdfpc/
-    [ ! -e build ] && mkdir build
-    cd build
-    cmake ..
-    make
-    sudo make install
+    # # compile and install pdfpc
+    # cd $APP_PATH/../../submodules/pdfpc/
+    # [ ! -e build ] && mkdir build
+    # cd build
+    # cmake ..
+    # make
+    # sudo make install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

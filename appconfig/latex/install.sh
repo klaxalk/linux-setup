@@ -36,8 +36,6 @@ while true; do
 
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
-    sudo apt-get -y pdftk
-
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
