@@ -77,7 +77,7 @@ if g:user_mode == "1"
 
   " Shows tags in the file
   " currently mapped to F8
-  Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
+  Plug 'majutsushi/tagbar'
 
   " airline extension for tmux
   " it colors the tmuxes airline in same colors as in vim
@@ -127,44 +127,25 @@ if g:user_mode == "1"
   " try gc<motion>
   Plug 'tpope/vim-commentary'
 
-  " better highlighting for c++11/14/17
-  " Plug 'jeaye/color_coded'
-  Plug 'octol/vim-cpp-enhanced-highlight'
-  " Plug 'bfrg/vim-cpp-modern'
-  " Plug 'bbchung/clighter8'
-  " Plug 'bbchung/Clamp'
-  " let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.9.so.1'
-  " Plug 'justinmk/vim-syntax-extra'
-
-  " Thesaurus synonyms integration
-  " <leader>cs
-  Plug 'ron89/thesaurus_query.vim'
-
   " Syntax highlighting for jinja
   Plug 'lepture/vim-jinja'
 
-  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
+  " Grammar checking
+  Plug 'rhysd/vim-grammarous'
 
-"   " Grammar checking
-"   Plug 'rhysd/vim-grammarous'
+  " Papis vim integration
+  Plug 'junegunn/fzf'
+  Plug 'papis/papis-vim'
+  nnoremap <localleader>pp :Papis<cr>
+  nnoremap <localleader>pv :PapisView<cr>
 
-"   " Syntax highlighting for GLSL language
-"   Plug 'tikhomirov/vim-glsl'
+  " better 'gx' command for opening files and urls
+  " tomas uses in mail
+  Plug 'arp242/xdg_open.vim'
 
-"   " Papis vim integration
-"   Plug 'junegunn/fzf'
-"   Plug 'papis/papis-vim'
-"   nnoremap <localleader>pp :Papis<cr>
-"   nnoremap <localleader>pv :PapisView<cr>
-
-"   " better 'gx' command for opening files and urls
-"   Plug 'arp242/xdg_open.vim'
-
-"   " syntax highlight for Singularity files
-"   Plug 'biosugar0/singularity-vim'
-"   au BufRead *.def set ft=singularity
-
-  " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL }
+  " syntax highlight for Singularity/Apptainer files
+  Plug 'biosugar0/singularity-vim'
+  au BufRead *.def set ft=singularity
 
   " EPIGEN_ADD_BLOCK_DANIEL {
   " " Syntax-error highlighting
@@ -306,18 +287,8 @@ nnoremap <leader>c :call ToggleCursorLines()<cr>
 au FileType python call EnableCursorLines()
 
 " should fix colors in tmux
-if !has("nvim")
-  set term=screen-256color
-
-  cnoreabbrev vt vertical terminal
-  cnoreabbrev st terminal
-
-else
-
-  cnoreabbrev vt VTerm
-  cnoreabbrev st Term
-
-endif
+cnoreabbrev vt VTerm
+cnoreabbrev st Term
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
@@ -351,9 +322,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " remap tab navigations to shift + JK
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
 nnoremap <S-J> :tabn<cr>
-" EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 nnoremap <S-K> :tabp<cr>
 
 " allow the . to execute macro @a once for each line of a visual selection
@@ -479,12 +448,7 @@ if g:user_mode == "1"
   source ~/.config/nvim/pluginconfig/vim-airline.vim
 
   " config for startify
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   source ~/.config/nvim/pluginconfig/vim-startify.vim
-  " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
-  " source ~/.config/nvim/pluginconfig/vim-startify.vim
-  " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
   " config for nerdtree
   source ~/.config/nvim/pluginconfig/nerdtree.vim
@@ -514,7 +478,7 @@ if g:user_mode == "1"
   source ~/.config/nvim/pluginconfig/vim-tmux-runner.vim
 
   " config for vim-clang-format
- source ~/.config/nvim/pluginconfig/vim-clang-format.vim
+  source ~/.config/nvim/pluginconfig/vim-clang-format.vim
 
   " config for vim-easy-align
   source ~/.config/nvim/pluginconfig/vim-easy-align.vim
@@ -524,6 +488,9 @@ if g:user_mode == "1"
 
   " config for vim-cpp-enhanced-highlight
   source ~/.config/nvim/pluginconfig/vim-cpp-enhanced-highlight.vim
+
+  " config for epigen
+  source ~/.config/nvim/pluginconfig/epigen.vim
 
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
@@ -605,18 +572,6 @@ if g:user_mode == "1"
         \ { 'x': '~/.Xresources' },
         \ { 'z': '~/.zshrc' },
         \ ]
-
-  function! SetEpigenSyntax()
-    syn match	epigenOpeningMatch	/.\+EPIGEN_.\+(ACTIVE)\+.\+/ containedin=ALL contained
-    syn match	epigenActiveSubmatch	/ACTIVE/ containedin=ALL,epigenOpeningMatch contained
-    syn match	epigenAdd	/\<\zsEPIGEN_ADD_.\+\ze\>.*/ containedin=ALL,epigenOpeningMatch contained
-    syn match	epigenDel	/\<\zsEPIGEN_DEL_.\+\ze\>.*/ containedin=ALL,epigenOpeningMatch contained
-
-    hi def link epigenActiveSubmatch Error
-    hi def link epigenAdd Macro
-    hi def link epigenDel Constant
-  endfunction
-  autocmd BufNewFile,BufRead * call SetEpigenSyntax()
 
   " building markdown file
   au FileType md,vimwiki,markdown nnoremap <leader>m :AsyncRun ~/.scripts/md2html.sh %:p<cr>
