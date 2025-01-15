@@ -161,9 +161,6 @@ bindsym $mod+Shift+minus move scratchpad
 
 for_window [title="pdfpc"] border none floating enable
 
-# bluetooth applet
-exec --no-startup-id blueman-applet
-
 # F1 will no longer activate help of any program
 bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 
@@ -395,6 +392,9 @@ set $mode_gaps_inner inner gaps
 
 # network monitor
 exec --no-startup-id nm-applet
+
+# bluetooth applet
+exec --no-startup-id blueman-applet
 
 # load monitor configuration
 # run arandr to configure the monitors and to export the .monitor.sh file

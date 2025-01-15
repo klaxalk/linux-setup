@@ -10,3 +10,4 @@ XKBVARIANT=",qwerty"
 XKBOPTIONS="grp:rctrl_rshift_toggle,caps:escape"
 
 BACKSPACE="guess"
+XKBMODEL="pc105"
