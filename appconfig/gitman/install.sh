@@ -27,26 +27,14 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall Python? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall gitman? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install python3 python3-pip pipx python-is-python3
-
-    # install pipx using pipx
-    pipx ensurepath
-    pipx install pipx
-    sudo apt-get -y purge --autoremove pipx
-
-    # install pipx globally using the previously installed pipx
-    sudo ~/.local/bin/pipx install pipx --global
-    pipx uninstall pipx
-
-    pipx ensurepath
-    sudo pipx ensurepath --global
+    pipx install gitman
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
