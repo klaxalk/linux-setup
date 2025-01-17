@@ -69,7 +69,7 @@ if g:user_mode == "1"
   Plug 'foosoft/vim-argwrap'
 
   " python formatting
-  Plug 'hynek/vim-python-pep8-indent'
+  " Plug 'hynek/vim-python-pep8-indent'
 
   " Clever motions helper
   " highlights letters while using f, t motions
@@ -98,9 +98,6 @@ if g:user_mode == "1"
   " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
   " and vim panels... its like magic :-)
   Plug 'christoomey/vim-tmux-navigator'
-
-  " should make ultisnips work together with youcompletme
-  Plug 'ervandew/supertab'
 
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
@@ -147,18 +144,17 @@ if g:user_mode == "1"
   Plug 'biosugar0/singularity-vim'
   au BufRead *.def set ft=singularity
 
+  " Use release branch (recommended)
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " should make ultisnips work together with youcompletme
+  " Plug 'ervandew/supertab'
+
   " EPIGEN_ADD_BLOCK_DANIEL {
   " " Syntax-error highlighting
   " Plug 'vim-syntastic/syntastic'
   " EPIGEN_ADD_BLOCK_DANIEL }
 
-  if has("nvim")
-    Plug 'mklabs/split-term.vim'
-    " Plug 'arakashic/chromatica.nvim'
-    " let g:chromatica#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so'
-    " let g:chromatica#enable_at_startup=1
-    " let g:chromatica#dotclangfile_search_path=''
-  endif
 endif
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -173,7 +169,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ardagnir/united-front'
 
 " snippet completion
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
+
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " powerful targeting of text parts
@@ -344,7 +341,7 @@ set textwidth=0
 " just show the autocomplete menu
 set completeopt=longest,menuone
 
-" better escape: when naviating through suggestion menu, j and k will behave
+" better escape: when navigating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
@@ -492,6 +489,9 @@ if g:user_mode == "1"
   " config for epigen
   source ~/.config/nvim/pluginconfig/epigen.vim
 
+  " config for coc.nvim
+  source ~/.config/nvim/pluginconfig/coc.vim
+
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
 
@@ -509,7 +509,7 @@ autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
 source ~/.config/nvim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
-source ~/.config/nvim/pluginconfig/ultisnips.vim
+" source ~/.config/nvim/pluginconfig/ultisnips.vim
 
 " config for vim-commentary
 source ~/.config/nvim/pluginconfig/vim-commentary.vim

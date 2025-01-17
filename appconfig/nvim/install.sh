@@ -46,8 +46,16 @@ while true; do
     mkdir -p ~/.config/nvim
     ln -sf $APP_PATH/dotvim/* ~/.config/nvim/
 
+    # install coc.nvim dependencies
+    sudo apt-get -y install nodejs npm
+
+    # cland for c++ in coc.nvim
+    sudo apt-get -y install clangd clang-format
+
     # updated new plugins and clean old plugins
     /usr/bin/nvim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
+
+    $APP_PATH/coc/install_coc_extensions.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
