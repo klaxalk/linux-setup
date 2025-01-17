@@ -4,7 +4,6 @@
 
 let g:clang_format_tomas = {
       \ 'Standard' : 'C++11',
-      \ 'BasedOnStyle' : 'Google',
       \ 'AccessModifierOffset' : -2,
       \ 'ColumnLimit' : 160,
       \ 'MaxEmptyLinesToKeep' : 2,
@@ -39,7 +38,6 @@ let g:clang_format_tomas = {
 
 let g:clang_format_matous = {
       \ 'Standard' : 'C++11',
-      \ 'BasedOnStyle' : 'Google',
       \ 'AccessModifierOffset' : -2,
       \ 'ColumnLimit' : 160,
       \ 'MaxEmptyLinesToKeep' : 2,
@@ -77,7 +75,6 @@ let g:clang_format_matous = {
 
 let g:clang_format_petr = {
       \ 'Standard' : 'C++11',
-      \ 'BasedOnStyle' : 'Google',
       \ 'AccessModifierOffset' : -2,
       \ 'ColumnLimit' : 180,
       \ 'MaxEmptyLinesToKeep' : 3,
@@ -134,7 +131,7 @@ au BufReadPost * if getline(1) =~ "MatousFormat" | call SetMatousFormat() | endi
 " according to Petr
 au BufReadPost * if getline(1) =~ "PetrFormat" | call SetPetrFormat() | endif
 
-autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>:%s/\s\+$//e<cr>zz
+autocmd FileType c,cpp,objc nnoremap <silent> <leader>g :ClangFormat<cr>
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>

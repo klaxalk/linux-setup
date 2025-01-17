@@ -112,7 +112,7 @@ if g:user_mode == "1"
   Plug 'christoomey/vim-tmux-runner'
 
   " autoformatting c++ code
-  Plug 'https://github.com/rhysd/vim-clang-format'
+  Plug 'rhysd/vim-clang-format'
 
   " aligning stuff
   Plug 'junegunn/vim-easy-align'
@@ -129,6 +129,9 @@ if g:user_mode == "1"
 
   " Grammar checking
   Plug 'rhysd/vim-grammarous'
+
+  " Git integration
+  Plug 'tpope/vim-fugitive'
 
   " Papis vim integration
   Plug 'junegunn/fzf'
@@ -406,8 +409,6 @@ map <Leader>lv :lv //g ./**/*<c-f>^f/a
 " sending lines of code to matlab
 au BufNewFile,BufRead *.m map <Leader>. :VtrSendLinesToRunner<cr>
 
-" nnoremap <leader>so :so ~/.vimrc<cr>
-
 " remap upper case saving and quitting to lower case
 command! WQ wq
 command! Wq wq
@@ -416,13 +417,6 @@ command! Q q
 
 " set default listchars
 set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:.
-
-" set listchars for planner scripts
-au BufNewFile,BufRead *.pln set list
-au BufNewFile,BufRead *.pln set listchars=tab:▸▸
-
-au BufNewFile,BufRead *.shadron set filetype=cpp
-au BufNewFile,BufRead *.tpp set filetype=cpp
 
 " those will be ignored by and vimgrep
 set wildignore+=*/Downloads/**,*/Desktop/**,*/build/**
