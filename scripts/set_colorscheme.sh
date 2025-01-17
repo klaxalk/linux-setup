@@ -35,7 +35,7 @@ elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
   HEADLESS=""
 fi
 
-# change the variable in bashrc
+# change the variable in shell RC file
 $VIM_BIN -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" $HEADLESS -E -s -c "%g/.*PROFILES.*COLORSCHEME.*/norm ^/COLORSCHEMEciwCOLORSCHEME_$COLOR_SCHEME" -c "wqa" -- "$RCFILE"
 
 source $RCFILE
