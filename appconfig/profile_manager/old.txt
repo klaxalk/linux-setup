@@ -1,2 +1,3 @@
 $GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s
 $GIT_PATH/linux-setup/appconfig/silver_searcher/dotignore, ~/.ignore, \#\ %s
+$GIT_PATH/linux-setup/appconfig/nvim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/nvim/dotvim/UltiSnips/athame.snippets, \#\ %s
