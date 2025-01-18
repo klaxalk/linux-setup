@@ -13,4 +13,3 @@ $GIT_PATH/linux-setup/appconfig/zathura/zathurarc, ~/.config/zathura/zathurarc, 
 $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vimwiki_git.vim, $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vimwiki.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vim-clang-format_git.vim, $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vim-clang-format.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vim-startify_git.vim, $GIT_PATH/linux-setup/appconfig/nvim/dotvim/pluginconfig/vim-startify.vim, \"\ %s
-$GIT_PATH/linux-setup/appconfig/ranger/rc.conf_git, $GIT_PATH/linux-setup/appconfig/ranger/rc.conf, \#\ %s
