@@ -85,3 +85,6 @@
 [submodule "submodules/pdfpc"]
 	path = submodules/pdfpc
 	url = https://github.com/pdfpc/pdfpc.git
+[submodule "submodules/i3blocks-contrib"]
+	path = submodules/i3blocks-contrib
+	url = https://github.com/vivien/i3blocks-contrib

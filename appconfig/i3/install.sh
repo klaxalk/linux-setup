@@ -33,10 +33,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install i3-wm i3blocks i3lock
+    sudo apt-get -y install i3-wm i3blocks i3lock rofi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ]; # if running interactively
     then
@@ -87,9 +87,13 @@ while true; do
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
     # install useful gui utils
-    sudo apt-get -y install rofi compton systemd
+    sudo apt-get -y install compton systemd
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
+
+    if [ ! -e ~/config/rofi ]; then
+      mkdir -p ~/config/rofi
+    fi
 
     # disable nautilus
     # gsettings set org.gnome.desktop.background show-desktop-icons false

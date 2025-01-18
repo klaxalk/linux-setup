@@ -2,6 +2,7 @@ $GIT_PATH/linux-setup/appconfig/i3/doti3/config_git, ~/.i3/config, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/doti3/i3blocks.conf_git, ~/.i3/i3blocks.conf, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery, \#\ %s
+$GIT_PATH/linux-setup/appconfig/i3/rofi/config.rasi, ~/.config/rofi/config.rasi, \/\/\ %s
 $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources, \!\ %s
 $GIT_PATH/linux-setup/appconfig/nvim/dotvimrc, ~/.config/nvim/init.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf, \#\ %s
