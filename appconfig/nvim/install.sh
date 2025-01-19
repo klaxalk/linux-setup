@@ -55,7 +55,11 @@ while true; do
     # updated new plugins and clean old plugins
     /usr/bin/nvim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
-    $APP_PATH/coc/install_coc_extensions.sh
+    # link the ultisnips snippets
+    [ -e ~/.config/coc/ultisnips ] && rm -rf ~/.config/coc/ultisnips
+    ln -sf $APP_PATH/ultisnips ~/.config/coc
+
+echo "All extensions installed!"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

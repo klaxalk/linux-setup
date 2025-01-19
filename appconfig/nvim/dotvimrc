@@ -147,8 +147,19 @@ if g:user_mode == "1"
   Plug 'biosugar0/singularity-vim'
   au BufRead *.def set ft=singularity
 
+  let g:coc_global_extensions = [
+        \ 'coc-ultisnips',
+        \ 'coc-json',
+        \ 'coc-tsserver',
+        \ 'coc-html',
+        \ 'coc-css',
+        \ 'coc-yaml',
+        \ 'coc-highlight',
+        \ 'coc-angular'
+        \ ]
+
   " Use release branch (recommended)
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
 
   " should make ultisnips work together with youcompletme
   " Plug 'ervandew/supertab'
