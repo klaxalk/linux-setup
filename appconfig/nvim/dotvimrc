@@ -147,19 +147,37 @@ if g:user_mode == "1"
   Plug 'biosugar0/singularity-vim'
   au BufRead *.def set ft=singularity
 
+  " function! InitializeCoc()
+  "   call coc#util#install()
+  "   call coc#util#install_extensions([
+  "     \ 'coc-ultisnips',
+  "     \ 'coc-json',
+  "     \ 'coc-tsserver',
+  "     \ 'coc-html',
+  "     \ 'coc-yaml',
+  "     \ 'coc-pyright',
+  "     \ 'coc-clangd',
+  "     \ 'coc-sh',
+  "     \ 'coc-snippets',
+  "     \ 'coc-cmake',
+  "     \ ])
+  " endfunction
+
   let g:coc_global_extensions = [
-        \ 'coc-ultisnips',
-        \ 'coc-json',
-        \ 'coc-tsserver',
-        \ 'coc-html',
-        \ 'coc-css',
-        \ 'coc-yaml',
-        \ 'coc-highlight',
-        \ 'coc-angular'
-        \ ]
+       \ 'coc-ultisnips',
+       \ 'coc-json',
+       \ 'coc-tsserver',
+       \ 'coc-html',
+       \ 'coc-yaml',
+       \ 'coc-pyright',
+       \ 'coc-clangd',
+       \ 'coc-sh',
+       \ 'coc-snippets',
+       \ 'coc-cmake',
+   \]
 
   " Use release branch (recommended)
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " should make ultisnips work together with youcompletme
   " Plug 'ervandew/supertab'
