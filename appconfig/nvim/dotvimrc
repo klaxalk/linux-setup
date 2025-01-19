@@ -147,22 +147,7 @@ if g:user_mode == "1"
   Plug 'biosugar0/singularity-vim'
   au BufRead *.def set ft=singularity
 
-  " function! InitializeCoc()
-  "   call coc#util#install()
-  "   call coc#util#install_extensions([
-  "     \ 'coc-ultisnips',
-  "     \ 'coc-json',
-  "     \ 'coc-tsserver',
-  "     \ 'coc-html',
-  "     \ 'coc-yaml',
-  "     \ 'coc-pyright',
-  "     \ 'coc-clangd',
-  "     \ 'coc-sh',
-  "     \ 'coc-snippets',
-  "     \ 'coc-cmake',
-  "     \ ])
-  " endfunction
-
+  " the extensions will be automatically installed when vim runs for the first
   let g:coc_global_extensions = [
        \ 'coc-ultisnips',
        \ 'coc-json',

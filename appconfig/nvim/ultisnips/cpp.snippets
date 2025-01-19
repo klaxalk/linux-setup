@@ -281,16 +281,11 @@ endsnippet
 
 snippet "2(info|warn|err|deb)(t|s|o)?(t|s)?" "" r
 `!p
-snip.rv=ros2_info()+"(this->get_logger(), "
+snip.rv=ros2_info()+"(get_logger(), "
 ``!p
 if (match.group(2) == "t") or (match.group(3) == "t") :
 	snip.rv="1.0, "
-`"`!p
-is_plugin = file_is_ros2_plugin()
-if is_plugin:
-	snip.rv='['+get_class_name()+']'
-else:
-	snip.rv="[%s]"`: ${1}"`!p
+`"${1}"`!p
 if "%" in t[1]:
 	snip.rv=", "
 else:
