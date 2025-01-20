@@ -164,6 +164,9 @@ if g:user_mode == "1"
   " Use release branch (recommended)
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  " Automatically close brackets and quotes
+  Plug 'm4xshen/autoclose.nvim', {'branch': 'main'}
+
   " should make ultisnips work together with youcompletme
   " Plug 'ervandew/supertab'
 
@@ -499,6 +502,9 @@ if g:user_mode == "1"
 
   " config for coc.nvim
   source ~/.config/nvim/pluginconfig/coc.vim
+
+  " config for autoclose.nvim
+  source ~/.config/nvim/pluginconfig/autoclose.vim
 
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
