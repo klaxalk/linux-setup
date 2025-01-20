@@ -2,29 +2,55 @@
 " diagnostics appear/become resolved
 set signcolumn=yes
 
+function! CockComplete()
+
+  if coc#pum#visible()
+    return coc#_select_confirm()
+  endif
+
+  if coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+  endif
+
+  return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+endfunction
+
+function! CockDown()
+
+  if coc#pum#visible()
+    return coc#pum#next(1)
+  endif
+
+  if CheckBackspace()
+    return "\<TAB>"
+  endif
+
+  return coc#refresh()
+
+endfunction
+
+function! CockUp()
+
+  if coc#pum#visible()
+    return coc#pum#prev(1)
+  endif
+
+  return "\<C-h>"
+
+endfunction
+
 " completion using <TAB> (works for snippets too)
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
+inoremap <silent><expr> <TAB> CockComplete()
+inoremap <silent><expr> <CR> CockComplete()
+inoremap <silent><expr> <C-l> CockComplete()
+inoremap <silent><expr> <S-l> CockComplete()
 
 " motion "down" in the popup menu
-inoremap <silent><expr> <C-j>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+inoremap <silent><expr> <C-j> CockDown()
 
 " motion "up" in the popup menu
-inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" completion using ctrl-l
-inoremap <silent><expr> <C-l> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" completion using shift-l
-inoremap <silent><expr> <S-l> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr><C-k> CockUp()
 
 let g:coc_snippet_next = '<S-l>'
 
