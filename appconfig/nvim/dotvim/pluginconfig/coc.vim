@@ -2,7 +2,7 @@
 " diagnostics appear/become resolved
 set signcolumn=yes
 
-function! CockComplete()
+function! CocComplete()
 
   if coc#pum#visible()
     return coc#_select_confirm()
@@ -16,7 +16,7 @@ function! CockComplete()
 
 endfunction
 
-function! CockDown()
+function! CocDown()
 
   if coc#pum#visible()
     return coc#pum#next(1)
@@ -30,7 +30,7 @@ function! CockDown()
 
 endfunction
 
-function! CockUp()
+function! CocUp()
 
   if coc#pum#visible()
     return coc#pum#prev(1)
@@ -41,20 +41,19 @@ function! CockUp()
 endfunction
 
 " completion using <TAB> (works for snippets too)
-inoremap <silent><expr> <TAB> CockComplete()
-inoremap <silent><expr> <CR> CockComplete()
-inoremap <silent><expr> <C-l> CockComplete()
-inoremap <silent><expr> <S-l> CockComplete()
+inoremap <silent><expr> <TAB> CocComplete()
+inoremap <silent><expr> <CR> CocComplete()
+inoremap <silent><expr> <C-l> CocComplete()
 
 " motion "down" in the popup menu
-inoremap <silent><expr> <C-j> CockDown()
+inoremap <silent><expr> <C-j> CocDown()
 
 " motion "up" in the popup menu
-inoremap <expr><C-k> CockUp()
+inoremap <expr><C-k> CocUp()
 
-let g:coc_snippet_next = '<S-l>'
+let g:coc_snippet_next = '<C-l>'
 
-let g:coc_snippet_prev = '<S-h>'
+let g:coc_snippet_prev = '<C-h>'
 
 map <Leader>u :CocCommand snippets.editSnippets<CR>
 

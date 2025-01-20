@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required by Vundle
+set nocompatible
 set t_Co=256                  " 256 colors
 set encoding=utf-8
 set lazyredraw
@@ -151,7 +151,6 @@ if g:user_mode == "1"
   let g:coc_global_extensions = [
        \ 'coc-ultisnips',
        \ 'coc-json',
-       \ 'coc-tsserver',
        \ 'coc-html',
        \ 'coc-yaml',
        \ 'coc-pyright',
@@ -159,6 +158,7 @@ if g:user_mode == "1"
        \ 'coc-sh',
        \ 'coc-snippets',
        \ 'coc-cmake',
+       \ 'coc-vimlsp',
    \]
 
   " Use release branch (recommended)
