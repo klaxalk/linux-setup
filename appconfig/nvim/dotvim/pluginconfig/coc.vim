@@ -2,7 +2,7 @@
 " diagnostics appear/become resolved
 set signcolumn=yes
 
-function! CocComplete()
+function! CocCompleteTab()
 
   if coc#pum#visible()
     return coc#_select_confirm()
@@ -12,7 +12,35 @@ function! CocComplete()
     return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
   endif
 
-  return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  return "\<TAB>"
+
+endfunction
+
+function! CocCompleteEnter()
+
+  if coc#pum#visible()
+    return coc#_select_confirm()
+  endif
+
+  if coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+  endif
+
+  return "\<CR>"
+
+endfunction
+
+function! CocCompleteNormal()
+
+  if coc#pum#visible()
+    return coc#_select_confirm()
+  endif
+
+  if coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+  endif
+
+  return "\<C-l>"
 
 endfunction
 
@@ -41,9 +69,9 @@ function! CocUp()
 endfunction
 
 " completion using <TAB> (works for snippets too)
-inoremap <silent><expr> <TAB> CocComplete()
-inoremap <silent><expr> <CR> CocComplete()
-inoremap <silent><expr> <C-l> CocComplete()
+inoremap <silent><expr> <CR> CocCompleteEnter()
+inoremap <silent><expr> <TAB> CocCompleteTab()
+inoremap <silent><expr> <C-l> CocCompleteNormal()
 
 " motion "down" in the popup menu
 inoremap <silent><expr> <C-j> CocDown()
