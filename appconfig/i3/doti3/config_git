@@ -235,7 +235,15 @@ bar {
   # EPIGEN_ADD_BLOCK_TOMAS {
 
 #   # EPIGEN_ADD_BLOCK_ASUS {
-# #   font pango: Inconsolata, FontAwesome 10
+
+# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+# # #   font pango: Inconsolata, FontAwesome 15
+# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+
+# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+# #   # font pango: Inconsolata, FontAwesome 15
+# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
+
 #   # EPIGEN_ADD_BLOCK_ASUS }
 
   # EPIGEN_ADD_BLOCK_TOMAS }
@@ -340,7 +348,7 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
-# # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_asus.sh'"
 
 # # # toggle touchpad tapping
 # # bindsym $mod+t exec ~/.scripts/toggle_touchpad_tapping.sh "ASUE120A:00 04F3:327D Touchpad"

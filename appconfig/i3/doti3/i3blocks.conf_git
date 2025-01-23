@@ -28,207 +28,7 @@ command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS {
-
-# # [git_check]
-# # label= 
-# # interval=600
-# # command=$HOME/.i3/detacher.sh 1 'cd ~/.scripts/; ./git_check.sh'
-# # color=#FF0000
-
-# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_TOMAS }
-
-# EPIGEN_DEL_BLOCK_GPD {
-
-[1]
-command=ping -c 1 192.168.69.101 >> /dev/null && echo 'uav1' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[2]
-command=ping -c 1 192.168.69.102 >> /dev/null && echo 'uav2' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[3]
-command=ping -c 1 192.168.69.103 >> /dev/null && echo 'uav3' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[4]
-command=ping -c 1 192.168.69.104 >> /dev/null && echo 'uav4' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[5]
-command=ping -c 1 192.168.69.105 >> /dev/null && echo 'uav5' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[6]
-command=ping -c 1 192.168.69.106 >> /dev/null && echo 'uav6' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[7]
-command=ping -c 1 192.168.69.107 >> /dev/null && echo 'uav7' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[8]
-command=ping -c 1 192.168.69.108 >> /dev/null && echo 'uav8' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[9]
-command=ping -c 1 192.168.69.109 >> /dev/null && echo 'uav9' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[10]
-command=ping -c 1 192.168.69.110 >> /dev/null && echo 'uav10' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[11]
-command=ping -c 1 192.168.69.111 >> /dev/null && echo 'uav11' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[12]
-command=ping -c 1 192.168.69.112 >> /dev/null && echo 'uav12' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[13]
-command=ping -c 1 192.168.69.113 >> /dev/null && echo 'uav13' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[14]
-command=ping -c 1 192.168.69.114 >> /dev/null && echo 'uav14' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[15]
-command=ping -c 1 192.168.69.115 >> /dev/null && echo 'uav15' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[16]
-command=ping -c 1 192.168.69.116 >> /dev/null && echo 'uav16' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[17]
-command=ping -c 1 192.168.69.117 >> /dev/null && echo 'uav17' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[18]
-command=ping -c 1 192.168.69.118 >> /dev/null && echo 'uav18' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[19]
-command=ping -c 1 192.168.69.119 >> /dev/null && echo 'uav19' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[20]
-command=ping -c 1 192.168.69.120 >> /dev/null && echo 'uav20' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[21]
-command=ping -c 1 192.168.69.121 >> /dev/null && echo 'uav21' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[22]
-command=ping -c 1 192.168.69.122 >> /dev/null && echo 'uav22' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[23]
-command=ping -c 1 192.168.69.123 >> /dev/null && echo 'uav23' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[24]
-command=ping -c 1 192.168.69.124 >> /dev/null && echo 'uav24' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-[25]
-command=ping -c 1 192.168.69.125 >> /dev/null && echo 'uav25' || echo ""
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=10
-separator=true
-
-# EPIGEN_DEL_BLOCK_GPD }
-
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS {
-
-# [alfa]
-# command=ping -c 1 alfa >> /dev/null && echo 'alfa' || echo ""
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=5
-# separator=true
-
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_TOMAS }
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_YURII {
+# EPIGEN_ADD_BLOCK_TOMAS {
 
 # [notes]
 # command=~/git/notes/save_and_update.sh
@@ -237,20 +37,12 @@ separator=true
 # interval=60
 # separator=true
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_YURII }
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN {
-
 # [mail]
 # command=~/git/mail/scripts/i3/i3bar_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=300
 # separator=true
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN }
-
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_VIT {
 
 # [bibliography]
 # command=~/git/bibliography/save_and_update.sh
@@ -259,459 +51,26 @@ separator=true
 # interval=60
 # separator=true
 
-# EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_VIT }
-
-# #{ Matej's customization
-
-# EPIGEN_ADD_BLOCK_MATEJ {
-
-# [mediaplayer]
-# instance=spotify
-# interval=5
-# signal=10
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_temperature]
-# interval=5
-# label=CPU: 
-# command=~/.i3/show_temp.sh 0  
-# # EPIGEN_ADD_BLOCK_SUPERNUC {
-# # command=echo `sensors | grep 'Core 0' | cut -c17-23`
-# # EPIGEN_ADD_BLOCK_SUPERNUC }
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_usage]
-# interval=3
-# format=%usage
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [load]
-# interval=5
-# label= 
-# command=cat /proc/loadavg | cut -d' ' -f1-3
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# separator=true
-
-# [memory]
-# label=RAM 
-# interval=30
-# command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [disk]
-# label=SSD 
-# interval=30
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [iface]
-# instance=eth0
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=10
-# label= 
-
-# [iface]
-# instance=wlo1
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=10
-# label= 
-# separator=false
-
-# [online-status]
-# command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
-# color=#FF0000
-# interval=20
-# separator=false
-
-# [bandwidth]
-# label= 
-# interval=1
-# separator=true
-# min_width=90
-# INLABEL= 
-# OUTLABEL= 
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [volume]
-# label= 
-# instance=Master
-# interval=1
-# signal=5
-# command=~/.i3/show_volume.sh
-# separator=true 
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [battery]
-# label=⚡ 
-# instance=0
-# interval=30
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [keyboard]
-# label= 
-# interval=2
-# command=~/.i3/show_keyboard_layout.sh
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# separator=true 
-
-# [weather]
-# instance=3067696
-# interval=5
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# EPIGEN_ADD_BLOCK_MATEJ }
-
-# #}
-
-# #{ ONDRA's customization
-
-# EPIGEN_ADD_BLOCK_ONDRA {
-
-# [mediaplayer]
-# instance=spotify
-# interval=5
-# signal=10
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_usage]
-# label=CPU: 
-# interval=3
-# format=%usage
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_frequency]
-# interval=3
-# command=~/.i3/show_cpu_freq.sh
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_temperature]
-# interval=5
-# command=~/.i3/show_temp.sh 0  
-# # EPIGEN_ADD_BLOCK_SUPERNUC {
-# # command=echo `sensors | grep 'Core 0' | cut -c17-23`
-# # EPIGEN_ADD_BLOCK_SUPERNUC }
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# # EPIGEN_ADD_BLOCK_DESKTOP {
-# # [gpu]
-# # label=GPU: 
-# # interval=3
-# # command=$HOME/.i3/show_gpu_load.sh
-# # min_width=70
-# # separator=false
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# # [gpu_free_memory]
-# # interval=3
-# # command=$HOME/.i3/show_gpu_mem.sh
-# # # min_width=80
-# # separator=false
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# # [gpu_temperature]
-# # interval=3
-# # command=$HOME/.i3/show_gpu_temp.sh
-# # # min_width=80
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_DESKTOP }
-
-# [load]
-# interval=5
-# label= 
-# command=cat /proc/loadavg | cut -d' ' -f1-3
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# separator=true
-
-# [memory]
-# label=MEM 
-# separator=false
-# interval=30
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [memory]
-# label=SWAP 
-# instance=swap
-# separator=false
-# interval=30
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# separator=true
-
-# [disk]
-# label=SSD 
-# interval=30
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [iface]
-# instance=eth0
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=10
-# label= 
-
-# [iface]
-# instance=wlo1
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=10
-# label= 
-# separator=false
-
-# [online-status]
-# command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
-# color=#FF0000
-# interval=20
-# separator=false
-
-# [bandwidth]
-# label= 
-# interval=1
-# separator=true
-# min_width=90
-# INLABEL= 
-# OUTLABEL= 
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [volume]
-# label= 
-# instance=Master
-# interval=1
-# signal=5
-# command=~/.i3/show_volume.sh
-# separator=true 
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# # EPIGEN_ADD_BLOCK_ASUS EPIGEN_ADD_BLOCK_ACER {
-# # [battery]
-# # label=⚡ 
-# # instance=0
-# # interval=30
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_ASUS EPIGEN_ADD_BLOCK_ACER }
-
-# [keyboard]
-# label= 
-# interval=2
-# command=~/.i3/show_keyboard_layout.sh
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# separator=true 
-
-# [weather]
-# instance=3067696
-# interval=5
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# EPIGEN_ADD_BLOCK_ONDRA }
-
-# #}
-
-# EPIGEN_ADD_BLOCK_MPD {
-# [mpd]
-# interval=1
-# label=MPD
-# command=~/git/linux-setup/scripts/mpd_indicator.sh
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_MPD }
-
-# EPIGEN_ADD_BLOCK_MATOUS {
-# [cputemp]
-# interval=2
-# label=CPU 
-# command=sensors | grep 'Package id 0' | cut -c17-25
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [music]
-# interval=1
-# label=Music 
-# command=playerctl --player=spotify,%any metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_MATOUS }
-
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL {
-# [cputemp]
-# interval=2
-# label=CPU 
-# command=~/.i3/show_temp.sh 0
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_DANIEL }
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # [cputemp]
-# # interval=2
-# # label=CPU 
-# # # EPIGEN_ADD_BLOCK_DELL {
-# # # command=~/.i3/show_temp.sh 7
-# # # EPIGEN_ADD_BLOCK_DELL }
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-# #{ Pavel's and Vojta's customization
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-
-# # EPIGEN_ADD_BLOCK_SPOTIFY {
-# # [mediaplayer]
-# # instance=spotify
-# # interval=5
-# # signal=10
-# # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_SPOTIFY }
-
-# [cpu_temperature]
-# interval=5
-# label=CPU: 
-# command=~/.i3/show_temp.sh 0  
-# # EPIGEN_ADD_BLOCK_SUPERNUC {
-# # command=echo `sensors | grep 'Core 0' | cut -c17-23`
-# # EPIGEN_ADD_BLOCK_SUPERNUC }
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_usage]
-# interval=3
-# format=%usage
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [cpu_frequency]
-# interval=3
-# command=~/.i3/show_cpu_freq.sh
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [disk]
-# label=SSD 
-# interval=30
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [memory]
-# label=RAM 
-# separator=false
-# interval=30
-# command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
-
-# EPIGEN_ADD_BLOCK_PAVEL {
-# [memory]
-# label=SWP 
-# instance=swap
-# interval=10
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_PAVEL }
-
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# [volume]
-# label= 
-# instance=Master
-# interval=1
-# signal=5
-# command=~/.i3/show_volume.sh
-# # EPIGEN_DEL_BLOCK_SUPERNUC {
-# separator=false 
-# # EPIGEN_DEL_BLOCK_SUPERNUC }
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# # EPIGEN_DEL_BLOCK_SUPERNUC {
-# [battery]
-# label= 
-# instance=0
-# interval=30
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-# [brightness]
-# label= 
-# instance=0
-# interval=5
-# command=light | awk '{printf "%d%", $1}'
-# separator=true
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_DEL_BLOCK_SUPERNUC }
-
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
-# #}
-
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [load]
 interval=5
 label= 
 command=cat /proc/loadavg | cut -d' ' -f1-3
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 
-# EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [iface]
 instance=eth0
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label= 
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# separator=false
-# # EPIGEN_ADD_BLOCK_LENOVO {
-# # instance=eth1
-# # EPIGEN_ADD_BLOCK_LENOVO }
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 [iface]
 instance=wlan0
@@ -719,25 +78,17 @@ instance=wlan0
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label= 
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# separator=false
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 [online-status]
 command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
 color=#FF0000
 interval=20
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# separator=false
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
-# EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [volume]
 label=VOL 
 label=♪ 
@@ -748,7 +99,6 @@ signal=10
 command=~/.i3/show_volume.sh
 # olor=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 # Memory usage
 #
@@ -769,89 +119,45 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [disk]
 label=SSD 
 #instance=/mnt/data
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
 [wifi]
 instance=wlan0
 label= 
 interval=10
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# separator=false
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# [bandwidth]
-# label= 
-# interval=1
-# separator=true
-# INLABEL= 
-# OUTLABEL= 
-# # EPIGEN_ADD_BLOCK_LENOVO {
-# # TREAT_UNKNOWN_AS_UP=1
-# # EPIGEN_ADD_BLOCK_LENOVO }
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[cpu_usage]
-#label=CPU 
-#interval=1
-#min_width=CPU: 100.00%
-##separator=false
+[bandwidth]
+label= 
+interval=1
+separator=true
+INLABEL= 
+OUTLABEL= 
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [battery]
 label=⚡ 
 instance=0
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
-# EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
 [keyboard]
 label= 
 interval=2
 command=~/.i3/show_keyboard_layout.sh
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
-
-# EPIGEN_ADD_BLOCK_GPU {
-# [gpu]
-# label=GPU 
-# interval=10
-# command=$HOME/.i3/show_active_gpu.sh
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_ADD_BLOCK_GPU }
-
-# Rough weather information
-# Check on http://openweathermap.org/find to find your location (default: Prague CZ == 3067696)
-# # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
-# [weather]
-# instance=3067696
-# interval=5
-# separator=false
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
 # Date Time
 #

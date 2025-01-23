@@ -14,8 +14,8 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! EPIGEN_ADD_BLOCK_ASUS {
 
-! ! Xft.dpi: 140
-! ! ! Xft.dpi: 90
+! ! ! Xft.dpi: 90 # EPIGEN_ADD_LINE_MONITOR_LAB
+! ! ! Xft.dpi: 140 # EPIGEN_ADD_LINE_MONITOR_STANDALONE
 ! ! URxvt.font: xft:Roboto Mono for Powerline:size=12
 
 ! ! EPIGEN_ADD_BLOCK_ASUS }
