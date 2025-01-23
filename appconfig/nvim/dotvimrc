@@ -1,25 +1,25 @@
 set nocompatible
-set t_Co=256                  " 256 colors
+set t_Co=256
 set encoding=utf-8
 set lazyredraw
 
 " detects how was vim started... 1=manually, 0=other (athame)
 let g:user_mode = get(g:, 'user_mode', "0")
-
 let g:mail_mode = get(g:, 'mail_mode', "0")
 
-" if in diff, set user mode to 1
+" when running if in diff mode, set special settings
 if &diff
   let g:user_mode = 1
 endif
 
-" set athame filetype
-if g:user_mode == "0"
-  set filetype=athame
-endif
-
+" when editing mail, use special configs settings
 if g:mail_mode == "1"
   set filetype=mail
+endif
+
+" when running inside athame, set special settings
+if g:user_mode == "0"
+  set filetype=athame
 endif
 
 call plug#begin("~/.config/nvim/plugged")
@@ -67,9 +67,6 @@ if g:user_mode == "1"
   " automatic function argument reformatting
   " mapped to leader+w
   Plug 'foosoft/vim-argwrap'
-
-  " python formatting
-  " Plug 'hynek/vim-python-pep8-indent'
 
   " Clever motions helper
   " highlights letters while using f, t motions
@@ -124,9 +121,6 @@ if g:user_mode == "1"
   " try gc<motion>
   Plug 'tpope/vim-commentary'
 
-  " Syntax highlighting for jinja
-  Plug 'lepture/vim-jinja'
-
   " Grammar checking
   Plug 'rhysd/vim-grammarous'
 
@@ -160,6 +154,7 @@ if g:user_mode == "1"
        \ 'coc-snippets',
        \ 'coc-cmake',
        \ 'coc-vimlsp',
+       \ 'coc-htmldjango',
    \]
 
   " Use release branch (recommended)
@@ -167,14 +162,6 @@ if g:user_mode == "1"
 
   " Automatically close brackets and quotes
   Plug 'm4xshen/autoclose.nvim', {'branch': 'main'}
-
-  " should make ultisnips work together with youcompletme
-  " Plug 'ervandew/supertab'
-
-  " EPIGEN_ADD_BLOCK_DANIEL {
-  " " Syntax-error highlighting
-  " Plug 'vim-syntastic/syntastic'
-  " EPIGEN_ADD_BLOCK_DANIEL }
 
 endif
 
@@ -510,10 +497,6 @@ if g:user_mode == "1"
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
 
-  " EPIGEN_ADD_BLOCK_DANIEL {
-  " source ~/.config/nvim/pluginconfig/syntastic.vim
-  " EPIGEN_ADD_BLOCK_DANIEL }
-
 endif
 
 " %:p:h path
@@ -522,9 +505,6 @@ autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
 
 " config for vim-multiple-cursors
 source ~/.config/nvim/pluginconfig/vim-multiple-cursors.vim
-
-" config for UltiSnips
-" source ~/.config/nvim/pluginconfig/ultisnips.vim
 
 " config for vim-commentary
 source ~/.config/nvim/pluginconfig/vim-commentary.vim
