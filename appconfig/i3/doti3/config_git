@@ -164,7 +164,7 @@ set $urgent                   #ff0000
 
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
@@ -255,16 +255,6 @@ bar {
   # the default option
   set $i3bar_bg #121212FF
 
-  # #{ TOMAS's i3bar bg
-
-  # EPIGEN_ADD_BLOCK_TOMAS {
-  # # EPIGEN_ADD_BLOCK_ASUS {
-  # # set $i3bar_bg #121212FF
-  # # EPIGEN_ADD_BLOCK_ASUS }
-  # EPIGEN_ADD_BLOCK_TOMAS }
-
-  # #}
-
   # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
 
   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -293,13 +283,7 @@ bar {
 
 # #{ i3-gaps settings
 
-smart_gaps on # EPIGEN_DEL_LINE_TOMAS
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
-# smart_gaps on
-# # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
-# EPIGEN_ADD_BLOCK_TOMAS }
+smart_gaps on
 
 set $default_gaps_inner 12
 set $default_gaps_outer 0
@@ -320,7 +304,12 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # # EPIGEN_ADD_BLOCK_ASUS {
-# # font pango: Inconsolata 12
+# # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+# # # font pango: Inconsolata 15
+# # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+# # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+# # # font pango: Inconsolata 15
+# # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # # font pango: LiberationMono 12
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -402,30 +391,13 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disable
 for_window [title="^Figure"] floating disable
-for_window [title="market"] floating disable
 for_window [instance="scratchpadurxvt"] move scratchpad
-# for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="float_pls"] floating enable
-# for_window [class="^Gimp$"] move workspace $workspace9
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 for_window [class="matplotlib"] floating enable
 for_window [title="pdfpc"] border none floating disable
 for_window [title="pythonplot"] floating disable
-
-# #}
-
-# #{ bindings for external programs
-
-# Bindings for Gazebo simulator
-bindsym $mod2+1 exec --no-startup-id gz camera -c gzclient_camera -f uav1
-bindsym $mod2+2 exec --no-startup-id gz camera -c gzclient_camera -f uav2
-bindsym $mod2+3 exec --no-startup-id gz camera -c gzclient_camera -f uav3
-bindsym $mod2+4 exec --no-startup-id gz camera -c gzclient_camera -f uav4
-bindsym $mod2+5 exec --no-startup-id gz camera -c gzclient_camera -f uav5
-bindsym $mod2+p exec --no-startup-id gz world -p 1
-bindsym $mod2+u exec --no-startup-id gz world -p 0
-bindsym $mod2+i exec --no-startup-id gz world -m 100
 
 # #}
 
