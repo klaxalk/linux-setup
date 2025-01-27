@@ -211,6 +211,10 @@ for_window [class="^.*"] border pixel 3
 
 hide_edge_borders both
 
+# #}
+
+# #{ i3-bar settings
+
 # window colors
 #                       border                    background            text                  indicator
 client.focused          $active_border            $active_background    $active_text_color    $split_indicator
@@ -281,6 +285,8 @@ bar {
 
 }
 
+# #}
+
 # #{ i3-gaps settings
 
 smart_gaps on
@@ -297,8 +303,6 @@ set $mode_gaps_inner inner gaps
 
 # #}
 
-# #}
-
 # #{ TOMAS's customization
 
 # EPIGEN_ADD_BLOCK_TOMAS {
@@ -308,7 +312,7 @@ set $mode_gaps_inner inner gaps
 # # # font pango: Inconsolata 15
 # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 # # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# # # font pango: Inconsolata 15
+# # # font pango: Inconsolata 10
 # # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # # font pango: LiberationMono 12

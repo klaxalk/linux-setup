@@ -176,9 +176,7 @@ Plug 'terryma/vim-multiple-cursors'
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
-" snippet completion
-" Plug 'SirVer/ultisnips'
-
+" automatically pre-generates doxygen entries using :Dox
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " powerful targeting of text parts
