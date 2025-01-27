@@ -103,7 +103,9 @@ if g:user_mode == "1"
   Plug 'tpope/vim-unimpaired'
 
   " fuzzy finder
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
   " vim talking to tmux.. seems better then vimux, so far in testing
   Plug 'christoomey/vim-tmux-runner'
@@ -465,8 +467,8 @@ if g:user_mode == "1"
   " config for VimWiki
   source ~/.config/nvim/pluginconfig/vimwiki.vim
 
-  " config for ctrl+P
-  source ~/.config/nvim/pluginconfig/ctrlp.vim
+  " config for telescope.nvim
+  source ~/.config/nvim/pluginconfig/telescope.vim
 
   " config for vim-tmux-runner
   source ~/.config/nvim/pluginconfig/vim-tmux-runner.vim

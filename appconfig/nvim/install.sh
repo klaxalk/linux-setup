@@ -52,6 +52,9 @@ while true; do
     # cland for c++ in coc.nvim
     sudo apt-get -y install clangd clang-format
 
+    # used as a grepper for telescope.nvim
+    sudo apt-get -y install ripgrep
+
     # updated new plugins and clean old plugins
     /usr/bin/nvim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
