@@ -41,7 +41,7 @@ arch=`uname -i`
 sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server nmap
 
 # other stuff
-sudo apt-get -y install ruby indicator-multiload gem tree exuberant-ctags xclip xsel blueman autossh xvfb gparted espeak ncdu pavucontrol
+sudo apt-get -y install ruby indicator-multiload gem tree xclip xsel blueman autossh xvfb gparted espeak ncdu pavucontrol
 
 if [ "$unattended" == "0" ]
 then
@@ -62,6 +62,9 @@ bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
 # install HTOP-VIM
 bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
+
+# install VIM-STREAM
+bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
 # install URXVT
 ! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
@@ -86,9 +89,6 @@ bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
 # setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
-
-# install VIM-STREAM
-bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
 #############################################
 # remove the interactivity check from bashrc
@@ -125,6 +125,7 @@ fi
 ##################################################
 # install inputs libraries when they are missing
 ##################################################
+
 sudo apt-get -y install xserver-xorg-input-all
 
 #############################################
@@ -160,14 +161,6 @@ export PROFILES="COLORSCHEME_DARK"' >> ~/.bashrc
 fi
 
 #############################################
-# fix touchpad touch-clicking
-#############################################
-
-if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
-  $MY_PATH/scripts/fix_touchpad_click.sh
-fi
-
-#############################################
 # add sourcing of dotbashrd to .bashrc
 #############################################
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
@@ -181,17 +174,8 @@ source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
 
-#############################################
-# link dotclang-tidy to ~/.clang-tidy
-# (enable linting for YCM)
-#############################################
-ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
-
 # deploy configs by Profile manager
 ./deploy_configs.sh
-
-# finally source the correct rc file
-toilet All Done
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
