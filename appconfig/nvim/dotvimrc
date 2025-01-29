@@ -347,7 +347,7 @@ set wrapmargin=0
 set textwidth=0
 
 " just show the autocomplete menu
-set completeopt=longest,menuone
+" set completeopt=longest,menuone
 
 " better escape: when navigating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC

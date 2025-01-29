@@ -7,6 +7,7 @@ require("autoclose").setup({
      ['{'] = { escape = true, close = true, pair = '{}', disabled_filetypes = {}, enabled_filetypes = {"cpp", "h", "hpp", "py"} },
      ['[]'] = { escape = true, close = true, pair = '[]', disabled_filetypes = {}, enabled_filetypes = {"cpp", "h", "hpp", "py"} },
      ['<'] = { escape = true, close = true, pair = '<>', disabled_filetypes = {}, enabled_filetypes = {"cpp", "h", "hpp", "py"} },
+     ['`'] = { escape = true, close = true, pair = '``', disabled_filetypes = {}, enabled_filetypes = {"sh", "bash"} },
    },
 })
 EOF

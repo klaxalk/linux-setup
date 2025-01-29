@@ -124,8 +124,8 @@ bindsym $mod+Shift+g mode "gaps_mode"
 bindsym $mod+c mode "mouse_mode"
 
 # scratchpad
-bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+z move scratchpad
+bindsym $mod+z scratchpad show
 
 # F1 will no longer activate help of any program
 bindsym F1 exec --no-startup-id echo 'help' > /dev/null
@@ -395,8 +395,6 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disable
 for_window [title="^Figure"] floating disable
-for_window [instance="scratchpadurxvt"] move scratchpad
-for_window [title="float_pls"] floating enable
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 for_window [class="matplotlib"] floating enable
