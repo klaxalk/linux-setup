@@ -383,6 +383,9 @@ au FileType sk,sketch set foldmarker=%\ %{,%\ %}
 au FileType bib,yml,yaml,sh,conf,python set foldmethod=marker
 au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 
+au FileType vim set foldmethod=marker
+au FileType vim set foldmarker=\"\ \"{,\"\ \"}
+
 au FileType cpp,c set foldmethod=marker
 au FileType cpp,c set foldmarker=//{,//}
 
