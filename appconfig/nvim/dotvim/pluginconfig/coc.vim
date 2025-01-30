@@ -24,12 +24,12 @@ endfunction
 
 function! CocCompleteEnter()
 
-  if coc#pum#visible()
-    return coc#_select_confirm()
-  endif
-
   if coc#expandableOrJumpable()
     return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
+  endif
+
+  if coc#pum#visible()
+    return coc#_select_confirm()
   endif
 
   return "\<CR>"
