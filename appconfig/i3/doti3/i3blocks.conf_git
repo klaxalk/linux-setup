@@ -41,7 +41,7 @@ markup=none
 # command=~/git/mail/scripts/i3/i3bar_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# interval=300
+# interval=600
 # separator=true
 
 # [bibliography]
