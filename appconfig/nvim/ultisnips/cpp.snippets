@@ -594,15 +594,15 @@ std::optional<${1:${VISUAL}}>
 endsnippet
 
 snippet "duration" "" ri
-ros::Duration(${1:${VISUAL}}>)
+rclcpp::Duration
 endsnippet
 
 snippet "now" "" ri
-ros::Time::now()
+node_->get_clock()->now()
 endsnippet
 
 snippet "time" "" ri
-ros::Time::
+rclcpp::Time::
 endsnippet
 
 snippet "cout" "" ri
@@ -624,3 +624,12 @@ endsnippet
 snippet "sqrt" "" ri
 sqrt(${1})
 endsnippet
+
+snippet "rate" "" ri
+rclcpp::Rate
+endsnippet
+
+snippet "sleep" "" ri
+rclcpp::sleep_for(std::chrono::milliseconds(int($1)));
+endsnippet
+      

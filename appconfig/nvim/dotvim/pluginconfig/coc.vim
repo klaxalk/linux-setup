@@ -6,12 +6,12 @@ set signcolumn=yes
 
 function! CocCompleteTab()
 
-  if coc#expandableOrJumpable()
-    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
-  endif
-
   if coc#pum#visible()
     return coc#_select_confirm()
+  endif
+
+  if coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
   endif
 
   return "\<TAB>"
@@ -24,12 +24,12 @@ endfunction
 
 function! CocCompleteEnter()
 
-  if coc#expandableOrJumpable()
-    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
-  endif
-
   if coc#pum#visible()
     return coc#_select_confirm()
+  endif
+
+  if coc#expandableOrJumpable()
+    return "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
   endif
 
   return "\<CR>"
@@ -91,7 +91,7 @@ endfunction
 " completion using variosu keys
 inoremap <silent><expr> <Enter> CocCompleteEnter()
 inoremap <silent><expr> <TAB> CocCompleteTab()
-inoremap <silent><expr> <C-l> CocCompleteNormal()
+" inoremap <silent><expr> <C-l> CocCompleteNormal()
 
  " motion "down" in the popup menu
 inoremap <silent><expr> <C-j> CocDown()
@@ -110,6 +110,7 @@ vmap <tab> <Plug>(coc-snippets-select)
 
 " Use K to show documentation in preview window
 nnoremap <silent> <leader>k :call ShowDocumentation()<CR>
+nnoremap <silent> <leader>cd :CocDiagnostics<CR>
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 " imap <C-l> <Plug>(coc-snippets-expand-jump)

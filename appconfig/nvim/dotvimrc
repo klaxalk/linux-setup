@@ -440,6 +440,9 @@ tnoremap jk <C-\><C-n>
 " fold around visual block
 xmap <leader>z <Esc>`>o<Esc>`<ko<Esc>V`>jzf
 
+" escape in terminal
+:tnoremap <Esc> <C-\><C-n>
+
 " plugin settings for "normal" vim (not athame)
 if g:user_mode == "1"
 
@@ -484,9 +487,6 @@ if g:user_mode == "1"
 
   " config for vim-conflicted
   source ~/.config/nvim/pluginconfig/vim-conflicted.vim
-
-  " config for vim-cpp-enhanced-highlight
-  source ~/.config/nvim/pluginconfig/vim-cpp-enhanced-highlight.vim
 
   " config for epigen
   source ~/.config/nvim/pluginconfig/epigen.vim
@@ -576,9 +576,8 @@ if g:user_mode == "1"
 
 endif
 
-nnoremap <leader>oi :delmark a:norm ma*:%s//_&/g:norm `a:delmark a
-nnoremap <leader>oo :delmark a:norm ma*:%s//_&_/g:norm `a:delmark a
-nnoremap <leader>op :delmark a:norm ma*:%s//&_/g:norm `a:delmark a
+" make the signcolumn the same background as the main background
+highlight clear SignColumn
 
 " Custom config
 if !empty(glob("~/.my.vimrc"))
