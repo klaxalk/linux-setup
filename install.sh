@@ -143,11 +143,6 @@ fi
 # install TMUXINATOR
 bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# the docker setup ends here
-if $docker; then
-  exit 0
-fi
-
 #############################################
 # remove the interactivity check from bashrc
 #############################################
@@ -221,7 +216,7 @@ fi
 # fix touchpad touch-clicking
 #############################################
 
-if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
+if [ !docker ] && [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
   $MY_PATH/scripts/fix_touchpad_click.sh
 fi
 
@@ -247,9 +242,6 @@ ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
 
 # deploy configs by Profile manager
 ./deploy_configs.sh
-
-# finally source the correct rc file
-toilet All Done
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
