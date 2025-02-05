@@ -89,7 +89,7 @@ endfunction
 " "}
 
 " completion using variosu keys
-inoremap <silent><expr> <Enter> CocCompleteEnter()
+inoremap <silent><expr> <CR> CocCompleteEnter()
 inoremap <silent><expr> <TAB> CocCompleteTab()
 " inoremap <silent><expr> <C-l> CocCompleteNormal()
 

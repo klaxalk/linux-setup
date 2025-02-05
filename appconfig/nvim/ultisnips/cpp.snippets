@@ -394,7 +394,7 @@ ros::ok()
 endsnippet
 
 snippet "ros" "" ri
-ros::
+rclpp::
 endsnippet
 
 snippet "spin" "" ri
@@ -633,3 +633,10 @@ snippet "sleep" "" ri
 rclcpp::sleep_for(std::chrono::milliseconds(int($1)));
 endsnippet
       
+snippet "chronolit" "" r
+using namespace std::chrono_literals;
+endsnippet
+
+snippet "ros::" "" irA
+rclcpp::
+endsnippet
