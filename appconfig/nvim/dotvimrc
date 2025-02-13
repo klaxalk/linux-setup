@@ -497,6 +497,8 @@ if g:user_mode == "1"
   " config for autoclose.nvim
   source ~/.config/nvim/pluginconfig/autoclose.vim
 
+  source ~/.config/nvim/pluginconfig/vim-ros.vim
+
   " config for mail files
   au FileType mail source ~/.config/nvim/pluginconfig/mail.vim
 
