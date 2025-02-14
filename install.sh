@@ -41,7 +41,7 @@ arch=`uname -i`
 sudo apt-get -y install git tig cmake cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools openssh-server nmap
 
 # other stuff
-sudo apt-get -y install ruby indicator-multiload gem tree xclip xsel blueman autossh xvfb gparted espeak ncdu pavucontrol
+sudo apt-get -y install ruby gem tree xclip xsel blueman xvfb gparted espeak ncdu pavucontrol
 
 if [ "$unattended" == "0" ]
 then
