@@ -40,7 +40,7 @@ while true; do
     sudo apt-get -y install neovim
 
     # set vim as a default git mergetool
-    git config --global merge.tool vimdiff
+    git config --global merge.tool nvimdiff
 
     # link the configuration
     mkdir -p ~/.config/nvim
