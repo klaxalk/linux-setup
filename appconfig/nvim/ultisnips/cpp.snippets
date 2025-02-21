@@ -281,10 +281,18 @@ endsnippet
 
 snippet "2(info|warn|err|deb)(t|s|o)?(t|s)?" "" r
 `!p
-snip.rv=ros2_info()+"(get_logger(), "
+is_plugin = file_is_plugin()
+snip.rv=ros2_info()
+if not is_plugin:
+	snip.rv+="(node_->get_logger(), "
+else:
+	snip.rv+="(get_logger(), "
 ``!p
 if (match.group(2) == "t") or (match.group(3) == "t") :
-	snip.rv="1.0, "
+	if not is_plugin:
+		snip.rv+="*node_->get_clock(), 1e9, "
+	else:
+		snip.rv+="*get_clock(), 1e9, "
 `"${1}"`!p
 if "%" in t[1]:
 	snip.rv=", "
@@ -602,7 +610,7 @@ node_->get_clock()->now()
 endsnippet
 
 snippet "time" "" ri
-rclcpp::Time::
+rclcpp::Time(${1:${VISUAL}})
 endsnippet
 
 snippet "cout" "" ri
@@ -637,6 +645,14 @@ snippet "chronolit" "" r
 using namespace std::chrono_literals;
 endsnippet
 
-snippet "ros::" "" irA
+snippet "chronoduration" "" ir
+std::chrono::duration<double>(${1:${VISUAL}})
+endsnippet
+
+snippet "ros::" "" rA
 rclcpp::
+endsnippet
+
+snippet "logger" "" ri
+get_logger()
 endsnippet
