@@ -33,7 +33,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install i3-wm i3blocks i3lock rofi
+    sudo apt-get -y install i3-wm i3blocks i3lock rofi libx11-dev
 
     # required for i3-layout-manager
     sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
@@ -91,8 +91,8 @@ while true; do
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
-    if [ ! -e ~/config/rofi ]; then
-      mkdir -p ~/config/rofi
+    if [ ! -e ~/.config/rofi ]; then
+      mkdir -p ~/.config/rofi
     fi
 
     # disable nautilus
