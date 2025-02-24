@@ -2,9 +2,9 @@
 
 ! the default font, will be commented out for
 ! specific user settings
-! EPIGEN_DEL_BLOCK_TOMAS {
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS {
 URxvt.font: xft:Inconsolata for Powerline:size=14
-! EPIGEN_DEL_BLOCK_TOMAS  }
+! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS }
 
 ! { TOMAS
 
@@ -23,6 +23,15 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 ! ! }
 
 ! EPIGEN_ADD_BLOCK_TOMAS }
+
+! }
+
+! { MATOUS
+
+! EPIGEN_ADD_BLOCK_MATOUS {
+! ! URxvt.font: xft:terminess powerline:size=12
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! }
 
@@ -64,8 +73,25 @@ URxvt.keysym.Control-0: \033[27;5;48~
 ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
 
 ! vim: ft=xdefaults
+! EPIGEN_DEL_BLOCK_MATOUS {
 URxvt.background: #121212
 URxvt.foreground: #dddddd
+! EPIGEN_DEL_BLOCK_MATOUS }
+
+{ MATOUS
+
+EPIGEN_ADD_BLOCK_MATOUS {
+! EPIGEN_ADD_BLOCK_TOSHIBA {
+! URxvt.background: #121212
+! URxvt.foreground: #dddddd
+! EPIGEN_ADD_BLOCK_TOSHIBA }
+! EPIGEN_DEL_BLOCK_TOSHIBA {
+URxvt.background: rgba:0000/0000/0000/B000
+URxvt.foreground: #dddddd
+! EPIGEN_DEL_BLOCK_TOSHIBA }
+EPIGEN_ADD_BLOCK_MATOUS }
+
+}
 
 ! black
 URxvt.color0: #1C1C1C
@@ -149,8 +175,14 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.color14: #006666
 
 ! !! white dark/light
+! ! EPIGEN_DEL_BLOCK_MATOUS {
 ! URxvt.color7: #ffffff
 ! URxvt.color15: #ffffff
+! ! EPIGEN_DEL_BLOCK_MATOUS }
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! URxvt.color7: #cccccc
+! ! URxvt.color15: #cccccc
+! ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! !! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
@@ -177,7 +209,13 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
 
 ! ! vim: ft=xdefaults
+! ! EPIGEN_DEL_BLOCK_MATOUS {
 ! URxvt.background: #121212
+! ! EPIGEN_DEL_BLOCK_MATOUS }
+
+! ! EPIGEN_ADD_BLOCK_MATOUS {
+! ! URxvt.background: rgba:0000/0000/0000/B000
+! ! EPIGEN_ADD_BLOCK_MATOUS ACTIVE }
 
 ! URxvt.foreground: #eeeeee
 ! ! black
