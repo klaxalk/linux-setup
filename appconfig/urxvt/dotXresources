@@ -30,7 +30,7 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! URxvt.font: xft:terminess powerline:size=12
-! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:size=14
 ! EPIGEN_ADD_BLOCK_MATOUS }
 
 ! }

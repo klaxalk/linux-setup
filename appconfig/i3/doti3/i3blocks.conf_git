@@ -28,6 +28,43 @@ command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+# EPIGEN_ADD_BLOCK_MATOUS {
+# [temp]
+# interval=2
+# # label=Temp 
+# command=/home/matous/.local/share/pipx/venvs/veles/bin/python ~/git/veles/veles-i3blocks/read_value.py T 109 veles-rht
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [humidity]
+# interval=2
+# # label=Temp 
+# command=/home/matous/.local/share/pipx/venvs/veles/bin/python ~/git/veles/veles-i3blocks/read_value.py RH 109 veles-rht
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [CO2]
+# interval=2
+# # label=Temp 
+# command=/home/matous/.local/share/pipx/venvs/veles/bin/python ~/git/veles/veles-i3blocks/read_value.py CO2 109 veles-rht
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cputemp]
+# interval=2
+# label=CPU 
+# command=sensors | grep 'Package id 0' | cut -c17-25
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [music]
+# interval=1
+# label=Music 
+# command=playerctl --player=spotify,%any metadata --format '({{ playerName }}): {{ emoji(status) }} {{ artist }} - {{ title }}'
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_MATOUS }
+
 # EPIGEN_ADD_BLOCK_TOMAS {
 
 # [notes]
