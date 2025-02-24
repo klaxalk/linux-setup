@@ -36,7 +36,7 @@ while true; do
     sudo apt-get -y install i3-wm i3blocks i3lock rofi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq xdotool libx11-dev x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ]; # if running interactively
     then
