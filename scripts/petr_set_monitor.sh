@@ -14,10 +14,19 @@ notify-send -u low -t 1000 "Connected monitors: $CONNECTED_MONITORS" -h string:x
 if [ $CONNECTED_MONITORS -gt 1 ]; then
   MONITOR="lab"
 else
-  MONITOR="alone"
+  MONITOR="standalone"
 fi
 
-notify-send -u low -t 1000 "Changing setup to dell_$MONITOR" -h string:x-canonical-private-synchronous:anything
+if [[ "$PROFILES" == *"P14"* ]]; then
+  COMPUTER="P14"
+elif [[ "$PROFILES" == *"T14"* ]]; then
+  COMPUTER="T14"
+else
+  echo "Cannot determine computer type, defaulting to T14"
+  COMPUTER="T14"
+fi
+
+notify-send -u low -t 1000 "Changing setup to $COMPUTER $MONITOR" -h string:x-canonical-private-synchronous:anything
 
 # refresh the output devices
 xrandr --auto
@@ -32,7 +41,8 @@ fi
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/petr/dell_$MONITOR.sh ~/.monitor.sh
+echo ${COMPUTER}_${MONITOR}
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/petr/${COMPUTER}_${MONITOR}.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc

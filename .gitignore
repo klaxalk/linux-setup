@@ -9,7 +9,7 @@ appconfig/nvim/dotvim/plugged/*
 appconfig/nvim/dotvim/session
 appconfig/nvim/dotvim/.netrwhist
 appconfig/nvim/dotvim/files/info/viminfo
-
+submodules/picom
 html/
 
 **/__pycache__
