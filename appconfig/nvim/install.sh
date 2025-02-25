@@ -58,9 +58,10 @@ while true; do
     # updated new plugins and clean old plugins
     /usr/bin/nvim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
-    # link the ultisnips snippets
-    [ -e ~/.config/coc/ultisnips ] && rm -rf ~/.config/coc/ultisnips
-    ln -sf $APP_PATH/ultisnips ~/.config/coc
+    # link the ultisnips snippets and coc config
+    # [ -e ~/.config/coc/ultisnips ] && rm -rf ~/.config/coc/ultisnips
+    ln -sf $APP_PATH/coc -T ~/.config/coc
+    ln -sf $APP_PATH/coc/coc-settings.json -t ~/.config/nvim
 
 echo "All extensions installed!"
 

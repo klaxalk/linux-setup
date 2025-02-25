@@ -33,7 +33,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install i3-wm i3blocks i3lock rofi
+    sudo apt-get -y install i3-wm i3lock rofi libx11-dev
 
     # required for i3-layout-manager
     sudo apt-get -y install jq xdotool libx11-dev x11-xserver-utils indent libanyevent-i3-perl
@@ -53,6 +53,16 @@ while true; do
     fi
 
     sudo apt-get -y install lightdm
+
+    echo "Compiling i3blocks from source"
+
+    cd $APP_PATH/../../submodules/i3blocks
+    ./autogen.sh
+    ./configure
+    make -j4
+    sudo make install
+    git clean -fd
+    cd $APP_PATH
 
     # for cpu usage in i3blocks
     sudo apt-get -y install sysstat
@@ -120,8 +130,8 @@ while true; do
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
-    if [ ! -e ~/config/rofi ]; then
-      mkdir -p ~/config/rofi
+    if [ ! -e ~/.config/rofi ]; then
+      mkdir -p ~/.config/rofi
     fi
 
     # disable nautilus

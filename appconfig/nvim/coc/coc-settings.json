@@ -1,0 +1,12 @@
+{
+  "[c][cpp]":{
+    "semanticTokens.enable": true
+  },
+  "clangd.enabled": true,
+  "clangd.arguments": ["-header-insertion=never"],
+  "clangd.compilationDatabasePath": "${workspaceFolder}/build",
+  "signature.preferShownAbove": true,
+  "suggest.detailField": "preview",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
+}

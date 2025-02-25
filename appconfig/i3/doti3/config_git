@@ -170,7 +170,9 @@ set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 
+# EPIGEN_DEL_BLOCK_MATOUS {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# EPIGEN_DEL_BLOCK_MATOUS }
 
 for_window [class="^.*"] border pixel 3
 
@@ -190,7 +192,11 @@ for_window [class="^.*"] border pixel 3
 # set $focused_ws_bg               #aaaaaa
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
+
+# # EPIGEN_DEL_BLOCK_MATOUS {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS }
+
 # for_window [class="^.*"] border pixel 2
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -210,7 +216,11 @@ for_window [class="^.*"] border pixel 3
 # set $background_color         #121212
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
+
+# # EPIGEN_DEL_BLOCK_MATOUS {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS }
+
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
@@ -438,6 +448,60 @@ gaps outer $default_gaps_outer
 set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
+
+# EPIGEN_ADD_BLOCK_PETR }
+
+# #}
+
+# #{ MATOUS's customization
+
+# EPIGEN_ADD_BLOCK_MATOUS {
+
+# # EPIGEN_ADD_BLOCK_LEJNOVO {
+
+# # # Bind audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+
+# # # Bind Lejnovo keyboard backlight control
+# # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
+
+# # # Bind screen brightness control
+# # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
+# # EPIGEN_ADD_BLOCK_LEJNOVO }
+
+# # EPIGEN_ADD_BLOCK_SKUMPA EPIGEN_ADD_BLOCK_RAFIK {
+
+# # # Bind audio control keys
+# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/sleep-dopesmoker.jpg"
+
+# # EPIGEN_ADD_BLOCK_SKUMPA EPIGEN_ADD_BLOCK_RAFIK }
+
+# # prettier notifications
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+
+# # screen locking with a key to prevent malicious locomotives
+# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+# # dropbox icon in tray
+# # exec --no-startup-id dropbox start
+
+# EPIGEN_ADD_BLOCK_MATOUS }
 
 # #}
 

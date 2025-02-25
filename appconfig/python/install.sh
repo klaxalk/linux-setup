@@ -42,7 +42,7 @@ while true; do
     sudo apt-get -y purge --autoremove pipx
 
     # install pipx globally using the previously installed pipx
-    sudo ~/.local/bin/pipx install pipx --global
+    sudo pipx install pipx --global
     pipx uninstall pipx
 
     pipx ensurepath
