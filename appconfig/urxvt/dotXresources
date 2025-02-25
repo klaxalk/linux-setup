@@ -26,6 +26,25 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! }
 
+! { PETR
+
+! EPIGEN_ADD_BLOCK_PETR {
+
+! ! { P14
+
+! ! EPIGEN_ADD_BLOCK_P14 {
+
+! ! Xft.dpi: 130
+! ! Xcursor.size: 36
+
+! ! EPIGEN_ADD_BLOCK_P14 }
+
+! ! }
+
+! EPIGEN_ADD_BLOCK_PETR }
+
+! }
+
 ! { MATOUS
 
 ! EPIGEN_ADD_BLOCK_MATOUS {
@@ -73,10 +92,18 @@ URxvt.keysym.Control-0: \033[27;5;48~
 ! EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
 
 ! vim: ft=xdefaults
-! EPIGEN_DEL_BLOCK_MATOUS {
+! EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_MATOUS {
 URxvt.background: #121212
 URxvt.foreground: #dddddd
-! EPIGEN_DEL_BLOCK_MATOUS }
+! EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_MATOUS }
+
+! { PETR
+
+! EPIGEN_ADD_BLOCK_PETR {
+! URxvt.background: rgba:0AC0/0AC0/0AC0/DDDD
+! URxvt.foreground: #dddddd
+! EPIGEN_ADD_BLOCK_PETR }
+! }
 
 ! { MATOUS
 
