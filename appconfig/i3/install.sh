@@ -90,9 +90,7 @@ while true; do
     sudo apt-get -y install systemd
 
     install_picom=n
-    if [[ "$unattended" == "1" ]]; then
-      sudo apt-get -y install compton
-    else
+    if [[ "$unattended" == "0" ]]; then
       [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall picom instead of compton? [y/n] (default: '"$install_picom"$')\e[0m\n' resp_picom || resp_picom=$install_picom ; }
     fi
     response_picom=`echo $resp_picom | sed -r 's/(.*)$/\1=/'`
@@ -109,9 +107,15 @@ while true; do
       sudo apt-get -y install libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev
       cd $PICOM_PATH
       meson setup --buildtype=release build
-      ninja -C build
-      sudo ninja -C build install && echo "Picom installed successfully"
+      ninja -C build && sudo ninja -C build install
+      if [[ $? == 0 ]]; then
+        echo "[SUCCESS]: Picom was installed"
+      else
+        echo "[ERROR]: Picom was not installed"
+      fi
       cd $CWD
+    else
+      sudo apt-get -y install compton
     fi
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
