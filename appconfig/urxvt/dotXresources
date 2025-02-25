@@ -79,7 +79,7 @@ URxvt.foreground: #dddddd
 ! EPIGEN_DEL_BLOCK_MATOUS }
 
 ! { MATOUS
- 
+
 ! EPIGEN_ADD_BLOCK_MATOUS {
 ! ! EPIGEN_ADD_BLOCK_TOSHIBA {
 ! ! URxvt.background: #121212
@@ -90,7 +90,7 @@ URxvt.foreground: #dddddd
 ! URxvt.foreground: #dddddd
 ! ! EPIGEN_DEL_BLOCK_TOSHIBA }
 ! EPIGEN_ADD_BLOCK_MATOUS }
- 
+
 ! }
 
 ! black
