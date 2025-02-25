@@ -170,9 +170,9 @@ set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR ACTIVE{
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR}
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
 
 for_window [class="^.*"] border pixel 3
 
