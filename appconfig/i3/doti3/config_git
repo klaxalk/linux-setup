@@ -185,9 +185,9 @@ for_window [class="^.*"] border pixel 3
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
 
-# EPIGEN_DEL_BLOCK_MATOUS {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# EPIGEN_DEL_BLOCK_MATOUS }
+# # EPIGEN_DEL_BLOCK_MATOUS {
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS }
 
 # for_window [class="^.*"] border pixel 2
 

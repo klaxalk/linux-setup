@@ -78,20 +78,20 @@ URxvt.background: #121212
 URxvt.foreground: #dddddd
 ! EPIGEN_DEL_BLOCK_MATOUS }
 
-{ MATOUS
-
-EPIGEN_ADD_BLOCK_MATOUS {
-! EPIGEN_ADD_BLOCK_TOSHIBA {
-! URxvt.background: #121212
+! { MATOUS
+ 
+! EPIGEN_ADD_BLOCK_MATOUS {
+! ! EPIGEN_ADD_BLOCK_TOSHIBA {
+! ! URxvt.background: #121212
+! ! URxvt.foreground: #dddddd
+! ! EPIGEN_ADD_BLOCK_TOSHIBA }
+! ! EPIGEN_DEL_BLOCK_TOSHIBA {
+! URxvt.background: rgba:0000/0000/0000/B000
 ! URxvt.foreground: #dddddd
-! EPIGEN_ADD_BLOCK_TOSHIBA }
-! EPIGEN_DEL_BLOCK_TOSHIBA {
-URxvt.background: rgba:0000/0000/0000/B000
-URxvt.foreground: #dddddd
-! EPIGEN_DEL_BLOCK_TOSHIBA }
-EPIGEN_ADD_BLOCK_MATOUS }
-
-}
+! ! EPIGEN_DEL_BLOCK_TOSHIBA }
+! EPIGEN_ADD_BLOCK_MATOUS }
+ 
+! }
 
 ! black
 URxvt.color0: #1C1C1C
