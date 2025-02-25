@@ -157,22 +157,22 @@ font pango:Terminus 11
 set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
 set $inactive_text_color      #eeeeee
-# EPIGEN_DEL_BLOCK_PETR {
 set $inactive_background      #333333
+# EPIGEN_DEL_BLOCK_PETR {
 set $active_background        #005faf
+set $active_border            #005faf
 # EPIGEN_DEL_BLOCK_PETR }
 # EPIGEN_ADD_BLOCK_PETR {
-# set $inactive_background      #53B5FF
-# set $active_background        #5CD8FF
+# set $active_background        #53B5FF
+# set $active_border            #5CD8FF
 # EPIGEN_ADD_BLOCK_PETR }
-set $active_border            #005faf
 set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 
-# EPIGEN_DEL_BLOCK_MATOUS {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS }
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR ACTIVE{
+# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR}
 
 for_window [class="^.*"] border pixel 3
 
@@ -389,13 +389,13 @@ bar {
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
-# # background image
+# # # background image
 # # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
-# # picom window compositor
+# # # picom window compositor
 # # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
 
-# # rofi launcher
+# # # rofi launcher
 # # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
@@ -428,26 +428,6 @@ bar {
 
 # # keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
-
-# EPIGEN_ADD_BLOCK_PETR }
-
-# #}
-
-# #{ i3-gaps settings
-
-smart_gaps on
-
-# EPIGEN_DEL_BLOCK_PETR {
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-# EPIGEN_DEL_BLOCK_PETR }
-
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
-
-set $mode_gaps gaps
-set $mode_gaps_outer outer gaps
-set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_PETR }
 
@@ -502,6 +482,26 @@ set $mode_gaps_inner inner gaps
 # # exec --no-startup-id dropbox start
 
 # EPIGEN_ADD_BLOCK_MATOUS }
+
+# #}
+
+# #{ i3-gaps settings
+
+smart_gaps on
+
+# EPIGEN_DEL_BLOCK_PETR {
+set $default_gaps_inner 12
+set $default_gaps_outer 0
+# EPIGEN_DEL_BLOCK_PETR }
+
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+set $mode_gaps gaps
+set $mode_gaps_outer outer gaps
+set $mode_gaps_inner inner gaps
+
+# EPIGEN_ADD_BLOCK_PETR }
 
 # #}
 
