@@ -1,0 +1,57 @@
+* {
+  background-color: transparent;
+  text-color: #000000;
+  spacing: 4;
+  font: "Monospace 25";
+}
+
+window {
+  width: 100%;
+  height: 65%;
+  background-color: white;
+  transparency: "real";
+}
+
+mainbox {
+  margin: 14%;
+  padding: 10px 20px 0 20px;
+  border: 3px;
+  border-color: #000000;
+  background-color: #FFFFFF;
+}
+
+inputbar {
+  padding: 20px;
+  children: [ textbox-prompt-semicolon, entry, case-indicator ];
+  border: 0px 0px 3px 0px;
+  border-color: #000000;
+}
+
+textbox-prompt-semicolon {
+  text-color: #222222;
+  expand: false;
+  str: "> ";
+  spacing: 10px;
+  font: "Monospace 30";
+  padding: -7px;
+}
+
+listview {
+  padding: 25px 0px 0px 0px;
+}
+
+element{
+  padding: 0.42%;
+}
+
+
+element selected {
+  background-color: #404040;
+  border: 1px;
+  border-color: #222222;
+  font: "Monospace 50";
+}
+
+element-text selected{
+  text-color: #FFFFFF;
+}

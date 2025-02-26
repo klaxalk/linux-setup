@@ -113,7 +113,7 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 bindsym Print exec shutter --select
 
 # shutdown/logout menu
-bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
+bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi # EPIGEN_DEL_LINE_PETR
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
@@ -385,7 +385,7 @@ bar {
 # # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf"
 
 # # # rofi launcher
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#BD222222, #0053B5FF, #FF777777' -color-normal '#00333333, #FFFFFFFF, #00383838, #BD53B5FF' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # bindsym $mod+d exec "rofi -show combi"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
@@ -396,7 +396,7 @@ bar {
 # # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
 
 # # # rofi launcher
-# # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -color-window '#FFFFFFFF, #FFAAAAAA, #FF000000' -color-normal '#FFEEEEEE, #FF000000, #FFFFFFFF, #FF454545' -width 100 -padding '230' -font 'Monospace 18' -lines 7 -eh 1 -line-padding 5 -line-margin 2 -separator-style 'solid'"
+# # bindsym $mod+d exec "rofi -show combi"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # workspace names
