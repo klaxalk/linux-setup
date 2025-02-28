@@ -429,6 +429,19 @@ bar {
 # # keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
+# bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# bindsym XF86MonBrightnessDown --release exec --no-startup-id light -U 7 && pkill -RTMIN+12 i3blocks
+# bindsym XF86MonBrightnessUp --release exec --no-startup-id light -A 7 && pkill -RTMIN+12 i3blocks
+
+# bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
+
+# # EPIGEN_ADD_BLOCK_P14 {
+# # # enable touchpad tap to click
+# # xinput set-prop "ELAN0676:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1
+# # EPIGEN_ADD_BLOCK_P14 }
+
 # EPIGEN_ADD_BLOCK_PETR }
 
 # #}
