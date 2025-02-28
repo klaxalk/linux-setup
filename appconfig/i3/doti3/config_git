@@ -435,11 +435,16 @@ bar {
 # bindsym XF86MonBrightnessDown --release exec --no-startup-id light -U 7 && pkill -RTMIN+12 i3blocks
 # bindsym XF86MonBrightnessUp --release exec --no-startup-id light -A 7 && pkill -RTMIN+12 i3blocks
 
-# bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "dark"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "light"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
 # # EPIGEN_ADD_BLOCK_P14 {
 # # # enable touchpad tap to click
-# # xinput set-prop "ELAN0676:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1
+# # exec --no-startup-id xinput set-prop "ELAN0676:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1
 # # EPIGEN_ADD_BLOCK_P14 }
 
 # EPIGEN_ADD_BLOCK_PETR }

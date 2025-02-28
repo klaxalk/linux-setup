@@ -1,0 +1,33 @@
+* {
+  background-color: transparent;
+  text-color: #FFFFFFFF;
+  spacing: 8;
+  font: "Monospace 28";
+}
+
+window {
+  width: 30%;
+  height: 24.7%;
+  background-color: #292929BD;
+  transpacency: "real";
+}
+
+mainbox {
+  margin: 30px;
+  padding: 20px;
+  border: 3px;
+  border-color: #AADDFFFF;
+  children: [listview];
+}
+
+element {
+  padding: 0.42%;
+}
+
+element selected {
+  background-color: #8AC0FF70;
+  text-color: #FFFFFFFF;
+  border: 1px;
+  border-color: #AADDFFFF;
+}
+
