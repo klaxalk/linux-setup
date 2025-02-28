@@ -81,7 +81,7 @@ if g:user_mode == "1"
   Plug 'edkolev/tmuxline.vim'
 
   " Latex stuff
-  Plug 'lervag/vimtex'
+  Plug 'lervag/vimtex', { 'tag': 'v2.15' }
 
   " VimWiki
   " Essential part in taking notes in vim
