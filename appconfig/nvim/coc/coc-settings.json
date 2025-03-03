@@ -4,9 +4,11 @@
   },
   "clangd.enabled": true,
   "clangd.arguments": ["-header-insertion=never"],
-  "clangd.compilationDatabasePath": "${workspaceFolder}/build",
+  "clangd.compilationDatabaseCandidates": ["${cwd}", "${workspaceFolder}", "${workspaceFolder}/build", "${env:ROS_WORKSPACE}/build"],
   "signature.preferShownAbove": true,
   "suggest.detailField": "preview",
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "workspace.workspaceFolderFallbackCwd": false,
+  "workspace.rootPatterns": []
 }
