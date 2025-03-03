@@ -5,11 +5,13 @@
 
 **/.nvimlog
 
+appconfig/nvim/coc/extensions
 appconfig/nvim/dotvim/plugged/*
 appconfig/nvim/dotvim/session
 appconfig/nvim/dotvim/.netrwhist
 appconfig/nvim/dotvim/files/info/viminfo
-
+appconfig/nvim/ultisnips
+submodules/picom
 html/
 
 **/__pycache__

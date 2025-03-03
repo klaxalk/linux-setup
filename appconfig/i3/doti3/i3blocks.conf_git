@@ -137,6 +137,16 @@ command=~/.i3/show_volume.sh
 # olor=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# EPIGEN_ADD_BLOCK_PETR {
+# [screen-brightness]
+# label=🔆
+# interval=once
+# separator=true
+# color=#ffffff
+# signal=12
+# command=~/git/linux-setup/appconfig/i3/i3blocks/brightness
+# EPIGEN_ADD_BLOCK_PETR }
+
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
@@ -170,6 +180,7 @@ interval=10
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# EPIGEN_DEL_BLOCK_PETR {
 [bandwidth]
 label= 
 interval=1
@@ -178,6 +189,7 @@ INLABEL=
 OUTLABEL= 
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+# EPIGEN_DEL_BLOCK_PETR }
 
 # Battery indicator
 #
@@ -207,7 +219,11 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [clickme]
 full_text=
-command=~/.i3/shutdown_menu -p rofi
+command=~/.i3/shutdown_menu -p rofi # EPIGEN_DEL_LINE_PETR
+# EPIGEN_ADD_BLOCK_PETR {
+# # command=~/git/linux-setup/scripts/petr_shutdown_menu.sh "dark" # EPIGEN_ADD_LINE_COLORSCHEME_DARK
+# # command=~/git/linux-setup/scripts/petr_shutdown_menu.sh "light" # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# EPIGEN_ADD_BLOCK_PETR }
 separator=true
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT

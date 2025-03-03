@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIR="${BLOCK_INSTANCE:-$HOME}"
+
+echo $(light)%
