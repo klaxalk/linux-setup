@@ -107,7 +107,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
 
 # rofi launcher
-bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1" # EPIGEN_DEL_LINE_PETR
+# EPIGEN_DEL_BLOCK_PETR {
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
+# EPIGEN_DEL_BLOCK_PETR }
 
 # printscreen using shutter
 bindsym Print exec shutter --select
