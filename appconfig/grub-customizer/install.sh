@@ -21,10 +21,6 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -38,10 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -n "$BEAVER" ]; then
-      sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-      sudo apt-get update
-    fi
+    sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+    sudo apt-get -y update
 
     sudo apt-get -y install grub-customizer
 
