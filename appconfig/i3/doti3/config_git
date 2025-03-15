@@ -429,6 +429,7 @@ bar {
 ## keyboard switching
 #exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
+#bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
 #bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 #bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
