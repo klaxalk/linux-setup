@@ -10,5 +10,6 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "workspace.workspaceFolderFallbackCwd": false,
-  "workspace.rootPatterns": []
+  "workspace.rootPatterns": [],
+  "snippets.priority": 200
 }

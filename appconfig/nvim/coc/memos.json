@@ -1,1 +1,51 @@
-{}
+{
+  "coc-json|global": {
+    "json-schema-cache": {
+      "https://json.schemastore.org/package.json": {
+        "etag": "\"0494460748edb1:0\"",
+        "fileName": "473f72b44c2905902dfbcc770aab7f7a.schema.json",
+        "updateTime": 1741349644966
+      },
+      "https://json.schemastore.org/stylelintrc.json": {
+        "etag": "\"8027545973adb1:0\"",
+        "fileName": "000bfbdd14d2fb8ec5b0d59bec32ef98.schema.json",
+        "updateTime": 1741349645930
+      },
+      "https://json.schemastore.org/ava.json": {
+        "etag": "\"0d33f13698ada1:0\"",
+        "fileName": "635f57185b22bce9d3a56c68f5da4ad7.schema.json",
+        "updateTime": 1741349645949
+      },
+      "https://json.schemastore.org/jscpd.json": {
+        "etag": "\"06c7f331a12db1:0\"",
+        "fileName": "22bfc1ab1ff56aae62322f6ce45dab5a.schema.json",
+        "updateTime": 1741349645953
+      },
+      "https://json.schemastore.org/prettierrc.json": {
+        "etag": "\"802ea48a747bdb1:0\"",
+        "fileName": "ea5ab10330a3ab77dfd6d00a735b0925.schema.json",
+        "updateTime": 1741349645954
+      },
+      "https://json.schemastore.org/semantic-release.json": {
+        "etag": "\"09e8ecc624ada1:0\"",
+        "fileName": "fbc95702ba6eddb3e2de4f52e31ca82a.schema.json",
+        "updateTime": 1741349645954
+      },
+      "https://json.schemastore.org/eslintrc.json": {
+        "etag": "\"805385dd39b8da1:0\"",
+        "fileName": "c5064f140d4cfdbf4d6fbe68f68abbb1.schema.json",
+        "updateTime": 1741349645955
+      },
+      "https://json.schemastore.org/partial-eslint-plugins.json": {
+        "etag": "\"80f7bedc396cdb1:0\"",
+        "fileName": "fc7bb6e733b774ce47be6006f0b75b87.schema.json",
+        "updateTime": 1741349646826
+      },
+      "https://json.schemastore.org/compile-commands.json": {
+        "etag": "\"4c45716060d0d91:0\"",
+        "fileName": "d39aec69debdd6d26331e1de0cfddea3.schema.json",
+        "updateTime": 1741716963595
+      }
+    }
+  }
+}

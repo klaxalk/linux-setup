@@ -9,7 +9,7 @@ def file_is_plugin():
 			return True
 	return False
 
-def file_is_ros2_plugin():
+def file_is_component():
 	import re
 	fh = open(path)
 	for line in fh:
@@ -255,35 +255,12 @@ if (!std::isfinite(${1:${VISUAL}})) {
 }
 endsnippet
 
-snippet "(sinfo|swarn|serr|sdeb)(t)?" "" r
-`!p
-snip.rv=stream_info()+"("
-``!p
-if (match.group(2) == "t"):
-	snip.rv="1.0, "
-`"`!p
-is_plugin = file_is_plugin()
-is_gazebo_plugin = file_is_gazebo_plugin()
-if is_plugin:
-	snip.rv='['+get_class_name()+']: " << ss.str()'
-if is_gazebo_plugin:
-	snip.rv='['+get_gazebo_plugin_class_name()+']: " << ss.str()'
-if not (is_plugin or is_gazebo_plugin):
-	snip.rv="[%s]: "
-if not is_plugin and not is_gazebo_plugin:
-	snip.rv=", ros::this_node::getName().c_str()"``!p
-if "%" in t[1]:
-	snip.rv=", "
-else:
-	snip.rv=""
-`${3});
-endsnippet
-
 snippet "2(info|warn|err|deb)(t|s|o)?(t|s)?" "" r
 `!p
 is_plugin = file_is_plugin()
+is_component = file_is_component()
 snip.rv=ros2_info()
-if not is_plugin:
+if is_plugin or not is_component:
 	snip.rv+="(node_->get_logger(), "
 else:
 	snip.rv+="(get_logger(), "
