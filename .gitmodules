@@ -90,4 +90,4 @@
 	url = https://github.com/vivien/i3blocks-contrib
 [submodule "submodules/i3blocks"]
 	path = submodules/i3blocks
-	url = git@github.com:vivien/i3blocks.git
+	url = https://github.com/vivien/i3blocks.git
