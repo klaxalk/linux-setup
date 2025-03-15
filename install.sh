@@ -75,6 +75,9 @@ bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 # install I3
 ! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
+# install Zshell
+! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
+
 # install LATEX and PDF support
 ! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
