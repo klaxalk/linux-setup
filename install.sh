@@ -66,6 +66,9 @@ bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 # install VIM-STREAM
 bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
+# install Silver Searcher (ag)
+! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
+
 # install URXVT
 ! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
 
