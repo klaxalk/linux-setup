@@ -4,7 +4,6 @@
 *.pdf
 *.pyc
 /tmp/
-youcompleteme/
 build/
 /*workspace/devel/
 /*workspace/logs/
@@ -21,9 +20,6 @@ bag_files/
 # Downloads/
 # Dropbox/
 # Documents/
-# git/old_mbzirc/
-# orbital_data/
-# tle/
 # 3dprint/
 # Games/
 

@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing silver searcher
+    echo "$0: Installing silver searcher"
 
     sudo apt-get -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
