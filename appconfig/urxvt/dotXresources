@@ -22,6 +22,17 @@ URxvt.font: xft:Inconsolata for Powerline:size=14
 
 ! ! }
 
+! ! { DESKTOP
+
+! ! EPIGEN_ADD_BLOCK_DESKTOP {
+
+! ! Xft.dpi: 90
+! ! URxvt.font: xft:Roboto Mono for Powerline:size=12
+
+! ! EPIGEN_ADD_BLOCK_DESKTOP }
+
+! ! }
+
 ! EPIGEN_ADD_BLOCK_TOMAS }
 
 ! }
