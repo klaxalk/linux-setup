@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+    sudo add-apt-repository -y ppa:trebelnik-stefina/grub-customizer
     sudo apt-get -y update
 
     sudo apt-get -y install grub-customizer

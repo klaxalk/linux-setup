@@ -21,6 +21,7 @@ do
   fi
 done
 
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -38,19 +39,22 @@ while true; do
 
     # install pipx using pipx
     pipx ensurepath
-    pipx install pipx
+    pipx install pipx --force
     sudo apt-get -y purge --autoremove pipx
 
-    sudo ~/.local/bin/pipx install pipx --global 
+    sudo ~/.local/bin/pipx install pipx --global --force
 
     source ~/.bashrc
 
-    pipx uninstall pipx
+    #pipx uninstall pipx does not work as the system is looking for pipx at wrong path though the path is set coorectly. Works well from the terminal 
+    sudo rm -r ~/.local/bin/pipx 
 
     source ~/.bashrc
 
-    pipx ensurepath
-    sudo pipx ensurepath --global
+    #pipx ensurepath
+    #sudo pipx ensurepath --global
+    /usr/local/bin/pipx ensurepath
+    sudo /usr/local/bin/pipx ensurepath --global
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
