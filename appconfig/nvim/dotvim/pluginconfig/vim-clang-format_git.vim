@@ -5,7 +5,7 @@
 let g:clang_format_tomas = {
       \ 'Standard' : 'C++11',
       \ 'AccessModifierOffset' : -2,
-      \ 'ColumnLimit' : 160,
+      \ 'ColumnLimit' : 500,
       \ 'MaxEmptyLinesToKeep' : 2,
       \ 'AlignAfterOpenBracket' : 'Align',
       \ 'AllowShortLoopsOnASingleLine' : 'false',

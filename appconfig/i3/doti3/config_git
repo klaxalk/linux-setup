@@ -261,7 +261,7 @@ bar {
 #   # EPIGEN_ADD_BLOCK_ASUS {
 
 # #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
-# # #   font pango: Inconsolata, FontAwesome 15
+# # #   font pango: Inconsolata, FontAwesome 12
 # #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 
 # #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
@@ -313,7 +313,7 @@ bar {
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
-# # # font pango: Inconsolata 15
+# # # font pango: Inconsolata 12
 # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 # # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
 # # # font pango: Inconsolata 10
