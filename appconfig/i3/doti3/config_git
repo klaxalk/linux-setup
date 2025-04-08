@@ -258,17 +258,17 @@ bar {
 
   # EPIGEN_ADD_BLOCK_TOMAS {
 
-#   # EPIGEN_ADD_BLOCK_ASUS {
+  # # EPIGEN_ADD_BLOCK_ASUS {
 
-# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
-# # #   font pango: Inconsolata, FontAwesome 12
-# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+  # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+  # # #   font pango: Inconsolata, FontAwesome 12
+  # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-# # #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
+  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+  # # #   font pango: Inconsolata, FontAwesome 10
+  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 
-#   # EPIGEN_ADD_BLOCK_ASUS }
+  # # EPIGEN_ADD_BLOCK_ASUS }
 
   # EPIGEN_ADD_BLOCK_TOMAS }
 
@@ -375,78 +375,78 @@ bar {
 
 # EPIGEN_ADD_BLOCK_PETR {
 
-## monitor config
-#bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
+# # monitor config
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
 
-## EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 
-### background image
-##exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg"
+# # # background image
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg"
 
-### picom window compositor
-##exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf"
+# # # picom window compositor
+# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf"
 
-### rofi launcher
-##bindsym $mod+d exec "rofi -show combi"
-## EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-## EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # # rofi launcher
+# # bindsym $mod+d exec "rofi -show combi"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
-## # background image
-## exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # # background image
+# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
-## # picom window compositor
-## exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
-##
-## EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # # picom window compositor
+# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
+# #
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
-## workspace names
-#set $workspace1 "1"
-#set $workspace2 "2"
-#set $workspace3 "3"
-#set $workspace4 "4"
-#set $workspace5 "5"
-#set $workspace6 "6"
-#set $workspace7 "7"
-#set $workspace8 "8"
-#set $workspace9 "9"
-#set $workspace10 "10"
+# # workspace names
+# set $workspace1 "1"
+# set $workspace2 "2"
+# set $workspace3 "3"
+# set $workspace4 "4"
+# set $workspace5 "5"
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8"
+# set $workspace9 "9"
+# set $workspace10 "10"
 
-## smaller gaps
-#set $default_gaps_inner 4
-#set $default_gaps_outer 0
+# # smaller gaps
+# set $default_gaps_inner 4
+# set $default_gaps_outer 0
 
-## Add normie controls
-#bindsym $mod2+Left focus left
-#bindsym $mod2+Right focus right
-#bindsym $mod2+Up focus up
-#bindsym $mod2+Down focus down
+# # Add normie controls
+# bindsym $mod2+Left focus left
+# bindsym $mod2+Right focus right
+# bindsym $mod2+Up focus up
+# bindsym $mod2+Down focus down
 
-#bindsym $mod2+Shift+Left move left
-#bindsym $mod2+Shift+Right move right
-#bindsym $mod2+Shift+Up move up
-#bindsym $mod2+Shift+Down move down
+# bindsym $mod2+Shift+Left move left
+# bindsym $mod2+Shift+Right move right
+# bindsym $mod2+Shift+Up move up
+# bindsym $mod2+Shift+Down move down
 
-## keyboard switching
-#exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
+# # keyboard switching
+# exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
 
-#bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-#bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-#bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
-#bindsym XF86MonBrightnessDown --release exec --no-startup-id light -U 7 && pkill -RTMIN+12 i3blocks
-#bindsym XF86MonBrightnessUp --release exec --no-startup-id light -A 7 && pkill -RTMIN+12 i3blocks
+# bindsym XF86MonBrightnessDown --release exec --no-startup-id light -U 7 && pkill -RTMIN+12 i3blocks
+# bindsym XF86MonBrightnessUp --release exec --no-startup-id light -A 7 && pkill -RTMIN+12 i3blocks
 
-## EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-##bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "dark"
-## EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-## EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-## bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "light"
-## EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "dark"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # bindsym $mod+Shift+x exec --no-startup-id ~/git/linux-setup/scripts/petr_shutdown_menu.sh "light"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
-## EPIGEN_ADD_BLOCK_P14 {
-### enable touchpad tap to click
-##exec --no-startup-id xinput set-prop "ELAN0676:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1
-## EPIGEN_ADD_BLOCK_P14 }
+# # EPIGEN_ADD_BLOCK_P14 {
+# # # enable touchpad tap to click
+# # exec --no-startup-id xinput set-prop "ELAN0676:00 04F3:3195 Touchpad" "libinput Tapping Enabled" 1
+# # EPIGEN_ADD_BLOCK_P14 }
 
 # EPIGEN_ADD_BLOCK_PETR }
 
@@ -519,8 +519,6 @@ gaps outer $default_gaps_outer
 set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
-
-# EPIGEN_ADD_BLOCK_PETR }
 
 # #}
 
