@@ -504,26 +504,6 @@ bar {
 
 # #}
 
-# #{ i3-gaps settings
-
-smart_gaps on
-
-# EPIGEN_DEL_BLOCK_PETR {
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-# EPIGEN_DEL_BLOCK_PETR }
-
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
-
-set $mode_gaps gaps
-set $mode_gaps_outer outer gaps
-set $mode_gaps_inner inner gaps
-
-# EPIGEN_ADD_BLOCK_PETR }
-
-# #}
-
 # #{ auto commands after login
 
 # network monitor
