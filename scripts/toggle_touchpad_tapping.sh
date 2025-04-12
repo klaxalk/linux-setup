@@ -9,11 +9,14 @@ fi
 
 device_id=$(xinput list --id-only "$device")
 
-state=$(xinput list-props $device_id | grep "Tapping Enabled (365)" | awk '{print $NF}')
+state=$(xinput list-props $device_id | grep "Tapping Enabled (" | awk '{print $NF}')
 
 if [[ $state == 1 ]]; then
   echo disabling touchpad tapping
   xinput set-prop "$device" "libinput Tapping Enabled" 0
+
+  # banish mouse
+  xdotool mousemove 10000 10000
 else
   echo enabling touchpad tapping
   xinput set-prop "$device" "libinput Tapping Enabled" 1

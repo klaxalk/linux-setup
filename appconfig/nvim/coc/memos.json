@@ -44,7 +44,12 @@
       "https://json.schemastore.org/compile-commands.json": {
         "etag": "\"4c45716060d0d91:0\"",
         "fileName": "d39aec69debdd6d26331e1de0cfddea3.schema.json",
-        "updateTime": 1741716963595
+        "updateTime": 1743409683245
+      },
+      "https://schema.freqtrade.io/schema.json": {
+        "etag": "W/\"67ef4a31-b9ed\"",
+        "fileName": "dd31b0dc5c98528c8e8b5e4fed8b6b9d.schema.json",
+        "updateTime": 1743875986800
       }
     }
   }

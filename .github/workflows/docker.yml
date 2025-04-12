@@ -2,11 +2,12 @@ name: Docker
 
 on:
   push:
-    branches: [ master ]
+    branches: [ tomas_24.04 ]
     paths-ignore:
       - '**/README.md'
       - '**.jpg'
       - '**.png'
+
   pull_request:
     branches: [ master ]
 
