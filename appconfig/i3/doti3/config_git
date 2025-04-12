@@ -136,7 +136,8 @@ bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 
 # #{ appearance, colors and color-schemes
 
-# EPIGEN_DEL_BLOCK_PETR {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+# see https://fontawesome.com/v4/cheatsheet/
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
@@ -147,7 +148,7 @@ set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
-# EPIGEN_DEL_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
 
 # set font
 font pango:Terminus 11
@@ -455,6 +456,18 @@ bar {
 # #{ MATOUS's customization
 
 # EPIGEN_ADD_BLOCK_MATOUS {
+
+# # see https://fontawesome.com/v4/cheatsheet/
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "5"
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8"
+# set $workspace9 "9: "
+# set $workspace10 "10: "
 
 # # EPIGEN_ADD_BLOCK_LEJNOVO {
 
