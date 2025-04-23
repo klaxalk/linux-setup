@@ -234,8 +234,9 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The battery instance defaults to 0.
 [battery]
 label=⚡ 
-instance=0
+# instance=0
 interval=30
+command=~/git/linux-setup/submodules/i3blocks-contrib/battery/battery
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 

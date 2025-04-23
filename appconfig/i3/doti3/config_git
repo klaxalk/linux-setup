@@ -372,6 +372,51 @@ bar {
 
 # #}
 
+# #{ ONDRA's customization
+
+# EPIGEN_ADD_BLOCK_ONDRA {
+
+# # Default keyboard US, win+space to switch between US and CZ
+# exec_always --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:win_space_toggle"
+
+# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+
+# # compton without fancy graphics
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg"
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+# # #{ DELL
+
+# # EPIGEN_ADD_BLOCK_DELL {
+
+# # # screen brightness control
+# # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+# # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# # # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
+# # # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
+
+# # # keyboard brightnedfs control
+# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
+# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
+
+# # # audio controls
+# # bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+
+# # EPIGEN_ADD_BLOCK_DELL }
+
+# # #}
+
+# EPIGEN_ADD_BLOCK_ONDRA }
+
+# #}
+
 # #{ PETR's customization
 
 # EPIGEN_ADD_BLOCK_PETR {
