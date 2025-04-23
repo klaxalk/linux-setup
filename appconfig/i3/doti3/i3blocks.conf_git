@@ -90,6 +90,44 @@ markup=none
 
 # EPIGEN_ADD_BLOCK_TOMAS }
 
+# #{ Matej's customization
+
+# EPIGEN_ADD_BLOCK_MATEJ {
+
+# [mediaplayer]
+# instance=spotify
+# interval=5
+# signal=10
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cpu_usage]
+# interval=3
+# format=%usage
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [cpu_temperature]
+# interval=5
+# label=CPU: 
+# command=~/.i3/show_temp.sh 0  
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# [memory]
+# label=RAM: 
+# interval=30
+# # command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
+# separator=false
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
+
+# EPIGEN_ADD_BLOCK_MATEJ }
+
+# #}
+
 [load]
 interval=5
 label= 
