@@ -529,6 +529,10 @@ endif
 " additional settings for non-athame vim
 if g:user_mode == "1"
 
+  " EPIGEN_ADD_BLOCK_ONDRA {
+  " Plug 'github/copilot.vim'
+  " EPIGEN_ADD_BLOCK_ONDRA }
+
   let g:tex_flavor = 'latex'
 
   " set vim and airline colorscheme
