@@ -549,10 +549,9 @@ bar {
 # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
-
-# # screen locking with a key to prevent malicious locomotives
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+
+# exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:ctrl_shift_toggle"
 
 # EPIGEN_ADD_BLOCK_MATEJ }
 
