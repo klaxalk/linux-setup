@@ -27,6 +27,10 @@ call plug#begin("~/.config/nvim/plugged")
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
 
+  " EPIGEN_ADD_BLOCK_ONDRA {
+  " Plug 'github/copilot.vim'
+  " EPIGEN_ADD_BLOCK_ONDRA }
+
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
 
@@ -105,6 +109,7 @@ if g:user_mode == "1"
   " fuzzy finder
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
   " vim talking to tmux.. seems better then vimux, so far in testing
@@ -528,10 +533,6 @@ endif
 
 " additional settings for non-athame vim
 if g:user_mode == "1"
-
-  " EPIGEN_ADD_BLOCK_ONDRA {
-  " Plug 'github/copilot.vim'
-  " EPIGEN_ADD_BLOCK_ONDRA }
 
   let g:tex_flavor = 'latex'
 
