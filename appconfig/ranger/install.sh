@@ -36,8 +36,10 @@ while true; do
 
     sudo apt-get -y install caca-utils libimage-exiftool-perl w3m w3m-img
 
-    cd $APP_PATH/../../submodules/ranger
-    sudo python setup.py install --optimize=1 --record=install_log.txt
+    # Matej: no need to build ranger on 24.04 anymore, can be installed as deb package
+    # cd $APP_PATH/../../submodules/ranger
+    # sudo python setup.py install --optimize=1 --record=install_log.txt
+    sudo apt-get -y install ranger
 
     mkdir -p ~/.config/ranger
 
