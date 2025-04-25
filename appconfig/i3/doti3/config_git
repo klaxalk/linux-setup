@@ -551,7 +551,7 @@ bar {
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
 
-# exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:ctrl_shift_toggle"
+# exec_always --no-startup-id setxkbmap -layout us,cz -variant ,qwerty -option "grp:rctrl_rshift_toggle"
 
 # EPIGEN_ADD_BLOCK_MATEJ }
 
