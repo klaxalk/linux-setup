@@ -557,6 +557,54 @@ bar {
 
 # #}
 
+# #{ Vojta's customization
+
+# EPIGEN_ADD_BLOCK_VOJTA {
+
+# # monitor config
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
+
+# # see https://fontawesome.com/v4/cheatsheet/
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "5: "
+# set $workspace6 "6"
+# set $workspace7 "7"
+# set $workspace8 "8"
+# set $workspace9 "9"
+# set $workspace10 "10"
+
+# assign [class="Google-chrome"] $workspace1 
+# assign [class="Braved-Web-Brower"] $workspace1 
+
+
+# # Bind audio control keys
+# bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+
+# # Bind Lejnovo keyboard backlight control
+# bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
+
+# # Bind screen brightness control
+# bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
+
+# bindsym $mod2+k exec --no-startup-id i3lock -c 003300
+
+# # prettier notifications
+# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+
+# EPIGEN_ADD_BLOCK_VOJTA }
+
+# #}
+
 # #{ i3-gaps settings
 
 smart_gaps on
