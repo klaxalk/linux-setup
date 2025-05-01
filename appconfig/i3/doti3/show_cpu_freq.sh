@@ -1,4 +1,4 @@
 #!/bin/bash
 
-OUTPUT=$(lscpu | grep "CPU MHz" | rev | cut -d' ' -f1 | cut -d'.' -f2 | rev; echo 'MHz') 
+OUTPUT=$(cpupower frequency-info | grep "asserted by call to kernel" | awk '{print $4, $5}') 
 echo $OUTPUT
