@@ -570,14 +570,15 @@ bar {
 # set $workspace3 "3: "
 # set $workspace4 "4: "
 # set $workspace5 "5: "
-# set $workspace6 "6"
-# set $workspace7 "7"
-# set $workspace8 "8"
-# set $workspace9 "9"
+# set $workspace6 "6: "
+# set $workspace7 "7: "
+# set $workspace8 "8: "
+# set $workspace9 "9: "
 # set $workspace10 "10"
 
 # assign [class="Google-chrome"] $workspace1 
 # assign [class="Braved-Web-Brower"] $workspace1 
+# assign [class="Spotify"] $workspace9
 
 
 # # Bind audio control keys
@@ -597,9 +598,6 @@ bar {
 # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 003300
-
-# # prettier notifications
-# exec --no-startup-id /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 
 # EPIGEN_ADD_BLOCK_VOJTA }
 

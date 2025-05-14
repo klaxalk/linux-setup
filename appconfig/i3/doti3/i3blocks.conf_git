@@ -143,7 +143,7 @@ markup=none
 
 # [cpu_temperature]
 # interval=5
-# label=CPU: 
+# label=: 
 # command=~/.i3/show_temp.sh 0  
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -164,7 +164,7 @@ markup=none
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # [disk]
-# label=SSD 
+# label=  
 # interval=30
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
