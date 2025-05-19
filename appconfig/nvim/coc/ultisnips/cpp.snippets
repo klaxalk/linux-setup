@@ -267,9 +267,9 @@ else:
 ``!p
 if (match.group(2) == "t") or (match.group(3) == "t") :
 	if not is_plugin:
-		snip.rv+="*node_->get_clock(), 1e9, "
+		snip.rv+="*node_->get_clock(), 1000, "
 	else:
-		snip.rv+="*get_clock(), 1e9, "
+		snip.rv+="*get_clock(), 1000, "
 `"${1}"`!p
 if "%" in t[1]:
 	snip.rv=", "

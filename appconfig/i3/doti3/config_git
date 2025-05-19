@@ -259,17 +259,17 @@ bar {
 
   # EPIGEN_ADD_BLOCK_TOMAS {
 
-  # # EPIGEN_ADD_BLOCK_ASUS {
+#   # EPIGEN_ADD_BLOCK_ASUS {
 
-  # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
-  # # #   font pango: Inconsolata, FontAwesome 12
-  # # # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE {
+# # #     font pango: Inconsolata, FontAwesome 12
+# #   # EPIGEN_ADD_BLOCK_MONITOR_STANDALONE }
 
-  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB {
-  # # #   font pango: Inconsolata, FontAwesome 10
-  # # # EPIGEN_ADD_BLOCK_MONITOR_LAB }
+# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB {
+# # #     font pango: Inconsolata, FontAwesome 10
+# #   # EPIGEN_ADD_BLOCK_MONITOR_LAB }
 
-  # # EPIGEN_ADD_BLOCK_ASUS }
+#   # EPIGEN_ADD_BLOCK_ASUS }
 
   # EPIGEN_ADD_BLOCK_TOMAS }
 
@@ -392,12 +392,12 @@ bar {
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
-# # # background image
-# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+## # background image
+## exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
-# # # picom window compositor
-# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
-# #
+## # picom window compositor
+## exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
+##
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # workspace names
