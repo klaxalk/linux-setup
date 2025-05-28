@@ -135,6 +135,7 @@ markup=none
 # # EPIGEN_ADD_BLOCK_SPOTIFY {
 # # [mediaplayer]
 # # instance=spotify
+# # label=  
 # # interval=5
 # # signal=10
 # # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
@@ -143,7 +144,7 @@ markup=none
 
 # [cpu_temperature]
 # interval=5
-# label=: 
+# label=  
 # command=~/.i3/show_temp.sh 0  
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
