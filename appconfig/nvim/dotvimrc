@@ -162,6 +162,7 @@ if g:user_mode == "1"
        \ 'coc-cmake',
        \ 'coc-vimlsp',
        \ 'coc-htmldjango',
+       \ 'coc-texlab',
    \]
 
   " Use release branch (recommended)
@@ -320,6 +321,12 @@ function! AutoHighlightToggle()
 endfunction
 nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 au BufNewFile,BufRead *.cl setlocal ft=c
 
 " remap split navigations to ctrl + hjkl
@@ -337,6 +344,12 @@ vnoremap . :normal @a<CR>
 
 " format whole document and return back
 nmap <leader>g :normal mggg=G'g<cr>:delmarks g<cr>zt:%s/\s\+$//g<cr>
+
+" GoTo code navigation
+nmap gd <Plug>(coc-definition)         " go to definition
+nmap gy <Plug>(coc-type-definition)    " go to type definition
+nmap gi <Plug>(coc-implementation)     " go to implementation
+nmap gr <Plug>(coc-references)         " find references
 
 " safe deleting things using <leader>d
 nmap <leader>d "_d
