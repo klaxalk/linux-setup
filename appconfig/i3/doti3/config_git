@@ -382,7 +382,7 @@ bar {
 # # Default redshift setup
 # exec --no-startup-id redshift -t 6500:3000 -l 50.075079:14.433410
 
-# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+# exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
 
 # # compton without fancy graphics
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {

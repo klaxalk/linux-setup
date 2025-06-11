@@ -101,6 +101,10 @@ markup=none
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
+# [wireguard]
+# command=~/.i3/wireguard_status.sh
+# interval=10
+
 # [cpu_usage]
 # label=CPU: 
 # interval=3
@@ -118,7 +122,7 @@ markup=none
 
 # [cpu_temperature]
 # interval=5
-# command=~/.i3/show_temp.sh 0  
+# command=sensors 2>/dev/null | awk '/Core [0-9]+:/ {gsub(/[+°C]/,"",$3); sum+=$3; count++} END {if(count) printf "%d°C\n", sum/count}' # aerage temperature of all cores
 # # EPIGEN_ADD_BLOCK_SUPERNUC {
 # # command=echo `sensors | grep 'Core 0' | cut -c17-23`
 # # EPIGEN_ADD_BLOCK_SUPERNUC }
