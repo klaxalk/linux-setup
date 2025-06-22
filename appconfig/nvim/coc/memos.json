@@ -42,14 +42,14 @@
         "updateTime": 1741349646826
       },
       "https://json.schemastore.org/compile-commands.json": {
-        "etag": "\"4c45716060d0d91:0\"",
+        "etag": "W/\"6854767d-81f\"",
         "fileName": "d39aec69debdd6d26331e1de0cfddea3.schema.json",
-        "updateTime": 1746445899961
+        "updateTime": 1750415878698
       },
       "https://schema.freqtrade.io/schema.json": {
-        "etag": "W/\"67ef4a31-b9ed\"",
+        "etag": "W/\"683bc896-c0f5\"",
         "fileName": "dd31b0dc5c98528c8e8b5e4fed8b6b9d.schema.json",
-        "updateTime": 1743875986800
+        "updateTime": 1749044556224
       }
     }
   }
