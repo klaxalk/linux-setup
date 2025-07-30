@@ -64,6 +64,9 @@ while true; do
     git clean -fd
     cd $APP_PATH
 
+    # for battery status in i3blocks
+    sudo apt-get -y install acpi
+
     # for cpu usage in i3blocks
     sudo apt-get -y install sysstat
 
