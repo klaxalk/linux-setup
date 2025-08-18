@@ -195,6 +195,10 @@ Plug 'tpope/vim-surround'
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
 
+" EPIGEN_ADD_BLOCK_PETR {
+" Plug 'lepture/vim-jinja'
+" EPIGEN_ADD_BLOCK_PETR }
+
 call plug#end()
 
 set clipboard=unnamedplus     " shared clipboard with the system
