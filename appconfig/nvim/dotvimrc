@@ -149,7 +149,6 @@ if g:user_mode == "1"
        \ 'coc-json',
        \ 'coc-html',
        \ 'coc-xml',
-       \ 'coc-yaml',
        \ 'coc-pyright',
        \ 'coc-clangd',
        \ 'coc-sh',
