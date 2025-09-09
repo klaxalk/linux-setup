@@ -27,8 +27,13 @@ call plug#begin("~/.config/nvim/plugged")
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
 
+
   " EPIGEN_ADD_BLOCK_ONDRA {
-  " Plug 'github/copilot.vim'
+ 
+ "  let g:python3_host_prog = '~/.venvs/nvim/bin/python'
+
+ "  Plug 'github/copilot.vim'
+
   " EPIGEN_ADD_BLOCK_ONDRA }
 
   " A colorful, dark color scheme
