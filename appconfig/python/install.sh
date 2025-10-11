@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install python3 python3-pip pipx python-is-python3
+    sudo apt-get -y install python3 python3-pip pipx python-is-python3 python3-venv
 
     # install pipx using pipx
     pipx ensurepath
