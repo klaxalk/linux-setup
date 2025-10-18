@@ -34,23 +34,36 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install python3 python3-pip pipx python-is-python3 python3-venv
+    # sudo apt-get -y install python3 python3-pip pipx python-is-python3 python3-venv
 
-    # install pipx using pipx
-    pipx ensurepath
-    pipx install pipx
+    # # install pipx using pipx
+    # pipx ensurepath
+    # pipx install pipx
+    # sudo apt-get -y purge --autoremove pipx
+
+    # sudo ~/.local/bin/pipx install pipx --global 
+
+    # source ~/.bashrc
+
+    # pipx uninstall pipx
+
+    # source ~/.bashrc
+
+    # pipx ensurepath
+    # sudo pipx ensurepath --global
+
+    # 1. Remove any broken or old installations
     sudo apt-get -y purge --autoremove pipx
-
-    sudo ~/.local/bin/pipx install pipx --global 
-
-    source ~/.bashrc
-
-    pipx uninstall pipx
-
-    source ~/.bashrc
-
-    pipx ensurepath
-    sudo pipx ensurepath --global
+    
+    # 2. Reinstall required Python tools
+    sudo apt-get -y update
+    sudo apt-get -y install -y python3 python3-pip python3-venv python-is-python3
+    
+    # 3. Install pipx via pip (user-level)
+    python3 -m pip install --user pipx --break-system-packages
+    
+    # 4. Ensure the path to ~/.local/bin is active
+    python3 -m pipx ensurepath
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
