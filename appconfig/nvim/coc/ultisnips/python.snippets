@@ -52,8 +52,8 @@ snippet isinstance
 isinstance(${1:instance}, ${2:class})
 endsnippet
 
-snippet "rinfo" "" br
-rospy.loginfo('${1}'`!p
+snippet "2info" "" br
+self.get_logger().info('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
 else:
@@ -66,8 +66,36 @@ else:
 `)
 endsnippet
 
-snippet "rwarn" "" br
-rospy.logwarn('${1}'`!p
+snippet "2infot" "" br
+self.get_logger().info('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`, throttle_duration_sec=${3:1.0})
+endsnippet
+
+snippet "2infoo" "" br
+self.get_logger().info('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`, once=${3:True})
+endsnippet
+
+snippet "2warn" "" br
+self.get_logger().warn('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
 else:
@@ -80,8 +108,36 @@ else:
 `)
 endsnippet
 
-snippet "rerr" "" br
-rospy.logerr('${1}'`!p
+snippet "2warnt" "" br
+self.get_logger().warn('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`, throttle_duration_sec=${3:1.0})
+endsnippet
+
+snippet "2warno" "" br
+self.get_logger().warn('${1}'`!p
+if "{}" in t[1]:
+	snip.rv=".format("
+else:
+	snip.rv=""
+`${2}`!p
+if "{}" in t[1]:
+	snip.rv=")"
+else:
+	snip.rv=""
+`, once=${3:True})
+endsnippet
+
+snippet "2err" "" br
+self.get_logger().error('${1}'`!p
 if "{}" in t[1]:
 	snip.rv=".format("
 else:
@@ -94,46 +150,32 @@ else:
 `)
 endsnippet
 
-snippet "rinfot" "" br
-rospy.loginfo_throttle(${1:1.0}, '${2}'`!p
-if "{}" in t[2]:
+snippet "2errt" "" br
+self.get_logger().error('${1}'`!p
+if "{}" in t[1]:
 	snip.rv=".format("
 else:
 	snip.rv=""
-`${3}`!p
-if "{}" in t[2]:
+`${2}`!p
+if "{}" in t[1]:
 	snip.rv=")"
 else:
 	snip.rv=""
-`)
+`, throttle_duration_sec=${3:1.0})
 endsnippet
 
-snippet "rwarnt" "" br
-rospy.logwarn_throttle(${1:1.0}, '${2}'`!p
-if "{}" in t[2]:
+snippet "2erro" "" br
+self.get_logger().error('${1}'`!p
+if "{}" in t[1]:
 	snip.rv=".format("
 else:
 	snip.rv=""
-`${3}`!p
-if "{}" in t[2]:
+`${2}`!p
+if "{}" in t[1]:
 	snip.rv=")"
 else:
 	snip.rv=""
-`)
-endsnippet
-
-snippet "rerrt" "" br
-rospy.logerr_throttle(${1:1.0}, '${2}'`!p
-if "{}" in t[2]:
-	snip.rv=".format("
-else:
-	snip.rv=""
-`${3}`!p
-if "{}" in t[2]:
-	snip.rv=")"
-else:
-	snip.rv=""
-`)
+`, once=${3:True})
 endsnippet
 
 snippet enumerate

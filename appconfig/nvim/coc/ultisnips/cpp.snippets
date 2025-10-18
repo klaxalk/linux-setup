@@ -261,9 +261,9 @@ is_plugin = file_is_plugin()
 is_component = file_is_component()
 snip.rv=ros2_info()
 if is_plugin or not is_component:
-	snip.rv+="(this_node().get_logger(), "
+	snip.rv+="(node_->get_logger(), "
 else:
-	snip.rv+="(get_logger(), "
+	snip.rv+="(node_->get_logger(), "
 ``!p
 if (match.group(2) == "t") or (match.group(3) == "t") :
 	if not is_plugin:
