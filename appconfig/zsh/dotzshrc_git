@@ -152,7 +152,7 @@ kzsh() {
 }
 
 # source tmuxinator
-source "$REPO_PATH/submodules/tmuxinator/completion/tmuxinator.zsh"
+# source "$REPO_PATH/submodules/tmuxinator/completion/tmuxinator.zsh"
 
 # by default, athame should be off
 export ATHAME_ENABLED=0

@@ -102,9 +102,6 @@ runVim() {
 }
 alias vim=runVim
 
-# source tmuxinator
-source $REPO_PATH/submodules/tmuxinator/completion/tmuxinator.bash
-
 # by default, athame should be off
 export ATHAME_ENABLED=0
 export ATHAME_SHOW_MODE=0

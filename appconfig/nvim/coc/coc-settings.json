@@ -11,5 +11,6 @@
   "diagnostic.virtualTextCurrentLineOnly": false,
   "workspace.workspaceFolderFallbackCwd": false,
   "workspace.rootPatterns": [],
-  "snippets.priority": 200
+  "snippets.priority": 200,
+  "snippets.ultisnips.pythonPrompt": false
 }

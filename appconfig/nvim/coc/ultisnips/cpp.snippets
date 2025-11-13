@@ -263,13 +263,13 @@ snip.rv=ros2_info()
 if is_plugin or not is_component:
 	snip.rv+="(node_->get_logger(), "
 else:
-	snip.rv+="(get_logger(), "
+	snip.rv+="(node_->get_logger(), "
 ``!p
 if (match.group(2) == "t") or (match.group(3) == "t") :
 	if not is_plugin:
-		snip.rv+="*node_->get_clock(), 1e9, "
+		snip.rv+="*clock_, 1000, "
 	else:
-		snip.rv+="*get_clock(), 1e9, "
+		snip.rv+="*clock_, 1000, "
 `"${1}"`!p
 if "%" in t[1]:
 	snip.rv=", "

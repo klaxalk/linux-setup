@@ -5,7 +5,7 @@
 let g:clang_format_tomas = {
       \ 'Standard' : 'C++11',
       \ 'AccessModifierOffset' : -2,
-      \ 'ColumnLimit' : 500,
+      \ 'ColumnLimit' : 160,
       \ 'MaxEmptyLinesToKeep' : 2,
       \ 'AlignAfterOpenBracket' : 'Align',
       \ 'AllowShortLoopsOnASingleLine' : 'false',
@@ -19,6 +19,7 @@ let g:clang_format_tomas = {
       \ 'BreakBeforeBinaryOperators' : 'false',
       \ 'KeepEmptyLinesAtTheStartOfBlocks' : 'true',
       \ 'BreakBeforeBraces' : 'Custom',
+      \ 'BreakConstructorInitializers' : 'BeforeColon',
       \ 'SortIncludes' : 'false',
       \ 'NamespaceIndentation' : 'None',
       \ 'BraceWrapping' : {

@@ -149,7 +149,6 @@ if g:user_mode == "1"
        \ 'coc-json',
        \ 'coc-html',
        \ 'coc-xml',
-       \ 'coc-yaml',
        \ 'coc-pyright',
        \ 'coc-clangd',
        \ 'coc-sh',
@@ -194,6 +193,10 @@ Plug 'tpope/vim-surround'
 " exchangin of two parts of a file...
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
+
+" EPIGEN_ADD_BLOCK_PETR {
+" Plug 'lepture/vim-jinja'
+" EPIGEN_ADD_BLOCK_PETR }
 
 call plug#end()
 

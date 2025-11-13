@@ -84,9 +84,6 @@ bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 # install Grub customizer
 ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
 
-# install LATEX and PDF support
-! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
-
 # install PDFPC
 ! $docker && bash $APPCONFIG_PATH/pdfpc/install.sh $subinstall_params
 
@@ -95,6 +92,9 @@ bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
 # install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
+
+# install LATEX and PDF support
+! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
 # setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
