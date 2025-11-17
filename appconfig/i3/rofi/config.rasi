@@ -2,11 +2,7 @@
 // @theme "Arc-Dark" // EPIGEN_DEL_LINE_PETR
 // EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
-// EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-// @theme "Arc-Dark" // EPIGEN_DEL_LINE_PETR
-// EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
-
-// EPIGEN_ADD_BLOCK_PETR {
+// // EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_MATOUS {
 // configuration {
 //   modes: [combi];
 //   combi-modes: [drun, run];
@@ -23,4 +19,7 @@
 // // EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 // // @theme "~/git/linux-setup/appconfig/i3/rofi/petr-light.rasi"
 // // EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-// EPIGEN_ADD_BLOCK_PETR }
+// // EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+// // @theme "~/git/linux-setup/appconfig/i3/rofi/matous-grun.rasi"
+// // EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+// // EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_MATOUS }

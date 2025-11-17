@@ -487,7 +487,8 @@ bar {
 # # bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
 # # bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
-# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
+# # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/interdimensional_extinction.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/death.jpg"
 # # EPIGEN_ADD_BLOCK_LEJNOVO }
 
 # # EPIGEN_ADD_BLOCK_SKUMPA EPIGEN_ADD_BLOCK_RAFIK {
