@@ -332,7 +332,7 @@ bar {
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 000000
 
-# exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
+exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
 
 # # compton without fancy graphics
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
@@ -396,9 +396,11 @@ bar {
 
 # # EPIGEN_ADD_BLOCK_DELL {
 
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./ondra_set_monitor_dell.sh'"
+
 # # # screen brightness control
-# # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-# # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+# # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +2.5%
+# # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2.5%-
 
 # # # bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
 # # # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
@@ -440,12 +442,12 @@ bar {
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 
-# # # background image
-# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+## # background image
+## exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
 
-# # # picom window compositor
-# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
-# #
+## # picom window compositor
+## exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
+##
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # workspace names
