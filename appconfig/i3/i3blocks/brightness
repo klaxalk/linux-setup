@@ -2,4 +2,5 @@
 
 DIR="${BLOCK_INSTANCE:-$HOME}"
 
-echo $(light)%
+brightness=$(light)
+echo `awk -v v="$brightness" 'BEGIN{printf "%d", v}'`%

@@ -115,7 +115,7 @@ bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 
 bindsym Print exec shutter --select
 
 # shutdown/logout menu
-bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi # EPIGEN_DEL_LINE_PETR
+bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi # EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PIVEL
 
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
@@ -136,7 +136,7 @@ bindsym F1 exec --no-startup-id echo 'help' > /dev/null
 
 # #{ appearance, colors and color-schemes
 
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL {
 # see https://fontawesome.com/v4/cheatsheet/
 set $workspace1 "1: "
 set $workspace2 "2: "
@@ -148,7 +148,7 @@ set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
-# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL }
 
 # set font
 font pango:Terminus 11
@@ -173,9 +173,9 @@ set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR {
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL {
 exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
-# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR }
+# EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL }
 
 for_window [class="^.*"] border pixel 3
 
@@ -196,9 +196,9 @@ for_window [class="^.*"] border pixel 3
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
 
-# # EPIGEN_DEL_BLOCK_MATOUS {
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PIVEL {
 # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
-# # EPIGEN_DEL_BLOCK_MATOUS }
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PIVEL }
 
 # for_window [class="^.*"] border pixel 2
 
@@ -604,14 +604,73 @@ bar {
 
 # #}
 
+# #{ PIVEL's customization
+
+# EPIGEN_ADD_BLOCK_PIVEL {
+
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "5: "
+# set $workspace6 "6: "
+# set $workspace7 "7: "
+# set $workspace8 "8: "
+# set $workspace9 "9: "
+# set $workspace10 "10: "
+
+# # Desktop background
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/`ls ~/Pictures/wallpapers | shuf -n 1`
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+
+# # # picom window compositor
+# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/fancy_blur.conf"
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+
+# # # picom window compositor
+# # exec_always --no-startup-id "pkill picom; picom --config ~/git/linux-setup/appconfig/picom/need_for_speed.conf"
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+# # smaller gaps
+# set $default_gaps_inner 4
+# set $default_gaps_outer 0
+
+# # Default keyboard US, alt+shift to switch between US and CZ
+# exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
+
+# # Bind LENOVO audio control keys
+# bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
+# bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+
+# Bind screen brightness control
+# bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness_ctl.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness_ctl.sh + # INCREASE Screen brightness
+
+# for_window [class="firefox"] move workspace $workspace1
+# for_window [class="Mailspring"] move workspace $workspace10
+# # for_window [class="Microsoft Teams - Preview"] move workspace $workspace6
+# # for_window [class="teams-for-linux"] move workspace $workspace6
+# # for_window [class="Zotero"] move workspace $workspace8
+# for_window [class="Spotify"] move workspace $workspace9
+
+# EPIGEN_ADD_BLOCK_PIVEL }
+
+# #}
+
 # #{ i3-gaps settings
 
 smart_gaps on
 
-# EPIGEN_DEL_BLOCK_PETR {
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL {
 set $default_gaps_inner 12
 set $default_gaps_outer 0
-# EPIGEN_DEL_BLOCK_PETR }
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_PIVEL }
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer

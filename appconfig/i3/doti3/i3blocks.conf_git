@@ -107,9 +107,9 @@ markup=none
 
 # #}
 
-# #{ Vojta's customization
+# #{ Vojta's and Pivel's customization
 
-# EPIGEN_ADD_BLOCK_VOJTA {
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL {
 
 # # EPIGEN_ADD_BLOCK_SPOTIFY {
 # # [mediaplayer]
@@ -181,24 +181,24 @@ markup=none
 # label= 
 # instance=0
 # interval=5
-# command=light | awk '{printf "%d%", $1}'
+# command=~/git/linux-setup/appconfig/i3/i3blocks/brightness
 # separator=true
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
-# EPIGEN_ADD_BLOCK_VOJTA }
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL }
 # #}
 
 # #}
 
-# EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL {
 [load]
 interval=5
 label= 
 command=cat /proc/loadavg | cut -d' ' -f1-3
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL }
 
 # Network interface monitoring
 #
@@ -211,9 +211,9 @@ instance=eth0
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label= 
-# EPIGEN_ADD_BLOCK_VOJTA {
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL {
 # separator=false
-# EPIGEN_ADD_BLOCK_VOJTA }
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL }
 
 [iface]
 instance=wlan0
@@ -221,24 +221,24 @@ instance=wlan0
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 interval=10
 label= 
-# EPIGEN_ADD_BLOCK_VOJTA {
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL {
 # separator=false
-# EPIGEN_ADD_BLOCK_VOJTA }
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL }
 
 [online-status]
 command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
 color=#FF0000
 interval=20
-# EPIGEN_ADD_BLOCK_VOJTA {
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL {
 # separator=false
-# EPIGEN_ADD_BLOCK_VOJTA }
+# EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL }
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-# EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL {
 [volume]
 label=VOL 
 label=♪ 
@@ -249,7 +249,7 @@ signal=10
 command=~/.i3/show_volume.sh
 # olor=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL }
 
 # EPIGEN_ADD_BLOCK_PETR {
 # [screen-brightness]
@@ -280,14 +280,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-# EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL {
 [disk]
 label=SSD 
 #instance=/mnt/data
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL }
 
 [wifi]
 instance=wlan0
@@ -310,14 +310,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # Battery indicator
 #
 # The battery instance defaults to 0.
-# EPIGEN_DEL_BLOCK_VOJTA {
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL {
 [battery]
 label=⚡ 
 instance=0
 interval=30
 # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# EPIGEN_DEL_BLOCK_VOJTA }
+# EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_PIVEL }
 
 [keyboard]
 label= 
@@ -328,14 +328,14 @@ color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 # Rough weather information
 # Check on http://openweathermap.org/find to find your location (default: Prague CZ == 3067696)
-# # EPIGEN_ADD_BLOCK_VOJTA {
+# # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL {
 # [weather]
 # instance=3067696
 # interval=5
 # separator=false
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-# # EPIGEN_ADD_BLOCK_VOJTA }
+# # EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PIVEL }
 
 # Date Time
 #
