@@ -2,11 +2,11 @@
 xrdb ~/.Xresources 2> /dev/null
 
 # set keyboard repeat rate
-xset r rate 350 55 2> /dev/null
+xset r rate 240 70 2> /dev/null
 
 export TERM=rxvt-unicode-256color
 
-export FZF_DEFAULT_OPTS='--height 25%'
+export FZF_DEFAULT_OPTS='--height 25% --layout=reverse --border --ansi'
 export FZF_DEFAULT_COMMAND='ag -l -f --nocolor -g ""'
 
 export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
