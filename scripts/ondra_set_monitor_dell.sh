@@ -29,7 +29,8 @@ HEADLESS="--headless"
 
 # link the arandr file
 MONITOR_LOWERCASE=$(echo $MONITOR | awk '{print tolower($0)}')
-ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/ondra/dell_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+# ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/ondra/dell_$MONITOR_LOWERCASE.sh ~/.monitor.sh
+ln -sf $GIT_PATH/linux-setup/miscellaneous/arandr_scripts/ondra/ucb_$MONITOR_LOWERCASE.sh ~/.monitor.sh
 
 # change the variable in bashrc
 $VIM_BIN $HEADLESS -u "$GIT_PATH/linux-setup/submodules/profile_manager/epigen/epigen.vimrc" -E -s -c "%g/.*PROFILES.*MONITOR.*/norm ^/MONITORciwMONITOR_$MONITOR" -c "wqa" -- ~/."$SNAME"rc
