@@ -228,10 +228,11 @@ markup=none
 
 # # EPIGEN_ADD_BLOCK_DELL {
 # # [battery]
-# # label=⚡ 
+# # # label=⚡ 
 # # instance=0
 # # interval=30
-# # command=~/git/linux-setup/submodules/i3blocks-contrib/battery/battery
+# # command=~/git/linux-setup/submodules/i3blocks-contrib/battery2/battery2
+# # markup=pango
 # # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # # EPIGEN_ADD_BLOCK_DELL }
