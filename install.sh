@@ -63,6 +63,9 @@ bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 # install HTOP-VIM
 bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
+# install BOTTOM (btm)
+bash $APPCONFIG_PATH/bottom/install.sh $subinstall_params
+
 # install VIM-STREAM
 bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
